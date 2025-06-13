@@ -1,3 +1,4 @@
+/* Tabs List Styles */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -39,7 +40,6 @@
   margin: 0;
 }
 
-
 .tabs .tabs-list button[aria-selected='true'] {
   border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
@@ -55,4 +55,188 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+.tabs.tabs3 {
+  border: none;
+  background: none;
+  box-shadow: none;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove any border, shadow, or background from all nested containers */
+.tabs.tabs3 .tabs-panel,
+.tabs.tabs3 .tabs-panel > div {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove any border and background for card effect left by earlier selectors */
+.tabs.tabs3,
+.tabs.tabs3 *,
+.tabs.tabs3 *::before,
+.tabs.tabs3 *::after {
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+/* Fix excessive vertical whitespace above the block */
+.tabs.tabs3,
+.tabs.tabs3:first-child,
+.tabs.tabs3 .tabs-panel,
+.tabs.tabs3 .tabs-panel > div {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.tabs.tabs3:only-child,
+.tabs.tabs3:first-child {
+  margin-top: 0;
+}
+
+.tabs.tabs3 .tabs-panel > div > *:first-child {
+  margin-top: 0;
+}
+
+/* Layout and align the main column (tabs + content) */
+.tabs.tabs3 .tabs-panel > div {
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tabs Bar: align perfectly with content column, increase gap, reduce top margin */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 36px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0 0 18px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabs.tabs3 .tabs-list button {
+  background: none;
+  border: none;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 10px 32px 10px 0;
+  margin: 0;
+  border-radius: 0;
+  transition: background 0.2s;
+  box-shadow: none;
+  line-height: 1.15;
+  white-space: nowrap;
+  outline: none;
+  cursor: pointer;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs3 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs3 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Heading style and yellow underline */
+.tabs.tabs3 .tabs-panel h3 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 6px;
+  line-height: 1.13;
+  position: relative;
+}
+
+.tabs.tabs3 .tabs-panel h3::after {
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #FFDF4A;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  content: "";
+}
+
+.tabs.tabs3 .tabs-panel p,
+.tabs.tabs3 .tabs-panel ul {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #222;
+  line-height: 1.6;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.tabs.tabs3 .tabs-panel ul {
+  padding-left: 22px;
+}
+
+/* Tighter spacing above image */
+.tabs.tabs3 .tabs-panel picture,
+.tabs.tabs3 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 28px 0;
+  object-fit: cover;
+}
+
+/* Reduce vertical spacing after the last paragraph */
+.tabs.tabs3 .tabs-panel > div > p:last-child {
+  margin-bottom: 0;
+}
+
+@media (width <= 1050px) {
+  .tabs.tabs3 .tabs-panel > div {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .tabs.tabs3 .tabs-list {
+    gap: 18px;
+    font-size: 13px;
+  }
+}
+
+/* Remove default unwanted button styles from base stylesheet */
+.tabs.tabs3 .tabs-list button,
+.tabs.tabs3 .tabs-list button:focus,
+.tabs.tabs3 .tabs-list button:active {
+  border: none;
+  background: none;
+  color: inherit;
+  outline: none;
+  box-shadow: none;
 }
