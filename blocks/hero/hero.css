@@ -1,3 +1,4 @@
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,100 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+/* --- GENERATED CSS, unchanged except for .hero.hero10 selector --- */
+
+/* MERGED .hero.hero10 SELECTOR */
+.hero.hero10 {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: none;
+  min-height: unset;
+  overflow: visible;
+}
+
+/* Stack children vertically as blocks */
+.hero.hero10 > div {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+/* Image fills hero width, provides backdrop for the card */
+.hero.hero10 > div:first-child {
+  width: 100%;
+  height: 55vh;
+  min-height: 340px;
+  max-height: 65vh;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.hero.hero10 > div:first-child picture,
+.hero.hero10 > div:first-child img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlapping text card, FINE-TUNED for stronger integration and balance */
+.hero.hero10 > div:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(55vh - 200px);
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  max-width: 1200px;
+  background: #fff;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 7%);
+  padding: 2.5rem 2.2rem 2.1rem;
+  display: flex;
+  align-items: center;
+  min-height: 130px;
+  z-index: 2;
+  border-radius: 0;
+  border: none;
+}
+
+.hero.hero10 > div:last-child h2 {
+  margin: 0;
+  color: #222;
+  font-family: var(--heading-font-family), Georgia, "Times New Roman", Times, serif;
+  font-size: 2.8rem;
+  font-weight: normal;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: left;
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: normal;
+  background: none;
+}
+
+@media (width <= 900px) {
+  .hero.hero10 > div:first-child {
+    height: 34vh;
+    min-height: 140px;
+    max-height: 42vh;
+  }
+
+  .hero.hero10 > div:last-child {
+    top: calc(34vh - 80px);
+    width: 97%;
+    padding: 1.2rem 0.6rem 1rem 1rem;
+    min-height: 80px;
+  }
+
+  .hero.hero10 > div:last-child h2 {
+    font-size: 1.25rem;
   }
 }
