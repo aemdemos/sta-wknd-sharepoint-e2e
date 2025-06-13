@@ -1,3 +1,4 @@
+/* Base cards grid */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -28,7 +29,6 @@
 
 .cards.cards4 {
   /* No base declarations, merged from generated below */
-
   /* If you want to add layout-specific styles (e.g. padding), add them here */
 }
 
@@ -41,6 +41,21 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.cards.cards14 ul > li {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  padding: 0;
+  align-items: flex-start;
+  max-width: none;
 }
 
 .cards.cards4 > ul > li {
@@ -58,19 +73,21 @@
   transition: box-shadow 0.16s;
 }
 
-.cards.cards14 ul > li {
-  flex: 1 1 0;
-  min-width: 0;
+.cards.cards21 > ul > li {
+  flex: 0 0 calc(25% - 17px);
+  max-width: calc(25% - 17px);
+  min-width: 220px;
   display: flex;
   flex-direction: column;
+  align-self: stretch;
   background: #fff;
   border: none;
-  box-shadow: none;
   border-radius: 0;
-  overflow: visible;
+  box-shadow: none;
+  margin: 0;
   padding: 0;
-  align-items: flex-start;
-  max-width: none;
+  overflow: hidden;
+  height: 100%;
 }
 
 .cards.cards4 > ul > li:hover {
@@ -150,6 +167,10 @@
     max-width: calc(50% - 20px);
     min-width: 200px;
   }
+  .cards.cards21 > ul > li {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
 }
 
 @media (width <= 700px) {
@@ -157,9 +178,22 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-
   .cards.cards4 > ul > li {
     flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .cards.cards14 ul {
+    flex-direction: column;
+    gap: 28px;
+    max-width: 100vw;
+  }
+  .cards.cards14 ul > li {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+  .cards.cards21 > ul > li {
+    flex: 1 0 100%;
     max-width: 100%;
     min-width: 0;
   }
@@ -274,22 +308,89 @@
     gap: 24px;
     max-width: 98vw;
   }
-
   .cards.cards14 ul > li {
     max-width: 48vw;
     flex-basis: 48vw;
   }
 }
 
-@media (width <= 700px) {
-  .cards.cards14 ul {
-    flex-direction: column;
-    gap: 28px;
-    max-width: 100vw;
-  }
+.cards.cards21 > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px 22px; /* vertical then horizontal for tighter gutters */
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-  .cards.cards14 ul > li {
-    max-width: 100%;
-    flex-basis: 100%;
-  }
+.cards.cards21 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: none;
+  border-radius: 0;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards21 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.cards.cards21 .cards-card-body {
+  padding: 20px 16px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.cards.cards21 .cards-card-body p {
+  margin: 0;
+}
+
+/* Title styling */
+.cards.cards21 .cards-card-body > p:first-child strong {
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  color: #222;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin: 0 0 4px;
+  line-height: 1.22;
+  display: block;
+}
+
+/* Description styling */
+.cards.cards21 .cards-card-body > p:not(:first-child) {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #6f6f6f;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.cards.cards21 {
+  /* No base block properties to merge; if there were, they would be here */
 }
