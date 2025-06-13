@@ -146,6 +146,18 @@ Empty line before each rule and comment blocks for clarity and conformance
 }
 
 /* BEGIN GENERATED CSS FROM .hero.hero16 (All other selectors unchanged) */
+.hero.hero16 h1,
+.hero.hero16 h2,
+.hero.hero16 h3 {
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+  text-align: left;
+}
+
 .hero.hero16 {
   display: flex;
   flex-direction: row;
@@ -158,18 +170,6 @@ Empty line before each rule and comment blocks for clarity and conformance
   margin: 40px auto;
   padding: 0;
   min-height: 340px;
-}
-
-.hero.hero16 h1,
-.hero.hero16 h2,
-.hero.hero16 h3 {
-  color: #222;
-  font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-xxl);
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.1;
-  text-align: left;
 }
 
 .hero.hero16 > div:last-child {
@@ -263,5 +263,92 @@ Empty line before each rule and comment blocks for clarity and conformance
   .hero.hero16 h2,
   .hero.hero16 h3 {
     font-size: var(--heading-font-size-xl);
+  }
+}
+
+/* ----- GENERATED CSS (unchanged except for .hero.hero19) ----- */
+
+.hero.hero19 > div:first-child {
+  width: 100%;
+  min-height: 360px;
+  max-height: 440px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: none;
+}
+
+.hero.hero19 picture,
+.hero.hero19 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  min-height: 360px;
+  max-height: 440px;
+  object-fit: cover;
+  object-position: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.hero.hero19 > div:last-child {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  background: none;
+  box-shadow: none;
+  display: block;
+  margin-top: 2.5rem;
+}
+
+.hero.hero19 h1 {
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  letter-spacing: 0;
+  width: 100%;
+  max-width: 800px;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.hero.hero19 {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  background: none;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .hero.hero19 > div:first-child,
+  .hero.hero19 picture,
+  .hero.hero19 img {
+    min-height: 180px;
+    max-height: 220px;
+  }
+
+  .hero.hero19 > div:last-child {
+    padding: 0 1rem;
+    max-width: 100%;
+    margin-top: 1.2rem;
+  }
+
+  .hero.hero19 h1 {
+    font-size: var(--heading-font-size-xl);
+    max-width: 100%;
   }
 }
