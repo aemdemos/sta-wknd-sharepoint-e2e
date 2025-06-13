@@ -1,9 +1,16 @@
 /* search box */
 .search .search-box {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1ch;
+  /* Combined properties from both selectors */
+  display: flex; /* Was 'grid' in first, 'flex' in second - 'flex' is preferred as it was used later and offers visual clarity as per comment */
+  flex-direction: row;
   align-items: center;
+  gap: 12px; /* Used the slightly wider gap as per comment */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
 }
 
 .search .search-box input {
@@ -26,15 +33,20 @@
 
 /* search results */
 .search ul.search-results {
+  /* Combined properties from both selectors */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
   gap: 24px;
   padding-left: 0;
   list-style: none;
+  margin: 0;
 }
 
 .search ul.search-results > li {
   border: 1px solid #dadada;
+  padding: 6px 16px;
+  margin: 0;
+  background: transparent;
 }
 
 .search ul.search-results > li > a {
@@ -43,6 +55,8 @@
   background-color: transparent;
   color: currentcolor;
   cursor: pointer;
+  text-decoration: none;
+  padding: 2px 0;
 }
 
 .search ul.search-results > li > a:hover,
@@ -134,4 +148,152 @@
   height: 24px;
   width: 24px;
   border-radius: 50%;
+}
+
+.search {
+  background: #1a1a1a;
+  width: 100%;
+  height: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 40px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  position: relative;
+}
+
+.search .icon-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.search .icon-search img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  filter: brightness(0) invert(1);
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* Minimal, balanced input sizing and style */
+.search .search-input,
+.search .search-box input[type="search"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 4px;
+  min-width: 120px;
+  width: 120px;
+  max-width: 150px;
+  height: 22px;
+  line-height: 22px;
+  margin: 0;
+  appearance: none;
+}
+
+/* Remove autofill background (Webkit browsers) */
+.search .search-input:-webkit-autofill,
+.search .search-box input[type="search"]:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #1a1a1a inset !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Placeholder white for high contrast */
+.search .search-input::placeholder,
+.search .search-box input[type="search"]::placeholder {
+  color: #fff;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+/* Remove default search clear/cancel button if present */
+.search .search-input::-webkit-search-decoration,
+.search .search-input::-webkit-search-cancel-button,
+.search .search-input::-webkit-search-results-button,
+.search .search-input::-webkit-search-results-decoration,
+.search .search-box input[type="search"]::-webkit-search-decoration,
+.search .search-box input[type="search"]::-webkit-search-cancel-button,
+.search .search-box input[type="search"]::-webkit-search-results-button,
+.search .search-box input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+.search .search-results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: none;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  font-size: 14px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 10;
+}
+
+.search .search-results:not(:empty) {
+  display: block;
+  background: #232323;
+  padding: 8px 0;
+  border-radius: 4px;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 18%);
+}
+
+.search .search-results > li {
+  border: none;
+  padding: 6px 16px;
+  margin: 0;
+  background: transparent;
+}
+
+.search .search-results > li > a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 2px 0;
+}
+
+.search .search-results > li > a:hover,
+.search .search-results > li > a:focus {
+  text-decoration: underline;
+}
+
+@media (width <= 700px) {
+  .search {
+    padding-right: 10px;
+    height: 32px;
+    min-height: 32px;
+  }
+
+  .search .search-box {
+    gap: 6px;
+  }
+
+  .search .search-input,
+  .search .search-box input[type="search"] {
+    font-size: 13px;
+    height: 18px;
+    line-height: 18px;
+    min-width: 70px;
+    width: 70px;
+    max-width: 100px;
+  }
 }
