@@ -1,6 +1,6 @@
 {
   "originUrl": "https://wknd.site",
-  "lastCrawled": "https://wknd.site/",
+  "lastCrawled": "https://wknd.site/us/en.html",
   "urls": [
     {
       "url": "https://wknd.site/ca/en.html",
@@ -395,12 +395,11 @@
     "sameDomain": true,
     "keepHash": false,
     "strategy": "crawl",
-    "logger": {}
+    "logger": {},
+    "strategiesAttempted": [
+      "SITEMAPS",
+      "CRAWL"
+    ]
   },
-  "extractionErrors": [
-    {
-      "url": "https://wknd.site/",
-      "status": "301 Moved Permanently Redirect: https://wknd.site/us/en.html"
-    }
-  ]
+  "extractionErrors": []
 }
