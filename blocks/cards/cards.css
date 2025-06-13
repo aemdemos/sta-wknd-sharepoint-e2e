@@ -1,3 +1,4 @@
+
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,128 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.cards.cards4 {
+  /* No base declarations, merged from generated below */
+
+  /* If you want to add layout-specific styles (e.g. padding), add them here */
+}
+
+.cards.cards4 > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 32px;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards4 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 calc(25% - 24px);
+  min-width: 260px;
+  max-width: calc(25% - 24px);
+  height: 100%;
+  overflow: hidden;
+  transition: box-shadow 0.16s;
+}
+
+.cards.cards4 > ul > li:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+}
+
+.cards.cards4 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  overflow: hidden;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.cards.cards4 > ul > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  display: block;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.cards.cards4 .cards-card-body {
+  margin: 0;
+  padding: 16px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.cards.cards4 .cards-card-body strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.cards.cards4 .cards-card-body p {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  min-height: 4.5em;
+  flex: 1 1 auto;
+}
+
+.cards.cards4 .cards-card-body p br {
+  display: block;
+  content: "";
+  margin-bottom: 2px;
+}
+
+@media (width <= 1100px) {
+  .cards.cards4 > ul > li {
+    flex: 0 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    min-width: 200px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards4 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .cards.cards4 > ul > li {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
 }
