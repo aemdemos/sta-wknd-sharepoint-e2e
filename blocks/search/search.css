@@ -1,3 +1,4 @@
+
 /* search box */
 .search .search-box {
   /* Combined properties from both selectors */
@@ -296,4 +297,124 @@
     width: 70px;
     max-width: 100px;
   }
+}
+
+/* --- Generated CSS (except .search.search2 which will be merged) --- */
+
+.search.search2 .search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  background: #f5f5f5;
+  border-radius: 2px;
+  padding: 0 20px;
+  gap: 8px;
+  box-sizing: border-box;
+  min-width: 180px;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  height: 40px;
+}
+
+.search.search2 .icon-search img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  filter: none;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.search.search2 .search-input,
+.search.search2 .search-box input[type="search"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  color: #555;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  min-width: 80px;
+  width: 100px;
+  max-width: 150px;
+  padding: 0;
+  margin: 0;
+  height: 24px;
+  line-height: 24px;
+  font-family: inherit;
+  appearance: none;
+  vertical-align: middle;
+}
+
+.search.search2 .search-input::placeholder,
+.search.search2 .search-box input[type="search"]::placeholder {
+  color: #555;
+  opacity: 1;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.search.search2 .search-input::-webkit-search-decoration,
+.search.search2 .search-input::-webkit-search-cancel-button,
+.search.search2 .search-input::-webkit-search-results-button,
+.search.search2 .search-input::-webkit-search-results-decoration,
+.search.search2 .search-box input[type="search"]::-webkit-search-decoration,
+.search.search2 .search-box input[type="search"]::-webkit-search-cancel-button,
+.search.search2 .search-box input[type="search"]::-webkit-search-results-button,
+.search.search2 .search-box input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+.search.search2 .search-input:focus,
+.search.search2 .search-box input[type="search"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search.search2 .search-results {
+  display: none;
+}
+
+@media (width <= 700px) {
+  .search.search2 {
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+  }
+
+  .search.search2 .search-box {
+    padding: 0 8px;
+    min-width: 120px;
+    height: 32px;
+  }
+
+  .search.search2 .search-input,
+  .search.search2 .search-box input[type="search"] {
+    font-size: 14px;
+    min-width: 60px;
+    width: 70px;
+    max-width: 100px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
+
+/* --- Merged .search.search2 --- */
+
+.search.search2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 64px;
+  min-height: 64px;
+  background: #fff;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
