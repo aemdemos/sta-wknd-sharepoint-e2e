@@ -55,7 +55,119 @@
   padding: 0 16px;
 }
 
+.accordion.accordion7 .accordion-item-body {
+  padding: 0 0 18px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+}
+
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+.accordion.accordion7 {
+  max-width: 680px;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0;
+  background: transparent;
+}
+
+/* Remove all borders except a light bottom border for separation */
+.accordion.accordion7 details {
+  border: none;
+  border-bottom: 1px solid #EAEAEA;
+  margin: 0;
+  background: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.accordion.accordion7 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion7 details:last-child {
+  border-bottom: none;
+}
+
+/* Remove summary marker */
+.accordion.accordion7 details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* FAQ row: horizontally aligned, marker far right, comfortable spacing */
+.accordion.accordion7 details summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  padding: 20px 0;
+  padding-right: 54px;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #191919;
+  letter-spacing: 0.5px;
+  background: transparent;
+  outline: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  line-height: 1.22;
+  position: relative;
+  transition: background 0.2s;
+  font-variant-numeric: lining-nums;
+}
+
+/* Ensure FAQ label and marker are spaced in the row */
+.accordion.accordion7 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.accordion.accordion7 .accordion-item-label p {
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #191919;
+  letter-spacing: 0.5px;
+  line-height: 1.22;
+  flex: 1 1 auto;
+}
+
+/* Shrink/soften marker: make caret smaller and lighter with font settings if possible */
+.accordion.accordion7 details summary::marker {
+  color: #b0b0b0;
+  font-size: 20px;
+  font-family: var(--body-font-family);
+}
+
+/* Responsive: make sure FAQ block fills width on smaller screens */
+@media (width <= 900px) {
+  .accordion.accordion7 {
+    max-width: 100%;
+    padding-right: 0;
+  }
+
+  .accordion.accordion7 details summary {
+    padding-right: 32px;
+    font-size: 16px;
+  }
+
+  .accordion.accordion7 .accordion-item-label p {
+    font-size: 16px;
+  }
 }
