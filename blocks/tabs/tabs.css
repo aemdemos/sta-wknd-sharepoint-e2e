@@ -1,3 +1,4 @@
+
 /* --- Tabs List Styles --- */
 .tabs .tabs-list {
   display: flex;
@@ -405,10 +406,12 @@
     font-size: 1.05rem;
     margin-bottom: 10px;
   }
+
   .tabs.tabs12 .tabs-panel > div {
     max-width: 100vw;
     padding: 0 8px;
   }
+
   .tabs.tabs12 .tabs-tab {
     padding: 8px 12px 8px 0;
     font-size: 0.98rem;
@@ -455,6 +458,7 @@
     margin-bottom: 10px;
     min-width: 72px;
   }
+
   .tabs.tabs12 h2,
   .tabs.tabs12 h2 strong {
     font-size: 1.12rem;
@@ -523,6 +527,7 @@
   flex-direction: column;
   align-items: stretch;
   background: #fff;
+
   --tabs18-left-gap: 72px;
 }
 
@@ -547,4 +552,19 @@
   padding: 8px 0 0;
   background: #fff;
   box-sizing: border-box;
+}
+
+/* --- Generated CSS --- */
+
+/* --- Merged .tabs.tabs25 --- */
+.tabs.tabs25 {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  width: 100%;
+  display: block;
 }
