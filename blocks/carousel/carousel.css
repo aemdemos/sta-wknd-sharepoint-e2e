@@ -77,16 +77,6 @@
   background-color: var(--text-color);
 }
 
-.carousel .carousel-slide-indicators {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px 12px;
-  padding: 12px;
-  background-color: var(--light-color);
-  line-height: 0;
-}
-
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -101,6 +91,16 @@
 .carousel .carousel-navigation-buttons button:hover,
 .carousel .carousel-navigation-buttons button:focus-visible {
   background-color: rgb(19 19 19 / 75%);
+}
+
+.carousel .carousel-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 12px;
+  padding: 12px;
+  background-color: var(--light-color);
+  line-height: 0;
 }
 
 .carousel .carousel-navigation-buttons button::after {
@@ -163,7 +163,6 @@
 
 .carousel.carousel8 .carousel-slide-indicators {
   background: rgb(255 255 255 / 1%);
-  position: relative;
   margin-top: 24px;
   margin-bottom: -12px;
   display: flex;
@@ -171,7 +170,6 @@
   align-items: center;
   gap: 0;
   z-index: 10;
-  /* merged properties from duplicate selector */
   left: 0;
   right: 0;
   bottom: 36px;
@@ -224,6 +222,12 @@
   pointer-events: none;
 }
 
+.carousel.carousel8 .carousel-slide-indicator {
+  margin: 0 8px;
+  display: flex;
+  align-items: center;
+}
+
 .carousel.carousel8 .carousel-navigation-buttons button::after {
   display: block;
   width: 18px;
@@ -241,12 +245,6 @@
 .carousel.carousel8 .carousel-navigation-buttons button.slide-next::after {
   transform: rotate(-45deg) scale(1);
   margin-right: 3px;
-}
-
-.carousel.carousel8 .carousel-slide-indicator {
-  margin: 0 8px;
-  display: flex;
-  align-items: center;
 }
 
 .carousel.carousel8 .carousel-navigation-buttons {
@@ -296,6 +294,15 @@
   }
 }
 
-.carousel.carousel8 {
-  /* merged properties from both snippets, none overlap here so this remains empty */
+.carousel.carousel17 {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+  background: #fff;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
 }
