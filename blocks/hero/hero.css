@@ -1,4 +1,4 @@
-
+/*
 
 .hero-container .hero-wrapper {
   max-width: unset;
@@ -50,6 +50,32 @@
 
 /* --- GENERATED CSS --- */
 
+/* .hero.hero27 selectors moved up as required by no-descending-specificity */
+.hero.hero27 picture,
+.hero.hero27 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero.hero10 > div:first-child picture,
+.hero.hero10 > div:first-child img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero.hero19 > div:first-child picture,
+.hero.hero19 > div:first-child img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: none;
+}
+
 /* Merged selector block for .hero.hero10 */
 .hero.hero10 {
   position: relative;
@@ -66,14 +92,6 @@
   max-width: 100vw;
   height: 520px;
   overflow: hidden;
-}
-
-.hero.hero10 > div:first-child picture,
-.hero.hero10 > div:first-child img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* White card overlay — lower the card for correct overlap */
@@ -127,11 +145,11 @@
   }
 }
 
-/* ============================= */
+/* ============================== */
 
 /* ==== .hero.hero19 MERGED ==== */
 
-/* ============================= */
+/* ============================== */
 .hero.hero19 {
   position: relative;
   width: 100%;
@@ -150,16 +168,6 @@
   z-index: 1;
   margin: 0;
   padding: 0;
-}
-
-/* Image as background, fills container */
-.hero.hero19 > div:first-child picture,
-.hero.hero19 > div:first-child img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  max-width: none;
 }
 
 /* Overlap trick: negative margin-top pulls card up over image edge */
@@ -223,3 +231,130 @@
   }
 }
 
+/* ====== MERGED SELECTOR FOR .hero.hero27 ====== */
+.hero.hero27 {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Hero image container */
+.hero.hero27 > div:first-child {
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  height: 660px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* White card: wider, flush left & bottom, reduced right/left padding for balance */
+.hero.hero27 > div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 82vw;
+  max-width: 1440px;
+  background: #fff;
+  padding: 56px 16px 40px 36px;
+  box-sizing: border-box;
+  z-index: 2;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+
+/* Headline */
+.hero.hero27 > div:nth-child(2) h2 {
+  color: #232323;
+  font-family: var(--heading-font-family), serif;
+  font-size: 2.7em;
+  font-weight: 400;
+  margin: 0 0 0.8em;
+  line-height: 1.06;
+  text-align: left;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* Paragraph text */
+.hero.hero27 > div:nth-child(2) p {
+  color: #444;
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 1.24em;
+  font-weight: 400;
+  margin: 0 0 2.4em;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.hero.hero27 > div:nth-child(2) .button-container {
+  margin: 0;
+}
+
+/* Button: override defaults for specificity and appearance */
+.hero.hero27 .button,
+.hero.hero27 .button-container .button {
+  display: inline-block;
+  background: #fff200;
+  color: #111;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.8em 2.7em;
+  letter-spacing: 0.02em;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  text-align: left;
+}
+
+.hero.hero27 .button:hover,
+.hero.hero27 .button:focus,
+.hero.hero27 .button-container .button:hover,
+.hero.hero27 .button-container .button:focus {
+  background: #ffe600;
+  color: #000;
+}
+
+/* Responsive behavior */
+@media (width <= 1200px) {
+  .hero.hero27 > div:first-child {
+    height: 350px;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    width: 96vw;
+    max-width: 99vw;
+    padding: 28px 8vw 14px 16px;
+  }
+
+  .hero.hero27 > div:nth-child(2) h2 {
+    font-size: 1.28em;
+    margin-bottom: 0.7em;
+  }
+
+  .hero.hero27 > div:nth-child(2) p {
+    font-size: 1em;
+    margin-bottom: 1.3em;
+  }
+
+  .hero.hero27 .button,
+  .hero.hero27 .button-container .button {
+    font-size: 1em;
+    padding: 0.7em 1.3em;
+  }
+}
