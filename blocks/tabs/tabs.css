@@ -164,6 +164,12 @@
   display: none;
 }
 
+/* --- Tabs12: Specificity Order Fixes --- */
+.tabs.tabs12 .tabs-panel > div > p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
 /* --- Tabs3: Sidebar Layout --- */
 .tabs.tabs3 {
   display: flex;
@@ -241,12 +247,6 @@
 
 .tabs.tabs3 > .tabs-panel:nth-child(1) p:last-child {
   margin-bottom: 0;
-}
-
-/* --- Tabs12: Specificity Order Fixes --- */
-.tabs.tabs12 .tabs-panel > div > p:first-of-type {
-  margin-top: 0;
-  margin-bottom: 24px;
 }
 
 .tabs.tabs12 li {
@@ -536,4 +536,18 @@
   align-items: stretch;
   background: #fff;
   --tabs18-left-gap: 72px;
+}
+
+/* merged .tabs.tabs20 */
+.tabs.tabs20 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1220px;
+  margin: 40px auto 0;
+  padding: 0 24px 56px;
+  background: #fff;
+  box-sizing: border-box;
+  gap: 40px;
 }
