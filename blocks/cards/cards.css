@@ -140,7 +140,6 @@
   line-height: 0;
 }
 
-/* Generated CSS, except .cards.cards8 selector replaced below */
 .cards.cards8 > ul {
   display: flex;
   flex-direction: row;
@@ -189,7 +188,6 @@
   margin: 0;
 }
 
-/* Remove horizontal padding so titles/descriptions are flush with image edge */
 .cards.cards8 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -201,7 +199,6 @@
   box-sizing: border-box;
 }
 
-/* Title: bold, large, uppercase, flush left */
 .cards.cards8 .cards-card-body .button-container {
   margin: 0 0 4px;
   padding: 0;
@@ -241,7 +238,37 @@
   padding: 0;
 }
 
-/* Description: small, gray, one line, ellipsis */
+.cards.cards26 > ul > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 390px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.cards.cards26 .cards-card-body p {
+  font-size: 15px;
+  color: #626262;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+  line-height: 1.5;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+}
+
 .cards.cards8 .cards-card-body p:not(.button-container) {
   font-family: var(--body-font-family);
   font-size: 1rem;
@@ -257,12 +284,10 @@
   line-height: 1.5;
 }
 
-/* Remove extra spacing in card body */
 .cards.cards8 .cards-card-body > *:last-child {
   margin-bottom: 0;
 }
 
-/* Responsive: stack cards on mobile */
 @media (width <= 900px) {
   .cards.cards8 > ul {
     flex-direction: column;
@@ -280,7 +305,18 @@
   }
 }
 
-/* Generated CSS, except .cards.cards24 selector will be merged below */
+.cards.cards24 {
+  width: 100%;
+  background: #fff;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cards.cards26 {
+  background: #fff;
+  padding: 0;
+}
+
 .cards.cards24 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -367,6 +403,19 @@
   overflow: hidden;
 }
 
+.cards.cards26 .cards-card-body strong a {
+  color: #212121;
+  font-family: var(--body-font-family);
+  font-size: 21px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: block;
+  line-height: 1.18;
+  margin: 0;
+  padding: 0;
+}
+
 .cards.cards24 .cards-card-body p a:hover {
   background: #ffd700;
   color: #222;
@@ -374,6 +423,71 @@
 
 .cards.cards24 .cards-card-body > *:last-child {
   margin-bottom: 0;
+}
+
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  align-items: flex-start;
+  max-width: none;
+  justify-content: flex-start;
+}
+
+.cards.cards26 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  flex: none;
+}
+
+.cards.cards26 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  border-radius: 0;
+}
+
+.cards.cards26 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: none;
+  padding: 0 0 20px;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  flex: none;
+}
+
+.cards.cards26 .cards-card-image + .cards-card-body {
+  margin-top: 0;
+}
+
+.cards.cards26 .cards-card-body strong {
+  display: block;
+  margin: 0 0 1px;
+  font-size: 21px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1.18;
+  padding: 0;
+}
+
+.cards.cards26 .cards-card-body strong a:hover,
+.cards.cards26 .cards-card-body strong a:focus {
+  color: #212121;
+  text-decoration: underline;
 }
 
 @media (width <= 900px) {
@@ -394,6 +508,27 @@
   }
 }
 
+@media (width <= 900px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .cards.cards26 > ul > li {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cards.cards26 .cards-card-image {
+    aspect-ratio: unset;
+  }
+
+  .cards.cards26 .cards-card-image img {
+    aspect-ratio: unset;
+    height: auto;
+  }
+}
+
 @media (width <= 600px) {
   .cards.cards24 > ul {
     grid-template-columns: 1fr;
@@ -404,12 +539,4 @@
   .cards.cards24 > ul > li {
     max-width: 100%;
   }
-}
-
-/* Merged selector for .cards.cards24 */
-.cards.cards24 {
-  width: 100%;
-  background: #fff;
-  padding: 0;
-  box-sizing: border-box;
 }
