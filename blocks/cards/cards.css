@@ -1,3 +1,6 @@
+/*
+ * Cards Base Styles
+ */
 .cards > ul {
   list-style: none;
   margin: 0 auto;
@@ -229,6 +232,15 @@
   overflow: visible;
 }
 
+.cards.cards24 .cards-card-body p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+}
+
 /* Description: small, gray, one line, ellipsis */
 .cards.cards8 .cards-card-body p:not(.button-container) {
   font-family: var(--body-font-family);
@@ -266,4 +278,138 @@
     aspect-ratio: unset;
     height: 180px;
   }
+}
+
+/* Generated CSS, except .cards.cards24 selector will be merged below */
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  place-items: start center;
+  gap: 12px 10px;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 900px;
+  list-style: none;
+}
+
+.cards.cards24 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 200px;
+  width: 100%;
+}
+
+.cards.cards24 > ul > li:nth-child(5) {
+  grid-column: 1 / span 1;
+}
+
+.cards.cards24 > ul > li:nth-child(6) {
+  grid-column: 2 / span 1;
+}
+
+.cards.cards24 > ul > li:nth-child(7) {
+  grid-column: 3 / span 1;
+}
+
+.cards.cards24 .cards-card-image picture,
+.cards.cards24 .cards-card-image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 6px;
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+.cards.cards24 .cards-card-body h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.27em;
+  color: #222;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 1px;
+  letter-spacing: -0.01em;
+}
+
+.cards.cards24 .cards-card-body h5 {
+  font-family: var(--body-font-family);
+  font-size: 0.91em;
+  color: #757575;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.024em;
+  margin: 0 0 4px;
+}
+
+.cards.cards24 .cards-card-body p a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.cards.cards24 .cards-card-body p a:hover {
+  background: #ffd700;
+  color: #222;
+}
+
+.cards.cards24 .cards-card-body > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards24 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 8px;
+    max-width: 480px;
+  }
+
+  .cards.cards24 > ul > li {
+    max-width: 100%;
+  }
+
+  .cards.cards24 > ul > li:nth-child(5),
+  .cards.cards24 > ul > li:nth-child(6),
+  .cards.cards24 > ul > li:nth-child(7) {
+    grid-column: auto;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards24 > ul {
+    grid-template-columns: 1fr;
+    gap: 8px 0;
+    max-width: 98vw;
+  }
+
+  .cards.cards24 > ul > li {
+    max-width: 100%;
+  }
+}
+
+/* Merged selector for .cards.cards24 */
+.cards.cards24 {
+  width: 100%;
+  background: #fff;
+  padding: 0;
+  box-sizing: border-box;
 }
