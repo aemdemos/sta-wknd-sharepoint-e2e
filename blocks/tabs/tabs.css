@@ -2,6 +2,7 @@
 
 
 
+
 /* -------- TAB LIST -------- */
 .tabs .tabs-list {
   display: flex;
@@ -62,11 +63,11 @@
 }
 
 .tabs.tabs7 {
-  max-width: 980px;
-  margin: 40px auto 0;
-  padding: 0 16px 48px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 36px;
   box-sizing: border-box;
-  background: none;
+  background: #fff;
 }
 
 .tabs.tabs7 .tabs-list {
