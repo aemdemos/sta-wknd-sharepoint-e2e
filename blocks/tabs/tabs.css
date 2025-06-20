@@ -1,6 +1,7 @@
 
 
 
+
 /* -------- TAB LIST -------- */
 .tabs .tabs-list {
   display: flex;
@@ -648,4 +649,15 @@
   background: #fff;
   box-sizing: border-box;
   padding: 0 0 48px;
+}
+
+
+/* --------- MERGED .tabs.tabs25 --------- */
+.tabs.tabs25 {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
 }
