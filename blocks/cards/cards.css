@@ -1,3 +1,4 @@
+
 /*
  * Cards Base Styles
  */
@@ -538,5 +539,114 @@
 
   .cards.cards24 > ul > li {
     max-width: 100%;
+  }
+}
+
+.cards.cards29 {
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 24px;
+  background: #fff;
+}
+
+.cards.cards29 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards29 ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Top-align image and text */
+  gap: 40px;
+  margin-bottom: 72px;
+  background: none;
+  border: none;
+}
+
+.cards.cards29 .cards-card-image {
+  flex: 0 0 48%;
+  max-width: 48%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.cards.cards29 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.cards.cards29 .cards-card-body {
+  flex: 1 1 52%;
+  max-width: 580px;
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: none;
+  color: #222;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards29 .cards-card-body h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 36px;
+  line-height: 1.2;
+}
+
+.cards.cards29 .cards-card-body p {
+  font-family: inherit;
+  font-size: 18px;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+@media (width <= 1000px) {
+  .cards.cards29 {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .cards.cards29 ul > li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 56px;
+  }
+
+  .cards.cards29 .cards-card-image,
+  .cards.cards29 .cards-card-body {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cards.cards29 .cards-card-image {
+    margin-bottom: 32px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cards.cards29 .cards-card-image img {
+    width: 100%;
+    height: auto;
   }
 }
