@@ -3,6 +3,7 @@
 
 
 
+
 /* -------- TAB LIST -------- */
 .tabs .tabs-list {
   display: flex;
@@ -632,12 +633,13 @@
 }
 
 .tabs.tabs21 {
-  max-width: 980px;
-  margin: 12px auto 0;
+  max-width: 1200px;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0 0 56px;
   background: #fff;
-  border: none;
-  padding: 0 0 44px;
   box-shadow: none;
+  border: none;
 }
 
 /* Merged .tabs.tabs23 */
@@ -662,3 +664,4 @@
   margin: 0 auto;
   max-width: 1200px;
 }
+
