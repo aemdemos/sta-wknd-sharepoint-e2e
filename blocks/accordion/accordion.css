@@ -1,8 +1,8 @@
+/* stylelint-disable-next-line no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -21,12 +21,12 @@
   transition: background-color 0.2s;
 }
 
-.accordion details[open] summary {
+.accordion details summary:focus,
+.accordion details summary:hover {
   background-color: var(--light-color);
 }
 
-.accordion details summary:focus,
-.accordion details summary:hover {
+.accordion.details[open] summary {
   background-color: var(--light-color);
 }
 
@@ -60,15 +60,18 @@
   background-color: var(--background-color);
 }
 
+/* --- Merged .accordion.accordion13 block starts here --- */
 .accordion.accordion13 {
-  display: block;
   width: 100%;
-  max-width: 960px;
-  margin: 64px 0;
-  padding: 0;
-  background: #fff;
-  box-sizing: border-box;
   text-align: left;
+  background: #fff;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  visibility: visible;
 }
 
 .accordion.accordion13 > details,
@@ -83,6 +86,20 @@
   box-sizing: border-box;
 }
 
+.accordion.accordion13 > details {
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  margin: 0;
+  box-sizing: border-box;
+  display: block;
+  overflow: visible;
+}
+
+.accordion.accordion13 details + details,
+.accordion.accordion13 .accordion-item + .accordion-item {
+  margin-top: 0;
+}
+
 .accordion.accordion13 > details:last-child,
 .accordion.accordion13 > .accordion-item:last-child {
   border-bottom: none;
@@ -95,12 +112,12 @@
   align-items: center;
   justify-content: space-between;
   font-family: var(--body-font-family);
-  font-size: 1.18rem;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: bold;
   text-transform: uppercase;
   color: #222;
   background: #fff;
-  padding: 28px 0;
+  padding: 18px 2px 18px 24px;
   margin: 0;
   border: none;
   cursor: pointer;
@@ -108,34 +125,38 @@
   list-style: none;
   user-select: none;
   line-height: 1.5;
-  gap: 1em;
   text-align: left;
+  transition: background 0.15s;
+  min-height: 56px;
+  box-sizing: border-box;
+  min-width: 0;
+  gap: 8px;
+  accent-color: #222;
 }
 
+.accordion.accordion13 summary::marker,
 .accordion.accordion13 summary::-webkit-details-marker {
-  display: none;
+  font-size: 40px;
+  color: #222;
+  font-weight: bold;
+  filter: drop-shadow(0 0 1px #222);
+}
+
+.accordion.accordion13 .accordion-item-body {
+  padding: 18px 24px;
+  font-size: 16px;
+  color: #222;
+  background: #fff;
+  border: none;
+  margin: 0;
+  line-height: 1.6;
+  box-sizing: border-box;
 }
 
 .accordion.accordion13 summary:focus,
 .accordion.accordion13 summary:hover,
-.accordion.accordion13 details[open] summary {
-  background: #fff;
-}
-
-.accordion.accordion13 .accordion-item-body {
-  padding: 0 0 28px;
-  font-size: 1.05rem;
-  color: #222;
-  font-family: var(--body-font-family);
-  line-height: 1.7;
-  background: #fff;
-  border: none;
-  margin: 0;
-}
-
-.accordion.accordion13 details + details,
-.accordion.accordion13 .accordion-item + .accordion-item {
-  margin-top: 0;
+.accordion.accordion13 details[open] > summary {
+  background: #f7f7f7;
 }
 
 @media (width <= 900px) {
@@ -143,6 +164,13 @@
     max-width: 100vw;
     margin: 36px 0;
     padding: 0 2vw;
+  }
+
+  .accordion.accordion13 summary,
+  .accordion.accordion13 .accordion-item-label,
+  .accordion.accordion13 .accordion-item-body {
+    padding-left: 12px;
+    padding-right: 2px;
   }
 }
 
@@ -155,11 +183,13 @@
   .accordion.accordion13 summary,
   .accordion.accordion13 .accordion-item-label {
     font-size: 1rem;
-    padding: 16px 0;
+    padding: 12px 2px 12px 8px;
+    min-height: 44px;
   }
 
   .accordion.accordion13 .accordion-item-body {
     font-size: 0.95rem;
+    padding: 10px 8px;
     padding-bottom: 12px;
   }
 }
