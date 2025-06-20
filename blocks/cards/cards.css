@@ -1,4 +1,5 @@
 
+
 /*
  * Cards Base Styles
  */
@@ -50,11 +51,12 @@
 }
 
 .cards {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
   background: #fff;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -648,5 +650,23 @@
   .cards.cards29 .cards-card-image img {
     width: 100%;
     height: auto;
+  }
+}
+
+.cards {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+@media (width <= 1300px) {
+  .cards {
+    max-width: 100vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
 }
