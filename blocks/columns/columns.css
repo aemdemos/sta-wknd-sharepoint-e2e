@@ -1,3 +1,4 @@
+
 /* Columns Layout */
 .columns > div {
   display: flex;
@@ -28,6 +29,7 @@
     flex-direction: unset;
     gap: 24px;
   }
+
   .columns > div > div {
     flex: 1;
     order: unset;
@@ -322,4 +324,205 @@
 
 .columns.columns19 > div > div > *:last-child {
   margin-bottom: 0;
+}
+
+/* Merged .columns.columns30 */
+.columns.columns30 {
+}
+
+/* Generated CSS */
+.columns.columns30 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 28px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 0;
+}
+
+/* Sidebar (Left Column): even narrower, no extra padding */
+.columns.columns30 > div > div:first-child {
+  flex: 0 0 122px;
+  max-width: 124px;
+  min-width: 100px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  align-self: flex-start;
+}
+
+/* Sidebar Heading */
+.columns.columns30 > div > div:first-child h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.55rem;
+  font-weight: 500;
+  margin: 0 0 32px;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+/* Sidebar Labels & Values: tighter below value, lighter divider, softer label */
+.columns.columns30 > div > div:first-child ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+}
+
+.columns.columns30 > div > div:first-child ul li {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-size: 13px;
+  color: #232323;
+  line-height: 1.55;
+  font-family: var(--body-font-family);
+}
+
+.columns.columns30 > div > div:first-child ul li:nth-child(odd) {
+  text-transform: uppercase;
+  color: #b3b3b3;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.05px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.columns.columns30 > div > div:first-child ul li:nth-child(even) {
+  font-size: 13.8px;
+  font-weight: 700;
+  color: #151515;
+  margin-top: 3px;
+  margin-bottom: 6px;
+}
+
+/* Sidebar Dividers: lighter, less prominent, slight spacing */
+.columns.columns30 > div > div:first-child ul li:nth-child(odd):not(:first-child) {
+  border-top: 1px solid #f5f5f5;
+  padding-top: 9px;
+}
+
+/* Sidebar "Share this adventure": more spacing above */
+.columns.columns30 > div > div:first-child h5 {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 1.6px;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+/* Main Content (Right Column): slightly more width and tighter right padding */
+.columns.columns30 > div > div:last-child {
+  flex: 1 1 0%;
+  min-width: 0;
+  background: #fff;
+  box-sizing: border-box;
+  align-self: flex-start;
+  padding-top: 0;
+  padding-right: 18px;
+}
+
+/* Main Title: slight size tweak, less bottom margin */
+.columns.columns30 > div > div:last-child h3#napa-wine-tasting-1 {
+  font-family: var(--heading-font-family);
+  font-size: 1.92rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 2px;
+  line-height: 1.07;
+  letter-spacing: 0;
+  color: #222;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  border: none;
+}
+
+/* Yellow underline for the main title: width, color, spacing */
+.columns.columns30 > div > div:last-child h3#napa-wine-tasting-1::after {
+  display: block;
+  height: 3px;
+  width: 44px;
+  background: #ffe45e;
+  border-radius: 1.5px;
+  margin-top: 11px;
+  margin-bottom: 2px;
+  content: '';
+}
+
+/* Subheading: size increased, more space below */
+.columns.columns30 > div > div:last-child h3#enjoy-spectacular-wine-tasting-in-the-napa-valley {
+  font-family: var(--heading-font-family);
+  font-size: 1.39rem;
+  font-weight: 400;
+  margin-top: 28px;
+  margin-bottom: 32px;
+  color: #111;
+  line-height: 1.21;
+}
+
+/* Main image: almost flush with right edge, crisp edge */
+.columns.columns30 > div > div:last-child picture,
+.columns.columns30 > div > div:last-child picture img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  margin: 0 2px 19px 0;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Image caption: tweak margins for visual rhythm */
+.columns.columns30 > div > div:last-child p:first-of-type {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #111;
+  letter-spacing: 0.3px;
+  margin-top: 7px;
+  margin-bottom: 18px;
+}
+
+/* Main body text: larger, less top margin */
+.columns.columns30 > div > div:last-child p:not(:first-of-type) {
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  color: #222;
+  line-height: 1.7;
+  margin-top: 4px;
+  margin-bottom: 32px;
+}
+
+/* Remove extra margin for last element */
+.columns.columns30 > div > div:last-child > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .columns.columns30 > div {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .columns.columns30 > div > div:first-child,
+  .columns.columns30 > div > div:last-child {
+    max-width: 100%;
+    min-width: 0;
+    flex-basis: 100%;
+    padding: 0;
+  }
+}
+
+/* Ensure main content aligns with sidebar top */
+.columns.columns30 > div > div:first-child,
+.columns.columns30 > div > div:last-child {
+  align-self: flex-start;
+}
+
+/* Merged .columns.columns30 */
+.columns.columns30 {
 }
