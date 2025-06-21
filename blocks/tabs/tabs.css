@@ -4,6 +4,7 @@
 
 
 
+
 /* -------- TAB LIST -------- */
 .tabs .tabs-list {
   display: flex;
@@ -453,215 +454,165 @@
 
 .tabs.tabs10 {
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
-  max-width: 1000px;
-  margin: 56px auto 0;
-  padding: 0 32px;
-  gap: 0;
-  background: #fff;
-  border: none;
-  box-shadow: none;
+  gap: 48px; /* space between sidebar and content */
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
-.tabs.tabs11 {
-  max-width: 1100px;
-  margin: 56px auto 0;
-  padding: 0 0 48px;
-  background: #fff;
-  box-shadow: none;
-  border: none;
-}
+/* --------- GENERATED CSS --------- */
 
-.tabs.tabs11 .tabs-list {
+.tabs10.block {
   display: flex;
-  gap: 0;
-  border: none;
-  margin: 0 0 40px;
-  padding: 0;
-  background: none;
-  overflow: visible;
+  align-items: flex-start;
+  gap: 48px; /* space between sidebar and content */
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
-.tabs.tabs11 .tabs-tab {
+/* Sidebar navigation (make vertical, act as sidebar) */
+.tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 220px;
+  flex: 0 0 220px;
   background: #fff;
-  color: #222;
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: 1.13rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+}
+
+/* Tab buttons (vertical, pill style) */
+.tabs-tab {
+  background: none;
   border: none;
-  border-radius: 0;
-  margin: 0 16px 0 0;
-  padding: 14px 36px 12px 0;
-  box-shadow: none;
-  border-bottom: 3px solid transparent;
-  transition: background 0.18s, color 0.18s, border-bottom 0.18s;
-  outline: none;
-  min-width: 120px;
+  padding: 12px 24px;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  color: #232323;
+  border-radius: 40px;
   text-align: left;
-  line-height: 1.2;
   cursor: pointer;
-  position: relative;
+  transition: background 0.2s, color 0.2s;
 }
 
-.tabs.tabs11 .tabs-tab[aria-selected="true"] {
-  background: #222;
+.tabs-tab[aria-selected="true"] {
+  background: #232323;
   color: #fff;
-  border-bottom: 3px solid #fe8;
-  z-index: 2;
+  font-weight: 600;
 }
 
-.tabs.tabs11 .tabs-tab:not([aria-selected="true"]) {
-  background: #fff;
-  color: #222;
-}
-
-.tabs.tabs11 .tabs-tab p {
+/* Remove margin from the <p> inside buttons */
+.tabs-tab p {
   margin: 0;
-  padding: 0;
 }
 
-.tabs.tabs11 .tabs-panel {
-  border: none;
-  background: none;
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
-  max-width: 100%;
-  overflow: visible;
-  display: none;
+/* Main content area */
+.tabs-panel {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 900px;
 }
 
-.tabs.tabs11 .tabs-panel[aria-hidden="false"] {
-  display: block;
-}
-
-.tabs.tabs11 .tabs-panel > div > h3:first-of-type {
-  font-family: var(--heading-font-family);
-  font-size: 2.4rem;
+/* Main heading styles */
+.tabs-panel h3 {
+  font-size: 32px;
+  font-family: 'Playfair Display', Georgia, serif;
   font-weight: 400;
-  color: #222;
-  margin: 0 0 12px;
-  line-height: 1.18;
-  letter-spacing: -0.01em;
-  padding-bottom: 0;
-  border-bottom: none;
+  color: #232323;
+  margin-bottom: 8px;
   position: relative;
-  display: inline-block;
 }
 
-.tabs.tabs11 .tabs-panel > div > h3:first-of-type::after {
-  display: block;
-  width: 62px;
-  height: 3px;
-  background: #fe8;
-  border-radius: 2px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  position: relative;
+.tabs-panel h3::after {
   content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #FFDB57;
+  margin-top: 8px;
 }
 
-.tabs.tabs11 .tabs-panel picture,
-.tabs.tabs11 .tabs-panel img {
+.tabs-panel h2 {
+  font-size: 32px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  color: #232323;
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+
+/* Images: make them flush, full width */
+.tabs-panel picture,
+.tabs-panel img {
   display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
-  margin: 34px 0 26px;
+  margin-bottom: 32px;
   border-radius: 0;
   box-shadow: none;
-  background: none;
-  padding: 0;
 }
 
-.tabs.tabs11 .tabs-panel p,
-.tabs.tabs11 .tabs-panel ul {
-  font-family: var(--body-font-family);
-  font-size: 1.13rem;
-  color: #222;
+/* Body text */
+.tabs-panel p {
+  font-size: 18px;
+  color: #232323;
   line-height: 1.7;
-  margin: 0 0 22px;
-  font-weight: 400;
-  max-width: 900px;
+  margin-bottom: 24px;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-.tabs.tabs11 .tabs-panel ul {
-  padding-left: 1.7em;
+/* Related trips styling */
+.tabs-panel ul {
+  margin-top: 8px;
+  margin-bottom: 24px;
+  padding-left: 20px;
 }
 
-.tabs.tabs11 .tabs-panel li {
-  margin-bottom: 8px;
+.tabs-panel ul li {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-family: Inter, Arial, sans-serif;
+  color: #232323;
+  position: relative;
+  list-style: none;
+  padding-left: 18px;
 }
 
+.tabs-panel ul li::before {
+  content: "▶";
+  color: #232323;
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+/* Responsive: stack vertically on mobile */
 @media (width <= 900px) {
-  .tabs.tabs11 {
-    max-width: 99vw;
-    padding: 0 4vw 32px;
+  .tabs10.block {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0;
   }
 
-  .tabs.tabs11 .tabs-list {
-    margin-bottom: 26px;
+  .tabs-list {
+    flex-direction: row;
+    min-width: 0;
+    width: 100%;
+    gap: 12px;
   }
 
-  .tabs.tabs11 .tabs-tab {
-    font-size: 1rem;
-    padding: 10px 12px 8px 0;
-    min-width: 90px;
-  }
-
-  .tabs.tabs11 .tabs-panel > div > h3:first-of-type {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
+  .tabs-panel {
+    max-width: 100%;
   }
 }
 
-.tabs.tabs11 .tabs-tab:focus {
-  outline: 2px solid #fe8;
-  outline-offset: 2px;
-}
+/* --------- MERGED SELECTOR .tabs.tabs10 --------- */
 
-.tabs.tabs11 {
-  max-width: 1100px;
-  margin: 56px auto 0;
-  padding: 0 0 48px;
-  background: #fff;
-  box-shadow: none;
-  border: none;
-}
-
-.tabs.tabs21 {
-  max-width: 1200px;
-  margin-left: 0;
-  margin-right: auto;
-  padding: 0 0 56px;
-  background: #fff;
-  box-shadow: none;
-  border: none;
-}
-
-/* Merged .tabs.tabs23 */
-.tabs.tabs23 {
+.tabs.tabs10 {
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  max-width: 980px;
-  margin: 56px auto 0;
-  background: #fff;
-  box-sizing: border-box;
-  padding: 0 0 48px;
-}
-
-
-/* --------- MERGED .tabs.tabs25 --------- */
-.tabs.tabs25 {
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  padding: 0;
+  align-items: flex-start;
+  gap: 48px;
   margin: 0 auto;
-  max-width: 1200px;
+  padding: 40px 0;
 }
-
