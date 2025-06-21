@@ -15,6 +15,7 @@
 
 
 
+
 /* -------- TAB LIST -------- */
 .tabs .tabs-list {
   display: flex;
@@ -567,6 +568,23 @@
   margin: 0 auto;
   background: #fff;
   padding: 0 0 38px;
+  border: none;
+  box-shadow: none;
+}
+
+
+/* ===== Generated CSS ===== */
+
+
+
+
+/* ====== MERGED SELECTOR FOR .tabs.tabs8 ====== */
+.tabs.tabs8 {
+  background: #fff;
+  max-width: 1200px;
+  margin: 36px auto 0;
+  padding: 0 6px 28px;
+  box-sizing: border-box;
   border: none;
   box-shadow: none;
 }
