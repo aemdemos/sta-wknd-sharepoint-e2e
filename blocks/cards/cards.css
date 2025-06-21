@@ -1,5 +1,6 @@
 
 
+
 /*
  * Cards Base Styles
  */
@@ -645,3 +646,15 @@
   box-sizing: border-box;
 }
 
+
+/* ------- Generated CSS (unchanged except .cards.cards4 merged) ------- */
+
+/* ----------- MERGED SELECTOR: .cards.cards4 ----------- */
+.cards.cards4 {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0;
+  background: #fff;
+}
