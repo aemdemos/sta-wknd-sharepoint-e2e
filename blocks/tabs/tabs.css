@@ -12,6 +12,7 @@
 
 
 
+
 /* -------- TAB LIST -------- */
 .tabs .tabs-list {
   display: flex;
@@ -477,3 +478,21 @@
   position: static;
   display: block;
 }
+
+/* BEGIN MERGED .tabs.tabs34 */
+.tabs.tabs34 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 56px auto 0;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  padding: 0;
+  gap: 0;
+}
+
+/* END MERGED .tabs.tabs34 */
