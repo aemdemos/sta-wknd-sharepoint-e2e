@@ -159,8 +159,8 @@
   font-size: 1.09em;
 }
 
-.columns.columns19 p:last-of-type,
-.columns.columns19 > div > div:first-child p {
+.columns.columns19 > div > div:first-child p,
+.columns.columns19 p:last-of-type {
   font-size: 1.07rem;
   color: #222;
   line-height: 1.7;
@@ -507,4 +507,13 @@
   border-radius: 10px;
   box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
   padding: 0;
+}
+
+/* Merged .columns.columns15 selector */
+.columns.columns15 {
+  background: #fff;
+  margin: 0 auto;
+  padding: 0;
+  /* HERO FLEX LAYOUT: much wider, aligns with outer content */
+  /* (from generated CSS, latest value wins on duplicate) */
 }
