@@ -17,6 +17,7 @@
 
 
 
+
 /* -------- TAB LIST -------- */
 .tabs .tabs-list {
   display: flex;
@@ -466,6 +467,7 @@
 
 .tabs.tabs10 {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   gap: 48px; /* space between sidebar and content */
   margin: 0 auto;
@@ -603,4 +605,16 @@
   padding: 0;
   border: none;
   box-shadow: none;
+}
+
+.tabs.tabs12 {
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 56px 60px;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
