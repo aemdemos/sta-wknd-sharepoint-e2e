@@ -13,6 +13,7 @@
 
 
 
+
 /* -------- TAB LIST -------- */
 .tabs .tabs-list {
   display: flex;
@@ -496,3 +497,66 @@
 }
 
 /* END MERGED .tabs.tabs34 */
+
+
+/* Merged selector for .tabs.tabs36 */
+.tabs.tabs36 {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1040px;
+  background: #fff;
+  box-shadow: none;
+  border: none;
+}
+
+.tabs.tabs36 .tabs-list {
+  margin-top: 0.5rem;
+  margin-bottom: 0.55rem;
+  gap: 0.22rem;
+  justify-content: flex-start;
+}
+
+.tabs.tabs36 .tabs-panel {
+  margin-top: 0;
+}
+
+.tabs.tabs36 .tabs-panel > div > p,
+.tabs.tabs36 .tabs-panel picture,
+.tabs.tabs36 .tabs-panel img,
+.tabs.tabs36 .tabs-panel > div > p:last-child {
+  max-width: 1040px;
+}
+
+.tabs.tabs36 .tabs-panel picture,
+.tabs.tabs36 .tabs-panel img {
+  margin: 2.1rem 0 0;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.tabs.tabs36 .tabs-panel > div > p:last-child {
+  margin-top: 0.13rem;
+  margin-bottom: 0;
+}
+
+.tabs.tabs36,
+.tabs.tabs36 .tabs-panel,
+.tabs.tabs36 .tabs-panel > div {
+  text-align: left;
+}
+
+@media (width <= 1100px) {
+  .tabs.tabs36 {
+    max-width: 99vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .tabs.tabs36 .tabs-panel > div > p,
+  .tabs.tabs36 .tabs-panel picture,
+  .tabs.tabs36 .tabs-panel img,
+  .tabs.tabs36 .tabs-panel > div > p:last-child {
+    max-width: 100%;
+  }
+}
+
