@@ -1,8 +1,8 @@
+/* stylelint-disable-next-line no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -21,12 +21,12 @@
   transition: background-color 0.2s;
 }
 
-.accordion details[open] summary {
+.accordion details summary:focus,
+.accordion details summary:hover {
   background-color: var(--light-color);
 }
 
-.accordion details summary:focus,
-.accordion details summary:hover {
+.accordion.details[open] summary {
   background-color: var(--light-color);
 }
 
@@ -59,3 +59,295 @@
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
 }
+
+/* --- Merged .accordion.accordion13 block starts here --- */
+.accordion.accordion13 {
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  visibility: visible;
+}
+
+.accordion.accordion13 > details,
+.accordion.accordion13 > .accordion-item {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.accordion.accordion13 > details {
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  margin: 0;
+  box-sizing: border-box;
+  display: block;
+  overflow: visible;
+}
+
+.accordion.accordion13 > details:last-child,
+.accordion.accordion13 > .accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion13 details + details,
+.accordion.accordion13 .accordion-item + .accordion-item {
+  margin-top: 0;
+}
+
+.accordion.accordion13 summary,
+.accordion.accordion13 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  background: #fff;
+  padding: 18px 2px 18px 24px;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  list-style: none;
+  user-select: none;
+  line-height: 1.5;
+  text-align: left;
+  transition: background 0.15s;
+  min-height: 56px;
+  box-sizing: border-box;
+  min-width: 0;
+  gap: 8px;
+  accent-color: #222;
+}
+
+.accordion.accordion13 summary::marker,
+.accordion.accordion13 summary::-webkit-details-marker {
+  font-size: 40px;
+  color: #222;
+  font-weight: bold;
+  filter: drop-shadow(0 0 1px #222);
+}
+
+.accordion.accordion13 .accordion-item-body {
+  padding: 18px 24px;
+  font-size: 16px;
+  color: #222;
+  background: #fff;
+  border: none;
+  margin: 0;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.accordion.accordion13 summary:focus,
+.accordion.accordion13 summary:hover,
+.accordion.accordion13 details[open] > summary {
+  background: #f7f7f7;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion13 {
+    max-width: 100vw;
+    margin: 36px 0;
+    padding: 0 2vw;
+  }
+
+  .accordion.accordion13 summary,
+  .accordion.accordion13 .accordion-item-label,
+  .accordion.accordion13 .accordion-item-body {
+    padding-left: 12px;
+    padding-right: 2px;
+  }
+}
+
+@media (width <= 600px) {
+  .accordion.accordion13 {
+    margin: 18px 0;
+    padding: 0 1vw;
+  }
+
+  .accordion.accordion13 summary,
+  .accordion.accordion13 .accordion-item-label {
+    font-size: 1rem;
+    padding: 12px 2px 12px 8px;
+    min-height: 44px;
+  }
+
+  .accordion.accordion13 .accordion-item-body {
+    font-size: 0.95rem;
+    padding: 10px 8px;
+    padding-bottom: 12px;
+  }
+}
+
+/* --- START GENERATED CSS --- */
+
+.accordion.accordion7 {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove all-around border, just bottom border for separation */
+.accordion.accordion7 > details,
+.accordion.accordion7 > .accordion-item {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.accordion.accordion7 > details:last-child,
+.accordion.accordion7 > .accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion7 > details + details,
+.accordion.accordion7 > .accordion-item + .accordion-item {
+  margin-top: 0;
+}
+
+/* FAQ row: generous, symmetrical padding, strong font, side-by-side text and icon */
+.accordion.accordion7 summary,
+.accordion.accordion7 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  background: #fff;
+  padding: 24px 48px;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  list-style: none;
+  user-select: none;
+  line-height: 1.5;
+  text-align: left;
+  box-sizing: border-box;
+  min-width: 0;
+  gap: 8px;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+/* Remove default marker */
+.accordion.accordion7 summary::-webkit-details-marker,
+.accordion.accordion7 summary::marker {
+  display: none;
+}
+
+/* Question text has no margin */
+.accordion.accordion7 .accordion-item-label p,
+.accordion.accordion7 summary p {
+  margin: 0;
+}
+
+/* Answer styling */
+.accordion.accordion7 .accordion-item-body {
+  padding: 0 48px 24px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #222;
+  background: #fff;
+  border: none;
+  margin: 0;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* Remove hover/focus background */
+.accordion.accordion7 summary:focus,
+.accordion.accordion7 summary:hover,
+.accordion.accordion7 details[open] > summary {
+  background: #fff;
+}
+
+/* Plus/minus icon using two pseudo-elements for the bars, perfectly centered
+   Now better spaced from the right edge and visually balanced with left padding */
+.accordion.accordion7 summary {
+  position: relative;
+}
+
+.accordion.accordion7 summary::before,
+.accordion.accordion7 summary::after {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  width: 22px;
+  height: 3.5px;
+  background: #222;
+  border-radius: 2px;
+  display: block;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+/* Vertical bar for plus */
+.accordion.accordion7 summary::before {
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 1;
+  z-index: 1;
+  content: "";
+}
+
+/* Horizontal bar for plus/minus */
+.accordion.accordion7 summary::after {
+  transform: translateY(-50%);
+  content: "";
+}
+
+/* When open, hide the vertical for minus effect */
+.accordion.accordion7 details[open] > summary::before {
+  opacity: 0;
+}
+
+/* Responsive adjustment for mobile */
+@media (width <= 900px) {
+  .accordion.accordion7 {
+    max-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .accordion.accordion7 summary,
+  .accordion.accordion7 .accordion-item-label,
+  .accordion.accordion7 .accordion-item-body {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .accordion.accordion7 summary::before,
+  .accordion.accordion7 summary::after {
+    right: 14px;
+    width: 16px;
+  }
+}
+
+/* --- END GENERATED CSS --- */
