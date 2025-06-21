@@ -1,4 +1,5 @@
 
+
 /*
  * Cards Base Styles
  */
@@ -633,3 +634,14 @@
     aspect-ratio: 16 / 10;
   }
 }
+
+.cards.cards40 {
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 8px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
