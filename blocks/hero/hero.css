@@ -48,7 +48,7 @@
   }
 }
 
-/* ---------- HERO 6 STYLES (moved up before HERO 4 for specificity) ---------- */
+/* ---------- HERO 6 STYLES (merged & deduped for specificity) ---------- */
 .hero.hero6 {
   position: relative;
   width: 100vw;
@@ -59,11 +59,13 @@
   align-items: stretch;
   box-sizing: border-box;
   overflow: visible;
+  background: none;
 }
 
 .hero.hero6 > div:first-child {
   width: 100vw;
-  height: 440px;
+  height: 640px;
+  min-height: 420px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -85,49 +87,52 @@
 .hero.hero6 > div:last-child {
   position: absolute;
   left: 50%;
-  top: 295px;
+  top: 510px;
   transform: translateX(-50%);
-  width: 85vw;
-  max-width: 1300px;
-  min-height: 56px;
+  width: 80vw;
+  max-width: 1150px;
+  min-height: 200px;
   background: #fff;
   box-sizing: border-box;
-  padding: 1.7rem 2.2rem;
+  padding: 56px 56px 96px;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   box-shadow: none;
   border-radius: 0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .hero.hero6 h2 {
-  font-family: var(--heading-font-family);
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 2.7rem;
   font-weight: 400;
-  color: #181818;
+  color: #222;
   margin: 0;
   padding: 0;
   text-align: left;
-  line-height: 1.15;
+  line-height: 1.2;
   width: 100%;
 }
 
 @media (width <= 900px) {
   .hero.hero6 > div:first-child {
-    height: 170px;
+    height: 220px;
+    min-height: 120px;
   }
 
   .hero.hero6 > div:last-child {
-    top: 60px;
+    top: 110px;
     width: 97vw;
     max-width: 99vw;
-    padding: 0.7rem 0.5rem;
+    min-height: 90px;
+    padding: 18px 10px 26px;
   }
 
   .hero.hero6 h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }
 
