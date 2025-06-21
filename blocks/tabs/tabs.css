@@ -5,6 +5,7 @@
 
 
 
+
 /* -------- TAB LIST -------- */
 .tabs .tabs-list {
   display: flex;
@@ -607,12 +608,13 @@
   }
 }
 
-/* --------- MERGED SELECTOR .tabs.tabs10 --------- */
-
-.tabs.tabs10 {
-  display: flex;
-  align-items: flex-start;
-  gap: 48px;
-  margin: 0 auto;
-  padding: 40px 0;
+/* --------- MERGED SELECTOR .tabs.tabs12 --------- */
+.tabs.tabs12 {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
 }
