@@ -90,14 +90,8 @@
 }
 
 /* minimal variant */
-.search.minimal ul.search-results {
-  display: block;
-  padding-left: 34px;
-}
-
-.search.minimal ul.search-results > li {
-  position: relative;
-  border: none;
+.search.minimal ul.search-results > li > a {
+  background-color: unset;
 }
 
 .search.minimal ul.search-results > li .search-result-title,
@@ -109,15 +103,15 @@
   color: var(--link-color);
 }
 
-/* stylelint-disable no-descending-specificity */
-.search.minimal ul.search-results > li > a {
-  background-color: unset;
-}
-
 .search.minimal ul.search-results > li > a:hover a,
 .search.minimal ul.search-results > li > a:focus a {
   text-decoration: underline;
   color: var(--link-hover-color);
+}
+
+.search.minimal ul.search-results > li {
+  position: relative;
+  border: none;
 }
 
 .search.minimal ul.search-results > li .search-result-image {
@@ -134,4 +128,91 @@
   height: 24px;
   width: 24px;
   border-radius: 50%;
+}
+
+/* ---- BEGIN MERGED SELECTOR ---- */
+.search.search5 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  min-height: 64px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 48px;
+}
+
+/* ---- END MERGED SELECTOR ---- */
+
+.search.search5 > .search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 10px 32px 10px 12px;
+  border-radius: 0;
+  gap: 10px;
+  min-width: 190px;
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: 0;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+}
+
+.search.search5 > .search-box .icon-search {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+}
+
+.search.search5 > .search-box .icon-search img {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.search.search5 > .search-box .search-input {
+  border: none;
+  background: transparent;
+  color: #666;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: inherit;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  width: 100%;
+  min-width: 70px;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.search.search5 > .search-box .search-input::placeholder {
+  color: #666;
+  opacity: 1;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.search.search5 > .search-results {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .search.search5 {
+    padding: 0 12px;
+    min-height: 48px;
+  }
+
+  .search.search5 > .search-box {
+    min-width: 120px;
+    max-width: 100%;
+    padding: 8px 10px 8px 9px;
+  }
 }
