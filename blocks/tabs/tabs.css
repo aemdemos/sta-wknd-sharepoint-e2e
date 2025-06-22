@@ -1,5 +1,6 @@
 
 
+
 .tabs .tabs-list {  display: flex;  gap: 0.5ch;  max-width: 100%;  font-size: var(--body-font-size-xs);  overflow-x: auto;}
 
 @media (width >= 600px) {  .tabs .tabs-list {    font-size: var(--body-font-size-s);  }}
@@ -22,7 +23,6 @@
   display: block;
 }
 
-/* --- TABS NAVIGATION BAR --- */
 .tabs.tabs17 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -69,7 +69,6 @@
   background: #f5f5f5;
 }
 
-/* --- HEADING/YELLOW DIVIDER --- */
 .tabs.tabs17 .tabs-panel > div > h3 {
   font-family: var(--heading-font-family), serif;
   font-size: 2rem;
@@ -86,7 +85,6 @@
   letter-spacing: 0;
 }
 
-/* Simulate yellow divider under the heading using next-sibling selector */
 .tabs.tabs17 .tabs-panel > div > h3 + * {
   position: relative;
 }
@@ -102,7 +100,6 @@
   content: "";
 }
 
-/* --- IMAGE & CAPTION --- */
 .tabs.tabs17 .tabs-panel picture,
 .tabs.tabs17 .tabs-panel img {
   display: block;
@@ -127,7 +124,6 @@
   display: block;
 }
 
-/* --- BODY TEXT --- */
 .tabs.tabs17 .tabs-panel p:not(:first-of-type) {
   font-size: 0.93rem;
   font-weight: 400;
@@ -137,7 +133,6 @@
   width: 100%;
 }
 
-/* --- LISTS --- */
 .tabs.tabs17 .tabs-panel ul {
   list-style-type: disc;
   margin-left: 28px;
@@ -157,7 +152,6 @@
   margin-bottom: 0;
 }
 
-/* --- PANEL/CONTENT AREA --- */
 .tabs.tabs17 .tabs-panel {
   border: none;
   background: #fff;
@@ -174,7 +168,6 @@
   align-items: flex-start;
 }
 
-/* --- RESPONSIVE ADJUSTMENTS --- */
 @media (width <= 900px) {
   .tabs.tabs17 {
     max-width: 100%;
@@ -207,7 +200,6 @@
   padding: 0;
 }
 
-/* === MERGED SELECTOR FOR .tabs.tabs23 === */
 .tabs.tabs23 {
   display: flex;
   flex-direction: row;
@@ -221,7 +213,6 @@
   position: relative;
 }
 
-/* ==== MERGED RESULT FOR .tabs.tabs24 ==== */
 .tabs.tabs24 {
   max-width: 750px;
   margin: 20px auto 56px 64px;
@@ -232,4 +223,13 @@
   flex-direction: column;
   align-items: flex-start;
   background: #fff;
+}
+
+.tabs.tabs27 {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 0;
+  background: #fff;
+  border: none;
+  box-shadow: none;
 }
