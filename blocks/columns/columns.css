@@ -1,10 +1,27 @@
+/* FLEX LAYOUT: COLUMNS PROPORTION AND TOP ALIGNMENT */
+.columns.columns11 {
+  max-width: 980px;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
 }
 
-.columns img {
+.columns img,
+.columns.columns11 img,
+.columns.columns11 picture {
+  display: block;
   width: 100%;
+  height: auto;
+  margin: 28px 0;
+  border-radius: 0;
+  max-width: 100%;
 }
 
 .columns > div > div {
@@ -19,6 +36,12 @@
   display: block;
 }
 
+.columns.columns11 > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
@@ -30,4 +53,240 @@
     flex: 1;
     order: unset;
   }
+
+  .columns.columns11 > div {
+    flex-direction: row;
+    gap: 56px;
+    align-items: flex-start;
+    /* Prevents extra vertical shift if content in main/side changes */
+  }
+
+  .columns.columns11 > div > div:first-child {
+    flex: 0 1 660px;
+    max-width: 660px;
+    min-width: 0;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
+  }
+
+  .columns.columns11 > div > div:last-child {
+    flex: 0 0 260px;
+    max-width: 260px;
+    min-width: 0;
+    padding-top: 0;
+    margin-top: 0;
+    /* Try a negative margin to align exactly with h1 if needed */
+    /* margin-top: -2px; */
+  }
+}
+
+/* SIDEBAR REFINEMENTS */
+.columns.columns11 > div > div:last-child {
+  color: #222;
+  font-size: 1rem;
+}
+
+.columns.columns11 h4,
+.columns.columns11 > div > div:last-child h4,
+.columns.columns11 h5,
+.columns.columns11 > div > div:last-child h5 {
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 0.95em;
+  margin-top: 2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.columns.columns11 > div > div:last-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns11 li,
+.columns.columns11 > div > div:last-child li {
+  border-bottom: 1px solid #f7f7f7;
+  margin-bottom: 1.7em;
+  padding-bottom: 1.2em;
+  color: #222;
+  font-size: 1.07rem;
+  line-height: 1.7;
+}
+
+.columns.columns11 > div > div:last-child li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.columns.columns11 > div > div:last-child a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  line-height: 1.48;
+}
+
+.columns.columns11 h2 a,
+.columns.columns11 h3 a,
+.columns.columns11 > div > div:last-child a {
+  color: #e2c16b;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.columns.columns11 > div > div:last-child a:hover {
+  text-decoration: underline;
+  color: #e2c16b;
+}
+
+/* TYPOGRAPHY REFINEMENTS */
+.columns.columns11 h1 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.6em;
+  margin-top: 0;
+  line-height: 1.15;
+}
+
+.columns.columns11 h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 2em;
+  margin-bottom: 0.7em;
+  line-height: 1.23;
+}
+
+.columns.columns11 h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.columns.columns11,
+.columns.columns11 p {
+  color: #222;
+  font-size: 1.07rem;
+  line-height: 1.7;
+}
+
+/* BLOCKQUOTE/DEFINITION BOX */
+.columns.columns11 blockquote {
+  background: #ededed;
+  border-left: 7px solid #e2c16b;
+  margin: 2.2em 0;
+  padding: 1.8em 2.2em;
+  font-style: normal;
+  color: #222;
+  font-size: 1.10em;
+}
+
+.columns.columns11 blockquote strong:first-child {
+  font-size: 1.14em;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.45em;
+}
+
+/* SOCIAL BUTTONS */
+.columns.columns11 .button-container {
+  display: inline-block;
+  margin-right: 2px;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.columns.columns11 .button-container .button {
+  display: inline-block;
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 7px 14px;
+  font-size: 0.92em;
+  font-weight: 500;
+  border-radius: 3px;
+  margin-right: 0;
+  margin-bottom: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.columns.columns11 .button-container .button:hover {
+  background: #e2c16b;
+  color: #222;
+}
+
+.columns.columns11 .button-container:last-child {
+  margin-right: 0;
+}
+
+.columns.columns11 > div > div:first-child > .button-container {
+  margin-top: 0.1em;
+}
+
+/* AUTHOR INFO AND SOCIAL ALIGNMENT */
+.columns.columns11 > div > div:first-child > h2#sofia-sjoberg,
+.columns.columns11 > div > div:first-child > p {
+  margin-bottom: 0.2em;
+}
+
+/* GENERAL VERTICAL SPACING */
+.columns.columns11 > div > div > * {
+  margin-bottom: 1.1em;
+}
+
+.columns.columns11 > div > div > *:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns11 blockquote,
+.columns.columns11 picture,
+.columns.columns11 img {
+  margin-bottom: 2.2em;
+}
+
+/* HEADING HIGHLIGHTS (underline/gold) */
+.columns.columns11 h2 u,
+.columns.columns11 h3 u {
+  color: #e2c16b;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+/* MOBILE ADAPTATION */
+@media (width <= 899px) {
+  .columns.columns11 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .columns.columns11 > div {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .columns.columns11 > div > div {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
+
+/* Remove double padding/margin on first-child h1 if needed */
+.columns.columns11 > div > div:first-child > h1:first-child {
+  margin-top: 0;
 }
