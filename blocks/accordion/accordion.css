@@ -1,8 +1,8 @@
+/* stylelint-disable-next-line no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,93 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+.accordion.accordion7 {
+  padding-left: 32px;
+  padding-right: 32px;
+  max-width: 630px;
+  width: 100%;
+  box-sizing: border-box;
+  background: none;
+  margin: 0;
+  display: block;
+}
+
+.accordion.accordion7 details {
+  border: none;
+  border-bottom: 1px solid #E6E6E6;
+  background: none;
+  margin: 0;
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+}
+
+.accordion.accordion7 summary,
+.accordion.accordion7 .accordion-item-label {
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #191919;
+  font-size: 1.07rem;
+  line-height: 1.2;
+  padding: 12px 0 10px;
+  padding-right: 40px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  user-select: none;
+  box-shadow: none;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.accordion.accordion7 summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion7 .accordion-item-body {
+  font-family: var(--body-font-family), Arial, sans-serif;
+  color: #191919;
+  font-size: 1rem;
+  padding: 0 0 14px;
+  background: none;
+  border: none;
+  display: block;
+}
+
+.accordion.accordion7 details p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.accordion.accordion7 details:first-child {
+  border-top: none;
+}
+
+.accordion.accordion7 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion7 summary:focus,
+.accordion.accordion7 summary:hover {
+  background: none;
+}
+
+.accordion.accordion7 details[open] summary {
+  background: none;
+}
+
+@media (width <= 700px) {
+  .accordion.accordion7 {
+    padding-left: 12px;
+    padding-right: 12px;
+    max-width: 100%;
+  }
 }
