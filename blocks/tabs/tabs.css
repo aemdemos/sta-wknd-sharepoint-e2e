@@ -1,4 +1,5 @@
 
+
 .tabs .tabs-list {  display: flex;  gap: 0.5ch;  max-width: 100%;  font-size: var(--body-font-size-xs);  overflow-x: auto;}
 
 @media (width >= 600px) {  .tabs .tabs-list {    font-size: var(--body-font-size-s);  }}
@@ -195,4 +196,13 @@
   .tabs.tabs17 .tabs-panel ul {
     font-size: 0.87rem;
   }
+}
+
+.tabs.tabs19 {
+  border: none;
+  box-shadow: none;
+  background: #fff;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0;
 }
