@@ -2,6 +2,7 @@
 
 
 
+
 .tabs .tabs-list {  display: flex;  gap: 0.5ch;  max-width: 100%;  font-size: var(--body-font-size-xs);  overflow-x: auto;}
 
 @media (width >= 600px) {  .tabs .tabs-list {    font-size: var(--body-font-size-s);  }}
@@ -251,4 +252,19 @@
   gap: 32px;
   overflow: visible;
   position: relative;
+}
+
+/* GENERATED CSS (unchanged except for .tabs.tabs30) */
+
+
+
+
+/* MERGED SELECTOR .tabs.tabs30 */
+.tabs.tabs30 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 8px 28px;
+  background: #fff;
+  border: none;
+  box-shadow: none;
 }
