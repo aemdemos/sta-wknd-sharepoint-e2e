@@ -26,8 +26,6 @@
   object-fit: cover;
 }
 
-/* Removed empty selector block: .cards.cards26 {} */
-
 .cards.cards26 > ul {
   display: flex;
   flex-direction: row;
@@ -108,5 +106,121 @@
 
   .cards.cards26 > ul > li {
     width: 100%;
+  }
+}
+
+.cards.cards31 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Layout: horizontal row for card list */
+.cards.cards31 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Card: vertical stack, consistent width, no border, white bg */
+.cards.cards31 ul > li {
+  background: #fff;
+  border: none;
+  width: 320px;
+  min-width: 260px;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Image: square aspect, covers area */
+.cards.cards31 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: block;
+  background: #eee;
+  line-height: 0;
+}
+
+.cards.cards31 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  display: block;
+  background: #eee;
+}
+
+/* Card body: vertical stack, controlled spacing below image */
+.cards.cards31 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title: allow wrapping, subtle spacing below, black, bold, uppercase */
+.cards.cards31 .cards-card-body strong,
+.cards.cards31 .cards-card-body strong a {
+  display: block;
+  color: #222;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+.cards.cards31 .cards-card-body strong a:hover,
+.cards.cards31 .cards-card-body strong a:focus {
+  color: #222;
+  text-decoration: none;
+}
+
+/* Description: correct medium gray, single-line, ellipsis */
+.cards.cards31 .cards-card-body p {
+  color: #7c7c7c;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* Remove any <br> line breaks in description */
+.cards.cards31 .cards-card-body br {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards31 ul {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .cards.cards31 ul > li {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 }
