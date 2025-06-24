@@ -1,3 +1,4 @@
+
 /*
 Tabs List Styling
 */
@@ -410,5 +411,19 @@ Tabs List Styling
   background: #fff;
   box-sizing: border-box;
   padding: 0;
+  position: relative;
+}
+
+.tabs.tabs15 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  border: none;
+  padding: 0;
+  min-height: 100vh;
   position: relative;
 }
