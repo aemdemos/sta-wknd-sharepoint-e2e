@@ -1,4 +1,5 @@
 
+
 /*
 Tabs List Styling
 */
@@ -427,3 +428,148 @@ Tabs List Styling
   min-height: 100vh;
   position: relative;
 }
+
+/* ===== GENERATED CSS (unchanged except .tabs.tabs19 merged below) ===== */
+
+.tabs.tabs19 .tabs-list {
+  border: none;
+  background: none;
+  gap: 40px;
+  margin-bottom: 12px;
+  max-width: 900px;
+  width: 100%;
+  padding: 0;
+  justify-content: flex-start;
+  box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.tabs.tabs19 .tabs-tab {
+  border: none;
+  background: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #222;
+  padding: 12px 36px;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.tabs.tabs19 .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs19 .tabs-tab p {
+  margin: 0;
+}
+
+.tabs.tabs19 .tabs-panel,
+.tabs.tabs19 .tabs-wrapper {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs.tabs19 .tabs-panel > div {
+  max-width: 900px;
+  margin: 0;
+  padding: 0;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs.tabs19 .tabs-panel h3 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 12px;
+  line-height: 1.1;
+  position: relative;
+  display: inline-block;
+  border-bottom: 4px solid #f5e463;
+  padding-bottom: 8px;
+}
+
+.tabs.tabs19 .tabs-panel h3::after {
+  display: none;
+}
+
+.tabs.tabs19 .tabs-panel picture,
+.tabs.tabs19 .tabs-panel img {
+  margin-top: 12px;
+  margin-bottom: 32px;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin-left: 0;
+}
+
+.tabs.tabs19 .tabs-panel p {
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 1.09rem;
+  color: #222;
+  line-height: 1.7;
+  margin: 0 0 1.3em;
+  max-width: 900px;
+  text-align: left;
+}
+
+.tabs.tabs19 .tabs-panel p:last-child {
+  margin-bottom: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs19 {
+    padding: 0 12px;
+    margin-top: 24px;
+  }
+
+  .tabs.tabs19 .tabs-list,
+  .tabs.tabs19 .tabs-panel > div {
+    max-width: 100%;
+  }
+
+  .tabs.tabs19 .tabs-panel picture,
+  .tabs.tabs19 .tabs-panel img {
+    max-width: 100%;
+    margin: 12px 0 28px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs19 .tabs-list {
+    gap: 12px;
+    font-size: 1rem;
+  }
+
+  .tabs.tabs19 .tabs-tab {
+    padding: 8px 16px;
+    font-size: 1rem;
+  }
+}
+
+/* ===== MERGED SELECTOR FOR .tabs.tabs19 ===== */
+
+.tabs.tabs19 {
+  border: none;
+  box-shadow: none;
+  background: #fff;
+  padding: 0 32px;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
