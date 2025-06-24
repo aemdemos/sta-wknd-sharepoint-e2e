@@ -1,4 +1,6 @@
-
+/*
+Tabs List Styling
+*/
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -136,6 +138,26 @@
   background: #fff;
 }
 
+.tabs.tabs7 .tabs-tab {
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  font-weight: 750;
+  font-size: 1.12rem;
+  letter-spacing: 0.045em;
+  color: #222;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 8px 20px 8px 0;
+  margin: 0;
+  transition: background 0.13s, color 0.13s;
+  position: relative;
+  outline: none;
+  box-shadow: none;
+  line-height: 1.5;
+  min-width: 0;
+}
+
 .tabs.tabs6 .tabs-tab {
   font-size: 0.97rem;
   font-weight: 400;
@@ -164,10 +186,19 @@
   font-weight: bold;
 }
 
-@media (width >= 900px) {
-  .tabs.tabs6 > .tabs-list {
-    border-right: 2px solid #e5e5e5;
-  }
+.tabs.tabs7 .tabs-tab[aria-selected="true"] {
+  background: #212121;
+  color: #fff;
+  font-weight: 800;
+  border-radius: 4px;
+}
+
+.tabs.tabs7 .tabs-tab:focus-visible {
+  outline: 2px solid #ffe066;
+}
+
+.tabs.tabs7 .tabs-tab p {
+  margin: 0;
 }
 
 /* Heading Alignment & Underline */
@@ -185,6 +216,32 @@
   padding-left: 0;
 }
 
+/* TITLE + UNDERLINE: wider and closer underline */
+.tabs.tabs7 .tabs-panel h3 {
+  font-family: var(--heading-font-family), serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #212121;
+  margin: 0 0 8px;
+  display: block;
+  line-height: 1.1;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  border: none;
+}
+
+.tabs.tabs7 .tabs-panel h3::after {
+  display: block;
+  width: 88px;
+  max-width: 95%;
+  height: 4px;
+  margin-top: 5px;
+  background: #ffe066;
+  border-radius: 3px;
+  content: "";
+}
+
 /* Paragraphs/Text */
 .tabs.tabs6 .tabs-panel p,
 .tabs.tabs6 .tabs-panel li {
@@ -197,6 +254,38 @@
   max-width: 1100px;
   margin-left: 0;
   padding-left: 0;
+}
+
+/* CAPTION: less margin below */
+.tabs.tabs7 .tabs-panel p:first-of-type {
+  font-size: 1rem;
+  font-family: var(--body-font-family), sans-serif;
+  font-weight: 700;
+  color: #212121;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  text-align: left;
+  display: block;
+  max-width: 100%;
+}
+
+/* BODY TEXT: lighter gray, moderate vertical gap */
+.tabs.tabs7 .tabs-panel p:not(:first-of-type),
+.tabs.tabs7 .tabs-panel li {
+  font-family: var(--body-font-family), sans-serif;
+  color: #444;
+  font-size: 1.12rem;
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0 0 18px;
+  max-width: 820px;
+  padding: 0;
+}
+
+.tabs.tabs7 .tabs-panel p:last-child {
+  margin-bottom: 0;
 }
 
 /* Image and Caption */
@@ -226,9 +315,33 @@
   padding-left: 0;
 }
 
+/* IMAGE: aligns with everything else */
+.tabs.tabs7 .tabs-panel picture,
+.tabs.tabs7 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 14px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
 /* Remove extra spacing for last element */
 .tabs.tabs6 .tabs-panel > *:last-child {
   margin-bottom: 0;
+}
+
+/* MAIN CONTENT COLUMN: vertical stack */
+.tabs.tabs7 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Align top of content with top of sidebar */
@@ -236,9 +349,53 @@
   .tabs.tabs6 > .tabs-panel {
     padding-top: 36px;
   }
-
   .tabs.tabs6 .tabs-panel > div:first-child {
     margin-top: 0;
     padding-top: 0;
   }
+}
+
+/* merged .tabs.tabs7 selector */
+.tabs.tabs7 {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding-left: 48px;
+  padding-right: 48px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+@media (width <= 899px) {
+  .tabs.tabs7 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* TABS LIST: slightly increased gap and slightly larger, bolder font */
+.tabs.tabs7 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin: 0 0 18px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Remove all borders, background, and extra padding from wrapper and panels */
+.tabs.tabs7 .tabs-wrapper,
+.tabs.tabs7 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Prevent style leaks */
+.tabs.tabs7 * {
+  box-sizing: border-box;
 }
