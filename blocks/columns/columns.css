@@ -1,11 +1,56 @@
+/*
+ * Order of selectors and rules has been adjusted to resolve 'no-descending-specificity' warnings.
+ * All other best practices and modernizations have been maintained.
+ */
+
+.columns img,
+.columns.columns28 p + img,
+.columns.columns28 p ~ img,
+.columns.columns28 p:first-of-type ~ p img,
+.columns > div > .columns-img-col img,
+.columns.columns20 .columns-img-col img {
+  width: 100%;
+  display: block;
+}
+
+.columns.columns28 p + picture,
+.columns.columns28 p ~ picture,
+.columns.columns28 p:first-of-type ~ p picture,
+.columns.columns20 .columns-img-col picture {
+  width: 100%;
+  display: block;
+}
+
+.columns.columns28 h2,
+.columns.columns28 h3,
+.columns.columns28 h1 ~ h2,
+.columns.columns28 h1 ~ h3,
+.columns.columns28 h4,
+.columns.columns28 h5,
+.columns.columns28 h6,
+.columns.columns28 p:not(:first-of-type),
+.columns.columns28 ol,
+.columns.columns28 nav,
+.columns.columns28 ul,
+.columns.columns28 .button-container,
+.columns.columns28 [class*='breadcrumbs'],
+.columns.columns28 .sidebar,
+.columns.columns28 .author,
+.columns.columns28 .navigation,
+.columns.columns28 .share,
+.columns.columns28 .magazine,
+.columns.columns28 .article,
+.columns.columns28 blockquote {
+  display: none;
+}
+
+.columns {
+  /* Rule to ensure columns styles are declared before more specific ones */
+}
 
 .columns > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns img {
-  width: 100%;
 }
 
 .columns > div > div {
@@ -16,22 +61,124 @@
   order: 0;
 }
 
-.columns > div > .columns-img-col img {
-  display: block;
-}
-
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
     gap: 24px;
   }
-
   .columns > div > div {
     flex: 1;
     order: unset;
   }
 }
+
+.columns.columns28 {
+  background: #fff;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 0 56px;
+  border-radius: 18px;
+  box-shadow: 0 8px 48px rgb(30 30 30 / 10%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Arrange image, headline, and message in correct visual order */
+.columns.columns28 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.columns.columns28 > div > p:first-of-type {
+  order: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns28 > div > h1 {
+  order: 2;
+  width: 100%;
+  text-align: center;
+  margin: 40px 0 24px;
+  font-size: 2.5rem;
+  font-family: var(--heading-font-family);
+  font-weight: 900;
+  color: #232323;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.columns.columns28 > div > p:first-of-type > picture,
+.columns.columns28 > div > p:first-of-type > img {
+  display: block;
+  margin: 0 auto 36px;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  background: #fff;
+}
+
+.columns.columns28 > div > p:first-of-type > picture {
+  width: 100%;
+}
+
+/* Center the paragraph text as message, with more space below headline and above image */
+.columns.columns28 > div > p:first-of-type > span,
+.columns.columns28 > div > p:first-of-type {
+  font-size: 1.16rem;
+  color: #505050;
+  text-align: center;
+  line-height: 1.65;
+  margin: 0 32px;
+  max-width: 500px;
+  padding-top: 0;
+  padding-bottom: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .columns.columns28 {
+    max-width: 98vw;
+    padding: 0 0 32px;
+    border-radius: 0;
+  }
+  .columns.columns28 > div > h1 {
+    font-size: 1.7rem;
+    margin: 28px 0 18px;
+  }
+  .columns.columns28 > div > p:first-of-type > picture,
+  .columns.columns28 > div > p:first-of-type > img {
+    max-width: 98vw;
+    margin-bottom: 26px;
+  }
+  .columns.columns28 > div > p:first-of-type > span,
+  .columns.columns28 > div > p:first-of-type {
+    font-size: 1.01rem;
+    margin: 0 4vw;
+    max-width: 95vw;
+  }
+}
+
+/* Remove bottom margin from root container if present */
+.columns.columns28 > div:last-child {
+  margin-bottom: 0;
+}
+
+/* ----------- columns20 Block ------------ */
 
 .columns.columns20 {
   margin: 0;
@@ -151,7 +298,6 @@
     flex-direction: column;
     min-height: 0;
   }
-
   .columns.columns20 > div > .columns-img-col,
   .columns.columns20 > div > div:not(.columns-img-col) {
     width: 100%;
@@ -159,7 +305,6 @@
     min-height: 220px;
     padding: 0;
   }
-
   .columns.columns20 > div > div:not(.columns-img-col) {
     background: #f4f4f4;
     padding: 24px 16px 32px;
