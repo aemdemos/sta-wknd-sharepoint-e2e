@@ -1,6 +1,7 @@
 
 
 
+
 /*
 Tabs List Styling
 */
@@ -584,4 +585,13 @@ Tabs List Styling
   padding: 0;
   background: #fff;
   box-sizing: border-box;
+}
+
+.tabs.tabs24 {
+  background: #fff;
+  max-width: 980px;
+  margin: 130px auto 80px;
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
