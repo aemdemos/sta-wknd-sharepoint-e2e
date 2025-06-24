@@ -302,6 +302,11 @@ Tabs List Styling
   padding-left: 0;
 }
 
+.tabs.tabs7 * {
+  box-sizing: border-box;
+}
+
+/* Merge duplicate '.tabs.tabs6 .tabs-panel picture + *' selectors and move it after '.tabs.tabs7 *' for proper specificity order */
 .tabs.tabs6 .tabs-panel picture + * {
   text-transform: uppercase;
   font-weight: bold;
@@ -349,6 +354,7 @@ Tabs List Styling
   .tabs.tabs6 > .tabs-panel {
     padding-top: 36px;
   }
+
   .tabs.tabs6 .tabs-panel > div:first-child {
     margin-top: 0;
     padding-top: 0;
@@ -395,7 +401,14 @@ Tabs List Styling
   margin: 0;
 }
 
-/* Prevent style leaks */
-.tabs.tabs7 * {
+.tabs.tabs13 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
   box-sizing: border-box;
+  padding: 0;
+  position: relative;
 }
