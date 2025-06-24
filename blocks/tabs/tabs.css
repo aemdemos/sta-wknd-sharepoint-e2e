@@ -3,6 +3,7 @@
 
 
 
+
 /*
 Tabs List Styling
 */
@@ -609,4 +610,31 @@ Tabs List Styling
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+/* ===== MERGED .tabs.tabs30 ===== */
+.tabs.tabs30 {
+  box-sizing: border-box;
+  background: #fff;
+  max-width: 1200px;
+  margin: 42px auto 0;
+  padding: 0 84px 44px;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (width <= 1200px) {
+  .tabs.tabs30 {
+    padding: 0 22px 30px;
+  }
+}
+
+@media (width <= 700px) {
+  .tabs.tabs30 {
+    padding: 0 4px 12px;
+    margin-top: 20px;
+  }
 }
