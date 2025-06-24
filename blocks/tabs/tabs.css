@@ -1,5 +1,6 @@
 
 
+
 /*
 Tabs List Styling
 */
@@ -573,3 +574,14 @@ Tabs List Styling
   align-items: flex-start;
 }
 
+/* ========== GENERATED CSS ========== */
+
+/* ===== MERGED .tabs.tabs21 SELECTOR ===== */
+.tabs.tabs21 {
+  display: block;
+  max-width: 1200px;
+  margin: 64px auto 0;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
