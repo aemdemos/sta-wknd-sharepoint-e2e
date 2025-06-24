@@ -1,3 +1,4 @@
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,139 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+.columns.columns20 {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns20 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  min-height: 520px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Left image column, slightly more than half */
+.columns.columns20 > div > .columns-img-col {
+  order: 0;
+  flex: 0 1 56%;
+  width: 56%;
+  min-width: 0;
+  min-height: 520px;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Right content column, slightly less than half, tighter vertical padding */
+.columns.columns20 > div > div:not(.columns-img-col) {
+  order: 1;
+  flex: 0 1 44%;
+  width: 44%;
+  min-width: 0;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 28px 56px;
+  box-sizing: border-box;
+  min-height: 520px;
+}
+
+/* Ensure image fills and crops */
+.columns.columns20 .columns-img-col picture,
+.columns.columns20 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* "Featured Article" label styling */
+.columns.columns20 > div > div:not(.columns-img-col) > p:first-child {
+  font-weight: 600;
+  font-size: 1.08rem;
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: #222;
+  line-height: 1.4;
+}
+
+/* Headline styling */
+.columns.columns20 > div > div:not(.columns-img-col) > h2 {
+  font-family: var(--heading-font-family), serif;
+  font-size: 2.55rem;
+  font-weight: 700;
+  margin: 0 0 22px;
+  line-height: 1.13;
+  color: #222;
+}
+
+/* Body paragraph styling, adjust spacing for tighter look */
+.columns.columns20 > div > div:not(.columns-img-col) > p:not(:first-child, .button-container) {
+  color: #222;
+  font-family: var(--body-font-family), sans-serif;
+  font-size: 1.07rem;
+  margin-bottom: 18px;
+  margin-top: 0;
+  line-height: 1.5;
+  max-width: 540px;
+}
+
+/* Button container & button styling, wider button and more space above */
+.columns.columns20 .button-container {
+  margin-top: 10px;
+}
+
+.columns.columns20 .button-container .button {
+  background: #ffe500;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.07rem;
+  padding: 16px 54px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  display: inline-block;
+}
+
+.columns.columns20 .button-container .button:hover,
+.columns.columns20 .button-container .button:focus {
+  background: #fff200;
+  color: #222;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns20 > div {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .columns.columns20 > div > .columns-img-col,
+  .columns.columns20 > div > div:not(.columns-img-col) {
+    width: 100%;
+    flex-basis: auto;
+    min-height: 220px;
+    padding: 0;
+  }
+
+  .columns.columns20 > div > div:not(.columns-img-col) {
+    background: #f4f4f4;
+    padding: 24px 16px 32px;
+    min-height: 0;
   }
 }
