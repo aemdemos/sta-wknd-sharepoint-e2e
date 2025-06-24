@@ -4,6 +4,7 @@
 
 
 
+
 /*
 Tabs List Styling
 */
@@ -637,4 +638,18 @@ Tabs List Styling
     padding: 0 4px 12px;
     margin-top: 20px;
   }
+}
+
+/* ===== MERGED .tabs.tabs34 SELECTOR ===== */
+.tabs.tabs34 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 56px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 0 56px;
+  gap: 0;
+  border: none;
 }
