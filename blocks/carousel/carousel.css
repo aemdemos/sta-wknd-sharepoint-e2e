@@ -1,4 +1,5 @@
 
+
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -633,4 +634,21 @@
     width: 100vw;
     max-width: 100vw;
   }
+}
+
+.carousel.carousel17 {
+  width: 1280px;
+  max-width: 100vw;
+  height: 660px;
+  min-height: 660px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
 }
