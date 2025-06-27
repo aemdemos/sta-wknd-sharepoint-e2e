@@ -1,5 +1,6 @@
 
 
+
 /*
   NOTE: Duplicate selectors are merged, keeping all unique properties and cascade order.
   All selectors are reordered to ensure higher-specificity selectors come after lower-specificity ones with similar targets, fixing 'no-descending-specificity'.
@@ -613,3 +614,17 @@
   min-height: 600px;
 }
 
+/* === GENERATED CSS (with merged .tabs.tabs18) === */
+
+.tabs.tabs18 {
+  display: flex;
+  flex-direction: row;
+  max-width: 1160px;
+  margin: 60px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-height: 700px;
+}
