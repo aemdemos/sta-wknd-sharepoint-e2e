@@ -1,4 +1,5 @@
 
+
 /*
   NOTE: Selectors are reordered to resolve 'no-descending-specificity' errors.
   Duplicate selectors are merged by removing the second occurrence keeping their rules in one block maintaining cascade order.
@@ -92,14 +93,18 @@
   display: none;
 }
 
+/* --- MERGED .tabs.tabs3 selector (from base and generated CSS) --- */
 .tabs.tabs3 {
-  max-width: 845px;
-  margin: 0 auto;
-  padding: 0 0 48px;
-  background: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
 /* TAB NAVIGATION */
@@ -231,11 +236,11 @@
 
 /* HEADLINE */
 .tabs.tabs3 .tabs-panel h3 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--heading-font-family), Georgia, 'Times New Roman', Times, serif;
   font-size: 2.5rem;
   font-weight: 400;
   color: #222;
-  margin: 0;
+  margin: 0 0 0.5em;
   display: inline-block;
   line-height: 1.13;
   letter-spacing: -0.01em;
@@ -592,4 +597,18 @@
   min-height: 600px;
   position: relative;
   font-family: var(--body-font-family);
+}
+
+/* --- MERGED .tabs.tabs3 selector --- */
+.tabs.tabs3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
 }
