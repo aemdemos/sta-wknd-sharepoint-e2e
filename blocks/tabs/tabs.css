@@ -1,3 +1,4 @@
+
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,142 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+.tabs.tabs3 {
+  max-width: 845px;
+  margin: 0 auto;
+  padding: 0 0 48px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* TAB NAVIGATION */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 12px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.tabs.tabs3 .tabs-list button {
+  background: #fff;
+  color: #222;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  padding: 13px 36px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.04rem;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  outline: none;
+}
+
+.tabs.tabs3 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 4%);
+}
+
+.tabs.tabs3 .tabs-list button p {
+  margin: 0;
+}
+
+/* PANEL LAYOUT */
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  background: #fff;
+  padding: 0;
+  margin-top: 0;
+  max-width: 845px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.tabs.tabs3 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+}
+
+/* HEADLINE */
+.tabs.tabs3 .tabs-panel h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0;
+  display: inline-block;
+  line-height: 1.13;
+  letter-spacing: -0.01em;
+  border-bottom: 4px solid #F8E16C;
+  padding-bottom: 14px;
+}
+
+/* BODY TEXT */
+.tabs.tabs3 .tabs-panel h3 + p {
+  margin-top: 24px;
+}
+
+.tabs.tabs3 .tabs-panel p {
+  font-size: 18px;
+  line-height: 27px;
+  color: #222;
+  margin-bottom: 0;
+  max-width: 845px;
+  padding: 0;
+}
+
+/* IMAGE & CAPTION */
+.tabs.tabs3 .tabs-panel picture,
+.tabs.tabs3 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 845px;
+  height: auto;
+  margin-top: 36px;
+  border-radius: 0;
+  object-fit: cover;
+  align-self: flex-start;
+}
+
+/* CAPTION */
+.tabs.tabs3 .tabs-panel p:last-child {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #202020;
+  margin-top: 14px;
+  margin-bottom: 0;
+  line-height: 1.3;
+  width: 100%;
+  letter-spacing: 0.03em;
+  text-align: left;
+  display: block;
+  padding: 0;
+}
+
+/* Ensure everything aligns left */
+.tabs.tabs3,
+.tabs.tabs3 .tabs-list,
+.tabs.tabs3 .tabs-panel,
+.tabs.tabs3 .tabs-panel > div {
+  align-items: flex-start;
 }
