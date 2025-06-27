@@ -1,3 +1,4 @@
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -44,4 +45,183 @@
   .hero {
     padding: 40px 32px;
   }
+}
+
+.hero.hero9 {
+  max-width: 900px;
+  margin: 56px auto 0;
+  background: #fff;
+  padding: 0 32px 80px;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+.hero.hero9 > div:first-child {
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero9 > div:first-child picture,
+.hero.hero9 > div:first-child img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  margin: 0 0 48px;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+}
+
+.hero.hero9 > div:last-child {
+  width: 100%;
+  padding: 0;
+  display: block;
+}
+
+.hero.hero9 h1 {
+  font-size: 2.55rem;
+  font-family: var(--heading-font-family), serif;
+  color: #232323;
+  font-weight: 700;
+  line-height: 1.10;
+  margin-bottom: 0.12em;
+  margin-top: 0.07em;
+  letter-spacing: 0.01em;
+}
+
+.hero.hero9 h4 {
+  font-size: 1.06rem;
+  font-family: Inter, Arial, sans-serif;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-bottom: 0.7em;
+  margin-top: 0;
+  line-height: 1.21;
+}
+
+.hero.hero9 h2 {
+  font-size: 1.33rem;
+  font-family: var(--heading-font-family), serif;
+  color: #232323;
+  font-weight: 700;
+  margin-top: 3.7em;
+  margin-bottom: 1.2em;
+  line-height: 1.18;
+  display: block;
+  position: relative;
+  background: transparent;
+  padding-bottom: 9px;
+  border: none;
+  box-shadow: none;
+  max-width: 100%;
+}
+
+.hero.hero9 h2::after {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #FFD700;
+  margin-top: 4px;
+  border-radius: 2px;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  left: 0;
+  content: "";
+}
+
+.hero.hero9 h3 {
+  font-size: 1.18rem;
+  font-family: var(--heading-font-family), serif;
+  color: #232323;
+  font-weight: 600;
+  margin-bottom: 0.89em;
+  margin-top: 2.3em;
+  line-height: 1.23;
+}
+
+.hero.hero9 p {
+  font-size: 1.15rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #232323;
+  line-height: 1.98;
+  margin-bottom: 1.56em;
+  margin-top: 1.23em;
+  text-align: justify;
+  background: transparent;
+}
+
+.hero.hero9 blockquote {
+  border-left: 4px solid #FFD700;
+  margin: 3.5em 0;
+  padding-left: 0.95em;
+  color: #232323;
+  font-style: italic;
+  font-size: 1.13rem;
+  background: none;
+  line-height: 2.0;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.hero.hero9 blockquote p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-style: inherit;
+}
+
+.hero.hero9 picture {
+  display: block;
+  position: static;
+  width: 100%;
+  margin: 4em 0;
+  background: none;
+}
+
+.hero.hero9 picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.hero.hero9 p > picture {
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+
+.hero.hero9 h2,
+.hero.hero9 h3 {
+  margin-top: 3.7em;
+  margin-bottom: 1.13em;
+}
+
+@media (width <= 900px) {
+  .hero.hero9 {
+    max-width: 100%;
+    padding: 0 10px 40px;
+  }
+  .hero.hero9 h1 { font-size: 1.32rem; }
+  .hero.hero9 h2 { font-size: 1.07rem; }
+
+  .hero.hero9 > div:first-child picture,
+  .hero.hero9 > div:first-child img {
+    max-height: 160px;
+    margin-bottom: 14px;
+  }
+
+  .hero.hero9 picture {
+    margin: 2.2em 0;
+  }
+}
+
+.hero.hero9 picture:last-of-type {
+  margin-bottom: 2.2em;
 }
