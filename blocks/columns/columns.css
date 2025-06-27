@@ -1,10 +1,49 @@
-.columns > div {
-  display: flex;
-  flex-direction: column;
+/* Columns main container */
+.columns {
+  width: 100vw;
+  background: #fff;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .columns img {
   width: 100%;
+}
+
+.columns picture,
+.columns img {
+  display: block;
+  max-width: 100%;
+  margin: 0.8em 0 0.85em;
+  border-radius: 7px;
+  box-shadow: 0 1px 4px 0 rgb(41 36 8 / 3%);
+  background: #fff;
+}
+
+.columns p,
+.columns li {
+  font-size: 0.97em;
+  color: #232118;
+  line-height: 1.58;
+  margin-bottom: 0.76em;
+  max-width: 720px;
+}
+
+.columns > div {
+  display: flex;
+  flex-direction: column;
+
+  /* Merged from below: */
+
+  /* Widen the block and minimize horizontal padding/gap */
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 1640px;
+  margin: 0 auto;
+  padding: 32px 0 48px;
+  background: #fff;
+  box-sizing: border-box;
 }
 
 .columns > div > div {
@@ -30,4 +69,172 @@
     flex: 1;
     order: unset;
   }
+}
+
+@media (width <= 1300px) {
+  .columns > div {
+    max-width: 99vw;
+    padding-left: 8px;
+    padding-right: 8px;
+    gap: 8px;
+  }
+}
+
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    gap: 0;
+    padding: 12px 0 18px;
+  }
+
+  .columns > div > div {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+/* Main content wider for editorial feel, longer line length */
+.columns > div > div:first-child {
+  flex: 2 1 0;
+  min-width: 0;
+  max-width: 1000px;
+  margin-right: 0;
+  box-sizing: border-box;
+}
+
+/* Sidebar: narrower, lighter, no shadow or border */
+.columns > div > div:last-child {
+  flex: 0 0 135px;
+  min-width: 120px;
+  max-width: 135px;
+  background: transparent;
+  border-radius: 0;
+  padding: 4px 0 0;
+  box-shadow: none;
+  margin-top: 0;
+  align-self: flex-start;
+  position: relative;
+  top: 0;
+  box-sizing: border-box;
+}
+
+/* Sidebar heading: lighter, smaller, tighter */
+.columns > div > div:last-child h5 {
+  text-transform: uppercase;
+  font-size: 0.88em;
+  color: #b8b199;
+  letter-spacing: 0.07em;
+  margin-top: 0;
+  margin-bottom: 7px;
+  font-family: var(--body-font-family), sans-serif;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* Sidebar links: no card, just underline, compact */
+.columns > div > div:last-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div > div:last-child li {
+  border-bottom: 1px solid #edeadf;
+  margin-bottom: 0;
+  padding: 5px 0 2px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.columns > div > div:last-child li:last-child {
+  border-bottom: none;
+}
+
+.columns > div > div:last-child a {
+  color: #232118;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.97em;
+  display: block;
+  transition: color 0.13s;
+  line-height: 1.25;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.columns > div > div:last-child a:hover {
+  color: #ccae62;
+  text-decoration: underline;
+}
+
+/* Headings: larger, thinner gold underline, much more top/bottom spacing */
+.columns h1 {
+  font-size: 2.25em;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  color: #232118;
+  margin-bottom: 0.2em;
+  margin-top: 0;
+  letter-spacing: -0.01em;
+}
+
+.columns h2 {
+  font-size: 1.23em;
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  color: #232118;
+  margin-top: 2.7em;
+  margin-bottom: 0.7em;
+  border-bottom: 1px solid #ccae62;
+  padding-bottom: 0.23em;
+  display: inline-block;
+  letter-spacing: 0;
+  background: none;
+}
+
+/* Byline: lighter, slightly darker for legibility */
+.columns h4 {
+  font-size: 0.97em;
+  color: #a3997b;
+  font-family: var(--body-font-family), sans-serif;
+  margin-top: 0.5em;
+  margin-bottom: 2em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Blockquotes: subtle, visible, gold border, more size */
+.columns blockquote {
+  background: #f5f4ed;
+  border-left: 3px solid #ccae62;
+  padding: 1.25em 1.1em;
+  margin: 1.2em 0 1.3em;
+  font-size: 1.09em;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  color: #837b64;
+  border-radius: 5px;
+  line-height: 1.58;
+}
+
+.columns blockquote p {
+  margin: 0;
+}
+
+.columns blockquote strong {
+  color: #7a735b;
+  font-weight: 500;
+}
+
+/* Reduce spacing between blocks, especially images/headings/quotes */
+.columns > div > div > *:not(:last-child) {
+  margin-bottom: 0.6em;
+}
+
+/* Remove unwanted overlay/language selector if present */
+.columns .language-selector,
+.columns .language-overlay {
+  display: none;
 }
