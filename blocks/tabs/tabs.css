@@ -36,10 +36,6 @@
   transition: background-color 0.2s;
 }
 
-.tabs .tabs-list button p {
-  margin: 0;
-}
-
 .tabs.tabs3 p,
 .tabs.tabs3 ul {
   font-family: var(--body-font-family), Arial, sans-serif;
@@ -48,6 +44,10 @@
   line-height: 1.6;
   margin: 0 0 28px;
   max-width: 845px;
+}
+
+.tabs .tabs-list button p {
+  margin: 0;
 }
 
 .tabs.tabs3 ul {
@@ -118,6 +118,7 @@
   box-sizing: border-box;
 }
 
+/* --------- TABS NAVIGATION (always horizontal in main content) -------- */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -136,7 +137,6 @@
   justify-content: flex-start;
 }
 
-/* --------- TABS NAVIGATION (always horizontal in main content) -------- */
 .tabs.tabs3 > div:last-child .tabs-list {
   display: flex;
   flex-direction: row;
@@ -290,7 +290,25 @@
   position: relative;
 }
 
-/* Display only the active panel */
+.tabs.tabs7 .tabs-panel p:not(:first-of-type) {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.7;
+  max-width: 850px;
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+
+.tabs.tabs7 .tabs-panel > div > p:first-of-type {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 22px;
+  margin-top: 0;
+  letter-spacing: 0.5px;
+}
+
 .tabs.tabs7 .tabs-panel {
   display: none;
   border: none;
@@ -324,29 +342,6 @@
   box-sizing: border-box;
 }
 
-.tabs.tabs7 .tabs-list {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  gap: 28px;
-  margin: 18px 0 30px;
-  width: 100%;
-  background: transparent;
-  border: none;
-  font-family: Montserrat, Arial, sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  text-transform: uppercase;
-  padding: 0;
-  box-shadow: none;
-  justify-content: flex-start;
-}
-
-/* Hide tabs-list if it ever appears in a sidebar */
-.tabs.tabs7 > div:first-child .tabs-list {
-  display: none;
-}
-
 /* Individual tab buttons: uppercase, bold, active styling */
 .tabs.tabs7 .tabs-tab {
   background: transparent;
@@ -374,26 +369,6 @@
   z-index: 1;
 }
 
-/* Caption: bold, uppercase, spacing */
-.tabs.tabs7 .tabs-panel > div > p:first-of-type {
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #222;
-  margin-bottom: 22px;
-  margin-top: 0;
-  letter-spacing: 0.5px;
-}
-
-.tabs.tabs7 .tabs-panel p:not(:first-of-type) {
-  font-size: 18px;
-  color: #444;
-  line-height: 1.7;
-  max-width: 850px;
-  margin-bottom: 18px;
-  margin-top: 0;
-}
-
 /* List styling */
 .tabs.tabs7 .tabs-panel ul {
   font-size: 18px;
@@ -415,6 +390,11 @@
   margin-bottom: 24px;
   background: #fff;
   box-sizing: border-box;
+}
+
+/* Hide tabs-list if it ever appears in a sidebar */
+.tabs.tabs7 > div:first-child .tabs-list {
+  display: none;
 }
 
 /* Responsive: stack and fill on small screens */
@@ -444,4 +424,19 @@
     padding: 7px 10px;
     font-size: 14px;
   }
+}
+
+/* ---- GENERATED CSS ---- */
+
+/* .tabs.tabs8 block replaced by merged version below */
+
+/* Merged .tabs.tabs8 */
+.tabs.tabs8 {
+  width: 100%;
+  max-width: unset;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #fff;
+  align-items: flex-start;
 }
