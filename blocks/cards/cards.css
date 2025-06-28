@@ -377,3 +377,9 @@
   background: transparent;
   padding: 0;
 }
+
+/* Merged .cards.cards21 selector */
+.cards.cards21 {
+  margin-top: 0;
+  padding-top: 0;
+}
