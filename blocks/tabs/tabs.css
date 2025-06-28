@@ -35,10 +35,23 @@
   transition: background-color 0.2s;
 }
 
+.tabs.tabs3 p,
+.tabs.tabs3 ul {
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 18px;
+  color: #222;
+  line-height: 1.6;
+  margin: 0 0 28px;
+  max-width: 845px;
+}
+
+.tabs.tabs3 ul {
+  padding-left: 24px;
+}
+
 .tabs .tabs-list button p {
   margin: 0;
 }
-
 
 .tabs .tabs-list button[aria-selected='true'] {
   border-bottom: 1px solid var(--background-color);
@@ -55,4 +68,181 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+.tabs.tabs3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0;
+  gap: 44px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Sidebar: only style vertical nav if truly sidebar meta, not for tab nav */
+.tabs.tabs3 > div:first-child {
+  flex: 0 0 220px;
+  max-width: 260px;
+  min-width: 200px;
+  padding: 0 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+/* Main content column */
+.tabs.tabs3 > div:last-child {
+  flex: 1 1 0;
+  max-width: 845px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* --------- TABS NAVIGATION (always horizontal in main content) -------- */
+.tabs.tabs3 > div:last-child .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 26px;
+  margin: 0 0 38px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding-left: 0;
+  width: 100%;
+}
+
+/* Hide tabs-list if it appears in sidebar (for safety: if your HTML puts it there) */
+.tabs.tabs3 > div:first-child .tabs-list {
+  display: none;
+}
+
+.tabs.tabs3 .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #222;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  text-transform: inherit;
+  padding: 10px 28px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+}
+
+.tabs.tabs3 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs3 .tabs-tab p {
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+}
+
+/* Remove panel border and space above */
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Heading styles */
+.tabs.tabs3 h3 {
+  font-family: var(--heading-font-family), serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+  color: #222;
+  margin: 0 0 8px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  line-height: 1.1;
+}
+
+.tabs.tabs3 h3::after {
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: #f8d34a;
+  border-radius: 2px;
+  margin-top: 8px;
+  content: "";
+}
+
+.tabs.tabs3 h2 {
+  font-family: var(--heading-font-family), serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  margin: 38px 0 22px;
+  line-height: 1.1;
+}
+
+/* Image styles */
+.tabs.tabs3 picture,
+.tabs.tabs3 img {
+  display: block;
+  width: 100%;
+  max-width: 845px;
+  height: auto;
+  margin-bottom: 32px;
+  margin-top: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Responsive for small screens */
+@media (width <= 1000px) {
+  .tabs.tabs3 {
+    flex-direction: column;
+    gap: 0;
+    margin: 24px 0 0;
+    max-width: 100vw;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs3 > div:first-child,
+  .tabs.tabs3 > div:last-child {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tabs.tabs3 picture,
+  .tabs.tabs3 img,
+  .tabs.tabs3 p,
+  .tabs.tabs3 ul {
+    max-width: 100%;
+  }
+}
+
+@media (width <= 650px) {
+  .tabs.tabs3 > div:last-child .tabs-list {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .tabs.tabs3 .tabs-tab {
+    padding: 7px 12px;
+    font-size: 14px;
+  }
 }
