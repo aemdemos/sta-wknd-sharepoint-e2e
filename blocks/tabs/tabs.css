@@ -1,4 +1,5 @@
 
+
 /* ---- TABS3 (side-by-side) ---- */
 .tabs .tabs-list {
   display: flex;
@@ -454,4 +455,19 @@
   gap: 40px;
   padding: 0;
   border: none;
+}
+
+/* ---- GENERATED CSS ---- */
+.tabs.tabs12 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1120px;
+  margin: 48px auto 0;
+  padding: 0 24px;
+  background: #fff;
+  box-sizing: border-box;
+  border: none;
+  overflow-x: hidden;
 }
