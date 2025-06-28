@@ -1,3 +1,4 @@
+
 /* Ensure empty lines before CSS rules as per rule-empty-line-before */
 
 .cards > ul {
@@ -253,3 +254,117 @@
     margin-bottom: 12px;
   }
 }
+
+.cards.cards15 {
+  /* Merged from both base and generated CSS. */
+
+  /* No properties in base, so only the generated (best) values remain. */
+}
+
+/* Begin generated CSS (unchanged except for merged selector above) */
+
+.cards.cards15 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.cards.cards15 > ul > li {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 25%;
+  width: 25%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+.cards.cards15 .cards-card-image {
+  width: 100%;
+  margin: 0;
+}
+
+.cards.cards15 .cards-card-image picture,
+.cards.cards15 .cards-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.cards.cards15 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  margin: 0;
+  padding: 10px 0 0;
+  width: 100%;
+}
+
+.cards.cards15 .cards-card-body .button-container {
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+.cards.cards15 .cards-card-body .button-container a.button.primary {
+  display: inline;
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #222;
+  font-family: var(--heading-font-family, serif);
+  font-weight: bold;
+  font-size: 1.11em;
+  text-transform: uppercase;
+  text-align: left;
+  border-radius: 0;
+  padding: 0;
+  line-height: 1.07;
+  letter-spacing: 0.01em;
+  margin: 0;
+  max-width: 100%;
+  overflow: visible;
+  white-space: normal;
+}
+
+.cards.cards15 .cards-card-body > p:not(.button-container) {
+  color: #949494;
+  font-size: 1em;
+  font-family: var(--body-font-family, sans-serif);
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 0;
+  line-height: 1.17;
+  max-width: 100%;
+}
+
+.cards.cards15 .cards-card-body > p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards15 > ul {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .cards.cards15 > ul > li {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
