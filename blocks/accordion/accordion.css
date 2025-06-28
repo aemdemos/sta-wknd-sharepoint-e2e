@@ -1,1 +1,138 @@
-.accordion details {  border: 1px solid #dadada;}/* stylelint-disable-next-line no-descending-specificity */.accordion details + details {  margin-top: 24px;}.accordion details p {  margin-bottom: 0.8em;}.accordion details summary {  position: relative;  padding: 0 16px;  padding-right: 46px;  cursor: pointer;  list-style: none;  overflow: auto;  transition: background-color 0.2s;}.accordion.accordion14 summary {  display: flex;  flex-direction: row;  align-items: center;  justify-content: space-between;  font-family: var(--body-font-family), Arial, sans-serif;  font-size: 18px;  font-weight: 700;  text-transform: uppercase;  letter-spacing: 0.02em;  color: #222;  background: transparent;  border: none;  outline: none;  cursor: pointer;  min-height: 0;  padding: 19px 22px;  box-shadow: none;  transition: none;}.accordion details[open] summary {  background-color: var(--light-color);}.accordion details summary:focus,.accordion details summary:hover {  background-color: var(--light-color);}.accordion details summary::-webkit-details-marker {  display: none;}.accordion.accordion14 summary::-webkit-details-marker {  display: none;}.accordion details summary::after {  content: '';  position: absolute;  top: 50%;  right: 18px;  transform: translateY(-50%) rotate(135deg);  width: 6px;  height: 6px;  border: 2px solid;  border-width: 2px 2px 0 0;  transition: transform 0.2s;}.accordion details[open] summary::after {  transform: translateY(-50%) rotate(-45deg);}.accordion details .accordion-item-body {  padding: 0 16px;}.accordion.accordion14 .accordion-item-body {  padding: 0 22px 18px;  background: transparent;  font-family: var(--body-font-family), Arial, sans-serif;  font-size: 16px;  color: #222;  line-height: 1.6;  border: none;  box-shadow: none;}.accordion details[open] .accordion-item-body {  border-top: 1px solid #dadada;  background-color: var(--background-color);}.accordion.accordion14 {  max-width: 820px;  margin-left: auto;  margin-right: auto;  background: transparent;  padding: 0;  box-shadow: none;}.accordion.accordion14 details {  border: none;  border-bottom: 2px solid #ebe9e6;  margin: 0;  padding: 0;  box-shadow: none;  background: transparent;}.accordion.accordion14 details + details {  margin-top: 0;}.accordion.accordion14 details:last-child {  border-bottom: none;}.accordion.accordion14 .accordion-item-label {  width: 100%;  display: flex;  flex-direction: row;  align-items: center;  padding: 0;}.accordion.accordion14 .accordion-item-label p {  margin: 0;  font: inherit;  color: inherit;  font-size: inherit;  font-weight: inherit;  text-transform: inherit;  letter-spacing: inherit;}@media (width <= 900px) {  .accordion.accordion14 {    max-width: 100%;    padding: 0 4px;  }  .accordion.accordion14 summary,  .accordion.accordion14 .accordion-item-body {    padding-left: 8px;    padding-right: 8px;  }}
+/* Accordion container */
+.accordion.accordion14 {
+  max-width: 820px;
+  width: 100%;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 40px 0 48px 32px;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* FAQ summary row: tune left/right padding for visual balance in the column */
+.accordion.accordion14 details summary,
+.accordion.accordion14 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 1.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #212121;
+  letter-spacing: 0.01em;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  min-height: 0;
+  padding: 22px 24px 22px 0;
+  box-shadow: none;
+  transition: background 0.18s;
+}
+
+/* Icon size in summary (SVG or font icon) */
+.accordion.accordion14 details summary svg,
+.accordion.accordion14 details summary .icon {
+  width: 1.5em;
+  height: 1.5em;
+  color: #222;
+  vertical-align: middle;
+}
+
+/* FAQ question alignment */
+.accordion.accordion14 .accordion-item-label p {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+/* Subtle divider and item background */
+.accordion.accordion14 details {
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+.accordion.accordion14 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion14 details:last-child {
+  border-bottom: none;
+}
+
+/* Accordion body: align with summary text */
+.accordion.accordion14 details .accordion-item-body {
+  padding: 0 24px 20px 0;
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 1em;
+  color: #212121;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+.accordion.accordion14 details[open] .accordion-item-body {
+  border-top: 1px solid #dadada;
+  background-color: var(--background-color);
+}
+
+/* Remove unnecessary vertical spacing */
+.accordion.accordion14 > *:first-child {
+  margin-top: 0;
+}
+
+.accordion.accordion14 > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Remove default arrow marker */
+.accordion.accordion14 details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom arrow for summary */
+.accordion.accordion14 details summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%) rotate(135deg);
+  width: 6px;
+  height: 6px;
+  border: 2px solid;
+  border-width: 2px 2px 0 0;
+  transition: transform 0.2s;
+}
+
+.accordion.accordion14 details[open] summary::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Interactivity states */
+.accordion.accordion14 details summary:hover,
+.accordion.accordion14 details summary:focus {
+  background: #f6f6f6;
+}
+
+/* Responsive: maintain column width and reduce left padding */
+@media (width <= 900px) {
+  .accordion.accordion14 {
+    max-width: 99vw;
+    padding: 24px 0 32px 8px;
+  }
+
+  .accordion.accordion14 details summary,
+  .accordion.accordion14 details .accordion-item-body {
+    padding-left: 0;
+    padding-right: 4px;
+  }
+}
