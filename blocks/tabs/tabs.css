@@ -1,3 +1,4 @@
+
 /* ---- TABS3 (side-by-side) ---- */
 .tabs .tabs-list {
   display: flex;
@@ -242,11 +243,13 @@
     max-width: 100vw;
     padding: 0 8px;
   }
+
   .tabs.tabs3 > div:first-child,
   .tabs.tabs3 > div:last-child {
     max-width: 100%;
     padding: 0;
   }
+
   .tabs.tabs3 picture,
   .tabs.tabs3 img,
   .tabs.tabs3 p,
@@ -260,6 +263,7 @@
     gap: 10px;
     font-size: 14px;
   }
+
   .tabs.tabs3 .tabs-tab {
     padding: 7px 12px;
     font-size: 14px;
@@ -277,17 +281,18 @@
   align-items: flex-start;
 }
 
+/* ======   .tabs.tabs11 merged block below   ====== */
 .tabs.tabs11 {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   max-width: 1200px;
   margin: 48px auto 0;
   background: #fff;
   box-sizing: border-box;
-  gap: 40px;
+  min-height: 100vh;
+  border: 1px solid #e0e0e0;
   padding: 0;
-  border: none;
 }
 
 .tabs.tabs12 {
@@ -418,4 +423,204 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+}
+
+/* ====== BEGIN GENERATED CSS (except for .tabs.tabs11 which is merged above) ====== */
+
+.tabs.tabs11 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 845px;
+  margin: 0 auto;
+  padding: 32px 32px 48px;
+  min-width: 0;
+  box-sizing: border-box;
+  background: #fff;
+  border-left: none;
+}
+
+/* Tabs list at content top, not in a sidebar */
+.tabs.tabs11 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 24px;
+  margin: 0 0 30px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  width: 100%;
+  order: 0;
+}
+
+/* Tab nav items */
+.tabs.tabs11 .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 3px 3px 0 0;
+  color: #222;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 32px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  line-height: 1.2;
+  min-width: 120px;
+  text-align: center;
+  outline: none;
+}
+
+.tabs.tabs11 .tabs-tab[aria-selected="true"] {
+  background: #111;
+  color: #fff;
+}
+
+.tabs.tabs11 .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+}
+
+.tabs.tabs11 .tabs-tab p {
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+}
+
+/* Headings */
+.tabs.tabs11 h3 {
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 0.4em;
+  margin-top: 0;
+  text-align: left;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: block;
+  line-height: 1.1;
+  border: none;
+  padding: 0;
+}
+
+.tabs.tabs11 h3::after {
+  display: block;
+  width: 58px;
+  height: 4px;
+  margin-top: 8px;
+  background: #F8D34E;
+  border-radius: 2px;
+  content: "";
+}
+
+.tabs.tabs11 h2 {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 1.1em;
+  margin-top: 1.25em;
+  text-align: left;
+  line-height: 1.22;
+}
+
+/* Paragraphs */
+.tabs.tabs11 p {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 18px;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 1.3em;
+  margin-top: 0;
+  text-align: justify;
+  max-width: 845px;
+}
+
+/* Images */
+.tabs.tabs11 picture,
+.tabs.tabs11 img {
+  display: block;
+  width: 100%;
+  max-width: 845px;
+  margin: 32px 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+/* Related trips list */
+.tabs.tabs11 ul {
+  list-style: disc inside;
+  padding-left: 20px;
+  margin-left: 0;
+  max-width: 700px;
+}
+
+.tabs.tabs11 ul li {
+  font-size: 17px;
+  color: #222;
+  margin-bottom: 0.7em;
+  line-height: 1.6;
+  padding-left: 0;
+}
+
+/* Block spacing - more generous vertical gaps, but more compact up top */
+.tabs.tabs11 > div > * + * {
+  margin-top: 2em;
+}
+
+.tabs.tabs11 > div > .tabs-list + * {
+  margin-top: 0.75em;
+}
+
+.tabs.tabs11::before {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs11 {
+    flex-direction: column;
+    padding-left: 0;
+    border: none;
+  }
+
+  .tabs.tabs11 > div {
+    max-width: 100%;
+    padding: 24px 8px;
+    border-left: none;
+  }
+
+  .tabs.tabs11 .tabs-list {
+    gap: 10px;
+    font-size: 14px;
+    padding: 0;
+  }
+
+  .tabs.tabs11 .tabs-tab {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 76px;
+  }
+
+  .tabs.tabs11 picture,
+  .tabs.tabs11 img,
+  .tabs.tabs11 p,
+  .tabs.tabs11 ul {
+    max-width: 100%;
+  }
 }
