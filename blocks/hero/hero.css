@@ -1,4 +1,5 @@
 
+
 /* Hero Container and Wrapper */
 .hero-container .hero-wrapper {
   max-width: unset;
@@ -248,7 +249,7 @@
   height: 660px;
   overflow: hidden;
   position: relative;
-  display: flex;
+  display: block;
   margin: 0;
   padding: 0;
 }
@@ -259,24 +260,22 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  margin: 0;
-  padding: 0;
 }
 
 .hero.hero6 > div:nth-child(2) {
   position: absolute;
   left: 50%;
-  top: 355px;
+  bottom: -12rem;
   transform: translateX(-50%);
   background: #fff;
-  padding: 40px 54px;
-  width: 72vw;
-  max-width: 1020px;
-  min-width: 320px;
+  padding: 2rem 2.2rem 0.7rem;
+  width: 70vw;
+  max-width: 900px;
+  min-width: 220px;
   box-sizing: border-box;
   z-index: 2;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   border-radius: 0;
   box-shadow: none;
   margin: 0;
@@ -284,13 +283,14 @@
 }
 
 .hero.hero6 > div:nth-child(2) h2 {
-  color: #111;
-  font-family: var(--heading-font-family), serif;
+  color: #222;
+  font-family: var(--heading-font-family), Georgia, Times, 'Times New Roman', serif;
   font-size: 2.5rem;
   font-weight: 400;
-  line-height: 1.22;
+  line-height: 1.18;
   margin: 0;
   text-align: left;
+  width: 100%;
 }
 
 .hero.hero6 ul,
@@ -305,16 +305,6 @@
   margin-bottom: 32px;
 }
 
-.hero.hero20 p {
-  font-family: var(--body-font-family);
-  font-size: 1.02rem;
-  color: #232323;
-  line-height: 1.7;
-  margin: 0;
-  max-width: 410px;
-}
-
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero9 {
     max-width: 100%;
@@ -327,14 +317,14 @@
   }
 
   .hero.hero6 > div:first-child {
-    height: 260px;
+    height: 220px;
   }
 
   .hero.hero6 > div:nth-child(2) {
     width: 97vw;
     max-width: 99vw;
-    padding: 20px 10px;
-    top: 120px;
+    padding: 1rem 0.8rem 0.6rem;
+    bottom: -2rem;
   }
 
   .hero.hero6 > div:nth-child(2) h2 {
@@ -672,3 +662,16 @@
     padding: 24px 10px;
   }
 }
+
+/* --------- GENERATED CSS --------- */
+
+.hero.hero6 {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Merged .hero.hero6 from both base and generated CSS */
