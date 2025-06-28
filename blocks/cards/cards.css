@@ -1,6 +1,3 @@
-
-
-
 /* Ensure empty lines before CSS rules as per rule-empty-line-before */
 
 .cards > ul {
@@ -127,6 +124,23 @@
   padding: 0;
 }
 
+.cards.cards26 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .cards.cards4 .cards-card-body p:first-child {
   font-family: var(--heading-font-family), Georgia, serif;
   font-size: 1.28rem;
@@ -136,6 +150,48 @@
   letter-spacing: 0.04em;
   margin-bottom: 2px;
   line-height: 1.22;
+}
+
+.cards.cards26 .cards-card-body p strong,
+.cards.cards26 .cards-card-body p strong a {
+  display: block;
+  color: #212121;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: normal;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.cards.cards13 .cards-card-body > p:first-child strong {
+  display: block;
+  font-family: var(--heading-font-family), serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 1.15;
+}
+
+.cards.cards26 .cards-card-body p br {
+  display: none;
+}
+
+.cards.cards26 .cards-card-body p strong a {
+  color: #212121;
+  text-decoration: none;
+}
+
+.cards.cards26 .cards-card-body p strong a:hover,
+.cards.cards26 .cards-card-body p strong a:focus {
+  color: #212121;
+  text-decoration: underline;
 }
 
 .cards.cards4 .cards-card-body p:last-child {
@@ -206,19 +262,6 @@
   width: 100%;
   max-width: 100%;
   display: block;
-}
-
-.cards.cards13 .cards-card-body > p:first-child strong {
-  display: block;
-  font-family: var(--heading-font-family), serif;
-  font-size: 2.5rem;
-  font-weight: 400;
-  color: #222;
-  margin-top: 12px;
-  margin-bottom: 20px;
-  text-transform: none;
-  letter-spacing: normal;
-  line-height: 1.15;
 }
 
 .cards.cards13 .cards-card-body p:last-child {
@@ -387,4 +430,59 @@
 
 .cards.cards24 {
   padding: 56px 0 0;
+}
+
+.cards.cards26 {
+  /* merged declarations from both base and generated CSS for this selector */
+}
+
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: flex-start;
+}
+
+.cards.cards26 > ul > li {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards26 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #eee;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards26 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.cards.cards26 .cards-card-body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
