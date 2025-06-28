@@ -4,6 +4,7 @@
 
 
 
+
 /* ---- TABS3 (side-by-side) ---- */
 .tabs .tabs-list {
   display: flex;
@@ -531,4 +532,17 @@
   padding: 0;
   background: #fff;
   box-sizing: border-box;
+}
+
+/* ---- MERGED RESULT: .tabs.tabs31 ---- */
+.tabs.tabs31 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0;
+  gap: 0;
 }
