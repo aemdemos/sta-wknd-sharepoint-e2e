@@ -1,5 +1,6 @@
 
 
+
 /* Ensure empty lines before CSS rules as per rule-empty-line-before */
 
 .cards > ul {
@@ -382,4 +383,8 @@
 .cards.cards21 {
   margin-top: 0;
   padding-top: 0;
+}
+
+.cards.cards24 {
+  padding: 56px 0 0;
 }
