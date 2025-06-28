@@ -3,6 +3,7 @@
 
 
 
+
 /* ---- TABS3 (side-by-side) ---- */
 .tabs .tabs-list {
   display: flex;
@@ -513,4 +514,21 @@
   box-sizing: border-box;
   gap: 0;
   padding: 0;
+}
+
+
+
+
+
+
+/* ---- GENERATED CSS ---- */
+
+.tabs.tabs30 {
+  display: block;
+  max-width: 1040px;
+  width: 100%;
+  margin: 40px 0 0;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
 }
