@@ -1,4 +1,5 @@
 
+
 /* Ensure empty lines before CSS rules as per rule-empty-line-before */
 
 .cards > ul {
@@ -368,3 +369,11 @@
   }
 }
 
+/* Merged selector for .cards.cards18 */
+
+.cards.cards18 {
+  max-width: 1200px;
+  margin: 0 auto 64px;
+  background: transparent;
+  padding: 0;
+}
