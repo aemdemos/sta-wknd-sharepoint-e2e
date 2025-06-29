@@ -8,6 +8,7 @@
 
 
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -601,5 +602,19 @@
   margin: 72px auto 0;
   background: #fff;
   box-sizing: border-box;
+  padding: 0;
+}
+
+/* ==== MERGED .tabs.tabs34 BELOW ==== */
+.tabs.tabs34 {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 1120px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
   padding: 0;
 }
