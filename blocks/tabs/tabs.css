@@ -1,6 +1,7 @@
 
 
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -495,5 +496,20 @@
   padding: 0;
   display: block;
   background: #fff;
+  box-sizing: border-box;
+}
+
+/* ---- GENERATED CSS ---- */
+
+/* ---- MERGED .tabs.tabs15 SELECTOR BELOW ---- */
+.tabs.tabs15 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
