@@ -47,177 +47,91 @@ main > .section:first-of-type {
   height: 100%;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
-  }
-}
-
-.hero.hero4 {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 100vw;
-  min-height: 540px;
-  height: 60vh;
-  align-items: stretch;
-  margin: 0;
-  padding: 0;
+/* --- HERO 13 --- */
+.hero.hero13 > div:first-child {
+  width: 260px;
+  min-width: 220px;
+  max-width: 300px;
+  flex: 0 0 260px;
+  background: #fff;
+  padding: 40px 24px 40px 0;
   box-sizing: border-box;
-  overflow-x: hidden;
-  position: relative;
-}
-
-.hero.hero4 > div {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.hero.hero4 > div:first-child {
-  flex: 3 1 0;
-  min-width: 0;
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-  background: none;
-  position: relative;
-}
-
-.hero.hero4 > div:last-child {
-  flex: 2 1 0;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ededed;
-  height: 100%;
-  box-sizing: border-box;
-  position: relative;
-}
-
-.hero.hero4 > div:first-child > div,
-.hero.hero4 > div:first-child picture {
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
-}
-
-.hero.hero4 > div:first-child img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  min-height: 100%;
-  display: block;
-  background: none;
-  border: none;
-  position: relative;
-}
-
-.hero.hero4 > div:last-child > div {
-  width: 100%;
-  max-width: 500px;
-  margin: 0;
-  padding: 56px 48px;
+  border-right: 1px solid #eaeaea;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-.hero.hero4 > div:last-child p:first-child {
-  font-size: 16px;
-  font-weight: 400;
-  color: #222;
-  margin: 0 0 20px;
-  text-align: left;
-}
-
-.hero.hero4 > div:last-child h2 {
-  font-size: 2.4rem;
-  font-family: var(--heading-font-family, serif);
-  font-weight: 700;
-  color: #222;
-  margin: 0 0 28px;
-  line-height: 1.16;
-  text-align: left;
-}
-
-.hero.hero4 > div:last-child > div > p:not(:first-child):not(.button-container) {
-  font-size: 1.08rem;
-  color: #444;
-  margin: 0 0 36px;
-  line-height: 1.6;
-  text-align: left;
-}
-
-.hero.hero4 .button-container {
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-.hero.hero4 .button {
-  background: #ffe600;
-  color: #222;
-  border-radius: 0;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  padding: 13px 36px;
-  border: none;
-  font-size: 1rem;
-  box-shadow: none;
-  margin: 0;
-  display: inline-block;
-  transition: background 0.2s, color 0.2s;
-}
-
-.hero.hero4 .button:hover,
-.hero.hero4 .button:focus {
-  background: #e6d200;
-  color: #000;
-}
-
-@media (width <= 900px) {
-  .hero.hero4 {
-    flex-direction: column;
-    min-height: 0;
-    height: auto;
-    width: 100vw;
-  }
-
-  .hero.hero4 > div:first-child,
-  .hero.hero4 > div:last-child {
-    width: 100%;
-    min-width: 0;
-    max-width: 100vw;
-    height: auto;
-  }
-
-  .hero.hero4 > div:first-child img {
-    min-height: 240px;
-    height: 220px;
-  }
-
-  .hero.hero4 > div:last-child > div {
-    padding: 32px 16px;
-    max-width: 100vw;
-  }
-}
-
-.hero.hero6 {
-  position: relative;
-  width: 100vw;
-  margin: 0 auto;
-  padding: 0;
-  overflow: visible;
-  background: none;
+.hero.hero13 > div:first-child picture,
+.hero.hero13 > div:first-child img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
   display: block;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
+.hero.hero13 > div:last-child {
+  flex: 1 1 0;
+  background: #fff;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero.hero13 > div:last-child h1 {
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: #222;
+  margin: 0 0 16px;
+  position: relative;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.hero.hero13 > div:last-child h1::after {
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ffe066;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.hero.hero13 > div:last-child h2 {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: 2rem;
+  color: #222;
+  margin: 36px 0 18px;
+  line-height: 1.18;
+}
+
+.hero.hero13 > div:last-child h3 {
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #222;
+  margin: 10px 0 20px;
+}
+
+.hero.hero13 > div:last-child p {
+  font-size: 18px;
+  color: #222;
+  line-height: 1.6;
+  margin: 18px 0 0;
+  max-width: 800px;
+}
+
+/* --- HERO 6 --- */
 .hero.hero6 > div:first-child {
   width: 100vw;
   min-height: 770px;
@@ -282,6 +196,135 @@ main > .section:first-of-type {
   display: none;
 }
 
+/* --- HERO 4 --- */
+.hero.hero4 > div {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero4 > div:first-child {
+  flex: 3 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  background: none;
+  position: relative;
+}
+
+.hero.hero4 > div:last-child {
+  flex: 2 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ededed;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.hero.hero4 > div:first-child > div,
+.hero.hero4 > div:first-child picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.hero.hero4 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 100%;
+  display: block;
+  background: none;
+  border: none;
+  position: relative;
+}
+
+.hero.hero4 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 540px;
+  height: 60vh;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.hero.hero4 > div:last-child > div {
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.hero.hero4 > div:last-child p:first-child {
+  font-size: 16px;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 20px;
+  text-align: left;
+}
+
+.hero.hero4 > div:last-child h2 {
+  font-size: 2.4rem;
+  font-family: var(--heading-font-family, serif);
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 28px;
+  line-height: 1.16;
+  text-align: left;
+}
+
+.hero.hero4 > div:last-child > div > p:not(:first-child, .button-container) {
+  font-size: 1.08rem;
+  color: #444;
+  margin: 0 0 36px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.hero.hero4 .button-container {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.hero.hero4 .button {
+  background: #ffe600;
+  color: #222;
+  border-radius: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 13px 36px;
+  border: none;
+  font-size: 1rem;
+  box-shadow: none;
+  margin: 0;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero.hero4 .button:hover,
+.hero.hero4 .button:focus {
+  background: #e6d200;
+  color: #000;
+}
+
 @media (width <= 900px) {
   .hero.hero6 > div:first-child,
   .hero.hero6 picture,
@@ -300,4 +343,67 @@ main > .section:first-of-type {
   .hero.hero6::after {
     width: 98vw;
   }
+
+  .hero.hero4 {
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+    width: 100vw;
+  }
+
+  .hero.hero4 > div:first-child,
+  .hero.hero4 > div:last-child {
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+    height: auto;
+  }
+
+  .hero.hero4 > div:first-child img {
+    min-height: 240px;
+    height: 220px;
+  }
+
+  .hero.hero4 > div:last-child > div {
+    padding: 32px 16px;
+    max-width: 100vw;
+  }
+
+  .hero.hero13 {
+    flex-direction: column;
+    max-width: 100vw;
+    margin: 0 0 32px;
+  }
+
+  .hero.hero13 > div:first-child {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    border-right: none;
+    border-bottom: 1px solid #eaeaea;
+    padding: 24px 16px 12px;
+  }
+
+  .hero.hero13 > div:last-child {
+    width: 100%;
+    padding: 24px 16px 32px;
+  }
+
+  .hero.hero13 > div:last-child p {
+    max-width: 100%;
+  }
+}
+
+.hero.hero13 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: #fff;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  box-shadow: none;
+  border-radius: 0;
+  position: relative;
+  padding: 0;
+  gap: 0;
 }
