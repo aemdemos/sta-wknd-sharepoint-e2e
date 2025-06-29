@@ -1,5 +1,3 @@
-
-
 main > .hero-wrapper,
 main > div.hero-wrapper,
 main > .section:first-of-type {
@@ -10,6 +8,18 @@ main > .section:first-of-type {
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
+}
+
+/* --- MERGED .hero.hero6 SELECTOR --- */
+.hero.hero6 {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  overflow: visible;
+  background: none;
+  display: block;
 }
 
 .hero {
@@ -158,44 +168,62 @@ main > .section:first-of-type {
 /* --- HERO 6 --- */
 .hero.hero6 > div:first-child {
   width: 100vw;
-  min-height: 770px;
-  display: block;
-  position: relative;
+  max-width: 100vw;
+  height: 500px;
+  min-height: 320px;
+  max-height: 640px;
   overflow: hidden;
-}
-
-.hero.hero6 picture,
-.hero.hero6 img {
-  display: block;
-  width: 100vw;
-  min-height: 770px;
-  height: 770px;
-  object-fit: cover;
-  max-width: none;
-}
-
-.hero.hero6 > div:nth-child(2) {
   position: relative;
-  width: 90vw;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -175px;
-  background: #fff;
-  padding: 2.8em 2.2em 3em;
-  box-sizing: border-box;
-  z-index: 2;
-  border-radius: 0;
-  box-shadow: none;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  display: block;
+  background: none;
 }
 
+/* Ensure image fills area and crops properly */
+.hero.hero6 > div:first-child picture,
+.hero.hero6 > div:first-child img {
+  width: 100vw;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+  position: static;
+  max-width: unset;
+  min-width: unset;
+  min-height: unset;
+  max-height: unset;
+  margin: 0;
+}
+
+/* Headline box: lower it for less overlap, make it a bit wider */
+.hero.hero6 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 200px;
+  width: 85vw;
+  max-width: 1050px;
+  background: #fff;
+  padding: 2em 1.5em;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  margin: 0;
+}
+
+/* Headline text: left-aligned, strong presence */
 .hero.hero6 h2 {
   color: #222;
   font-family: var(--heading-font-family, Georgia, Times New Roman, Times, serif);
-  font-size: 2.6em;
+  font-size: 2.5em;
   font-weight: 400;
   margin: 0;
   text-align: left;
@@ -223,7 +251,6 @@ main > .section:first-of-type {
 /* --- HERO 4 --- */
 
 /* Merged .hero.hero4 selector */
-
 .hero.hero4 {
   display: flex;
   flex-direction: row;
@@ -518,109 +545,4 @@ main > .section:first-of-type {
 .hero.hero27 .button:focus {
   background: #e6d200;
   color: #000;
-}
-
-
-/* --- GENERATED CSS (EXCEPT .hero.hero39) --- */
-
-.hero.hero39 > div:first-child {
-  position: relative;
-  width: 100%;
-  height: 800px;
-  min-height: 600px;
-  z-index: 1;
-  overflow: hidden;
-  display: block;
-}
-
-.hero.hero39 > div:first-child picture,
-.hero.hero39 > div:first-child img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 600px;
-  max-height: 800px;
-  object-fit: cover;
-  pointer-events: none;
-  user-select: none;
-}
-
-.hero.hero39 > div:nth-child(2) {
-  position: absolute;
-  left: 5vw;
-  right: 5vw;
-  bottom: 80px; 
-  background: #fff;
-  padding: 2.8em 3em 2.8em 2.8em;
-  box-sizing: border-box;
-  max-width: 90vw;
-  margin: 0 auto;
-  border-radius: 0;
-  box-shadow: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  z-index: 2;
-  transform: none; 
-}
-
-.hero.hero39 h2 {
-  font-family: var(--heading-font-family, Georgia, "Times New Roman", serif);
-  font-size: 2.6rem;
-  font-weight: 400;
-  color: #202020;
-  margin: 0 0 1.2rem;
-  line-height: 1.15;
-  letter-spacing: 0;
-  text-align: left;
-}
-
-.hero.hero39 p {
-  font-family: var(--body-font-family, "Source Sans Pro", Arial, sans-serif);
-  font-size: 1.125rem;
-  color: #202020;
-  line-height: 1.75;
-  margin: 0;
-  text-align: left;
-  max-width: 100%;
-}
-
-@media (width <= 900px) {
-  .hero.hero39 > div:first-child,
-  .hero.hero39 > div:first-child picture,
-  .hero.hero39 > div:first-child img {
-    height: 340px;
-    min-height: 220px;
-    max-height: 380px;
-  }
-
-  .hero.hero39 > div:nth-child(2) {
-    left: 0;
-    right: 0;
-    padding: 1.2em 1em;
-    max-width: 100vw;
-    bottom: 24px;
-  }
-
-  .hero.hero39 {
-    min-height: 320px;
-  }
-
-  .hero.hero39 h2 {
-    font-size: 2rem;
-  }
-
-  .hero.hero39 p {
-    font-size: 1rem;
-  }
-}
-
-.hero.hero39 {
-  position: relative;
-  width: 100vw;
-  min-height: 800px;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  display: block;
 }
