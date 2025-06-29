@@ -1,3 +1,4 @@
+
 /* Main carousel styles */
 
 .carousel .carousel-slides-container {
@@ -359,3 +360,92 @@
     padding-top: 3px;
   }
 }
+
+.carousel.carousel22 {
+  position: relative;
+  background: none;
+  overflow: hidden;
+}
+
+/* Generated CSS .carousel.carousel22 .carousel-slide-content merged as below */
+.carousel.carousel22 .carousel-slide-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 36px;
+  width: 100%;
+  max-width: none;
+  background: #fff;
+  color: #131313;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 8px 36px 10px rgb(0 0 0 / 9%), 0 2px 8px 0 rgb(0 0 0 / 3%);
+  z-index: 3;
+  padding: 36px 56px 32px;
+  margin: 0;
+  min-height: 120px;
+  height: auto;
+  display: block;
+  border-top: 1px solid rgb(0 0 0 / 7%);
+}
+
+@media (width <= 899px) {
+  .carousel.carousel22 .carousel-slide-content {
+    left: 0;
+    right: 0;
+    bottom: 14px;
+    padding: 18px 14px 14px;
+    border-radius: 0 0 12px 12px;
+    min-width: unset;
+    max-width: 100vw;
+  }
+}
+
+.carousel.carousel22 .carousel-slide-content h2 {
+  font-size: 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  margin: 0 0 14px;
+  line-height: 1.12;
+  color: #131313;
+  text-align: left;
+}
+
+.carousel.carousel22 .carousel-slide-content p {
+  font-size: 1.03rem;
+  font-weight: 400;
+  margin: 0 0 16px;
+  line-height: 1.55;
+  color: #131313;
+  text-align: left;
+}
+
+.carousel.carousel22 .carousel-slide-content .button-container {
+  text-align: left;
+}
+
+.carousel.carousel22 .carousel-slide-content .button-container .button {
+  background: #ffe600;
+  color: #111;
+  border-radius: 0;
+  border: none;
+  font-weight: 700;
+  font-size: 1.04rem;
+  padding: 14px 32px;
+  margin: 0;
+  box-shadow: none;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  transition: background 0.15s;
+  line-height: 1.1;
+}
+
+/* Adjust image so it fills to the very edge */
+.carousel.carousel22 .carousel-slide .carousel-slide-image,
+.carousel.carousel22 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel22 .carousel-slide .carousel-slide-image img {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+/* Indicators/arrows still overlay image, below panel, unchanged from last version */
