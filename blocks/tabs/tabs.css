@@ -6,6 +6,7 @@
 
 
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -572,4 +573,19 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+/* ===================== MERGED .tabs.tabs25 SELECTOR BELOW ====================== */
+
+.tabs.tabs25 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  min-height: 700px;
+  padding: 0;
+  gap: 0;
 }
