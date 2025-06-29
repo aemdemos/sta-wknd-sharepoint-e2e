@@ -39,7 +39,7 @@
 .cards.cards21 ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px 24px; /* slightly tighter vertical gap for match */
+  gap: 20px 24px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -47,7 +47,6 @@
   justify-content: flex-start;
 }
 
-/* Even columns, flush to edges */
 .cards.cards21 ul > li {
   box-sizing: border-box;
   flex: 0 1 calc(25% - 18px);
@@ -103,7 +102,7 @@
   font-size: 18px;
   font-weight: bold;
   color: #000;
-  margin-bottom: 6px; /* slightly tighter than 8px for closer match */
+  margin-bottom: 6px;
   line-height: 20px;
   font-family: inherit;
   letter-spacing: 0.01em;
@@ -170,6 +169,37 @@
   line-height: 0;
 }
 
+.cards.cards30 {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+.cards.cards30 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.cards.cards30 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 268px;
+  min-width: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.cards.cards30 .cards-card-body p,
 .cards.cards26 .cards-card-body p,
 .cards.cards26 .cards-card-body strong {
   margin: 0;
@@ -201,7 +231,6 @@
   padding: 0;
 }
 
-/* Remove all space above the title for a tighter stack */
 .cards.cards26 .cards-card-body {
   width: 100%;
   padding: 0;
@@ -265,7 +294,6 @@
   margin: 0;
 }
 
-/* Card grid as flex row with wrap; tighter gaps */
 .cards.cards24 > ul {
   display: flex;
   flex-flow: row wrap;
@@ -278,7 +306,6 @@
   max-width: 1100px;
 }
 
-/* Card: fixed width, centered content */
 .cards.cards24 > ul > li {
   display: flex;
   flex-direction: column;
@@ -291,16 +318,11 @@
   width: 220px;
 }
 
-/* Center the second row of 3 cards under the top row of 4 cards */
 .cards.cards24 > ul > li:nth-child(n+5) {
   margin-top: 42px;
 }
 
 .cards.cards24 > ul > li:nth-child(5) {
-  /* Center three cards under four:
-     4*220 + 3*24 = 964 (row 1 width)
-     3*220 + 2*24 = 684 (row 2 width)
-     Left margin = (964 - 684)/2 = 140px */
   margin-left: 140px;
 }
 
@@ -309,7 +331,6 @@
   margin-left: 0;
 }
 
-/* Card image: circular, centered */
 .cards.cards24 .cards-card-image {
   display: flex;
   justify-content: center;
@@ -328,7 +349,6 @@
   display: block;
 }
 
-/* Card content: centered */
 .cards.cards24 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -338,7 +358,6 @@
   width: 100%;
 }
 
-/* Name: serif, bold, centered */
 .cards.cards24 .cards-card-body p:first-child strong {
   font-family: var(--heading-font-family);
   font-size: 1.5rem;
@@ -352,7 +371,6 @@
   display: block;
 }
 
-/* Subtitle (Roles): uppercase, centered */
 .cards.cards24 .cards-card-body p:nth-child(2) {
   font-family: var(--body-font-family);
   text-transform: uppercase;
@@ -365,7 +383,6 @@
   white-space: normal;
 }
 
-/* Socials row: centered, icon button bar look, tight gap */
 .cards.cards24 .cards-card-body p:last-child {
   display: flex;
   gap: 12px;
@@ -397,7 +414,6 @@
   color: #222;
 }
 
-/* Responsive corrections */
 @media (width <= 1000px) {
   .cards.cards24 > ul {
     gap: 28px 10px;
@@ -428,38 +444,6 @@
   .cards.cards24 > ul > li:nth-child(5) {
     margin-left: 0;
   }
-}
-
-/* ---- GENERATED CSS ---- */
-
-.cards.cards30 {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: none;
-}
-
-.cards.cards30 > ul {
-  display: flex;
-  flex-direction: row;
-  gap: 12px; /* tighter horizontal spacing for a closer match */
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.cards.cards30 > ul > li {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 268px; /* slightly narrower to match the compact original */
-  min-width: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
 }
 
 .cards.cards30 .cards-card-image {
@@ -499,7 +483,7 @@
 
 .cards.cards30 .cards-card-body h3,
 .cards.cards30 .cards-card-body h2 {
-  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-family: Source Sans Pro, Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 700;
   color: #222;
@@ -515,7 +499,7 @@
 }
 
 .cards.cards30 .cards-card-body p {
-  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-family: Source Sans Pro, Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #222;
@@ -541,4 +525,14 @@
     width: 100%;
     min-width: 0;
   }
+}
+
+.cards.cards38 {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
