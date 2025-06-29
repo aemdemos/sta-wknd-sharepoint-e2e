@@ -1,4 +1,5 @@
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -604,13 +605,13 @@
 }
 
 /* ---- MERGED SELECTOR BELOW ---- */
-.tabs.tabs9 {
+.tabs.tabs11 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  max-width: 900px;
-  margin: 56px 0 0 72px;
-  padding: 0;
-  background: none;
+  max-width: 1200px;
+  margin: 56px auto 0;
+  background: #fff;
+  gap: 44px;
   box-sizing: border-box;
 }
