@@ -11,6 +11,7 @@
 
 
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -113,18 +114,18 @@
   text-transform: none;
 }
 
+/* MERGED .tabs.tabs3 SELECTOR BELOW */
 .tabs.tabs3 {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 28px;
+  flex-direction: column;
+  align-items: center;
   max-width: 1200px;
-  margin: 104px auto 0;
+  margin: 64px auto 0;
   background: #fff;
+  box-sizing: border-box;
   padding: 0;
 }
 
-/* Sidebar: exact top alignment with content */
 .tabs.tabs3 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -139,7 +140,6 @@
   align-items: flex-start;
 }
 
-/* Vertical tab buttons: tight layout, consistent font */
 .tabs.tabs3 .tabs-list button {
   background: none;
   border: none;
@@ -170,7 +170,6 @@
   color: #000;
 }
 
-/* Only show the active tab panel, hide all others */
 .tabs.tabs3 .tabs-panel {
   display: none;
   margin: 0;
@@ -192,7 +191,6 @@
   margin: 0 0 20px;
 }
 
-/* Main area: align flush with sidebar, constrain readable width */
 .tabs.tabs3 .tabs-panel[aria-hidden='false'] > div {
   max-width: 760px;
   width: 100%;
@@ -202,7 +200,6 @@
   padding-right: 0;
 }
 
-/* Title: larger, lighter, underline accent, no top margin */
 .tabs.tabs3 .tabs-panel h3,
 .tabs.tabs3 .tabs-panel h2 {
   font-family: var(--heading-font-family), Georgia, serif;
@@ -225,7 +222,6 @@
   content: "";
 }
 
-/* Caption and body text */
 .tabs.tabs3 .tabs-panel[aria-hidden='false'] > div > p:first-of-type {
   font-weight: 600;
   text-transform: none;
@@ -235,7 +231,6 @@
   line-height: 1.35;
 }
 
-/* Image sizing and spacing */
 .tabs.tabs3 .tabs-panel[aria-hidden='false'] picture,
 .tabs.tabs3 .tabs-panel[aria-hidden='false'] img {
   display: block;
@@ -642,4 +637,16 @@
   border-radius: 0;
   padding: 0;
   align-items: stretch;
+}
+
+/* ==== MERGED .tabs.tabs3 SELECTOR BELOW ==== */
+.tabs.tabs3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 64px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0;
 }
