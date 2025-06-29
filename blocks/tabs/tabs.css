@@ -3,6 +3,7 @@
 
 
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -526,4 +527,20 @@
   padding: 0;
   box-sizing: border-box;
   border: none;
+}
+
+/* ---- MERGED .tabs.tabs19 SELECTOR BELOW ---- */
+.tabs.tabs19 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1164px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 916px;
+  gap: 0;
+  position: relative;
 }
