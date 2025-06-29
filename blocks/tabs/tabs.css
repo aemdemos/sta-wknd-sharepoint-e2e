@@ -10,6 +10,7 @@
 
 
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -627,4 +628,18 @@
   background: #fff;
   padding: 40px 0 0;
   box-sizing: border-box;
+}
+
+/* --- MERGED RESULT FOR .tabs.tabs37 --- */
+.tabs.tabs37 {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  min-height: 600px;
+  border-radius: 0;
+  padding: 0;
+  align-items: stretch;
 }
