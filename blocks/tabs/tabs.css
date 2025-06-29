@@ -9,6 +9,7 @@
 
 
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -617,4 +618,13 @@
   border: none;
   box-shadow: none;
   padding: 0;
+}
+
+.tabs.tabs36 {
+  display: block;
+  max-width: 1100px;
+  margin: 0;
+  background: #fff;
+  padding: 40px 0 0;
+  box-sizing: border-box;
 }
