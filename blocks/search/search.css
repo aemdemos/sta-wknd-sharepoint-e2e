@@ -1,4 +1,3 @@
-
 /* search box */
 .search .search-box {
   display: grid;
@@ -142,33 +141,45 @@
   Only the .search.search2 selector will be merged below.
 */
 
-.search.search2 .search-wrapper {
+.search.search2 {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: flex-end;
-  align-items: flex-start;          /* Start at top of header */
-  margin-right: 130px;
-  margin-top: 36px;                 /* Push search box slightly below center for more whitespace above */
-  margin-left: 0;
-  width: auto;
-  max-width: none;
-  flex: 0 0 auto;
+  width: 100vw;
+  height: 104px;
+  background: #fff;
+  padding-left: 56px;
+  padding-right: 56px;
+  box-sizing: border-box;
+}
+
+.search.search2 > .search-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1 1 0;
+  margin: 0;
   padding: 0;
   background: none;
   box-shadow: none;
+
+  /* No height set, allowing vertical centering */
 }
 
-/* Search box styling remains as before */
+/* Merged .search.search2 .search-box declarations */
 .search.search2 .search-box {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #f5f5f5;
+  background: #f5f5f5;
   border-radius: 0;
   min-width: 190px;
-  max-width: 240px;
+  max-width: 270px;
   height: 40px;
-  padding: 0 24px 0 12px;
+  padding-left: 12px;
+  padding-right: 32px;
   box-sizing: border-box;
   border: none;
   box-shadow: none;
@@ -176,69 +187,11 @@
   margin: 0;
 }
 
-.search.search2 .search-box .icon,
-.search.search2 .search-box .icon-search {
-  width: 16px;
-  height: 16px;
-  min-width: 16px;
-  min-height: 16px;
-  margin-right: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.search.search2 .search-box input[type="search"], 
-.search.search2 .search-box input[type="text"] {
-  border: none;
-  background: transparent;
-  outline: none;
-  font-size: 14px;
-  font-family: inherit;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #888;
-  padding: 0;
-  margin: 0;
-  min-width: 0;
-  width: auto;
-  box-shadow: none;
-  letter-spacing: 0.01em;
-}
-
-.search.search2 .search-box input[type="search"]::placeholder,
-.search.search2 .search-box input[type="text"]::placeholder {
-  color: #888;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 0.01em;
-  opacity: 1;
-}
-
-.search.search2 .search-box input[type="search"]:focus,
-.search.search2 .search-box input[type="text"]:focus {
-  outline: none;
-  border: none;
-  box-shadow: none;
-}
-
-.search.search2 .search-box * {
-  margin-top: 0;
-  margin-bottom: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-
-.search.search2 .search-results,
-.search.search2 ul,
-.search.search2 .search-box button,
-.search.search2 .search-box select {
-  display: none;
-}
-
 @media (width <= 900px) {
   .search.search2 {
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 60px;
     min-height: 60px;
   }
 
@@ -250,24 +203,78 @@
   .search.search2 .search-box {
     min-width: 120px;
     max-width: 100vw;
-    padding: 0 12px 0 8px;
+    padding-left: 8px;
+    padding-right: 12px;
     height: 36px;
   }
 }
 
-/* 
-  --- MERGED SELECTOR BELOW ---
-*/
-
-.search.search2 {
+.search.search2 .icon,
+.search.search2 .icon-search {
+  width: 20px;
+  height: 20px;
+  min-width: 16px;
+  min-height: 16px;
+  margin-right: 8px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Merged .search.search2 .search-box input[type="search"], .search.search2 .search-box input[type="text"] rules */
+.search.search2 .search-box input[type="search"],
+.search.search2 .search-box input[type="text"] {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 17px;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
   width: 100%;
-  min-height: 104px;
-  box-sizing: border-box;
-  padding-top: 0;
-  padding-bottom: 0;
-  position: relative;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  line-height: 1;
+}
+
+/* Merged .search.search2 .search-box input[type="search"]::placeholder,
+   .search.search2 .search-box input[type="text"]::placeholder rules */
+.search.search2 .search-box input[type="search"]::placeholder,
+.search.search2 .search-box input[type="text"]::placeholder {
+  color: #444;
+  text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  opacity: 1;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.search.search2 .search-results,
+.search.search2 ul,
+.search.search2 .search-box button,
+.search.search2 .search-box select {
+  display: none;
+}
+
+.search.search2 .search-box * {
+  margin-top: 0;
+  margin-bottom: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.search.search2 .search-box input[type="search"]:focus,
+.search.search2 .search-box input[type="text"]:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
 }
