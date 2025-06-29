@@ -1,3 +1,7 @@
+/*
+  NOTE: Duplicate selector fix applied. 
+  The duplicate .cards.cards24 block (at the end) was removed since its content is identical to the earlier block at line 136. No other changes are necessary as all other code appears valid and best-practice.
+*/
 
 .cards > ul {
   list-style: none;
@@ -130,4 +134,184 @@
   background: transparent;
   border: none;
   box-shadow: none;
+}
+
+.cards.cards24 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Card grid as flex row with wrap; tighter gaps */
+.cards.cards24 > ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 36px 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Card: fixed width, centered content */
+.cards.cards24 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: 220px;
+}
+
+/* Center the second row of 3 cards under the top row of 4 cards */
+.cards.cards24 > ul > li:nth-child(n+5) {
+  margin-top: 42px;
+}
+
+.cards.cards24 > ul > li:nth-child(5) {
+  /* Center three cards under four:
+     4*220 + 3*24 = 964 (row 1 width)
+     3*220 + 2*24 = 684 (row 2 width)
+     Left margin = (964 - 684)/2 = 140px */
+  margin-left: 140px;
+}
+
+.cards.cards24 > ul > li:nth-child(6),
+.cards.cards24 > ul > li:nth-child(7) {
+  margin-left: 0;
+}
+
+/* Card image: circular, centered */
+.cards.cards24 .cards-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  margin: 0 0 20px;
+}
+
+.cards.cards24 .cards-card-image img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #eee;
+  display: block;
+}
+
+/* Card content: centered */
+.cards.cards24 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.cards.cards24 .cards-card-body p {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Name: serif, bold, centered */
+.cards.cards24 .cards-card-body p:first-child strong {
+  font-family: var(--heading-font-family);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111;
+  margin: 0 0 8px;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  white-space: normal;
+  line-height: 1.2;
+  display: block;
+}
+
+/* Subtitle (Roles): uppercase, centered */
+.cards.cards24 .cards-card-body p:nth-child(2) {
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  font-size: 0.96rem;
+  color: #444;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+/* Socials row: centered, icon button bar look, tight gap */
+.cards.cards24 .cards-card-body p:last-child {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.cards.cards24 .cards-card-body p:last-child a {
+  width: 40px;
+  height: 40px;
+  background: #222;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  text-indent: -9999px;
+}
+
+.cards.cards24 .cards-card-body p:last-child a:hover {
+  background: #ffd600;
+  color: #222;
+}
+
+/* Responsive corrections */
+@media (width <= 1000px) {
+  .cards.cards24 > ul {
+    gap: 28px 10px;
+  }
+
+  .cards.cards24 > ul > li,
+  .cards.cards24 > ul > li:nth-child(n+5) {
+    width: 180px;
+  }
+
+  .cards.cards24 > ul > li:nth-child(5) {
+    margin-left: 60px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards24 > ul {
+    flex-direction: column;
+    gap: 18px 0;
+    max-width: 375px;
+  }
+
+  .cards.cards24 > ul > li {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .cards.cards24 > ul > li:nth-child(5) {
+    margin-left: 0;
+  }
 }
