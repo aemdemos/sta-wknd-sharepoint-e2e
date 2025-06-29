@@ -1,4 +1,5 @@
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -472,4 +473,16 @@
   background: #fff;
   box-sizing: border-box;
   min-height: 650px;
+}
+
+/* ===== MERGED .tabs.tabs9 BELOW ===== */
+.tabs.tabs9 {
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
