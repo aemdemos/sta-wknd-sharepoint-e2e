@@ -1,3 +1,4 @@
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -456,4 +457,19 @@
   .tabs.tabs7 > .tabs-panel[aria-hidden='false'] > * {
     max-width: 100%;
   }
+}
+
+/* ==== GENERATED CSS ==== */
+
+/* --- MERGED .tabs.tabs8 SELECTOR BELOW --- */
+.tabs.tabs8 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 32px;
+  background: #fff;
+  box-sizing: border-box;
+  min-height: 650px;
 }
