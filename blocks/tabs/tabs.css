@@ -7,6 +7,7 @@
 
 
 
+
 /* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
@@ -588,4 +589,17 @@
   min-height: 700px;
   padding: 0;
   gap: 0;
+}
+
+/* ==== MERGED SELECTOR BELOW ==== */
+.tabs.tabs29 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 1200px;
+  margin: 72px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0;
 }
