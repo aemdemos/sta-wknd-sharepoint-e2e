@@ -48,6 +48,39 @@ main > .section:first-of-type {
 }
 
 /* --- HERO 13 --- */
+.hero.hero4 > div {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero6 picture,
+.hero.hero13 > div:first-child picture {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.hero.hero6 img,
+.hero.hero13 > div:first-child img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
 .hero.hero13 > div:first-child {
   width: 260px;
   min-width: 220px;
@@ -61,19 +94,6 @@ main > .section:first-of-type {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-}
-
-.hero.hero13 > div:first-child picture,
-.hero.hero13 > div:first-child img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
 }
 
 .hero.hero13 > div:last-child {
@@ -106,6 +126,7 @@ main > .section:first-of-type {
   border-radius: 2px;
 }
 
+.hero.hero6 h2,
 .hero.hero13 > div:last-child h2 {
   font-family: var(--heading-font-family);
   font-weight: 700;
@@ -123,6 +144,7 @@ main > .section:first-of-type {
   margin: 10px 0 20px;
 }
 
+.hero.hero6 p,
 .hero.hero13 > div:last-child p {
   font-size: 18px;
   color: #222;
@@ -197,13 +219,6 @@ main > .section:first-of-type {
 }
 
 /* --- HERO 4 --- */
-.hero.hero4 > div {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .hero.hero4 > div:first-child {
   flex: 3 1 0;
   min-width: 0;
@@ -406,4 +421,122 @@ main > .section:first-of-type {
   position: relative;
   padding: 0;
   gap: 0;
+}
+
+.hero.hero27 {
+  position: relative;
+  width: 100%;
+  min-height: 680px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display: block;
+  background: none;
+}
+
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+}
+
+.hero.hero27 > div:first-child picture,
+.hero.hero27 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 40px;
+  right: 240px;
+  bottom: 64px;
+  z-index: 2;
+  background: #fff;
+  padding: 52px 64px 38px 60px;
+  border-radius: 0;
+  box-shadow: none;
+  color: #222;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 300px;
+  max-width: 900px;
+}
+
+@media (width <= 1200px) {
+  .hero.hero27 > div:last-child {
+    left: 16px;
+    right: 32px;
+    bottom: 16px;
+    padding: 28px 20px 20px;
+    max-width: none;
+  }
+}
+
+@media (width <= 700px) {
+  .hero.hero27 > div:last-child {
+    left: 2vw;
+    right: 2vw;
+    bottom: 8px;
+    padding: 14px 3vw 10px;
+    min-width: 0;
+  }
+}
+
+.hero.hero27 h1 {
+  color: #222;
+  font-size: 2.5rem;
+  font-family: var(--heading-font-family, Georgia, serif);
+  font-weight: 400;
+  margin: 0 0 26px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.hero.hero27 p {
+  color: #444;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 0 0 27px;
+  text-align: left;
+  max-width: 100%;
+}
+
+.hero.hero27 p.button-container {
+  margin-bottom: 0;
+}
+
+.hero.hero27 .button {
+  display: inline-block;
+  background: #ffe600;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  letter-spacing: 0.02em;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  line-height: 1.25;
+  font-family: var(--body-font-family);
+}
+
+.hero.hero27 .button:hover,
+.hero.hero27 .button:focus {
+  background: #e6d200;
+  color: #000;
 }
