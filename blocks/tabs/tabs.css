@@ -1,3 +1,4 @@
+/* Tabs List (horizontal by default) */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -39,7 +40,6 @@
   margin: 0;
 }
 
-
 .tabs .tabs-list button[aria-selected='true'] {
   border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
@@ -55,4 +55,183 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+/* ---- GENERATED CSS BELOW ---- */
+
+.tabs.tabs3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 28px;
+  max-width: 1200px;
+  margin: 104px auto 0;
+  background: #fff;
+  padding: 0;
+}
+
+/* Sidebar: exact top alignment with content */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 132px;
+  min-width: 100px;
+  max-width: 132px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  align-items: flex-start;
+}
+
+/* Vertical tab buttons: tight layout, consistent font */
+.tabs.tabs3 .tabs-list button {
+  background: none;
+  border: none;
+  border-left: 4px solid transparent;
+  color: #222;
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 6px 0 6px 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 100%;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s, border-left 0.2s;
+  outline: none;
+  margin: 0;
+}
+
+.tabs.tabs3 .tabs-list button[aria-selected='true'] {
+  background: #131313;
+  color: #fff;
+  border-left: 4px solid #ffe066;
+}
+
+.tabs.tabs3 .tabs-list button[aria-selected='false']:hover {
+  background: #f8f8f8;
+  color: #000;
+}
+
+.tabs.tabs3 .tabs-list button p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+}
+
+/* Only show the active tab panel, hide all others */
+.tabs.tabs3 .tabs-panel {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  overflow: visible;
+}
+
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] {
+  display: block;
+}
+
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] p {
+  color: #222;
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+/* Main area: align flush with sidebar, constrain readable width */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] > div {
+  max-width: 760px;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 48px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Title: larger, lighter, underline accent, no top margin */
+.tabs.tabs3 .tabs-panel h3,
+.tabs.tabs3 .tabs-panel h2 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 2.12rem;
+  font-weight: 400;
+  margin: 0 0 8px;
+  line-height: 1.1;
+  position: relative;
+  padding-left: 0;
+}
+
+.tabs.tabs3 .tabs-panel h3::after,
+.tabs.tabs3 .tabs-panel h2::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffe066;
+  margin-top: 7px;
+  border-radius: 2px;
+  content: "";
+}
+
+/* Caption and body text */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] > div > p:first-of-type {
+  font-weight: 600;
+  text-transform: none;
+  font-size: 1rem;
+  margin: 12px 0 22px;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+/* Image sizing and spacing */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] picture,
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 36px 0 20px;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs3 {
+    flex-direction: column;
+    gap: 16px;
+    max-width: 100%;
+    margin: 32px 0 0;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs3 .tabs-list {
+    flex-direction: row;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 0 12px;
+    gap: 0;
+  }
+
+  .tabs.tabs3 .tabs-list button {
+    border-left: none;
+    border-top: 4px solid transparent;
+    padding: 10px 8px;
+    text-align: center;
+    width: auto;
+  }
+
+  .tabs.tabs3 .tabs-list button[aria-selected='true'] {
+    border-left: none;
+    border-top: 4px solid #ffe066;
+  }
+
+  .tabs.tabs3 .tabs-panel[aria-hidden='false'] > div {
+    max-width: 100%;
+  }
 }
