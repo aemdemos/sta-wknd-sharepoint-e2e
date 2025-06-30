@@ -6,6 +6,20 @@
   overflow-x: auto;
 }
 
+.tabs.tabs3 p {
+  font-size: 1.15rem;
+  color: #222;
+  line-height: 1.82;
+  margin-bottom: 34px;
+  margin-top: 0;
+  text-align: left;
+  max-width: 80ch;
+}
+
+.tabs .tabs-list button p {
+  margin: 0;
+}
+
 @media (width >= 600px) {
   .tabs .tabs-list {
     font-size: var(--body-font-size-s);
@@ -35,11 +49,6 @@
   transition: background-color 0.2s;
 }
 
-.tabs .tabs-list button p {
-  margin: 0;
-}
-
-
 .tabs .tabs-list button[aria-selected='true'] {
   border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
@@ -55,4 +64,171 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+.tabs.tabs3 {
+  margin-top: 20px;
+  margin-left: 72px;
+  margin-right: 0;
+  max-width: 1050px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+@media (width <= 1200px) {
+  .tabs.tabs3 {
+    margin-left: 32px;
+    margin-right: 32px;
+    max-width: 100%;
+  }
+}
+
+@media (width <= 800px) {
+  .tabs.tabs3 {
+    margin-left: 8px;
+    margin-right: 8px;
+    max-width: 100%;
+  }
+}
+
+/* Panel: left aligned, improved vertical spacing */
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  background: #fff;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tabs.tabs3 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* h3: lighter, more space below */
+.tabs.tabs3 h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.13;
+  color: #111;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #ffe666;
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* h2: more space above/below */
+.tabs.tabs3 h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.38rem;
+  font-weight: 700;
+  color: #111;
+  margin-top: 32px;
+  margin-bottom: 38px;
+  line-height: 1.18;
+  max-width: 100%;
+}
+
+/* Images: ensure all images show and are spaced properly */
+.tabs.tabs3 picture,
+.tabs.tabs3 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 4px;
+  margin-top: 0;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.tabs.tabs3 picture + p,
+.tabs.tabs3 img + p {
+  margin-top: 0;
+}
+
+/* Remove any excessive margin at the bottom of the last paragraph/image before related trips */
+.tabs.tabs3 .tabs-panel > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Related trips: connect to previous content, tighter spacing */
+.tabs.tabs3 ul {
+  margin: 24px 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.tabs.tabs3 ul li {
+  font-size: 1rem;
+  color: #111;
+  margin-bottom: 8px;
+  padding-left: 0;
+}
+
+.tabs.tabs3 ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Remove excess top margin for first child in .tabs-panel */
+.tabs.tabs3 .tabs-panel > *:first-child {
+  margin-top: 0;
+}
+
+/* Ensure secondary images (if present in DOM) are visible and well-spaced */
+.tabs.tabs3 picture + picture,
+.tabs.tabs3 img + img {
+  margin-top: 0;
+}
+
+/* Tab bar: spacing/gap and underline */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  gap: 40px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0 8px;
+  border-bottom: 4px solid #ececec;
+  background: #fff;
+  min-height: 48px;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.tabs.tabs3 .tabs-tab {
+  background: none;
+  border: none;
+  border-radius: 0;
+  font-family: var(--heading-font-family);
+  font-size: 1.16rem;
+  font-weight: 700;
+  color: #111;
+  padding: 10px 28px 6px;
+  margin: 0;
+  box-shadow: none;
+  line-height: 1.2;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s, border-bottom 0.2s;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs.tabs3 .tabs-tab[aria-selected="true"] {
+  color: #111;
+  border-bottom: 4px solid #ffe666;
+  background: none;
+}
+
+.tabs.tabs3 .tabs-tab[aria-selected="false"]:hover,
+.tabs.tabs3 .tabs-tab:not([aria-selected="true"]):hover {
+  background: #faf9f5;
+  color: #222;
+}
+
+.tabs.tabs3 .tabs-tab p {
+  margin: 0;
 }
