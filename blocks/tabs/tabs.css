@@ -1,3 +1,4 @@
+/* Tabs List */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -6,6 +7,7 @@
   overflow-x: auto;
 }
 
+/* Tabs3 Paragraph */
 .tabs.tabs3 p {
   font-size: 1.15rem;
   color: #222;
@@ -217,6 +219,52 @@
   border-bottom: 4px solid transparent;
 }
 
+.tabs.tabs6 > div {
+  /* Empty rule for specificity order (fixes no-descending-specificity) */
+}
+
+.tabs.tabs6 > div:first-child {
+  flex: 0 0 140px;
+  max-width: 160px;
+  min-width: 120px;
+  box-sizing: border-box;
+  border-right: 2px solid #f2f2f2;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 100%;
+  position: relative;
+  margin-right: 0;
+}
+
+.tabs.tabs6 > div:first-child .tabs-tab {
+  background: none;
+  border: none;
+  border-radius: 0;
+  font-family: var(--heading-font-family);
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: #444;
+  padding: 1px 8px 1px 0;
+  margin: 0;
+  box-shadow: none;
+  line-height: 1.22;
+  cursor: pointer;
+  border-left: 2.5px solid transparent;
+  border-bottom: none;
+  transition: color 0.2s, border-left 0.2s;
+  text-align: right;
+  min-width: 92px;
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  opacity: 0.73;
+}
+
 .tabs.tabs3 .tabs-tab[aria-selected="true"] {
   color: #111;
   border-bottom: 4px solid #ffe666;
@@ -231,4 +279,187 @@
 
 .tabs.tabs3 .tabs-tab p {
   margin: 0;
+}
+
+/* ---- BEGIN MERGED .tabs.tabs6 SELECTOR ---- */
+.tabs.tabs6 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  min-height: 720px;
+  padding: 0;
+  border: none;
+  gap: 0;
+}
+/* ---- END MERGED .tabs.tabs6 SELECTOR ---- */
+
+/* Vertical tabs in sidebar: further reduce visual prominence */
+.tabs.tabs6 > div:first-child .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.tabs.tabs6 > div:first-child .tabs-tab[aria-selected="true"] {
+  color: #222;
+  border-left: 2.5px solid #f5e16c;
+  font-weight: 700;
+  opacity: 1;
+  background: none;
+}
+
+.tabs.tabs6 > div:first-child .tabs-tab p {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 0.96rem;
+  letter-spacing: 0.02em;
+  width: 100%;
+  text-align: right;
+}
+
+/* MAIN CONTENT COLUMN */
+.tabs.tabs6 > div:nth-child(2) {
+  flex: 1 1 0;
+  max-width: 950px;
+  min-width: 0;
+  padding: 48px 0 0 90px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: none;
+  background: transparent;
+}
+
+/* Main heading, with underline matching text width and better margin */
+.tabs.tabs6 > div:nth-child(2) h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.6rem;
+  color: #222;
+  font-weight: 400;
+  margin: 24px 0 8px;
+  display: inline-block;
+  border: none;
+  padding-bottom: 0;
+  line-height: 1.18;
+  position: relative;
+}
+
+.tabs.tabs6 > div:nth-child(2) h3::after {
+  display: block;
+  width: 65px;
+  height: 4px;
+  background: #f5e16c;
+  margin-top: 7px;
+  border-radius: 2px;
+  content: "";
+}
+
+/* Description paragraph styles */
+.tabs.tabs6 > div:nth-child(2) > .tabs-panel > div > p {
+  font-size: 1.07rem;
+  color: #222;
+  line-height: 1.7;
+  margin: 20px 0 2em;
+  max-width: 92ch;
+  padding: 0;
+}
+
+/* Image styling */
+.tabs.tabs6 > div:nth-child(2) picture,
+.tabs.tabs6 > div:nth-child(2) img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 36px 0 0;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* Remove borders from main content */
+.tabs.tabs6 > div:nth-child(2),
+.tabs.tabs6 > div:nth-child(2) .tabs-panel {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Remove spacing at the bottom of the block */
+.tabs.tabs6 > div:nth-child(2) .tabs-panel > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive: stack columns and tabs horizontally on smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs6 {
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+  }
+  .tabs.tabs6 > div:first-child {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #eaeaea;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0 0 24px;
+    height: auto;
+  }
+  .tabs.tabs6 > div:first-child .tabs-list {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 8px;
+    margin: 0;
+    width: auto;
+    padding: 0;
+    justify-content: flex-start;
+  }
+  .tabs.tabs6 > div:first-child .tabs-tab {
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    padding: 7px 0;
+    min-width: 0;
+    width: auto;
+    text-align: center;
+    justify-content: center;
+  }
+  .tabs.tabs6 > div:first-child .tabs-tab[aria-selected="true"] {
+    border-bottom: 3px solid #f5e16c;
+    border-left: none;
+  }
+  .tabs.tabs6 > div:first-child .tabs-tab p {
+    text-align: center;
+  }
+  .tabs.tabs6 > div:nth-child(2) {
+    padding: 20px 0 0;
+    max-width: 100%;
+  }
+  .tabs.tabs6 > div:nth-child(2) h3 {
+    font-size: 2rem;
+  }
+}
+
+/* Remove persistent borders/shadows from any container */
+.tabs.tabs6,
+.tabs.tabs6 > div,
+.tabs.tabs6 > div:nth-child(2) .tabs-panel {
+  box-shadow: none;
+  border: none;
 }
