@@ -1,63 +1,10 @@
 /* Reordered selectors to resolve specificity issues */
-.tabs .tabs-list button p {
-  margin: 0;
-}
-
-.tabs.tabs5 > div:first-child img,
-.tabs.tabs5 > div:first-child picture {
-  display: none;
-}
-
-.tabs.tabs5 > div:first-child p {
-  font-size: 14px;
-  color: #232323;
-  font-weight: 600;
-  margin-bottom: 24px;
-  text-align: right;
-}
-
-.tabs.tabs5 > div:last-child img,
-.tabs.tabs5 > div:last-child picture {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 28px;
-  margin-top: 0;
-  box-shadow: none;
-  object-fit: cover;
-}
-
-.tabs.tabs5 > div:last-child p,
-.tabs.tabs5 > div:last-child ul,
-.tabs.tabs5 > div:last-child ol {
-  font-family: var(--body-font-family);
-  font-size: 16px;
-  color: #222;
-  line-height: 1.72;
-  margin: 0 0 22px;
-  max-width: 700px;
-  padding: 0;
-}
-
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
   max-width: 100%;
   font-size: var(--body-font-size-xs);
   overflow-x: auto;
-}
-
-@media (width >= 600px) {
-  .tabs .tabs-list {
-    font-size: var(--body-font-size-s);
-  }
-}
-
-@media (width >= 900px) {
-  .tabs .tabs-list {
-    font-size: var(--body-font-size-m);
-  }
 }
 
 .tabs .tabs-list button {
@@ -77,6 +24,10 @@
   transition: background-color 0.2s;
 }
 
+.tabs .tabs-list button p {
+  margin: 0;
+}
+
 .tabs .tabs-list button[aria-selected='true'] {
   border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
@@ -94,7 +45,18 @@
   display: none;
 }
 
-/* --- merged .tabs.tabs2 selector below --- */
+@media (width >= 600px) {
+  .tabs .tabs-list {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width >= 900px) {
+  .tabs .tabs-list {
+    font-size: var(--body-font-size-m);
+  }
+}
+
 .tabs.tabs2 {
   max-width: 1100px;
   margin-left: 0;
@@ -104,7 +66,33 @@
   box-sizing: border-box;
 }
 
-/* --- end merged .tabs.tabs2 selector --- */
+.tabs.tabs2 .tabs-panel > div > p {
+  font-family: var(--body-font-family);
+  font-size: 1.25em;
+  color: #232323;
+  line-height: 1.85;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  max-width: 740px;
+  text-align: left;
+  padding: 0;
+}
+
+.tabs.tabs2 .tabs-panel > div > p picture,
+.tabs.tabs2 .tabs-panel > div > p img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0.18em 0 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  object-fit: cover;
+}
+
+.tabs.tabs2 .tabs-panel > div > p:last-child {
+  margin-bottom: 0;
+}
 
 .tabs.tabs2 .tabs-list {
   display: flex;
@@ -158,18 +146,6 @@
   color: #232323;
 }
 
-.tabs.tabs2 .tabs-panel > div > p {
-  font-family: var(--body-font-family);
-  font-size: 1.25em;
-  color: #232323;
-  line-height: 1.85;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  max-width: 740px;
-  text-align: left;
-  padding: 0;
-}
-
 .tabs.tabs2 .tabs-list button[aria-selected="true"] p,
 .tabs.tabs2 .tabs-list button[aria-selected="false"] p {
   font-weight: 800;
@@ -207,22 +183,6 @@
   padding-bottom: 10px;
 }
 
-.tabs.tabs2 .tabs-panel > div > p picture,
-.tabs.tabs2 .tabs-panel > div > p img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin: 0.18em 0 0;
-  padding: 0;
-  box-shadow: none;
-  border: none;
-  object-fit: cover;
-}
-
-.tabs.tabs2 .tabs-panel > div > p:last-child {
-  margin-bottom: 0;
-}
-
 @media (width <= 900px) {
   .tabs.tabs2 {
     padding-left: 3vw;
@@ -250,7 +210,6 @@
   }
 }
 
-/* --- merged .tabs.tabs5 selector below --- */
 .tabs.tabs5 {
   display: flex;
   flex-direction: row;
@@ -264,9 +223,6 @@
   min-height: 0;
 }
 
-/* --- end merged .tabs.tabs5 selector --- */
-
-/* Remove all top spacing, especially for alignment */
 .tabs.tabs5,
 .tabs.tabs5 > div:first-child,
 .tabs.tabs5 > div:last-child {
@@ -274,7 +230,6 @@
   padding-top: 0;
 }
 
-/* SIDEBAR - only for trip facts/aux info */
 .tabs.tabs5 > div:first-child {
   flex: 0 0 170px;
   max-width: 170px;
@@ -291,8 +246,6 @@
 
 .tabs.tabs5 > div:first-child > * {
   width: 100%;
-
-  /* Removed deprecated word-break: break-word; for standards compliance */
   text-align: right;
   white-space: normal;
   background: none;
@@ -304,14 +257,12 @@
   color: #888;
 }
 
-/* Hide headings and tabs-list in sidebar */
 .tabs.tabs5 > div:first-child h2,
 .tabs.tabs5 > div:first-child h3,
 .tabs.tabs5 > div:first-child .tabs-list {
   display: none;
 }
 
-/* Sidebar trip fact block style */
 .tabs.tabs5 > div:first-child strong {
   display: block;
   font-size: 11px;
@@ -322,7 +273,19 @@
   margin-bottom: 2px;
 }
 
-/* MAIN CONTENT AREA */
+.tabs.tabs5 > div:first-child img,
+.tabs.tabs5 > div:first-child picture {
+  display: none;
+}
+
+.tabs.tabs5 > div:first-child p {
+  font-size: 14px;
+  color: #232323;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: right;
+}
+
 .tabs.tabs5 > div:last-child {
   flex: 1 1 0;
   max-width: 800px;
@@ -337,7 +300,6 @@
   justify-content: flex-start;
 }
 
-/* Place tabs-list at top of main content, horizontal pills */
 .tabs.tabs5 > div:last-child > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -386,7 +348,6 @@
   font-family: inherit;
 }
 
-/* Headings and main content spacing */
 .tabs.tabs5 > div:last-child h1,
 .tabs.tabs5 > div:last-child h2,
 .tabs.tabs5 > div:last-child h3 {
@@ -416,7 +377,6 @@
   margin-top: 22px;
 }
 
-/* Main area text and list styling */
 .tabs.tabs5 > div:last-child ul,
 .tabs.tabs5 > div:last-child ol {
   padding-left: 22px;
@@ -426,7 +386,6 @@
   margin-bottom: 7px;
 }
 
-/* Remove default panel border/background */
 .tabs.tabs5 .tabs-panel {
   padding: 0;
   margin: 0;
@@ -435,13 +394,35 @@
   box-shadow: none;
 }
 
-/* Ensure both columns are top-aligned */
+.tabs.tabs5 > div:last-child img,
+.tabs.tabs5 > div:last-child picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 28px;
+  margin-top: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.tabs.tabs5 > div:last-child p,
+.tabs.tabs5 > div:last-child ul,
+.tabs.tabs5 > div:last-child ol {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #222;
+  line-height: 1.72;
+  margin: 0 0 22px;
+  max-width: 700px;
+  padding: 0;
+}
+
 .tabs.tabs5 > div:first-child,
 .tabs.tabs5 > div:last-child {
   align-self: flex-start;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs5 {
     flex-direction: column;
@@ -472,4 +453,253 @@
     gap: 6px;
     margin-bottom: 20px;
   }
+}
+
+/* ====== GENERATED CSS BELOW ====== */
+.tabs.tabs7 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 56px;
+  background: #fff;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs7 > div {
+  box-shadow: none;
+  border: none;
+  background: #fff;
+}
+
+.tabs.tabs7 > div:first-child {
+  flex: 0 0 120px;
+  max-width: 120px;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #232323;
+  background: #fff;
+  position: relative;
+  margin-top: 0;
+  justify-content: flex-start;
+}
+
+.tabs.tabs7 > div:first-child::before {
+  display: block;
+  width: 38px;
+  height: 3px;
+  background: #f7cf3c;
+  border-radius: 2px;
+  margin-bottom: 36px;
+  margin-top: 16px;
+  content: "";
+}
+
+.tabs.tabs7 > div:first-child .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 0;
+  width: 100%;
+  background: none;
+  border: none;
+  box-shadow: none;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.tabs.tabs7 > div:first-child .tabs-tab {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px 0;
+  border: none;
+  border-radius: 26px;
+  background: none;
+  color: #232323;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.02em;
+  margin: 0;
+  width: 100%;
+  white-space: nowrap;
+  box-shadow: none;
+  text-align: left;
+}
+
+.tabs.tabs7 > div:first-child .tabs-tab[aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+}
+
+.tabs.tabs7 .tabs-list .tabs-tab {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.tabs.tabs7 > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0 0 48px;
+  max-width: 900px;
+  margin-left: 0;
+  justify-content: flex-start;
+}
+
+.tabs.tabs7 .tabs-panel {
+  box-shadow: none;
+  border: none;
+  background: #fff;
+}
+
+.tabs.tabs7 .tabs-panel > div {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.tabs.tabs7 .tabs-panel > div > p {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  color: #232323;
+  line-height: 1.5;
+  margin: 0 0 8px;
+  max-width: 760px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tabs.tabs7 .tabs-panel > div > p + p {
+  font-size: 16px;
+  font-family: var(--body-font-family);
+  color: #232323;
+  line-height: 1.75;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  max-width: 760px;
+}
+
+.tabs.tabs7 .tabs-panel > div > p:last-child {
+  margin-bottom: 0;
+}
+
+.tabs.tabs7 .tabs-panel picture,
+.tabs.tabs7 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 18px;
+  margin: 0 0 28px;
+  object-fit: cover;
+  box-shadow: none;
+}
+
+.tabs.tabs7 .tabs-panel ul,
+.tabs.tabs7 .tabs-panel ol {
+  margin-left: 0;
+  padding-left: 24px;
+  max-width: 760px;
+  color: #232323;
+  font-size: 16px;
+  font-family: var(--body-font-family);
+}
+
+@media (width <= 900px) {
+  .tabs.tabs7 {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 2vw 24px;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs7 > div:first-child {
+    max-width: 100%;
+    min-width: 0;
+    flex: none;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding: 0;
+  }
+
+  .tabs.tabs7 > div:first-child::before {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tabs.tabs7 > div:first-child .tabs-list {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .tabs.tabs7 > div:first-child .tabs-tab {
+    padding: 9px 14px;
+    font-size: 14px;
+    border-radius: 18px;
+    width: auto;
+    text-align: center;
+  }
+
+  .tabs.tabs7 > div:last-child {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tabs.tabs7 .tabs-panel picture,
+  .tabs.tabs7 .tabs-panel img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .tabs.tabs7 .tabs-panel > div > h3 {
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+  }
+}
+
+.tabs.tabs7 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 2.7rem;
+  color: #232323;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 32px;
+  line-height: 1.14;
+  background: none;
+  letter-spacing: -0.01em;
+  padding-bottom: 0;
+  text-align: left;
+  max-width: 95%;
+}
+
+.tabs.tabs7,
+.tabs.tabs7 > div,
+.tabs.tabs7 .tabs-panel {
+  box-shadow: none;
+  border: none;
+  background: #fff;
 }
