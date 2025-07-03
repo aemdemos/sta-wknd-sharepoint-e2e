@@ -1,4 +1,5 @@
 
+
 /*
 
 Empty lines before each rule. All selectors have been re-ordered to resolve all no-descending-specificity errors. Modern CSS conventions applied. Shorthand and font-family best practices applied. All rules have a preceding empty line, per rule-empty-line-before.
@@ -1043,148 +1044,78 @@ Empty lines before each rule. All selectors have been re-ordered to resolve all 
 
 /* --- GENERATED CSS --- */
 
-.tabs.tabs25 {
+.tabs.tabs36 {
+  max-width: 1120px;
+  margin-left: 12px;
+  margin-right: auto;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 54px;
+  box-shadow: none;
+  border: none;
+  background: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 1160px;
-  margin: 50px auto 0;
-  padding: 0 0 48px;
-  background: none;
-  border: none;
+  align-items: stretch;
 }
 
-/* Tabs row: center, slightly more margin below for airy feel, tight horizontal spacing */
-.tabs.tabs25 .tabs-list {
+/* Tabs Row: minimal gap above, tight gap below */
+.tabs.tabs36 .tabs-list {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  width: 100%;
-  margin: 0 0 12px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 52px;
+  margin-top: 6px;
+  margin-bottom: 16px;
   padding: 0;
-  background: none;
   border: none;
+  background: none;
   box-shadow: none;
 }
 
-/* Tab buttons: light, compact, subtle size */
-.tabs.tabs25 .tabs-tab {
+/* Tab Buttons: uppercase, bold, large, generous horizontal padding */
+.tabs.tabs36 .tabs-tab {
   background: none;
   border: none;
-  font-family: var(--body-font-family);
-  font-weight: 700;
   text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 0.03em;
-  color: #232323;
-  padding: 9px 15px;
-  margin: 0;
-  border-radius: 0;
+  font-family: var(--body-font-family);
+  font-weight: 800;
+  font-size: 1.17rem;
+  letter-spacing: 0.11em;
+  color: #131313;
+  padding: 8px 28px;
+  border-radius: 22px;
   transition: background 0.18s, color 0.18s;
-  box-shadow: none;
   outline: none;
+  margin: 0;
+  box-shadow: none;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.tabs.tabs25 .tabs-tab[aria-selected="true"] {
-  background: #222;
+.tabs.tabs36 .tabs-tab[aria-selected="true"] {
+  background: #131313;
   color: #fff;
 }
 
-.tabs.tabs25 .tabs-tab[aria-selected="false"]:hover {
-  background: #ffe066;
-  color: #232323;
+.tabs.tabs36 .tabs-tab[aria-selected="false"] {
+  background: none;
+  color: #131313;
 }
 
-.tabs.tabs25 .tabs-tab p {
+.tabs.tabs36 .tabs-tab p {
   margin: 0;
   padding: 0;
-  font-weight: 700;
+  font-weight: 800;
   font-size: inherit;
   font-family: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
 }
 
-/* Content panel: center children */
-.tabs.tabs25 .tabs-panel > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  width: 100%;
-}
-
-/* Heading: short yellow accent bar, centered, very tight underline spacing */
-.tabs.tabs25 .tabs-panel > div > h3 {
-  font-family: var(--heading-font-family), Georgia, serif;
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: #232323;
-  margin: 0 0 8px;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  padding-bottom: 3px;
-  display: block;
-  text-align: center;
-  width: auto;
-  position: relative;
-  background: none;
-  background-image: linear-gradient(to right, #ffe066 0 44px, transparent 44px 100%);
-  background-repeat: no-repeat;
-  background-size: 44px 3px;
-  background-position: center bottom;
-}
-
-/* Centered image, square corners, minimal vertical margin */
-.tabs.tabs25 .tabs-panel > div picture,
-.tabs.tabs25 .tabs-panel > div img {
-  display: block;
-  margin: 0 auto 10px;
-  width: 99%;
-  max-width: 1050px;
-  height: auto;
-  border-radius: 0;
-  box-shadow: none;
-  object-fit: cover;
-}
-
-/* Paragraph: left aligned, centered block, wider for longer lines */
-.tabs.tabs25 .tabs-panel > div > p,
-.tabs.tabs25 .tabs-panel > div > ul,
-.tabs.tabs25 .tabs-panel > div > li {
-  font-family: var(--body-font-family);
-  font-size: 1.12rem;
-  color: #222;
-  line-height: 1.6;
-  margin: 0 0 18px;
-  padding: 0;
-  text-align: left;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.tabs.tabs25 .tabs-panel > div > p:first-of-type {
-  margin-top: 0;
-}
-
-.tabs.tabs25 .tabs-panel > div > ul,
-.tabs.tabs25 .tabs-panel > div > ol {
-  margin: 0 0 16px 32px;
-  padding: 0;
-}
-
-.tabs.tabs25 .tabs-panel > div > li {
-  margin-bottom: 6px;
-}
-
-/* Hide border and padding from panels */
-.tabs.tabs25 .tabs-panel {
+/* Main Content Panel: vertical stack, left-aligned */
+.tabs.tabs36 .tabs-panel {
   border: none;
   background: none;
   box-shadow: none;
@@ -1192,69 +1123,97 @@ Empty lines before each rule. All selectors have been re-ordered to resolve all 
   margin: 0;
 }
 
-.tabs.tabs25 .tabs-panel[aria-hidden="true"] {
+.tabs.tabs36 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Responsive adjustments */
-@media (width <= 1100px) {
-  .tabs.tabs25 {
+.tabs.tabs36 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1120px;
+}
+
+/* Main Title: Extra-large, serif, gold underline, compact spacing below */
+.tabs.tabs36 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 2.55rem;
+  font-weight: 400;
+  color: #232323;
+  margin: 0 0 3px;
+  line-height: 1.13;
+  letter-spacing: -0.01em;
+  padding-bottom: 3px;
+  background-image: linear-gradient(to right, #cab26d 0 90px, transparent 90px 100%);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 90px 1.8px;
+}
+
+/* Responsive tweaks for title underline/spacing on smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs36 {
     max-width: 99vw;
-    padding: 0 0 32px;
+    margin-left: 2vw;
+    padding-bottom: 28px;
   }
 
-  .tabs.tabs25 .tabs-panel > div > h3 {
-    font-size: 1.5rem;
-    background-size: 32px 2px;
-    padding-bottom: 2px;
-    margin-bottom: 6px;
-  }
-
-  .tabs.tabs25 .tabs-panel > div picture,
-  .tabs.tabs25 .tabs-panel > div img {
-    width: 100%;
+  .tabs.tabs36 .tabs-panel > div {
     max-width: 100vw;
   }
 
-  .tabs.tabs25 .tabs-list {
-    gap: 8px;
-  }
-
-  .tabs.tabs25 .tabs-panel > div > p,
-  .tabs.tabs25 .tabs-panel > div > ul,
-  .tabs.tabs25 .tabs-panel > div > li {
-    max-width: 98vw;
-    font-size: 1rem;
+  .tabs.tabs36 .tabs-panel > div > h3 {
+    font-size: 1.42rem;
+    background-size: 46px 1.1px;
+    padding-bottom: 2px;
+    margin-bottom: 4px;
   }
 }
 
-@media (width <= 700px) {
-  .tabs.tabs25 .tabs-list {
-    gap: 4px;
-  }
-
-  .tabs.tabs25 .tabs-tab {
-    font-size: 0.98rem;
-    padding: 8px 6px;
-  }
-
-  .tabs.tabs25 .tabs-panel > div > h3 {
-    font-size: 1.1rem;
-    background-size: 18px 2px;
-    padding-bottom: 1px;
-    margin-bottom: 5px;
-  }
+/* Description Paragraph: wider, slightly more space below */
+.tabs.tabs36 .tabs-panel > div > p:first-of-type {
+  font-family: var(--body-font-family);
+  font-size: 1.08rem;
+  color: #131313;
+  line-height: 1.68;
+  margin: 0 0 20px;
+  max-width: 900px;
+  text-align: left;
 }
 
-/* --- MERGED SELECTOR FOR .tabs.tabs25 --- */
+/* Image: left-aligned, sharp corners, matches text width, compact spacing below */
+.tabs.tabs36 .tabs-panel > div > p picture,
+.tabs.tabs36 .tabs-panel > div > p img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 0;
+  margin: 0 0 8px;
+  box-shadow: none;
+  object-fit: cover;
+}
 
-.tabs.tabs25 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1160px;
-  margin: 50px auto 0;
-  padding: 0 0 48px;
-  background: none;
+/* Image Caption: all-caps, small, lighter gray, left-aligned, compact margin */
+.tabs.tabs36 .tabs-panel > div > p:last-child {
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  font-size: 0.79rem;
+  color: #b3b3b3;
+  background: #fff;
+  letter-spacing: 0.02em;
+  margin: 0 0 8px;
+  padding: 6px 0 2px;
+  max-width: 900px;
+  min-height: 15px;
+  text-align: left;
   border: none;
+  box-shadow: none;
+  line-height: 1.18;
+}
+
+/* Compact spacing between stacked elements */
+.tabs.tabs36 .tabs-panel > div > *:not(:last-child) {
+  margin-bottom: 0.18em;
 }
