@@ -1,3 +1,45 @@
+/* Reordered selectors to resolve specificity issues */
+.tabs .tabs-list button p {
+  margin: 0;
+}
+
+.tabs.tabs5 > div:first-child img,
+.tabs.tabs5 > div:first-child picture {
+  display: none;
+}
+
+.tabs.tabs5 > div:first-child p {
+  font-size: 14px;
+  color: #232323;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: right;
+}
+
+.tabs.tabs5 > div:last-child img,
+.tabs.tabs5 > div:last-child picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 28px;
+  margin-top: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.tabs.tabs5 > div:last-child p,
+.tabs.tabs5 > div:last-child ul,
+.tabs.tabs5 > div:last-child ol {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #222;
+  line-height: 1.72;
+  margin: 0 0 22px;
+  max-width: 700px;
+  padding: 0;
+}
+
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -31,12 +73,8 @@
   text-align: initial;
   text-overflow: unset;
   overflow: unset;
-  white-space: unset;
+  white-space: normal;
   transition: background-color 0.2s;
-}
-
-.tabs .tabs-list button p {
-  margin: 0;
 }
 
 .tabs .tabs-list button[aria-selected='true'] {
@@ -209,5 +247,229 @@
     background-size: 60px 5px;
     padding-bottom: 6px;
     margin-top: 20px;
+  }
+}
+
+/* --- merged .tabs.tabs5 selector below --- */
+.tabs.tabs5 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+  gap: 56px;
+  min-height: 0;
+}
+
+/* --- end merged .tabs.tabs5 selector --- */
+
+/* Remove all top spacing, especially for alignment */
+.tabs.tabs5,
+.tabs.tabs5 > div:first-child,
+.tabs.tabs5 > div:last-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* SIDEBAR - only for trip facts/aux info */
+.tabs.tabs5 > div:first-child {
+  flex: 0 0 170px;
+  max-width: 170px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 40px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--body-font-family);
+  margin-top: 0;
+}
+
+.tabs.tabs5 > div:first-child > * {
+  width: 100%;
+
+  /* Removed deprecated word-break: break-word; for standards compliance */
+  text-align: right;
+  white-space: normal;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+}
+
+/* Hide headings and tabs-list in sidebar */
+.tabs.tabs5 > div:first-child h2,
+.tabs.tabs5 > div:first-child h3,
+.tabs.tabs5 > div:first-child .tabs-list {
+  display: none;
+}
+
+/* Sidebar trip fact block style */
+.tabs.tabs5 > div:first-child strong {
+  display: block;
+  font-size: 11px;
+  color: #A8A8A8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* MAIN CONTENT AREA */
+.tabs.tabs5 > div:last-child {
+  flex: 1 1 0;
+  max-width: 800px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Place tabs-list at top of main content, horizontal pills */
+.tabs.tabs5 > div:last-child > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.tabs.tabs5 > div:last-child > .tabs-list .tabs-tab {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 8px 26px;
+  border: none;
+  border-radius: 3px;
+  background: none;
+  color: #232323;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.04em;
+  margin: 0;
+  white-space: nowrap;
+  box-shadow: none;
+}
+
+.tabs.tabs5 > div:last-child > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs5 > div:last-child > .tabs-list .tabs-tab:not([aria-selected="true"]):hover {
+  background: #eee;
+}
+
+.tabs.tabs5 > div:last-child > .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+/* Headings and main content spacing */
+.tabs.tabs5 > div:last-child h1,
+.tabs.tabs5 > div:last-child h2,
+.tabs.tabs5 > div:last-child h3 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.15;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.tabs.tabs5 > div:last-child h1 {
+  font-size: 2.4rem;
+  margin-bottom: 22px;
+  margin-top: 0;
+}
+
+.tabs.tabs5 > div:last-child h2 {
+  font-size: 1.65rem;
+  margin-bottom: 22px;
+  margin-top: 32px;
+}
+
+.tabs.tabs5 > div:last-child h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  margin-top: 22px;
+}
+
+/* Main area text and list styling */
+.tabs.tabs5 > div:last-child ul,
+.tabs.tabs5 > div:last-child ol {
+  padding-left: 22px;
+}
+
+.tabs.tabs5 > div:last-child li {
+  margin-bottom: 7px;
+}
+
+/* Remove default panel border/background */
+.tabs.tabs5 .tabs-panel {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* Ensure both columns are top-aligned */
+.tabs.tabs5 > div:first-child,
+.tabs.tabs5 > div:last-child {
+  align-self: flex-start;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs5 {
+    flex-direction: column;
+    gap: 0;
+    max-width: 100vw;
+    padding: 0;
+  }
+
+  .tabs.tabs5 > div:first-child {
+    max-width: 100%;
+    min-width: 0;
+    flex: none;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    padding-right: 0;
+  }
+
+  .tabs.tabs5 > div:first-child > * {
+    text-align: left;
+    width: 100%;
+  }
+
+  .tabs.tabs5 > div:last-child {
+    max-width: 100%;
+  }
+
+  .tabs.tabs5 > div:last-child > .tabs-list {
+    gap: 6px;
+    margin-bottom: 20px;
   }
 }
