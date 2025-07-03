@@ -1,3 +1,5 @@
+/* CAROUSEL BASE STYLES */
+
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -32,6 +34,11 @@
   min-height: min(50vw, calc(100dvh - var(--header-height)));
 }
 
+.carousel.carousel22 .carousel-slide {
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .carousel .carousel-slide:has(.carousel-slide-content[data-align='center']) {
   align-items: center;
 }
@@ -56,9 +63,24 @@
   margin: 68px;
   padding: 16px;
   color: white;
-  background-color: rgba(19 19 19 / 75%);
+  background-color: rgb(19 19 19 / 75%);
   position: relative;
   width: var(--slide-content-width, auto);
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  inset: auto 32px 56px;
+  margin: 0;
+  padding: 32px 40px 24px;
+  max-width: none;
+  width: auto;
+  box-shadow: none;
+  border-radius: 0;
+  background: #fff;
+  color: #131313;
+  z-index: 2;
+  display: block;
 }
 
 .carousel .carousel-slide-indicators {
@@ -81,12 +103,6 @@
   transition: background-color 0.2s;
 }
 
-.carousel .carousel-slide-indicator button:disabled,
-.carousel .carousel-slide-indicator button:hover,
-.carousel .carousel-slide-indicator button:focus-visible {
-  background-color: var(--text-color);
-}
-
 .carousel .carousel-navigation-buttons {
   position: absolute;
   top: 50%;
@@ -99,7 +115,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -107,13 +122,89 @@
   margin: 0;
   border-radius: 50%;
   padding: 0;
-  background-color: rgba(19 19 19 / 25%);
+  background-color: rgb(19 19 19 / 25%);
   transition: background-color 0.2s;
 }
 
 .carousel .carousel-navigation-buttons button:hover,
 .carousel .carousel-navigation-buttons button:focus-visible {
-  background-color: rgba(19 19 19 / 75%);
+  background-color: rgb(19 19 19 / 75%);
+}
+
+.carousel .carousel-slide-indicator button:disabled,
+.carousel .carousel-slide-indicator button:hover,
+.carousel .carousel-slide-indicator button:focus-visible {
+  background-color: var(--text-color);
+}
+
+.carousel.carousel22 .carousel-slide-indicator button {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #bbb;
+  border: none;
+  margin: 0 3px;
+  box-shadow: none;
+  transition: background-color 0.2s;
+  outline: none;
+  padding: 0;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:disabled {
+  background-color: #1a1a1a;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 2px;
+}
+
+.carousel.carousel22 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 80px;
+  bottom: 12px;
+  padding: 0;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 14px;
+  z-index: 3;
+  min-width: 88px;
+  height: 32px;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 16px 4px auto;
+  transform: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+  background: none;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-shadow: none;
+  transition: border-color 0.2s, background-color 0.2s;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:hover,
+.carousel.carousel22 .carousel-navigation-buttons button:focus-visible {
+  background-color: #f0f0f0;
+  border-color: #888;
 }
 
 .carousel .carousel-navigation-buttons button::after {
@@ -130,9 +221,76 @@
   transform: translate(-50%, -50%) rotate(-135deg);
 }
 
+.carousel.carousel22 .carousel-navigation-buttons button::after {
+  border-color: #222;
+  height: 13px;
+  width: 13px;
+  top: 50%;
+  left: 50%;
+  margin-left: 0;
+}
+
 .carousel .carousel-navigation-buttons button.slide-next::after {
   transform: translate(-50%, -50%) rotate(45deg);
   left: calc(50% - 2px);
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-next::after {
+  left: 50%;
+}
+
+/* Heading and text styles */
+.carousel.carousel22 .carousel-slide .carousel-slide-content h2 {
+  color: #131313;
+  margin-top: 0;
+  margin-bottom: 0.4em;
+  font-size: 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content p {
+  color: #131313;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+
+/* Button style tweaks */
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container .button {
+  background: #ffe000;
+  color: #131313;
+  font-weight: 700;
+  border-radius: 3px;
+  border: none;
+  padding: 8px 20px;
+  font-size: 15px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  box-shadow: none;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container .button:hover,
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container .button:focus {
+  background: #ffd100;
+  color: #000;
+}
+
+/* --- Arrange the DOM visually: controls-bar 'hacks' --- */
+.carousel.carousel22 .carousel-controls-bar {
+  pointer-events: none;
+}
+
+.carousel.carousel22 .carousel-slides-container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.carousel.carousel22 .carousel-slide-indicators,
+.carousel.carousel22 .carousel-navigation-buttons {
+  grid-row: 2;
 }
 
 @media (width >= 600px) {
@@ -143,11 +301,25 @@
 
   .carousel .carousel-slide .carousel-slide-content {
     --slide-content-width: calc((100% - 184px) / 2);
-
     margin: 92px;
   }
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+/* Responsive shrink on mobile */
+@media (width <= 700px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    left: 8vw;
+    right: 8vw;
+    padding: 20px 6vw 16px;
+    bottom: 48px;
+  }
+  .carousel.carousel22 .carousel-controls-bar {
+    bottom: 12px;
+    gap: 12px;
+  }
+  /* If you need to add bottom: 64px, add to the main content panel rule above to avoid duplicate selector. */
 }
