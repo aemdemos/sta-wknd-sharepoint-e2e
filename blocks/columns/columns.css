@@ -1,3 +1,4 @@
+/* Columns flex setup */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,267 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+.columns.columns18 {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0;
+}
+
+/* Two columns side by side */
+.columns.columns18 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+/* Sidebar list item - moved before other .li selectors for specificity order */
+.columns.columns18 > div > div:first-child ul li {
+  display: block;
+  padding: 0;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.12;
+}
+
+/* Main content bullet list item (must come before ol li for specificity) */
+.columns.columns18 > div > div:last-child ul li {
+  margin-bottom: 0.25em;
+  font-size: 1.05rem;
+  line-height: 1.32;
+}
+
+/* Tab Navigation list item (must come before sidebar for specificity) */
+.columns.columns18 > div > div:last-child ol li {
+  background: none;
+  border: none;
+  color: #222;
+  text-transform: uppercase;
+  font-size: 1.08rem;
+  font-weight: 600;
+  padding: 0.53em 1.6em 0.49em;
+  cursor: pointer;
+  margin-bottom: 0;
+  border-radius: 0;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+.columns.columns18 > div > div:last-child ol li:first-child {
+  background: #000;
+  color: #fff;
+}
+
+/* Sidebar (left column) */
+.columns.columns18 > div > div:first-child {
+  flex: 0 0 265px;
+  max-width: 265px;
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 0;
+}
+
+.columns.columns18 > div > div:first-child h3 {
+  display: none;
+}
+
+.columns.columns18 > div > div:first-child h1 {
+  font-size: 2.05rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.15em;
+  margin-top: 1em;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 0.22em;
+  display: inline-block;
+}
+
+.columns.columns18 > div > div:first-child h1::after {
+  display: block;
+  position: relative;
+  left: 0;
+  top: 0.22em;
+  height: 3px;
+  width: 76px;
+  background: #f2d16b;
+  border-radius: 2px;
+  margin-top: 0.02em;
+  content: "";
+}
+
+/* Attribute List in sidebar */
+.columns.columns18 > div > div:first-child ul {
+  margin: 2.1em 0 0.7em;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+/* Labels: odd */
+.columns.columns18 > div > div:first-child ul li:nth-child(odd) {
+  color: #b3b3b3;
+  text-transform: uppercase;
+  font-size: 0.87rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-top: 0.34em;
+  margin-bottom: 0;
+}
+
+/* Values: even */
+.columns.columns18 > div > div:first-child ul li:nth-child(even) {
+  color: #222;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.08rem;
+  margin-bottom: 0.46em;
+}
+
+/* Space above "Share This Adventure" */
+.columns.columns18 > div > div:first-child h5 {
+  margin-top: 2.2em;
+  font-size: 1.04rem;
+  text-transform: uppercase;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  cursor: default;
+  margin-bottom: 0;
+  text-decoration: none;
+  border: none;
+  background: none;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+/* Main column */
+.columns.columns18 > div > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+}
+
+.columns.columns18 > div > div:last-child h3 {
+  display: none;
+}
+
+/* Tab Navigation */
+.columns.columns18 > div > div:last-child ol {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  margin: 0.3em 0 1.2em;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+/* Main Image */
+.columns.columns18 > div > div:last-child picture img {
+  max-width: 560px;
+  width: 100%;
+  display: block;
+  margin-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-left: 0;
+}
+
+.columns.columns18 > div > div:last-child picture {
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.columns.columns18 > div > div:last-child p {
+  margin-top: 0.1em;
+  margin-bottom: 0.95em;
+}
+
+.columns.columns18 > div > div:last-child p:first-of-type {
+  display: block;
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 0.1em;
+  margin-bottom: 0.12em;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  padding-left: 2px;
+}
+
+.columns.columns18 > div > div:last-child p:first-of-type picture {
+  display: block;
+  margin-bottom: 0.07em;
+  margin-right: 0;
+  max-width: 560px;
+}
+
+.columns.columns18 > div > div:last-child p:first-of-type img {
+  margin-bottom: 0.05em;
+  max-width: 560px;
+  width: 100%;
+  display: block;
+}
+
+/* Normal paragraph text spacing */
+.columns.columns18 > div > div:last-child p:not(:first-of-type) {
+  color: #222;
+  font-size: 1.07rem;
+  line-height: 1.57;
+  margin-bottom: 1.08em;
+  margin-top: 0.26em;
+  font-weight: 400;
+  text-transform: none;
+  max-width: 900px;
+}
+
+/* Bullet List (What to bring) */
+.columns.columns18 > div > div:last-child ul {
+  margin: 1.15em 0 0.27em;
+  padding-left: 1.8em;
+  color: #222;
+  font-size: 1.02rem;
+  list-style: disc inside;
+}
+
+@media (width <= 900px) {
+  .columns.columns18 > div {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .columns.columns18 > div > div:first-child,
+  .columns.columns18 > div > div:last-child {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .columns.columns18 > div > div:last-child picture img,
+  .columns.columns18 > div > div:last-child p:first-of-type img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .columns.columns18 > div > div:last-child p:first-of-type picture {
+    max-width: 100%;
+  }
+
+  .columns.columns18 > div > div:last-child {
+    max-width: 100%;
   }
 }
