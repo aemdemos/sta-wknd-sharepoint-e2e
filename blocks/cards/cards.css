@@ -1,3 +1,4 @@
+/* --- CARDS BASE STYLES --- */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -26,8 +27,104 @@
   object-fit: cover;
 }
 
-/* Removed empty block for .cards.cards3 */
+/* ---- MERGED .cards.cards6 SELECTOR START ---- */
+.cards.cards6 {
+  background: #fff;
+  max-width: 1040px;
+  margin: 48px auto 56px;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: 0 8px 32px 0 rgb(34 34 34 / 8%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  position: relative;
+  min-height: 300px;
+}
 
+/* ---- MERGED .cards.cards6 SELECTOR END ---- */
+
+.cards.cards6::before,
+.cards.cards6::after {
+  display: none;
+  background: none;
+  content: none;
+}
+
+.cards.cards6 > ul {
+  width: 100%;
+  margin: 0;
+  padding: 56px 48px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  background: transparent;
+}
+
+.cards.cards6 p,
+.cards.cards6 li,
+.cards.cards6 span {
+  color: #333;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 1.1em;
+  line-height: 1.7;
+  font-family: var(--body-font-family);
+  text-align: left;
+}
+
+.cards.cards6,
+.cards.cards6 > ul,
+.cards.cards6 > ul > li {
+  border: none;
+  background-clip: padding-box;
+}
+
+.cards.cards6 > ul > li {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.cards.cards6 h1,
+.cards.cards6 h2,
+.cards.cards6 h3 {
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  margin-top: 0.1em;
+  margin-bottom: 0.35em;
+  line-height: 1.08;
+  text-align: left;
+}
+
+.cards.cards6 > ul > li img,
+.cards.cards6 > ul > li picture {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  border-radius: 0;
+  margin-bottom: 24px;
+  object-fit: cover;
+}
+
+.cards.cards6 ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* --- CARDS 3 --- */
 .cards.cards3 > ul > li:first-child {
   display: flex;
   flex-direction: row;
@@ -133,6 +230,17 @@
 }
 
 @media (width <= 900px) {
+  .cards.cards6 {
+    max-width: 100vw;
+    box-shadow: none;
+    margin: 24px 0;
+  }
+
+  .cards.cards6 > ul {
+    padding: 24px 8px 32px;
+    gap: 32px;
+  }
+
   .cards.cards3 > ul > li:first-child {
     flex-direction: column;
     min-height: unset;
