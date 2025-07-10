@@ -25,3 +25,126 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+.cards.cards2 {
+  /* No properties in base or generated CSS for this selector directly, so merged block is empty here. */
+}
+
+.cards.cards2 ul {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 28px;
+  justify-content: flex-start;
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards2 ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 320px;
+}
+
+@media (width <= 1200px) {
+  .cards.cards2 ul > li {
+    max-width: 25vw;
+    width: 25vw;
+    height: 26vw;
+    min-height: 0;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards2 ul > li {
+    max-width: 48vw;
+    width: 48vw;
+    height: 62vw;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards2 ul > li {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+}
+
+.cards.cards2 .cards-card-image {
+  width: 100%;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.cards.cards2 ul > li img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  background: #f3f3f3;
+  flex-shrink: 0;
+}
+
+.cards.cards2 .cards-card-body {
+  padding: 4px 12px 6px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  justify-content: center;
+  height: 100%;
+}
+
+.cards.cards2 .cards-card-body > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cards.cards2 .cards-card-body > *:first-child {
+  margin-top: auto;
+}
+
+.cards.cards2 .cards-card-body > *:last-child {
+  margin-bottom: auto;
+}
+
+.cards.cards2 .cards-card-body strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+}
+
+.cards.cards2 .cards-card-body p {
+  margin: 0;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.33;
+  overflow-wrap: break-word;
+}
