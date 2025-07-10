@@ -58,6 +58,175 @@
   display: none;
 }
 
+/* ---- GENERATED CSS ---- */
+
+.tabs.tabs7 .tabs-panel p {
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+.tabs.tabs7 .tabs-list button {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 13px 32px 13px 0;
+  min-width: 0;
+  min-height: 44px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: none;
+  outline: none;
+}
+
+.tabs.tabs7 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.tabs.tabs7 {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0;
+  background: #fff;
+  border: none;
+  box-sizing: border-box;
+}
+
+.tabs.tabs7 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: none;
+  background: none;
+  margin: 0 0 32px;
+  padding: 0;
+  font-family: var(--body-font-family);
+}
+
+.tabs.tabs7 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  box-shadow: none;
+  z-index: 1;
+}
+
+.tabs.tabs7 .tabs-list button:focus {
+  outline: 2px solid #eedc82;
+}
+
+.tabs.tabs7 #cycling-tuscany {
+  font-family: var(--heading-font-family);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.1em;
+  display: inline-block;
+  line-height: 1.1;
+  border: none;
+  border-bottom: 2px solid #eedc82;
+  box-shadow: none;
+  padding-bottom: 2px;
+}
+
+.tabs.tabs7 h2, .tabs.tabs7 h2 strong {
+  font-family: var(--heading-font-family);
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #222;
+  margin-top: 0.13em;
+  margin-bottom: 0.4em;
+  line-height: 1.1;
+}
+
+.tabs.tabs7 .tabs-panel {
+  border: none;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  overflow: visible;
+  width: 100%;
+}
+
+.tabs.tabs7 .tabs-panel > div {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs7 .tabs-panel picture,
+.tabs.tabs7 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 28px;
+  border-radius: 0;
+  box-shadow: none;
+  background: #fff;
+}
+
+.tabs.tabs7 .tabs-list + * {
+  margin-top: 0;
+}
+
+.tabs.tabs7 #cycling-tuscany + h2 {
+  margin-top: 0.04em;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs7 {
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tabs.tabs7 .tabs-list {
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .tabs.tabs7 .tabs-list button {
+    padding: 9px 10px 9px 0;
+    font-size: 13px;
+    min-height: 32px;
+  }
+
+  .tabs.tabs7 #cycling-tuscany {
+    font-size: 1.3rem;
+    border-bottom-width: 2px;
+    padding-bottom: 1px;
+  }
+
+  .tabs.tabs7 h2, .tabs.tabs7 h2 strong {
+    font-size: 1.1rem;
+    margin-top: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .tabs.tabs7 .tabs-panel picture,
+  .tabs.tabs7 .tabs-panel img {
+    margin-bottom: 10px;
+  }
+}
+
 .tabs.tabs6 {
   max-width: 900px;
   margin: 36px auto 0;
@@ -206,179 +375,27 @@
     padding: 0 0 32px;
     max-width: 100%;
   }
+
   .tabs.tabs6 .tabs-list {
     margin: 8px 0;
   }
+
   .tabs.tabs6 .tabs-panel h3 {
     width: 40px;
     min-width: 40px;
   }
+
   .tabs.tabs6 .tabs-list button {
     padding: 10px 14px 10px 0;
     font-size: 13px;
   }
 }
 
-/* ---- GENERATED CSS ---- */
-
-.tabs.tabs7 .tabs-list button {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  background: none;
-  color: #222;
-  font-family: var(--body-font-family);
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  padding: 13px 32px 13px 0;
-  min-width: 0;
-  min-height: 44px;
-  transition: background 0.2s, color 0.2s;
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  box-shadow: none;
-  outline: none;
-}
-
-.tabs.tabs7 .tabs-list button p {
-  margin: 0;
-  padding: 0;
-  pointer-events: none;
-}
-
-.tabs.tabs7 .tabs-panel p {
-  font-family: var(--body-font-family);
-  font-size: 1rem;
-  color: #222;
-  line-height: 1.7;
-  margin: 0 0 24px;
-}
-
-.tabs.tabs7 {
+/* Merged .tabs.tabs8 selector */
+.tabs.tabs8 {
+  background: #fff;
+  padding: 56px 0;
   max-width: 1200px;
-  margin: 40px auto 0;
-  padding: 0;
-  background: #fff;
-  border: none;
+  margin: 0 auto;
   box-sizing: border-box;
-}
-
-.tabs.tabs7 .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 28px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  border: none;
-  background: none;
-  margin: 0 0 32px;
-  padding: 0;
-  font-family: var(--body-font-family);
-}
-
-.tabs.tabs7 .tabs-list button[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  box-shadow: none;
-  z-index: 1;
-}
-
-.tabs.tabs7 .tabs-list button:focus {
-  outline: 2px solid #eedc82;
-}
-
-.tabs.tabs7 #cycling-tuscany {
-  font-family: var(--heading-font-family);
-  font-size: 2.4rem;
-  font-weight: 400;
-  color: #222;
-  margin-top: 0;
-  margin-bottom: 0.1em;
-  display: inline-block;
-  line-height: 1.1;
-  border: none;
-  border-bottom: 2px solid #eedc82;
-  box-shadow: none;
-  padding-bottom: 2px;
-}
-
-.tabs.tabs7 h2, .tabs.tabs7 h2 strong {
-  font-family: var(--heading-font-family);
-  font-size: 2.1rem;
-  font-weight: bold;
-  color: #222;
-  margin-top: 0.13em;
-  margin-bottom: 0.4em;
-  line-height: 1.1;
-}
-
-.tabs.tabs7 .tabs-panel {
-  border: none;
-  background: #fff;
-  padding: 0;
-  margin: 0;
-  box-shadow: none;
-  overflow: visible;
-  width: 100%;
-}
-
-.tabs.tabs7 .tabs-panel > div {
-  margin: 0;
-  padding: 0;
-}
-
-.tabs.tabs7 .tabs-panel picture,
-.tabs.tabs7 .tabs-panel img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  margin: 0 0 28px;
-  border-radius: 0;
-  box-shadow: none;
-  background: #fff;
-}
-
-.tabs.tabs7 .tabs-list + * {
-  margin-top: 0;
-}
-
-.tabs.tabs7 #cycling-tuscany + h2 {
-  margin-top: 0.04em;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs7 {
-    max-width: 100vw;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .tabs.tabs7 .tabs-list {
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .tabs.tabs7 .tabs-list button {
-    padding: 9px 10px 9px 0;
-    font-size: 13px;
-    min-height: 32px;
-  }
-  .tabs.tabs7 #cycling-tuscany {
-    font-size: 1.3rem;
-    border-bottom-width: 2px;
-    padding-bottom: 1px;
-  }
-  .tabs.tabs7 h2, .tabs.tabs7 h2 strong {
-    font-size: 1.1rem;
-    margin-top: 0.08em;
-    margin-bottom: 10px;
-  }
-  .tabs.tabs7 .tabs-panel picture,
-  .tabs.tabs7 .tabs-panel img {
-    margin-bottom: 10px;
-  }
 }
