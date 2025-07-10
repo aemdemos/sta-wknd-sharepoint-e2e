@@ -1,3 +1,12 @@
+/* ---------------------------- Base Card Styles ---------------------------- */
+.cards {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -10,13 +19,6 @@
 .cards > ul > li {
   border: 1px solid #dadada;
   background-color: var(--background-color);
-}
-
-.cards.cards3 ul,
-.cards.cards3 li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .cards .cards-card-body {
@@ -33,6 +35,7 @@
   object-fit: cover;
 }
 
+/* ---------------------------- Cards 2 Styles ---------------------------- */
 .cards.cards2 {
   /* No properties in base or generated CSS for this selector directly, so merged block is empty here. */
 }
@@ -63,32 +66,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   height: 320px;
-}
-
-@media (width <= 1200px) {
-  .cards.cards2 ul > li {
-    max-width: 25vw;
-    width: 25vw;
-    height: 26vw;
-    min-height: 0;
-  }
-}
-
-@media (width <= 900px) {
-  .cards.cards2 ul > li {
-    max-width: 48vw;
-    width: 48vw;
-    height: 62vw;
-  }
-}
-
-@media (width <= 600px) {
-  .cards.cards2 ul > li {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-  }
 }
 
 .cards.cards2 .cards-card-image {
@@ -156,6 +133,33 @@
   overflow-wrap: break-word;
 }
 
+@media (width <= 1200px) {
+  .cards.cards2 ul > li {
+    max-width: 25vw;
+    width: 25vw;
+    height: 26vw;
+    min-height: 0;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards2 ul > li {
+    max-width: 48vw;
+    width: 48vw;
+    height: 62vw;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards2 ul > li {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+}
+
+/* ---------------------------- Cards 3 Styles ---------------------------- */
 .cards.cards3 {
   background: #fff;
   max-width: 1100px;
@@ -163,6 +167,13 @@
   margin-right: auto;
   padding: 0 32px 56px;
   box-sizing: border-box;
+}
+
+.cards.cards3 ul,
+.cards.cards3 li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .cards.cards3 > ul {
@@ -306,5 +317,103 @@
 
   .cards.cards3 .cards-card-image {
     margin-bottom: 10px;
+  }
+}
+
+/* ---------------------------- Card Block Top Flush Styles ---------------------------- */
+
+/* Remove all padding/margin above the first child for tight top alignment */
+.cards > ul {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.cards > ul > li {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.cards .cards-card-body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.cards .cards-card-body h3 {
+  font-size: 2.25rem;
+  font-family: var(--heading-font-family, serif);
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 6px;
+  line-height: 1.16;
+  text-align: left;
+  padding: 0;
+}
+
+/* Remove default paragraph margin (picture wrapper) */
+.cards .cards-card-body > p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Image: slightly taller for a touch more immersion, edge-to-edge */
+.cards .cards-card-body picture,
+.cards .cards-card-body img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 18 / 7;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  background: transparent;
+}
+
+/* Ensure content is always left-aligned and stretches when needed */
+.cards .cards-card-body > * {
+  text-align: left;
+  align-self: stretch;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (width <= 900px) {
+  .cards {
+    max-width: 100vw;
+    padding: 0;
+  }
+
+  .cards .cards-card-body h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+  }
+
+  .cards .cards-card-body picture,
+  .cards .cards-card-body img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (width <= 600px) {
+  .cards .cards-card-body h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .cards .cards-card-body picture,
+  .cards .cards-card-body img {
+    aspect-ratio: 16 / 10;
   }
 }
