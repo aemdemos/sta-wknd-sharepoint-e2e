@@ -357,7 +357,7 @@
   border: none;
   min-width: 0;
   min-height: 0;
-  height: 320px; /* fixed height for perfect row alignment */
+  height: 320px;
 }
 
 .cards.cards22 .cards-card-image {
@@ -401,6 +401,17 @@
   overflow-wrap: break-word;
 }
 
+.cards.cards27 .cards-card-body strong {
+  display: block;
+  font-size: 14px;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1px;
+  line-height: 1.14;
+  font-family: var(--body-font-family);
+}
+
 .cards.cards22 .cards-card-body p:first-child strong {
   display: block;
   font-size: 16px;
@@ -414,6 +425,19 @@
   overflow-wrap: break-word;
 }
 
+.cards.cards27 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: #666;
+  font-family: var(--body-font-family);
+  line-height: 1.19;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .cards.cards22 .cards-card-body p:last-child {
   font-size: 13px;
   color: #888;
@@ -425,36 +449,103 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-
-  /* word-break: break-word; removed as per spec */
   max-height: 3em;
 }
 
-@media (width <= 1024px) {
-  .cards.cards22 > ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* ---------------------------- Generated CSS (only .cards.cards27 and children) ---------------------------- */
 
-  .cards.cards22 > ul > li {
-    height: 260px;
-  }
+.cards.cards27 {
+  background: #fff;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (width <= 600px) {
-  .cards.cards22 > ul {
-    grid-template-columns: 1fr;
+/* the .cards.cards27 block will be replaced by the merged block below */
+
+/* Keep cards flush-left with a very tight gap for pixel-accurate alignment */
+.cards.cards27 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+  max-width: none;
+}
+
+/* Card styles */
+.cards.cards27 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  width: 198px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Square image */
+.cards.cards27 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin: 0 0 1px;
+  padding: 0;
+  flex-shrink: 0;
+  background: #fff;
+  display: block;
+}
+
+.cards.cards27 .cards-card-image picture,
+.cards.cards27 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Card content */
+.cards.cards27 .cards-card-body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  gap: 0;
+  min-height: 0;
+}
+
+/* Hide line break between title and description for tight stacking */
+.cards.cards27 .cards-card-body br {
+  display: none;
+}
+
+/* Responsive: stack cards on small screens */
+@media (width <= 700px) {
+  .cards.cards27 > ul {
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .cards.cards22 {
-    padding: 0 6px;
-  }
-
-  .cards.cards22 .cards-card-body {
-    padding: 6px 2px 10px;
-  }
-
-  .cards.cards22 > ul > li {
-    height: auto;
-    min-height: 0;
+  .cards.cards27 > ul > li {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 }
