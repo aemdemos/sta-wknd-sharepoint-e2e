@@ -56,19 +56,9 @@
   margin: 68px;
   padding: 16px;
   color: white;
-  background-color: rgba(19 19 19 / 75%);
+  background-color: rgb(19 19 19 / 75%);
   position: relative;
   width: var(--slide-content-width, auto);
-}
-
-.carousel .carousel-slide-indicators {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px 12px;
-  padding: 12px;
-  background-color: var(--light-color);
-  line-height: 0;
 }
 
 .carousel .carousel-slide-indicator button {
@@ -79,12 +69,6 @@
   border-radius: 50%;
   background-color: #dadada;
   transition: background-color 0.2s;
-}
-
-.carousel .carousel-slide-indicator button:disabled,
-.carousel .carousel-slide-indicator button:hover,
-.carousel .carousel-slide-indicator button:focus-visible {
-  background-color: var(--text-color);
 }
 
 .carousel .carousel-navigation-buttons {
@@ -99,7 +83,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -107,13 +90,13 @@
   margin: 0;
   border-radius: 50%;
   padding: 0;
-  background-color: rgba(19 19 19 / 25%);
+  background-color: rgb(19 19 19 / 25%);
   transition: background-color 0.2s;
 }
 
 .carousel .carousel-navigation-buttons button:hover,
 .carousel .carousel-navigation-buttons button:focus-visible {
-  background-color: rgba(19 19 19 / 75%);
+  background-color: rgb(19 19 19 / 75%);
 }
 
 .carousel .carousel-navigation-buttons button::after {
@@ -135,6 +118,22 @@
   left: calc(50% - 2px);
 }
 
+.carousel .carousel-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 12px;
+  padding: 12px;
+  background-color: var(--light-color);
+  line-height: 0;
+}
+
+.carousel .carousel-slide-indicator button:disabled,
+.carousel .carousel-slide-indicator button:hover,
+.carousel .carousel-slide-indicator button:focus-visible {
+  background-color: var(--text-color);
+}
+
 @media (width >= 600px) {
   .carousel .carousel-navigation-buttons {
     left: 24px;
@@ -151,3 +150,197 @@
     --slide-content-width: auto;
   }
 }
+
+/* ==========================
+   Generated CSS (except .carousel.carousel22 merged below)
+   ========================== */
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  inset: auto 40px 40px;
+  margin: 0 auto;
+  background: #fff;
+  color: #131313;
+  border-radius: 0;
+  box-shadow: 0 4px 24px rgb(19 19 19 / 6%);
+  padding: 32px 40px 28px;
+  width: auto;
+  max-width: 1080px;
+  min-width: 0;
+  z-index: 2;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    padding: 20px 16px 16px;
+    max-width: none;
+  }
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content h2 {
+  color: #131313;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content p {
+  color: #131313;
+  margin-bottom: 16px;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container {
+  margin-top: 16px;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content a.button {
+  background: #ffe600;
+  color: #1a1a1a;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 11px 22px;
+  border: none;
+  box-shadow: none;
+  letter-spacing: 0.04em;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content a.button:hover,
+.carousel.carousel22 .carousel-slide .carousel-slide-content a.button:focus {
+  background: #ffef5e;
+  color: #000;
+}
+
+.carousel.carousel22 .carousel-slide-indicators {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 100px;
+  margin: 0 auto;
+  width: 100%;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.carousel.carousel22 .carousel-slide-indicator {
+  pointer-events: auto;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #bdbdbd;
+  border: none;
+  margin: 0 3px;
+  padding: 0;
+  transition: background 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 32px 24px auto;
+  transform: none;
+  display: flex;
+  gap: 0;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgb(19 19 19 / 10%);
+  padding: 0 8px;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  width: auto;
+  height: 48px;
+}
+
+@media (width <= 900px) {
+  .carousel.carousel22 .carousel-navigation-buttons {
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button {
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  margin: 0 2px;
+  transition: background 0.2s;
+  position: relative;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:hover,
+.carousel.carousel22 .carousel-navigation-buttons button:focus-visible {
+  background: #ececec;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:disabled,
+.carousel.carousel22 .carousel-navigation-buttons button[disabled] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button::after {
+  border: none;
+  width: 0;
+  height: 0;
+  position: static;
+  left: auto;
+  top: auto;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons .slide-prev::before,
+.carousel.carousel22 .carousel-navigation-buttons .slide-next::before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 1;
+  content: '';
+  border: solid #222;
+  border-width: 0 3px 3px 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons .slide-prev::before {
+  transform: rotate(135deg);
+  margin-left: 2px;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons .slide-next::before {
+  transform: rotate(-45deg);
+  margin-right: 2px;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:disabled,
+.carousel.carousel22 .carousel-slide-indicator button[disabled] {
+  background: #222;
+}
+
+/* ==========================
+   Merged .carousel.carousel22 selector (for any future merging)
+   ========================== */
+
+/* (No top-level .carousel.carousel22 block existed in either CSS, so nothing to merge for top-level) */
