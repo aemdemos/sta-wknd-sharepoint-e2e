@@ -15,10 +15,7 @@
   order: 0;
 }
 
-.columns > div > .columns-img-col img {
-  display: block;
-}
-
+/* Moved and merged .columns > div > .columns-img-col img below .columns.columns35 img for specificity */
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
@@ -30,4 +27,215 @@
     flex: 1;
     order: unset;
   }
+}
+
+
+/* ====== .columns.columns35 merged from base and generated CSS ====== */
+.columns.columns35 {
+  background: #fff;
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding: 0 20px 56px;
+  box-sizing: border-box;
+}
+
+/* =================================================================== */
+
+.columns.columns35 > div {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Responsive: stack columns on mobile */
+@media (width <= 900px) {
+  .columns.columns35 {
+    padding: 0 8px 40px;
+  }
+
+  .columns.columns35 > div {
+    display: block;
+  }
+
+  .columns.columns35 > div > div {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 32px;
+  }
+}
+
+/* Main column: no extra padding */
+.columns.columns35 > div > div:first-child {
+  padding: 0;
+  min-width: 0;
+}
+
+/* Sidebar tweaks: start higher, a touch wider, more spacing */
+.columns.columns35 > div > div:last-child {
+  padding: 0;
+  min-width: 170px;
+  max-width: 260px;
+  margin-top: 28px;
+}
+
+@media (width <= 900px) {
+  .columns.columns35 > div > div:last-child {
+    margin-top: 0;
+    max-width: 100%;
+  }
+}
+
+/* Sidebar heading spacing */
+.columns.columns35 > div > div:last-child h5 {
+  margin-bottom: 36px;
+  color: #aaa;
+  font-size: 1.07rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* Sidebar list & links: more vertical space, easier reading */
+.columns.columns35 li {
+  font-family: var(--body-font-family);
+  font-size: 1.07rem;
+  color: #232323;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 1.35em;
+}
+
+.columns.columns35 > div > div:last-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns35 > div > div:last-child li {
+  margin: 0 0 28px;
+  padding: 0;
+  border-bottom: none;
+  font-size: 1.05rem;
+}
+
+.columns.columns35 > div > div:last-child li:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns35 > div > div:last-child li a {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.09rem;
+  text-decoration: none;
+  display: block;
+  line-height: 1.6;
+  padding: 0;
+  overflow-wrap: break-word;
+  transition: color 0.2s;
+}
+
+.columns.columns35 > div > div:last-child li a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Headings and byline */
+.columns.columns35 h1 {
+  font-family: var(--heading-font-family);
+  font-size: 2.3rem;
+  color: #000;
+  font-weight: 700;
+  margin-top: 0.64em;
+  margin-bottom: 0.18em;
+  line-height: 1.08;
+}
+
+.columns.columns35 h4 {
+  color: #b8b8b8;
+  font-family: var(--body-font-family);
+  font-size: 0.97rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+/* Paragraphs/text rhythm */
+.columns.columns35 p {
+  font-family: var(--body-font-family);
+  font-size: 1.07rem;
+  color: #232323;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 1.35em;
+}
+
+/* Images: more air above and below */
+.columns.columns35 picture,
+.columns.columns35 img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  margin: 36px 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.columns > div > .columns-img-col img {
+  display: block;
+}
+
+/* Author & Social: more space above, relaxed inline look */
+.columns.columns35 h2#jake-hammer {
+  margin-top: 2.5em;
+  margin-bottom: 0.1em;
+  font-size: 1.12rem;
+  font-family: var(--heading-font-family);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.columns.columns35 h2#jake-hammer + p {
+  font-size: 0.98rem;
+  color: #888;
+  margin-bottom: 0.7em;
+  margin-left: 10px;
+  font-weight: 400;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.columns.columns35 .button-container {
+  display: inline-block;
+  margin-left: 16px;
+  margin-right: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.columns.columns35 .button-container:first-of-type {
+  margin-left: 32px;
+}
+
+@media (width <= 900px) {
+  .columns.columns35 .button-container {
+    display: block;
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+
+  .columns.columns35 h2#jake-hammer,
+  .columns.columns35 h2#jake-hammer + p {
+    display: block;
+    margin-left: 0;
+  }
+}
+
+/* Button style: compact and rounded */
+.columns.columns35 .button {
+  min-width: 94px;
+  font-size: 0.96rem;
+  padding: 0.36em 1.05em;
+  margin: 0 0 0.38em;
+  border-radius: 26px;
+  font-weight: 500;
 }
