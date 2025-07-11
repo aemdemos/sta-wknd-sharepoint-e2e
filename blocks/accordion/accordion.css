@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,110 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+.accordion.accordion29 {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.accordion.accordion29 details {
+  border: none;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.accordion.accordion29 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion29 details:first-child {
+  border-top: none;
+}
+
+.accordion.accordion29 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px 16px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #222;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  min-height: 44px;
+  position: relative;
+  z-index: 1;
+}
+
+.accordion.accordion29 summary::-webkit-details-marker,
+.accordion.accordion29 summary::marker {
+  display: none;
+}
+
+.accordion.accordion29 summary p {
+  margin: 0;
+  padding-left: 0;
+  flex: 1 1 auto;
+  text-align: left;
+  font-family: inherit;
+}
+
+.accordion.accordion29 summary::before,
+.accordion.accordion29 summary::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 18px;
+  height: 3px;
+  background: #222;
+  border-radius: 2px;
+  transition: background 0.2s, opacity 0.2s;
+  pointer-events: none;
+  display: block;
+}
+
+.accordion.accordion29 summary::after {
+  z-index: 2;
+  transform: translateY(-50%);
+}
+
+.accordion.accordion29 summary::before {
+  z-index: 3;
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 1;
+  background: #222;
+}
+
+.accordion.accordion29 details[open] summary::before {
+  opacity: 0;
+}
+
+.accordion.accordion29 details[open] summary::after {
+  background: #0070e0;
+}
+
+.accordion.accordion29 .accordion-item-body {
+  padding: 0.8rem 0 1.2rem 0.5rem;
+  font-size: 14px;
+  color: #222;
+  background: none;
+  border: none;
+}
+
+@media (width <= 700px) {
+  .accordion.accordion29 {
+    max-width: 100%;
+  }
 }
