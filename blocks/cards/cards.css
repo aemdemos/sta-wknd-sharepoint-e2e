@@ -25,3 +25,133 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+/* Removed empty .cards.cards4 block */
+
+.cards.cards4 > ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-height: 420px;
+}
+
+.cards.cards4 > ul > li {
+  background: #fff;
+  border: none;
+  width: 230px;
+  min-width: 0;
+  max-width: 230px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  flex: 0 0 230px;
+  overflow: hidden;
+}
+
+.cards.cards4 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  line-height: 0;
+  background: #eee;
+  flex-shrink: 0;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 16 / 9;
+}
+
+.cards.cards4 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 12px 0 0;
+  margin: 0;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.cards.cards4 .cards-card-body strong {
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.08em;
+  line-height: 1.12;
+  margin-bottom: 0.6em;
+  display: inline-block;
+  border: none;
+  padding: 0;
+}
+
+.cards.cards4 > ul > li:first-child .cards-card-body strong {
+  border-bottom: 2px solid #ffe000;
+  padding-bottom: 2px;
+  margin-bottom: 12px;
+  display: inline-block;
+  width: auto;
+}
+
+.cards.cards4 .cards-card-body p {
+  font-size: 1rem;
+  color: #444;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.36;
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
+@media (width <= 1300px) {
+  .cards.cards4 > ul {
+    gap: 24px;
+  }
+
+  .cards.cards4 > ul > li {
+    width: 48%;
+    max-width: none;
+    flex: 1 1 48%;
+    height: 360px;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards4 > ul {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .cards.cards4 > ul > li {
+    width: 95%;
+    max-width: none;
+    flex: 1 1 95%;
+    height: auto;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards4 > ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cards.cards4 > ul > li {
+    width: 100%;
+    max-width: none;
+    flex: 1 1 100%;
+    height: auto;
+  }
+}
