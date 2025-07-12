@@ -1,3 +1,5 @@
+/* ===== LINTED AND REORDERED CSS ===== */
+
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -71,12 +73,6 @@
   transition: background-color 0.2s;
 }
 
-.carousel .carousel-slide-indicator button:disabled,
-.carousel .carousel-slide-indicator button:hover,
-.carousel .carousel-slide-indicator button:focus-visible {
-  background-color: var(--text-color);
-}
-
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -86,6 +82,12 @@
   padding: 0;
   background-color: rgb(19 19 19 / 25%);
   transition: background-color 0.2s;
+}
+
+.carousel .carousel-slide-indicator button:disabled,
+.carousel .carousel-slide-indicator button:hover,
+.carousel .carousel-slide-indicator button:focus-visible {
+  background-color: var(--text-color);
 }
 
 .carousel .carousel-navigation-buttons button:hover,
@@ -179,10 +181,6 @@
   transition: background 0.2s;
 }
 
-.carousel.carousel23 .carousel-slide-indicator button:disabled {
-  background-color: #505050;
-}
-
 .carousel.carousel23 .carousel-navigation-buttons button {
   position: static;
   width: 32px;
@@ -199,6 +197,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.carousel.carousel23 .carousel-slide-indicator button:disabled {
+  background-color: #505050;
 }
 
 .carousel.carousel23 .carousel-navigation-buttons button:disabled {
@@ -313,4 +315,131 @@
 
 .carousel.carousel23 .carousel-navigation-buttons button.slide-next::after {
   mask-image: url('data:image/svg+xml;utf8,<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg"><polyline points="5 2 10 7 5 12" stroke="%23222" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+/* ===== GENERATED CSS ===== */
+
+.carousel.carousel37 {
+  padding-bottom: 32px;
+}
+
+.carousel.carousel37 .carousel-navigation-buttons {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 36px;
+  width: 100%;
+  padding: 0 28px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+  background: none;
+  pointer-events: none;
+}
+
+.carousel.carousel37 .carousel-navigation-buttons button {
+  background: #fff;
+  border: 1px solid #bbb;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 4%);
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  pointer-events: auto;
+}
+
+.carousel.carousel37 .carousel-navigation-buttons button:disabled {
+  opacity: 0.32;
+  border-color: #e0e0e0;
+  background: #f7f7f7;
+}
+
+.carousel.carousel37 .carousel-navigation-buttons button:focus-visible,
+.carousel.carousel37 .carousel-navigation-buttons button:hover {
+  border-color: #222;
+  background: #ffe500;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 8%);
+}
+
+.carousel.carousel37 .carousel-navigation-buttons button::after {
+  border: none;
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: static;
+  background: none;
+  mask-size: 11px 11px;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: #333;
+}
+
+.carousel.carousel37 .carousel-navigation-buttons button.slide-prev::after {
+  mask-image: url('data:image/svg+xml;utf8,<svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><polyline points="7 2 3 5.5 7 9" stroke="%23333" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+.carousel.carousel37 .carousel-navigation-buttons button.slide-next::after {
+  mask-image: url('data:image/svg+xml;utf8,<svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><polyline points="4 2 8 5.5 4 9" stroke="%23333" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+.carousel.carousel37 .carousel-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: #d4d4d4;
+  border: none;
+  transition: background 0.2s;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 4%);
+}
+
+.carousel.carousel37 .carousel-slide-indicator button:disabled,
+.carousel.carousel37 .carousel-slide-indicator button[disabled] {
+  background-color: #222;
+}
+
+.carousel.carousel37 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 72px;
+  margin: 0 auto;
+  background: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 8px;
+  z-index: 3;
+  line-height: 0;
+}
+
+.carousel.carousel37 .carousel-slide-content:empty {
+  display: none;
+}
+
+@media (width <= 600px) {
+  .carousel.carousel37 .carousel-navigation-buttons {
+    padding: 0 8px;
+    bottom: 20px;
+  }
+
+  .carousel.carousel37 .carousel-slide-indicators {
+    bottom: 52px;
+    gap: 0 5px;
+  }
+
+  .carousel.carousel37 {
+    padding-bottom: 18px;
+  }
 }
