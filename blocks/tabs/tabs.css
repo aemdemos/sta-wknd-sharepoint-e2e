@@ -176,6 +176,19 @@
   box-sizing: border-box;
 }
 
+.tabs.tabs8 > div:nth-child(2) p {
+  font-size: 16px;
+  color: #222;
+  line-height: 1.7;
+  margin: 0 0 18px;
+  font-family: var(--body-font-family);
+}
+
+.tabs.tabs8 > div:nth-child(2) picture {
+  display: block;
+  margin: 0 0 16px;
+}
+
 .tabs.tabs6 .tabs-panel > div > *:not(h3) > p {
   flex: 1 1 0;
   min-width: 220px;
@@ -190,14 +203,6 @@
   z-index: 1;
   background: transparent;
   position: relative;
-}
-
-.tabs.tabs8 > div:nth-child(2) p {
-  font-size: 16px;
-  color: #222;
-  line-height: 1.7;
-  margin: 0 0 18px;
-  font-family: var(--body-font-family);
 }
 
 .tabs.tabs3 .tabs-panel > div > p:last-child {
@@ -330,84 +335,6 @@
   display: block;
   z-index: 0;
   margin-bottom: 0;
-}
-
-.tabs.tabs8 > div:nth-child(2) picture {
-  display: block;
-  margin: 0 0 16px;
-}
-
-.tabs.tabs8 {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 0;
-  max-width: 1200px;
-  margin: 56px auto;
-  background: #fff;
-  border-radius: 0;
-  box-shadow: none;
-  border: none;
-  min-height: 600px;
-  position: relative;
-}
-
-.tabs.tabs8 > div:first-child {
-  grid-column: 1;
-  grid-row: 1;
-  background: #fff;
-  border-right: 1px solid #e0e0e0;
-  padding: 48px 24px 40px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-  min-height: 100%;
-  box-sizing: border-box;
-  gap: 32px;
-}
-
-.tabs.tabs8 > div:first-child .tabs-list {
-  width: 100%;
-  flex-direction: column;
-  gap: 28px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  background: none;
-  overflow: visible;
-  border: none;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.tabs.tabs8 > div:first-child .tabs-list p {
-  font-size: 11px;
-  color: #888;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  margin: 0 0 3px;
-  line-height: 1.1;
-}
-
-.tabs.tabs8 > div:first-child .tabs-list strong {
-  font-size: 16px;
-  color: #181818;
-  display: block;
-  font-weight: 700;
-  margin: 0 0 16px;
-}
-
-.tabs.tabs8 > div:first-child .tabs-list > *:not(:last-child) {
-  margin-bottom: 18px;
-}
-
-.tabs.tabs8 > div:first-child .tabs-list > *:last-child {
-  margin-top: auto;
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #181818;
 }
 
 .tabs.tabs19 {
@@ -645,4 +572,23 @@
 .tabs.tabs19 > div:first-child,
 .tabs.tabs19 > div:nth-child(2) {
   align-self: flex-start;
+}
+
+/* ---- GENERATED CSS ---- */
+
+/* merged .tabs.tabs22 selector below, replacing original blocks for that selector */
+
+.tabs.tabs22 {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0 48px;
+  max-width: 1200px;
+  margin: 56px auto;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  min-height: 600px;
+  position: relative;
+  padding: 0;
 }
