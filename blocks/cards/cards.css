@@ -27,7 +27,7 @@
   object-fit: cover;
 }
 
-/* --- CARDS21 STYLES --- */
+/* --- CARDS21 STYLES (moved up to fix specificity order) --- */
 .cards.cards21 {
   background: #fff;
   padding: 0;
@@ -131,6 +131,163 @@
 @media (width <= 600px) {
   .cards.cards21 > ul {
     grid-template-columns: 1fr;
+  }
+}
+
+/* --- CARDS24 STYLES (moved below cards21 for specificity order) --- */
+.cards.cards24 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Grid layout: reduce vertical gap for even more compact rows */
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.65rem 1.1rem;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0;
+  place-items: start center;
+  background: none;
+}
+
+/* Card: maintain centered, compact vertical stack */
+.cards.cards24 > ul > li {
+  width: 220px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile image: minimal space below */
+.cards.cards24 .cards-card-image {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.cards.cards24 .cards-card-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Card body: all centered, very tight vertical rhythm */
+.cards.cards24 .cards-card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: none;
+  color: #222;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards24 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Name: slightly larger, minimal margin */
+.cards.cards24 .cards-card-body p strong {
+  font-family: var(--heading-font-family);
+  font-size: 1.26rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.02rem;
+  display: block;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Role styling: lighter gray, more spaced, minimal margin below */
+.cards.cards24 .cards-card-body h5 {
+  font-family: var(--body-font-family);
+  font-size: 0.93rem;
+  color: #d8d8d8;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 0.18rem;
+  letter-spacing: 0.19em;
+}
+
+/* Socials row: horizontally aligned, minimal margin above */
+.cards.cards24 .cards-card-body p:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.36rem;
+  margin-top: 0.08rem;
+  margin-bottom: 0;
+  width: 100%;
+  min-height: 34px;
+  padding: 0;
+}
+
+/* Social button: visually hide text, show square as icon placeholder (icon via background-image if added) */
+.cards.cards24 .cards-card-body p:last-child a {
+  width: 34px;
+  height: 34px;
+  background: #222;
+  color: #fff;
+  font-size: 0;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+}
+
+/* Example: visually simulate icons using background-image (the SVG data-URI is illustrative, ideally provide your own) */
+.cards.cards24 .cards-card-body p:last-child a[title*="Facebook"] {
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 320 512" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91V127.9c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0C141.09 0 89.09 54.42 89.09 153.31v68.03H0v92.66h89.09V512h107.8V288z"/></svg>');
+}
+
+.cards.cards24 .cards-card-body p:last-child a[title*="Twitter"] {
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M459.4 151.7c.3 4.54 .3 9.12 .3 13.69 0 138.72-105.58 298.56-298.56 298.56-59.5 0-114.68-17.22-161.12-47.11 8.44 .97 16.93 1.45 25.53 1.45 49.12 0 94.32-16.75 130.29-44.84 -46.07-.86-84.79-31.27-98.08-72.85a104.983 104.983 0 0047.39-1.81c-48.02-9.66-84.1-51.92-84.1-102.98v-1.32c14.25 7.92 30.39 12.7 47.6 13.22-28.14-18.78-46.61-50.93-46.61-87.22 0-19.12 5.18-37.12 14.25-52.55 51.84 63.7 129.6 105.46 217.17 109.82-1.84-7.67-2.85-15.7-2.85-23.88 0-57.82 46.89-104.71 104.71-104.71 30.12 0 57.41 12.7 76.53 33.14A209.05 209.05 0 00496 109.5c-6.78 21.18-21.18 38.82-39.8 50.12a209.45 209.45 0 0060.21-16.53z"/></svg>');
+}
+
+.cards.cards24 .cards-card-body p:last-child a[title*="Instagram"] {
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 448 512" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9-51.3-114.9-114.9-114.9zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9C382.1 9.9 350.7 1.7 315.4 0c-35.3-1.7-141.1-1.7-176.4 0C73.7 1.7 42.3 9.9 16.1 36.2-9.9 62.4-18.1 93.8-19.8 129.1c-1.7 35.3-1.7 141.1 0 176.4 1.7 35.3 9.9 66.7 36.2 92.9C65.9 502.1 97.3 510.3 132.6 512c35.3 1.7 141.1 1.7 176.4 0 35.3-1.7 66.7-9.9 92.9-36.2 26.3-26.3 34.5-57.7 36.2-92.9 1.7-35.3 1.7-141.1 0-176.4zm-48.5 216c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.5 9s-103.1 2.6-132.5-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.5s-2.6-103.1 9-132.5c7.8-19.6 22.9-34.7 42.5-42.5C102.9 9 172.7 11.6 206 11.6s103.1-2.6 132.5 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.5s2.6 103.1-9 132.5z"/></svg>');
+}
+
+/* Responsive: stack vertically on narrow screens */
+@media (width <= 700px) {
+  .cards.cards24 > ul {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 340px;
+    padding: 0 12px;
+  }
+
+  .cards.cards24 > ul > li {
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
