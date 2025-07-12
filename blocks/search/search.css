@@ -1,3 +1,4 @@
+
 /* search box */
 .search .search-box {
   display: grid;
@@ -135,3 +136,90 @@
   width: 24px;
   border-radius: 50%;
 }
+
+
+/* Merged .search.search5 selector */
+.search.search5 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #fff;
+  min-height: 84px;
+  padding: 0 32px 0 0;
+  box-sizing: border-box;
+}
+
+/* From generated CSS */
+.search.search5 .search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #f6f6f6;
+  border-radius: 2px;
+  padding: 6px 20px 6px 12px;
+  min-width: 168px;
+  max-width: 196px;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Icon styling */
+.search.search5 .icon-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  height: 16px;
+  width: 16px;
+}
+
+.search.search5 .icon-search img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  filter: grayscale(1) brightness(0);
+  opacity: 0.8;
+}
+
+.search.search5 .search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #222;
+  font-size: 12px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.search.search5 .search-input::placeholder {
+  color: #888;
+  font-size: 12px;
+  opacity: 1;
+}
+
+.search.search5 .search-results {
+  display: none;
+}
+
+@media (width <= 600px) {
+  .search.search5 {
+    min-height: 48px;
+    padding: 0 8px 0 0;
+  }
+
+  .search.search5 .search-box {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+/* Original generated CSS for .search.search5 (redundant block, merged above for .search.search5) */
