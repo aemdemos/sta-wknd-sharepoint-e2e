@@ -50,32 +50,6 @@
 
 /* --- GENERATED CSS --- */
 
-.hero.hero25,
-.hero.hero28,
-.hero.hero33 {
-  display: block;
-  width: 100vw;
-  box-sizing: border-box;
-  overflow: hidden;
-  padding: 0;
-}
-
-.hero.hero25 {
-  position: relative;
-  min-height: 320px;
-}
-
-.hero.hero28 {
-  position: relative;
-  min-height: 340px;
-}
-
-.hero.hero33 {
-  background: #fff;
-  margin: 0 auto;
-  width: 100%;
-}
-
 .hero.hero33 > div,
 .hero.hero33 > div:first-child,
 .hero.hero33 > div:nth-child(2) {
@@ -112,58 +86,6 @@
   box-sizing: border-box;
 }
 
-.hero.hero33 h1 {
-  font-family: var(--heading-font-family);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #222;
-  margin-top: 0;
-  margin-bottom: 16px;
-  line-height: 1.13;
-  letter-spacing: -0.01em;
-  text-align: left;
-}
-
-.hero.hero33 h4 {
-  font-family: var(--body-font-family);
-  font-size: 1.09rem;
-  color: #777;
-  font-weight: 400;
-  margin-top: 0;
-  margin-bottom: 28px;
-  text-align: left;
-}
-
-.hero.hero33 h2,
-.hero.hero33 h3 {
-  font-family: var(--heading-font-family);
-  color: #222;
-  font-weight: 600;
-  margin-top: 36px;
-  margin-bottom: 14px;
-  line-height: 1.3;
-  text-align: left;
-}
-
-.hero.hero33 p {
-  font-family: var(--body-font-family);
-  color: #444;
-  font-size: 1.07rem;
-  line-height: 1.7;
-  margin: 0 0 1.4em;
-  text-align: left;
-}
-
-.hero.hero33 blockquote {
-  font-style: italic;
-  font-size: 1.12rem;
-  color: #222;
-  border-left: 4px solid #f5e6c4;
-  margin: 28px 0;
-  padding-left: 20px;
-  background: #f9f7f4;
-}
-
 .hero.hero33 > div:nth-child(2) picture,
 .hero.hero33 > div:nth-child(2) img {
   margin: 28px 0;
@@ -175,55 +97,25 @@
   box-shadow: none;
 }
 
-.hero.hero28 > div:first-child {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  display: block;
-}
-
-.hero.hero28 > div:nth-child(2) {
-  position: absolute;
-  inset: auto auto 0 0;
-  width: 59%;
-  max-width: 800px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  pointer-events: auto;
-  background: transparent;
-  box-shadow: none;
-  margin: 0;
-  height: auto;
-  overflow: visible;
-}
-
-.hero.hero28 > div:first-child > div,
-.hero.hero28 > div:first-child picture,
-.hero.hero28 > div:first-child img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.hero.hero28 > div:nth-child(2) > div {
+.hero.hero33 {
   background: #fff;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 28px 36px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
+  margin: 0 auto;
   width: 100%;
+}
+
+.hero.hero25,
+.hero.hero28,
+.hero.hero33 {
+  display: block;
+  width: 100vw;
   box-sizing: border-box;
-  height: auto;
-  overflow: visible;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero.hero25 {
+  position: relative;
+  min-height: 320px;
 }
 
 .hero.hero25 > div:first-child {
@@ -296,6 +188,62 @@
   content: "";
 }
 
+.hero.hero28 {
+  position: relative;
+  min-height: 340px;
+}
+
+.hero.hero28 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero28 > div:nth-child(2) {
+  position: absolute;
+  inset: auto auto 0 0;
+  width: 59%;
+  max-width: 800px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+  height: auto;
+  overflow: visible;
+}
+
+.hero.hero28 > div:first-child > div,
+.hero.hero28 > div:first-child picture,
+.hero.hero28 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.hero.hero28 > div:nth-child(2) > div {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 28px 36px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  overflow: visible;
+}
+
 .hero.hero39 {
   position: relative;
   width: 100vw;
@@ -317,14 +265,6 @@
   pointer-events: none;
 }
 
-.hero.hero39 picture,
-.hero.hero39 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 .hero.hero39 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -339,6 +279,14 @@
   pointer-events: auto;
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+.hero.hero39 picture,
+.hero.hero39 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .hero.hero39 > div:nth-child(2) > div {
@@ -529,4 +477,171 @@
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
+}
+
+.hero.hero40.block {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 620px;
+  box-sizing: border-box;
+  align-items: stretch;
+  background: none;
+}
+
+.hero.hero40.block > div:first-child {
+  flex: 0 1 58%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  min-width: 0;
+  min-height: 0;
+  background: none;
+}
+
+.hero.hero40.block > div:first-child > div {
+  height: 100%;
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.hero.hero40.block picture,
+.hero.hero40.block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hero.hero40.block > div:last-child {
+  flex: 0 1 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  background: none;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.hero.hero40.block > div:last-child > div {
+  background: #f3f3f3;
+  box-sizing: border-box;
+  padding: 48px 48px 40px;
+  max-width: 520px;
+  width: 100%;
+  margin: 40px 48px;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hero.hero40.block > div:last-child > div > p:first-of-type {
+  color: #222;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  line-height: 1.3;
+}
+
+.hero.hero40.block > div:last-child > div h2,
+.hero.hero40.block > div:last-child > div h1 {
+  color: #222;
+  font-family: var(--heading-font-family, Georgia, serif);
+  font-size: 2.5rem;
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0 0 22px;
+}
+
+.hero.hero40.block > div:last-child > div > p:not(:first-of-type, .button-container) {
+  color: #555;
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0 0 34px;
+  font-weight: 400;
+}
+
+.hero.hero40.block .button-container {
+  margin: 0;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero40 .button {
+  display: inline-block;
+  background: #ffe600;
+  color: #222;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 13px 36px;
+  border: none;
+  border-radius: 0;
+  letter-spacing: 0.04em;
+  box-shadow: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero40 .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero40 .button:focus {
+  background: #ffd600;
+  color: #111;
+}
+
+@media (width <= 900px) {
+  .hero.hero40.block {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .hero.hero40.block > div:first-child,
+  .hero.hero40.block > div:last-child {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero.hero40.block > div:last-child > div {
+    max-width: 100%;
+    margin: 32px 0 0;
+    padding: 28px 16px 24px;
+  }
+
+  .hero.hero40.block > div:first-child > div {
+    min-height: 220px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero40.block > div:last-child > div {
+    padding: 12px 4vw;
+    margin: 0;
+  }
+
+  .hero.hero40.block > div:first-child > div {
+    min-height: 120px;
+  }
+
+  .hero.hero40.block > div:last-child > div h2,
+  .hero.hero40.block > div:last-child > div h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero.hero40.block > div:last-child > div > p:not(:first-of-type, .button-container) {
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
 }
