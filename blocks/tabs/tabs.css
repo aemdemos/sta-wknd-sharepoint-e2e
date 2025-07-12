@@ -1,3 +1,4 @@
+
 /*
   All selectors reordered and grouped to resolve no-descending-specificity errors. Each block (.tabs3, .tabs6, .tabs8, .tabs9, .tabs10) and their more specific child selectors are ordered from least to most specific. Empty lines before each rule for readability and compliance.
 */
@@ -190,15 +191,18 @@
     margin-top: 18px;
     margin-bottom: 18px;
   }
+
   .tabs.tabs3 .tabs-list {
     gap: 8px;
     margin-top: 8px;
     margin-bottom: 6px;
   }
+
   .tabs.tabs3 .tabs-tab {
     padding: 9px 12px;
     font-size: 13px;
   }
+
   .tabs.tabs3 .tabs-panel p {
     font-size: 16px;
   }
@@ -354,18 +358,22 @@
     gap: 0;
     padding: 0 8px;
   }
+
   .tabs.tabs6 .tabs-list {
     margin-left: 0;
     width: 100%;
   }
+
   .tabs.tabs6 .tabs-panel > div > h3 {
     max-width: 100%;
     margin-bottom: 16px;
   }
+
   .tabs.tabs6 .tabs-panel > div > *:not(h3) {
     flex-direction: column;
     gap: 0;
   }
+
   .tabs.tabs6 .tabs-panel > div > *:not(h3) > picture,
   .tabs.tabs6 .tabs-panel > div > *:not(h3) > p {
     max-width: 100%;
@@ -535,6 +543,7 @@
     margin: 24px 0;
     min-height: unset;
   }
+
   .tabs.tabs8 > div:first-child,
   .tabs.tabs8 > div:nth-child(2) {
     min-width: 0;
@@ -542,6 +551,7 @@
     padding-left: 0;
     padding-right: 0;
   }
+
   .tabs.tabs8 > div:first-child {
     border-bottom: 1px solid #e0e0e0;
     border-right: none;
@@ -690,15 +700,18 @@
     max-width: 100vw;
     padding: 0 8px;
   }
+
   .tabs.tabs9 .tabs-tab > h3 {
     font-size: 1.7rem;
     margin: 18px 0 8px;
     padding-bottom: 8px;
   }
+
   .tabs.tabs9 .tabs-tab > p picture,
   .tabs.tabs9 .tabs-tab > p picture img {
     max-width: 100%;
   }
+
   .tabs.tabs9 .tabs-tab > p,
   .tabs.tabs9 .tabs-tab > p + p {
     margin-top: 12px;
@@ -904,11 +917,243 @@
   .tabs.tabs10 {
     padding: 0;
   }
+
   .tabs.tabs10 .tabs-panel > div > p:not(:first-of-type),
   .tabs.tabs10 .tabs-panel > div > p:first-of-type {
     font-size: 14px;
   }
+
   .tabs.tabs10 .tabs-panel picture {
     margin-top: 13px;
   }
+}
+
+/* Merged .tabs.tabs12 selector */
+.tabs.tabs12 {
+  max-width: 680px;
+  margin: 32px auto 0;
+  background: #fff;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Generated CSS for .tabs.tabs12 */
+.tabs.tabs12 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  margin-bottom: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Tab Buttons */
+.tabs.tabs12 .tabs-tab {
+  background: transparent;
+  color: #222;
+  border: none;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  min-width: 0;
+  justify-content: center;
+}
+
+.tabs.tabs12 .tabs-tab[aria-selected="true"] {
+  background: #111;
+  color: #fff;
+  cursor: default;
+}
+
+.tabs.tabs12 .tabs-tab[aria-selected="false"]:hover {
+  background: #eaeaea;
+}
+
+.tabs.tabs12 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Tabs Panel Container */
+.tabs.tabs12 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: visible;
+  display: block;
+}
+
+/* Panel Content */
+.tabs.tabs12 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Headings */
+.tabs.tabs12 .tabs-panel h2,
+.tabs.tabs12 .tabs-panel h1 {
+  font-family: var(--heading-font-family);
+  color: #111;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  line-height: 1.13;
+  text-align: left;
+  letter-spacing: -0.01em;
+}
+
+.tabs.tabs12 .tabs-panel h3 {
+  font-size: 1.65rem;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #111;
+  font-family: var(--heading-font-family);
+}
+
+/* Paragraphs */
+.tabs.tabs12 .tabs-panel p {
+  font-size: 15px;
+  color: #222;
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: 8px;
+  max-width: 650px;
+  text-align: left;
+}
+
+/* Remove extra margin after first paragraph in panel */
+.tabs.tabs12 .tabs-panel > div > p:first-child {
+  margin-top: 0;
+}
+
+/* Images */
+.tabs.tabs12 .tabs-panel picture,
+.tabs.tabs12 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  border-radius: 13px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+/* Lists */
+.tabs.tabs12 .tabs-panel ul {
+  margin: 4px 0 8px 18px;
+  padding: 0;
+  list-style-type: disc;
+}
+
+.tabs.tabs12 .tabs-panel li {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0;
+  padding-left: 1px;
+}
+
+/* Tighter vertical rhythm for "Related trips" and other small text blocks */
+.tabs.tabs12 .tabs-panel p + ul,
+.tabs.tabs12 .tabs-panel ul + p {
+  margin-top: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    max-width: 100vw;
+    margin: 16px 0 0;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .tabs.tabs12 .tabs-list {
+    gap: 3px;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+  }
+
+  .tabs.tabs12 .tabs-tab {
+    padding: 7px 6px;
+    font-size: 13px;
+  }
+
+  .tabs.tabs12 .tabs-panel h2,
+  .tabs.tabs12 .tabs-panel h1 {
+    font-size: 1.18rem;
+    margin-top: 4px;
+    margin-bottom: 6px;
+  }
+
+  .tabs.tabs12 .tabs-panel h3 {
+    font-size: 1.13rem;
+    margin-top: 7px;
+    margin-bottom: 5px;
+  }
+
+  .tabs.tabs12 .tabs-panel p {
+    font-size: 13px;
+    margin-bottom: 6px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs12 .tabs-panel picture,
+  .tabs.tabs12 .tabs-panel img {
+    max-width: 100%;
+    margin: 4px 0;
+    border-radius: 8px;
+  }
+
+  .tabs.tabs12 .tabs-panel ul {
+    margin: 2px 0 6px 12px;
+  }
+
+  .tabs.tabs12 .tabs-panel li {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+}
+
+/* Remove unwanted button styles if any default .button styles leak in */
+.tabs.tabs12 .tabs-tab.button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  background: transparent;
+  color: #222;
+  text-align: center;
+  box-shadow: none;
 }
