@@ -50,6 +50,164 @@
 
 /* --- GENERATED CSS --- */
 
+.hero.hero25,
+.hero.hero28,
+.hero.hero33 {
+  display: block;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero.hero25 {
+  position: relative;
+  min-height: 320px;
+}
+
+.hero.hero28 {
+  position: relative;
+  min-height: 340px;
+}
+
+.hero.hero33 {
+  background: #fff;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero.hero33 > div,
+.hero.hero33 > div:first-child,
+.hero.hero33 > div:nth-child(2) {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero33 > div:first-child {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.hero.hero33 picture,
+.hero.hero33 img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  min-width: 0;
+  height: auto;
+  object-fit: cover;
+  margin-top: 0;
+  margin-bottom: 24px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hero.hero33 > div:nth-child(2) {
+  background: #fff;
+  padding: 0 0 48px;
+  box-sizing: border-box;
+}
+
+.hero.hero33 h1 {
+  font-family: var(--heading-font-family);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.13;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.hero.hero33 h4 {
+  font-family: var(--body-font-family);
+  font-size: 1.09rem;
+  color: #777;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.hero.hero33 h2,
+.hero.hero33 h3 {
+  font-family: var(--heading-font-family);
+  color: #222;
+  font-weight: 600;
+  margin-top: 36px;
+  margin-bottom: 14px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.hero.hero33 p {
+  font-family: var(--body-font-family);
+  color: #444;
+  font-size: 1.07rem;
+  line-height: 1.7;
+  margin: 0 0 1.4em;
+  text-align: left;
+}
+
+.hero.hero33 blockquote {
+  font-style: italic;
+  font-size: 1.12rem;
+  color: #222;
+  border-left: 4px solid #f5e6c4;
+  margin: 28px 0;
+  padding-left: 20px;
+  background: #f9f7f4;
+}
+
+.hero.hero33 > div:nth-child(2) picture,
+.hero.hero33 > div:nth-child(2) img {
+  margin: 28px 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .hero.hero33 > div,
+  .hero.hero33 > div:first-child,
+  .hero.hero33 > div:nth-child(2) {
+    max-width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .hero.hero33 picture,
+  .hero.hero33 img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero.hero33 > div:nth-child(2) {
+    padding: 0 0 24px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero33 > div,
+  .hero.hero33 > div:first-child,
+  .hero.hero33 > div:nth-child(2) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero.hero33 > div:nth-child(2) {
+    padding: 0 0 12px;
+  }
+}
+
 .hero.hero25 > div:first-child {
   position: absolute;
   inset: 0;
@@ -112,17 +270,6 @@
   height: 100%;
   display: block;
   object-fit: cover;
-}
-
-/* Merged .hero.hero25 selector (removed duplicate) */
-.hero.hero25 {
-  position: relative;
-  width: 100vw;
-  min-height: 320px;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: block;
-  padding: 0;
 }
 
 /* White card with text */
@@ -192,16 +339,6 @@
 /* ===== GENERATED CSS ==== */
 
 /* ======================== */
-
-.hero.hero28 {
-  position: relative;
-  width: 100vw;
-  min-height: 340px;
-  box-sizing: border-box;
-  overflow: hidden;
-  padding: 0;
-  display: block;
-}
 
 /* Hero should span full page width */
 .hero-container > .hero-wrapper {
