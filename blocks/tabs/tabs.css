@@ -1,6 +1,7 @@
 
 
 
+
 /*
   All selectors reordered and grouped to resolve no-descending-specificity errors. Each block (.tabs3, .tabs6, .tabs8, .tabs9, .tabs10) and their more specific child selectors are ordered from least to most specific. Empty lines before each rule for readability and compliance.
 */
@@ -1184,4 +1185,23 @@
   flex-direction: column;
   align-items: stretch;
   box-sizing: border-box;
+}
+
+/* ----------------- */
+
+/* GENERATED CSS     */
+
+/* ----------------- */
+
+/* MERGED .tabs.tabs16 SELECTOR */
+.tabs.tabs16 {
+  background: #fff;
+  max-width: 1120px;
+  margin: 80px auto 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  display: grid;
+  grid-template-columns: 1fr;
 }
