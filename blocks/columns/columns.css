@@ -7,16 +7,26 @@
   width: 100%;
 }
 
+.columns.columns29 img,
+.columns.columns29 picture {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0.25em 0;
+  border-radius: 0;
+}
+
+.columns > div > .columns-img-col img {
+  display: block;
+}
+
 .columns > div > div {
   order: 1;
 }
 
 .columns > div > .columns-img-col {
   order: 0;
-}
-
-.columns > div > .columns-img-col img {
-  display: block;
 }
 
 @media (width >= 900px) {
@@ -29,5 +39,216 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+.columns.columns29 {
+  background: #fff;
+  padding: 0 0 40px;
+}
+
+/* Main flex container: two columns, slimmer gap */
+.columns.columns29 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  gap: 16px;
+}
+
+@media (width <= 900px) {
+  .columns.columns29 > div {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 12px;
+  }
+}
+
+/* Main content column (left) wider, sidebar (right) narrower */
+.columns.columns29 > div > div:first-child {
+  flex: 1 1 84%;
+  max-width: 84%;
+  min-width: 0;
+}
+
+.columns.columns29 > div > div:last-child {
+  flex: 0 0 165px;
+  max-width: 165px;
+  min-width: 120px;
+  padding-left: 12px;
+  border-left: 1px solid #eaeaea;
+  box-sizing: border-box;
+  align-self: flex-start;
+}
+
+@media (width <= 900px) {
+  .columns.columns29 > div > div:first-child,
+  .columns.columns29 > div > div:last-child {
+    max-width: 100%;
+    min-width: 0;
+    flex: unset;
+  }
+
+  .columns.columns29 > div > div:last-child {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 18px;
+  }
+}
+
+/* Heading & byline spacing and hierarchy */
+.columns.columns29 h1 {
+  font-size: 2.2rem;
+  font-family: var(--heading-font-family, serif);
+  color: #222;
+  font-weight: bold;
+  margin-top: 0.85em;
+  margin-bottom: 0.22em;
+}
+
+.columns.columns29 h4 {
+  color: #8c8c8c;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 0.07em;
+  margin-bottom: 0.28em;
+  letter-spacing: 0.03em;
+}
+
+.columns.columns29 h2 {
+  font-size: 1.3rem;
+  color: #181818;
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.28em;
+}
+
+.columns.columns29 h3 {
+  font-size: 1.09rem;
+  color: #222;
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.26em;
+}
+
+/* Paragraphs and list items */
+.columns.columns29 p,
+.columns.columns29 li {
+  color: #333;
+  font-size: 1.04rem;
+  line-height: 1.7;
+  margin-bottom: 0.62em;
+  margin-top: 0;
+}
+
+/* Blockquote: ultra-compact and light */
+.columns.columns29 blockquote {
+  background: #f8f8f8;
+  color: #222;
+  border-left: 4px solid #eaeaea;
+  padding: 0.22em 0.5em;
+  margin: 0.4em 0;
+  font-size: 0.95em;
+  font-style: italic;
+}
+
+/* Sidebar share section */
+.columns.columns29 > div > div:last-child h5 {
+  font-size: 0.8rem;
+  color: #8c8c8c;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+
+.columns.columns29 > div > div:last-child ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns29 > div > div:last-child ul li {
+  margin-bottom: 0.6em;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.columns.columns29 > div > div:last-child ul li a {
+  color: #222;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.columns.columns29 > div > div:last-child ul li a:hover {
+  color: #0072b8;
+  text-decoration: underline;
+}
+
+/* Author block (bottom of main column) + social buttons, tightly grouped */
+.columns.columns29 h2#ian-provo,
+.columns.columns29 h2#ian-provo + p,
+.columns.columns29 .button-container {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-bottom: 0;
+  margin-top: 0.2em;
+}
+
+.columns.columns29 h2#ian-provo {
+  font-size: 1.06rem;
+  font-weight: bold;
+  margin-right: 0.6em;
+  margin-top: 0.2em;
+}
+
+.columns.columns29 h2#ian-provo + p {
+  color: #8c8c8c;
+  font-size: 1.01rem;
+  margin-right: 0.5em;
+}
+
+.columns.columns29 .button-container {
+  margin-right: 0.13em;
+  margin-bottom: 0.07em;
+}
+
+.columns.columns29 .button-container .button {
+  margin: 0 0.09em 0 0;
+  padding: 0.28em 0.7em;
+  border-radius: 2.4em;
+  font-size: 0.93rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  min-width: 66px;
+  text-align: center;
+}
+
+.columns.columns29 .button-container .button:hover {
+  background: #0072b8;
+}
+
+@media (width <= 700px) {
+  .columns.columns29 > div {
+    padding: 0 4vw;
+  }
+
+  .columns.columns29 > div > div:last-child {
+    margin-top: 10px;
+    padding-left: 0;
+  }
+
+  .columns.columns29 h1 {
+    font-size: 1.19rem;
+    margin-top: 0.54em;
+  }
+
+  .columns.columns29 h2 {
+    font-size: 0.97rem;
   }
 }
