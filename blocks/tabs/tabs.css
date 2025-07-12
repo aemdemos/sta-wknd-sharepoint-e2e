@@ -1,5 +1,6 @@
 
 
+
 /*
   All selectors reordered and grouped to resolve no-descending-specificity errors. Each block (.tabs3, .tabs6, .tabs8, .tabs9, .tabs10) and their more specific child selectors are ordered from least to most specific. Empty lines before each rule for readability and compliance.
 */
@@ -1170,4 +1171,17 @@
   box-shadow: none;
   display: flex;
   flex-direction: column;
+}
+
+.tabs.tabs15 {
+  max-width: 900px;
+  margin: 32px auto 0;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
 }
