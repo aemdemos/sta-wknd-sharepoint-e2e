@@ -50,7 +50,25 @@
 
 /* --- GENERATED CSS --- */
 
-/* White text box overlayed bottom left - moved before more specific rule to fix no-descending-specificity */
+.hero.hero25 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero28 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
 .hero.hero25 > div:nth-child(2) {
   position: absolute;
   left: 24px;
@@ -67,19 +85,29 @@
   box-shadow: none;
 }
 
-/* Background image setup */
-.hero.hero25 > div:first-child {
+.hero.hero28 > div:nth-child(2) {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
+  inset: auto auto 0 0;
+  width: 59%;
+  max-width: 800px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+  height: auto;
+  overflow: visible;
 }
 
 .hero.hero25 > div:first-child > div,
 .hero.hero25 > div:first-child picture,
-.hero.hero25 > div:first-child img {
+.hero.hero25 > div:first-child img,
+.hero.hero28 > div:first-child > div,
+.hero.hero28 > div:first-child picture,
+.hero.hero28 > div:first-child img {
   width: 100%;
   height: 100%;
   display: block;
@@ -156,5 +184,140 @@
     bottom: 0;
     padding-left: 2px;
     padding-right: 2px;
+  }
+}
+
+/* ======================== */
+
+/* ===== GENERATED CSS ==== */
+
+/* ======================== */
+
+.hero.hero28 {
+  position: relative;
+  width: 100vw;
+  min-height: 340px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0;
+  display: block;
+}
+
+/* Hero should span full page width */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* White overlay card - left-aligned and anchored to the bottom */
+.hero.hero28 > div:nth-child(2) > div {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 28px 36px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  overflow: visible;
+}
+
+/* Typography */
+.hero.hero28 h2 {
+  font-size: 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 14px;
+  line-height: 1.18;
+}
+
+.hero.hero28 p {
+  color: #222;
+  font-size: 1.08rem;
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+/* Button tweaks */
+.hero.hero28 .button-container {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.hero.hero28 .button-container .button {
+  background: #ffe000;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0;
+  padding: 11px 28px;
+  box-shadow: none;
+  margin: 0;
+  display: inline-block;
+  min-width: 120px;
+  margin-bottom: 0;
+}
+
+.hero.hero28 .button-container .button:hover,
+.hero.hero28 .button-container .button:focus {
+  background: #ffd100;
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (width <= 1200px) {
+  .hero.hero28 > div:nth-child(2) {
+    width: 85%;
+    max-width: 98vw;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero28 > div:nth-child(2) {
+    width: 98%;
+    max-width: 99vw;
+    left: 0;
+    right: auto;
+  }
+
+  .hero.hero28 > div:nth-child(2) > div {
+    padding: 13px 8px 8px;
+  }
+
+  .hero.hero28 h2 {
+    font-size: 1.18rem;
+  }
+
+  .hero.hero28 p {
+    font-size: 0.98rem;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero28 > div:nth-child(2) {
+    width: 100%;
+    max-width: 100vw;
+    left: 0;
+    right: 0;
+  }
+
+  .hero.hero28 > div:nth-child(2) > div {
+    padding: 7px 2vw;
+  }
+
+  .hero.hero28 h2 {
+    font-size: 1rem;
+  }
+
+  .hero.hero28 p {
+    font-size: 0.93rem;
   }
 }
