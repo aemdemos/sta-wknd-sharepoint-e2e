@@ -1,3 +1,4 @@
+/* 1. Columns layout (main container) */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -19,15 +20,310 @@
   display: block;
 }
 
+/* Modern min-width media query */
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
     gap: 24px;
   }
-
   .columns > div > div {
     flex: 1;
     order: unset;
   }
+}
+
+.columns.columns33 {
+  background: #fff;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* Main layout: Flex side-by-side, correct gap and alignment */
+.columns.columns33 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .columns.columns33 {
+    padding: 0 8px;
+  }
+  .columns.columns33 > div {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* Main column (left) - better centering, tweak padding */
+.columns.columns33 > div > div:first-child {
+  flex: 0 1 730px;
+  max-width: 740px;
+  min-width: 0;
+  padding-left: 28px;
+  box-sizing: border-box;
+  margin-right: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns33 > div > div:first-child {
+    padding-left: 0;
+    max-width: 100%;
+  }
+}
+
+/* Sidebar: start exactly aligned with tag/title row, a bit wider, smaller gap */
+.columns.columns33 > div > div:last-child {
+  flex: 0 0 220px;
+  max-width: 220px;
+  min-width: 140px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 28px;
+  border-left: 1px solid #e5e5e5;
+  margin-top: 26px;
+}
+
+@media (width <= 900px) {
+  .columns.columns33 > div > div:last-child {
+    max-width: none;
+    min-width: 0;
+    border-left: none;
+    padding-left: 0;
+    margin-top: 36px;
+  }
+}
+
+/* Order: .columns.columns33 li before .columns.columns33 ol li */
+.columns.columns33 li {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.columns.columns33 ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  align-items: center;
+}
+
+.columns.columns33 ol li {
+  display: flex;
+  align-items: center;
+  background: #f6f6f6;
+  color: #444;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+  height: 23px;
+  padding: 0 10px 0 0;
+  border-left: 3px solid #f6b63c;
+  padding-left: 8px;
+  line-height: 23px;
+}
+
+/* .columns.columns33 img before .columns > div > .columns-img-col img */
+.columns.columns33 img,
+.columns.columns33 picture {
+  width: 100%;
+  display: block;
+  margin: 36px 0 24px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.columns > div > .columns-img-col img {
+  display: block;
+}
+
+.columns.columns33 img:first-of-type,
+.columns.columns33 picture:first-of-type {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+.columns.columns33 img:last-of-type,
+.columns.columns33 picture:last-of-type {
+  margin-bottom: 10px;
+}
+
+/* .columns.columns33 h5 before .columns.columns33 > div > div:last-child h5 */
+.columns.columns33 h5 {
+  font-size: 13px;
+  color: #8a8a8a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin: 20px 0 14px;
+}
+
+.columns.columns33 > div > div:last-child h5 {
+  font-size: 13px;
+  color: #8a8a8a;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 32px;
+  letter-spacing: 0.08em;
+}
+
+/* Sidebar links: more vertical breathing room, compact and subtle */
+.columns.columns33 > div > div:last-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns33 > div > div:last-child ul li {
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.columns.columns33 > div > div:last-child ul li:last-child {
+  border-bottom: none;
+}
+
+.columns.columns33 > div > div:last-child ul li a {
+  color: #444;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.columns.columns33 > div > div:last-child ul li a:hover {
+  color: #f6b63c;
+  text-decoration: underline;
+}
+
+.columns.columns33 h1 {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 12px;
+  line-height: 1.13;
+}
+
+.columns.columns33 h2,
+.columns.columns33 h3 {
+  margin-top: 44px;
+  margin-bottom: 12px;
+}
+
+.columns.columns33 h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #292929;
+}
+
+.columns.columns33 h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+
+.columns.columns33 h4 {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  color: #8a8a8a;
+  font-weight: 400;
+  margin: 0 0 30px;
+}
+
+/* Blockquote: more padding, bigger font, stronger italic */
+.columns.columns33 blockquote {
+  border-left: 3px solid #f6b63c;
+  background: #f6f6f6;
+  color: #292929;
+  font-style: italic;
+  margin: 22px 0 30px;
+  padding: 16px 22px 16px 18px;
+  font-size: 17px;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+}
+
+/* Body text and blockquote, compact and visually balanced */
+.columns.columns33 p,
+.columns.columns33 li {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+/* Footer/author section: flex row, info left, buttons right */
+.columns.columns33 .columns33-footer-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 36px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.columns.columns33 h2#jacob-wester,
+.columns.columns33 h2#jacob-wester + p {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.columns.columns33 .columns33-footer-row-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.columns.columns33 p.button-container {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.columns.columns33 .button {
+  background: #222;
+  color: #fff;
+  border-radius: 2px;
+  padding: 7px 16px;
+  font-size: 14px;
+  margin: 0;
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+.columns.columns33 .button:hover,
+.columns.columns33 .button:focus {
+  background: #f6b63c;
+  color: #222;
+}
+
+/* Remove excessive space at bottom */
+.columns.columns33 > div > div:first-child > :last-child {
+  margin-bottom: 0;
 }
