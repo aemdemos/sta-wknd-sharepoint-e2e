@@ -26,10 +26,10 @@
 }
 
 .tabs.tabs3 .tabs-panel p,
-.tabs.tabs6 .tabs-panel > div > p,
-.tabs.tabs22 .tabs-panel > div > p,
 .tabs.tabs3 .tabs-list button p,
+.tabs.tabs6 .tabs-panel > div > p,
 .tabs.tabs6 .tabs-list button p,
+.tabs.tabs22 .tabs-panel > div > p,
 .tabs.tabs22 .tabs-list button p {
   margin: 0;
 }
@@ -128,7 +128,6 @@
   color: #fff;
 }
 
-/* Moved .tabs.tabs6 .tabs-panel > div > p above .tabs.tabs3 .tabs-panel p:last-child per no-descending-specificity */
 .tabs.tabs6 .tabs-panel > div > p,
 .tabs.tabs22 .tabs-panel > div > p,
 .tabs.tabs3 .tabs-panel p:last-child {
@@ -789,4 +788,22 @@
   min-height: 620px;
   padding: 0;
   overflow-x: hidden;
+}
+
+/* MERGED SELECTOR: .tabs.tabs12 */
+
+.tabs.tabs12 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 620px;
+  padding: 0;
+  gap: 0;
+  box-sizing: border-box;
+  position: relative;
 }
