@@ -90,15 +90,28 @@
   margin-bottom: 5px;
 }
 
-.cards.cards21 .cards-card-body {
-  margin-top: 3px;
-  padding: 0 7px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  min-height: auto;
-  min-width: 0;
+.cards.cards2 .cards-card-body .button {
+  background: none;
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-decoration: none;
+  max-width: 100%;
+  display: inline;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  text-align: left;
+  cursor: pointer;
+  line-height: 1.25;
 }
 
 .cards.cards21 .cards-card-body .button {
@@ -125,28 +138,25 @@
   line-height: 1.18;
 }
 
-.cards.cards2 .cards-card-body .button {
-  background: none;
-  color: #222;
-  font-family: var(--heading-font-family);
-  font-weight: 600;
+.cards.cards40 .cards-card-body .button {
+  background: #ffe600;
+  color: #111;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  font-size: 1.12rem;
   text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 0;
-  padding: 0;
-  margin: 0;
   border: none;
   border-radius: 0;
+  padding: 15px 48px;
+  letter-spacing: 1px;
   box-shadow: none;
-  text-decoration: none;
-  max-width: 100%;
-  display: inline;
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
-  text-align: left;
-  cursor: pointer;
-  line-height: 1.25;
+  display: inline-block;
+  margin: 0 0 24px;
+  line-height: 1.21;
+  text-align: center;
+  min-width: 200px;
+  min-height: 48px;
+  transition: background 0.15s;
 }
 
 .cards.cards2 .cards-card-body .button:hover,
@@ -154,6 +164,35 @@
   color: #1d3ecf;
   text-decoration: underline;
   background: none;
+}
+
+.cards.cards21 .cards-card-body .button:hover,
+.cards.cards21 .cards-card-body .button:focus {
+  color: #222;
+  text-decoration: none;
+  background: none;
+}
+
+.cards.cards40 .cards-card-body .button:hover,
+.cards.cards40 .cards-card-body .button:focus {
+  background: #e6cf00;
+  color: #111;
+  text-decoration: none;
+}
+
+.cards.cards40 .cards-card-body .button:focus {
+  outline: none;
+}
+
+.cards.cards21 .cards-card-body {
+  margin-top: 3px;
+  padding: 0 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-height: auto;
+  min-width: 0;
 }
 
 .cards.cards31 .cards-card-body {
@@ -186,6 +225,21 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.cards.cards40 .cards-card-body {
+  flex: 0 1 44%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f4f4f4;
+  padding: 48px 56px 56px;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin: 0;
+  height: 100%;
 }
 
 .cards.cards27 .cards-card-image + .cards-card-body {
@@ -288,13 +342,6 @@
 
 .cards.cards21 .cards-card-body .button-container {
   margin-bottom: 0;
-}
-
-.cards.cards21 .cards-card-body .button:hover,
-.cards.cards21 .cards-card-body .button:focus {
-  color: #222;
-  text-decoration: none;
-  background: none;
 }
 
 .cards.cards21 .cards-card-body p:not(.button-container) {
@@ -498,4 +545,153 @@
   color: #1d3ecf;
   text-decoration: underline;
   background: none;
+}
+
+/* GENERATED CSS, except .cards.cards40 is replaced with the merged version below */
+.cards.cards40 {
+  margin: 56px auto 72px;
+  max-width: 1240px;
+  box-sizing: border-box;
+}
+
+.cards.cards40 > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  display: block;
+}
+
+.cards.cards40 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 420px;
+}
+
+.cards.cards40 .cards-card-image {
+  flex: 0 1 56%;
+  min-width: 0;
+  max-width: 60%;
+  display: flex;
+  align-items: stretch;
+}
+
+.cards.cards40 .cards-card-image picture,
+.cards.cards40 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  display: block;
+  object-fit: cover;
+}
+
+.cards.cards40 .cards-card-body > p:first-child {
+  color: #212121;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  letter-spacing: 0.04em;
+  line-height: 1.33;
+}
+
+.cards.cards40 .cards-card-body h2 {
+  color: #111;
+  font-size: 2.6rem;
+  font-family: var(--heading-font-family), serif;
+  font-weight: 700;
+  margin: 0 0 22px;
+  line-height: 1.13;
+}
+
+.cards.cards40 .cards-card-body > p:not(:first-child, .button-container) {
+  color: #666;
+  font-size: 1.05rem;
+  margin: 0 0 38px;
+  line-height: 1.7;
+  font-weight: 400;
+  max-width: 95%;
+}
+
+.cards.cards40 .cards-card-body .button-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.cards.cards40 .cards-card-body .button {
+  background: #ffe600;
+  color: #111;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  font-size: 1.12rem;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  padding: 15px 48px;
+  letter-spacing: 1px;
+  box-shadow: none;
+  display: inline-block;
+  margin: 0 0 24px;
+  line-height: 1.21;
+  text-align: center;
+  min-width: 200px;
+  min-height: 48px;
+  transition: background 0.15s;
+}
+
+.cards.cards40 .cards-card-body .button:hover,
+.cards.cards40 .cards-card-body .button:focus {
+  background: #e6cf00;
+  color: #111;
+  text-decoration: none;
+}
+
+.cards.cards40 .cards-card-body .button:focus {
+  outline: none;
+}
+
+@media (width >= 1300px) {
+  .cards.cards40 {
+    max-width: 1400px;
+  }
+  .cards.cards40 .cards-card-body {
+    padding: 64px 96px 70px 72px;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards40 > ul > li {
+    flex-direction: column;
+    min-height: 0;
+  }
+  .cards.cards40 .cards-card-image,
+  .cards.cards40 .cards-card-body {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+  }
+  .cards.cards40 .cards-card-body {
+    padding: 28px 16px 36px;
+  }
+  .cards.cards40 .cards-card-image picture,
+  .cards.cards40 .cards-card-image img {
+    min-height: 180px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards40 {
+    margin: 0;
+  }
+  .cards.cards40 .cards-card-body {
+    padding: 18px 8px 24px;
+  }
 }
