@@ -25,11 +25,11 @@
   margin: 0;
 }
 
+.tabs.tabs6 .tabs-panel > div > p,
+.tabs.tabs22 .tabs-panel > div > p,
 .tabs.tabs3 .tabs-panel p,
 .tabs.tabs3 .tabs-list button p,
-.tabs.tabs6 .tabs-panel > div > p,
 .tabs.tabs6 .tabs-list button p,
-.tabs.tabs22 .tabs-panel > div > p,
 .tabs.tabs22 .tabs-list button p {
   margin: 0;
 }
@@ -298,6 +298,10 @@
   margin: 0;
 }
 
+.tabs.tabs22 .tabs-panel > div > p {
+  margin: 0;
+}
+
 .tabs.tabs22 .tabs-list button {
   border: none;
   background: none;
@@ -319,10 +323,6 @@
   box-shadow: none;
   outline: none;
   transition: background 0.18s, color 0.18s;
-}
-
-.tabs.tabs22 .tabs-panel > div > p {
-  margin: 0;
 }
 
 .tabs.tabs22 .tabs-list button:focus-visible {
@@ -722,3 +722,19 @@
 }
 
 /* GENERATED CSS END */
+
+/* MERGED .tabs.tabs36 START */
+
+.tabs.tabs36 {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 32px;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* MERGED .tabs.tabs36 END */
