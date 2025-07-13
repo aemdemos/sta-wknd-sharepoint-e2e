@@ -24,12 +24,10 @@
   margin: 0;
 }
 
-.tabs.tabs3 .tabs-panel p,
-.tabs.tabs3 .tabs-list button p,
 .tabs.tabs6 .tabs-panel > div > p,
-.tabs.tabs6 .tabs-list button p,
 .tabs.tabs22 .tabs-panel > div > p,
-.tabs.tabs22 .tabs-list button p {
+.tabs.tabs13 .tabs-panel > div > p,
+.tabs.tabs3 .tabs-panel p {
   margin: 0;
 }
 
@@ -37,6 +35,7 @@
 .tabs.tabs6 .tabs-list button p,
 .tabs.tabs22 .tabs-list button p {
   padding: 0;
+  margin: 0;
 }
 
 .tabs .tabs-list button {
@@ -127,11 +126,25 @@
   color: #fff;
 }
 
-.tabs.tabs6 .tabs-panel > div > p,
-.tabs.tabs22 .tabs-panel > div > p,
-.tabs.tabs13 .tabs-panel > div > p,
-.tabs.tabs9 .tabs-panel > div > p:not(:first-of-type),
 .tabs.tabs3 .tabs-panel p:last-child {
+  font-size: 13px;
+  color: #bbb;
+  margin-top: 1px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.tabs.tabs9 .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs32 > .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs9 .tabs-panel > div > p:not(:first-of-type) {
   font-size: 13px;
   color: #bbb;
   margin-top: 1px;
@@ -439,6 +452,20 @@
   max-width: 1140px;
 }
 
+.tabs.tabs13 .tabs-panel ul {
+  margin-left: 18px;
+  margin-bottom: 10px;
+  padding-left: 0;
+  max-width: 740px;
+}
+
+.tabs.tabs32 .tabs-panel[aria-hidden="false"] ul {
+  margin-left: 22px;
+  margin-bottom: 18px;
+  padding-left: 0;
+  max-width: 650px;
+}
+
 .tabs.tabs22 .tabs-panel li {
   margin-bottom: 8px;
   font-size: 1rem;
@@ -577,8 +604,6 @@
 .tabs.tabs9 .tabs-list .tabs-tab p {
   margin: 0;
   padding: 0;
-  font-size: 13px;
-  letter-spacing: 0.05em;
 }
 
 .tabs.tabs32 > .tabs-list .tabs-tab p {
@@ -745,20 +770,6 @@
   font-family: var(--body-font-family);
 }
 
-.tabs.tabs32 .tabs-panel[aria-hidden="false"] ul {
-  margin-left: 22px;
-  margin-bottom: 18px;
-  padding-left: 0;
-  max-width: 650px;
-}
-
-.tabs.tabs13 .tabs-panel ul {
-  margin-left: 18px;
-  margin-bottom: 10px;
-  padding-left: 0;
-  max-width: 740px;
-}
-
 .tabs.tabs13 .tabs-panel li {
   margin-bottom: 5px;
   font-size: 16px;
@@ -920,5 +931,30 @@
   .tabs.tabs32 > .tabs {
     padding-left: 0;
     padding-right: 12px;
+  }
+}
+
+.tabs.tabs14 {
+  box-sizing: border-box;
+  display: block;
+  margin: 40px auto 0;
+  background: #fff;
+  max-width: 900px;
+  padding: 0 40px 40px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (width <= 950px) {
+  .tabs.tabs14 {
+    max-width: 98vw;
+    padding: 0 4vw 32px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs14 {
+    padding: 0 1vw 16px;
   }
 }
