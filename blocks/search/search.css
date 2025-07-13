@@ -1,3 +1,4 @@
+
 /* search box */
 .search .search-box {
   display: grid;
@@ -134,4 +135,111 @@
   height: 24px;
   width: 24px;
   border-radius: 50%;
+}
+
+/* Merged .search.search5 selector */
+.search.search5 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 72px;
+  background: #fff;
+  padding: 0 56px 0 0;
+  box-sizing: border-box;
+}
+
+/* from generated CSS - unchanged except for merged .search.search5 */
+.search.search5 .search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 2px;
+  padding: 0 32px;
+  min-width: 230px;
+  height: 38px;
+  box-shadow: none;
+  border: none;
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  gap: 14px;
+  margin: 0;
+}
+
+.search.search5 .icon-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  min-width: 16px;
+  min-height: 16px;
+}
+
+.search.search5 .icon-search img {
+  width: 16px;
+  height: 16px;
+  filter: grayscale(1) brightness(0.2);
+  display: block;
+}
+
+.search.search5 .search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #222;
+  font-size: 13px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  width: 120px;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  min-width: 0;
+  line-height: 1;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.search.search5 .search-input::placeholder {
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 13px;
+  font-weight: 300;
+  opacity: 1;
+}
+
+.search.search5 .search-results {
+  display: none;
+}
+
+@media (width <= 600px) {
+  .search.search5 {
+    height: 40px;
+    padding: 0 8px 0 0;
+  }
+
+  .search.search5 .search-box {
+    padding: 0 8px;
+    height: 26px;
+    min-width: 100px;
+    gap: 7px;
+  }
+
+  .search.search5 .icon-search,
+  .search.search5 .icon-search img {
+    height: 13px;
+    width: 13px;
+    min-width: 13px;
+    min-height: 13px;
+  }
+
+  .search.search5 .search-input,
+  .search.search5 .search-input::placeholder {
+    font-size: 11px;
+  }
 }
