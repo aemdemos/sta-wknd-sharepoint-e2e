@@ -57,20 +57,7 @@
   display: none;
 }
 
-/* --- Tabs 9 picture/img: place first for specificity --- */
-.tabs.tabs9 .tabs-panel picture,
-.tabs.tabs9 .tabs-panel img {
-  display: block;
-  width: 100%;
-  max-width: 760px;
-  height: auto;
-  margin: 10px 0;
-  border-radius: 0;
-  box-shadow: none;
-  object-fit: cover;
-}
-
-/* --- Tabs 14 global picture/img: must come before all more specific ones for specificity --- */
+/* --- Tabs 14, 16, 9, 13: picture/img rules must be ordered for specificity --- */
 .tabs.tabs14 .tabs-panel picture,
 .tabs.tabs14 .tabs-panel img {
   display: block;
@@ -83,7 +70,32 @@
   object-fit: cover;
 }
 
-/* --- Tabs 13 picture/img: place before Tabs 6 for specificity --- */
+.tabs.tabs16 .tabs-panel picture {
+  display: block;
+  margin-bottom: 32px;
+}
+
+.tabs.tabs16 .tabs-panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+.tabs.tabs9 .tabs-panel picture,
+.tabs.tabs9 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
 .tabs.tabs13 .tabs-panel picture,
 .tabs.tabs13 .tabs-panel img {
   display: block;
@@ -105,7 +117,6 @@
   box-sizing: border-box;
 }
 
-/* --- Tabs 6 picture: after Tabs 13 for specificity --- */
 .tabs.tabs6 .tabs-panel > div > picture {
   display: block;
   margin: 0 0 1.8em;
@@ -132,6 +143,105 @@
   border: none;
   box-shadow: none;
   margin: 0;
+}
+
+.tabs.tabs6 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs9 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs13 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs6 .tabs-panel > div > p,
+.tabs.tabs6 .tabs-panel > div > ul {
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-top: 1.2em;
+  margin-bottom: 1em;
+}
+
+.tabs.tabs6 .tabs-panel > div > p:first-of-type {
+  margin-top: 14px;
+}
+
+.tabs.tabs9 .tabs-panel > div > p,
+.tabs.tabs9 .tabs-panel > div > ul {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 0.7em;
+  padding: 0;
+}
+
+.tabs.tabs9 .tabs-panel > div > p:first-of-type {
+  margin-top: 14px;
+}
+
+.tabs.tabs13 .tabs-panel > div > p,
+.tabs.tabs13 .tabs-panel > div > ul {
+  font-family: var(--body-font-family);
+  font-size: 1.09rem;
+  color: #181818;
+  line-height: 1.67;
+  max-width: 760px;
+  margin: 14px 0 0;
+  padding: 0;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.tabs.tabs13 .tabs-panel > div > p:first-of-type {
+  margin-top: 14px;
+}
+
+.tabs.tabs16 .tabs-list button p {
+  margin: 0;
+}
+
+.tabs.tabs16 .tabs-panel > div > p,
+.tabs.tabs16 .tabs-panel > div > ul {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1.12rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 0 18px;
+  padding: 0;
+  text-align: left;
+}
+
+.tabs.tabs14 .tabs-panel > div > p,
+.tabs.tabs14 .tabs-panel > div > ul {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #222;
+  line-height: 1.7;
+  margin: 0 0 1.2em;
+  padding: 0;
+  text-align: left;
+  max-width: 760px;
+}
+
+.tabs.tabs14 .tabs-panel > div > p:first-of-type {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.02em;
+  margin-top: 0;
+  margin-bottom: 18px;
+  line-height: 1.2;
 }
 
 /* --- Tabs 6 --- */
@@ -192,11 +302,6 @@
   font-weight: bold;
 }
 
-.tabs.tabs6 .tabs-list button p {
-  margin: 0;
-  padding: 0;
-}
-
 .tabs.tabs6 .tabs-panel {
   display: none;
   padding: 0;
@@ -241,16 +346,6 @@
   line-height: 1.15;
 }
 
-.tabs.tabs6 .tabs-panel > div > p,
-.tabs.tabs6 .tabs-panel > div > ul {
-  font-family: var(--body-font-family);
-  font-size: 1rem;
-  color: var(--text-color);
-  line-height: 1.6;
-  margin-top: 1.2em;
-  margin-bottom: 1em;
-}
-
 @media (width <= 900px) {
   .tabs.tabs6 {
     flex-direction: column;
@@ -279,6 +374,7 @@
   }
 }
 
+/* --- Tabs 9 --- */
 .tabs.tabs9 {
   display: block;
   max-width: 840px;
@@ -332,11 +428,6 @@
   background: #222;
   color: #fff;
   font-weight: 700;
-}
-
-.tabs.tabs9 .tabs-list button p {
-  margin: 0;
-  padding: 0;
 }
 
 .tabs.tabs9 .tabs-panel {
@@ -396,26 +487,6 @@
   line-height: 1.15;
 }
 
-.tabs.tabs9 .tabs-panel > div > p,
-.tabs.tabs9 .tabs-panel > div > ul {
-  font-family: var(--body-font-family);
-  color: #222;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin: 0 0 0.7em;
-  padding: 0;
-}
-
-.tabs.tabs9 .tabs-panel > div > p > picture {
-  margin: 10px 0;
-}
-
-.tabs.tabs9 .tabs-panel > div > ul {
-  margin-left: 1.1em;
-  padding-left: 0;
-  list-style: disc inside;
-}
-
 @media (width <= 870px) {
   .tabs.tabs9,
   .tabs.tabs9 .tabs-panel,
@@ -443,6 +514,7 @@
   }
 }
 
+/* --- Tabs 13 --- */
 .tabs.tabs13 {
   max-width: 950px;
   margin: 40px auto 0;
@@ -503,11 +575,6 @@
   border: 1px solid #000;
 }
 
-.tabs.tabs13 .tabs-list button p {
-  margin: 0;
-  padding: 0;
-}
-
 /* --- Panel visibility --- */
 .tabs.tabs13 .tabs-panel {
   display: none;
@@ -553,7 +620,6 @@
   box-sizing: border-box;
 }
 
-/* --- Paragraphs: readable line-length, tight gap below image --- */
 .tabs.tabs13 .tabs-panel > div > p,
 .tabs.tabs13 .tabs-panel > div > ul {
   font-family: var(--body-font-family);
@@ -613,48 +679,7 @@
   }
 }
 
-/* --- Generated CSS from Experiment 2 --- */
-
-/* Move .tabs.tabs6 .tabs-panel > div > picture above .tabs.tabs13 .tabs-panel > div > p > picture to fix specificity */
-.tabs.tabs6 .tabs-panel > div > picture {
-  display: block;
-  margin: 0 0 1.8em;
-}
-
-.tabs.tabs13 .tabs-panel > div > p > picture {
-  display: block;
-  margin: 10px 0 0;
-  width: 100%;
-  max-width: 900px;
-  box-sizing: border-box;
-}
-
-/* Move .tabs.tabs14 .tabs-panel > div > p above .tabs.tabs13 .tabs-panel > div > p:first-of-type */
-.tabs.tabs14 .tabs-panel > div > p,
-.tabs.tabs14 .tabs-panel > div > ul {
-  font-family: var(--body-font-family);
-  font-size: 16px;
-  color: #222;
-  line-height: 1.7;
-  margin: 0 0 1.2em;
-  padding: 0;
-  text-align: left;
-  max-width: 760px;
-}
-
-/* Subtitle (first paragraph) styling */
-.tabs.tabs14 .tabs-panel > div > p:first-of-type {
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #222;
-  letter-spacing: 0.02em;
-  margin-top: 0;
-  margin-bottom: 18px;
-  line-height: 1.2;
-}
-
-/* Rest of the CSS remains as before */
+/* --- Tabs 14 --- */
 .tabs.tabs14 {
   display: flex;
   flex-direction: row;
@@ -691,6 +716,7 @@
     max-width: 100vw;
     padding: 0 2vw;
   }
+
   .tabs.tabs14 > div:first-child {
     flex: unset;
     width: 100%;
@@ -746,6 +772,27 @@
   min-width: 0;
   box-shadow: none;
   width: 100%;
+}
+
+.tabs.tabs16 .tabs-list button {
+  background: none;
+  border: none;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 28px 10px 16px;
+  margin-right: 4px;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 0.03em;
+  box-shadow: none;
+  line-height: 1.4;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .tabs.tabs14 .tabs-list button:focus {
@@ -810,6 +857,17 @@
   box-sizing: border-box;
 }
 
+.tabs.tabs14 .tabs-panel > div > p:first-of-type {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.02em;
+  margin-top: 0;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
 @media (width <= 600px) {
   .tabs.tabs14 .tabs-panel > div > p,
   .tabs.tabs14 .tabs-panel > div > ul {
@@ -822,4 +880,117 @@
   box-shadow: none;
   border: none;
   background: transparent;
+}
+
+/* --- Tabs 16 --- */
+.tabs.tabs16 {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  display: block;
+}
+
+/* Center content, comfortable readable width */
+.tabs.tabs16 .tabs-panel > div {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs: horizontal, left-aligned, compact vertical spacing */
+.tabs.tabs16 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin: 0 0 20px;
+  padding: 0;
+  background: none;
+  border: none;
+  justify-content: flex-start;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tab buttons: pill style, uppercase, active highlighted */
+.tabs.tabs16 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+}
+
+/* Heading: large serif, black, short yellow underline tight to text */
+.tabs.tabs16 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 10px;
+  line-height: 1.15;
+  display: inline-block;
+  position: relative;
+  letter-spacing: 0;
+  padding-bottom: 7px;
+}
+
+.tabs.tabs16 .tabs-panel > div > h3::after {
+  display: block;
+  height: 3px;
+  width: 46px;
+  margin-top: 3px;
+  background: #E9D97B;
+  border-radius: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs16 .tabs-panel > div,
+  .tabs.tabs16 .tabs-list {
+    max-width: 98vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .tabs.tabs16 .tabs-list {
+    flex-wrap: wrap;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs16 .tabs-panel > div {
+    max-width: 100vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .tabs.tabs16 .tabs-list {
+    font-size: 0.98rem;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .tabs.tabs16 .tabs-panel > div > h3 {
+    font-size: 1.3rem;
+    padding-bottom: 6px;
+  }
+
+  .tabs.tabs16 .tabs-panel > div > p,
+  .tabs.tabs16 .tabs-panel > div > ul {
+    font-size: 1rem;
+    margin-bottom: 14px;
+    max-width: 96vw;
+  }
+
+  .tabs.tabs16 .tabs-panel picture {
+    margin-bottom: 20px;
+  }
 }
