@@ -1,3 +1,5 @@
+/* Carousel Styles */
+
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -87,6 +89,126 @@
   background-color: var(--text-color);
 }
 
+/* --- Carousel34 rules before Carousel12 rules for specificity --- */
+
+.carousel.carousel34 .carousel-slide-content {
+  display: none;
+}
+
+.carousel.carousel34 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #222;
+  box-shadow: none;
+  transition: background 0.18s, border 0.18s;
+  pointer-events: auto;
+}
+
+.carousel.carousel34 .carousel-slide-indicator button:disabled {
+  background: #fff;
+  border: 1.5px solid #222;
+}
+
+.carousel.carousel34 .carousel-navigation-buttons button {
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  border-radius: 50%;
+  border: 1px solid #222;
+  background: #fff;
+  color: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  position: relative;
+}
+
+.carousel.carousel34 .carousel-navigation-buttons button:focus-visible,
+.carousel.carousel34 .carousel-navigation-buttons button:hover {
+  border-color: #000;
+}
+
+.carousel.carousel34 .carousel-navigation-buttons button:disabled {
+  opacity: 0.45;
+  border-color: #e0e0e0;
+  background: #fff;
+}
+
+/* Increase white space below the image for controls */
+.carousel.carousel34 .carousel-slides-container {
+  padding-bottom: 84px;
+  background: #fff;
+  position: relative;
+  box-sizing: content-box;
+}
+
+/* Navigation Buttons: move up and make fully visible, more balanced size */
+.carousel.carousel34 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 0 38px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  pointer-events: none;
+  z-index: 3;
+  padding: 0 30px;
+}
+
+/* Remove default arrow pseudo and add Unicode arrow */
+.carousel.carousel34 .carousel-navigation-buttons button::after {
+  display: none;
+}
+
+.carousel.carousel34 .carousel-navigation-buttons .slide-prev::before,
+.carousel.carousel34 .carousel-navigation-buttons .slide-next::before {
+  display: block;
+  font-size: 17px;
+  width: 100%;
+  text-align: center;
+  font-family: inherit;
+  font-weight: 600;
+  color: #222;
+}
+
+.carousel.carousel34 .carousel-navigation-buttons .slide-prev::before {
+  content: "\2190";
+}
+
+.carousel.carousel34 .carousel-navigation-buttons .slide-next::before {
+  content: "\2192";
+}
+
+/* Page indicators: move up and provide more separation from arrows and white area edge */
+.carousel.carousel34 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 72px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  background: none;
+  padding: 0;
+  z-index: 4;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* --- End Carousel34 block ordering fixes --- */
+
 .carousel .carousel-navigation-buttons {
   position: absolute;
   top: 50%;
@@ -152,7 +274,7 @@
   }
 }
 
-/* --- START GENERATED CSS --- */
+/* --- Carousel12 rules after Carousel34 for specificity & cascade --- */
 
 .carousel.carousel12 .carousel-slide .carousel-slide-content {
   position: absolute;
