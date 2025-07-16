@@ -1,5 +1,13 @@
 /* --- CARDS BASE --- */
 
+.cards {
+  background: #fff;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 32px 32px;
+  box-sizing: border-box;
+}
+
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -27,76 +35,6 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
-
-/* --- CARDS 3: general selectors before more specific ones --- */
-
-.cards.cards3 > ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem 0.2rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  width: 100%;
-  place-items: start center;
-}
-
-.cards.cards3 .cards-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-}
-
-.cards.cards3 .cards-card-body p {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 0.13rem;
-  margin: 0.07em 0 0;
-  padding: 0;
-}
-
-/* --- CARDS 4: general selectors before more specific ones --- */
-
-.cards.cards4 > ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px 18px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  width: 100%;
-}
-
-.cards.cards4 > ul > li {
-  background: #fff;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.cards.cards4 .cards-card-image img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-  border-radius: 0;
-}
-
-.cards.cards4 .cards-card-body p {
-  color: #666;
-  font-size: 14px;
-  margin: 0 0 10px;
-  line-height: 1.5;
-}
-
-/* --- CARDS 2: less specific selectors first --- */
 
 .cards.cards2 > ul {
   display: block;
@@ -188,14 +126,15 @@
   content: "";
 }
 
-/* --- CARDS 3: more specific selectors after cards2 to respect cascade and specificity --- */
-
-.cards.cards3 {
-  max-width: 870px;
-  margin-left: auto;
-  margin-right: auto;
-  background: #fff;
+.cards.cards3 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem 0.2rem;
+  margin: 0;
   padding: 0;
+  list-style: none;
+  width: 100%;
+  place-items: start center;
 }
 
 .cards.cards3 > ul > li {
@@ -232,6 +171,22 @@
   justify-content: center;
   background: none;
   border: none;
+}
+
+.cards.cards3 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.cards.cards3 {
+  max-width: 870px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  padding: 0;
 }
 
 .cards.cards3 .cards-card-body {
@@ -274,22 +229,47 @@
   line-height: 1.25;
 }
 
-/* --- CARDS 4 (clean, merged, responsive section) --- */
-
-.cards.cards4 {
-  max-width: 100%;
-  margin: 0;
+.cards.cards3 .cards-card-body p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.13rem;
+  margin: 0.07em 0 0;
   padding: 0;
-  background: #fff;
 }
 
-.cards.cards4 > ul > li:nth-child(5) {
-  grid-column: 2 / 3;
+.cards.cards4 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.cards.cards4 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .cards.cards4 .cards-card-image {
   margin: 0;
   line-height: 0;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
 }
 
 .cards.cards4 .cards-card-image picture {
@@ -320,6 +300,13 @@
   letter-spacing: 0.01em;
   line-height: 1.25;
   font-family: var(--heading-font-family);
+}
+
+.cards.cards4 .cards-card-body p {
+  color: #666;
+  font-size: 14px;
+  margin: 0 0 10px;
+  line-height: 1.5;
 }
 
 .cards.cards4 .cards-card-body p.button-container {
@@ -353,7 +340,16 @@
   text-decoration: none;
 }
 
-/* --- MEDIA QUERIES --- */
+.cards.cards4 {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+.cards.cards4 > ul > li:nth-child(5) {
+  grid-column: 2 / 3;
+}
 
 @media (width <= 1020px) {
   .cards.cards3 > ul {
