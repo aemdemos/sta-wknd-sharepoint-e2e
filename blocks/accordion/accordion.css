@@ -21,6 +21,31 @@
   transition: background-color 0.2s;
 }
 
+.accordion.accordion15 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px 16px 18px 0;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #000;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  min-height: 54px;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  user-select: none;
+  transition: background 0.2s;
+  margin: 0;
+}
+
 .accordion details[open] summary {
   background-color: var(--light-color);
 }
@@ -55,7 +80,88 @@
   padding: 0 16px;
 }
 
+.accordion.accordion15 .accordion-item-body {
+  font-size: 14px;
+  color: #222;
+  background: #fff;
+  padding: 0;
+  padding-bottom: 18px;
+  box-sizing: border-box;
+  line-height: 1.7;
+  margin: 0;
+}
+
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+.accordion.accordion15 .accordion-item {
+  width: 100%;
+}
+
+.accordion.accordion15 details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #E5E5E5;
+  background: #fff;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+}
+
+.accordion.accordion15 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion15 summary:focus,
+.accordion.accordion15 summary:hover,
+.accordion.accordion15 details[open] summary {
+  background: #fff;
+  outline: none;
+}
+
+.accordion.accordion15 summary::-webkit-details-marker,
+.accordion.accordion15 summary::marker {
+  color: #888;
+  font-size: 22px;
+  margin-left: 8px;
+}
+
+.accordion.accordion15 summary > p {
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  width: 100%;
+  text-align: left;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion15 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .accordion.accordion15 summary,
+  .accordion.accordion15 .accordion-item-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.accordion.accordion15 {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 40px;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 0;
 }
