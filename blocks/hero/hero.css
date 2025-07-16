@@ -1,1 +1,374 @@
-.hero-container .hero-wrapper {  max-width: unset;  padding: 0;}.hero {  position: relative;  padding: 40px 24px;  min-height: 300px;}.hero h1,.hero h2,.hero h3,.hero h4,.hero h5,.hero h6,.hero p {  max-width: 1200px;  margin-left: auto;  margin-right: auto;  color: var(--background-color);}.hero.no-image * {  color: var(--text-color);}.hero picture {  position: absolute;  z-index: -1;  inset: 0;  object-fit: cover;  box-sizing: border-box;}.hero img {  object-fit: cover;  width: 100%;  height: 100%;}@media (width >= 900px) {  .hero {    padding: 40px 32px;  }}/* --- GENERATED CSS --- *//* .hero.hero28 comes before .hero.hero25 to fix specificity/linting order */.hero.hero28 > div:first-child {  flex: 1 1 60%;  min-width: 0;  min-height: 350px;  height: auto;  display: flex;  align-items: stretch;  justify-content: stretch;  z-index: 1;}.hero.hero28 > div:first-child picture,.hero.hero28 > div:first-child img {  width: 100%;  height: 100%;  object-fit: cover;  display: block;}.hero.hero28 > div:last-child {  flex: 0 1 700px;  display: flex;  align-items: flex-end;  justify-content: flex-end;  min-width: 320px;  max-width: 700px;  position: relative;  z-index: 2;}.hero.hero28 > div:last-child > div {  background: #fff;  padding: 2.8rem 3.5rem;  box-shadow: 0 6px 32px 0 rgb(0 0 0 / 9%);  border-radius: 0;  min-width: 0;  width: 100%;  margin: 0 0 0 -4rem;  display: flex;  flex-direction: column;  align-items: flex-start;  box-sizing: border-box;}.hero.hero28 h2 {  color: #222;  font-size: 2.3rem;  font-weight: 700;  line-height: 1.18;  margin: 0 0 1rem;  font-family: var(--heading-font-family);  text-align: left;}.hero.hero28 p {  color: #222;  font-size: 1.08rem;  margin: 0 0 2.1rem;  text-align: left;  max-width: 46em;}.hero.hero28 .button-container {  margin: 0.5rem 0 0;}.hero-container > .hero-wrapper > .block.hero.hero28 .button-container .button {  background: #fee600;  color: #222;  text-transform: uppercase;  font-weight: 700;  font-size: 1.08rem;  border-radius: 2px;  border: none;  padding: 0.9em 2.2em;  box-shadow: none;  margin: 0;  line-height: 1.2;  letter-spacing: 0.01em;  min-width: 140px;}.hero-container > .hero-wrapper > .block.hero.hero28 .button-container .button:hover,.hero-container > .hero-wrapper > .block.hero.hero28 .button-container .button:focus {  background: #ffe900;  color: #222;  text-decoration: none;}/* Now .hero.hero25 comes after .hero.hero28 */.hero.hero25 > div:first-child {  position: absolute;  inset: 0;  width: 100%;  height: 100%;  z-index: 1;  display: flex;}.hero.hero25 > div:first-child picture,.hero.hero25 > div:first-child img {  width: 100%;  height: 100%;  object-fit: cover;  display: block;}.hero.hero25 > div:last-child {  position: absolute;  left: 50%;  bottom: 8px;  transform: translateX(-50%);  width: 92%;  background: #fff;  box-sizing: border-box;  z-index: 2;  padding: 20px 44px 16px;  display: flex;  flex-direction: column;  align-items: flex-start;  border-radius: 0;  min-height: unset;}.hero.hero25 > div:last-child > div {  width: 100%;  border-bottom: 1px solid #e0e0e0;  padding-bottom: 10px;}.hero.hero25 h2 {  margin: 0 0 10px;  color: #222;  font-family: Georgia, Times, Times New Roman, serif;  font-size: 1.25rem;  font-weight: normal;  text-align: left;}@media (width >= 901px) {  .hero.hero28 > div:last-child {    position: absolute;    right: 1.2rem;    bottom: -1.0rem;    top: auto;    height: auto;    width: 700px;    max-width: 52vw;    display: flex;    align-items: flex-end;    justify-content: flex-end;    pointer-events: none;  }  .hero.hero28 > div:last-child > div {    pointer-events: auto;  }}@media (width <= 900px) {  .hero.hero25 {    aspect-ratio: unset;    min-height: 180px;  }  .hero.hero25 > div:last-child {    width: 98%;    padding: 10px 10px 8px;    bottom: 2px;  }  .hero.hero25 h2 {    font-size: 1rem;  }  .hero.hero25 > div:last-child > div {    padding-bottom: 6px;  }  .hero.hero28 {    flex-direction: column;    align-items: stretch;    min-height: 0;    height: auto;  }  .hero.hero28 > div:first-child,  .hero.hero28 > div:last-child {    position: static !important;    flex: none;    width: 100%;    min-width: 0;    max-width: none;    height: auto;    pointer-events: auto;  }  .hero.hero28 > div:first-child {    height: 200px;    min-height: 120px;  }  .hero.hero28 > div:last-child > div {    margin: -2.5rem 0 0;    padding: 1.3rem 1rem;    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 9%);    min-width: 0;    max-width: 100%;  }  .hero.hero28 h2 {    font-size: 1.18rem;  }  .hero.hero28 p {    font-size: 0.97rem;    margin-bottom: 1.2rem;  }}
+/* Empty line before each rule for readability */
+
+.hero-container .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero {
+  position: relative;
+  padding: 40px 24px;
+  min-height: 300px;
+}
+
+.hero h1,
+.hero h2,
+.hero h3,
+.hero h4,
+.hero h5,
+.hero h6,
+.hero p {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--background-color);
+}
+
+.hero.no-image * {
+  color: var(--text-color);
+}
+
+.hero picture {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+.hero img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media (width >= 900px) {
+  .hero {
+    padding: 40px 32px;
+  }
+}
+
+/* --- GENERATED CSS --- */
+
+.hero.hero30 {
+  max-width: 960px;
+  margin: 60px auto 0;
+  padding: 0 24px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.hero.hero30 > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.hero.hero30 picture,
+.hero.hero30 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 40px 0 24px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hero.hero30 h1 {
+  color: #222;
+  font-size: 2.2rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  margin: 0 0 16px;
+  line-height: 1.1;
+  display: block;
+  position: relative;
+  padding-bottom: 7px;
+  border-bottom: 3px solid #f9d86c;
+  width: max-content;
+}
+
+.hero.hero30 h3 {
+  color: #222;
+  font-size: 1.15rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  margin: 18px 0 10px;
+}
+
+.hero.hero30 h3 + h3 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.hero.hero28 p {
+  color: #222;
+  font-size: 1.08rem;
+  margin: 0 0 2.1rem;
+  text-align: left;
+  max-width: 46em;
+}
+
+.hero.hero30 p {
+  color: #222;
+  font-size: 1.05rem;
+  margin: 0 0 1.2em;
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+.hero.hero30 p:last-of-type {
+  color: #888;
+  font-size: 0.98rem;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+@media (width <= 900px) {
+  .hero.hero30 {
+    max-width: 100%;
+    padding: 0 8px;
+    margin: 32px 0 0;
+  }
+
+  .hero.hero30 h1 {
+    font-size: 1.25rem;
+    padding-bottom: 4px;
+  }
+
+  .hero.hero30 h3 {
+    font-size: 1rem;
+    margin: 13px 0 4px;
+  }
+
+  .hero.hero30 h3 + h3 {
+    font-size: 1.08rem;
+    margin-bottom: 12px;
+  }
+
+  .hero.hero30 p {
+    font-size: 0.97rem;
+    max-width: 100%;
+  }
+
+  .hero.hero30 picture,
+  .hero.hero30 img {
+    margin: 24px 0 16px;
+  }
+}
+
+.hero.hero28 > div:first-child {
+  flex: 1 1 60%;
+  min-width: 0;
+  min-height: 350px;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  z-index: 1;
+}
+
+.hero.hero28 > div:first-child picture,
+.hero.hero28 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero28 > div:last-child {
+  flex: 0 1 700px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-width: 320px;
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero.hero28 > div:last-child > div {
+  background: #fff;
+  padding: 2.8rem 3.5rem;
+  box-shadow: 0 6px 32px 0 rgb(0 0 0 / 9%);
+  border-radius: 0;
+  min-width: 0;
+  width: 100%;
+  margin: 0 0 0 -4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.hero.hero28 h2 {
+  color: #222;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.18;
+  margin: 0 0 1rem;
+  font-family: var(--heading-font-family);
+  text-align: left;
+}
+
+.hero.hero28 .button-container {
+  margin: 0.5rem 0 0;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero28 .button-container .button {
+  background: #fee600;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.08rem;
+  border-radius: 2px;
+  border: none;
+  padding: 0.9em 2.2em;
+  box-shadow: none;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  min-width: 140px;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero28 .button-container .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero28 .button-container .button:focus {
+  background: #ffe900;
+  color: #222;
+  text-decoration: none;
+}
+
+.hero.hero25 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+}
+
+.hero.hero25 > div:first-child picture,
+.hero.hero25 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero25 > div:last-child {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  width: 92%;
+  background: #fff;
+  box-sizing: border-box;
+  z-index: 2;
+  padding: 20px 44px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 0;
+  min-height: unset;
+}
+
+.hero.hero25 > div:last-child > div {
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.hero.hero25 h2 {
+  margin: 0 0 10px;
+  color: #222;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+@media (width >= 901px) {
+  .hero.hero28 > div:last-child {
+    position: absolute;
+    right: 1.2rem;
+    bottom: -1.0rem;
+    top: auto;
+    height: auto;
+    width: 700px;
+    max-width: 52vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+  }
+
+  .hero.hero28 > div:last-child > div {
+    pointer-events: auto;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero25 {
+    aspect-ratio: unset;
+    min-height: 180px;
+  }
+
+  .hero.hero25 > div:last-child {
+    width: 98%;
+    padding: 10px 10px 8px;
+    bottom: 2px;
+  }
+
+  .hero.hero25 h2 {
+    font-size: 1rem;
+  }
+
+  .hero.hero25 > div:last-child > div {
+    padding-bottom: 6px;
+  }
+
+  .hero.hero28 {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    height: auto;
+  }
+
+  .hero.hero28 > div:first-child,
+  .hero.hero28 > div:last-child {
+    position: static !important;
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    pointer-events: auto;
+  }
+
+  .hero.hero28 > div:first-child {
+    height: 200px;
+    min-height: 120px;
+  }
+
+  .hero.hero28 > div:last-child > div {
+    margin: -2.5rem 0 0;
+    padding: 1.3rem 1rem;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 9%);
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero.hero28 h2 {
+    font-size: 1.18rem;
+  }
+
+  .hero.hero28 p {
+    font-size: 0.97rem;
+    margin-bottom: 1.2rem;
+  }
+}
