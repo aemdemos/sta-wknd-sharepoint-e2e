@@ -1,3 +1,4 @@
+
 /* --- Tabs Base --- */
 .tabs .tabs-list {
   display: flex;
@@ -992,5 +993,200 @@
 
   .tabs.tabs16 .tabs-panel picture {
     margin-bottom: 20px;
+  }
+}
+
+/* --- BEGIN MERGED .tabs.tabs17 --- */
+.tabs.tabs17 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 980px;
+  margin: 56px auto 0;
+  padding: 0 36px 56px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+/* --- END MERGED .tabs.tabs17 --- */
+
+/* Tabs bar: center horizontally, full width within max-width, with a bit more top margin */
+.tabs.tabs17 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 2.1rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Tab button styles */
+.tabs.tabs17 .tabs-list button {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-family: var(--body-font-family);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #181818;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.7em 2.1em;
+  line-height: 1.22;
+  transition: background 0.14s, color 0.14s;
+  box-shadow: none;
+  cursor: pointer;
+  margin: 0;
+  display: inline-block;
+}
+
+.tabs.tabs17 .tabs-list button[aria-selected="true"] {
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs17 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+/* Panel visibility and single-column layout */
+.tabs.tabs17 .tabs-panel {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  width: 100%;
+}
+
+.tabs.tabs17 .tabs-panel[aria-hidden="false"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Content area for tab panel */
+.tabs.tabs17 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+/* Headline (h3) and underline accent */
+.tabs.tabs17 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #111;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  line-height: 1.13;
+  display: inline-block;
+  border: none;
+  position: relative;
+  padding-bottom: 0.18em;
+  border-bottom: 3px solid #ffe082;
+
+  /* Use border-bottom for underline accent, no ::after */
+}
+
+/* Large subheading (h2): larger, bolder, more spacing */
+.tabs.tabs17 .tabs-panel > div > h2 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #181818;
+  margin-top: 2.1rem;
+  margin-bottom: 1.6rem;
+  line-height: 1.18;
+}
+
+/* Main image: center and constrain */
+.tabs.tabs17 .tabs-panel picture,
+.tabs.tabs17 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+/* Paragraph/text */
+.tabs.tabs17 .tabs-panel > div > p,
+.tabs.tabs17 .tabs-panel > div > ul {
+  font-family: var(--body-font-family);
+  color: #444;
+  font-size: 16px;
+  line-height: 1.67;
+  max-width: 760px;
+  margin: 0 0 1.1em;
+  text-align: left;
+}
+
+.tabs.tabs17 .tabs-panel > div > ul {
+  padding-left: 1.4em;
+  margin-bottom: 1.3em;
+}
+
+/* Responsive: stack and pad on mobile */
+@media (width <= 900px) {
+  .tabs.tabs17 {
+    max-width: 100vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .tabs.tabs17 .tabs-list,
+  .tabs.tabs17 .tabs-panel > div {
+    max-width: 100vw;
+    width: 100vw;
+  }
+
+  .tabs.tabs17 .tabs-panel picture,
+  .tabs.tabs17 .tabs-panel img {
+    max-width: 100vw;
+  }
+
+  .tabs.tabs17 .tabs-panel > div > h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.3em;
+    border-bottom-width: 2px;
+  }
+
+  .tabs.tabs17 .tabs-panel > div > h2 {
+    font-size: 1.10rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .tabs.tabs17 .tabs-list {
+    gap: 0.5rem;
+    font-size: 0.97em;
+  }
+
+  .tabs.tabs17 .tabs-panel > div > p,
+  .tabs.tabs17 .tabs-panel > div > ul {
+    font-size: 14px;
+    max-width: 96vw;
   }
 }
