@@ -19,6 +19,10 @@
   display: block;
 }
 
+.columns.columns11 > .columns-3-cols > div:nth-child(1) {
+  position: relative;
+}
+
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
@@ -29,5 +33,227 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+.columns.columns11 {
+  background: #232221;
+  color: #fff;
+  padding: 32px 48px;
+  border-bottom: 2px solid #fff;
+  box-sizing: border-box;
+}
+
+/* --- Main grid: 2 rows, 2 columns --- */
+.columns.columns11 > .columns-3-cols {
+  display: grid;
+  grid-template: "leftcol rightcol" auto "footer  footer" 1fr / 1fr 320px;
+  gap: 0 40px;
+}
+
+@media (width <= 900px) {
+  .columns.columns11 {
+    padding: 24px 8px;
+  }
+
+  .columns.columns11 > .columns-3-cols {
+    display: block;
+    gap: 0;
+  }
+}
+
+/* --- Left column: logo, language, and footer text --- */
+.columns.columns11 > .columns-3-cols > div:first-child {
+  grid-area: leftcol;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+/* Logo styling (ensure not oversized) */
+.columns.columns11 .columns-img-col {
+  margin-bottom: 10px;
+}
+
+.columns.columns11 .columns-img-col img {
+  width: auto;
+  max-width: 220px;
+  height: auto;
+  display: block;
+}
+
+/* Language link (de-emphasize and align) */
+.columns.columns11 ul {
+  margin: 0 0 0 22px;
+  padding: 0;
+  list-style: disc inside;
+}
+
+.columns.columns11 ul li {
+  font-size: 13px;
+  margin: 0 0 0.1em;
+  color: #fff;
+  opacity: 0.7;
+}
+
+.columns.columns11 ul a {
+  color: #fff;
+  opacity: 0.7;
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+/* --- Footer text: spans both columns below --- */
+.columns.columns11 > .columns-3-cols > div:last-child {
+  grid-area: footer;
+  margin-top: 16px;
+}
+
+.columns.columns11 > .columns-3-cols > div:last-child > div {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns11 > .columns-3-cols > div:last-child p,
+.columns.columns11 > .columns-3-cols > div:last-child a {
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 0.5em;
+}
+
+.columns.columns11 > .columns-3-cols > div:last-child a {
+  text-decoration: underline;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.columns.columns11 > .columns-3-cols > div:last-child a:hover {
+  color: #d4d4d4;
+}
+
+.columns.columns11 > .columns-3-cols > div:nth-child(1) > div:last-child {
+  grid-area: rightcol;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 0;
+  position: absolute;
+  top: 0;
+  right: -360px;
+  width: 320px;
+  justify-content: flex-start;
+  padding-top: 0;
+  padding-right: 0;
+  gap: 0;
+}
+
+/* "Follow Us" label: align right, small, bold, uppercase, tight with icons */
+.columns.columns11 #follow-us {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0 0 10px;
+  text-align: right;
+}
+
+/* Row of icons: tight horizontal row, right aligned */
+.columns.columns11 .button-container {
+  display: inline-block;
+  margin: 0 8px 0 0;
+  padding: 0;
+}
+
+.columns.columns11 .button-container:last-child {
+  margin-right: 0;
+}
+
+.columns.columns11 > .columns-3-cols > div:nth-child(1) > div:last-child > .button-container {
+  margin: 0;
+  display: inline-block;
+}
+
+.columns.columns11 > .columns-3-cols > div:nth-child(1) > div:last-child > .button-container > a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  color: #232221;
+  border-radius: 4px;
+  font-size: 0; /* icon only */
+  border: none;
+  margin-right: 8px;
+  margin-bottom: 0;
+  box-shadow: none;
+  text-decoration: none;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.columns.columns11 > .columns-3-cols > div:nth-child(1) > div:last-child > .button-container:last-child > a.button {
+  margin-right: 0;
+}
+
+.columns.columns11 > .columns-3-cols > div:nth-child(1) > div:last-child > .button-container > a.button:hover,
+.columns.columns11 > .columns-3-cols > div:nth-child(1) > div:last-child > .button-container > a.button:focus {
+  background: #e5e5e5;
+}
+
+@media (width <= 1200px) {
+  .columns.columns11 > .columns-3-cols > div:nth-child(1) > div:last-child {
+    position: static;
+    width: auto;
+    right: 0;
+  }
+
+  .columns.columns11 > .columns-3-cols {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "leftcol"
+      "footer";
+    gap: 0;
+  }
+}
+
+/* --- Responsive: stack on small screens --- */
+@media (width <= 900px) {
+  .columns.columns11 > .columns-3-cols > div:first-child {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .columns.columns11 > .columns-3-cols > div:last-child {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 28px;
+  }
+
+  .columns.columns11 .columns-img-col img {
+    max-width: 160px;
+  }
+
+  .columns.columns11 > .columns-3-cols > div:nth-child(1) > div:last-child {
+    align-items: flex-start;
+    margin-top: 14px;
+    position: static;
+    right: auto;
+    width: 100%;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns11 {
+    padding: 16px 4vw;
+  }
+
+  .columns.columns11 .columns-img-col img {
+    max-width: 120px;
   }
 }
