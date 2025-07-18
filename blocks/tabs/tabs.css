@@ -1,3 +1,4 @@
+/* --- Tabs Base Styles --- */
 
 .tabs .tabs-list {
   display: flex;
@@ -40,7 +41,6 @@
   margin: 0;
 }
 
-
 .tabs .tabs-list button[aria-selected='true'] {
   border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
@@ -57,6 +57,197 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+/* --- Tabs7 Variant --- */
+
+.tabs.tabs7 {
+  box-sizing: border-box;
+  background: #fff;
+  padding: 48px 40px;
+  max-width: 1200px;
+  margin: 48px auto;
+  border: none;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-gap: 48px;
+}
+
+.tabs.tabs7 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 180px;
+  width: 100%;
+  background: none;
+  border: none;
+}
+
+.tabs.tabs7 > .tabs-list button {
+  appearance: none;
+  background: transparent;
+  color: #222;
+  border: none;
+  border-radius: 0;
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  padding: 12px 0;
+  margin: 0 0 4px;
+  width: 100%;
+  text-align: left;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.tabs.tabs7 > .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs7 > .tabs-list button[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+}
+
+/* Remove extra margin from nested p in button */
+.tabs.tabs7 > .tabs-list button p {
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs7 {
+    grid-template-columns: 1fr;
+    padding: 32px 8px;
+    grid-gap: 24px;
+  }
+
+  .tabs.tabs7 > .tabs-list {
+    flex-direction: row;
+    gap: 20px;
+    min-width: 0;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .tabs.tabs7 > .tabs-list button {
+    width: auto;
+    min-width: 110px;
+    padding: 12px 18px;
+    text-align: center;
+    margin: 0 8px 0 0;
+  }
+
+  .tabs.tabs7 h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs7 h2 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .tabs.tabs7 > .tabs-panel > div > p,
+  .tabs.tabs7 > .tabs-panel > div > ul,
+  .tabs.tabs7 > .tabs-panel > div > ol {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+
+  .tabs.tabs7 picture,
+  .tabs.tabs7 img {
+    max-width: 100%;
+    margin-bottom: 18px;
+  }
+}
+
+/* Main content panel area */
+.tabs.tabs7 > .tabs-panel {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  width: 100%;
+}
+
+.tabs.tabs7 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Headings */
+.tabs.tabs7 h3 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 8px;
+  line-height: 1.1;
+  position: relative;
+}
+
+/* Decorative yellow underline for "Cycling Tuscany" heading */
+.tabs.tabs7 h3[id^="cycling-tuscany"] {
+  border-bottom: 3px solid #F4E285;
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 18px;
+}
+
+.tabs.tabs7 h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 24px;
+  line-height: 1.2;
+}
+
+/* Image styling */
+.tabs.tabs7 picture,
+.tabs.tabs7 img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 0 0 24px;
+  border: none;
+  box-shadow: none;
+  background: none;
+  object-fit: cover;
+}
+
+/* Main paragraph/text styling */
+.tabs.tabs7 > .tabs-panel > div > p,
+.tabs.tabs7 > .tabs-panel > div > ul,
+.tabs.tabs7 > .tabs-panel > div > ol {
+  font-size: 1.1rem;
+  color: #222;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.tabs.tabs7 > .tabs-panel > div > ul,
+.tabs.tabs7 > .tabs-panel > div > ol {
+  padding-left: 24px;
+}
+
+/* Remove default list styles for checklist look */
+.tabs.tabs7 > .tabs-panel > div > ul {
+  list-style: disc outside;
+}
+
+/* --- Tabs3 Variant --- */
 
 .tabs.tabs3 {
   display: block;
