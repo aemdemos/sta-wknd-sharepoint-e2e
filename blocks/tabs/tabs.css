@@ -1,4 +1,5 @@
 
+
 /* --- Tabs Base Styles --- */
 
 .tabs .tabs-list {
@@ -634,4 +635,17 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+/* --- Merged .tabs.tabs23 --- */
+.tabs.tabs23 {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  column-gap: 48px;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 0;
+  background: #fff;
+  border: none;
+  box-shadow: none;
 }
