@@ -1,3 +1,4 @@
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,102 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero.hero25 {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  min-height: 320px;
+  display: block;
+  background: none;
+}
+
+.hero.hero25 > div:first-child {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.hero.hero25 picture,
+.hero.hero25 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: unset;
+  max-height: unset;
+}
+
+.hero.hero25 > div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  width: 100%;
+  z-index: 2;
+  height: 0;
+}
+
+.hero.hero25 > div:nth-child(2) > div {
+  background: #fff;
+  padding: 18px 40px;
+  max-width: 560px;
+  width: 92%;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 6.5%);
+  border-radius: 0;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 56px;
+  text-align: left;
+}
+
+.hero.hero25 h2 {
+  color: #222;
+  font-family: var(--heading-font-family), serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.hero.hero25::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #e0e0e0;
+  z-index: 10;
+}
+
+@media (width <= 900px) {
+  .hero.hero25 > div:first-child {
+    height: 180px;
+  }
+
+  .hero.hero25 > div:nth-child(2) > div {
+    padding: 10px 4vw;
+    max-width: 98vw;
+    width: 98vw;
+    min-height: 36px;
+  }
+
+  .hero.hero25 h2 {
+    font-size: 1rem;
   }
 }
