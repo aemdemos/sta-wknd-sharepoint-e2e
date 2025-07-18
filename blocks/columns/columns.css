@@ -31,3 +31,255 @@
     order: unset;
   }
 }
+
+.columns.columns32 {
+  box-sizing: border-box;
+  background: #fff;
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0;
+}
+
+/* Two-column layout */
+.columns.columns32 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 58px;
+  padding: 40px 18px;
+}
+
+@media (width <= 900px) {
+  .columns.columns32 > div {
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 6px;
+  }
+}
+
+/* Main Content Column */
+.columns.columns32 > div > div:first-child {
+  flex: 7 1 0;
+  min-width: 0;
+  max-width: 745px;
+  padding-left: 20px;
+  padding-right: 8px;
+}
+
+@media (width <= 900px) {
+  .columns.columns32 > div > div:first-child {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Sidebar */
+.columns.columns32 > div > div:last-child {
+  flex: 3 1 0;
+  min-width: 220px;
+  max-width: 320px;
+  padding-left: 28px;
+  margin-top: 92px;
+  border-left: 1px solid #EBEBEB;
+  padding-top: 7px;
+}
+
+@media (width <= 900px) {
+  .columns.columns32 > div > div:last-child {
+    max-width: 100%;
+    min-width: 0;
+    border-left: none;
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: 42px;
+  }
+}
+
+/* Section and element spacing */
+.columns.columns32 > div > div:first-child > * {
+  margin-bottom: 36px;
+}
+
+.columns.columns32 > div > div:first-child > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Headings and Typography */
+.columns.columns32 h1,
+.columns.columns32 h2,
+.columns.columns32 h3,
+.columns.columns32 h4,
+.columns.columns32 h5 {
+  font-family: var(--heading-font-family);
+  color: #232323;
+}
+
+.columns.columns32 h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 28px;
+  line-height: 1.08;
+}
+
+.columns.columns32 h4, 
+.columns.columns32 h5 {
+  font-size: 0.94rem;
+  color: #7b7b7b;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  margin-bottom: 14px;
+  margin-top: 0;
+}
+
+.columns.columns32 h2 {
+  font-size: 1.44rem;
+  font-weight: 600;
+  margin-top: 44px;
+  margin-bottom: 17px;
+}
+
+.columns.columns32 p {
+  color: #474747;
+  font-family: var(--body-font-family);
+  font-size: 1.05rem;
+  line-height: 1.82;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Blockquote styles */
+.columns.columns32 blockquote {
+  border-left: 4px solid #EAB860;
+  margin: 32px 0;
+  padding-left: 17px;
+  color: #EAB860;
+  font-style: italic;
+  font-size: 1.08rem;
+  background: #FFFBE6;
+  font-family: var(--body-font-family);
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive images */
+.columns.columns32 picture,
+.columns.columns32 picture img {
+  display: block;
+  max-width: 98%;
+  margin: 40px auto 38px;
+  border-radius: 2px;
+  background: #fff;
+  height: auto;
+}
+
+.columns.columns32 > div > div:first-child picture:first-of-type,
+.columns.columns32 > div > div:first-child > picture:first-child,
+.columns.columns32 > div > div:first-child p:first-of-type picture {
+  margin-top: 0;
+}
+
+/* Sidebar list */
+.columns.columns32 > div > div:last-child h5 {
+  color: #878787;
+  font-family: var(--body-font-family);
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.columns.columns32 > div > div:last-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns32 > div > div:last-child ul li {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 22px 0 18px;
+}
+
+.columns.columns32 > div > div:last-child ul li:last-child {
+  border-bottom: none;
+}
+
+.columns.columns32 > div > div:last-child ul li a {
+  color: #232323;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.03rem;
+  line-height: 1.5;
+  display: block;
+  transition: color 0.2s;
+}
+
+.columns.columns32 > div > div:last-child ul li a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Author and Social Section */
+.columns.columns32 > div > div:first-child .author-social-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.columns.columns32 h2[id="jacob-wester"] {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-right: 8px;
+}
+
+.columns.columns32 h2[id="jacob-wester"] + p {
+  display: inline-block;
+  vertical-align: middle;
+  color: #878787;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 8px;
+  margin-bottom: 0;
+}
+
+.columns.columns32 .button-container {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 12px;
+  margin-right: 6px;
+  margin-bottom: 0;
+}
+
+.columns.columns32 .button-container .button {
+  background: #232323;
+  color: #fff;
+  border-radius: 18px;
+  padding: 4px 23px;
+  font-size: 1rem;
+  margin-right: 4px;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  font-family: var(--body-font-family);
+  margin-bottom: 0;
+  margin-top: 0;
+  min-width: 48px;
+  transition: background 0.2s;
+  box-shadow: none;
+}
+
+.columns.columns32 .button-container .button:hover {
+  background: #4a4a4a;
+  color: #fff;
+}
