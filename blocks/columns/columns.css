@@ -55,6 +55,7 @@
   display: block;
 }
 
+/* --- ORDERED SELECTORS FOR .columns.columns18 --- */
 .columns.columns18 {
   background: #fff;
   padding: 0;
@@ -257,6 +258,7 @@
   }
 }
 
+/* --- ORDERED SELECTORS FOR .columns.columns17 --- */
 .columns.columns17 {
   box-sizing: border-box;
   max-width: 1200px;
@@ -482,8 +484,7 @@
   }
 }
 
-/* --- Generated CSS START --- */
-
+/* --- ORDERED SELECTORS FOR .columns.columns33 --- */
 .columns.columns33 {
   background: #fff;
   max-width: 1360px;
@@ -775,4 +776,13 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+/* ---- Merged .columns.columns36 ---- */
+.columns.columns36 {
+  background: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
