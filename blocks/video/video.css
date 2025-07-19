@@ -69,3 +69,75 @@
   left: calc(50% + 2px);
   transform: translate(-50%, -50%);
 }
+
+/* Merged .video.video20 selector */
+.video.video20 {
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+  background: transparent;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+}
+
+.video.video20 > .video-placeholder {
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Let the image fill and crop using its natural aspect, but favor vertical centering */
+.video.video20 .video-placeholder picture,
+.video.video20 .video-placeholder img {
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 100vw;
+  height: auto;
+  object-fit: cover;
+  object-position: center 54%;
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center overlay absolutely for all content inside .video-placeholder */
+.video.video20 .video-placeholder-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.video.video20 .video-placeholder-play button {
+  pointer-events: auto;
+}
+
+/* Responsiveness for all sizes */
+@media (width <= 900px) {
+  .video.video20,
+  .video.video20 > .video-placeholder,
+  .video.video20 .video-placeholder picture,
+  .video.video20 .video-placeholder img {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+  }
+}
