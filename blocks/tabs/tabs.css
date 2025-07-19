@@ -58,23 +58,33 @@
 }
 
 /* Specificity order fix: place less specific selectors before more specific ones */
+.tabs.tabs14 .tabs-panel p,
+.tabs.tabs14 .tabs-panel p:first-of-type,
+.tabs.tabs14 .tabs-panel p:last-child,
+.tabs.tabs14 .tabs-panel p:not(:first-of-type),
+.tabs.tabs15 .tabs-panel p,
 .tabs.tabs19 .tabs-tab p,
+.tabs.tabs19 .tabs-panel > div > p:first-of-type,
+.tabs.tabs19 .tabs-panel > div > p:not(:first-of-type),
+.tabs.tabs22 > div:first-child .tabs-tab,
+.tabs.tabs22 > div:last-child .tabs-tab,
+.tabs.tabs22 > div:first-child .tabs-tab:focus,
+.tabs.tabs22 > div:first-child .tabs-tab[aria-selected="true"],
+.tabs.tabs22 > div:first-child .tabs-tab[aria-selected="false"]:hover,
+.tabs.tabs22 > div:last-child .tabs-tab[aria-selected="true"],
+.tabs.tabs22 > div:last-child .tabs-tab[aria-selected="false"]:hover,
 .tabs.tabs24 .tabs-tab p,
-.tabs.tabs35 .tabs-list .tabs-tab p,
+.tabs.tabs24 .tabs-panel > div > p,
+.tabs.tabs24 .tabs-panel > div > p:last-child,
+.tabs.tabs24 .tabs-panel picture + p,
+.tabs.tabs24 .tabs-panel img + p,
 .tabs.tabs35 .tabs-panel p,
 .tabs.tabs35 .tabs-panel p:last-child,
 .tabs.tabs35 .tabs-panel picture + p,
 .tabs.tabs35 .tabs-panel img + p,
-.tabs.tabs14 .tabs-panel p,
-.tabs.tabs14 .tabs-panel p:first-of-type,
-.tabs.tabs15 .tabs-panel p,
+.tabs.tabs35 .tabs-list .tabs-tab p,
 .tabs.tabs12 > .tabs-panel:nth-of-type(3) p,
-.tabs.tabs12 > .tabs-panel:nth-of-type(3) > .tabs-list p,
-.tabs.tabs19 .tabs-panel > div > p:first-of-type,
-.tabs.tabs19 .tabs-panel > div > p:not(:first-of-type),
-.tabs.tabs24 .tabs-panel > div > p,
-.tabs.tabs24 .tabs-panel > div > p:last-child
-{
+.tabs.tabs12 > .tabs-panel:nth-of-type(3) > .tabs-list p {
   /* merged for order, properties below */
 }
 
@@ -829,7 +839,6 @@
 /* ------------------ */
 /* GENERATED CSS NEXT */
 /* ------------------ */
-
 .tabs.tabs32 {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -940,10 +949,12 @@
   .tabs.tabs35 > .tabs {
     padding: 24px 2vw 32px;
   }
+
   .tabs.tabs35 .tabs-panel h3 {
     font-size: 1.08rem;
     margin-bottom: 0.7em;
   }
+
   .tabs.tabs35 .tabs-panel h2 {
     font-size: 1.15rem;
     margin-bottom: 0.8em;
@@ -996,4 +1007,13 @@
   min-height: 0;
   padding: 0;
   gap: 40px;
+}
+
+/* ---- MERGED: .tabs.tabs39 ---- */
+.tabs.tabs39 {
+  box-sizing: border-box;
+  background: #fff;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 0 32px 64px;
 }
