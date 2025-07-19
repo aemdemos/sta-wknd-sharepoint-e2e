@@ -8,6 +8,208 @@
   width: 100%;
 }
 
+.columns.columns18 {
+  background: #fff;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.columns.columns18 > div {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.columns.columns18 .columns-img-col,
+.columns.columns18 .columns-img-col picture,
+.columns.columns18 .columns-img-col img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.columns.columns18 .columns-img-col {
+  margin-bottom: 44px;
+  width: 100%;
+}
+
+.columns.columns18 .columns-img-col + div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.columns.columns18 h1,
+.columns.columns18 h2,
+.columns.columns18 h3,
+.columns.columns18 h4,
+.columns.columns18 p,
+.columns.columns18 blockquote {
+  text-align: left;
+}
+
+.columns.columns18 h1 {
+  font-family: var(--heading-font-family);
+  font-size: 2.45rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.13;
+  margin: 0 0 0.75em;
+}
+
+.columns.columns18 h4 {
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  color: #7a7a7a;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 1.7em;
+  letter-spacing: 0.03em;
+}
+
+.columns.columns18 h2,
+.columns.columns18 h3 {
+  font-family: var(--heading-font-family);
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 0.55em;
+  margin-top: 1.6em;
+}
+
+.columns.columns18 h3 {
+  font-size: 1.13rem;
+  margin-top: 1.4em;
+}
+
+.columns.columns18 p {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1.13rem;
+  line-height: 1.72;
+  margin: 1.1em 0;
+  max-width: 100%;
+}
+
+.columns.columns18 .columns-img-col + div picture,
+.columns.columns18 .columns-img-col + div img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 40px 0;
+  object-fit: cover;
+  text-align: left;
+}
+
+.columns.columns18 blockquote {
+  width: 100%;
+  background: #f7f7f7;
+  border-left: 5px solid #2562ae;
+  padding: 1.4em 2em 1.4em 1.8em;
+  margin: 2em 0;
+  font-style: italic;
+  font-size: 1.12rem;
+  color: #232323;
+  border-radius: 8px;
+  box-sizing: border-box;
+  align-self: stretch;
+  max-width: 100%;
+}
+
+.columns.columns18 blockquote p {
+  margin: 0;
+}
+
+.columns.columns18 .columns-img-col + div > *:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns18 h2[id="sofia-sjöberg"] {
+  font-size: 1.08rem;
+  margin: 2.1em 0 0.1em;
+  font-weight: 700;
+  color: #232323;
+  width: 100%;
+  text-align: left;
+}
+
+.columns.columns18 h2[id="sofia-sjöberg"] + p {
+  font-size: 1rem;
+  color: #7a7a7a;
+  margin: 0 0 1.2em;
+  width: 100%;
+  text-align: left;
+}
+
+.columns.columns18 .button-container {
+  display: inline-block;
+  margin: 0 0.25em 0.5em 0;
+}
+
+.columns.columns18 .button-container .button {
+  display: inline-block;
+  min-width: 44px;
+  font-size: 1rem;
+  background: #222;
+  color: #fff;
+  padding: 0.34em 1.08em;
+  border-radius: 22px;
+  border: none;
+  margin: 0 0.13em 0.5em 0;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+.columns.columns18 .button-container .button:hover {
+  background: #2562ae;
+  color: #fff;
+}
+
+.columns.columns18 h2[id="sofia-sjöberg"],
+.columns.columns18 h2[id="sofia-sjöberg"] + p,
+.columns.columns18 .button-container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.columns.columns18 > div > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns18 > div {
+    max-width: 100vw;
+    padding: 0 12px;
+  }
+  .columns.columns18 .columns-img-col {
+    margin-bottom: 24px;
+  }
+  .columns.columns18 .columns-img-col + div picture,
+  .columns.columns18 .columns-img-col + div img {
+    margin: 24px 0;
+  }
+  .columns.columns18 blockquote {
+    padding: 1em 1.2em 1em 1.1em;
+    font-size: 1rem;
+  }
+  .columns.columns18 h1 {
+    font-size: 1.3rem;
+  }
+}
+
 .columns.columns17 img {
   width: 100%;
   max-width: 100%;
@@ -36,7 +238,6 @@
     flex-direction: unset;
     gap: 24px;
   }
-
   .columns > div > div {
     flex: 1;
     order: unset;
@@ -90,7 +291,7 @@
   box-sizing: border-box;
   border-left: 1px solid #fafafa;
   padding-left: 56px;
-  padding-top: 64px; /* aligns sidebar author card with main h1 */
+  padding-top: 64px;
   margin-top: 0;
   align-self: flex-start;
   display: flex;
@@ -285,11 +486,9 @@
   .columns.columns17 {
     padding: 0 2px;
   }
-
   .columns.columns17 > div:last-child {
     padding-top: 23px;
   }
-
   .columns.columns17 h1 {
     margin-top: 28px;
   }
