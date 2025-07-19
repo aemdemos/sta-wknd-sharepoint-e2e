@@ -1,3 +1,4 @@
+/* Columns base styles */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -5,6 +6,15 @@
 
 .columns img {
   width: 100%;
+}
+
+.columns.columns17 img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  margin: 0;
 }
 
 .columns > div > div {
@@ -19,6 +29,7 @@
   display: block;
 }
 
+/* Responsive: two columns on wide screens */
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
@@ -29,5 +40,257 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+/* Root columns container */
+.columns.columns17 {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 70px;
+  padding: 0 12px;
+}
+
+/* Responsive: stack on mobile */
+@media (width <= 900px) {
+  .columns.columns17 {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 6px;
+  }
+}
+
+/* Main content column (left) */
+.columns.columns17 > div:first-child {
+  flex: 0 1 72%;
+  max-width: 830px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns17 > div:first-child {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* Sidebar column (right) */
+.columns.columns17 > div:last-child {
+  flex: 0 1 28%;
+  max-width: 390px;
+  min-width: 310px;
+  box-sizing: border-box;
+  border-left: 1px solid #fafafa;
+  padding-left: 56px;
+  padding-top: 64px; /* aligns sidebar author card with main h1 */
+  margin-top: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (width <= 900px) {
+  .columns.columns17 > div:last-child {
+    border-left: none;
+    padding-left: 0;
+    padding-top: 36px;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Author card styling */
+.columns.columns17 > div:last-child > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 0;
+  padding-top: 0;
+  border: none;
+}
+
+.columns.columns17 picture {
+  display: block;
+  width: 100%;
+  margin: 44px 0 14px;
+}
+
+.columns.columns17 > div:last-child > div:first-child picture,
+.columns.columns17 > div:last-child > div:first-child img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0;
+  display: block;
+}
+
+.columns.columns17 h2 {
+  font-size: 1.38rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  margin-top: 58px;
+  margin-bottom: 14px;
+  line-height: 1.16;
+}
+
+.columns.columns17 > div:last-child > div:first-child h2 {
+  font-size: 1.09rem;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  color: #222;
+  line-height: 1.2;
+  margin: 0 0 2px;
+  padding: 0;
+  text-align: center;
+}
+
+.columns.columns17 p {
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 1.12rem;
+  line-height: 1.72;
+  margin-bottom: 32px;
+  margin-top: 0;
+  max-width: 100%;
+}
+
+.columns.columns17 > div:last-child > div:first-child p {
+  font-size: 1.03rem;
+  color: #7a7a7a;
+  margin: 0 0 10px;
+  font-family: var(--body-font-family);
+  text-align: center;
+}
+
+/* Social buttons horizontal group */
+.columns.columns17 > div:last-child > div:first-child .button-container {
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 0;
+}
+
+.columns.columns17 > div:last-child > div:first-child .button {
+  background: #fff;
+  border: 1px solid #222;
+  color: #222;
+  font-size: 0.97rem;
+  font-family: var(--body-font-family);
+  border-radius: 6px;
+  padding: 5px 18px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  display: inline-block;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+}
+
+.columns.columns17 > div:last-child > div:first-child .button:hover {
+  background: #222;
+  color: #fff;
+}
+
+/* Sidebar links styling */
+.columns.columns17 > div:last-child > div:last-child ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.columns.columns17 > div:last-child > div:last-child li {
+  margin-bottom: 24px;
+  line-height: 1.22;
+  font-family: var(--body-font-family);
+}
+
+.columns.columns17 > div:last-child > div:last-child a {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.96rem;
+  color: #222;
+  text-decoration: none;
+  font-family: var(--body-font-family);
+  letter-spacing: 0.01em;
+  transition: color 0.16s;
+  overflow-wrap: anywhere;
+}
+
+.columns.columns17 > div:last-child > div:last-child a:hover {
+  color: #ffb100;
+}
+
+/* Main content heading and text spacing */
+.columns.columns17 h1 {
+  font-size: 2.35rem;
+  font-family: var(--heading-font-family);
+  font-weight: bold;
+  color: #222;
+  margin-top: 62px;
+  margin-bottom: 22px;
+  line-height: 1.13;
+}
+
+.columns.columns17 h3 {
+  font-size: 1.13rem;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  color: #222;
+  margin-top: 40px;
+  margin-bottom: 13px;
+  line-height: 1.14;
+}
+
+.columns.columns17 h4 {
+  font-size: 1.00rem;
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  color: #7a7a7a;
+  margin-bottom: 14px;
+  margin-top: 0;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+/* Image captions: p directly after picture */
+.columns.columns17 picture + * {
+  color: #bdbdbd;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  margin-top: 8px;
+  margin-bottom: 32px;
+  font-family: var(--body-font-family);
+  letter-spacing: 0.02em;
+}
+
+/* Section bottom spacing: add more for last content block */
+.columns.columns17 > div:first-child > div:last-child {
+  margin-bottom: 56px;
+}
+
+/* Responsive tweaks */
+@media (width <= 600px) {
+  .columns.columns17 {
+    padding: 0 2px;
+  }
+
+  .columns.columns17 > div:last-child {
+    padding-top: 23px;
+  }
+
+  .columns.columns17 h1 {
+    margin-top: 28px;
   }
 }
