@@ -57,16 +57,6 @@
   display: none;
 }
 
-.tabs.tabs19 .tabs-tab p {
-  margin: 0;
-  padding: 0;
-}
-
-.tabs.tabs24 .tabs-tab p {
-  margin: 0;
-  padding: 0;
-}
-
 .tabs.tabs14 .tabs-panel p {
   font-size: 16px;
   color: #222;
@@ -91,17 +81,21 @@
   padding-left: 0;
 }
 
-.tabs.tabs24 .tabs-panel > div > p {
-  font-size: 16px;
+.tabs.tabs12 > .tabs-panel:nth-of-type(3) p {
+  font-size: var(--body-font-size-m);
   color: #222;
-  margin: 0 0 28px;
-  line-height: 1.68;
-  font-family: var(--body-font-family);
-  text-align: left;
+  margin: 0 0 18px;
+  line-height: 1.65;
+}
+
+.tabs.tabs19 .tabs-tab p {
+  margin: 0;
   padding: 0;
-  max-width: 650px;
-  font-weight: 400;
-  align-self: flex-start;
+}
+
+.tabs.tabs24 .tabs-tab p {
+  margin: 0;
+  padding: 0;
 }
 
 .tabs.tabs15 .tabs-panel p {
@@ -116,6 +110,20 @@
   padding-right: 0;
 }
 
+.tabs.tabs24 .tabs-panel > div > p,
+.tabs.tabs24 .tabs-panel > div > p:last-child {
+  font-size: 16px;
+  color: #222;
+  margin: 0 0 28px;
+  line-height: 1.68;
+  font-family: var(--body-font-family);
+  text-align: left;
+  padding: 0;
+  max-width: 650px;
+  font-weight: 400;
+  align-self: flex-start;
+}
+
 .tabs.tabs24 .tabs-panel > div > p:last-child {
   font-size: 14px;
   color: #757575;
@@ -127,13 +135,6 @@
   text-align: left;
   align-self: flex-start;
   padding-bottom: 16px;
-}
-
-.tabs.tabs12 > .tabs-panel:nth-of-type(3) p {
-  font-size: var(--body-font-size-m);
-  color: #222;
-  margin: 0 0 18px;
-  line-height: 1.65;
 }
 
 .tabs.tabs19 .tabs-panel > div > p:first-of-type {
@@ -383,14 +384,14 @@
   outline: none;
 }
 
-.tabs.tabs15 > div:first-child .tabs-tab[aria-selected="true"] {
-  background: #181818;
-  color: #fff;
-}
-
 .tabs.tabs15 > div:first-child .tabs-tab:focus {
   outline: 2px solid #e7c873;
   outline-offset: 2px;
+}
+
+.tabs.tabs15 > div:first-child .tabs-tab[aria-selected="true"] {
+  background: #181818;
+  color: #fff;
 }
 
 .tabs.tabs15 > div:nth-child(2) > .tabs-list {
@@ -504,6 +505,11 @@
   color: #222;
 }
 
+.tabs.tabs15 > div:first-child .tabs-tab:focus {
+  outline: 2px solid #e7c873;
+  outline-offset: 2px;
+}
+
 .tabs.tabs22 > div:last-child {
   background: #fff;
   padding: 0;
@@ -550,21 +556,6 @@
   border: none;
   padding: 0;
   line-height: 1.13;
-}
-
-.tabs.tabs24 .tabs-list {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 24px;
-  border: none;
-  margin-top: 32px;
-  margin-bottom: 46px;
-  margin-left: 0;
-  padding: 0;
-  background: none;
-  box-shadow: none;
 }
 
 .tabs.tabs22 > div:last-child .tabs-list {
@@ -1041,4 +1032,16 @@
   margin: 48px auto 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* --- MERGED .tabs.tabs34 SELECTOR (from both snippets) --- */
+.tabs.tabs34 {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0 64px;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
