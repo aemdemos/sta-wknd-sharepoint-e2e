@@ -1,7 +1,6 @@
 # sta-wknd-sharepoint-e2e
 
 This is a project created by AEMY.
-E2E Sharepoint test for site: https://wknd.site/
 
 ## Environments
 
