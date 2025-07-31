@@ -1499,3 +1499,193 @@
     padding: 0;
   }
 }
+
+
+.tabs.tabs20 {
+  display: block;
+  background: #fff;
+  max-width: 950px;
+  margin: 32px auto 0 auto;
+  box-shadow: 0 2px 24px -12px rgba(0,0,0,0.09);
+  border-radius: 7px;
+  padding: 32px 48px 40px 48px;
+  border: none;
+}
+
+@media (max-width: 1000px) {
+  .tabs.tabs20 {
+    padding: 18px 5vw 24px 5vw;
+    max-width: 99vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs20 {
+    padding: 8px 2vw 8px 2vw;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+/* Left-align tabs bar and tighten spacing */
+.tabs.tabs20 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-size: 1em;
+  background: none;
+  border: none;
+}
+
+/* Tabs: moderate horizontal padding, uppercase, lighter than before */
+.tabs.tabs20 .tabs-list button {
+  background: transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  font-size: 1em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  padding: 0.25em 1.2em 0.33em 1.2em;
+  margin: 0;
+  outline: none;
+  transition: background 0.14s, color 0.14s;
+  cursor: pointer;
+  position: relative;
+  min-width: 0;
+}
+
+.tabs.tabs20 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+.tabs.tabs20 .tabs-list button[aria-selected="false"]:hover {
+  background: #f2f2f2;
+  color: #222;
+}
+
+.tabs.tabs20 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Headline underline: thinner, closer to text */
+.tabs.tabs20 h3[id^="surf-camp-costa-rica"] {
+  position: relative;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-size: 2rem;
+  color: #222;
+  margin-top: 0.15em;
+  margin-bottom: 0.2em;
+  padding-bottom: 0;
+  display: inline-block;
+  vertical-align: bottom;
+  border: none;
+}
+.tabs.tabs20 h3[id^="surf-camp-costa-rica"]::after {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #ffe082;
+  border-radius: 2px;
+  margin-top: 8px;
+  content: "";
+}
+
+/* Subheadline: tighter margins */
+.tabs.tabs20 h3 strong,
+.tabs.tabs20 h2 {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #222;
+  margin-top: 0.3em;
+  margin-bottom: 0.5em;
+  line-height: 1.19;
+}
+
+/* Reduce space between major elements for a tighter visual stack */
+.tabs.tabs20 .tabs-list + h3,
+.tabs.tabs20 h3 + h3,
+.tabs.tabs20 h3 + p,
+.tabs.tabs20 h3 + strong,
+.tabs.tabs20 h2 + p {
+  margin-top: 0.25em;
+}
+
+/* Panels: left-align text */
+.tabs.tabs20 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  overflow: visible;
+  text-align: left;
+}
+
+/* Image: decrease top margin */
+.tabs.tabs20 picture,
+.tabs.tabs20 img {
+  display: block;
+  max-width: 100%;
+  border-radius: 5px;
+  margin: 0.6em 0 1.3em 0;
+  box-shadow: 0 7px 28px -13px rgba(0,0,0,0.10);
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs20 picture, 
+  .tabs.tabs20 img {
+    margin: 0.4em 0 0.85em 0;
+    border-radius: 3px;
+  }
+}
+
+.tabs.tabs20 p,
+.tabs.tabs20 ul {
+  color: #242424;
+  font-family: var(--body-font-family);
+  font-size: 1em;
+  line-height: 1.54;
+  margin-bottom: 1.05em;
+  margin-top: 0.4em;
+}
+
+/* Reduce top margin if paragraph follows an image */
+.tabs.tabs20 img + p,
+.tabs.tabs20 picture + p {
+  margin-top: 0.25em;
+}
+
+.tabs.tabs20 p:last-child {
+  margin-bottom: 0;
+}
+
+.tabs.tabs20 ul {
+  margin-top: 0.4em;
+  margin-bottom: 0.2em;
+  padding-left: 1.1em;
+}
+
+/* Remove accidental centering on all children */
+.tabs.tabs20 > * {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Reduce bottom margin for a tighter block */
+.tabs.tabs20 > :last-child {
+  margin-bottom: 0;
+}
