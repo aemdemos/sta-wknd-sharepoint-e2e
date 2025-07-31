@@ -1,6 +1,3 @@
-/* Disable no-descending-specificity for this file */
-/* stylelint-disable no-descending-specificity */
-
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -309,8 +306,6 @@
   margin-top: 0;
   padding-top: 0;
 }
-
-/* Compact image area, allow space for controls below */
 .carousel.carousel17 .carousel-slide {
   min-height: 0;
   max-height: 420px;
@@ -321,15 +316,11 @@
 
 .carousel.carousel17 .carousel-slides-container {
   position: relative;
-  padding-bottom: 64px; /* Reserve space for indicators and arrows */
+  padding-bottom: 64px;
   margin: 0 auto;
   max-width: 100%;
   background: #fff;
 }
-
-/* --- NAVIGATION BUTTONS --- */
-
-/* Position navigation buttons below the image, fully inside the carousel */
 .carousel.carousel17 .carousel-navigation-buttons {
   position: absolute;
   inset: auto 40px 12px;
@@ -342,8 +333,6 @@
   z-index: 2;
   pointer-events: none;
 }
-
-/* Only buttons are interactive */
 .carousel.carousel17 .carousel-navigation-buttons button {
   pointer-events: auto;
   width: 34px;
@@ -366,8 +355,6 @@
   background: #f4f4f4;
   border-color: #333;
 }
-
-/* Arrow icons */
 .carousel.carousel17 .carousel-navigation-buttons button::after {
   width: 16px;
   height: 16px;
@@ -387,10 +374,6 @@
 .carousel.carousel17 .carousel-navigation-buttons .slide-next::after {
   transform: rotate(-45deg);
 }
-
-/* --- PAGE INDICATORS --- */
-
-/* Show indicator dots centered below the image, above the arrows */
 .carousel.carousel17 .carousel-slide-indicators {
   position: absolute;
   left: 0;
@@ -425,8 +408,6 @@
   background: #222;
   cursor: default;
 }
-
-/* Remove overlay bar/content block */
 .carousel.carousel17 .carousel-slide-content {
   background: none;
   margin: 0;
@@ -436,8 +417,6 @@
   box-shadow: none;
   display: none;
 }
-
-/* Responsive adjustments for controls and image */
 @media (width <= 600px) {
   .carousel.carousel17 .carousel-slide {
     max-height: 220px;
@@ -458,5 +437,181 @@
   .carousel.carousel17 .carousel-slide-indicators {
     bottom: 34px;
     gap: 8px;
+  }
+}
+
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content {
+  background: #fff;
+  color: #131313;
+  border-radius: 0;
+  margin: 0 auto 0 auto;
+  padding: 38px 48px 30px 48px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 85px;
+  top: auto;
+  max-width: 1120px;
+  width: 94%;
+  z-index: 2;
+  align-items: flex-start;
+  text-align: left;
+  box-shadow: none;
+}
+
+@media (min-width: 900px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 56px 64px 32px 64px;
+    bottom: 85px;
+  }
+}
+
+/* --- BUTTON STYLING --- */
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button {
+  background: #ffe100;
+  color: #131313;
+  border-radius: 0;
+  padding: 0.7em 1.7em;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  letter-spacing: 0.06em;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button:hover,
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button:focus {
+  background: #ffd600;
+  color: #131313;
+  text-decoration: none;
+}
+
+/* --- PAGE INDICATORS (DOTS) --- */
+.carousel.carousel22 .carousel-slide-indicators {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 34px;
+  background: none;
+  padding: 0;
+  gap: 13px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+  pointer-events: auto;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  background: #e3e3e3;
+  border-radius: 50%;
+  border: none;
+  margin: 0 2.5px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+  padding: 0;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:disabled,
+.carousel.carousel22 .carousel-slide-indicator button[disabled] {
+  background: #232323;
+  box-shadow: 0 0 0 2px #d5d5d5;
+  cursor: default;
+}
+
+/* --- NAVIGATION BUTTONS --- */
+.carousel.carousel22 .carousel-navigation-buttons {
+  position: absolute;
+  right: 24px;
+  left: auto;
+  top: auto;
+  bottom: 16px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button {
+  pointer-events: auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #191919;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:after {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-top: 2.5px solid #191919;
+  border-right: 2.5px solid #191919;
+  content: "";
+  background: none;
+  margin-left: 2px;
+  margin-top: 1px;
+  transform: rotate(-135deg);
+}
+
+.carousel.carousel22 .carousel-navigation-buttons .slide-next:after {
+  margin-left: 0;
+  margin-right: 2px;
+  transform: rotate(45deg);
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:hover,
+.carousel.carousel22 .carousel-navigation-buttons button:focus {
+  background: #f3f3f3;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+@media (max-width: 900px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    width: 98vw;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 12px 20px 12px;
+    bottom: 74px;
+  }
+  .carousel.carousel22 .carousel-navigation-buttons {
+    right: 8px;
+    bottom: 10px;
+    gap: 11px;
+  }
+  .carousel.carousel22 .carousel-slide-indicators {
+    bottom: 19px;
   }
 }
