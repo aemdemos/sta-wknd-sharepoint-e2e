@@ -1,6 +1,3 @@
-/* Disable no-descending-specificity globally for the file */
-/* stylelint-disable no-descending-specificity */
-
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -216,7 +213,6 @@
 }
 
 .tabs.tabs6 {
-  /* Center block and box it in, matching reference spacing */
   max-width: 1040px;
   margin-left: auto;
   margin-right: auto;
@@ -224,8 +220,6 @@
   background: #fff;
   box-sizing: border-box;
 }
-
-/* Tabs bar: horizontal, left-aligned, add more space above and below */
 .tabs.tabs6 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -238,8 +232,6 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
-
-/* Tab buttons styling */
 .tabs.tabs6 .tabs-list button {
   background: none;
   border: none;
@@ -271,8 +263,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* Remove panel borders/padding, space content from tabs */
 .tabs.tabs6 .tabs-panel {
   border: none;
   background: none;
@@ -280,8 +270,6 @@
   margin: 0;
   overflow: visible;
 }
-
-/* Body text and headings: slightly larger for readability */
 .tabs.tabs6 .tabs-panel,
 .tabs.tabs6 .tabs-panel p,
 .tabs.tabs6 .tabs-panel ul,
@@ -303,8 +291,6 @@
   font-weight: 600;
   margin-top: 36px;
 }
-
-/* Main image: large, flush with text, not edge-to-edge of viewport */
 .tabs.tabs6 .tabs-panel picture,
 .tabs.tabs6 .tabs-panel img {
   display: block;
@@ -316,20 +302,14 @@
   box-shadow: none;
   object-fit: cover;
 }
-
-/* Ensure tab content width matches tabs and image */
 .tabs.tabs6 .tabs-panel > div {
   max-width: 100%;
 }
-
-/* Remove bullet left margin for consistency */
 .tabs.tabs6 .tabs-panel ul {
   padding-left: 20px;
   margin-top: 36px;
   margin-bottom: 0;
 }
-
-/* Responsive: tighter padding and stack on small screens */
 @media (width <= 900px) {
   .tabs.tabs6 {
     padding: 20px 8px 28px;
@@ -356,4 +336,215 @@
   .tabs.tabs6 .tabs-panel p {
     max-width: 100%;
   }
+}
+
+
+.tabs.tabs7 {
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 48px auto 0 auto;
+  padding: 0 32px 48px 32px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Stack all sections vertically in the order: title, tabs, image, description */
+.tabs.tabs7 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 0;
+  background: none;
+  justify-content: flex-start;
+  align-items: flex-end;
+  min-width: 0;
+}
+
+/* Each major section as its own row */
+.tabs.tabs7 .tabs-panel {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.tabs.tabs7 .tabs-panel > div {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Title gets its own full row */
+.tabs.tabs7 h1,
+.tabs.tabs7 h2,
+.tabs.tabs7 h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 36px 0;
+  line-height: 1.08;
+  letter-spacing: 0px;
+  align-self: flex-start;
+}
+
+/* Big image is its own row, full width */
+.tabs.tabs7 picture,
+.tabs.tabs7 img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 32px auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Subhead / first paragraph after image */
+.tabs.tabs7 .tabs-panel > div > p:first-of-type {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  color: #222;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+/* All paragraphs below image are block and full width */
+.tabs.tabs7 .tabs-panel p {
+  font-size: 16px;
+  color: #2a2927;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  margin: 0 0 18px 0;
+  align-self: flex-start;
+}
+
+/* Section headings */
+.tabs.tabs7 .tabs-panel h3,
+.tabs.tabs7 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  color: #2a2927;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 36px 0 12px 0;
+  letter-spacing: 0.5px;
+  align-self: flex-start;
+}
+
+.tabs.tabs7 .tabs-panel ul {
+  margin: 10px 0 28px 32px;
+  padding: 0;
+  font-size: 16px;
+  color: #2a2927;
+  list-style: disc inside;
+  align-self: flex-start;
+}
+
+/* Tabs styling */
+.tabs.tabs7 .tabs-list button {
+  background: transparent;
+  color: #2a2927;
+  border: none;
+  border-bottom: 4px solid transparent;
+  border-radius: 0;
+  padding: 12px 40px 10px 40px;
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, border-bottom 0.2s;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  outline: none;
+  box-shadow: none;
+  min-width: 150px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tabs.tabs7 .tabs-list button[aria-selected='true'] {
+  background: #2a2927;
+  color: #fff;
+  border-bottom: 4px solid #2a2927;
+}
+
+.tabs.tabs7 .tabs-list button:not([aria-selected='true']):hover,
+.tabs.tabs7 .tabs-list button:focus-visible {
+  background: #ececec;
+}
+
+.tabs.tabs7 .tabs-list button p {
+  margin: 0;
+}
+
+/* Remove prior horizontal row hacks for header-area */
+.tabs.tabs7 > .hero-row,
+.tabs.tabs7 > .hero-container,
+.tabs.tabs7 > .hero-flex,
+.tabs.tabs7 .tabs-panel > div.hero-row,
+.tabs.tabs7 .tabs-panel > div.hero-container {
+  display: none;
+}
+
+/* Remove horizontal arrangement for intro section */
+.tabs.tabs7 .tabs-panel > div {
+  flex-direction: column !important;
+}
+
+/* Spacing at bottom of last section */
+.tabs.tabs7 .tabs-panel > div:last-child,
+.tabs.tabs7 .tabs-panel > div > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .tabs.tabs7 {
+    max-width: 100vw;
+    padding: 0 8px 32px 8px;
+  }
+  .tabs.tabs7 .tabs-list {
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .tabs.tabs7 .tabs-list button {
+    min-width: 110px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+  }
+  .tabs.tabs7 picture,
+  .tabs.tabs7 img {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .tabs.tabs7 .tabs-panel > div {
+    max-width: 100vw;
+    padding: 0;
+  }
+}
+
+/* Hide empty divs in panel (if present) */
+.tabs.tabs7 .tabs-panel > div:empty {
+  display: none;
 }
