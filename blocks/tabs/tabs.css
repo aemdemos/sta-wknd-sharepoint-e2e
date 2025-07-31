@@ -1206,8 +1206,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* TABS ROW: align extremely close to left edge, minimal gap below */
 .tabs.tabs16 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1223,8 +1221,6 @@
   max-width: 100%;
   overflow-x: auto;
 }
-
-/* TABS BUTTONS: ultra compact */
 .tabs.tabs16 .tabs-list button {
   all: unset;
   display: flex;
@@ -1260,8 +1256,6 @@
   text-transform: inherit;
   pointer-events: none;
 }
-
-/* MAIN PANEL: remove ALL horizontal padding, allow 100% width */
 .tabs.tabs16 .tabs-panel > div {
   padding-left: 0;
   padding-right: 0;
@@ -1269,8 +1263,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-/* HEADING: tight margin below */
 .tabs.tabs16 .tabs-panel h2 {
   font-family: var(--heading-font-family), serif;
   font-size: 2.25rem;
@@ -1281,8 +1273,6 @@
   margin-bottom: 4px;
   letter-spacing: 0.01em;
 }
-
-/* IMAGE: fill all available width */
 .tabs.tabs16 .tabs-panel picture,
 .tabs.tabs16 .tabs-panel picture img {
   display: block;
@@ -1295,8 +1285,6 @@
   box-shadow: none;
   border: none;
 }
-
-/* BODY TEXT: very tight vertical rhythm */
 .tabs.tabs16 .tabs-panel p,
 .tabs.tabs16 .tabs-panel ul,
 .tabs.tabs16 .tabs-panel li {
@@ -1324,13 +1312,9 @@
 .tabs.tabs16 .tabs-panel strong {
   font-weight: bold;
 }
-
-/* EVEN TIGHTER spacing between blocks */
 .tabs.tabs16 .tabs-panel > div > *:not(:last-child) {
   margin-bottom: 6px;
 }
-
-/* RESPONSIVE: stack tabs vertically, no side padding */
 @media (max-width: 700px) {
   .tabs.tabs16 .tabs-panel > div {
     padding-left: 0;
@@ -1357,5 +1341,161 @@
   .tabs.tabs16 .tabs-panel > div {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+
+.tabs.tabs19 {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+}
+
+.tabs.tabs19 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5em;
+  width: 100%;
+  margin: 0 0 32px 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.tabs.tabs19 .tabs-list button {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #222;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 28px 10px 28px;
+  font-size: 1em;
+  line-height: 1.2;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  min-width: 120px;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs19 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs19 .tabs-list button:focus {
+  outline: 2px solid #e6d575;
+  outline-offset: 2px;
+}
+
+.tabs.tabs19 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.tabs.tabs19 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  width: 100%;
+  max-width: 700px;
+}
+
+.tabs.tabs19 .tabs-panel > div {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs19 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2em;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  position: relative;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.tabs.tabs19 .tabs-panel h3::after {
+  display: block;
+  width: 54px;
+  height: 3px;
+  background: #e6d575;
+  margin-top: 10px;
+  margin-bottom: 22px;
+  border-radius: 2px;
+}
+
+.tabs.tabs19 .tabs-panel picture,
+.tabs.tabs19 .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 22px;
+  max-width: 540px;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.tabs.tabs19 .tabs-panel p {
+  font-family: var(--body-font-family);
+  font-size: 1.08em;
+  color: #222;
+  margin-bottom: 1.1em;
+  margin-top: 0;
+  line-height: 1.65;
+  max-width: 540px;
+  text-align: left;
+}
+
+.tabs.tabs19 .tabs-panel ul {
+  margin: 16px 0;
+  padding-left: 24px;
+  font-size: 1.02em;
+  max-width: 540px;
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs19 {
+    max-width: 100%;
+    margin: 24px 0;
+  }
+  .tabs.tabs19 .tabs-panel,
+  .tabs.tabs19 .tabs-panel > div,
+  .tabs.tabs19 .tabs-panel p,
+  .tabs.tabs19 .tabs-panel ul,
+  .tabs.tabs19 .tabs-panel picture,
+  .tabs.tabs19 .tabs-panel img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs19 {
+    margin: 16px 0;
+  }
+  .tabs.tabs19 .tabs-list {
+    padding: 0;
   }
 }
