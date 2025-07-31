@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -32,7 +34,6 @@
   }
 }
 
-
 .columns.columns2 {
   background: #fff;
   width: 100%;
@@ -46,23 +47,21 @@
   align-items: center;
   justify-content: space-between;
   min-height: 74px;
-  padding: 0 48px 0 88px; /* Increased left and right padding for more accurate spacing */
+  padding: 0 48px 0 88px;
   box-sizing: border-box;
   width: 100%;
   background: #fff;
   gap: 0;
 }
 
-/* Hide middle column (language selector) */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo column refinement */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
-  padding-left: 0; /* container handles the spacing */
+  padding-left: 0;
 }
 
 .columns.columns2 .columns-img-col img {
@@ -72,7 +71,6 @@
   display: block;
 }
 
-/* Search box (right) styling */
 .columns.columns2 > div > div:last-child {
   background: #f5f5f5;
   border-radius: 2px;
@@ -84,7 +82,7 @@
   font-size: 13px;
   text-transform: uppercase;
   color: #757575;
-  margin-right: 40px; /* Increased right margin for better alignment */
+  margin-right: 40px;
   box-sizing: border-box;
   font-family: var(--body-font-family);
   font-weight: 400;
@@ -114,7 +112,6 @@
   content: "";
 }
 
-/* Responsive: Stack vertically on small screens */
 @media (width <= 599px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -137,4 +134,151 @@
     max-width: 100%;
     justify-content: flex-start;
   }
+}
+
+.columns {
+  background: #232323;
+  color: #fff;
+  font-family: var(--body-font-family);
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 32px 40px 24px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 90px;
+}
+
+.columns .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 120px;
+}
+
+.columns .columns-img-col img {
+  max-width: 120px;
+  height: auto;
+  display: block;
+}
+
+.columns > div > div:nth-child(2) {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  overflow: visible;
+  padding: 0;
+}
+
+.columns > div > div:nth-child(2) > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div > div:nth-child(2) > ul > li > a {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.columns > div > div:nth-child(2) > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns > div > div:nth-child(2) > ul > li > ul > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div > div:nth-child(2) > ul > li > ul > li > a {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.15s;
+  padding: 4px 0;
+  display: inline-block;
+}
+
+.columns > div > div:nth-child(2) > ul > li > ul > li > a:hover,
+.columns > div > div:nth-child(2) > ul > li > ul > li > a:focus {
+  color: #8ed0f9;
+  text-decoration: underline;
+}
+
+.columns > div > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  min-width: 120px;
+  margin-left: 40px;
+}
+
+.columns ul, .columns ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns a {
+  color: #fff;
+}
+
+.columns a:hover,
+.columns a:focus {
+  color: #8ed0f9;
+  text-decoration: underline;
+}
+
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 16px;
+  }
+
+  .columns .columns-img-col,
+  .columns > div > div:nth-child(2),
+  .columns > div > div:nth-child(3) {
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .columns > div > div:nth-child(2) > ul > li > ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.columns,
+.columns * {
+  font-family: var(--body-font-family);
+  box-sizing: border-box;
 }
