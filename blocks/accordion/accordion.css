@@ -1,8 +1,6 @@
 .accordion details {
   border: 1px solid #dadada;
 }
-
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +56,283 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion9 {
+  max-width: 1100px;
+  margin: 48px auto;
+  background: #fff;
+  box-shadow: 0 2px 8px 0 rgba(60,70,90,0.05);
+  border-radius: 0;
+  padding: 0;
+}
+
+/* --- Two-column GRID layout for main content and sidebar --- */
+.accordion.accordion9 .accordion-item-label {
+  display: grid;
+  grid-template-columns: 2.7fr 1fr;
+  column-gap: 32px;
+  padding: 0 32px 48px 32px;
+  box-sizing: border-box;
+  background: #fff;
+  align-items: start;
+}
+
+/* Main image: span both columns */
+.accordion.accordion9 .accordion-item-label > p:first-child {
+  grid-column: 1 / -1;
+  margin-bottom: 24px;
+}
+.accordion.accordion9 .accordion-item-label > p:first-child picture,
+.accordion.accordion9 .accordion-item-label > p:first-child img {
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+/* Responsive: stack columns on small screens */
+@media (max-width: 900px) {
+  .accordion.accordion9 .accordion-item-label {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    padding: 0 10px 32px 10px;
+  }
+  .accordion.accordion9 .accordion-item-label > p:first-child {
+    grid-column: 1;
+  }
+}
+
+/* Main content in the left column (everything before h5 and ul, except first image) */
+.accordion.accordion9 .accordion-item-label > *:not(h5):not(ul):not(:first-child) {
+  grid-column: 1 / span 1;
+}
+
+/* Sidebar: h5 and ul assigned to right column, starting at top after main image */
+.accordion.accordion9 .accordion-item-label > h5,
+.accordion.accordion9 .accordion-item-label > ul {
+  grid-column: 2 / span 1;
+  grid-row: 2;
+  align-self: start;
+}
+.accordion.accordion9 .accordion-item-label > ul {
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .accordion.accordion9 .accordion-item-label > h5,
+  .accordion.accordion9 .accordion-item-label > ul {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 40px;
+  }
+}
+
+/* --- Breadcrumbs --- */
+.accordion.accordion9 .accordion-item-label > ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  color: #FFC857;
+  font-weight: 700;
+  text-transform: uppercase;
+  gap: 8px;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+.accordion.accordion9 .accordion-item-label > ol li:not(:last-child)::after {
+  display: inline-block;
+  padding: 0 6px;
+  color: #FFC857;
+  font-weight: 700;
+  content: "›";
+}
+.accordion.accordion9 .accordion-item-label > ol a {
+  color: #FFC857;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* --- Article Title --- */
+.accordion.accordion9 .accordion-item-label > h1 {
+  font-size: 2.2rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 12px 0;
+  line-height: 1.13;
+  letter-spacing: -0.01em;
+}
+
+/* --- Meta/byline --- */
+.accordion.accordion9 .accordion-item-label > h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+  margin: 0 0 30px 0;
+  letter-spacing: 0.09em;
+}
+
+/* --- Section Headings --- */
+.accordion.accordion9 .accordion-item-label > h2,
+.accordion.accordion9 .accordion-item-label > h3 {
+  font-size: 1.16rem;
+  color: #232323;
+  font-weight: 700;
+  margin: 30px 0 10px 0;
+  line-height: 1.22;
+  letter-spacing: 0.01em;
+}
+
+/* --- Blockquotes --- */
+.accordion.accordion9 .accordion-item-label blockquote {
+  border-left: 3px solid #FFC857;
+  background: #FFF8E7;
+  padding: 0.9em 1.2em;
+  margin: 22px 0 22px 0;
+  font-style: italic;
+  color: #54460a;
+  font-size: 1.05rem;
+  font-family: inherit;
+  border-radius: 4px;
+  font-weight: 400;
+}
+
+/* --- Article images --- */
+.accordion.accordion9 .accordion-item-label > p > picture,
+.accordion.accordion9 .accordion-item-label picture {
+  display: block;
+  width: 100%;
+  margin: 22px 0 22px 0;
+}
+.accordion.accordion9 .accordion-item-label picture img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  display: block;
+  object-fit: cover;
+}
+
+/* --- Author info and social buttons --- */
+.accordion.accordion9 .accordion-item-label > h2#jacob-wester,
+.accordion.accordion9 .accordion-item-label > h2#jacob-wester + p,
+.accordion.accordion9 .accordion-item-label > .button-container {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 16px 0 0;
+  vertical-align: middle;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.accordion.accordion9 .accordion-item-label > h2#jacob-wester {
+  font-size: 1.07rem;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+.accordion.accordion9 .accordion-item-label > .button-container {
+  margin-right: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .accordion.accordion9 .accordion-item-label > h2#jacob-wester,
+  .accordion.accordion9 .accordion-item-label > h2#jacob-wester + p,
+  .accordion.accordion9 .accordion-item-label > .button-container {
+    display: block;
+    margin: 8px 0 0 0;
+    text-align: left;
+  }
+}
+
+.accordion.accordion9 .accordion-item-label .button {
+  background: #222;
+  color: #fff;
+  border-radius: 3px;
+  padding: 2px 19px;
+  margin-right: 8px;
+  font-size: 0.95em;
+  font-weight: 500;
+  box-shadow: none;
+  border: none;
+  min-width: 90px;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+.accordion.accordion9 .accordion-item-label .button:hover,
+.accordion.accordion9 .accordion-item-label .button:focus {
+  background: #FFC857;
+  color: #222;
+}
+
+/* --- Sidebar styles --- */
+.accordion.accordion9 .accordion-item-label > h5 {
+  text-transform: uppercase;
+  font-size: 0.92em;
+  letter-spacing: 0.05em;
+  color: #232323;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+  line-height: 1.3;
+}
+
+/* Sidebar links list */
+.accordion.accordion9 .accordion-item-label > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 0;
+  font-size: 0.93em;
+}
+.accordion.accordion9 .accordion-item-label > ul li {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  color: #999;
+  font-size: 0.97em;
+}
+.accordion.accordion9 .accordion-item-label > ul li:last-child {
+  border-bottom: none;
+}
+.accordion.accordion9 .accordion-item-label > ul a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.12s;
+  font-size: 1em;
+}
+.accordion.accordion9 .accordion-item-label > ul a:hover {
+  color: #FFC857;
+}
+
+/* --- General spacing & override --- */
+.accordion.accordion9 .accordion-item-label {
+  color: #222;
+}
+
+.accordion.accordion9 .accordion-item-label > *:not(:last-child) {
+  margin-bottom: 7px;
+}
+
+/* Remove inappropriate default ol styling from breadcrumbs */
+.accordion.accordion9 .accordion-item-label > ol {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 6px;
+}
+
+/* Shrink sidebar slightly on large screens and make it flush right */
+@media (min-width: 1200px) {
+  .accordion.accordion9 .accordion-item-label {
+    column-gap: 48px;
+  }
+  .accordion.accordion9 .accordion-item-label > h5,
+  .accordion.accordion9 .accordion-item-label > ul {
+    max-width: 300px;
+  }
 }
