@@ -883,8 +883,6 @@
   padding: 0;
   background: #fff;
 }
-
-/* TAB NAVIGATION: horizontal, left-aligned, visible */
 .tabs.tabs12 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -901,8 +899,6 @@
   overflow-x: auto;
   position: static;
 }
-
-/* Tab buttons: clear active/inactive, uppercase, bold, no border-radius */
 .tabs.tabs12 .tabs-list button {
   border: none;
   background: #fff;
@@ -939,8 +935,6 @@
   font-size: inherit;
   font-weight: inherit;
 }
-
-/* Remove boxed panel look */
 .tabs.tabs12 .tabs-panel {
   border: none;
   margin: 0;
@@ -949,8 +943,6 @@
   box-shadow: none;
   overflow: visible;
 }
-
-/* Heading: big, serif, left, with underline/accent, tight to content */
 .tabs.tabs12 h3 {
   font-family: var(--heading-font-family);
   font-size: 2.5rem;
@@ -963,8 +955,6 @@
   padding-left: 0;
   max-width: 800px;
 }
-
-/* Heading underline/accent */
 .tabs.tabs12 h3::after {
   display: block;
   width: 44px;
@@ -975,8 +965,6 @@
   border-radius: 2px;
   content: "";
 }
-
-/* Image: left-aligned, full-width up to max, no centering */
 .tabs.tabs12 .tabs-panel picture,
 .tabs.tabs12 .tabs-panel img {
   display: block;
@@ -989,8 +977,6 @@
   background: none;
   padding: 0;
 }
-
-/* Text block: left-aligned, matches column, connected to image/heading */
 .tabs.tabs12 .tabs-panel p,
 .tabs.tabs12 .tabs-panel ul {
   font-family: var(--body-font-family);
@@ -1006,8 +992,6 @@
   padding-right: 0;
   text-align: left;
 }
-
-/* Remove extra spacing between heading, image, and first paragraph */
 .tabs.tabs12 .tabs-panel > h3 {
   margin-bottom: 0;
 }
@@ -1020,8 +1004,6 @@
 .tabs.tabs12 .tabs-panel > ul {
   margin-top: 0;
 }
-
-/* Responsive: reduce max-width on smaller screens, keep left alignment */
 @media (max-width: 1020px) {
   .tabs.tabs12 {
     max-width: 100vw;
@@ -1056,5 +1038,183 @@
   .tabs.tabs12 .tabs-panel picture,
   .tabs.tabs12 .tabs-panel img {
     max-width: 100%;
+  }
+}
+
+
+.tabs.tabs13 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 32px auto 0 auto;
+  background: #fff;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tabs: group tightly, do not stretch or fill full width */
+.tabs.tabs13 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 14px 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  width: auto;
+  flex-wrap: nowrap;
+}
+
+/* Tabs styling: black active, simple inactive */
+.tabs.tabs13 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 8px 22px;
+  border-radius: 2px;
+  box-shadow: none;
+  margin: 0;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background 0.2s, color 0.2s;
+  text-align: left;
+  flex: 0 0 auto;
+}
+
+.tabs.tabs13 .tabs-list button[aria-selected="true"] {
+  background: #111;
+  color: #fff;
+}
+
+.tabs.tabs13 .tabs-list button:focus-visible {
+  outline: 2px solid #F4D35E;
+}
+
+.tabs.tabs13 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Content area: left-aligned within wrapper */
+.tabs.tabs13 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs13 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Center content with max width, but align left within parent */
+.tabs.tabs13 .tabs-panel > div {
+  max-width: 740px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings: Cycling Tuscany (yellow accent underline) */
+.tabs.tabs13 h3[id^="cycling-tuscany"] {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  color: #111;
+  font-weight: 400;
+  margin-top: 0.8em;
+  margin-bottom: 0.15em;
+  position: relative;
+  display: block;
+  line-height: 1.15;
+  padding-bottom: 0;
+  border-bottom: none;
+  width: max-content;
+  box-shadow: 0 4px 0 0 #F4D35E;
+  box-decoration-break: clone;
+}
+
+/* Experience Tuscany by Bicycle */
+.tabs.tabs13 h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: #111;
+  margin-top: 0.3em;
+  margin-bottom: 24px;
+  line-height: 1.13;
+  display: block;
+  padding-bottom: 0.1em;
+}
+
+/* Adjust heading spacing for grouping */
+.tabs.tabs13 .tabs-panel > div > h3[id^="cycling-tuscany"] + h2 {
+  margin-top: 11px;
+}
+
+/* Image full width within content column, more space below */
+.tabs.tabs13 .tabs-panel picture,
+.tabs.tabs13 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 38px 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Paragraphs: more space after image, less below last p */
+.tabs.tabs13 .tabs-panel > div > p:first-of-type {
+  margin-top: 10px;
+}
+.tabs.tabs13 .tabs-panel p {
+  color: #222;
+  font-size: 1.08rem;
+  font-family: var(--body-font-family);
+  margin: 0 0 18px 0;
+  line-height: 1.7;
+}
+.tabs.tabs13 .tabs-panel > div > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists */
+.tabs.tabs13 .tabs-panel ul,
+.tabs.tabs13 .tabs-panel ol {
+  color: #222;
+  font-size: 1.08rem;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  margin: 18px 0;
+  padding-left: 24px;
+}
+
+/* Responsive: tighter gap and no horizontal scroll on small screens */
+@media (max-width: 899px) {
+  .tabs.tabs13 {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+  .tabs.tabs13 .tabs-panel > div {
+    max-width: 100%;
+    padding: 0;
+  }
+  .tabs.tabs13 .tabs-list {
+    gap: 8px;
+    flex-wrap: wrap;
   }
 }
