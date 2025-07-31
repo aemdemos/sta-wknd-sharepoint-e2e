@@ -1052,8 +1052,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Tabs: group tightly, do not stretch or fill full width */
 .tabs.tabs13 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1067,8 +1065,6 @@
   width: auto;
   flex-wrap: nowrap;
 }
-
-/* Tabs styling: black active, simple inactive */
 .tabs.tabs13 .tabs-list button {
   border: none;
   background: transparent;
@@ -1102,8 +1098,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* Content area: left-aligned within wrapper */
 .tabs.tabs13 .tabs-panel {
   border: none;
   background: transparent;
@@ -1120,16 +1114,12 @@
 .tabs.tabs13 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
-
-/* Center content with max width, but align left within parent */
 .tabs.tabs13 .tabs-panel > div {
   max-width: 740px;
   width: 100%;
   margin: 0;
   padding: 0;
 }
-
-/* Headings: Cycling Tuscany (yellow accent underline) */
 .tabs.tabs13 h3[id^="cycling-tuscany"] {
   font-family: var(--heading-font-family);
   font-size: 2.2rem;
@@ -1146,8 +1136,6 @@
   box-shadow: 0 4px 0 0 #F4D35E;
   box-decoration-break: clone;
 }
-
-/* Experience Tuscany by Bicycle */
 .tabs.tabs13 h2 {
   font-family: var(--heading-font-family);
   font-size: 2.15rem;
@@ -1159,13 +1147,9 @@
   display: block;
   padding-bottom: 0.1em;
 }
-
-/* Adjust heading spacing for grouping */
 .tabs.tabs13 .tabs-panel > div > h3[id^="cycling-tuscany"] + h2 {
   margin-top: 11px;
 }
-
-/* Image full width within content column, more space below */
 .tabs.tabs13 .tabs-panel picture,
 .tabs.tabs13 .tabs-panel img {
   display: block;
@@ -1176,8 +1160,6 @@
   border: none;
   box-shadow: none;
 }
-
-/* Paragraphs: more space after image, less below last p */
 .tabs.tabs13 .tabs-panel > div > p:first-of-type {
   margin-top: 10px;
 }
@@ -1191,8 +1173,6 @@
 .tabs.tabs13 .tabs-panel > div > p:last-child {
   margin-bottom: 0;
 }
-
-/* Lists */
 .tabs.tabs13 .tabs-panel ul,
 .tabs.tabs13 .tabs-panel ol {
   color: #222;
@@ -1202,8 +1182,6 @@
   margin: 18px 0;
   padding-left: 24px;
 }
-
-/* Responsive: tighter gap and no horizontal scroll on small screens */
 @media (max-width: 899px) {
   .tabs.tabs13 {
     max-width: 100%;
@@ -1216,5 +1194,168 @@
   .tabs.tabs13 .tabs-list {
     gap: 8px;
     flex-wrap: wrap;
+  }
+}
+
+
+.tabs.tabs16 {
+  border: none;
+  background: #fff;
+  max-width: 1200px;
+  margin: 48px auto 48px auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* TABS ROW: align extremely close to left edge, minimal gap below */
+.tabs.tabs16 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 32px;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  background: none;
+  border: none;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* TABS BUTTONS: ultra compact */
+.tabs.tabs16 .tabs-list button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 3px 10px;
+  background: transparent;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1.2;
+}
+
+.tabs.tabs16 .tabs-list button[aria-selected='true'] {
+  background: #000;
+  color: #fff;
+}
+
+.tabs.tabs16 .tabs-list button[aria-selected='false'] {
+  background: transparent;
+  color: #1a1a1a;
+}
+
+.tabs.tabs16 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  text-transform: inherit;
+  pointer-events: none;
+}
+
+/* MAIN PANEL: remove ALL horizontal padding, allow 100% width */
+.tabs.tabs16 .tabs-panel > div {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* HEADING: tight margin below */
+.tabs.tabs16 .tabs-panel h2 {
+  font-family: var(--heading-font-family), serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.18;
+  margin-top: 0;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+/* IMAGE: fill all available width */
+.tabs.tabs16 .tabs-panel picture,
+.tabs.tabs16 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background: #fff;
+  box-shadow: none;
+  border: none;
+}
+
+/* BODY TEXT: very tight vertical rhythm */
+.tabs.tabs16 .tabs-panel p,
+.tabs.tabs16 .tabs-panel ul,
+.tabs.tabs16 .tabs-panel li {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  color: #1a1a1a;
+  line-height: 1.45;
+}
+
+.tabs.tabs16 .tabs-panel p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.tabs.tabs16 .tabs-panel ul {
+  margin-bottom: 4px;
+  margin-left: 10px;
+  padding-left: 6px;
+}
+
+.tabs.tabs16 .tabs-panel li {
+  margin-bottom: 1px;
+}
+
+.tabs.tabs16 .tabs-panel strong {
+  font-weight: bold;
+}
+
+/* EVEN TIGHTER spacing between blocks */
+.tabs.tabs16 .tabs-panel > div > *:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+/* RESPONSIVE: stack tabs vertically, no side padding */
+@media (max-width: 700px) {
+  .tabs.tabs16 .tabs-panel > div {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs16 {
+    padding: 0 0 8px 0;
+  }
+  .tabs.tabs16 .tabs-list {
+    flex-direction: column;
+    gap: 4px 0;
+    padding-left: 0;
+  }
+  .tabs.tabs16 .tabs-list button {
+    width: 100%;
+    text-align: left;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .tabs.tabs16 .tabs-panel > div {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
