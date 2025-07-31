@@ -1,4 +1,4 @@
-/* Disable no-descending-specificity globally for this file */
+/* Disable no-descending-specificity globally */
 /* stylelint-disable no-descending-specificity */
 
 .hero-container .hero-wrapper {
@@ -148,7 +148,6 @@
   box-shadow: none;
 }
 
-/* Hero image at the top visually, text block below */
 .hero.hero29 > div:first-child {
   width: 100%;
   padding: 0;
@@ -167,7 +166,6 @@
   box-shadow: none;
 }
 
-/* Text block below the image, centered, white background */
 .hero.hero29 > div:last-child {
   width: 100%;
   margin: 0 auto;
@@ -190,7 +188,6 @@
   align-items: flex-start;
 }
 
-/* Typography: clean, dark, left aligned */
 .hero.hero29 h1 {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
@@ -221,7 +218,6 @@
   max-width: 700px;
 }
 
-/* Responsive: extra breathing room and balance on large screens */
 @media (width >= 900px) {
   .hero.hero29 {
     max-width: 1200px;
@@ -237,7 +233,6 @@
   }
 }
 
-/* Responsive: tighter but still airy on mobile */
 @media (width <= 899px) {
   .hero.hero29 {
     max-width: 100%;
@@ -251,5 +246,109 @@
   .hero.hero29 > div:last-child > div {
     max-width: 100%;
     padding: 0;
+  }
+}
+
+.hero.hero39 {
+  position: relative;
+  min-height: 340px;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.hero.hero39 picture,
+.hero.hero39 picture img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.hero.hero39 > div:nth-child(2) {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  z-index: 2;
+  max-width: 700px;
+  width: 100%;
+  display: block;
+}
+
+.hero.hero39 > div:nth-child(2) > div {
+  background: #fff;
+  padding: 18px 40px;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero.hero39 h1,
+.hero.hero39 h2,
+.hero.hero39 h3,
+.hero.hero39 h4,
+.hero.hero39 h5,
+.hero.hero39 h6 {
+  color: #131313;
+  font-family: var(--heading-font-family);
+  margin: 0 0 8px;
+  font-weight: bold;
+  line-height: 1.15;
+}
+
+.hero.hero39 p {
+  color: #333;
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+@media (width <= 900px) {
+  .hero.hero39 > div:nth-child(2) {
+    left: 8px;
+    bottom: 8px;
+    max-width: 99vw;
+  }
+
+  .hero.hero39 > div:nth-child(2) > div {
+    padding: 12px;
+    gap: 8px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero39 {
+    min-height: 120px;
+  }
+
+  .hero.hero39 > div:nth-child(2) {
+    left: 2vw;
+    bottom: 2px;
+    max-width: 98vw;
+  }
+
+  .hero.hero39 > div:nth-child(2) > div {
+    padding: 8px 4vw;
+    gap: 6px;
   }
 }
