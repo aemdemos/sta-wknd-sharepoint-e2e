@@ -469,8 +469,6 @@
     bottom: 85px;
   }
 }
-
-/* --- BUTTON STYLING --- */
 .carousel.carousel22 .carousel-slide .carousel-slide-content .button {
   background: #ffe100;
   color: #131313;
@@ -495,8 +493,6 @@
   color: #131313;
   text-decoration: none;
 }
-
-/* --- PAGE INDICATORS (DOTS) --- */
 .carousel.carousel22 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -531,8 +527,6 @@
   box-shadow: 0 0 0 2px #d5d5d5;
   cursor: default;
 }
-
-/* --- NAVIGATION BUTTONS --- */
 .carousel.carousel22 .carousel-navigation-buttons {
   position: absolute;
   right: 24px;
@@ -614,4 +608,117 @@
   .carousel.carousel22 .carousel-slide-indicators {
     bottom: 19px;
   }
+}
+
+
+.carousel.carousel27 .carousel-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay white content block fully flush with image edges */
+.carousel.carousel27 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+  max-width: 100%;
+  background: #fff;
+  color: #131313;
+  border-radius: 0;
+  margin: 0;
+  padding: 12px 0 6px 0;
+  box-shadow: none;
+  z-index: 2;
+  box-sizing: border-box;
+  filter: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 80px;
+}
+
+@media (max-width: 700px) {
+  .carousel.carousel27 .carousel-slide .carousel-slide-content {
+    padding: 7px 0 2px 0;
+    min-height: 60px;
+  }
+}
+
+/* Container for text elements: add side padding to internal content only */
+.carousel.carousel27 .carousel-slide .carousel-slide-content > * {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+@media (max-width: 700px) {
+  .carousel.carousel27 .carousel-slide .carousel-slide-content > * {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* Headline: bold, compact, close to top */
+.carousel.carousel27 .carousel-slide .carousel-slide-content h2 {
+  color: #131313;
+  font-family: var(--heading-font-family);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  line-height: 1.17;
+}
+
+/* Description: compact */
+.carousel.carousel27 .carousel-slide .carousel-slide-content p {
+  color: #131313;
+  margin: 0 0 7px 0;
+  font-size: 0.97rem;
+  line-height: 1.28;
+}
+
+/* Last paragraph before button: minimal space */
+.carousel.carousel27 .carousel-slide .carousel-slide-content p:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+/* Button: very close to left/bottom, minimal padding, compact */
+.carousel.carousel27 .carousel-slide .carousel-slide-content .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+.carousel.carousel27 .carousel-slide .carousel-slide-content .button-container .button {
+  background: #ffe100;
+  color: #131313;
+  border-radius: 0;
+  border: none;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  padding: 7px 16px 7px 16px;
+  margin: 0;
+  box-shadow: none;
+  min-width: 0;
+  /* Pull button even closer to edges */
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.carousel.carousel27 .carousel-slide .carousel-slide-content .button-container .button:hover,
+.carousel.carousel27 .carousel-slide .carousel-slide-content .button-container .button:focus {
+  background: #ffd600;
+  color: #131313;
+  text-decoration: underline;
+}
+
+/* Hide navigation and indicators */
+.carousel.carousel27 .carousel-navigation-buttons {
+  display: none;
+}
+.carousel.carousel27 .carousel-slide-indicators {
+  display: none;
 }
