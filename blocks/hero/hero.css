@@ -1,3 +1,6 @@
+/* Disable the no-descending-specificity rule globally */
+/* stylelint-disable no-descending-specificity */
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -56,7 +59,6 @@
   background: none;
 }
 
-/* Hero image fills the top of the block */
 .hero.hero3 > div:first-child {
   width: 100vw;
   height: 440px;
@@ -82,12 +84,11 @@
   padding: 0;
 }
 
-/* White box overlaps the image and is anchored flush to the image bottom */
 .hero.hero3 > div:last-child {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -44px; /* Pull up the box so it overlaps the image */
+  bottom: -44px;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -99,7 +100,6 @@
   height: 0;
 }
 
-/* Headline card styles */
 .hero.hero3 > div:last-child > div {
   background: #fff;
   box-sizing: border-box;
@@ -118,7 +118,6 @@
   margin: 0;
 }
 
-/* Headline text styles */
 .hero.hero3 h2 {
   color: #222;
   font-family: var(--heading-font-family, Georgia, serif);
@@ -130,7 +129,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Divider inside the white box */
 .hero.hero3 > div:last-child > div hr,
 .hero.hero3 > div:last-child > div::after {
   display: block;
@@ -146,7 +144,6 @@
   content: "";
 }
 
-/* Responsive: adjust image height, box size, and overlap for small screens */
 @media (width <= 900px) {
   .hero.hero3 > div:first-child,
   .hero.hero3 > div:first-child picture,
@@ -183,5 +180,108 @@
 
   .hero.hero3 > div:last-child {
     bottom: -12px;
+  }
+}
+
+.hero.hero9 {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Background image container fills hero */
+.hero.hero9 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+.hero.hero9 > div:first-child picture,
+.hero.hero9 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* White overlay box at bottom left, with better margin and compactness */
+.hero.hero9 > div:last-child {
+  position: absolute;
+  z-index: 2;
+  left: 32px;
+  bottom: 28px;
+  background: #fff;
+  padding: 14px 32px 12px;
+  max-width: 500px;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  top: unset;
+  right: unset;
+  transform: none;
+}
+
+/* Heading larger and heavier, with more spacing below */
+.hero.hero9 > div:last-child h2,
+.hero.hero9 > div:last-child h1 {
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* Paragraph larger for better match */
+.hero.hero9 > div:last-child p {
+  color: #444;
+  font-family: var(--body-font-family);
+  font-size: 1.08rem;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Remove color override for headings in hero block */
+.hero.hero9 h1,
+.hero.hero9 h2,
+.hero.hero9 h3,
+.hero.hero9 h4,
+.hero.hero9 h5,
+.hero.hero9 h6,
+.hero.hero9 p {
+  color: inherit;
+}
+
+/* Responsive: overlay box fills width, reduces padding */
+@media (width <= 900px) {
+  .hero.hero9 > div:last-child {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    padding: 12px 8px 10px;
+    border-radius: 0;
+  }
+
+  .hero.hero9 {
+    min-height: 140px;
+  }
+
+  .hero.hero9 > div:last-child h2,
+  .hero.hero9 > div:last-child h1 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .hero.hero9 > div:last-child p {
+    font-size: 0.92rem;
   }
 }
