@@ -191,7 +191,6 @@
   overflow: hidden;
 }
 
-/* Background image container fills hero */
 .hero.hero9 > div:first-child {
   position: absolute;
   inset: 0;
@@ -209,7 +208,6 @@
   object-fit: cover;
 }
 
-/* White overlay box at bottom left, with better margin and compactness */
 .hero.hero9 > div:last-child {
   position: absolute;
   z-index: 2;
@@ -228,7 +226,6 @@
   transform: none;
 }
 
-/* Heading larger and heavier, with more spacing below */
 .hero.hero9 > div:last-child h2,
 .hero.hero9 > div:last-child h1 {
   color: #222;
@@ -240,7 +237,6 @@
   letter-spacing: -0.01em;
 }
 
-/* Paragraph larger for better match */
 .hero.hero9 > div:last-child p {
   color: #444;
   font-family: var(--body-font-family);
@@ -249,7 +245,6 @@
   line-height: 1.45;
 }
 
-/* Remove color override for headings in hero block */
 .hero.hero9 h1,
 .hero.hero9 h2,
 .hero.hero9 h3,
@@ -260,7 +255,6 @@
   color: inherit;
 }
 
-/* Responsive: overlay box fills width, reduces padding */
 @media (width <= 900px) {
   .hero.hero9 > div:last-child {
     left: 0;
@@ -284,4 +278,150 @@
   .hero.hero9 > div:last-child p {
     font-size: 0.92rem;
   }
+}
+
+.hero.hero27 {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 400px;
+  height: 400px;
+  overflow: hidden;
+}
+
+/* Force parent containers to not add space above */
+.hero.hero27,
+.hero.hero27 > div:first-child,
+.hero.hero27 > div:last-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Make the image fill the hero as a background */
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero27 > div:first-child > div,
+.hero.hero27 picture,
+.hero.hero27 img {
+  width: 100vw;
+  height: 100%;
+  min-height: 400px;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+/* Overlay the content box on the bottom left with a small margin */
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: auto;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Move the white box closer to the bottom, minimize bottom margin */
+.hero.hero27 > div:last-child > div {
+  background: #fff;
+  color: #222;
+  padding: 2.5rem 2rem 2rem 2.5rem;
+  margin: 0 0 1.2rem 2.5rem; /* minimal bottom margin */
+  min-width: 320px;
+  max-width: 760px;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
+/* Fine-tune spacing and responsiveness */
+@media (width <= 900px) {
+  .hero.hero27 {
+    min-height: 220px;
+    height: 220px;
+  }
+
+  .hero.hero27 > div:first-child,
+  .hero.hero27 > div:first-child > div,
+  .hero.hero27 picture,
+  .hero.hero27 img {
+    min-height: 220px;
+    height: 100%;
+    width: 100vw;
+  }
+
+  .hero.hero27 > div:last-child > div {
+    max-width: 97vw;
+    margin: 0 1vw 0.8vw;
+    padding: 1.2rem 0.8rem 1rem;
+    min-width: 0;
+  }
+}
+
+/* Typography and button styles remain the same */
+.hero.hero27 h2,
+.hero.hero27 p {
+  color: #222;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.hero.hero27 h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.hero.hero27 p {
+  font-size: var(--body-font-size-m);
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.hero.hero27 .button-container {
+  margin-top: 1rem;
+}
+
+.hero.hero27 .button {
+  background: #FFD600;
+  color: #222;
+  border-radius: 0;
+  padding: 0.7em 1.7em;
+  font-weight: 600;
+  border: none;
+  box-shadow: none;
+  font-size: var(--body-font-size-m);
+  margin: 0;
+  transition: background 0.2s;
+}
+
+.hero.hero27 .button:hover,
+.hero.hero27 .button:focus {
+  background: #ffc107;
+  color: #000;
 }
