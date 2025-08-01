@@ -45,3 +45,143 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero3 {
+  position: relative;
+  width: 100vw;
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: none;
+}
+
+/* Hero image fills the top of the block */
+.hero.hero3 > div:first-child {
+  width: 100vw;
+  height: 440px;
+  min-height: 220px;
+  max-height: 48vw;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  display: block;
+}
+
+.hero.hero3 > div:first-child picture,
+.hero.hero3 > div:first-child picture img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 220px;
+  max-height: 48vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* White box overlaps the image and is anchored flush to the image bottom */
+.hero.hero3 > div:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -44px; /* Pull up the box so it overlaps the image */
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 2;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  height: 0;
+}
+
+/* Headline card styles */
+.hero.hero3 > div:last-child > div {
+  background: #fff;
+  box-sizing: border-box;
+  width: 80vw;
+  max-width: 900px;
+  min-width: 260px;
+  min-height: 84px;
+  padding: 32px 40px 54px;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  pointer-events: auto;
+  margin: 0;
+}
+
+/* Headline text styles */
+.hero.hero3 h2 {
+  color: #222;
+  font-family: var(--heading-font-family, Georgia, serif);
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0 0 0.8em;
+  text-align: left;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+/* Divider inside the white box */
+.hero.hero3 > div:last-child > div hr,
+.hero.hero3 > div:last-child > div::after {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #ebebeb;
+  border: none;
+  margin-top: 34px;
+  margin-bottom: 0;
+}
+
+.hero.hero3 > div:last-child > div::after {
+  content: "";
+}
+
+/* Responsive: adjust image height, box size, and overlap for small screens */
+@media (width <= 900px) {
+  .hero.hero3 > div:first-child,
+  .hero.hero3 > div:first-child picture,
+  .hero.hero3 > div:first-child picture img {
+    height: 180px;
+    min-height: 120px;
+    max-height: 45vw;
+  }
+
+  .hero.hero3 > div:last-child {
+    bottom: -28px;
+  }
+
+  .hero.hero3 > div:last-child > div {
+    width: 94vw;
+    max-width: 98vw;
+    min-width: 0;
+    padding: 16px 10px 32px;
+  }
+
+  .hero.hero3 h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero3 > div:first-child,
+  .hero.hero3 > div:first-child picture,
+  .hero.hero3 > div:first-child picture img {
+    height: 120px;
+    min-height: 80px;
+    max-height: 40vw;
+  }
+
+  .hero.hero3 > div:last-child {
+    bottom: -12px;
+  }
+}
