@@ -2048,8 +2048,6 @@
   margin: 0 0 16px 0;
   line-height: 1.7;
 }
-
-/* Optional: Fine-tune spacing for the paragraph under the image */
 .tabs.tabs34 .tabs-panel > div:last-child p:last-child {
   margin-top: 12px;
 }
@@ -2060,4 +2058,212 @@
 
 .tabs.tabs34 .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs36 {
+  /* Center block and give it a wide, natural max width */
+  max-width: 1100px;
+  width: 100%;
+  margin: 48px auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Make .tabs-list and .tabs-panel siblings in a horizontal row */
+.tabs.tabs36 > .tabs-list,
+.tabs.tabs36 > .tabs-panel {
+  box-sizing: border-box;
+}
+
+/* Layout: side-by-side for main tab block (keep .tabs-list as horizontal tab row) */
+.tabs.tabs36 > .tabs-list {
+  /* Horizontal tab bar above content */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 36px;
+  padding: 0;
+  background: none;
+  border: none;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+/* Tabs as pill buttons (horizontal) */
+.tabs.tabs36 > .tabs-list button {
+  background: transparent;
+  color: #222;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 4px 4px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  min-width: 80px;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+  margin: 0;
+  margin-bottom: -2px;
+  box-shadow: none;
+  outline: none;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.tabs.tabs36 > .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  z-index: 1;
+}
+
+/* Responsive: tabs bar becomes scrollable */
+@media (max-width: 700px) {
+  .tabs.tabs36 > .tabs-list {
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+  .tabs.tabs36 {
+    padding: 0 4vw;
+  }
+}
+
+/* Main content layout: use flex row for the two main sections inside the active panel */
+.tabs.tabs36 > .tabs-panel {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  align-items: flex-start;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* On mobile, stack main columns */
+@media (max-width: 900px) {
+  .tabs.tabs36 > .tabs-panel {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* Left column: trip info (first child div) */
+.tabs.tabs36 > .tabs-panel > div:first-child {
+  flex: 0 0 240px;
+  max-width: 260px;
+  min-width: 180px;
+  font-size: 14px;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0;
+  margin-bottom: 0;
+  gap: 18px;
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs36 > .tabs-panel > div:first-child {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 0;
+    gap: 8px;
+  }
+}
+
+/* Right column: main content (second child div) */
+.tabs.tabs36 > .tabs-panel > div:nth-child(2) {
+  flex: 1 1 0;
+  max-width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0;
+  margin-bottom: 0;
+  gap: 26px;
+}
+
+/* Top heading and yellow underline accent */
+.tabs.tabs36 > .tabs-panel > div:nth-child(2) > h3:first-child {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 10px 0;
+  padding: 0 0 8px 0;
+  border-bottom: 3px solid #FFD600;
+  width: max-content;
+  line-height: 1.18;
+}
+
+/* All subheadings */
+.tabs.tabs36 > .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 18px 0 8px 0;
+  color: #222;
+}
+
+/* Body text */
+.tabs.tabs36 > .tabs-panel p {
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.5;
+  margin: 0 0 18px 0;
+  font-weight: 400;
+}
+
+/* Image: full width, no border, margin above */
+.tabs.tabs36 > .tabs-panel picture,
+.tabs.tabs36 > .tabs-panel img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  margin-top: 18px;
+  height: auto;
+  border: none;
+  box-shadow: none;
+}
+
+/* Remove extra margins for clean layout */
+.tabs.tabs36 > .tabs-panel > div,
+.tabs.tabs36 > .tabs-panel > div > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Keep all content left-aligned */
+.tabs.tabs36 > .tabs-panel,
+.tabs.tabs36 > .tabs-panel > div,
+.tabs.tabs36 > .tabs-panel > div > * {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Utility: remove default list styles from any ul in content */
+.tabs.tabs36 ul {
+  margin: 0 0 16px 0;
+  padding-left: 20px;
+}
+
+/* Hide overflow on tabs-list horizontal scroll */
+.tabs.tabs36 > .tabs-list {
+  overflow-x: auto;
+  scrollbar-width: thin;
 }
