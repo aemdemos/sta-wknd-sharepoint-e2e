@@ -1,4 +1,4 @@
-/* Disable no-descending-specificity globally */
+/* Disable no-descending-specificity rule globally */
 /* stylelint-disable no-descending-specificity */
 
 .accordion details {
@@ -63,7 +63,6 @@
 }
 
 .accordion.accordion14 {
-  /* Align left within the main content area, matching the original's column alignment */
   max-width: 520px;
   width: 100%;
   margin-left: 40px;
@@ -77,7 +76,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: allow full width on small screens and remove left margin */
 @media (width <= 800px) {
   .accordion.accordion14 {
     max-width: 100%;
@@ -88,7 +86,6 @@
   }
 }
 
-/* Accordion item: compact vertical stack */
 .accordion.accordion14 details {
   border: none;
   border-bottom: 1px solid #ddd;
@@ -108,7 +105,6 @@
   margin-top: 0;
 }
 
-/* Flex row for label and icon, adjusted padding for left alignment */
 .accordion.accordion14 summary,
 .accordion.accordion14 .accordion-item-label {
   display: flex;
@@ -134,19 +130,16 @@
   box-sizing: border-box;
 }
 
-/* Remove background highlight on hover/focus/open */
 .accordion.accordion14 summary:focus,
 .accordion.accordion14 summary:hover,
 .accordion.accordion14 details[open] summary {
   background: #fff;
 }
 
-/* Remove default marker */
 .accordion.accordion14 summary::-webkit-details-marker {
   display: none;
 }
 
-/* Tight summary label */
 .accordion.accordion14 summary p,
 .accordion.accordion14 .accordion-item-label p {
   margin: 0;
@@ -161,7 +154,6 @@
   word-wrap: break-word;
 }
 
-/* Accordion body style */
 .accordion.accordion14 .accordion-item-body {
   padding: 16px 20px 16px 16px;
   font-family: var(--body-font-family);
@@ -175,4 +167,164 @@
 
 .accordion.accordion14 details[open] .accordion-item-body {
   margin: 0;
+}
+
+.accordion.accordion33 {
+  box-sizing: border-box;
+  margin: 48px auto;
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 0 0 32px;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+/* ACCORDION DETAILS */
+.accordion.accordion33 details {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  width: 100%;
+}
+
+/* SUMMARY ROW - LEFT ALIGNED, LABEL & ARROW GROUPED */
+.accordion.accordion33 summary,
+.accordion.accordion33 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #222;
+  background: none;
+  border: none;
+  padding: 28px 32px 20px;
+  margin: 0;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  text-align: left;
+  box-sizing: border-box;
+  gap: 12px;
+}
+
+/* Make sure first child of summary (label) doesn't expand, arrow stays grouped */
+.accordion.accordion33 summary > *:first-child {
+  flex: 0 1 auto;
+}
+
+/* Keep default chevron/arrow grouped with label, no large auto margin */
+.accordion.accordion33 summary::after {
+  margin-left: 8px;
+}
+
+/* Remove summary marker */
+.accordion.accordion33 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Remove background on open/focus/hover */
+.accordion.accordion33 details[open] summary,
+.accordion.accordion33 summary:focus,
+.accordion.accordion33 summary:hover {
+  background: none;
+}
+
+/* ACCORDION BODY */
+.accordion.accordion33 .accordion-item-body {
+  padding: 0 32px;
+  margin: 0;
+  border: none;
+  background: none;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* HEADINGS */
+.accordion.accordion33 .accordion-item-body h2,
+.accordion.accordion33 .accordion-item-body h3,
+.accordion.accordion33 .accordion-item-body h4 {
+  font-family: var(--heading-font-family);
+  color: #222;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+/* PARAGRAPHS */
+.accordion.accordion33 .accordion-item-body p {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+/* IMAGES */
+.accordion.accordion33 .accordion-item-body picture,
+.accordion.accordion33 .accordion-item-body img {
+  display: block;
+  margin: 32px 0 8px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* IMAGE CAPTIONS */
+.accordion.accordion33 .accordion-item-body picture + * {
+  display: block;
+  font-size: 0.97rem;
+  color: #A0A0A0;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Remove default padding from details body */
+.accordion.accordion33 details .accordion-item-body {
+  padding: 0 32px;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (width <= 700px) {
+  .accordion.accordion33 {
+    padding: 0 0 16px;
+    max-width: 100%;
+    margin: 18px 0;
+  }
+
+  .accordion.accordion33 summary,
+  .accordion.accordion33 .accordion-item-label {
+    font-size: 1rem;
+    padding: 18px 8px 12px;
+  }
+
+  .accordion.accordion33 .accordion-item-body {
+    padding: 0 8px;
+  }
+
+  .accordion.accordion33 details .accordion-item-body {
+    padding: 0 8px;
+  }
+
+  .accordion.accordion33 .accordion-item-body h2,
+  .accordion.accordion33 .accordion-item-body h3 {
+    margin-top: 22px;
+    font-size: 1rem;
+  }
+
+  .accordion.accordion33 .accordion-item-body p {
+    font-size: 1rem;
+  }
+
+  .accordion.accordion33 .accordion-item-body picture,
+  .accordion.accordion33 .accordion-item-body img {
+    margin: 14px 0 5px;
+  }
 }
