@@ -1,4 +1,4 @@
-/* Disable no-descending-specificity globally */
+/* Disable the no-descending-specificity rule globally */
 /* stylelint-disable no-descending-specificity */
 
 .cards > ul {
@@ -127,7 +127,6 @@
   list-style: none;
 }
 
-/* Responsive stacking for smaller screens */
 @media (width <= 900px) {
   .cards.cards15 ul {
     flex-wrap: wrap;
@@ -182,7 +181,6 @@
   border-radius: 0;
 }
 
-/* Body: more vertical padding, more left/right padding for text alignment */
 .cards.cards15 .cards-card-body {
   padding: 18px 16px 0;
   margin: 0;
@@ -196,7 +194,6 @@
   box-sizing: border-box;
 }
 
-/* Title: remove truncation and allow wrapping, larger font, left-aligned */
 .cards.cards15 .cards-card-body strong,
 .cards.cards15 .cards-card-body a {
   display: block;
@@ -227,7 +224,6 @@
   text-decoration: underline;
 }
 
-/* Subtitle/description: single-line ellipsis, left-aligned */
 .cards.cards15 .cards-card-body p {
   margin: 0;
   padding: 0;
@@ -240,4 +236,91 @@
   white-space: nowrap;
   text-align: left;
   width: 100%;
+}
+
+
+.cards.cards21 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px 20px; /* balanced vertical and horizontal gaps for a tighter, unified grid */
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards21 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards21 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards.cards21 > ul > li {
+  background: #fff;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.cards.cards21 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.cards.cards21 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cards.cards21 .cards-card-body {
+  padding: 10px 16px; /* slightly increased for visual comfort */
+  margin: 0;
+  background: none;
+  font-family: var(--body-font-family);
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.cards.cards21 .cards-card-body strong {
+  display: block;
+  font-size: 1.03rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #232323;
+  letter-spacing: 0.5px;
+  line-height: 1.25;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.cards.cards21 .cards-card-body p {
+  margin: 0;
+  color: #8c8c8c;
+  font-size: 0.94rem;
+  line-height: 1.4;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+}
+
+.cards.cards21 .cards-card-body br {
+  display: none;
 }
