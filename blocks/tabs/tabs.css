@@ -1292,8 +1292,6 @@
   box-shadow: none;
   box-sizing: border-box;
 }
-
-/* --- TABS BAR --- */
 .tabs.tabs25 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1308,8 +1306,6 @@
   width: 100%;
   max-width: none;
 }
-
-/* TAB BUTTONS */
 .tabs.tabs25 .tabs-list .tabs-tab {
   background: #fff;
   color: #222222;
@@ -1342,8 +1338,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* --- PANEL CONTENT --- */
 .tabs.tabs25 .tabs-panel {
   padding: 0;
   background: none;
@@ -1354,8 +1348,6 @@
   width: 100%;
   max-width: none;
 }
-
-/* --- HEADING ("Cycling Southern Utah") --- */
 .tabs.tabs25 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.1rem;
@@ -1380,8 +1372,6 @@
   border-radius: 2px;
   content: "";
 }
-
-/* --- BODY PARAGRAPHS --- */
 .tabs.tabs25 .tabs-panel > div > p {
   font-family: var(--body-font-family);
   font-size: 1.09rem;
@@ -1396,8 +1386,6 @@
 .tabs.tabs25 .tabs-panel > div > p:first-of-type {
   margin-top: 0.33em;
 }
-
-/* --- Make text and image perfectly flush --- */
 .tabs.tabs25 .tabs-panel > div > p,
 .tabs.tabs25 .tabs-panel picture,
 .tabs.tabs25 .tabs-panel img {
@@ -1405,8 +1393,6 @@
   width: 100%;
   box-sizing: border-box;
 }
-
-/* --- IMAGE STYLING --- */
 .tabs.tabs25 .tabs-panel picture {
   display: block;
   margin-bottom: 0;
@@ -1425,8 +1411,6 @@
   border-radius: 0;
   box-shadow: none;
 }
-
-/* --- CAPTION --- */
 .tabs.tabs25 .tabs-panel p:last-child {
   font-size: 0.95rem;
   color: #666;
@@ -1443,8 +1427,6 @@
   opacity: 1;
   clear: both;
 }
-
-/* --- RESPONSIVE: reduce padding/gap on mobile --- */
 @media (max-width: 900px) {
   .tabs.tabs25 {
     padding-left: 8px;
@@ -1470,4 +1452,162 @@
   .tabs.tabs25 .tabs-panel p:last-child {
     font-size: 0.73rem;
   }
+}
+
+
+.tabs.tabs28 {
+  /* Even wider sidebar gutter for main content alignment */
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 0;
+  max-width: 1240px;
+  margin: 48px auto 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  min-height: 100px;
+}
+
+/* All direct children of .tabs.tabs28 (tabs-list, panels) start in 2nd column */
+.tabs.tabs28 > * {
+  grid-column: 2;
+}
+
+/* Responsive: stack for narrow screens */
+@media (max-width: 900px) {
+  .tabs.tabs28 {
+    display: block;
+    max-width: 100%;
+    margin: 24px 0 0 0;
+    padding: 0;
+  }
+  .tabs.tabs28 .tabs-panel,
+  .tabs.tabs28 .tabs-panel > div > p,
+  .tabs.tabs28 .tabs-panel > div > p:last-child {
+    max-width: 100%;
+  }
+}
+
+/* Tabs List (row above content) */
+.tabs.tabs28 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 0;
+  margin-bottom: 28px;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Tab Buttons */
+.tabs.tabs28 .tabs-list button {
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid #222;
+  border-radius: 0;
+  background: #fff;
+  color: #222;
+  padding: 9px 28px;
+  font-size: 15px;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  line-height: 1.1;
+  min-width: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs28 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: none;
+  cursor: default;
+}
+
+.tabs.tabs28 .tabs-list button p {
+  margin: 0;
+}
+
+/* Main content column (the right grid column) */
+.tabs.tabs28 .tabs-panel {
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+  box-shadow: none;
+  margin-top: 0;
+  max-width: 1080px;
+}
+
+/* Title: first h3 (Beervana in Portland) */
+.tabs.tabs28 .tabs-panel > div > h3:first-child {
+  font-size: 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: bold;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 8px;
+  position: relative;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  padding-bottom: 8px;
+}
+
+.tabs.tabs28 .tabs-panel > div > h3:first-child::after {
+  display: block;
+  width: 52px;
+  height: 3px;
+  background: #f6e27a;
+  margin-top: 8px;
+  border-radius: 2px;
+  content: "";
+}
+
+/* Section Heading (second h3) */
+.tabs.tabs28 .tabs-panel > div > h3:nth-of-type(2) {
+  font-size: 1.19rem;
+  color: #222;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 12px;
+}
+
+/* Paragraphs */
+.tabs.tabs28 .tabs-panel > div > p {
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 18px;
+  margin-top: 0;
+  line-height: 1.7;
+  max-width: 1080px;
+}
+
+/* Image spacing */
+.tabs.tabs28 .tabs-panel picture,
+.tabs.tabs28 .tabs-panel img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 0;
+  margin: 36px 0 18px 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* Caption styling (last paragraph) */
+.tabs.tabs28 .tabs-panel > div > p:last-child {
+  color: #888;
+  font-size: 0.97rem;
+  margin-top: 20px;
+  margin-bottom: 0;
+  line-height: 1.6;
+  max-width: 1080px;
 }
