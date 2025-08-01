@@ -1456,7 +1456,6 @@
 
 
 .tabs.tabs28 {
-  /* Even wider sidebar gutter for main content alignment */
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
   gap: 0;
@@ -1468,13 +1467,9 @@
   border: none;
   min-height: 100px;
 }
-
-/* All direct children of .tabs.tabs28 (tabs-list, panels) start in 2nd column */
 .tabs.tabs28 > * {
   grid-column: 2;
 }
-
-/* Responsive: stack for narrow screens */
 @media (max-width: 900px) {
   .tabs.tabs28 {
     display: block;
@@ -1488,8 +1483,6 @@
     max-width: 100%;
   }
 }
-
-/* Tabs List (row above content) */
 .tabs.tabs28 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1502,8 +1495,6 @@
   border: none;
   background: transparent;
 }
-
-/* Tab Buttons */
 .tabs.tabs28 .tabs-list button {
   text-transform: uppercase;
   font-weight: 700;
@@ -1535,8 +1526,6 @@
 .tabs.tabs28 .tabs-list button p {
   margin: 0;
 }
-
-/* Main content column (the right grid column) */
 .tabs.tabs28 .tabs-panel {
   padding: 0;
   border: none;
@@ -1546,8 +1535,6 @@
   margin-top: 0;
   max-width: 1080px;
 }
-
-/* Title: first h3 (Beervana in Portland) */
 .tabs.tabs28 .tabs-panel > div > h3:first-child {
   font-size: 2rem;
   font-family: var(--heading-font-family);
@@ -1570,8 +1557,6 @@
   border-radius: 2px;
   content: "";
 }
-
-/* Section Heading (second h3) */
 .tabs.tabs28 .tabs-panel > div > h3:nth-of-type(2) {
   font-size: 1.19rem;
   color: #222;
@@ -1579,8 +1564,6 @@
   margin-top: 30px;
   margin-bottom: 12px;
 }
-
-/* Paragraphs */
 .tabs.tabs28 .tabs-panel > div > p {
   font-size: 1rem;
   color: #222;
@@ -1589,8 +1572,6 @@
   line-height: 1.7;
   max-width: 1080px;
 }
-
-/* Image spacing */
 .tabs.tabs28 .tabs-panel picture,
 .tabs.tabs28 .tabs-panel img {
   display: block;
@@ -1601,8 +1582,6 @@
   box-sizing: border-box;
   background: transparent;
 }
-
-/* Caption styling (last paragraph) */
 .tabs.tabs28 .tabs-panel > div > p:last-child {
   color: #888;
   font-size: 0.97rem;
@@ -1610,4 +1589,190 @@
   margin-bottom: 0;
   line-height: 1.6;
   max-width: 1080px;
+}
+
+
+.tabs.tabs30 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+  box-shadow: none;
+  border-radius: 0;
+  gap: 12px;
+}
+
+/* Sidebar: narrow, compact, and perfectly top-aligned */
+.tabs.tabs30 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 120px;
+  max-width: 140px;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  justify-content: flex-start;
+}
+
+/* Tab buttons: compact font and spacing, lighter inactive state */
+.tabs.tabs30 > .tabs-list .tabs-tab {
+  border: none;
+  background: transparent;
+  color: #444;
+  font-family: var(--body-font-family);
+  font-size: 0.93rem;
+  font-weight: 400;
+  padding: 6px 8px 6px 0;
+  border-radius: 6px;
+  margin: 0 0 2px 0;
+  transition: background 0.18s, color 0.18s;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  text-align: left;
+  min-width: 110px;
+  outline: none;
+  box-shadow: none;
+  line-height: 1.14;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.tabs.tabs30 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  opacity: 1;
+}
+.tabs.tabs30 > .tabs-list .tabs-tab p {
+  margin: 0;
+  font-size: inherit;
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  .tabs.tabs30 {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 2vw;
+    max-width: 100vw;
+  }
+  .tabs.tabs30 > .tabs-list {
+    flex-direction: row;
+    min-width: unset;
+    max-width: unset;
+    width: 100%;
+    margin-bottom: 18px;
+    justify-content: flex-start;
+  }
+  .tabs.tabs30 > .tabs-list .tabs-tab {
+    min-width: 70px;
+    padding: 7px 10px;
+    margin: 0 8px 0 0;
+    text-align: center;
+  }
+  .tabs.tabs30 > .tabs-list .tabs-tab:last-child {
+    margin-right: 0;
+  }
+}
+
+/* Main content column: moderate width, top-aligned, no extra margin */
+.tabs.tabs30 > .tabs-wrapper {
+  flex: 1 1 0%;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 610px;
+  margin-top: 0;
+}
+
+/* Remove unwanted margin above main content */
+.tabs.tabs30 > .tabs-wrapper > .tabs-panel {
+  margin-top: 0;
+}
+
+/* Panel: no border, proper alignment */
+.tabs.tabs30 .tabs-panel {
+  border: none;
+  background: transparent;
+  margin-top: 0;
+  padding: 0;
+  box-shadow: none;
+  overflow: visible;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Headings in panel: tight, visually separated */
+.tabs.tabs30 .tabs-panel h3,
+.tabs.tabs30 .tabs-panel h1,
+.tabs.tabs30 .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  color: #222;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  line-height: 1.12;
+  max-width: 610px;
+}
+
+.tabs.tabs30 .tabs-panel h3 + h3,
+.tabs.tabs30 .tabs-panel h1 + h3,
+.tabs.tabs30 .tabs-panel h2 + h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 26px;
+  color: #222;
+}
+
+/* Image styling: centered in main content column, responsive */
+.tabs.tabs30 .tabs-panel picture,
+.tabs.tabs30 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  margin: 0 auto 14px auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Caption under image */
+.tabs.tabs30 .tabs-panel > p:first-of-type {
+  font-size: 1.01rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+  display: block;
+  margin-top: 0;
+  max-width: 610px;
+}
+
+/* Paragraphs in panel: moderate width */
+.tabs.tabs30 .tabs-panel p {
+  color: #444;
+  font-family: var(--body-font-family);
+  font-size: 1.01rem;
+  margin: 0 0 15px 0;
+  line-height: 1.58;
+  max-width: 610px;
+}
+
+/* Ensure block is top-aligned and no vertical centering */
+.tabs.tabs30 {
+  align-items: flex-start;
+}
+
+/* Remove excess margin from the first heading if base styles add it */
+.tabs.tabs30 .tabs-panel > *:first-child {
+  margin-top: 0;
 }
