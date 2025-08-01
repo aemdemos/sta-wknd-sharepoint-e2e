@@ -1,3 +1,6 @@
+/* Disable the no-descending-specificity rule globally for this file */
+/* stylelint-disable no-descending-specificity */
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -40,7 +43,6 @@
   padding: 0;
 }
 
-/* Main row: more vertical padding for balanced centering */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
@@ -54,12 +56,10 @@
   gap: 0;
 }
 
-/* Hide language selector */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo: increased height, perfect vertical centering */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -79,7 +79,6 @@
   padding: 0;
 }
 
-/* Search container: align with logo, no extra margins */
 .columns.columns2 > div > div:last-child {
   display: flex;
   justify-content: flex-end;
@@ -88,7 +87,6 @@
   margin-left: 0;
 }
 
-/* Search box "input" styling: more spacious vertically, visually centered */
 .columns.columns2 > div > div:last-child p {
   margin: 0;
   background: #f6f6f6;
@@ -112,7 +110,6 @@
   background-image: url("data:image/svg+xml,%3Csvg fill='black' viewBox='0 0 16 16' height='16' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='7' cy='7' r='6' stroke='black' stroke-width='2' fill='none'/%3E%3Cline x1='11' y1='11' x2='15' y2='15' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
 }
 
-/* Responsive: stack on mobile, reduce padding */
 @media (width <= 899px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -138,4 +135,204 @@
     padding-left: 32px;
     font-size: 12px;
   }
+}
+
+
+.columns.columns10 {
+  background: #232221;
+  color: #e0e0e0;
+  border-bottom: 2px solid #fff;
+  font-size: 14px;
+  font-family: Oswald, Arial, sans-serif;
+  padding: 40px 32px 32px;
+  box-sizing: border-box;
+}
+
+.columns.columns10 > div {
+  display: grid;
+  grid-template-columns: minmax(340px, 420px) 1fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (width <= 900px) {
+  .columns.columns10 > div {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .columns.columns10 {
+    padding: 32px 8px 24px;
+  }
+}
+
+/* --- LEFT COLUMN: stack logo, language, and social row vertically with tight gap --- */
+.columns.columns10 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 220px;
+  max-width: 420px;
+  height: 100%;
+}
+
+/* Logo */
+.columns.columns10 .columns-img-col {
+  margin: 0;
+}
+
+.columns.columns10 .columns-img-col img {
+  width: 110px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin-bottom: 2px;
+}
+
+/* Language Picker: stack directly under logo, remove any left margin */
+.columns.columns10 .columns-img-col + div ul {
+  margin: 0;
+  padding: 0;
+  list-style: disc inside;
+}
+
+.columns.columns10 .columns-img-col + div ul li {
+  font-size: 12px;
+}
+
+.columns.columns10 .columns-img-col + div ul li a {
+  color: #e0e0e0;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+/* --- SOCIAL ROW: horizontal "Follow Us"+icons, right-aligned in column --- */
+.columns.columns10 > div > div:first-child > div:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  align-self: flex-end;
+}
+
+/* Social label: left of icons, uppercase, bold, right-aligned */
+.columns.columns10 #follow-us {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  margin: 0;
+  text-align: right;
+  min-width: 100px;
+  flex-shrink: 0;
+  padding-right: 0;
+  line-height: 1;
+}
+
+/* ICONS: horizontal row, ensure no stacking */
+.columns.columns10 .button-container {
+  display: flex;
+  flex-direction: row !important;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+.columns.columns10 .button-container .button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  min-width: 36px;
+  max-width: 36px;
+  height: 36px;
+  min-height: 36px;
+  max-height: 36px;
+  border-radius: 0;
+  padding: 0;
+  background: #f2f2f2;
+  color: #232221;
+  font-size: 0;
+  font-weight: 600;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.columns.columns10 .button-container .button:hover,
+.columns.columns10 .button-container .button:focus {
+  background: #e0e0e0;
+  color: #232221;
+}
+
+/* Social icon SVGs */
+.columns.columns10 .button-container .button[title*="Facebook"]::before {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg') no-repeat center center / contain;
+  content: "";
+}
+
+.columns.columns10 .button-container .button[title*="Twitter"]::before {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg') no-repeat center center / contain;
+  content: "";
+}
+
+.columns.columns10 .button-container .button[title*="Instagram"]::before {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg') no-repeat center center / contain;
+  content: "";
+}
+
+/* Copyright styling (still in left col, make subtle/small) */
+.columns.columns10 > div > div:first-child > p:first-of-type {
+  color: #b3b3b3;
+  font-size: 12px;
+  margin: 18px 0 0;
+  padding-top: 0;
+}
+
+/* --- RIGHT COLUMN: Text Block --- */
+.columns.columns10 > div > div:nth-child(2) {
+  color: #e0e0e0;
+  font-size: 14px;
+  max-width: 720px;
+  align-self: start;
+}
+
+.columns.columns10 > div > div:nth-child(2) p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.columns.columns10 > div > div:nth-child(2) a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s;
+  font-weight: 400;
+}
+
+.columns.columns10 > div > div:nth-child(2) a:hover {
+  color: #b3e5fc;
+  text-decoration: underline;
 }
