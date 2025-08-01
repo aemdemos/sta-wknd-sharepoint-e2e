@@ -1761,7 +1761,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  /* Reduce max-width so no content overflows right, ensure centering */
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
@@ -1771,8 +1770,6 @@
   column-gap: 40px;
   overflow: hidden;
 }
-
-/* Sidebar: narrow, vertically centered relative to main content */
 .tabs.tabs31 > div:first-child {
   flex: 0 0 140px;
   max-width: 140px;
@@ -1809,13 +1806,9 @@
   padding: 7px 18px;
   font-weight: 600;
 }
-
-/* Remove bottom margin for last sidebar item */
 .tabs.tabs31 > div:first-child > *:last-child {
   margin-bottom: 0;
 }
-
-/* Main content: reduce width for better proportionality, add right padding */
 .tabs.tabs31 > div:last-child {
   flex: 1 1 0;
   display: flex;
@@ -1826,13 +1819,9 @@
   min-width: 0;
   padding: 0 32px 0 0;
 }
-
-/* Hide horizontal tab nav if present */
 .tabs.tabs31 .tabs-list {
   display: none;
 }
-
-/* Title: yellow underline just below the heading */
 .tabs.tabs31 .tabs-panel h3 {
   font-family: var(--heading-font-family), serif;
   font-size: 2.3rem;
@@ -1848,8 +1837,6 @@
   border-bottom: 4px solid #f5d86a;
   width: max-content;
 }
-
-/* Paragraphs, lists, body text spacing and alignment */
 .tabs.tabs31 .tabs-panel p,
 .tabs.tabs31 .tabs-panel ul,
 .tabs.tabs31 .tabs-panel li {
@@ -1869,8 +1856,6 @@
 .tabs.tabs31 .tabs-panel li {
   margin-bottom: 0.7em;
 }
-
-/* Images: keep them wide, but not wider than main content, add more bottom margin */
 .tabs.tabs31 .tabs-panel picture,
 .tabs.tabs31 .tabs-panel img {
   display: block;
@@ -1886,8 +1871,6 @@
 .tabs.tabs31 .tabs-panel > div > p:last-of-type img {
   margin-bottom: 0;
 }
-
-/* Remove any accidental overflow */
 .tabs.tabs31 *,
 .tabs.tabs31 *:before,
 .tabs.tabs31 *:after {
@@ -1895,8 +1878,6 @@
   background: none;
   border: none;
 }
-
-/* Responsive: stack columns and adjust padding on mobile */
 @media (max-width: 900px) {
   .tabs.tabs31 {
     flex-direction: column;
@@ -1924,4 +1905,159 @@
   .tabs.tabs31 .tabs-panel img {
     margin-bottom: 24px;
   }
+}
+
+
+.tabs.tabs34 {
+  box-sizing: border-box;
+  background: #fff;
+  padding: 0;
+}
+
+.tabs.tabs34 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  border-bottom: 2px solid #eee;
+  background: #fff;
+  padding: 0;
+  margin-bottom: 32px;
+  overflow-x: auto;
+}
+
+.tabs.tabs34 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #131313;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  font-size: var(--body-font-size-s);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 32px 10px 0;
+  margin: 0;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: 3px solid transparent;
+  min-width: 100px;
+}
+
+.tabs.tabs34 .tabs-list button[aria-selected='true'] {
+  background: #000;
+  color: #fff;
+  border-bottom: 3px solid #000;
+  cursor: default;
+  font-weight: 700;
+}
+
+.tabs.tabs34 .tabs-list button p {
+  margin: 0;
+}
+
+.tabs.tabs34 .tabs-panel {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: #fff;
+  overflow: visible;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs34 .tabs-panel {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.tabs.tabs34 .tabs-panel > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 180px;
+  max-width: 240px;
+  border-right: 1px solid #ececec;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 32px;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs34 .tabs-panel > div:first-child {
+    border-right: none;
+    border-bottom: 1px solid #ececec;
+    padding-right: 0;
+    padding-bottom: 24px;
+    min-width: 0;
+    max-width: none;
+  }
+}
+
+.tabs.tabs34 .tabs-panel > div:last-child {
+  padding: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs34 .tabs-panel > div:last-child {
+    padding: 0;
+    gap: 20px;
+  }
+}
+
+.tabs.tabs34 h1, 
+.tabs.tabs34 h2, 
+.tabs.tabs34 h3 {
+  font-family: var(--heading-font-family);
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  color: #131313;
+  line-height: 1.18;
+}
+
+.tabs.tabs34 h1,
+.tabs.tabs34 h2 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.tabs.tabs34 h3 {
+  font-size: 24px;
+}
+
+.tabs.tabs34 img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+.tabs.tabs34 p {
+  font-size: 16px;
+  color: #131313;
+  margin: 0 0 16px 0;
+  line-height: 1.7;
+}
+
+/* Optional: Fine-tune spacing for the paragraph under the image */
+.tabs.tabs34 .tabs-panel > div:last-child p:last-child {
+  margin-top: 12px;
+}
+
+.tabs.tabs34 .tabs-panel {
+  border: none;
+}
+
+.tabs.tabs34 .tabs-panel[aria-hidden='true'] {
+  display: none;
 }
