@@ -1119,8 +1119,6 @@
   padding-right: 0;
   box-sizing: border-box;
 }
-
-/* Tabs Bar - slightly wider gap, more margin below */
 .tabs.tabs19 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1135,8 +1133,6 @@
   font-family: var(--heading-font-family);
   max-width: 100%;
 }
-
-/* Tab Button: compact, less horizontal padding */
 .tabs.tabs19 .tabs-list button {
   border: none;
   background: none;
@@ -1174,8 +1170,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* Remove border and background from tabs-panel, and center panel content */
 .tabs.tabs19 .tabs-panel {
   border: none;
   background: none;
@@ -1187,13 +1181,9 @@
   margin-left: 0;
   margin-right: 0;
 }
-
-/* Hide inactive panels */
 .tabs.tabs19 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
-
-/* Heading Stack: increase gap between first and second heading */
 .tabs.tabs19 .tabs-panel h3 {
   font-size: 1.7rem;
   margin-top: 0;
@@ -1205,8 +1195,6 @@
   margin-top: 0;
   margin-bottom: 24px;
 }
-
-/* Image and content spacing */
 .tabs.tabs19 .tabs-panel picture,
 .tabs.tabs19 .tabs-panel img {
   display: block;
@@ -1226,8 +1214,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-/* Paragraph styling */
 .tabs.tabs19 .tabs-panel p,
 .tabs.tabs19 .tabs-panel ul,
 .tabs.tabs19 .tabs-panel li {
@@ -1239,8 +1225,6 @@
   margin-bottom: 18px;
   max-width: 900px;
 }
-
-/* Responsive adjustments for mobile */
 @media (max-width: 900px) {
   .tabs.tabs19 {
     max-width: 100vw;
@@ -1267,5 +1251,167 @@
     padding-left: 0;
     padding-right: 0;
     max-width: 100vw;
+  }
+}
+
+
+.tabs.tabs22 {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Remove any top margin/padding to fix vertical alignment */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  border: none;
+  background: none;
+  margin: 0 0 1.2rem 0;
+  padding: 0;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+}
+
+.tabs.tabs22 .tabs-list button {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25em 1.5em 0.25em 0;
+  font-size: 0.98rem;
+  border-radius: 0;
+  transition: background 0.15s, color 0.15s;
+  margin: 0;
+  min-width: 0;
+  max-width: unset;
+  box-shadow: none;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tabs.tabs22 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: none;
+  cursor: default;
+}
+
+.tabs.tabs22 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs22 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.tabs.tabs22 .tabs-panel > div {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tabs.tabs22 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.05rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.tabs.tabs22 .tabs-panel p {
+  color: #222;
+  font-size: 1.04rem;
+  margin-bottom: 1.1rem;
+  margin-top: 0;
+  line-height: 1.6;
+  max-width: 100%;
+}
+
+.tabs.tabs22 .tabs-panel picture,
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 1.1rem 0 0.15rem 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.tabs.tabs22 .tabs-panel p:last-child {
+  color: #7a7a7a;
+  font-size: 0.95rem;
+  margin-top: 0.07rem;
+  margin-bottom: 0;
+  line-height: 1.4;
+  max-width: 100%;
+  padding-bottom: 1rem;
+}
+
+/* Remove accidental top margin from first child of block, if any */
+.tabs.tabs22 > :first-child {
+  margin-top: 0;
+}
+
+/* Responsive fixes */
+@media (max-width: 1280px) {
+  .tabs.tabs22 {
+    max-width: 98vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+}
+@media (max-width: 900px) {
+  .tabs.tabs22 {
+    max-width: 100vw;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+  }
+  .tabs.tabs22 .tabs-panel h3 {
+    font-size: 1.32rem;
+  }
+  .tabs.tabs22 .tabs-panel p {
+    font-size: 0.99rem;
+  }
+}
+@media (max-width: 600px) {
+  .tabs.tabs22 .tabs-list {
+    gap: 0.7rem;
+    font-size: 0.92rem;
+    margin-bottom: 0.7rem;
+  }
+  .tabs.tabs22 .tabs-panel picture,
+  .tabs.tabs22 .tabs-panel img {
+    margin: 0.7rem 0 0.1rem 0;
+  }
+  .tabs.tabs22 .tabs-panel h3 {
+    font-size: 1.02rem;
   }
 }
