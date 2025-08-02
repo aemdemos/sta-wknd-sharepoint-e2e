@@ -1,5 +1,3 @@
-/* Fixed CSS Code */
-
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -47,8 +45,6 @@
     padding: 40px 32px;
   }
 }
-
-/* Ensure hero block sits flush to top of page/content */
 .hero.hero4 {
   display: flex;
   flex-direction: row;
@@ -60,22 +56,16 @@
   align-items: stretch;
   position: relative;
 }
-
-/* Remove any margin from parent wrapper if present */
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
   margin-top: 0;
 }
-
-/* Remove margin from sections above the hero if any */
 main > .section:first-of-type,
 main > div:first-of-type {
   margin-top: 0;
   padding-top: 0;
 }
-
-/* Left: Image column */
 .hero.hero4 > div:nth-child(1) {
   flex: 0 1 62%;
   display: flex;
@@ -107,8 +97,6 @@ main > div:first-of-type {
   max-height: unset;
   background: none;
 }
-
-/* Right: Text panel */
 .hero.hero4 > div:nth-child(2) {
   flex: 0 1 38%;
   background: #f4f4f4;
@@ -129,12 +117,8 @@ main > div:first-of-type {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  /* Vertically position the text block slightly down from the top */
   margin-top: 70px;
 }
-
-/* Subheading (Featured Article) */
 .hero.hero4 > div:nth-child(2) > div > p:first-child {
   font-size: 13px;
   font-weight: 700;
@@ -145,8 +129,6 @@ main > div:first-of-type {
   letter-spacing: 0.18em;
   font-family: var(--body-font-family);
 }
-
-/* Main heading */
 .hero.hero4 > div:nth-child(2) > div > h2 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -155,8 +137,6 @@ main > div:first-of-type {
   line-height: 1.12;
   margin: 0 0 18px;
 }
-
-/* Description paragraph */
 .hero.hero4 > div:nth-child(2) > div > p:not(:first-child):not(.button-container) {
   font-size: 1.09rem;
   line-height: 1.6em;
@@ -165,14 +145,10 @@ main > div:first-of-type {
   margin: 0 0 32px;
   max-width: 340px;
 }
-
-/* Button container */
 .hero.hero4 .button-container {
   margin-top: 40px;
   width: auto;
 }
-
-/* Button style override */
 .hero-container > .hero-wrapper > .block.hero.hero4 .button {
   background: #ffe000;
   color: #222;
@@ -198,8 +174,6 @@ main > div:first-of-type {
   background: #e2c800;
   color: #222;
 }
-
-/* Responsive layout: stack vertically on small screens */
 @media (width <= 900px) {
   .hero.hero4 {
     flex-direction: column;
@@ -222,4 +196,110 @@ main > div:first-of-type {
   .hero.hero4 .button-container {
     margin-top: 24px;
   }
+}
+
+
+.hero.hero11 {
+  position: relative;
+  width: 100vw;
+  min-height: 320px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Background image */
+.hero.hero11 > div:first-child {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.hero.hero11 picture,
+.hero.hero11 img {
+  width: 100%;
+  height: 320px;
+  max-height: 55vw;
+  min-height: 220px;
+  display: block;
+  object-fit: cover;
+}
+
+/* Headline container: lower to overlap rocks as in the original */
+.hero.hero11 > div:last-child {
+  position: absolute;
+  left: 50%;
+  bottom: 4.5vw; /* Use vw for more consistent vertical placement across screens */
+  transform: translateX(-50%);
+  width: 62%;
+  max-width: 800px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* White box: less padding for compactness, left align text */
+.hero.hero11 > div:last-child > div {
+  background: #fff;
+  padding: 1rem 2rem 0.85rem 2rem;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Headline styling */
+.hero.hero11 h2 {
+  color: #222;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.37rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.3;
+  text-align: left;
+}
+
+/* Divider: subtle, matches box width only */
+.hero.hero11 > div:last-child > div::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eaeaea;
+  margin-top: 0.95rem;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  content: "";
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .hero.hero11 > div:last-child {
+    width: 95%;
+    max-width: 98vw;
+    bottom: 0.8rem;
+  }
+  .hero.hero11 > div:last-child > div {
+    padding: 0.7rem 0.8rem 0.7rem 0.8rem;
+  }
+  .hero.hero11 picture,
+  .hero.hero11 img {
+    height: 180px;
+    min-height: 120px;
+    max-height: 45vw;
+  }
+  .hero.hero11 h2 {
+    font-size: 1.07rem;
+  }
+}
+
+.hero.hero11 h2 {
+  margin-top: 0;
 }
