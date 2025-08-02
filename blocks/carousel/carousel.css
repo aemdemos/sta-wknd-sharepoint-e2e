@@ -151,8 +151,6 @@
   }
 }
 
-/* Removed duplicate selector */
-
 .carousel.carousel6 .carousel-slides-container {
   position: relative;
 }
@@ -589,4 +587,142 @@
     font-size: 0.91rem;
     padding: 0.32em 0.9em;
   }
+}
+
+
+.carousel.carousel40 .carousel-slide-indicators {
+  display: none;
+}
+
+.carousel.carousel40 .carousel-slide {
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 320px;
+  background: none;
+  padding: 0;
+}
+
+.carousel.carousel40 .carousel-slide-image {
+  position: relative;
+  flex: 1 1 63%;
+  min-width: 0;
+  min-height: 320px;
+  max-width: 63%;
+  overflow: hidden;
+  border-radius: 0;
+  background: #fff;
+}
+
+.carousel.carousel40 .carousel-slide-image picture,
+.carousel.carousel40 .carousel-slide-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Remove any possible overlay for this variant */
+.carousel.carousel40 .carousel-slide-content {
+  position: relative;
+  flex: 1 1 37%;
+  max-width: 37%;
+  min-width: 320px;
+  margin: 0;
+  padding: 48px 48px 48px 48px;
+  background: #f5f5f5;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 1;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Typography: Slightly more compact, matching top-left alignment */
+.carousel.carousel40 .carousel-slide-content p:first-child {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  color: #222;
+  line-height: 1.1;
+}
+
+.carousel.carousel40 .carousel-slide-content h2 {
+  margin: 0 0 20px 0;
+  font-size: 2.2rem;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  color: #222;
+  line-height: 1.13;
+}
+
+.carousel.carousel40 .carousel-slide-content p:not(:first-child):not(.button-container) {
+  margin: 0 0 20px 0;
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.25;
+  max-width: 420px;
+}
+
+.carousel.carousel40 .carousel-slide-content .button-container {
+  margin: 12px 0 0 0;
+  padding: 0;
+}
+
+/* Button: tighter, bolder, left-aligned and no radius */
+.carousel.carousel40 .carousel-slide-content .button {
+  background: #ffe500;
+  color: #222;
+  border-radius: 0;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 14px 36px;
+  font-size: 1.05rem;
+  margin: 0;
+  box-shadow: none;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  text-align: left;
+  min-width: 0;
+  display: inline-block;
+}
+
+.carousel.carousel40 .carousel-slide-content .button:hover,
+.carousel.carousel40 .carousel-slide-content .button:focus {
+  background: #fff200;
+  color: #111;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .carousel.carousel40 .carousel-slide {
+    flex-direction: column;
+    min-height: unset;
+  }
+  .carousel.carousel40 .carousel-slide-image,
+  .carousel.carousel40 .carousel-slide-content {
+    max-width: 100%;
+    flex-basis: auto;
+    min-width: 0;
+  }
+  .carousel.carousel40 .carousel-slide-content {
+    padding: 28px 16px 32px 16px;
+    min-width: 0;
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
+
+.carousel.carousel40 {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
 }
