@@ -1,4 +1,4 @@
-/* Disabling no-descending-specificity rule globally */
+/* Disable 'no-descending-specificity' rule globally due to unavoidable cascading order errors */
 /* stylelint-disable no-descending-specificity */
 
 .tabs .tabs-list {
@@ -151,21 +151,20 @@
   margin-left: auto;
   margin-right: auto;
   background: #fff;
-  padding: 32px 0 64px; /* reduced top padding */
+  padding: 32px 0 64px;
   border: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* Reduced left/right margin for tighter alignment */
 .tabs.tabs8 .tabs-list {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 28px;
-  margin: 0 24px 44px; /* ensure no extra top margin */
+  margin: 0 24px 44px;
   border: none;
   background: none;
   padding: 0;
@@ -217,7 +216,6 @@
   background: #f5f5f5;
 }
 
-/* Tabs Panel */
 .tabs.tabs8 .tabs-panel {
   display: none;
   background: transparent;
@@ -233,14 +231,12 @@
   display: block;
 }
 
-/* Panel main content alignment and width, matches tab row */
 .tabs.tabs8 .tabs-panel > div {
   margin-left: 24px;
   margin-right: 24px;
   max-width: none;
 }
 
-/* Heading Styles */
 .tabs.tabs8 .tabs-panel h2 {
   font-family: var(--heading-font-family);
   font-size: 2.2rem;
@@ -252,7 +248,6 @@
   letter-spacing: -0.01em;
 }
 
-/* Image Styles */
 .tabs.tabs8 .tabs-panel picture,
 .tabs.tabs8 .tabs-panel img {
   display: block;
@@ -264,7 +259,6 @@
   box-shadow: none;
 }
 
-/* Paragraph and List Styles */
 .tabs.tabs8 .tabs-panel p,
 .tabs.tabs8 .tabs-panel ul {
   font-family: var(--body-font-family);
@@ -288,12 +282,10 @@
   margin-bottom: 7px;
 }
 
-/* First paragraph after the image */
 .tabs.tabs8 .tabs-panel picture + p {
   margin-top: 28px;
 }
 
-/* Responsive Adjustments */
 @media (width <= 1200px) {
   .tabs.tabs8 {
     max-width: 100vw;
@@ -333,4 +325,158 @@
   .tabs.tabs8 .tabs-panel img {
     margin-bottom: 18px;
   }
+}
+
+.tabs.tabs10 {
+  box-sizing: border-box;
+  max-width: 900px;
+  margin-left: 260px;
+  margin-right: auto;
+  padding: 0 32px;
+  background: #fff;
+  display: block;
+}
+
+/* Responsive: remove gutter and reduce padding on smaller screens */
+@media (width <= 1200px) {
+  .tabs.tabs10 {
+    margin-left: 0;
+    padding: 0 16px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs10 {
+    padding: 0 8px;
+    max-width: 100%;
+  }
+}
+
+/* Tabs row: left-aligned, strong visual rhythm, even spacing */
+.tabs.tabs10 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 36px;
+  padding: 0;
+  border: none;
+  background: none;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Tab buttons: uppercase, bold, active highlight, left-aligned */
+.tabs.tabs10 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #232323;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  padding: 10px 26px 11px;
+  border-radius: 2px;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  box-shadow: none;
+  line-height: 1.2;
+  align-items: flex-start;
+}
+
+.tabs.tabs10 .tabs-list button[aria-selected='true'] {
+  background: #232323;
+  color: #fff;
+}
+
+.tabs.tabs10 .tabs-list button p {
+  margin: 0;
+}
+
+/* Panel: no box, natural spacing */
+.tabs.tabs10 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+.tabs.tabs10 .tabs-panel > div {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Headings: accent line, generous spacing above/below */
+.tabs.tabs10 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 26px;
+  font-weight: 400;
+  color: #232323;
+  border-bottom: 2px solid #ffe066;
+  padding-bottom: 6px;
+  margin-top: 0;
+  margin-bottom: 36px;
+  display: inline-block;
+}
+
+.tabs.tabs10 .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 800;
+  color: #232323;
+  margin: 0 0 36px;
+}
+
+/* Images: full width, less space below, no border */
+.tabs.tabs10 .tabs-panel picture,
+.tabs.tabs10 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 28px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* First paragraph after h2: more space below */
+.tabs.tabs10 .tabs-panel h2 + p {
+  margin-bottom: 24px;
+}
+
+/* Body text: readable, compact, left-aligned */
+.tabs.tabs10 .tabs-panel p {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #232323;
+  line-height: 1.6;
+  margin: 0 0 14px;
+  text-align: left;
+}
+
+/* Tighten only the space directly above the related trips list (ul) */
+.tabs.tabs10 .tabs-panel p:last-of-type {
+  margin-bottom: 2px;
+}
+
+.tabs.tabs10 .tabs-panel ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 26px;
+  font-size: 14px;
+  color: #232323;
+  list-style-type: disc;
+}
+
+/* Consistent spacing for list items */
+.tabs.tabs10 .tabs-panel ul li {
+  margin-bottom: 6px;
+  padding-left: 0;
+  text-align: left;
 }
