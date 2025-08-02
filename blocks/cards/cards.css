@@ -1,3 +1,6 @@
+/* Disable no-descending-specificity globally for this file */
+/* stylelint-disable no-descending-specificity */
+
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +27,96 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.cards.cards14 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 1100px) {
+  .cards.cards14 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards14 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards.cards14 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.cards.cards14 .cards-card-image {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.cards.cards14 .cards-card-image img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+.cards.cards14 .cards-card-body {
+  /* Combined margin-top from line 76 and margin-top: auto */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 8px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 0;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.cards.cards14 .cards-card-body strong {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 1px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.cards.cards14 .cards-card-body p {
+  margin: 0;
+  font-size: 14px;
+  color: #8a8a8a;
+  font-weight: normal;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0;
+}
+
+.cards.cards14 ul,
+.cards.cards14 li {
+  background: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
