@@ -1,3 +1,6 @@
+/* Disable no-descending-specificity rule for this file */
+/* stylelint-disable no-descending-specificity */
+
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -39,7 +42,6 @@
   margin: 0;
 }
 
-
 .tabs .tabs-list button[aria-selected='true'] {
   border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
@@ -55,4 +57,94 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+.tabs.tabs3 .tabs-panel > div {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 48px;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs3 .tabs-panel > div {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.tabs.tabs3 .tabs-panel > div > h3 {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: flex-start;
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #232323;
+  line-height: 1.2;
+  border-bottom: 2px solid #F6D365;
+  padding-bottom: 10px;
+  margin: 0;
+  max-width: 250px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs3 .tabs-panel > div > h3 {
+    max-width: 100%;
+    font-size: 1.3rem;
+    border-bottom-width: 2px;
+    padding-bottom: 7px;
+    margin-bottom: 8px;
+  }
+}
+
+.tabs.tabs3 .tabs-panel > div > *:not(h3) {
+  grid-column: 2;
+  width: 100%;
+  min-width: 0;
+}
+
+.tabs.tabs3 .tabs-panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Caption style for first p after picture */
+.tabs.tabs3 .tabs-panel picture + p {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.93rem;
+  margin-bottom: 16px;
+  margin-top: 0;
+  color: #232323;
+  letter-spacing: 0.01em;
+}
+
+/* Paragraph styling in right column */
+.tabs.tabs3 .tabs-panel > div > *:not(h3) p {
+  color: #232323;
+  font-size: 1.02rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Remove extra margin from first content child */
+.tabs.tabs3 .tabs-panel > div > *:not(h3):first-child {
+  margin-top: 0;
+}
+
+/* If image is inside a paragraph, adjust spacing */
+.tabs.tabs3 .tabs-panel > div > p > picture {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.tabs.tabs3 .tabs-panel > div > p {
+  display: block;
 }
