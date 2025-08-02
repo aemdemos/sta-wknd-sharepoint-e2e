@@ -1,4 +1,4 @@
-/* Disable no-descending-specificity globally for this file */
+/* Stylelint rule disabled for no-descending-specificity */
 /* stylelint-disable no-descending-specificity */
 
 .columns > div {
@@ -155,7 +155,6 @@
   }
 }
 
-/* Make block full-bleed */
 .columns.columns2.block {
   background-color: #222;
   color: #eaeaea;
@@ -171,7 +170,6 @@
   font-size: 15px;
 }
 
-/* Main row: horizontal, top-aligned */
 .columns.columns2.block > div {
   display: flex;
   flex-direction: row;
@@ -185,7 +183,6 @@
   padding: 0 40px;
 }
 
-/* Responsive: stack columns on mobile */
 @media (width <= 900px) {
   .columns.columns2.block > div {
     flex-direction: column;
@@ -198,7 +195,6 @@
   }
 }
 
-/* Logo column: left, top-aligned, white text */
 .columns.columns2.block .columns-img-col {
   flex: 0 0 auto;
   display: flex;
@@ -210,7 +206,6 @@
   padding: 0;
 }
 
-/* Logo sizing */
 .columns.columns2.block .columns-img-col img,
 .columns.columns2.block .columns-img-col picture {
   width: 180px;
@@ -220,7 +215,6 @@
   display: block;
 }
 
-/* Right column: menu and search, all in a flex row */
 .columns.columns2.block > div > div:nth-child(2) {
   flex: 1 1 0;
   min-width: 0;
@@ -233,7 +227,6 @@
   gap: 32px;
 }
 
-/* On mobile: stack menu and search vertically */
 @media (width <= 900px) {
   .columns.columns2.block > div > div:nth-child(2) {
     flex-direction: column;
@@ -242,7 +235,6 @@
   }
 }
 
-/* Menu as single horizontal row, do not wrap */
 .columns.columns2.block > div > div:nth-child(2) > ul {
   display: flex;
   flex-flow: row nowrap;
@@ -251,7 +243,6 @@
   padding: 0;
 }
 
-/* Remove default li/ul styles */
 .columns.columns2.block ul,
 .columns.columns2.block ol {
   margin: 0;
@@ -259,7 +250,6 @@
   list-style: none;
 }
 
-/* Menu links: uppercased, white, spacing */
 .columns.columns2.block > div > div:nth-child(2) ul > li > a,
 .columns.columns2.block > div > div:nth-child(2) ul > li > ul > li > a {
   color: #eaeaea;
@@ -278,7 +268,6 @@
   border-bottom: 1px solid #fff;
 }
 
-/* Search paragraph: right-aligned with menu, compact */
 .columns.columns2.block > div > div:nth-child(2) > p {
   color: #ccc;
   font-size: 13px;
@@ -288,16 +277,239 @@
   padding-top: 0;
 }
 
-/* On mobile: left align search */
 @media (width <= 900px) {
   .columns.columns2.block > div > div:nth-child(2) > p {
     align-self: flex-start;
   }
 }
 
-/* Remove extra space around inner columns */
 .columns.columns2.block .columns-img-col,
 .columns.columns2.block > div > div:nth-child(2) {
   margin: 0;
   padding: 0;
+}
+
+
+.columns.columns9 {
+  background: #232221;
+  color: #f5f5f5;
+  border-bottom: 2px solid #fff;
+  padding: 32px 32px 24px;
+  font-size: 14px;
+}
+
+/* Grid: left column for logo/language, right for FOLLOW/social/copyright */
+.columns.columns9 .columns-4-cols {
+  display: grid;
+  grid-template-columns: minmax(370px, 2fr) minmax(200px, 320px);
+  gap: 8px;
+  align-items: start;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack on mobile */
+@media (width <= 900px) {
+  .columns.columns9 .columns-4-cols {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* LEFT COLUMN: logo, language */
+.columns.columns9 .columns-4-cols > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Logo at top left */
+.columns.columns9 .columns-img-col {
+  margin-bottom: 0;
+}
+
+.columns.columns9 .columns-img-col img {
+  width: auto;
+  height: 70px;
+  max-width: 100%;
+  display: block;
+}
+
+/* Language selector: always flush left, never floats */
+.columns.columns9 ul {
+  margin: 0 0 0.4em;
+  padding: 0;
+  list-style: none;
+  align-self: flex-start;
+}
+
+.columns.columns9 ul li {
+  display: inline;
+  color: #bababa;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.columns.columns9 ul li:last-child {
+  margin-right: 0;
+}
+
+/* RIGHT COLUMN: only as wide as necessary, tight grouping */
+.columns.columns9 .columns-4-cols > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 0;
+  max-width: 320px;
+  gap: 12px;
+}
+
+/* FOLLOW US + Social group: horizontal row, tightly grouped, top aligned */
+.columns.columns9 .columns-4-cols > div:last-child > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* FOLLOW US label: right-aligned, vertically centered */
+.columns.columns9 #follow-us,
+.columns.columns9 h4 {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #f5f5f5;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+  line-height: 1;
+  min-width: 94px;
+  align-self: flex-start;
+  margin-right: 0;
+}
+
+/* Social row: horizontal, icon-like squares, NO TEXT */
+.columns.columns9 .columns-4-cols > div:last-child > div:nth-child(4) {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  width: auto;
+  margin-bottom: 0;
+}
+
+.columns.columns9 .columns-4-cols .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns9 .columns-4-cols .button {
+  background: #fff;
+  color: #232221;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+
+  /* Hide button text for icon-only look */
+  text-indent: -9999px;
+  overflow: hidden;
+  transition: background 0.2s;
+}
+
+.columns.columns9 .columns-4-cols .button:hover,
+.columns.columns9 .columns-4-cols .button:focus {
+  background: #bababa;
+  color: #232221;
+}
+
+/* Copyright/info block: right-align, restrict width, lighter */
+.columns.columns9 .columns-4-cols > div:last-child > div:last-child {
+  max-width: 320px;
+  width: 100%;
+  margin-top: 18px;
+}
+
+.columns.columns9 .columns-4-cols > div:last-child > div:last-child p {
+  color: #f5f5f5;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 8px;
+  text-align: right;
+}
+
+.columns.columns9 .columns-4-cols > div:last-child > div:last-child p:last-child {
+  margin-bottom: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns9 .columns-4-cols > div:last-child > div:last-child p {
+    text-align: left;
+  }
+}
+
+/* Link overrides for block */
+.columns.columns9 .columns-4-cols a {
+  color: #f5f5f5;
+  text-decoration: underline;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.columns.columns9 .columns-4-cols a:hover,
+.columns.columns9 .columns-4-cols a:focus {
+  color: #bababa;
+  text-decoration: underline;
+}
+
+/* Bold/strong for footer */
+.columns.columns9 .columns-4-cols strong,
+.columns.columns9 .columns-4-cols b {
+  font-weight: 700;
+  color: #f5f5f5;
+}
+
+/* Responsive tweaks for mobile */
+@media (width <= 600px) {
+  .columns.columns9 {
+    padding: 16px 4px 10px;
+  }
+
+  .columns.columns9 .columns-4-cols {
+    gap: 16px;
+  }
+
+  .columns.columns9 .columns-img-col img {
+    height: 52px;
+  }
+
+  .columns.columns9 .columns-4-cols > div:last-child,
+  .columns.columns9 .columns-4-cols > div:first-child {
+    align-items: flex-start;
+  }
+
+  .columns.columns9 .columns-4-cols > div:last-child > div:nth-child(3),
+  .columns.columns9 .columns-4-cols > div:last-child > div:nth-child(4) {
+    justify-content: flex-start;
+  }
+
+  .columns.columns9 .columns-4-cols > div:last-child > div:last-child p {
+    text-align: left;
+  }
 }
