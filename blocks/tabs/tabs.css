@@ -1,6 +1,3 @@
-/* Disable 'no-descending-specificity' rule globally due to unavoidable cascading order errors */
-/* stylelint-disable no-descending-specificity */
-
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -336,8 +333,6 @@
   background: #fff;
   display: block;
 }
-
-/* Responsive: remove gutter and reduce padding on smaller screens */
 @media (width <= 1200px) {
   .tabs.tabs10 {
     margin-left: 0;
@@ -351,8 +346,6 @@
     max-width: 100%;
   }
 }
-
-/* Tabs row: left-aligned, strong visual rhythm, even spacing */
 .tabs.tabs10 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -364,8 +357,6 @@
   justify-content: flex-start;
   align-items: flex-end;
 }
-
-/* Tab buttons: uppercase, bold, active highlight, left-aligned */
 .tabs.tabs10 .tabs-list button {
   border: none;
   background: transparent;
@@ -393,8 +384,6 @@
 .tabs.tabs10 .tabs-list button p {
   margin: 0;
 }
-
-/* Panel: no box, natural spacing */
 .tabs.tabs10 .tabs-panel {
   border: none;
   box-shadow: none;
@@ -411,8 +400,6 @@
   flex-direction: column;
   gap: 0;
 }
-
-/* Headings: accent line, generous spacing above/below */
 .tabs.tabs10 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 26px;
@@ -432,8 +419,6 @@
   color: #232323;
   margin: 0 0 36px;
 }
-
-/* Images: full width, less space below, no border */
 .tabs.tabs10 .tabs-panel picture,
 .tabs.tabs10 .tabs-panel img {
   display: block;
@@ -444,13 +429,9 @@
   border-radius: 0;
   box-shadow: none;
 }
-
-/* First paragraph after h2: more space below */
 .tabs.tabs10 .tabs-panel h2 + p {
   margin-bottom: 24px;
 }
-
-/* Body text: readable, compact, left-aligned */
 .tabs.tabs10 .tabs-panel p {
   font-family: var(--body-font-family);
   font-size: 15px;
@@ -459,8 +440,6 @@
   margin: 0 0 14px;
   text-align: left;
 }
-
-/* Tighten only the space directly above the related trips list (ul) */
 .tabs.tabs10 .tabs-panel p:last-of-type {
   margin-bottom: 2px;
 }
@@ -473,10 +452,222 @@
   color: #232323;
   list-style-type: disc;
 }
-
-/* Consistent spacing for list items */
 .tabs.tabs10 .tabs-panel ul li {
   margin-bottom: 6px;
   padding-left: 0;
   text-align: left;
+}
+
+
+.tabs.tabs12 {
+  /* Make the block more compact vertically and keep centered */
+  margin: 18px auto 22px auto;
+  padding: 0;
+  max-width: 950px;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Align tabs bar flush with content column and reduce vertical gap */
+.tabs.tabs12 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1.5px solid #ddd;
+  padding: 0;
+  margin: 0 auto 8px auto; /* tighten gap below tabs */
+  max-width: 900px;
+  background: none;
+  box-shadow: none;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Tabs Buttons */
+.tabs.tabs12 .tabs-list button {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: #333;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  padding: 14px 34px 14px 0;
+  margin: 0;
+  line-height: 1.42;
+  min-width: 150px;
+  min-height: 48px;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  cursor: pointer;
+  box-shadow: none;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.tabs.tabs12 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  z-index: 1;
+}
+
+.tabs.tabs12 .tabs-list button[aria-selected="false"] {
+  background: transparent;
+  color: #333;
+}
+
+.tabs.tabs12 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panels: align with tabs and content */
+.tabs.tabs12 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.tabs.tabs12 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs.tabs12 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Heading: left aligned, fix underline position/spacing for compact look */
+.tabs.tabs12 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 0 0;
+  line-height: 1.1;
+  display: block;
+  padding-bottom: 0;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.tabs.tabs12 .tabs-panel h3:after {
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ffe066;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  position: relative;
+  left: 0;
+  content: "";
+}
+
+.tabs.tabs12 .tabs-panel h3 {
+  border-bottom: none;
+}
+
+/* Image: tighter to heading */
+.tabs.tabs12 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  margin: 0 0 8px 0; /* reduce gap below heading */
+}
+
+.tabs.tabs12 .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Subheading: reduce margin above, keep readable gap below */
+.tabs.tabs12 .tabs-panel > div > p:first-of-type {
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  font-size: 11.5px;
+  line-height: 1.8;
+  letter-spacing: 1.7px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  width: 100%;
+  display: block;
+}
+
+/* Main paragraph text */
+.tabs.tabs12 .tabs-panel p {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.65;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  margin: 0 0 18px 0;
+}
+
+/* Lists (e.g., in "What to Bring" tab) */
+.tabs.tabs12 .tabs-panel ul {
+  padding-left: 22px;
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 22px;
+}
+
+.tabs.tabs12 .tabs-panel li {
+  margin-bottom: 8px;
+}
+
+/* Responsive: maintain alignment and compact vertical space */
+@media (max-width: 1050px) {
+  .tabs.tabs12,
+  .tabs.tabs12 .tabs-list,
+  .tabs.tabs12 .tabs-panel > div {
+    max-width: 100%;
+  }
+  .tabs.tabs12 .tabs-list button {
+    min-width: 110px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs12 {
+    margin: 10px 0 15px 0;
+    padding: 0 4px;
+  }
+  .tabs.tabs12 .tabs-list,
+  .tabs.tabs12 .tabs-panel > div {
+    max-width: 100%;
+    padding: 0;
+  }
+  .tabs.tabs12 .tabs-list button {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    padding: 9px 5px 9px 0;
+    min-height: 38px;
+  }
+  .tabs.tabs12 .tabs-panel h3 {
+    font-size: 1.45rem;
+  }
+  .tabs.tabs12 .tabs-panel h3:after {
+    height: 3px;
+    margin-bottom: 5px;
+  }
 }
