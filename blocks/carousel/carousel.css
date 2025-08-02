@@ -1,5 +1,4 @@
-/* Disable no-descending-specificity rule globally */
-/* stylelint-disable no-descending-specificity */
+/* Stylelint-disable no-descending-specificity */
 
 .carousel .carousel-slides-container {
   position: relative;
@@ -222,7 +221,6 @@
   color: #131313;
 }
 
-/* Place navigation buttons flush bottom right, minimal margin */
 .carousel.carousel6 .carousel-navigation-buttons {
   position: absolute;
   inset: auto 6px 6px auto;
@@ -274,7 +272,6 @@
   left: 50%;
 }
 
-/* Indicator dots tight to image bottom, above nav buttons */
 .carousel.carousel6 .carousel-slide-indicators {
   position: absolute;
   left: 0;
@@ -312,4 +309,164 @@
 .carousel.carousel6 .carousel-slide-indicator button:disabled,
 .carousel.carousel6 .carousel-slide-indicator button[aria-current="true"] {
   background: #444;
+}
+
+.carousel.carousel16 {
+  position: relative;
+  background: #fff;
+  padding-top: 0;
+}
+
+/* Remove space above the image */
+.carousel.carousel16 .carousel-slides-container {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+}
+
+/* --- Main Layout: Place navigation+indicators in a bar BELOW the image --- */
+.carousel.carousel16 .carousel-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 24px;
+  position: relative;
+  max-width: 100%;
+}
+
+/* Bottom bar: place with custom selector, since DOM can't be changed; use last-child flex trick */
+.carousel.carousel16 .carousel-slides-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.carousel.carousel16 .carousel-slide-indicators {
+  order: 2;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  padding: 0;
+  margin: 0;
+  position: static;
+}
+
+.carousel.carousel16 .carousel-navigation-buttons {
+  order: 1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0 24px;
+  background: none;
+  position: static;
+  box-shadow: none;
+  min-height: 48px;
+}
+
+/* Navigation button styling */
+.carousel.carousel16 .carousel-navigation-buttons button {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #222;
+  color: #222;
+  box-shadow: 0 2px 8px rgb(60 60 60 / 4%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+  margin: 0;
+}
+
+.carousel.carousel16 .carousel-navigation-buttons button:hover,
+.carousel.carousel16 .carousel-navigation-buttons button:focus-visible {
+  background: #f4f4f4;
+  border-color: #000;
+}
+
+.carousel.carousel16 .carousel-navigation-buttons button::after {
+  border: solid #222;
+  border-width: 0 0 2.5px 2.5px;
+  height: 12px;
+  width: 12px;
+  left: 50%;
+  top: 50%;
+  margin-left: -6px;
+  margin-top: -6px;
+}
+
+.carousel.carousel16 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: 50%;
+  margin-left: -6px;
+}
+
+.carousel.carousel16 .carousel-slide-indicator {
+  display: inline-flex;
+}
+
+.carousel.carousel16 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #222;
+  border: none;
+  margin: 0;
+  padding: 0;
+  transition: background 0.2s, opacity 0.2s;
+  opacity: 0.33;
+  box-shadow: none;
+}
+
+.carousel.carousel16 .carousel-slide-indicator button:disabled {
+  opacity: 1;
+}
+
+/* Image styling */
+.carousel.carousel16 .carousel-slide {
+  min-height: 0;
+  aspect-ratio: 16/9;
+  display: block;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.carousel.carousel16 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel16 .carousel-slide .carousel-slide-image img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.carousel.carousel16 .carousel-slide .carousel-slide-content {
+  display: none;
+}
+
+@media (width <= 800px) {
+  .carousel.carousel16 .carousel-slide {
+    aspect-ratio: 4/3;
+  }
+
+  .carousel.carousel16 .carousel-navigation-buttons {
+    padding: 0 8px;
+    min-height: 36px;
+  }
+
+  .carousel.carousel16 .carousel-slide-indicators {
+    gap: 8px;
+  }
 }
