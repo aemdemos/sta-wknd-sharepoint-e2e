@@ -1,3 +1,5 @@
+/* Fixed CSS Code */
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +45,181 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+/* Ensure hero block sits flush to top of page/content */
+.hero.hero4 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 540px;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  align-items: stretch;
+  position: relative;
+}
+
+/* Remove any margin from parent wrapper if present */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+  margin-top: 0;
+}
+
+/* Remove margin from sections above the hero if any */
+main > .section:first-of-type,
+main > div:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Left: Image column */
+.hero.hero4 > div:nth-child(1) {
+  flex: 0 1 62%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+  background: none;
+  padding: 0;
+  min-height: 540px;
+}
+
+.hero.hero4 > div:nth-child(1) > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero.hero4 picture,
+.hero.hero4 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  max-width: unset;
+  max-height: unset;
+  background: none;
+}
+
+/* Right: Text panel */
+.hero.hero4 > div:nth-child(2) {
+  flex: 0 1 38%;
+  background: #f4f4f4;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  min-height: 540px;
+  min-width: 320px;
+  position: relative;
+}
+
+.hero.hero4 > div:nth-child(2) > div {
+  width: 100%;
+  max-width: 340px;
+  padding: 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Vertically position the text block slightly down from the top */
+  margin-top: 70px;
+}
+
+/* Subheading (Featured Article) */
+.hero.hero4 > div:nth-child(2) > div > p:first-child {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 18px;
+  margin-top: 0;
+  letter-spacing: 0.18em;
+  font-family: var(--body-font-family);
+}
+
+/* Main heading */
+.hero.hero4 > div:nth-child(2) > div > h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  font-family: var(--heading-font-family);
+  line-height: 1.12;
+  margin: 0 0 18px;
+}
+
+/* Description paragraph */
+.hero.hero4 > div:nth-child(2) > div > p:not(:first-child):not(.button-container) {
+  font-size: 1.09rem;
+  line-height: 1.6em;
+  color: #222;
+  font-family: var(--body-font-family);
+  margin: 0 0 32px;
+  max-width: 340px;
+}
+
+/* Button container */
+.hero.hero4 .button-container {
+  margin-top: 40px;
+  width: auto;
+}
+
+/* Button style override */
+.hero-container > .hero-wrapper > .block.hero.hero4 .button {
+  background: #ffe000;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 16px 36px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--body-font-family);
+  margin: 0;
+  display: inline-block;
+  min-width: 0;
+  max-width: 100%;
+  text-align: center;
+  letter-spacing: 0.02em;
+  width: auto;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero4 .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero4 .button:focus {
+  background: #e2c800;
+  color: #222;
+}
+
+/* Responsive layout: stack vertically on small screens */
+@media (width <= 900px) {
+  .hero.hero4 {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .hero.hero4 > div:nth-child(1),
+  .hero.hero4 > div:nth-child(2) {
+    width: 100%;
+    min-width: 0;
+    min-height: 180px;
+  }
+
+  .hero.hero4 > div:nth-child(2) > div {
+    max-width: 100%;
+    padding: 24px 16px;
+    margin-top: 24px;
+  }
+
+  .hero.hero4 .button-container {
+    margin-top: 24px;
   }
 }
