@@ -1821,8 +1821,6 @@
   align-items: center;
   padding: 0;
 }
-
-/* Shared container for alignment (simulate with same max-width and auto margin) */
 .tabs.tabs29 > .tabs-list,
 .tabs.tabs29 > .tabs-panel {
   max-width: 950px;
@@ -1833,8 +1831,6 @@
   padding-left: 0;
   padding-right: 0;
 }
-
-/* Tabs Navigation: align exactly with content block, reduce gap below */
 .tabs.tabs29 > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1847,8 +1843,6 @@
   padding-right: 0;
   border: none;
 }
-
-/* Tab Buttons */
 .tabs.tabs29 .tabs-tab {
   margin: 0;
   border: none;
@@ -1891,8 +1885,6 @@
   letter-spacing: inherit;
   text-transform: inherit;
 }
-
-/* Tabs Panel Setup */
 .tabs.tabs29 > .tabs-panel {
   border: none;
   background: none;
@@ -1908,8 +1900,6 @@
   margin-right: auto;
   padding: 0;
 }
-
-/* Headings */
 .tabs.tabs29 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   color: #232323;
@@ -1917,8 +1907,6 @@
   line-height: 1.22;
   letter-spacing: 0;
 }
-
-/* Main Title */
 .tabs.tabs29 .tabs-panel h3#napa-wine-tasting,
 .tabs.tabs29 .tabs-panel h3[id^="napa-wine-tasting"] {
   font-size: 2.22rem;
@@ -1929,8 +1917,6 @@
   font-weight: 700;
   line-height: 1.13;
 }
-
-/* Subheading Style: more space below for relaxed feel */
 .tabs.tabs29 .tabs-panel h3#enjoy-spectacular-wine-tasting-in-the-napa-valley {
   font-size: 1.19rem;
   font-weight: 400;
@@ -1938,8 +1924,6 @@
   margin-bottom: 36px;
   font-family: var(--heading-font-family);
 }
-
-/* Main Body Text */
 .tabs.tabs29 .tabs-panel p {
   color: #232323;
   font-size: 1.07rem;
@@ -1947,8 +1931,6 @@
   margin: 0 0 1.15em 0;
   line-height: 1.64;
 }
-
-/* Caption style for first p after image */
 .tabs.tabs29 .tabs-panel p:first-of-type {
   margin-top: 24px;
   margin-bottom: 14px;
@@ -1958,8 +1940,6 @@
   line-height: 1.2;
   letter-spacing: .5px;
 }
-
-/* Image spacing */
 .tabs.tabs29 .tabs-panel picture {
   display: block;
   margin: 36px 0 13px 0;
@@ -1974,8 +1954,6 @@
   object-fit: cover;
   margin-bottom: 8px;
 }
-
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .tabs.tabs29 > .tabs-list,
   .tabs.tabs29 > .tabs-panel {
@@ -1999,5 +1977,188 @@
   }
   .tabs.tabs29 > .tabs-list {
     margin-bottom: 18px;
+  }
+}
+
+
+.tabs.tabs30 {
+  /* Center block with balanced margins and a readable column width */
+  max-width: 900px;
+  margin: 60px auto 0 auto;
+  padding: 0 36px 64px 36px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .tabs.tabs30 {
+    max-width: 98vw;
+    padding: 0 3vw 40px 3vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs30 {
+    max-width: 100vw;
+    padding: 0 8px 28px 8px;
+    margin-top: 28px;
+  }
+}
+
+/* Tabs: perfectly left-aligned with heading/content, do not restrict width */
+.tabs.tabs30 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-bottom: 32px;
+  margin-left: 0;
+  padding-left: 0;
+  padding-top: 4px;
+  justify-content: flex-start;
+  border: none;
+  background: none;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs30 .tabs-list {
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 18px;
+    padding-top: 2px;
+  }
+}
+
+.tabs.tabs30 .tabs-list button {
+  background: transparent;
+  border: none;
+  border-radius: 2px 2px 0 0;
+  padding: 0 28px;
+  height: 44px;
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  color: #898989;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: none;
+  margin: 0;
+  outline: none;
+}
+
+.tabs.tabs30 .tabs-list button[aria-selected="true"] {
+  background: #111111;
+  color: #fff;
+}
+
+.tabs.tabs30 .tabs-list button[aria-selected="true"] p {
+  color: #fff;
+}
+
+.tabs.tabs30 .tabs-list button p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+/* Main panel layout & spacing */
+.tabs.tabs30 .tabs-panel {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+  overflow: visible;
+}
+
+.tabs.tabs30 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Heading: normal width, yellow accent underline using box-shadow trick */
+.tabs.tabs30 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #111111;
+  margin-top: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  border: none;
+  padding-bottom: 0;
+  line-height: 1.15;
+  position: relative;
+  box-shadow: 0 18px 0 -15px #e5c86e;
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs30 .tabs-panel > div > h3 {
+    font-size: 1.2rem;
+    box-shadow: 0 12px 0 -10px #e5c86e;
+    margin-bottom: 8px;
+  }
+}
+
+/* Remove extra space after heading before first paragraph */
+.tabs.tabs30 .tabs-panel > div > h3 + p {
+  margin-top: 0;
+}
+
+/* Paragraph and list styling */
+.tabs.tabs30 .tabs-panel > div > p,
+.tabs.tabs30 .tabs-panel > div > ul,
+.tabs.tabs30 .tabs-panel > div > ol {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #111111;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 28px;
+  padding: 0;
+}
+
+.tabs.tabs30 .tabs-panel > div > ul,
+.tabs.tabs30 .tabs-panel > div > ol {
+  padding-left: 28px;
+}
+
+.tabs.tabs30 .tabs-panel > div > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Images: full width, ample vertical spacing */
+.tabs.tabs30 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.tabs.tabs30 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs30 .tabs-panel picture {
+    margin-bottom: 14px;
+  }
+  .tabs.tabs30 .tabs-panel > div > p,
+  .tabs.tabs30 .tabs-panel > div > ul,
+  .tabs.tabs30 .tabs-panel > div > ol {
+    margin-bottom: 12px;
   }
 }
