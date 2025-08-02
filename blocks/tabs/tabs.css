@@ -1629,10 +1629,7 @@
   background: #fff;
   box-shadow: none;
   border: none;
-  /* Remove any centering. */
 }
-
-/* --- TABS LIST --- */
 .tabs.tabs28 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1695,8 +1692,6 @@
 .tabs.tabs28 .tabs-list button p {
   margin: 0;
 }
-
-/* --- PANELS --- */
 .tabs.tabs28 .tabs-panel {
   border: none;
   padding: 0;
@@ -1709,8 +1704,6 @@
 .tabs.tabs28 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
-
-/* Stretch panel content to full width of block (flush left) */
 .tabs.tabs28 .tabs-panel > div {
   display: flex;
   flex-direction: column;
@@ -1722,8 +1715,6 @@
   margin: 0;
   gap: 0;
 }
-
-/* --- HEADER: Main Title and Underline --- */
 .tabs.tabs28 .tabs-panel > div > h3:first-of-type {
   font-family: var(--heading-font-family);
   font-size: 28px;
@@ -1746,8 +1737,6 @@
   border-radius: 2px;
   content: "";
 }
-
-/* --- SUBHEADING --- */
 .tabs.tabs28 .tabs-panel > div > h3:nth-of-type(2) {
   font-family: var(--heading-font-family);
   font-size: 18px;
@@ -1758,8 +1747,6 @@
   line-height: 1.3;
   width: 100%;
 }
-
-/* --- PARAGRAPHS --- */
 .tabs.tabs28 .tabs-panel p {
   font-family: var(--body-font-family);
   font-size: 15px;
@@ -1781,8 +1768,6 @@
   line-height: 1.5;
   width: 100%;
 }
-
-/* --- IMAGE --- */
 .tabs.tabs28 .tabs-panel picture {
   display: block;
   width: 100%;
@@ -1798,8 +1783,6 @@
   margin-right: 0;
   box-shadow: none;
 }
-
-/* --- RESPONSIVE: stack content and keep gutter --- */
 @media (max-width: 1100px) {
   .tabs.tabs28 {
     max-width: 100vw;
@@ -1816,8 +1799,6 @@
     max-width: 98vw;
   }
 }
-
-/* --- LIST STYLES ("What to Bring" tab) --- */
 .tabs.tabs28 .tabs-panel ul {
   padding-left: 22px;
   margin-top: 0;
@@ -1829,4 +1810,194 @@
   margin-bottom: 8px;
   line-height: 1.6;
   text-align: left;
+}
+
+
+.tabs.tabs29 {
+  background: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+/* Shared container for alignment (simulate with same max-width and auto margin) */
+.tabs.tabs29 > .tabs-list,
+.tabs.tabs29 > .tabs-panel {
+  max-width: 950px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Tabs Navigation: align exactly with content block, reduce gap below */
+.tabs.tabs29 > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0;
+  background: none;
+  margin-top: 0;
+  margin-bottom: 28px;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+}
+
+/* Tab Buttons */
+.tabs.tabs29 .tabs-tab {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  padding: 0 32px 10px 0;
+  background: none;
+  color: #232323;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+  outline: none;
+  min-width: 0;
+}
+
+.tabs.tabs29 .tabs-tab:last-child {
+  padding-right: 0;
+}
+
+.tabs.tabs29 .tabs-tab[aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+  border-bottom: 2px solid #e8d596;
+}
+
+.tabs.tabs29 .tabs-tab[aria-selected="false"]:hover {
+  background: #f2f2f2;
+}
+
+.tabs.tabs29 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+/* Tabs Panel Setup */
+.tabs.tabs29 > .tabs-panel {
+  border: none;
+  background: none;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 56px;
+  box-sizing: border-box;
+}
+
+.tabs.tabs29 .tabs-panel > div {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+/* Headings */
+.tabs.tabs29 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  color: #232323;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+
+/* Main Title */
+.tabs.tabs29 .tabs-panel h3#napa-wine-tasting,
+.tabs.tabs29 .tabs-panel h3[id^="napa-wine-tasting"] {
+  font-size: 2.22rem;
+  border-bottom: 2px solid #e8d596;
+  padding-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-weight: 700;
+  line-height: 1.13;
+}
+
+/* Subheading Style: more space below for relaxed feel */
+.tabs.tabs29 .tabs-panel h3#enjoy-spectacular-wine-tasting-in-the-napa-valley {
+  font-size: 1.19rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 36px;
+  font-family: var(--heading-font-family);
+}
+
+/* Main Body Text */
+.tabs.tabs29 .tabs-panel p {
+  color: #232323;
+  font-size: 1.07rem;
+  font-family: var(--body-font-family);
+  margin: 0 0 1.15em 0;
+  line-height: 1.64;
+}
+
+/* Caption style for first p after image */
+.tabs.tabs29 .tabs-panel p:first-of-type {
+  margin-top: 24px;
+  margin-bottom: 14px;
+  font-size: 1.01rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: .5px;
+}
+
+/* Image spacing */
+.tabs.tabs29 .tabs-panel picture {
+  display: block;
+  margin: 36px 0 13px 0;
+  width: 100%;
+}
+
+.tabs.tabs29 .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .tabs.tabs29 > .tabs-list,
+  .tabs.tabs29 > .tabs-panel {
+    max-width: 100%;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  .tabs.tabs29 .tabs-panel > div {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs29 .tabs-panel > div {
+    max-width: 100%;
+    padding: 0;
+  }
+  .tabs.tabs29 > .tabs-panel {
+    padding-bottom: 36px;
+  }
+  .tabs.tabs29 > .tabs-list {
+    margin-bottom: 18px;
+  }
 }
