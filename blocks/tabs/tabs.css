@@ -827,8 +827,6 @@
   margin-top: 0;
   padding-top: 0;
 }
-
-/* Sidebar: tabs-list */
 .tabs.tabs15 > .tabs-list {
   flex: 0 0 120px;
   min-width: 100px;
@@ -842,8 +840,6 @@
   gap: 4px;
   box-sizing: border-box;
 }
-
-/* Sidebar Tabs */
 .tabs.tabs15 > .tabs-list .tabs-tab {
   display: block;
   background: transparent;
@@ -914,8 +910,6 @@
     border-bottom: 4px solid #ffe066;
   }
 }
-
-/* Main content panel */
 .tabs.tabs15 > .tabs-panel {
   flex: 1 1 0;
   background: var(--background-color);
@@ -929,8 +923,6 @@
   margin: 0;
   display: block;
 }
-
-/* Headings */
 .tabs.tabs15 > .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2rem;
@@ -944,8 +936,6 @@
   border-bottom: none;
   position: relative;
 }
-
-/* Accent line under main heading */
 .tabs.tabs15 > .tabs-panel h3::after {
   display: block;
   width: 52px;
@@ -958,8 +948,6 @@
   box-decoration-break: clone;
   content: "";
 }
-
-/* Section title (h2) */
 .tabs.tabs15 > .tabs-panel h2,
 .tabs.tabs15 > .tabs-panel h2 strong {
   font-family: var(--heading-font-family);
@@ -971,8 +959,6 @@
   letter-spacing: 0.01em;
   line-height: 1.19;
 }
-
-/* Paragraphs and text */
 .tabs.tabs15 > .tabs-panel p {
   color: #222;
   font-family: var(--body-font-family);
@@ -981,8 +967,6 @@
   line-height: 1.6;
   margin-top: 0;
 }
-
-/* Images in content */
 .tabs.tabs15 > .tabs-panel picture,
 .tabs.tabs15 > .tabs-panel img {
   display: block;
@@ -993,8 +977,6 @@
   border-radius: 0;
   box-shadow: none;
 }
-
-/* Remove card-like border if present */
 .tabs.tabs15 > .tabs-panel,
 .tabs.tabs15 {
   border: none;
@@ -1004,8 +986,147 @@
 .tabs.tabs15 > .tabs-panel {
   margin-top: 0;
 }
-
-/* Hide other inactive panels for accessibility */
 .tabs.tabs15 > .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs18 {
+  /* Even more precise flush alignment: minimize left padding, restore vertical comfort */
+  max-width: 1100px;
+  margin: 0;
+  padding: 16px 0 0 0;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+/* Responsive: slight left padding only on smallest screens */
+@media (max-width: 900px) {
+  .tabs.tabs18 {
+    padding-left: 4px;
+    padding-top: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .tabs.tabs18 {
+    padding-left: 2px;
+    padding-top: 4px;
+  }
+}
+
+/* Ensure all children align perfectly flush left */
+.tabs.tabs18 .tabs-list,
+.tabs.tabs18 .tabs-panel,
+.tabs.tabs18 .tabs-panel > div,
+.tabs.tabs18 .tabs-panel > div > * {
+  margin-left: 0;
+  padding-left: 0;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Tabs: minimal gap and tight vertical stacking */
+.tabs.tabs18 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  padding-left: 0;
+  align-items: flex-start;
+}
+
+/* Tab button styles */
+.tabs.tabs18 .tabs-list button {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  margin: 0;
+  border-radius: 0;
+  font-size: 16px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  min-width: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Active tab */
+.tabs.tabs18 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  cursor: default;
+}
+
+/* Remove space after last tab */
+.tabs.tabs18 .tabs-list button:last-child {
+  margin-right: 0;
+}
+
+.tabs.tabs18 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove panel look */
+.tabs.tabs18 .tabs-panel {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Title and yellow underline, with visually airier gap below underline */
+.tabs.tabs18 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.1em;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: #222;
+  position: relative;
+  display: block;
+  line-height: 1.12;
+  padding-bottom: 7px;
+  border-bottom: 3px solid #F2E7C5;
+  width: fit-content;
+}
+
+/* Image: original-like proportion, flush left */
+.tabs.tabs18 .tabs-panel picture,
+.tabs.tabs18 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  margin-bottom: 18px;
+  margin-top: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs18 .tabs-panel picture,
+  .tabs.tabs18 .tabs-panel img {
+    max-width: 100%;
+  }
+}
+
+/* Body text: aligns with image/title, compact */
+.tabs.tabs18 .tabs-panel > div > p:not(:first-child) {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #222;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 650px;
+  text-align: left;
+  padding-left: 0;
 }
