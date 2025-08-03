@@ -592,16 +592,12 @@
   border: none;
   box-sizing: border-box;
 }
-
-/* Responsive: stack columns on mobile */
 @media (max-width: 900px) {
   .tabs.tabs13 {
     flex-direction: column;
     gap: 0;
   }
 }
-
-/* Sidebar: vertical tabs, tightly aligned and minimal */
 .tabs.tabs13 > .tabs-list {
   display: flex;
   flex-direction: column;
@@ -615,11 +611,8 @@
   border: none;
   margin: 0;
   align-self: flex-start;
-  /* Remove divider for fidelity to original */
   border-right: none;
 }
-
-/* Responsive: horizontal tabs at top on mobile */
 @media (max-width: 900px) {
   .tabs.tabs13 > .tabs-list {
     flex-direction: row;
@@ -661,15 +654,11 @@
     text-align: center;
   }
 }
-
-/* Active tab */
 .tabs.tabs13 > .tabs-list .tabs-tab[aria-selected="true"] {
   background: #222;
   color: #fff;
   border-radius: 6px;
 }
-
-/* Inactive tab hover/focus */
 .tabs.tabs13 > .tabs-list .tabs-tab[aria-selected="false"]:hover,
 .tabs.tabs13 > .tabs-list .tabs-tab[aria-selected="false"]:focus {
   color: #f2c94c;
@@ -679,8 +668,6 @@
 .tabs.tabs13 > .tabs-list .tabs-tab p {
   margin: 0;
 }
-
-/* Main panel: right column */
 .tabs.tabs13 > .tabs-panel {
   flex: 1 1 0;
   max-width: 100%;
@@ -698,8 +685,6 @@
 .tabs.tabs13 > .tabs-panel[aria-hidden="false"] {
   display: block;
 }
-
-/* Main heading block */
 .tabs.tabs13 > .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.2rem;
@@ -711,8 +696,6 @@
   position: relative;
   display: block;
 }
-
-/* Accent underline for heading */
 .tabs.tabs13 > .tabs-panel h3::after {
   display: block;
   width: 56px;
@@ -724,15 +707,11 @@
   left: 0;
   content: "";
 }
-
-/* Responsive: heading spacing on mobile */
 @media (max-width: 900px) {
   .tabs.tabs13 > .tabs-panel h3 {
     margin-top: 10px;
   }
 }
-
-/* Main content wrapper */
 .tabs.tabs13 > .tabs-panel > div {
   max-width: 950px;
   margin-left: 0;
@@ -744,8 +723,6 @@
     max-width: 100%;
   }
 }
-
-/* Image formatting */
 .tabs.tabs13 > .tabs-panel picture {
   display: block;
   width: 100%;
@@ -760,8 +737,6 @@
   margin: 0;
   box-shadow: none;
 }
-
-/* Caption styling: only first p after picture */
 .tabs.tabs13 > .tabs-panel > div > p:first-of-type {
   font-size: 13px;
   text-transform: uppercase;
@@ -771,8 +746,6 @@
   letter-spacing: 0.05em;
   line-height: 1.45;
 }
-
-/* All following paragraphs: normal case, normal weight */
 .tabs.tabs13 > .tabs-panel > div > p:not(:first-of-type) {
   text-transform: none;
   font-weight: 400;
@@ -782,8 +755,6 @@
   margin: 16px 0 0 0;
   line-height: 1.7;
 }
-
-/* Hide scrollbars on tabs-list horizontal overflow */
 @media (max-width: 900px) {
   .tabs.tabs13 > .tabs-list {
     scrollbar-width: none;
@@ -791,4 +762,166 @@
   .tabs.tabs13 > .tabs-list::-webkit-scrollbar {
     display: none;
   }
+}
+
+
+.tabs.tabs14 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2px; /* Nearly flush main content and sidebar */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Sidebar (Tabs List) */
+.tabs.tabs14 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  min-width: 94px;
+  max-width: 98px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  gap: 1px; /* Minimal gap between tab buttons */
+  background: none;
+  border: none;
+  align-items: flex-start;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+
+/* Sidebar tab buttons */
+.tabs.tabs14 .tabs-list button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 0 4px 0; /* Minimal, fully flush left padding */
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+  color: #232323;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+  position: relative;
+}
+
+.tabs.tabs14 .tabs-list button[aria-selected='true'] {
+  background: #fff;
+  color: #232323;
+  font-weight: 700;
+  border-left: 2px solid #ffe066;
+  padding-left: 0;
+}
+
+.tabs.tabs14 .tabs-list button[aria-selected='false'] {
+  background: transparent;
+  color: #232323;
+  font-weight: 400;
+  border-left: 2px solid transparent;
+  padding-left: 0;
+}
+
+.tabs.tabs14 .tabs-list button p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs14 {
+    flex-direction: column;
+    gap: 0;
+  }
+  .tabs.tabs14 .tabs-list {
+    flex-direction: row;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 18px;
+    gap: 0.5ch;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+  .tabs.tabs14 .tabs-list button,
+  .tabs.tabs14 .tabs-list button[aria-selected='true'],
+  .tabs.tabs14 .tabs-list button[aria-selected='false'] {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 6px 6px 0 0;
+    text-align: center;
+    padding: 10px 8px;
+    flex: 1 1 0;
+    font-size: 14px;
+    padding-left: 0;
+  }
+  .tabs.tabs14 .tabs-list button[aria-selected='true'] {
+    border-bottom: 2px solid #ffe066;
+    background: #fff;
+    color: #232323;
+  }
+}
+
+/* Main Content (Tab Panel) */
+.tabs.tabs14 .tabs-panel {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+  max-width: 1050px;
+  width: 100%;
+}
+
+.tabs.tabs14 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Headings */
+.tabs.tabs14 h3 {
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  color: #232323;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  display: inline-block;
+  border-bottom: 2px solid #ffe066;
+  padding-bottom: 2px;
+}
+
+.tabs.tabs14 h2 {
+  font-family: var(--heading-font-family);
+  font-size: 34px;
+  font-weight: 700;
+  color: #232323;
+  margin-top: 0.67em;
+  margin-bottom: 1em;
+  line-height: 1.18;
+}
+
+/* Image styling */
+.tabs.tabs14 picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 2rem 0 1.2rem 0;
+  border-radius: 0;
+}
+
+/* Body text */
+.tabs.tabs14 p {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #232323;
+  line-height: 1.65;
+  margin-top: 0;
+  margin-bottom: 1.5em;
 }
