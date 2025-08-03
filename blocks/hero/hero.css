@@ -45,3 +45,107 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero12 {
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 440px;
+  padding: 0;
+  overflow: hidden;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.hero.hero12 > div {
+  padding: 0;
+  margin: 0;
+}
+
+/* Image as background */
+.hero.hero12 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero12 picture,
+.hero.hero12 img {
+  display: block;
+  width: 100vw;
+  height: 440px;
+  min-height: 440px;
+  max-width: 100vw;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay card: position flush with the bottom edge, center horizontally */
+.hero.hero12 > div:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+  min-height: unset;
+}
+
+/* White card container */
+.hero.hero12 > div:last-child > div {
+  background: #fff;
+  width: 48vw;
+  max-width: 720px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 32px 36px 56px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  pointer-events: auto;
+}
+
+.hero.hero12 h2,
+.hero.hero12 h1 {
+  margin: 0;
+  color: #222;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.35rem;
+  font-weight: normal;
+  line-height: 1.3;
+  text-align: left;
+  max-width: 98%;
+}
+
+/* Responsiveness */
+@media (width <= 900px) {
+  .hero.hero12 {
+    min-height: 220px;
+  }
+
+  .hero.hero12 picture,
+  .hero.hero12 img {
+    height: 220px;
+    min-height: 220px;
+  }
+
+  .hero.hero12 > div:last-child > div {
+    width: 96vw;
+    max-width: 98vw;
+    min-width: 0;
+    padding: 18px 4vw 32px;
+  }
+
+  .hero.hero12 h2,
+  .hero.hero12 h1 {
+    max-width: 98vw;
+    font-size: 1.08rem;
+  }
+}
