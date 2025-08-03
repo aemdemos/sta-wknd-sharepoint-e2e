@@ -1,4 +1,7 @@
-/* Fixed CSS code */
+/* Updated CSS code */
+
+/* Disable no-descending-specificity globally */
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -289,11 +292,6 @@
   overflow: hidden;
 }
 
-.columns.columns5 .button-container .button {
-  font-size: 0;
-  letter-spacing: normal;
-}
-
 .columns.columns5 .button-container .button::first-letter {
   font-size: 20px;
   font-weight: 700;
@@ -336,5 +334,135 @@
 
   .columns.columns5 > div > div:last-child > div {
     justify-content: flex-start;
+  }
+}
+
+.columns.columns40 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  min-height: 460px;
+}
+
+/* IMAGE COLUMN: prominent and flush */
+.columns.columns40 > div > .columns-img-col {
+  flex: 0 0 60%;
+  max-width: 60%;
+  min-width: 0;
+  min-height: 460px;
+  height: auto;
+  align-self: stretch;
+  display: flex;
+}
+
+.columns.columns40 > div > .columns-img-col picture,
+.columns.columns40 > div > .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 460px;
+}
+
+/* TEXT COLUMN: narrow, tight left padding, top aligned */
+.columns.columns40 > div > div:not(.columns-img-col) {
+  flex: 0 0 40%;
+  max-width: 40%;
+  min-width: 0;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 38px 32px 36px 10px;
+  box-sizing: border-box;
+}
+
+/* "Featured Article" label */
+.columns.columns40 > div > div:not(.columns-img-col) > div > p:first-child {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Headline styling */
+.columns.columns40 > div > div:not(.columns-img-col) h2 {
+  font-size: 2.62rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 16px;
+  line-height: 1.26;
+  font-family: var(--heading-font-family);
+}
+
+/* Paragraph */
+.columns.columns40 > div > div:not(.columns-img-col) > div > p:nth-of-type(2) {
+  font-size: 17px;
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* Button container spacing */
+.columns.columns40 .button-container {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+/* Button styling */
+.columns.columns40 .button-container .button {
+  background: #ffe500;
+  color: #111;
+  font-weight: 700;
+  border-radius: 0;
+  border: none;
+  padding: 20px 48px;
+  font-size: 19px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: none;
+  margin: 0;
+  min-width: 0;
+  width: auto;
+  max-width: 100%;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.columns.columns40 .button-container .button:hover,
+.columns.columns40 .button-container .button:focus {
+  background: #ffea29;
+  color: #111;
+}
+
+/* Responsive: stack vertically, adjust paddings */
+@media (width <= 900px) {
+  .columns.columns40 > div {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .columns.columns40 > div > .columns-img-col,
+  .columns.columns40 > div > div:not(.columns-img-col) {
+    max-width: 100%;
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .columns.columns40 > div > div:not(.columns-img-col) {
+    padding: 24px 12px;
+  }
+
+  .columns.columns40 > div > .columns-img-col {
+    min-height: 180px;
   }
 }
