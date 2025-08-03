@@ -1581,7 +1581,6 @@
 
 
 .tabs.tabs34 {
-  /* Use CSS Grid: sidebar (tabs-list) and main area (tabs-panel) */
   display: grid;
   grid-template-columns: minmax(220px, 340px) 1fr;
   grid-template-rows: 1fr;
@@ -1593,8 +1592,6 @@
   box-sizing: border-box;
   min-height: 100vh;
 }
-
-/* Sidebar as a true sidebar, vertical alignment */
 .tabs.tabs34 > .tabs-list {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -1608,12 +1605,9 @@
   min-width: 220px;
   max-width: 340px;
   min-height: 100vh;
-  /* visually anchor content at top */
   justify-content: flex-start;
   gap: 0;
 }
-
-/* Tabs in sidebar: stack vertically, left-aligned, subtle header */
 .tabs.tabs34 > .tabs-list button {
   all: unset;
   display: block;
@@ -1655,8 +1649,6 @@
   font-weight: 600;
   letter-spacing: 0.08em;
 }
-
-/* Main content area styles */
 .tabs.tabs34 > .tabs-panel {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -1678,8 +1670,6 @@
   margin-left: 0;
   margin-right: auto;
 }
-
-/* Headings and accent bar for first h3 in tab panel */
 .tabs.tabs34 > .tabs-panel h3:first-child {
   position: relative;
   font-family: var(--heading-font-family);
@@ -1699,8 +1689,6 @@
   margin-top: 10px;
   content: "";
 }
-
-/* Tab section headings */
 .tabs.tabs34 > .tabs-panel h2 {
   font-family: var(--heading-font-family);
   font-size: 1.2rem;
@@ -1709,8 +1697,6 @@
   margin: 32px 0 16px 0;
   line-height: 1.2;
 }
-
-/* General text and lists */
 .tabs.tabs34 > .tabs-panel p,
 .tabs.tabs34 > .tabs-panel ul,
 .tabs.tabs34 > .tabs-panel li {
@@ -1720,8 +1706,6 @@
   line-height: 1.7;
   margin: 0 0 18px 0;
 }
-
-/* Images full width, flush left */
 .tabs.tabs34 > .tabs-panel picture,
 .tabs.tabs34 > .tabs-panel img {
   display: block;
@@ -1740,8 +1724,6 @@
 .tabs.tabs34 > .tabs-panel li {
   margin-bottom: 0.65em;
 }
-
-/* Responsive adjustments for tablets and below */
 @media (max-width: 1200px) {
   .tabs.tabs34 > .tabs-panel {
     padding: 32px 16px 32px 16px;
@@ -1813,4 +1795,174 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+
+.tabs.tabs36 {
+  box-sizing: border-box;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 18px 32px 30px 32px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* TABS NAVIGATION */
+.tabs.tabs36 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin: 0 0 12px 0; /* Slightly more breathing room above heading */
+  padding: 0;
+  border: none;
+  background: none;
+  align-items: flex-start;
+}
+
+.tabs.tabs36 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 3px 13px;
+  margin: 0;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1.3;
+  box-shadow: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs36 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  border-radius: 2px;
+  cursor: default;
+}
+
+.tabs.tabs36 .tabs-list button[aria-selected='false'] {
+  background: transparent;
+  color: #222;
+}
+
+.tabs.tabs36 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  line-height: inherit;
+}
+
+/* TABS PANEL */
+.tabs.tabs36 .tabs-panel {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  width: 100%;
+  display: block;
+}
+
+.tabs.tabs36 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs.tabs36 .tabs-panel[aria-hidden='false'] {
+  display: block;
+}
+
+/* TYPOGRAPHY & SPACING */
+.tabs.tabs36 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.85em;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 7px 0;
+  line-height: 1.15;
+}
+
+.tabs.tabs36 .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.11em;
+  font-weight: 500;
+  color: #222;
+  margin: 22px 0 8px 0;
+  line-height: 1.2;
+}
+
+.tabs.tabs36 .tabs-panel p,
+.tabs.tabs36 .tabs-panel ul,
+.tabs.tabs36 .tabs-panel ol {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #444;
+  line-height: 1.7;
+  margin: 0 0 10px 0;
+}
+
+.tabs.tabs36 .tabs-panel p:first-of-type {
+  margin-bottom: 14px;
+}
+
+/* IMAGE STYLING */
+.tabs.tabs36 .tabs-panel picture,
+.tabs.tabs36 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-top: 16px;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Responsive: reduce padding/gap and stack on small screens */
+@media (max-width: 900px) {
+  .tabs.tabs36 {
+    padding: 10px 2vw 16px 2vw;
+    max-width: 98vw;
+  }
+  .tabs.tabs36 .tabs-list {
+    gap: 6px;
+    font-size: 12px;
+  }
+  .tabs.tabs36 .tabs-panel h3 {
+    font-size: 1.1em;
+  }
+  .tabs.tabs36 .tabs-panel h2 {
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs36 {
+    padding: 4px 1vw 8px 1vw;
+  }
+  .tabs.tabs36 .tabs-list {
+    gap: 2px;
+    font-size: 11px;
+    flex-wrap: wrap;
+  }
+  .tabs.tabs36 .tabs-panel h3 {
+    font-size: 0.93em;
+  }
+}
+
+/* Prevent vertical alignment issues from parent flex/grid systems */
+.tabs.tabs36,
+.tabs.tabs36 > * {
+  align-self: stretch;
 }
