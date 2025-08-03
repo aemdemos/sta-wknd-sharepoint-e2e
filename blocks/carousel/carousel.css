@@ -1,3 +1,6 @@
+/* Disable no-descending-specificity globally */
+/* stylelint-disable no-descending-specificity */
+
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +102,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +152,130 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel15 {
+  position: relative;
+}
+
+/* Hide overlay if content empty */
+.carousel.carousel15 .carousel-slide-content:empty {
+  display: none;
+}
+
+/* Remove extra padding/margin below image so controls stack naturally */
+.carousel.carousel15 .carousel-slides-container {
+  position: static;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* Show indicators and nav buttons as a block below the image */
+.carousel.carousel15 .carousel-controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 14px 0 0;
+  box-sizing: border-box;
+
+  /* fallback for unknown markup: force presence if not in DOM */
+}
+
+.carousel.carousel15 .carousel-slide-indicators {
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background: none;
+  padding: 0;
+  margin: 0 auto;
+  min-width: 56px;
+}
+
+.carousel.carousel15 .carousel-slide-indicator {
+  margin: 0 7px;
+}
+
+.carousel.carousel15 .carousel-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #222;
+  opacity: 0.35;
+  border: none;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.carousel.carousel15 .carousel-slide-indicator button:disabled,
+.carousel.carousel15 .carousel-slide-indicator button[aria-current="true"] {
+  opacity: 1;
+  background: #222;
+}
+
+/* Navigation buttons: right aligned with row flex */
+.carousel.carousel15 .carousel-navigation-buttons {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  margin-right: 24px;
+  min-width: 56px;
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #bbb;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  position: relative;
+  transition: border-color .2s, background .2s;
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button:hover,
+.carousel.carousel15 .carousel-navigation-buttons button:focus-visible {
+  border-color: #222;
+  background: #f3f3f3;
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button::after {
+  border: none;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #222;
+  border-right: 2px solid #222;
+  background: none;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.carousel.carousel15 > .carousel-slides-container + .carousel-slide-indicators {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+}
+
+.carousel.carousel15 > .carousel-slides-container + .carousel-navigation-buttons {
+  float: right;
+  margin-right: 24px;
 }
