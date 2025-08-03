@@ -407,8 +407,6 @@
   margin: 48px auto 0 auto;
   padding: 0;
 }
-
-/* TAB BAR - flush left and visually prominent */
 .tabs.tabs11 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -420,8 +418,6 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
-
-/* TABS - larger, bolder, more vertical space */
 .tabs.tabs11 .tabs-tab {
   background: transparent;
   border: none;
@@ -454,8 +450,6 @@
 .tabs.tabs11 .tabs-tab:focus {
   outline: 2px solid #222;
 }
-
-/* HEADINGS - more vertical space */
 .tabs.tabs11 .tabs-panel h3 {
   font-family: var(--heading-font-family), serif;
   font-size: 1.33rem;
@@ -468,8 +462,6 @@
   padding-bottom: 7px;
   letter-spacing: 0.01em;
 }
-
-/* MAIN TITLE - more vertical whitespace */
 .tabs.tabs11 .tabs-panel h2,
 .tabs.tabs11 .tabs-panel h2 strong {
   font-family: var(--heading-font-family), serif;
@@ -479,8 +471,6 @@
   margin: 38px 0 40px 0;
   line-height: 1.14;
 }
-
-/* BODY TEXT - larger, more whitespace */
 .tabs.tabs11 .tabs-panel p {
   font-family: var(--heading-font-family), serif;
   font-size: 1.21rem;
@@ -493,8 +483,6 @@
 .tabs.tabs11 .tabs-panel > div > p:first-of-type {
   margin-top: 23px;
 }
-
-/* IMAGES - even spacing, full width */
 .tabs.tabs11 .tabs-panel picture,
 .tabs.tabs11 .tabs-panel img {
   display: block;
@@ -506,8 +494,6 @@
   object-fit: cover;
   box-shadow: none;
 }
-
-/* RELATED TRIPS LABEL and LIST */
 .tabs.tabs11 .tabs-panel p + ul {
   margin-top: -2px;
 }
@@ -530,8 +516,6 @@
   margin-bottom: 0;
   padding-left: 0;
 }
-
-/* RESPONSIVE TWEAKS */
 @media (max-width: 900px) {
   .tabs.tabs11 {
     max-width: 100%;
@@ -593,5 +577,218 @@
   .tabs.tabs11 .tabs-panel p {
     font-size: 0.95rem;
     margin-bottom: 7px;
+  }
+}
+
+
+.tabs.tabs13 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  gap: 24px;
+  padding: 0;
+  background: var(--background-color);
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack columns on mobile */
+@media (max-width: 900px) {
+  .tabs.tabs13 {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* Sidebar: vertical tabs, tightly aligned and minimal */
+.tabs.tabs13 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0;
+  min-width: 110px;
+  max-width: 130px;
+  width: 9vw;
+  background: none;
+  border: none;
+  margin: 0;
+  align-self: flex-start;
+  /* Remove divider for fidelity to original */
+  border-right: none;
+}
+
+/* Responsive: horizontal tabs at top on mobile */
+@media (max-width: 900px) {
+  .tabs.tabs13 > .tabs-list {
+    flex-direction: row;
+    gap: 10px;
+    min-width: unset;
+    max-width: unset;
+    width: 100%;
+    border-right: none;
+    border-bottom: none;
+    margin-bottom: 16px;
+    padding: 0 0 12px 0;
+  }
+}
+
+.tabs.tabs13 > .tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 8px 6px 8px 0;
+  margin: 0;
+  color: #111;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: left;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs13 > .tabs-list .tabs-tab {
+    width: auto;
+    min-width: 100px;
+    padding: 8px 14px;
+    text-align: center;
+  }
+}
+
+/* Active tab */
+.tabs.tabs13 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 6px;
+}
+
+/* Inactive tab hover/focus */
+.tabs.tabs13 > .tabs-list .tabs-tab[aria-selected="false"]:hover,
+.tabs.tabs13 > .tabs-list .tabs-tab[aria-selected="false"]:focus {
+  color: #f2c94c;
+  background: rgba(0,0,0,0.06);
+}
+
+.tabs.tabs13 > .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Main panel: right column */
+.tabs.tabs13 > .tabs-panel {
+  flex: 1 1 0;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+  overflow: visible;
+  display: none;
+  min-width: 0;
+  align-self: flex-start;
+}
+
+.tabs.tabs13 > .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Main heading block */
+.tabs.tabs13 > .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0;
+  line-height: 1.1;
+  padding-bottom: 4px;
+  position: relative;
+  display: block;
+}
+
+/* Accent underline for heading */
+.tabs.tabs13 > .tabs-panel h3::after {
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: #f2c94c;
+  border-radius: 2px;
+  margin-top: 8px;
+  position: relative;
+  left: 0;
+  content: "";
+}
+
+/* Responsive: heading spacing on mobile */
+@media (max-width: 900px) {
+  .tabs.tabs13 > .tabs-panel h3 {
+    margin-top: 10px;
+  }
+}
+
+/* Main content wrapper */
+.tabs.tabs13 > .tabs-panel > div {
+  max-width: 950px;
+  margin-left: 0;
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs13 > .tabs-panel > div {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+/* Image formatting */
+.tabs.tabs13 > .tabs-panel picture {
+  display: block;
+  width: 100%;
+  margin: 25px 0 8px 0;
+}
+
+.tabs.tabs13 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Caption styling: only first p after picture */
+.tabs.tabs13 > .tabs-panel > div > p:first-of-type {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #222;
+  margin: 12px 0 18px 0;
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+}
+
+/* All following paragraphs: normal case, normal weight */
+.tabs.tabs13 > .tabs-panel > div > p:not(:first-of-type) {
+  text-transform: none;
+  font-weight: 400;
+  font-size: 16px;
+  color: #222;
+  letter-spacing: normal;
+  margin: 16px 0 0 0;
+  line-height: 1.7;
+}
+
+/* Hide scrollbars on tabs-list horizontal overflow */
+@media (max-width: 900px) {
+  .tabs.tabs13 > .tabs-list {
+    scrollbar-width: none;
+  }
+  .tabs.tabs13 > .tabs-list::-webkit-scrollbar {
+    display: none;
   }
 }
