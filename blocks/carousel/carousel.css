@@ -292,21 +292,18 @@
   display: block;
 }
 
-/* Heading */
 .carousel.carousel22 .carousel-slide .carousel-slide-content h2 {
   font-size: 2.2rem;
   margin: 0 0 18px;
   color: #131313;
 }
 
-/* Paragraphs */
 .carousel.carousel22 .carousel-slide .carousel-slide-content p {
   color: #131313;
   font-size: 1.07rem;
   margin: 0 0 24px;
 }
 
-/* Restore button style: yellow, black text, square, left-aligned */
 .carousel.carousel22 .carousel-slide .carousel-slide-content .button-container {
   margin: 0;
   text-align: left;
@@ -337,7 +334,6 @@
   text-decoration: underline;
 }
 
-/* Indicators: move up closer to block, reduce size and tweak color */
 .carousel.carousel22 .carousel-slide-indicators {
   position: absolute;
   left: 0;
@@ -374,7 +370,6 @@
   outline-offset: 2px;
 }
 
-/* Navigation arrows: bring back bottom-right, white circle with black arrow, space from indicators */
 .carousel.carousel22 .carousel-navigation-buttons {
   position: absolute;
   inset: auto 32px 26px auto;
@@ -418,7 +413,6 @@
   box-shadow: none;
 }
 
-/* Custom chevron arrows: bolder, more visible triangles */
 .carousel.carousel22 .carousel-navigation-buttons button::after {
   border: none;
   width: 0;
@@ -443,7 +437,6 @@
   border-bottom: 8px solid transparent;
 }
 
-/* Responsive: maintain lower-third grouping */
 @media (width <= 900px) {
   .carousel.carousel22 .carousel-slide .carousel-slide-content {
     width: 95vw;
@@ -462,4 +455,12 @@
     bottom: 8px;
     right: 8px;
   }
+}
+
+
+.carousel.carousel18 .carousel-slide-content:empty {
+  display: none;
+  background: none;
+  margin: 0;
+  padding: 0;
 }
