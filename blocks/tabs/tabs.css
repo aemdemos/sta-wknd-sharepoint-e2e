@@ -56,3 +56,173 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+
+.tabs.tabs3 {
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Tabs: minimal gap, lighter/bolder, perfect left alignment, less top margin */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  margin-bottom: 0;
+  border: none;
+  font-size: 1rem;
+  background: none;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-left: 0;
+}
+
+.tabs.tabs3 .tabs-list button {
+  border: none;
+  background: none;
+  color: #222;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 7px 8px 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  font-size: 0.96rem;
+  letter-spacing: 1px;
+  transition: background 0.15s, color 0.15s, border-bottom 0.15s;
+  margin-bottom: -2px;
+  min-width: 0;
+  line-height: 1.2;
+  margin-right: 16px;
+}
+
+.tabs.tabs3 .tabs-list button:last-child {
+  margin-right: 0;
+}
+
+.tabs.tabs3 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #222;
+  cursor: default;
+}
+
+.tabs.tabs3 .tabs-list button[aria-selected="false"] {
+  background: none;
+  color: #222;
+  border-bottom: 2px solid #222;
+}
+
+.tabs.tabs3 .tabs-list button p {
+  margin: 0;
+}
+
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Main content: all flush left/right, no gaps */
+.tabs.tabs3 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.tabs.tabs3 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 2px;
+  border-bottom: none;
+  line-height: 1.1;
+}
+
+.tabs.tabs3 .tabs-panel h3::after {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: #FFD600;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 2px;
+  content: '';
+}
+
+/* Tighter block, minimal gap before image */
+.tabs.tabs3 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 12px;
+}
+
+.tabs.tabs3 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Caption: nearly touching image, smaller  */
+.tabs.tabs3 .tabs-panel p:first-of-type {
+  font-size: 0.8rem;
+  color: #222;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 2px 0 0;
+  line-height: 1.1;
+  display: block;
+  padding-left: 0;
+}
+
+/* Description: minimal space after caption */
+.tabs.tabs3 .tabs-panel p:not(:first-of-type) {
+  font-size: 1rem;
+  color: #444;
+  font-weight: 400;
+  margin: 4px 0 0;
+  line-height: 1.5;
+  padding-left: 0;
+}
+
+/* Responsive: full width, flush alignment */
+@media (width >= 900px) {
+  .tabs.tabs3 {
+    max-width: 1440px;
+  }
+
+  .tabs.tabs3 .tabs-panel > div {
+    max-width: 1280px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .tabs.tabs3 .tabs-panel picture,
+  .tabs.tabs3 .tabs-panel img,
+  .tabs.tabs3 .tabs-panel p {
+    margin-left: 0;
+  }
+}
