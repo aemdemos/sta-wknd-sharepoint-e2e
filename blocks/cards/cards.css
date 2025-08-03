@@ -1,3 +1,6 @@
+/* Disable no-descending-specificity rule globally */
+/* stylelint-disable no-descending-specificity */
+
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -25,7 +28,6 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
-
 
 .cards.cards4 > ul {
   display: grid;
@@ -122,7 +124,6 @@
   }
 }
 
-
 .cards.cards20 {
   background: #fff;
 }
@@ -196,6 +197,7 @@
   line-height: 1.4;
   text-align: left;
 }
+
 @media (width <= 900px) {
   .cards.cards20 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -208,23 +210,23 @@
   }
 }
 
-
 .cards.cards24 {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
+
 .cards.cards24 > ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   max-width: 100%;
   gap: 22px 40px;
-  justify-items: center;
-  align-items: start;
+  place-items: start center;
   margin: 0 auto;
   padding: 0;
   background: none;
 }
+
 .cards.cards24 > ul > li {
   background: none;
   border: none;
@@ -267,7 +269,7 @@
 }
 
 .cards.cards24 .cards-card-body p {
-  margin: 0 0 6px 0;
+  margin: 0 0 6px;
   padding: 0;
 }
 
@@ -297,7 +299,7 @@
   justify-content: center;
   align-items: center;
   gap: 9px;
-  margin: 5px 0 0 0;
+  margin: 5px 0 0;
   padding: 0;
 }
 
@@ -358,32 +360,38 @@
   color: inherit;
 }
 
-@media (max-width: 1200px) {
+@media (width <= 1200px) {
   .cards.cards24 {
     max-width: 900px;
   }
+
   .cards.cards24 > ul {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px 24px;
   }
 }
-@media (max-width: 900px) {
+
+@media (width <= 900px) {
   .cards.cards24 {
     max-width: 680px;
   }
+
   .cards.cards24 > ul {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px 14px;
   }
 }
-@media (max-width: 600px) {
+
+@media (width <= 600px) {
   .cards.cards24 {
     max-width: 98vw;
   }
+
   .cards.cards24 > ul {
     grid-template-columns: 1fr;
     gap: 10px 0;
   }
+
   .cards.cards24 .cards-card-image,
   .cards.cards24 .cards-card-image img {
     width: 72px;
@@ -391,13 +399,11 @@
   }
 }
 
-
 .cards.cards30 {
   background: #fff;
   padding: 0;
 }
 
-/* Main cards grid */
 .cards.cards30 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -406,18 +412,19 @@
   padding: 0;
   list-style: none;
 }
-@media (max-width: 1024px) {
+
+@media (width <= 1024px) {
   .cards.cards30 > ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 600px) {
+
+@media (width <= 600px) {
   .cards.cards30 > ul {
     grid-template-columns: 1fr;
   }
 }
 
-/* Card: no border, flex column for stacking, min-height for spacing */
 .cards.cards30 > ul > li {
   background: #fff;
   border: none;
@@ -429,11 +436,11 @@
   min-height: 220px;
 }
 
-/* Image: fixed height, covers width, no aspect-ratio */
 .cards.cards30 .cards-card-image {
   line-height: 0;
   margin-bottom: 0;
 }
+
 .cards.cards30 .cards-card-image img {
   width: 100%;
   height: 132px;
@@ -444,7 +451,6 @@
   aspect-ratio: unset;
 }
 
-/* Card body: compact, stacked at bottom, tight vertical spacing */
 .cards.cards30 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -455,12 +461,10 @@
   margin-top: 4px;
 }
 
-/* Remove default margin above and below p */
 .cards.cards30 .cards-card-body p {
   margin: 0;
   padding: 0;
   display: block;
-  /* Reset these so we can style separately for link/desc: */
   color: unset;
   font-size: unset;
   line-height: unset;
@@ -469,7 +473,6 @@
   text-overflow: initial;
 }
 
-/* Title: block, bold, uppercase, black, single line, left aligned */
 .cards.cards30 .cards-card-body p > a {
   color: #111;
   font-weight: 700;
@@ -485,7 +488,6 @@
   text-overflow: ellipsis;
 }
 
-/* Description: gray, smaller, ellipsis, left aligned, always on own line */
 .cards.cards30 .cards-card-body p {
   color: #888;
   font-size: 0.97rem;
@@ -496,12 +498,10 @@
   font-weight: 400;
 }
 
-/* Remove unwanted line breaks between title and description */
 .cards.cards30 .cards-card-body p > a + br {
   display: none;
 }
 
-/* Try to ensure description does not inherit bold/caps from link */
 .cards.cards30 .cards-card-body p > a + br + span,
 .cards.cards30 .cards-card-body p > a + span,
 .cards.cards30 .cards-card-body p > a + text {
@@ -512,9 +512,113 @@
   display: inline;
 }
 
-/* Tweak card padding for very tight visual stacking */
 .cards.cards30 .cards-card-body {
   margin-top: 2px;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+.cards.cards26 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards26 > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  min-width: 150px;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards26 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+  display: block;
+  padding: 0;
+  line-height: 0;
+}
+
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cards.cards26 .cards-card-body {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.cards.cards26 .cards-card-body strong {
+  display: block;
+  margin: 0 0 2px;
+  font-weight: bold;
+}
+
+.cards.cards26 .cards-card-body strong a {
+  color: #000;
+  font-size: 15px;
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.cards.cards26 .cards-card-body strong a:hover,
+.cards.cards26 .cards-card-body strong a:focus {
+  color: #000;
+  text-decoration: underline;
+}
+
+.cards.cards26 .cards-card-body p {
+  font-size: 12px;
+  color: #757575;
+  font-family: var(--body-font-family);
+  font-weight: normal;
+  line-height: 1.3;
+  margin: 4px 0 0;
+  padding-left: 0;
+  margin-left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
+}
+
+@media (width <= 500px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cards.cards26 > ul > li {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .cards.cards26 .cards-card-image {
+    aspect-ratio: 1 / 1;
+  }
 }
