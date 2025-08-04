@@ -3121,8 +3121,6 @@
     padding: 0 0 0 0;
   }
 }
-
-/* Sidebar styling: targets the first child only */
 .tabs.tabs22 > div:first-child {
   display: flex;
   flex-direction: column;
@@ -3170,8 +3168,6 @@
   color: #888;
   letter-spacing: 1px;
 }
-
-/* Main content area */
 .tabs.tabs22 > div:last-child {
   display: flex;
   flex-direction: column;
@@ -3180,8 +3176,6 @@
   background: #fff;
   min-width: 0;
 }
-
-/* Tabs navigation */
 .tabs.tabs22 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -3192,8 +3186,6 @@
   background: none;
   border: none;
 }
-
-/* Tab buttons */
 .tabs.tabs22 .tabs-tab {
   background: none;
   border: none;
@@ -3232,8 +3224,6 @@
   font-family: inherit;
   letter-spacing: inherit;
 }
-
-/* Panel/content area */
 .tabs.tabs22 .tabs-panel {
   border: none;
   padding: 0;
@@ -3247,8 +3237,6 @@
 .tabs.tabs22 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
-
-/* Heading/title */
 .tabs.tabs22 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.1rem;
@@ -3259,8 +3247,6 @@
   line-height: 1.18;
   padding: 0;
 }
-
-/* Intro text */
 .tabs.tabs22 .tabs-panel > div > p {
   font-family: var(--body-font-family);
   font-size: 15px;
@@ -3269,8 +3255,6 @@
   margin: 0 0 18px 0;
   padding: 0;
 }
-
-/* Main image */
 .tabs.tabs22 .tabs-panel picture,
 .tabs.tabs22 .tabs-panel img {
   display: block;
@@ -3281,8 +3265,6 @@
   box-shadow: none;
   margin: 16px 0 12px 0;
 }
-
-/* Caption or note below image */
 .tabs.tabs22 .tabs-panel > div > p:last-child {
   color: #888;
   font-size: 13px;
@@ -3290,8 +3272,6 @@
   margin-bottom: 0;
   line-height: 1.5;
 }
-
-/* Responsive: stack columns on small screens */
 @media (max-width: 700px) {
   .tabs.tabs22 {
     grid-template-columns: 1fr;
@@ -3319,5 +3299,217 @@
   }
   .tabs.tabs22 .tabs-panel h3 {
     font-size: 1.2rem;
+  }
+}
+
+
+.tabs.tabs24 {
+  display: block;
+  max-width: 1120px;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.tabs.tabs24 .tabs-wrapper,
+.tabs.tabs24 > .block {
+  box-sizing: border-box;
+  max-width: 900px;
+  width: 100%;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs24 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 0 0 4px 0;
+  padding: 0;
+  border: none;
+  background: none;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.tabs.tabs24 .tabs-tab {
+  background: #fff;
+  color: #222;
+  border: 2px solid #222;
+  border-radius: 0;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 13px 34px 13px 34px;
+  margin: 0;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  box-shadow: none;
+  outline: none;
+  line-height: 1.3;
+  min-width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs24 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 2px solid #222;
+  font-weight: 800;
+}
+
+.tabs.tabs24 .tabs-tab:not([aria-selected="true"]):hover {
+  background: #f4e285;
+  color: #222;
+  border-color: #222;
+}
+
+.tabs.tabs24 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+/* Heading: left-aligned, yellow underline using border-bottom */
+.tabs.tabs24 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 11px;
+  line-height: 1.1;
+  display: block;
+  text-align: left;
+  border-bottom: 5px solid #f4e285;
+  padding-bottom: 6px;
+  width: fit-content;
+}
+
+.tabs.tabs24 .tabs-panel {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 900px;
+}
+
+.tabs.tabs24 .tabs-panel > div {
+  width: 100%;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs24 .tabs-panel picture,
+.tabs.tabs24 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 0 30px 0;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+  text-align: left;
+}
+
+.tabs.tabs24 .tabs-panel > div > p,
+.tabs.tabs24 .tabs-panel > div > ul,
+.tabs.tabs24 .tabs-panel > div > ol,
+.tabs.tabs24 .tabs-panel > div > li {
+  font-family: var(--body-font-family);
+  font-size: 1.09rem;
+  color: #222;
+  line-height: 1.75;
+  margin: 0 0 1.1em 0;
+  max-width: 760px;
+  padding: 0;
+  text-align: left;
+}
+
+.tabs.tabs24 .tabs-panel > div > ul,
+.tabs.tabs24 .tabs-panel > div > ol {
+  margin-left: 1.25em;
+  margin-bottom: 1.7em;
+}
+
+.tabs.tabs24 .tabs-panel > div > li {
+  margin-bottom: 0.65em;
+}
+
+@media (max-width: 1000px) {
+  .tabs.tabs24,
+  .tabs.tabs24 .tabs-wrapper,
+  .tabs.tabs24 > .block,
+  .tabs.tabs24 .tabs-panel,
+  .tabs.tabs24 .tabs-panel > div {
+    max-width: 100vw;
+  }
+  .tabs.tabs24 .tabs-panel picture,
+  .tabs.tabs24 .tabs-panel img {
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs24 {
+    padding: 0 2vw;
+  }
+  .tabs.tabs24 .tabs-list {
+    gap: 10px;
+    margin-bottom: 2px;
+  }
+  .tabs.tabs24 .tabs-tab {
+    padding: 8px 16px;
+    min-width: 82px;
+    font-size: 0.97rem;
+  }
+  .tabs.tabs24 .tabs-panel > div > h3 {
+    font-size: 1.15rem;
+    padding-bottom: 3px;
+    border-bottom-width: 3px;
+  }
+  .tabs.tabs24 .tabs-panel picture,
+  .tabs.tabs24 .tabs-panel img {
+    margin-bottom: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs24 {
+    padding: 0 1vw;
+  }
+  .tabs.tabs24 .tabs-panel > div > h3 {
+    font-size: 1rem;
+    border-bottom-width: 2px;
+    padding-bottom: 1px;
+  }
+  .tabs.tabs24 .tabs-panel > div,
+  .tabs.tabs24 .tabs-panel,
+  .tabs.tabs24 .tabs-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .tabs.tabs24 .tabs-panel picture,
+  .tabs.tabs24 .tabs-panel img {
+    max-width: 100vw;
   }
 }
