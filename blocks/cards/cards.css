@@ -779,3 +779,232 @@
 .cards.cards20 .cards-card-body br {
   display: none;
 }
+
+
+.cards.cards23 {
+  max-width: 1200px;
+  margin: 56px auto 40px auto;
+  padding: 0 16px;
+}
+
+/* === 1. Intro Paragraphs: Side by Side at Top === */
+.cards.cards23 > ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: flex-start;
+}
+
+.cards.cards23 > ul > li:nth-child(1),
+.cards.cards23 > ul > li:nth-child(2) {
+  width: 50%;
+  min-width: 320px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 36px;
+  padding: 0 24px 0 0;
+  background: none;
+  border: none;
+}
+
+.cards.cards23 > ul > li:nth-child(2) {
+  padding: 0 0 0 24px;
+}
+
+.cards.cards23 > ul > li:nth-child(1) .cards-card-body,
+.cards.cards23 > ul > li:nth-child(2) .cards-card-body {
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  font-family: var(--body-font-family);
+  color: #666;
+  font-size: 1.08em;
+  font-style: normal;
+  border-bottom: 2px solid #d6c47a;
+  padding-bottom: 14px;
+}
+
+@media (max-width: 900px) {
+  .cards.cards23 > ul {
+    flex-direction: column;
+  }
+  .cards.cards23 > ul > li:nth-child(1),
+  .cards.cards23 > ul > li:nth-child(2) {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+}
+
+/* === 2. People Cards: 2 Rows of 4, Start After Intros === */
+.cards.cards23 > ul > li:nth-child(n+3) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0 0 40px 0;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .cards.cards23 > ul > li:nth-child(n+3) {
+    width: 50%;
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards.cards23 > ul > li:nth-child(n+3) {
+    width: 100%;
+    padding-bottom: 18px;
+  }
+}
+
+/* --- Row wrap for 2x4 grid with flex --- */
+.cards.cards23 > ul {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.cards.cards23 > ul > li:nth-child(n+3) {
+  margin-top: 0;
+}
+
+/* === 3. Card Content === */
+.cards.cards23 .cards-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: none;
+  box-shadow: none;
+}
+
+.cards.cards23 .cards-card-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  background: #fff;
+  border: none;
+}
+
+.cards.cards23 .cards-card-body {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards.cards23 .cards-card-body h3 {
+  margin: 12px 0 5px 0;
+  font-size: 1.18em;
+  font-family: var(--heading-font-family);
+  font-weight: bold;
+  color: #222;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.cards.cards23 .cards-card-body h5 {
+  margin: 0 0 16px 0;
+  font-size: 0.98em;
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  color: #888;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+/* === 4. Social Links as Icon Buttons === */
+.cards.cards23 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 9px;
+}
+
+.cards.cards23 .cards-card-body p a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #222;
+  color: transparent;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.cards.cards23 .cards-card-body p a[title*="Facebook"] {
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="2" fill="black"/><path d="M22 10.9h-2.3c-.3 0-.7.4-.7.8V13h3v2.5h-3V22h-2.7v-6.5h-2V13h2v-1.4c0-1.7 1.2-3.1 2.9-3.1H22v2.4z" fill="white"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+}
+.cards.cards23 .cards-card-body p a[title*="Twitter"] {
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="2" fill="black"/><path d="M25 11.6c-.6.3-1.2.4-1.9.5.7-.4 1.1-1 1.3-1.6-.7.4-1.3.7-2.1.8-.7-.8-1.9-1-2.7-.5-.9.5-1.3 1.6-.8 2.5C15.1 13 13.1 12 11.6 10.5c-.3.6-.2 1.4.4 1.8-.5 0-.9-.1-1.3-.3 0 1.2.9 2.1 2.1 2.3-.2 0-.4.1-.6.1-.2 0-.3 0-.5-.1.3.9 1.1 1.5 2.1 1.5-1 .8-2.2 1.2-3.4 1.2H9c1.2.8 2.7 1.3 4.2 1.3 5 0 7.7-4 7.7-7.5v-.3c.6-.4 1.1-1 1.5-1.6z" fill="white"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+}
+.cards.cards23 .cards-card-body p a[title*="Instagram"] {
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="2" fill="black"/><g><circle cx="16" cy="16" r="6" stroke="white" stroke-width="2" fill="none"/><circle cx="23" cy="9" r="1" fill="white"/></g></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+}
+
+.cards.cards23 .cards-card-body p a:hover,
+.cards.cards23 .cards-card-body p a:focus {
+  background: #d6c47a;
+  color: transparent;
+  background-blend-mode: multiply;
+}
+
+.cards.cards23 > ul > li,
+.cards.cards23 .cards-card-image,
+.cards.cards23 .cards-card-body {
+  background: none;
+  border: none;
+  box-shadow: none;
+  list-style: none;
+}
+
+@media (max-width: 600px) {
+  .cards.cards23 {
+    padding: 0 6px;
+  }
+  .cards.cards23 .cards-card-image,
+  .cards.cards23 .cards-card-image img {
+    width: 72px;
+    height: 72px;
+  }
+}
