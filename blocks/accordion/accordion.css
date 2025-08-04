@@ -1,7 +1,3 @@
-/* Updated CSS Code */
-/* Disable no-descending-specificity globally */
-/* stylelint-disable no-descending-specificity */
-
 .accordion details {
   border: 1px solid #dadada;
 }
@@ -440,8 +436,6 @@
   transition: background 0.18s;
   gap: 0;
 }
-
-/* Remove extra left padding on header text, flush to block edge */
 .accordion.accordion31 .accordion-item-label h2 {
   font-family: var(--heading-font-family);
   font-size: 30px;
@@ -454,14 +448,10 @@
   flex: 0 1 auto;
   text-align: left;
 }
-
-/* Chevron/arrow more balanced to the right */
 .accordion.accordion31 summary.accordion-item-label::after {
   margin-left: 22px;
   margin-right: 12px;
 }
-
-/* VERTICAL WHITESPACE BETWEEN ITEMS handled by .accordion-item margin */
 .accordion.accordion31 details + details {
   margin-top: 0;
 }
@@ -475,21 +465,15 @@
   color: #222;
   line-height: 1.7;
 }
-
-/* Highlight open state */
 .accordion.accordion31 details[open] .accordion-item-label {
   background: #fffbe6;
   border-left: 4px solid #FDB813;
   padding-left: 14px;
 }
-
-/* Remove default summary marker */
 .accordion.accordion31 summary::-webkit-details-marker,
 .accordion.accordion31 summary::marker {
   display: none;
 }
-
-/* Responsive: reduce side paddings for small screens */
 @media (width <= 760px) {
   .accordion.accordion31 {
     max-width: 99vw;
@@ -508,4 +492,139 @@
   .accordion.accordion31 .accordion-item-label h2 {
     font-size: 22px;
   }
+}
+
+.accordion.accordion38 {
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px 0 rgba(60,60,60,0.07);
+  overflow: visible;
+}
+
+.accordion.accordion38 details {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.035);
+  margin-bottom: 32px;
+  background: #fff;
+  overflow: visible;
+  transition: box-shadow 0.2s;
+}
+
+.accordion.accordion38 details:last-child {
+  margin-bottom: 0;
+}
+
+.accordion.accordion38 details[open] {
+  box-shadow: 0 4px 24px rgba(60,60,60,0.08);
+}
+
+/* Summary row as flex row for alignment */
+.accordion.accordion38 summary,
+.accordion.accordion38 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 32px 12px 32px;
+  background: #f4f4f4;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  min-height: 70px;
+  font-family: var(--heading-font-family);
+  position: relative;
+  transition: background 0.2s;
+}
+
+.accordion.accordion38 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Heading stretches to fill left, underline under text only */
+.accordion.accordion38 summary h2 {
+  margin: 0;
+  font-size: 2.125rem; /* 34px */
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  flex: 1 1 auto;
+  text-align: left;
+  position: relative;
+  padding-bottom: 0;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/* Yellow accent underline under heading text only, tightly grouped */
+.accordion.accordion38 summary h2::after {
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: #ffe066;
+  border-radius: 2px;
+  margin-top: 2px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  content: "";
+}
+
+/* Padding for details body */
+.accordion.accordion38 .accordion-item-body {
+  padding: 32px 32px 36px 32px;
+  background: #fff;
+  font-size: 1rem;
+  color: #222;
+  font-family: var(--body-font-family);
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .accordion.accordion38 {
+    max-width: 100vw;
+    margin: 24px 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .accordion.accordion38 details,
+  .accordion.accordion38 details[open] {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .accordion.accordion38 summary,
+  .accordion.accordion38 .accordion-item-label,
+  .accordion.accordion38 .accordion-item-body {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .accordion.accordion38 .accordion-item-body {
+    padding-bottom: 24px;
+  }
+}
+
+.accordion.accordion38 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion38 details p {
+  margin-bottom: 1.1em;
+}
+
+.accordion.accordion38 summary:focus {
+  outline: 2px solid #ffe066;
+  background: #f8f8f8;
+}
+
+.accordion.accordion38 summary:hover {
+  background: #ececec;
+}
+.accordion.accordion38 summary:active {
+  background: #e2e2e2;
 }
