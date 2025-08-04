@@ -3723,8 +3723,6 @@
   box-shadow: none;
   padding: 0;
 }
-
-/* Main content width and alignment */
 .tabs.tabs29 > .tabs-list,
 .tabs.tabs29 > .tabs-panel {
   width: 100%;
@@ -3734,8 +3732,6 @@
   box-sizing: border-box;
   align-self: flex-start;
 }
-
-/* Tabs navigation: horizontal, bolder, longer underline, more gap below */
 .tabs.tabs29 > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -3795,8 +3791,6 @@
   text-transform: inherit;
   line-height: 1.1;
 }
-
-/* Main panel: left-aligned */
 .tabs.tabs29 > .tabs-panel {
   padding: 0;
   margin: 0;
@@ -3822,8 +3816,6 @@
   flex-direction: column;
   align-items: flex-start;
 }
-
-/* Headings and underline: extend underline, tighter below, more space after */
 .tabs.tabs29 .tabs-panel h3:first-child {
   font-family: var(--heading-font-family);
   font-size: 2.3rem;
@@ -3840,13 +3832,9 @@
 .tabs.tabs29 .tabs-panel h3:first-child + h3 {
   margin-top: 18px;
 }
-
-/* Add more spacing after underline to subheading */
 .tabs.tabs29 .tabs-panel h3:first-child {
   margin-bottom: 7px;
 }
-
-/* Subheading: lighter, less gap below */
 .tabs.tabs29 .tabs-panel h3:nth-of-type(2) {
   font-family: var(--heading-font-family);
   font-size: 1.02rem;
@@ -3856,8 +3844,6 @@
   line-height: 1.13;
   letter-spacing: 0;
 }
-
-/* Image: visually grouped, minimal gap */
 .tabs.tabs29 .tabs-panel picture,
 .tabs.tabs29 .tabs-panel img {
   display: block;
@@ -3867,8 +3853,6 @@
   border-radius: 0;
   box-shadow: none;
 }
-
-/* Bold sub-image text: closer and bolder */
 .tabs.tabs29 .tabs-panel p:first-of-type {
   font-family: var(--body-font-family);
   font-size: 1.11rem;
@@ -3880,8 +3864,6 @@
   padding: 0;
   line-height: 1.38;
 }
-
-/* Paragraph: compact, less margin */
 .tabs.tabs29 .tabs-panel p:not(:first-of-type) {
   font-family: var(--body-font-family);
   font-size: 1rem;
@@ -3912,5 +3894,129 @@
     padding: 10px 14px 7px 14px;
     font-size: 0.98rem;
     min-width: 70px;
+  }
+}
+
+
+.tabs.tabs30 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Left column: Tabs navigation list */
+.tabs.tabs30 > .tabs-list {
+  min-width: 180px;
+  max-width: 220px;
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 16px 32px 0;
+  border-right: 1px solid #ececec;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Right column: Only show the active panel */
+.tabs.tabs30 > .tabs-panel {
+  flex: 1 1 0;
+  width: 100%;
+  max-width: 900px;
+  padding: 32px 0 32px 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.tabs.tabs30 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Vertical sidebar tab styles */
+.tabs.tabs30 > .tabs-list .tabs-tab {
+  background: transparent;
+  color: #A1A1A1;
+  border: none;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.tabs.tabs30 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #111;
+  color: #fff;
+}
+
+/* Main content styling */
+.tabs.tabs30 > .tabs-panel h3 {
+  font-family: serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #222;
+  margin-bottom: 0.2em;
+  margin-top: 0;
+  line-height: 1.15;
+  position: relative;
+}
+.tabs.tabs30 > .tabs-panel h3::after {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #f5e381;
+  margin-top: 8px;
+}
+
+/* Main text */
+.tabs.tabs30 > .tabs-panel p, 
+.tabs.tabs30 > .tabs-panel ul, 
+.tabs.tabs30 > .tabs-panel li {
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+.tabs.tabs30 > .tabs-panel picture {
+  display: block;
+  margin: 2em 0;
+}
+.tabs.tabs30 > .tabs-panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Responsive: Stack columns on small screens */
+@media (max-width: 800px) {
+  .tabs.tabs30 {
+    flex-direction: column;
+    gap: 0;
+  }
+  .tabs.tabs30 > .tabs-list {
+    flex-direction: row;
+    max-width: 100vw;
+    min-width: 0;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ececec;
+    height: auto;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 0;
+    margin-bottom: 18px;
+  }
+  .tabs.tabs30 > .tabs-panel {
+    padding: 24px 0 12px 0;
+    max-width: 100vw;
   }
 }
