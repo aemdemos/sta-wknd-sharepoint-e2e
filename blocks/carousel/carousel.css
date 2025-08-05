@@ -1,3 +1,6 @@
+/* Disable no-descending-specificity globally */
+/* stylelint-disable no-descending-specificity */
+
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +102,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +152,155 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel6 .carousel-slide {
+  position: relative;
+  min-height: 440px;
+  display: block;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel6 .carousel-slide .carousel-slide-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  min-height: 340px;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 36px;
+  width: auto;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 36px 36px 32px;
+  background: #fff;
+  color: #131313;
+  border-radius: 0;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 8%);
+  z-index: 2;
+  min-width: 0;
+  display: block;
+}
+
+@media (width <= 1024px) {
+  .carousel.carousel6 .carousel-slide .carousel-slide-content {
+    left: 16px;
+    right: 16px;
+    max-width: 100%;
+    padding: 20px 12px;
+    bottom: 12px;
+  }
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content h2,
+.carousel.carousel6 .carousel-slide .carousel-slide-content p {
+  color: #131313;
+  margin-top: 0;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content .button-container {
+  margin-top: 24px;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content .button {
+  background: #ffe600;
+  color: #131313;
+  border: none;
+  border-radius: 3px;
+  padding: 12px 30px;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: none;
+  margin: 0;
+  margin-top: 10px;
+  text-transform: uppercase;
+  transition: background 0.15s, color 0.15s;
+  display: inline-block;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content .button:hover,
+.carousel.carousel6 .carousel-slide .carousel-slide-content .button:focus {
+  background: #ffe600cc;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Navigation arrows: bottom right, overlaying image */
+.carousel.carousel6 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 52px 24px auto;
+  transform: none;
+  margin: 0;
+  gap: 14px;
+  background: none;
+  display: flex;
+  z-index: 3;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (width <= 1024px) {
+  .carousel.carousel6 .carousel-navigation-buttons {
+    right: 20px;
+    bottom: 12px;
+    gap: 8px;
+  }
+}
+
+.carousel.carousel6 .carousel-navigation-buttons button {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 11%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.carousel.carousel6 .carousel-navigation-buttons button:hover,
+.carousel.carousel6 .carousel-navigation-buttons button:focus-visible {
+  border-color: #3b63fb;
+  background: #f2f7ff;
+}
+
+.carousel.carousel6 .carousel-navigation-buttons button::after {
+  display: none;
+}
+
+.carousel.carousel6 .carousel-navigation-buttons button.slide-prev::before,
+.carousel.carousel6 .carousel-navigation-buttons button.slide-next::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: solid #131313;
+  border-width: 0 2px 2px 0;
+  background: transparent;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -7px;
+  margin-top: -7px;
+}
+
+.carousel.carousel6 .carousel-navigation-buttons button.slide-prev::before {
+  transform: rotate(135deg);
+}
+
+.carousel.carousel6 .carousel-navigation-buttons button.slide-next::before {
+  transform: rotate(-45deg);
 }
