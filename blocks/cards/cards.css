@@ -313,3 +313,120 @@
   min-height: 2.6em;
   max-height: 6em;
 }
+
+
+.cards.cards27 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Layout cards horizontally with minimal gap */
+.cards.cards27 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+/* Card sizing: slightly narrower for perfect match */
+.cards.cards27 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  width: 220px;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Square image, flush to card top */
+.cards.cards27 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  background: #fff;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.cards.cards27 .cards-card-image picture,
+.cards.cards27 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove all gap between image and text */
+.cards.cards27 .cards-card-body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Title: bold, uppercase, black, flush to image and desc */
+.cards.cards27 .cards-card-body strong a {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font-family, Arial, sans-serif);
+  line-height: 1.03;
+}
+
+/* Remove margin/padding from strong block */
+.cards.cards27 .cards-card-body strong {
+  font-weight: bold;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide <br> between title and description */
+.cards.cards27 .cards-card-body br {
+  display: none;
+}
+
+/* Description: gray, ellipsis, flush under title, tight line height */
+.cards.cards27 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  color: #757575;
+  font-family: var(--body-font-family, Arial, sans-serif);
+  font-weight: normal;
+  line-height: 1.09;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-height: 1.2em;
+  display: block;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 600px) {
+  .cards.cards27 > ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cards.cards27 > ul > li {
+    width: 100%;
+    max-width: 340px;
+  }
+}
