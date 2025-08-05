@@ -155,13 +155,9 @@
     padding: 24px 8px 16px 8px;
   }
 }
-
-/* Hide language switcher */
 .columns.columns5 > div > div:nth-child(2) {
   display: none;
 }
-
-/* LEFT COLUMN (logo+legal) stack */
 .columns.columns5 .columns-img-col,
 .columns.columns5 > div > div:nth-child(5) {
   grid-column: 1 / 2;
@@ -198,8 +194,6 @@
   text-decoration: underline;
   font-weight: 500;
 }
-
-/* --- RIGHT COLUMN HACK: combine "Follow Us" and the socials into a row visually --- */
 @media (min-width: 901px) {
   .columns.columns5 > div > div:nth-child(3),
   .columns.columns5 > div > div:nth-child(4) {
@@ -235,8 +229,6 @@
     height: 32px;
   }
 }
-
-/* On mobile, show them stacked */
 @media (max-width: 900px) {
   .columns.columns5 > div > div:nth-child(3),
   .columns.columns5 > div > div:nth-child(4) {
@@ -249,8 +241,6 @@
     margin-bottom: 8px;
   }
 }
-
-/* Social buttons: square, light, inline, only first letter visible */
 .columns.columns5 > div > div:nth-child(4) .button-container {
   margin: 0;
   display: inline-block;
@@ -275,26 +265,235 @@
   overflow: hidden;
   min-width: unset;
   max-width: 32px;
-  /* Only show the first character, fallback for no content property */
   font-family: var(--heading-font-family), sans-serif;
   letter-spacing: 0;
 }
 .columns.columns5 > div > div:nth-child(4) .button span,
 .columns.columns5 > div > div:nth-child(4) .button strong,
 .columns.columns5 > div > div:nth-child(4) .button em {
-  display: none; /* fallback if markup has extra tags */
+  display: none;
 }
 .columns.columns5 > div > div:nth-child(4) .button::first-letter {
   font-size: 19px;
   font-weight: 700;
 }
-
-/* Remove extra margin on p.button-container */
 .columns.columns5 > div > div:nth-child(4) .button-container {
   margin: 0;
 }
-
-/* Ensure vertical top alignment for all children */
 .columns.columns5 > div > div {
   align-self: start;
+}
+
+
+/* 1. Force full-width background if needed (see instructions for when to use) */
+/* 
+.columns-container > .columns-wrapper {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+}
+*/
+
+/* 2. Block background and text color, extra specificity */
+.columns.block,
+.columns.columns2,
+.columns.columns-3-cols {
+  background: #232323;
+  color: #e6e6e6;
+  font-family: var(--body-font-family);
+  padding: 48px 0;
+}
+
+/* 3. Main flex row: less left/right padding, spread items tight to edges */
+.columns.block > div,
+.columns.columns2 > div,
+.columns.columns-3-cols > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 32px;
+  gap: 0;
+  min-height: 72px;
+}
+
+/* 4. Logo column: left-aligned, higher contrast for dark bg images */
+.columns .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 180px;
+  margin-right: 48px;
+}
+.columns .columns-img-col img {
+  display: block;
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1); /* makes black logos white on dark bg */
+}
+
+/* 5. Navigation (middle column): don't let it expand too far */
+.columns.block > div > div:nth-child(2),
+.columns.columns2 > div > div:nth-child(2),
+.columns.columns-3-cols > div > div:nth-child(2) {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  /* remove excess horizontal expansion */
+  padding: 0;
+}
+
+/* 6. Outer nav ul (contains 'Home') */
+.columns.block > div > div:nth-child(2) > ul,
+.columns.columns2 > div > div:nth-child(2) > ul,
+.columns.columns-3-cols > div > div:nth-child(2) > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 7. Hide "Home" link (but allow submenu as nav) */
+.columns.block > div > div:nth-child(2) > ul > li > a[title="Home"],
+.columns.columns2 > div > div:nth-child(2) > ul > li > a[title="Home"],
+.columns.columns-3-cols > div > div:nth-child(2) > ul > li > a[title="Home"] {
+  display: none;
+}
+
+/* 8. Submenu nav bar: tight horizontal nav, reduced gap */
+.columns.block > div > div:nth-child(2) > ul > li > ul,
+.columns.columns2 > div > div:nth-child(2) > ul > li > ul,
+.columns.columns-3-cols > div > div:nth-child(2) > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: static;
+}
+
+/* 9. Remove first-level li margin/padding (for "Home" li) */
+.columns.block > div > div:nth-child(2) > ul > li,
+.columns.columns2 > div > div:nth-child(2) > ul > li,
+.columns.columns-3-cols > div > div:nth-child(2) > ul > li {
+  margin: 0;
+  padding: 0;
+}
+
+/* 10. Nav links: uppercase, bold, spacing, slightly bolder */
+.columns.block > div > div:nth-child(2) > ul > li > ul > li > a,
+.columns.columns2 > div > div:nth-child(2) > ul > li > ul > li > a,
+.columns.columns-3-cols > div > div:nth-child(2) > ul > li > ul > li > a {
+  color: #e6e6e6;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  padding: 0 4px;
+  transition: color 0.2s;
+  background: none;
+  display: block;
+  line-height: 1.4;
+}
+
+.columns.block > div > div:nth-child(2) > ul > li > ul > li > a:hover,
+.columns.block > div > div:nth-child(2) > ul > li > ul > li > a:focus,
+.columns.columns2 > div > div:nth-child(2) > ul > li > ul > li > a:hover,
+.columns.columns2 > div > div:nth-child(2) > ul > li > ul > li > a:focus,
+.columns.columns-3-cols > div > div:nth-child(2) > ul > li > ul > li > a:hover,
+.columns.columns-3-cols > div > div:nth-child(2) > ul > li > ul > li > a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* 11. Right section (search): right-aligned, spaced from nav */
+.columns.block > div > div:nth-child(3),
+.columns.columns2 > div > div:nth-child(3),
+.columns.columns-3-cols > div > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 140px;
+  margin-left: 40px;
+}
+.columns.block > div > div:nth-child(3) p,
+.columns.columns2 > div > div:nth-child(3) p,
+.columns.columns-3-cols > div > div:nth-child(3) p,
+.columns.block > div > div:nth-child(3) input,
+.columns.columns2 > div > div:nth-child(3) input,
+.columns.columns-3-cols > div > div:nth-child(3) input {
+  color: #e6e6e6;
+  font-size: 17px;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: transparent;
+  border: none;
+}
+
+/* 12. Remove default bullets for all uls in columns */
+.columns ul,
+.columns ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 13. Force nav links color override */
+.columns a,
+.columns a:visited {
+  color: #e6e6e6;
+  text-decoration: none;
+}
+.columns a:hover,
+.columns a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* 14. Responsive: Stack on small screens */
+@media (max-width: 900px) {
+  .columns.block > div,
+  .columns.columns2 > div,
+  .columns.columns-3-cols > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+    padding: 0 12px;
+    min-height: unset;
+  }
+  .columns .columns-img-col,
+  .columns.block > div > div:nth-child(2),
+  .columns.columns2 > div > div:nth-child(2),
+  .columns.columns-3-cols > div > div:nth-child(2),
+  .columns.block > div > div:nth-child(3),
+  .columns.columns2 > div > div:nth-child(3),
+  .columns.columns-3-cols > div > div:nth-child(3) {
+    justify-content: flex-start;
+    min-width: 0;
+    margin: 0;
+  }
+  .columns.block > div > div:nth-child(2) > ul > li > ul,
+  .columns.columns2 > div > div:nth-child(2) > ul > li > ul,
+  .columns.columns-3-cols > div > div:nth-child(2) > ul > li > ul {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .columns .columns-img-col {
+    margin-right: 0;
+  }
+  .columns.block > div > div:nth-child(3),
+  .columns.columns2 > div > div:nth-child(3),
+  .columns.columns-3-cols > div > div:nth-child(3) {
+    margin-left: 0;
+  }
 }
