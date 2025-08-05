@@ -39,8 +39,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* Layout: one row, perfect vertical centering */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
@@ -52,8 +50,6 @@
   box-sizing: border-box;
   padding: 0;
 }
-
-/* Logo column: more whitespace, smaller logo, avoid vertical offset */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -69,13 +65,9 @@
   display: block;
   margin: 0;
 }
-
-/* Hide the language link (middle column) */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
-
-/* Search column: more whitespace */
 .columns.columns2 > div > div:nth-child(3) {
   display: flex;
   align-items: center;
@@ -83,8 +75,6 @@
   padding-right: 72px;
   min-width: 180px;
 }
-
-/* Refined search field: even more compact, lighter gray, perfect vertical align */
 .columns.columns2 > div > div:nth-child(3) p {
   background: #f5f5f5;
   color: #bbbbbb;
@@ -103,8 +93,6 @@
   justify-content: flex-start;
   line-height: 1.2;
 }
-
-/* Lighter, smaller search icon, perfectly centered */
 .columns.columns2 > div > div:nth-child(3) p:before {
   display: inline-block;
   width: 14px;
@@ -118,8 +106,6 @@
   content: '';
   pointer-events: none;
 }
-
-/* Responsive: stack on small screens */
 @media (max-width: 899px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -141,4 +127,174 @@
     padding-bottom: 10px;
     min-width: 0;
   }
+}
+
+
+.columns.columns5 {
+  background: #242321;
+  color: #cccccc;
+  font-family: var(--body-font-family);
+  padding: 0;
+}
+
+.columns.columns5 > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.85fr);
+  gap: 0 12px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 32px 32px 32px;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .columns.columns5 > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 24px 8px 16px 8px;
+  }
+}
+
+/* Hide language switcher */
+.columns.columns5 > div > div:nth-child(2) {
+  display: none;
+}
+
+/* LEFT COLUMN (logo+legal) stack */
+.columns.columns5 .columns-img-col,
+.columns.columns5 > div > div:nth-child(5) {
+  grid-column: 1 / 2;
+}
+.columns.columns5 > div > div:nth-child(1) {
+  margin-bottom: 24px;
+}
+.columns.columns5 .columns-img-col img {
+  display: block;
+  max-width: 230px;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+.columns.columns5 > div > div:nth-child(5) {
+  margin-top: 0;
+  font-size: 15px;
+  color: #cccccc;
+  line-height: 1.6;
+  max-width: 600px;
+}
+.columns.columns5 > div > div:nth-child(5) p {
+  color: #cccccc;
+  font-size: 15px;
+  margin: 0.4em 0 0 0;
+  line-height: 1.6;
+}
+.columns.columns5 > div > div:nth-child(5) p:first-child {
+  font-weight: 700;
+  color: #fff;
+}
+.columns.columns5 > div > div:nth-child(5) a {
+  color: #cccccc;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* --- RIGHT COLUMN HACK: combine "Follow Us" and the socials into a row visually --- */
+@media (min-width: 901px) {
+  .columns.columns5 > div > div:nth-child(3),
+  .columns.columns5 > div > div:nth-child(4) {
+    position: absolute;
+    top: 48px;
+    margin: 0;
+  }
+  .columns.columns5 > div > div:nth-child(3) {
+    right: 180px;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+  .columns.columns5 > div > div:nth-child(3) h4 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0 14px 0 0;
+    padding: 0;
+    line-height: 1;
+    display: inline-block;
+    opacity: 1;
+  }
+  .columns.columns5 > div > div:nth-child(4) {
+    right: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    height: 32px;
+  }
+}
+
+/* On mobile, show them stacked */
+@media (max-width: 900px) {
+  .columns.columns5 > div > div:nth-child(3),
+  .columns.columns5 > div > div:nth-child(4) {
+    position: static;
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+  .columns.columns5 > div > div:nth-child(3) h4 {
+    margin-bottom: 8px;
+  }
+}
+
+/* Social buttons: square, light, inline, only first letter visible */
+.columns.columns5 > div > div:nth-child(4) .button-container {
+  margin: 0;
+  display: inline-block;
+}
+
+.columns.columns5 > div > div:nth-child(4) .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 4px;
+  background: #f4f4f4;
+  color: #242321;
+  font-size: 19px;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-width: unset;
+  max-width: 32px;
+  /* Only show the first character, fallback for no content property */
+  font-family: var(--heading-font-family), sans-serif;
+  letter-spacing: 0;
+}
+.columns.columns5 > div > div:nth-child(4) .button span,
+.columns.columns5 > div > div:nth-child(4) .button strong,
+.columns.columns5 > div > div:nth-child(4) .button em {
+  display: none; /* fallback if markup has extra tags */
+}
+.columns.columns5 > div > div:nth-child(4) .button::first-letter {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* Remove extra margin on p.button-container */
+.columns.columns5 > div > div:nth-child(4) .button-container {
+  margin: 0;
+}
+
+/* Ensure vertical top alignment for all children */
+.columns.columns5 > div > div {
+  align-self: start;
 }
