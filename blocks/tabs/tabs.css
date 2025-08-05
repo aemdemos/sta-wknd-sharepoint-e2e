@@ -1944,7 +1944,6 @@
 
 
 .tabs.tabs37 {
-  /* Add comfortable margin for left edge, matching original */
   padding-left: 24px;
   padding-right: 0;
   padding-top: 0;
@@ -1953,14 +1952,10 @@
   box-sizing: border-box;
   display: block;
 }
-
-/* Remove extra top margin from the first child panel, tabs, etc. */
 .tabs.tabs37 > .tabs-list,
 .tabs.tabs37 .tabs-panel {
   margin-top: 0;
 }
-
-/* Tabs navigation: left-align, slightly increase spacing for comfort */
 .tabs.tabs37 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1973,8 +1968,6 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
-
-/* Tab buttons: uppercase, bold, left-aligned */
 .tabs.tabs37 .tabs-list button {
   border: none;
   background: none;
@@ -2001,14 +1994,10 @@
   border: none;
   cursor: default;
 }
-
-/* Paragraph in tab button: remove margin */
 .tabs.tabs37 .tabs-list button p {
   margin: 0;
   padding: 0;
 }
-
-/* Panel: left-align, remove centering, increase width for closer match */
 .tabs.tabs37 .tabs-panel {
   border: none;
   background: none;
@@ -2019,8 +2008,6 @@
   margin-left: 0;
   margin-right: 0;
 }
-
-/* Main column: remove centering, tighten vertical spacing */
 .tabs.tabs37 .tabs-panel > div {
   max-width: 700px;
   margin: 0;
@@ -2029,8 +2016,6 @@
   gap: 12px;
   align-items: flex-start;
 }
-
-/* Large heading: left-align, bold, yellow underline bar below (fixed size, spacing) */
 .tabs.tabs37 .tabs-panel > div > h3 {
   font-family: var(--heading-font-family);
   font-size: 2.15rem;
@@ -2061,8 +2046,6 @@
   bottom: 0;
   content: "";
 }
-
-/* Paragraph styling for readable width and spacing */
 .tabs.tabs37 .tabs-panel > div > p {
   color: #333;
   font-size: 1.08rem;
@@ -2072,8 +2055,6 @@
   max-width: 700px;
   text-align: left;
 }
-
-/* Ensure image matches text width, left-aligned, tighten spacing */
 .tabs.tabs37 .tabs-panel picture,
 .tabs.tabs37 .tabs-panel img {
   width: 100%;
@@ -2086,8 +2067,6 @@
   border-radius: 0;
   object-fit: cover;
 }
-
-/* Responsive: reduce left padding at mobile, ensure all max-widths are 100% */
 @media (max-width: 900px) {
   .tabs.tabs37 {
     padding-left: 4vw;
@@ -2102,5 +2081,205 @@
   .tabs.tabs37 .tabs-panel picture,
   .tabs.tabs37 .tabs-panel img {
     max-width: 100%;
+  }
+}
+
+
+.tabs.tabs38 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 60px auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* SIDEBAR: Vertical tab list */
+.tabs.tabs38 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 210px;
+  max-width: 320px;
+  flex: 0 0 220px;
+  align-items: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs38 > .tabs-list button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+  width: auto;
+  text-align: left;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8b8b8b;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.2s;
+  display: block;
+}
+
+.tabs.tabs38 > .tabs-list button[aria-selected="true"] {
+  color: #222;
+  font-weight: 700;
+  cursor: default;
+}
+
+.tabs.tabs38 > .tabs-list button[aria-selected="true"]::after {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #f4e39e;
+  border-radius: 2px;
+  margin-top: 7px;
+  margin-bottom: 2px;
+  margin-left: 0;
+  content: "";
+}
+
+.tabs.tabs38 > .tabs-list button p {
+  margin: 0;
+  font-size: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  font-weight: inherit;
+  text-align: left;
+}
+
+/* --- MAIN PANEL: only display the active one, flex child --- */
+.tabs.tabs38 > .tabs-panel {
+  display: none;
+  flex: 1 1 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  min-width: 0;
+}
+
+.tabs.tabs38 > .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+.tabs.tabs38 > .tabs-panel > div {
+  max-width: 720px;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  /* Align all children to the left edge */
+  display: block;
+}
+
+.tabs.tabs38 > .tabs-panel h3 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #222;
+  margin-bottom: 8px;
+  margin-top: 0;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  position: relative;
+  text-align: left;
+}
+
+.tabs.tabs38 > .tabs-panel h3::after {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #f4e39e;
+  border-radius: 2px;
+  margin-top: 7px;
+  margin-bottom: 22px;
+  margin-left: 0;
+  content: "";
+}
+
+.tabs.tabs38 > .tabs-panel picture,
+.tabs.tabs38 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-bottom: 20px;
+  box-shadow: none;
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tabs.tabs38 > .tabs-panel p:has(picture) {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs38 > .tabs-panel p {
+  color: #444;
+  font-size: 1.09rem;
+  line-height: 1.55;
+  margin-bottom: 12px;
+  margin-top: 0.8em;
+  text-align: left;
+  max-width: 720px;
+  margin-left: 0;
+}
+
+/* Responsive --- */
+@media (max-width: 1000px) {
+  .tabs.tabs38 {
+    max-width: 100vw;
+    gap: 32px;
+    margin: 32px auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .tabs.tabs38 {
+    flex-direction: column;
+    gap: 0;
+    margin: 16px 0;
+    max-width: 100vw;
+  }
+  .tabs.tabs38 > .tabs-list {
+    flex-direction: row;
+    gap: 12px;
+    min-width: 0;
+    max-width: 100vw;
+    width: 100vw;
+    align-items: center;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    padding: 0 8px;
+  }
+  .tabs.tabs38 > .tabs-panel[aria-hidden="false"] {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0 4vw;
+  }
+  .tabs.tabs38 > .tabs-panel > div,
+  .tabs.tabs38 > .tabs-panel p {
+    max-width: 100vw;
+  }
+  .tabs.tabs38 > .tabs-panel p {
+    font-size: 1rem;
   }
 }
