@@ -1,6 +1,3 @@
-/* Globally disable no-descending-specificity for this file */
-/* stylelint-disable no-descending-specificity */
-
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -67,8 +64,6 @@
   background: #fff;
   box-sizing: border-box;
 }
-
-/* Tabs bar: align flush with block, tighter spacing */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -80,8 +75,6 @@
   border: none;
   background: none;
 }
-
-/* Tab buttons: compact, uppercase, active/inactive styling */
 .tabs.tabs7 .tabs-list button {
   background: none;
   border: none;
@@ -114,8 +107,6 @@
   margin: 0;
   pointer-events: none;
 }
-
-/* Remove unwanted panel styling, no forced stacking gap */
 .tabs.tabs7 .tabs-panel {
   margin: 0;
   padding: 0;
@@ -128,8 +119,6 @@
   display: flex;
   flex-direction: column;
 }
-
-/* Heading: align with content block, less margin below, wider underline */
 .tabs.tabs7 .tabs-panel h3 {
   margin: 0 0 7px;
   font-size: 2.1rem;
@@ -156,8 +145,6 @@
   border-radius: 2px;
   content: "";
 }
-
-/* Image: flush within horizontal padding of block, less margin above */
 .tabs.tabs7 .tabs-panel picture,
 .tabs.tabs7 .tabs-panel img {
   display: block;
@@ -168,8 +155,6 @@
   border-radius: 0;
   box-shadow: none;
 }
-
-/* First paragraph after image: less margin above */
 .tabs.tabs7 .tabs-panel p,
 .tabs.tabs7 .tabs-panel ul,
 .tabs.tabs7 .tabs-panel ol {
@@ -192,8 +177,6 @@
 .tabs.tabs7 .tabs-panel > div > p:first-of-type {
   margin-top: 10px;
 }
-
-/* Responsive refinements */
 @media (width <= 900px) {
   .tabs.tabs7 {
     max-width: 100vw;
@@ -221,8 +204,189 @@
     font-size: 15px;
   }
 }
-
-/* Prevent extra space below last block element */
 .tabs.tabs7 .tabs-panel > div > :last-child {
   margin-bottom: 0;
+}
+
+
+.tabs.tabs9 {
+  max-width: 900px;
+  margin: 48px auto;
+  background: #fff;
+  padding: 0 0 48px 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* 1. Tabs Row Alignment: flush left, minimal gap below */
+.tabs.tabs9 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  border-bottom: 1.5px solid #e0e0e0;
+  padding: 0;
+  margin: 0 0 4px 0; /* Tighter gap below tabs */
+  background: none;
+  box-shadow: none;
+  max-width: 100%;
+  overflow-x: auto;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* 2. Tab Buttons: left edge align, no extra horizontal spacing */
+.tabs.tabs9 .tabs-tab {
+  background: #fafafa;
+  color: #222;
+  border: none;
+  outline: none;
+  padding: 14px 22px 10px 22px;
+  text-transform: uppercase;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  font-size: 15.5px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: -2px;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+  box-shadow: none;
+}
+@media (max-width: 700px) {
+  .tabs.tabs9 .tabs-tab {
+    font-size: 13px;
+    padding: 10px 8px 8px 8px;
+  }
+}
+.tabs.tabs9 .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  z-index: 1;
+}
+.tabs.tabs9 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+.tabs.tabs9 .tabs-list button {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* 3. Panel Layout */
+.tabs.tabs9 .tabs-panel {
+  display: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+}
+.tabs.tabs9 .tabs-panel[aria-hidden='false'] {
+  display: block;
+  margin-top: 0;
+  background: none;
+}
+.tabs.tabs9 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* 4. Heading and yellow bar as a border, block-level, full content width */
+.tabs.tabs9 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  padding: 0 0 6px 0;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  background: none;
+  border-bottom: 4px solid #ffe082;
+  margin-bottom: 4px; /* Even tighter space below bar */
+}
+@media (max-width: 700px) {
+  .tabs.tabs9 .tabs-panel h3 {
+    font-size: 1.35rem;
+    border-bottom-width: 3px;
+    margin-bottom: 2px;
+  }
+}
+
+/* 5. Image & Caption */
+.tabs.tabs9 .tabs-panel > div > p:first-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  font-size: 0.98rem;
+  color: #222;
+  line-height: 1.4;
+  width: 100%;
+  gap: 0;
+}
+.tabs.tabs9 .tabs-panel > div > p:first-of-type img {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: 0 2px 14px 0 rgba(0,0,0,0.07);
+  margin-bottom: 2px;
+}
+
+/* 6. Caption style */
+.tabs.tabs9 .tabs-panel > div > p:first-of-type {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  font-size: 0.97rem;
+  color: #222;
+  margin-bottom: 2px;
+}
+.tabs.tabs9 .tabs-panel > div > p:first-of-type img + br + span,
+.tabs.tabs9 .tabs-panel > div > p:first-of-type img + span {
+  margin-top: 2px;
+  display: block;
+}
+
+/* 7. Description body text */
+.tabs.tabs9 .tabs-panel > div > p:not(:first-of-type) {
+  font-size: 1.13rem;
+  color: #333;
+  margin: 0;
+  line-height: 1.7;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+}
+
+/* 8. Responsive tweaks for stacking and spacing */
+@media (max-width: 700px) {
+  .tabs.tabs9 .tabs-panel > div > p:first-of-type img {
+    margin-bottom: 2px;
+    max-width: 100vw;
+  }
+  .tabs.tabs9 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* 9. Remove any unnecessary borders or card effects that may be inherited */
+.tabs.tabs9 .tabs-panel,
+.tabs.tabs9 .tabs-panel[aria-hidden='false'] {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
 }
