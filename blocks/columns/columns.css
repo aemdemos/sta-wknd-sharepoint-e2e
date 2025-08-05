@@ -283,18 +283,6 @@
 .columns.columns5 > div > div {
   align-self: start;
 }
-
-
-/* 1. Force full-width background if needed (see instructions for when to use) */
-/* 
-.columns-container > .columns-wrapper {
-  max-width: unset;
-  padding: 0;
-  margin: 0;
-}
-*/
-
-/* 2. Block background and text color, extra specificity */
 .columns.block,
 .columns.columns2,
 .columns.columns-3-cols {
@@ -303,8 +291,6 @@
   font-family: var(--body-font-family);
   padding: 48px 0;
 }
-
-/* 3. Main flex row: less left/right padding, spread items tight to edges */
 .columns.block > div,
 .columns.columns2 > div,
 .columns.columns-3-cols > div {
@@ -318,8 +304,6 @@
   gap: 0;
   min-height: 72px;
 }
-
-/* 4. Logo column: left-aligned, higher contrast for dark bg images */
 .columns .columns-img-col {
   display: flex;
   align-items: center;
@@ -332,10 +316,8 @@
   max-width: 220px;
   width: 100%;
   height: auto;
-  filter: brightness(0) invert(1); /* makes black logos white on dark bg */
+  filter: brightness(0) invert(1);
 }
-
-/* 5. Navigation (middle column): don't let it expand too far */
 .columns.block > div > div:nth-child(2),
 .columns.columns2 > div > div:nth-child(2),
 .columns.columns-3-cols > div > div:nth-child(2) {
@@ -344,11 +326,8 @@
   align-items: center;
   justify-content: center;
   min-width: 0;
-  /* remove excess horizontal expansion */
   padding: 0;
 }
-
-/* 6. Outer nav ul (contains 'Home') */
 .columns.block > div > div:nth-child(2) > ul,
 .columns.columns2 > div > div:nth-child(2) > ul,
 .columns.columns-3-cols > div > div:nth-child(2) > ul {
@@ -359,15 +338,11 @@
   margin: 0;
   padding: 0;
 }
-
-/* 7. Hide "Home" link (but allow submenu as nav) */
 .columns.block > div > div:nth-child(2) > ul > li > a[title="Home"],
 .columns.columns2 > div > div:nth-child(2) > ul > li > a[title="Home"],
 .columns.columns-3-cols > div > div:nth-child(2) > ul > li > a[title="Home"] {
   display: none;
 }
-
-/* 8. Submenu nav bar: tight horizontal nav, reduced gap */
 .columns.block > div > div:nth-child(2) > ul > li > ul,
 .columns.columns2 > div > div:nth-child(2) > ul > li > ul,
 .columns.columns-3-cols > div > div:nth-child(2) > ul > li > ul {
@@ -379,16 +354,12 @@
   padding: 0;
   position: static;
 }
-
-/* 9. Remove first-level li margin/padding (for "Home" li) */
 .columns.block > div > div:nth-child(2) > ul > li,
 .columns.columns2 > div > div:nth-child(2) > ul > li,
 .columns.columns-3-cols > div > div:nth-child(2) > ul > li {
   margin: 0;
   padding: 0;
 }
-
-/* 10. Nav links: uppercase, bold, spacing, slightly bolder */
 .columns.block > div > div:nth-child(2) > ul > li > ul > li > a,
 .columns.columns2 > div > div:nth-child(2) > ul > li > ul > li > a,
 .columns.columns-3-cols > div > div:nth-child(2) > ul > li > ul > li > a {
@@ -414,8 +385,6 @@
   color: #fff;
   text-decoration: underline;
 }
-
-/* 11. Right section (search): right-aligned, spaced from nav */
 .columns.block > div > div:nth-child(3),
 .columns.columns2 > div > div:nth-child(3),
 .columns.columns-3-cols > div > div:nth-child(3) {
@@ -439,16 +408,12 @@
   background: transparent;
   border: none;
 }
-
-/* 12. Remove default bullets for all uls in columns */
 .columns ul,
 .columns ul ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-/* 13. Force nav links color override */
 .columns a,
 .columns a:visited {
   color: #e6e6e6;
@@ -459,8 +424,6 @@
   color: #fff;
   text-decoration: underline;
 }
-
-/* 14. Responsive: Stack on small screens */
 @media (max-width: 900px) {
   .columns.block > div,
   .columns.columns2 > div,
@@ -495,5 +458,196 @@
   .columns.columns2 > div > div:nth-child(3),
   .columns.columns-3-cols > div > div:nth-child(3) {
     margin-left: 0;
+  }
+}
+
+
+.columns.columns40 {
+  width: 100%;
+  max-width: 1300px;
+  margin: 56px auto 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.columns.columns40 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 540px;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+.columns.columns40 > div > div {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.columns.columns40 .columns-img-col {
+  flex: 0 1 74%;
+  min-width: 0;
+  min-height: 440px;
+  background: #ddd;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.columns.columns40 .columns-img-col picture,
+.columns.columns40 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: none;
+  max-height: none;
+  border: none;
+  background: none;
+  filter: none;
+}
+
+.columns.columns40 > div > div:not(.columns-img-col) {
+  flex: 0 1 26%;
+  max-width: 410px;
+  background: #f7f7f7;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 48px 60px 48px;
+  min-height: 440px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.columns.columns40 > div > div:not(.columns-img-col) > * {
+  margin: 0 0 24px 0;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.columns.columns40 > div > div:not(.columns-img-col) > *:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns40 > div > div:not(.columns-img-col) > p:first-child {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+
+.columns.columns40 > div > div:not(.columns-img-col) > h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 28px;
+  margin-top: 0;
+  line-height: 1.13;
+}
+
+.columns.columns40 > div > div:not(.columns-img-col) > p:not(:first-child):not(.button-container) {
+  color: #666;
+  font-size: 1.08rem;
+  margin-bottom: 36px;
+  margin-top: 0;
+  line-height: 1.85;
+}
+
+.columns.columns40 .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns40 .button-container .button {
+  display: inline-block;
+  background: #ffe600;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  padding: 18px 48px;
+  border: none;
+  border-radius: 2px;
+  text-decoration: none;
+  box-shadow: none;
+  transition: background 0.2s;
+  margin: 40px 0 0 0;
+  max-width: none;
+  overflow: visible;
+  white-space: nowrap;
+  text-overflow: unset;
+  letter-spacing: 0.04em;
+}
+
+.columns.columns40 .button-container .button:hover,
+.columns.columns40 .button-container .button:focus {
+  background: #fff200;
+}
+
+@media (max-width: 1200px) {
+  .columns.columns40 {
+    max-width: 100vw;
+  }
+  .columns.columns40 > div > div:not(.columns-img-col) {
+    padding: 36px 18px 36px 18px;
+    max-width: 100%;
+  }
+  .columns.columns40 > div {
+    min-height: 320px;
+  }
+  .columns.columns40 .columns-img-col {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 900px) {
+  .columns.columns40 {
+    margin: 28px 0;
+    max-width: 100vw;
+  }
+  .columns.columns40 > div {
+    flex-direction: column;
+    min-height: unset;
+  }
+  .columns.columns40 .columns-img-col,
+  .columns.columns40 > div > div:not(.columns-img-col) {
+    min-height: 150px;
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .columns.columns40 > div > div:not(.columns-img-col) {
+    padding: 24px 8px 26px 8px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .columns.columns40 > div > div:not(.columns-img-col) > h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  .columns.columns40 > div > div:not(.columns-img-col) > p:not(:first-child):not(.button-container) {
+    margin-bottom: 14px;
+    font-size: 0.97rem;
+  }
+  .columns.columns40 .button-container .button {
+    font-size: 1rem;
+    padding: 12px 22px;
+    margin-top: 16px;
   }
 }
