@@ -25,3 +25,97 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards4 {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+/* Grid: cards fill width, less gap, columns fill remaining space for more even layout */
+.cards.cards4 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 16px;
+  place-items: start stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width <= 1200px) {
+  .cards.cards4 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 12px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards4 > ul {
+    grid-template-columns: 1fr;
+    gap: 12px 0;
+  }
+}
+
+/* Cards: fill grid column, remove unnecessary width constraints */
+.cards.cards4 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+
+/* Images: square corners, no margin */
+.cards.cards4 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0;
+  line-height: 0;
+  margin: 0;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Card body: slightly reduced side padding for tighter appearance */
+.cards.cards4 .cards-card-body {
+  padding: 16px 12px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1 1 auto;
+}
+
+/* Title: font-weight, margin, and spacing for clean appearance */
+.cards.cards4 .cards-card-body strong {
+  font-size: 14px;
+  color: #111;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 4px;
+  line-height: 1.3;
+  display: block;
+}
+
+/* Description: slightly larger, clear comfortable color/weight */
+.cards.cards4 .cards-card-body p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+}
