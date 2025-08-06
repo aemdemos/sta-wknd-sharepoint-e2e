@@ -38,13 +38,11 @@
   align-items: center;
   justify-content: space-between;
   min-height: 108px;
-  padding: 0 32px 0 8px; /* less left, slightly less right */
+  padding: 0 32px 0 8px;
   background: #fff;
   box-sizing: border-box;
   width: 100%;
 }
-
-/* Inner row (the div containing logo/lang/search) */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
@@ -52,8 +50,6 @@
   width: 100%;
   gap: 0;
 }
-
-/* --- Left: Logo --- */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -68,14 +64,10 @@
   object-fit: contain;
   margin: 0;
 }
-
-/* --- Center: Hide Language Selector --- */
 .columns.columns2 ul,
 .columns.columns2 li {
   display: none;
 }
-
-/* --- Right: Search Box Simulation --- */
 .columns.columns2 > div > div:last-child {
   flex: 1 1 auto;
   display: flex;
@@ -112,8 +104,6 @@
   background: url("data:image/svg+xml;utf8,<svg fill='black' viewBox='0 0 16 16' height='16' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M11.742 10.344h-.806l-.285-.274a6.471 6.471 0 001.553-5.004C12.2 2.254 9.946 0 7.1 0S2 2.254 2 5.066 4.254 10.132 7.1 10.132a6.471 6.471 0 005.004-1.553l.274.285v.806l4.25 4.25a1 1 0 01-1.414 1.414l-4.25-4.25zm-4.642 0C4.254 10.132 2 7.878 2 5.066 2 2.254 4.254 0 7.1 0s5.1 2.254 5.1 5.066c0 2.812-2.254 5.066-5.1 5.066z'/></svg>") no-repeat center center;
   content: "";
 }
-
-/* Responsive: stack vertically and center on small screens */
 @media (width <= 700px) {
   .columns.columns2 {
     flex-direction: column;
@@ -132,5 +122,204 @@
     width: 100%;
     justify-content: flex-start;
     margin-top: 10px;
+  }
+}
+
+
+.columns.columns9 {
+  background: #232221;
+  color: #cccccc;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: var(--body-font-family);
+  padding: 2.5rem 2rem 1.5rem 2rem;
+  box-sizing: border-box;
+}
+
+/* --- LAYOUT: Two columns, reduced gap, align to top --- */
+.columns.columns9 > .columns {
+  display: grid;
+  grid-template-columns: minmax(440px, 620px) 1fr;
+  gap: 1rem;
+  align-items: start;
+  width: 100%;
+}
+
+/* --- LEFT COLUMN: logo, language, text --- */
+.columns.columns9 > .columns > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: flex-start;
+}
+
+/* Logo styles */
+.columns.columns9 .columns-img-col {
+  width: 240px;
+  max-width: 100%;
+  margin-bottom: 0.2rem;
+}
+.columns.columns9 .columns-img-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Language selector: subtle, closer to logo/text */
+.columns.columns9 ul {
+  list-style: none;
+  margin: 0 0 0.1rem 0;
+  padding: 0;
+}
+.columns.columns9 ul li {
+  margin: 0;
+}
+.columns.columns9 ul li a {
+  color: #cccccc;
+  text-decoration: underline;
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  margin-bottom: 0.05rem;
+}
+.columns.columns9 ul li a:hover {
+  opacity: 1;
+}
+
+/* Text block spacing */
+.columns.columns9 > .columns > div:first-child > div:last-child {
+  margin-top: 0.1rem;
+  color: #cccccc;
+  font-size: 1rem;
+  max-width: 100%;
+}
+.columns.columns9 > .columns > div:first-child > div:last-child p {
+  color: #cccccc;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+}
+.columns.columns9 > .columns > div:first-child > div:last-child a {
+  color: #e0e0e0;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.columns.columns9 > .columns > div:first-child > div:last-child a:hover,
+.columns.columns9 > .columns > div:first-child > div:last-child a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* --- RIGHT COLUMN: socials row at absolute top right --- */
+.columns.columns9 > .columns > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-width: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Socials row: label and buttons side by side, top-aligned with left column */
+.columns.columns9 > .columns > div:nth-child(2) > div:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* fix height to ensure flush top alignment with logo, if needed */
+}
+
+/* "Follow Us" label styling */
+.columns.columns9 #follow-us {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  font-family: var(--body-font-family);
+  margin: 0;
+  padding: 0;
+  align-self: center;
+  line-height: 1;
+}
+
+/* Social buttons as icons (horizontal, square, hide label text) */
+.columns.columns9 .button-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.columns.columns9 .button {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+  background: #fff;
+  color: #232221;
+  border-radius: 4px;
+  font-size: 0;
+  font-weight: bold;
+  border: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 32px;
+  transition: background 0.2s;
+  overflow: hidden;
+}
+.columns.columns9 .button:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: #232221;
+  border-radius: 2px;
+}
+.columns.columns9 .button:hover,
+.columns.columns9 .button:focus {
+  background: #cccccc;
+  color: #232221;
+}
+
+/* Hide empty extra divs in the right column, if present */
+.columns.columns9 > .columns > div:nth-child(2) > div:not(:last-child) {
+  display: none;
+}
+
+/* Responsive: stack columns vertically, socials row stays horizontal */
+@media (max-width: 900px) {
+  .columns.columns9 {
+    padding: 1.2rem 1rem;
+  }
+  .columns.columns9 > .columns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .columns.columns9 .columns-img-col {
+    width: 160px;
+  }
+  .columns.columns9 > .columns > div:first-child {
+    align-items: flex-start;
+  }
+  .columns.columns9 > .columns > div:nth-child(2) {
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+  .columns.columns9 > .columns > div:nth-child(2) > div:last-child {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .columns.columns9 .columns-img-col {
+    width: 110px;
+  }
+  .columns.columns9 {
+    padding: 1rem 0.5rem;
   }
 }
