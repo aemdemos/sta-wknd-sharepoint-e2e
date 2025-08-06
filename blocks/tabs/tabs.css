@@ -2521,7 +2521,6 @@
 
 
 .tabs.tabs37 {
-  /* Remove excessive top margin, fine-tune centering */
   margin-top: 40px;
   margin-bottom: 40px;
   margin-left: auto;
@@ -2532,8 +2531,6 @@
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   padding: 0;
 }
-
-/* Tabs: horizontal, aligned with content */
 .tabs.tabs37 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2581,8 +2578,6 @@
   font-size: inherit;
   letter-spacing: inherit;
 }
-
-/* Main panel/card styling */
 .tabs.tabs37 .tabs-panel {
   background: #fff;
   margin: 0;
@@ -2598,15 +2593,11 @@
 .tabs.tabs37 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
-
-/* Vertically stack all direct content */
 .tabs.tabs37 .tabs-panel > div {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
-
-/* Title styling */
 .tabs.tabs37 .tabs-panel h3 {
   font-family: var(--heading-font-family), serif;
   font-size: 2.1rem;
@@ -2616,8 +2607,6 @@
   line-height: 1.18;
   letter-spacing: 0;
 }
-
-/* Image styling */
 .tabs.tabs37 .tabs-panel picture,
 .tabs.tabs37 .tabs-panel img {
   display: block;
@@ -2641,8 +2630,6 @@
   border: none;
   padding: 0;
 }
-
-/* Caption below image (first p after picture) */
 .tabs.tabs37 .tabs-panel picture + br + span,
 .tabs.tabs37 .tabs-panel picture + span,
 .tabs.tabs37 .tabs-panel picture + p {
@@ -2654,8 +2641,6 @@
   margin-top: 0;
   margin-bottom: 12px;
 }
-
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .tabs.tabs37 {
     max-width: 100%;
@@ -2682,5 +2667,208 @@
   .tabs.tabs37 .tabs-tab {
     padding-left: 10px;
     padding-right: 10px;
+  }
+}
+
+
+.tabs.tabs38 {
+  /* Remove extra vertical space and center block */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Inner layout: group tabs and main panel to share width and centering */
+.tabs.tabs38 .tabs38-inner {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Make sure .tabs38-inner is used as a wrapper for tablist + content; fallback if not present */
+.tabs.tabs38 .tabs-list[role="tablist"], 
+.tabs.tabs38 .tabs-panel[aria-hidden="false"] {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Tabs navigation: horizontal and close to content */
+.tabs.tabs38 .tabs-list[role="tablist"] {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0 0 1.2rem 0; /* Less space below tabs */
+  border: none;
+  background: transparent;
+}
+
+/* Tab buttons: horizontal, left-aligned, accent for active tab */
+.tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 1.07rem;
+  font-weight: 700;
+  padding: 0.8em 2.3em 0.8em 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin: 0;
+  border-radius: 0;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab:last-child {
+  padding-right: 0;
+}
+
+.tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab[aria-selected="false"]:hover,
+.tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab[aria-selected="false"]:focus {
+  background: #e7d28722;
+  color: #222;
+}
+
+.tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs38 .tabs-panel {
+  display: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+.tabs.tabs38 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+}
+
+/* Block heading: closer to tabs, no excess margin */
+.tabs.tabs38 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 0.4rem 0;
+  position: relative;
+  line-height: 1.15;
+  align-self: flex-start;
+}
+
+.tabs.tabs38 .tabs-panel h3::after {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #E7D287;
+  margin-top: 0.4em;
+  border-radius: 1.5px;
+  content: '';
+}
+
+/* Main image: large and fills main panel's width */
+.tabs.tabs38 .tabs-panel picture,
+.tabs.tabs38 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 2.2rem 0 1.7rem 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Paragraph: remove border, improve spacing */
+.tabs.tabs38 .tabs-panel p {
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0 0 1.7em 0;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  border: none;
+  box-shadow: none;
+}
+
+.tabs.tabs38 .tabs-panel p:last-child {
+  margin-bottom: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Remove default top margin from first heading for reduced whitespace */
+.tabs.tabs38 .tabs-panel > div > h3:first-child {
+  margin-top: 0;
+}
+
+/* Remove any extra margin/pad at the top of the entire block */
+.tabs.tabs38 {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Responsive: stack tabs and content vertically, reduce padding */
+@media (max-width: 900px) {
+  .tabs.tabs38, 
+  .tabs.tabs38 .tabs38-inner,
+  .tabs.tabs38 .tabs-list[role="tablist"],
+  .tabs.tabs38 .tabs-panel[aria-hidden="false"] {
+    max-width: 100%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .tabs.tabs38 .tabs-list[role="tablist"] {
+    margin-bottom: 1rem;
+  }
+  .tabs.tabs38 .tabs-panel picture,
+  .tabs.tabs38 .tabs-panel img {
+    margin: 1.2rem 0 1.2rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab {
+    font-size: 0.9rem;
+    padding-right: 0.8em;
+    padding-left: 0;
+  }
+  .tabs.tabs38 .tabs-panel h3 {
+    font-size: 1.2rem;
+  }
+  .tabs.tabs38 .tabs-panel picture,
+  .tabs.tabs38 .tabs-panel img {
+    margin: 0.7rem 0 0.7rem 0;
   }
 }
