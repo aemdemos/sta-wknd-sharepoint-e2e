@@ -31,3 +31,106 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 108px;
+  padding: 0 32px 0 8px; /* less left, slightly less right */
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Inner row (the div containing logo/lang/search) */
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 0;
+}
+
+/* --- Left: Logo --- */
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin-right: 0;
+}
+
+.columns.columns2 .columns-img-col img {
+  display: block;
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+  margin: 0;
+}
+
+/* --- Center: Hide Language Selector --- */
+.columns.columns2 ul,
+.columns.columns2 li {
+  display: none;
+}
+
+/* --- Right: Search Box Simulation --- */
+.columns.columns2 > div > div:last-child {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.columns.columns2 > div > div:last-child p {
+  background: #f5f5f5;
+  border-radius: 2px;
+  color: #b3b3b3;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  padding: 13px 32px 13px 48px;
+  min-width: 200px;
+  min-height: 48px;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.columns.columns2 > div > div:last-child p::before {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.4;
+  background: url("data:image/svg+xml;utf8,<svg fill='black' viewBox='0 0 16 16' height='16' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M11.742 10.344h-.806l-.285-.274a6.471 6.471 0 001.553-5.004C12.2 2.254 9.946 0 7.1 0S2 2.254 2 5.066 4.254 10.132 7.1 10.132a6.471 6.471 0 005.004-1.553l.274.285v.806l4.25 4.25a1 1 0 01-1.414 1.414l-4.25-4.25zm-4.642 0C4.254 10.132 2 7.878 2 5.066 2 2.254 4.254 0 7.1 0s5.1 2.254 5.1 5.066c0 2.812-2.254 5.066-5.1 5.066z'/></svg>") no-repeat center center;
+  content: "";
+}
+
+/* Responsive: stack vertically and center on small screens */
+@media (width <= 700px) {
+  .columns.columns2 {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: unset;
+    padding: 8px 0;
+  }
+
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .columns.columns2 > div > div:last-child {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+}
