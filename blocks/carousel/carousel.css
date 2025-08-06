@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -489,8 +488,6 @@
   padding: 0;
   background: #fff;
 }
-
-/* Keep image wide and compact */
 .carousel.carousel18 .carousel-slides-container {
   position: relative;
   margin: 0 auto;
@@ -499,8 +496,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Ensure compact, wide image ratio */
 .carousel.carousel18 .carousel-slide {
   min-height: 0;
   max-height: 400px;
@@ -511,13 +506,9 @@
   border-radius: 0;
   box-shadow: none;
 }
-
-/* Remove overlay/content */
 .carousel.carousel18 .carousel-slide .carousel-slide-content {
   display: none;
 }
-
-/* Clean image fit */
 .carousel.carousel18 .carousel-slide .carousel-slide-image picture,
 .carousel.carousel18 .carousel-slide .carousel-slide-image img {
   width: 100%;
@@ -527,8 +518,6 @@
   position: relative;
   margin: 0;
 }
-
-/* --- BOTTOM BAR FOR ARROWS AND DOTS --- */
 .carousel.carousel18 .carousel-bottom-bar,
 .carousel.carousel18 .carousel-controls-bar {
   width: 100%;
@@ -546,8 +535,6 @@
   pointer-events: none;
   gap: 0;
 }
-
-/* Show navigation arrows at far left/right */
 .carousel.carousel18 .carousel-navigation-buttons {
   position: absolute;
   top: 100%;
@@ -592,20 +579,14 @@
 .carousel.carousel18 .carousel-navigation-buttons .slide-prev::before {
   font-size: 21px;
   display: inline-block;
-
-  /* Unicode left arrow */
   content: "\2190";
 }
 
 .carousel.carousel18 .carousel-navigation-buttons .slide-next::before {
   font-size: 21px;
   display: inline-block;
-
-  /* Unicode right arrow */
   content: "\2192";
 }
-
-/* --- PAGE INDICATORS: Centered between arrows --- */
 .carousel.carousel18 .carousel-slide-indicators {
   position: absolute;
   left: 0;
@@ -646,8 +627,92 @@
   background: #232323;
   cursor: default;
 }
-
-/* Space for controls below image */
 .carousel.carousel18 .carousel-slides-container {
   padding-bottom: 44px;
+}
+
+
+.carousel.carousel26 .carousel-slide .carousel-slide-content {
+  margin: 0;
+  padding: 7px 16px 8px 18px;
+  background: #fff;
+  color: #131313;
+  border-radius: 0;
+  box-shadow: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: auto;
+  top: auto;
+  width: 70%;
+  max-width: 1080px;
+  min-width: 300px;
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+}
+
+.carousel.carousel26 .carousel-slide {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.carousel.carousel26 .carousel-slide-content h2 {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-family: var(--heading-font-family);
+  font-size: 1.11rem;
+  font-weight: 300;
+  color: #131313;
+  line-height: 1.1;
+}
+
+.carousel.carousel26 .carousel-slide-content p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.89rem;
+  color: #131313;
+  line-height: 1.22;
+}
+
+.carousel.carousel26 .carousel-slide-content .button-container {
+  margin-top: 8px;
+}
+
+.carousel.carousel26 .carousel-slide-content .button {
+  background: #ffe000;
+  color: #131313;
+  border-radius: 2px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.28em 0.85em;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  box-shadow: none;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.carousel.carousel26 .carousel-slide-content .button:hover,
+.carousel.carousel26 .carousel-slide-content .button:focus {
+  background: #ffed4a;
+  color: #131313;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .carousel.carousel26 .carousel-slide .carousel-slide-content {
+    width: 99vw;
+    max-width: 99vw;
+    min-width: 0;
+    padding: 6px 2vw 7px 2vw;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
 }
