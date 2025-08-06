@@ -1,8 +1,10 @@
+/* Disable no-descending-specificity rule for this file */
+/* stylelint-disable no-descending-specificity */
+
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +60,142 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+.accordion.accordion13 {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background: transparent;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.accordion.accordion13 details {
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  border-top: 1px solid #e6e6e6; /* Merged duplicate rule */
+}
+
+.accordion.accordion13 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion13 details:last-child {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.accordion.accordion13 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  padding: 20px 24px 20px 28px; /* right padding matches icon area */
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  border: none;
+  background: transparent;
+  min-height: 44px;
+  letter-spacing: 0.045em;
+  cursor: pointer;
+  z-index: 1;
+  padding-right: 38px; /* Reserved space for icon */
+}
+
+.accordion.accordion13 summary::-webkit-details-marker,
+.accordion.accordion13 summary::marker {
+  display: none;
+}
+
+/* Make text take all available space */
+.accordion.accordion13 .accordion-item-label {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin-right: 16px; /* Reduced spacing between text and icon */
+}
+
+.accordion.accordion13 .accordion-item-label p {
+  margin: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.045em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- Plus/minus icon, right-aligned --- */
+.accordion.accordion13 summary::before,
+.accordion.accordion13 summary::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  background: #222;
+  border-radius: 2px;
+  pointer-events: none;
+  transition: all 0.2s;
+  z-index: 2;
+}
+
+.accordion.accordion13 summary::before {
+  content: "";
+  width: 22px;
+  height: 4px;
+  transform: translateY(-50%);
+}
+
+.accordion.accordion13 summary::after {
+  content: "";
+  width: 4px;
+  height: 22px;
+  transform: translateY(-50%);
+}
+
+.accordion.accordion13 details[open] summary::after {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+/* Accordion body */
+.accordion.accordion13 details .accordion-item-body {
+  padding: 0 28px 20px;
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 14px;
+  color: #222;
+  line-height: 1.6;
+  background: transparent;
+  border: none;
+}
+
+@media (width <= 800px) {
+  .accordion.accordion13 {
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .accordion.accordion13 summary {
+    padding-right: 32px;
+    padding-left: 12px;
+  }
+
+  .accordion.accordion13 details .accordion-item-body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .accordion.accordion13 summary::before,
+  .accordion.accordion13 summary::after {
+    right: 0;
+  }
 }
