@@ -1,3 +1,4 @@
+/* Fixed CSS Code */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -39,7 +40,6 @@
   margin: 0;
 }
 
-
 .tabs .tabs-list button[aria-selected='true'] {
   border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
@@ -56,3 +56,154 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+.tabs.tabs3 {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tabs Navigation: Centered, compact, reduce vertical space */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+/* Tab Buttons: flat, uppercase, highlight active */
+.tabs.tabs3 .tabs-list button {
+  border: none;
+  background: none;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  padding: 10px 28px 10px 0;
+  margin: 0;
+  border-radius: 0;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+  line-height: 1.2;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tabs.tabs3 .tabs-list button:last-child {
+  padding-right: 0;
+}
+
+.tabs.tabs3 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs3 .tabs-list button:not([aria-selected='true']) {
+  background: none;
+  color: #222;
+  font-weight: 500;
+}
+
+/* Panel Styles: block flow */
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+  background: none;
+  overflow: visible;
+}
+
+/* Heading: large, serif, accent bar below ONLY on first h3 in first panel */
+.tabs.tabs3 .tabs-panel:first-of-type > div > h3 {
+  font-family: var(--heading-font-family), serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.18;
+  margin-top: 0;
+  margin-bottom: 18px;
+  text-align: left;
+  display: inline-block;
+  border-bottom: 4px solid #ffe066;
+  padding-bottom: 3px;
+  width: auto;
+  max-width: 100%;
+}
+
+.tabs.tabs3 .tabs-panel:not(:first-of-type) > div > h3 {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 18px;
+  font-family: var(--heading-font-family), serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.18;
+  text-align: left;
+  width: 100%;
+  max-width: 620px;
+}
+
+/* Text blocks: readable, shorter max-width, tightened margins */
+.tabs.tabs3 .tabs-panel > div > p,
+.tabs.tabs3 .tabs-panel ul,
+.tabs.tabs3 .tabs-panel > div > ul {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1.09rem;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 16px;
+  max-width: 540px;
+  text-align: left;
+}
+
+.tabs.tabs3 .tabs-panel > div > p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+/* Last paragraph: muted alt text, more space above */
+.tabs.tabs3 .tabs-panel > div > p:last-child {
+  color: #888;
+  font-size: 0.97rem;
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+
+/* Image: wide, visual prominence, rounded corners, centered */
+.tabs.tabs3 .tabs-panel picture,
+.tabs.tabs3 .tabs-panel img {
+  display: block;
+  margin: 30px auto 0;
+  width: 100%;
+  max-width: 820px;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+/* List alignment */
+.tabs.tabs3 .tabs-panel ul {
+  margin-left: 20px;
+  margin-bottom: 18px;
+  padding-left: 0;
+  max-width: 500px;
+}
+
+/* stylelint-disable no-descending-specificity */
