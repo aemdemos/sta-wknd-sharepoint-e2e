@@ -769,33 +769,25 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 2.5rem; /* Adds horizontal space between sidebar and main content */
+  gap: 2.5rem;
 }
-
-/* Sidebar (left column) */
 .tabs-list {
-  flex: 0 0 260px; /* Makes sidebar fixed width on desktop */
+  flex: 0 0 260px;
   max-width: 290px;
   min-width: 220px;
-  background: #fff; /* Or transparent */
-  padding: 0 0 0 0; /* Adjust as needed */
-  /* If you want a subtle border or separator: */
-  /* border-right: 1px solid #eee; */
+  background: #fff;
+  padding: 0 0 0 0;
 }
-
-/* Main content (right column) */
 .tabs-panel {
   flex: 1 1 0%;
-  min-width: 0; /* Allows content to shrink properly */
-  background: #fff; /* Or transparent */
-  padding: 0; /* Adjust as needed */
+  min-width: 0;
+  background: #fff;
+  padding: 0;
 }
-
-/* Sidebar meta info styling */
 .tabs-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* space between stacked sidebar sections/buttons */
+  gap: 1rem;
 }
 
 .tabs-tab {
@@ -810,13 +802,10 @@
 }
 
 .tabs-list > .tabs-tab:first-child {
-  /* This is the sidebar/overview info */
   background: none;
   padding-bottom: 2rem;
   border-bottom: 1px solid #eee;
 }
-
-/* Lowercase/Muted labels and bold values (adjust selectors if needed) */
 .tabs-list p {
   text-transform: uppercase;
   font-size: 12px;
@@ -826,14 +815,11 @@
 }
 
 .tabs-list strong, .tabs-list span, .tabs-list div {
-  /* Use as needed for value text */
   font-weight: bold;
   color: #222;
   font-size: 13px;
   letter-spacing: 0.03em;
 }
-
-/* Yellow underline under the "Cycling Southern Utah" heading (if present in .tabs-tab h3) */
 .tabs-list h3 {
   font-size: 1.75rem;
   font-family: 'Georgia', serif;
@@ -851,8 +837,6 @@
   background: #f7d154;
   margin-top: 0.25rem;
 }
-
-/* Main content styling (.tabs-panel) */
 .tabs-panel {
   display: flex;
   flex-direction: column;
@@ -887,8 +871,6 @@
   line-height: 1.5;
   margin-bottom: 1.2rem;
 }
-
-/* Tabs bar at top of right column */
 .tabs-panel > div:first-child {
   display: flex;
   gap: 0.5rem;
@@ -912,8 +894,6 @@
   color: #fff;
   border-color: #222;
 }
-
-/* Image section */
 .tabs-panel img {
   width: 100%;
   height: auto;
@@ -932,8 +912,6 @@
   margin-top: 0.3rem;
   padding-top: 0.2rem;
 }
-
-/* Responsive stacking */
 @media (max-width: 800px) {
   .tabs21.block {
     flex-direction: column;
@@ -943,4 +921,226 @@
     max-width: 100%;
     margin-bottom: 2rem;
   }
+}
+
+
+.tabs.tabs22 {
+  background: #fff;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 46px 0 60px 0;
+  box-sizing: border-box;
+}
+
+/* TABS LIST - Horizontal, compact, visually matches reference */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 40px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.tabs.tabs22 .tabs-tab {
+  appearance: none;
+  border: none;
+  background: none;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding: 12px 36px 12px 0;
+  margin: 0;
+  border-radius: 0;
+  outline: none;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs.tabs22 .tabs-tab:last-child {
+  padding-right: 0;
+}
+
+.tabs.tabs22 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #222;
+  z-index: 2;
+}
+
+.tabs.tabs22 .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+}
+
+.tabs.tabs22 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* PANEL CONTAINER */
+.tabs.tabs22 .tabs-panel {
+  border: none;
+  background: #fff;
+  padding: 0;
+  margin-top: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabs.tabs22 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* INSIDE PANEL: vertical stacking for all content, NO large gaps */
+.tabs.tabs22 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  row-gap: 0;
+}
+
+/* Headings */
+.tabs.tabs22 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.0rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 10px 0;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.tabs.tabs22 .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 22px 0;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+/* Yellow highlight on h3 */
+.tabs.tabs22 .tabs-panel h3::after {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #f7d154;
+  margin-top: 7px;
+  margin-bottom: 6px;
+  border-radius: 2px;
+  content: "";
+}
+
+/* Paragraphs */
+.tabs.tabs22 .tabs-panel p {
+  font-family: var(--heading-font-family);
+  font-size: 15.5px;
+  color: #222;
+  line-height: 1.7;
+  margin: 0 0 24px 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+/* Images */
+.tabs.tabs22 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  margin: 0 0 24px 0;
+}
+
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 8px 0;
+  border-radius: 0;
+  max-width: 100%;
+}
+
+/* Reduce gap between last image and "Related trips" */
+.tabs.tabs22 .tabs-panel picture:last-of-type {
+  margin-bottom: 8px;
+}
+.tabs.tabs22 .tabs-panel img:last-of-type {
+  margin-bottom: 8px;
+}
+
+/* "Related trips" paragraph - close to previous image */
+.tabs.tabs22 .tabs-panel p:last-of-type {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+/* List - flush left, no bullets, no indent, minimal gap above/below */
+.tabs.tabs22 .tabs-panel ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.tabs.tabs22 .tabs-panel li {
+  margin-bottom: 4px;
+  font-family: var(--heading-font-family);
+  font-size: 15.5px;
+  color: #222;
+  line-height: 1.5;
+  padding-left: 0;
+  text-indent: 0;
+}
+
+/* Responsive: shrink padding and font sizes at narrower widths */
+@media (max-width: 900px) {
+  .tabs.tabs22 {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
+  }
+  .tabs.tabs22 .tabs-tab {
+    padding: 10px 16px 10px 0;
+    font-size: 12px;
+  }
+  .tabs.tabs22 .tabs-panel h3 {
+    font-size: 1.25rem;
+  }
+  .tabs.tabs22 .tabs-panel h2 {
+    font-size: 1.05rem;
+  }
+  .tabs.tabs22 .tabs-panel p,
+  .tabs.tabs22 .tabs-panel ul li {
+    font-size: 14px;
+  }
+}
+
+/* Remove possible double margins after last element */
+.tabs.tabs22 .tabs-panel > div > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Remove extra space between last image and "Related trips" for edge cases */
+.tabs.tabs22 .tabs-panel > div > picture:last-of-type,
+.tabs.tabs22 .tabs-panel > div > img:last-of-type {
+  margin-bottom: 8px;
+}
+.tabs.tabs22 .tabs-panel > div > p:last-of-type {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.tabs.tabs22 .tabs-panel > div > ul {
+  margin-top: 0;
 }
