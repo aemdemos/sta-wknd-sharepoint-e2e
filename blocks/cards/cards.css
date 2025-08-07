@@ -347,8 +347,6 @@
   margin: 0 auto;
   box-sizing: border-box;
 }
-
-/* Improved: Always use fixed-width columns and center the card group */
 .cards.cards24 > ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, 220px);
@@ -381,8 +379,6 @@
     max-width: 90vw;
   }
 }
-
-/* Cards: fixed width, visually grouped, no border or background */
 .cards.cards24 > ul > li {
   width: 220px;
   max-width: 100%;
@@ -396,8 +392,6 @@
   box-shadow: none;
   box-sizing: border-box;
 }
-
-/* Profile image: plenty of space below, perfectly circular */
 .cards.cards24 .cards-card-image {
   width: 120px;
   height: 120px;
@@ -417,8 +411,6 @@
   border-radius: 50%;
   display: block;
 }
-
-/* Card body: vertical stack, centered */
 .cards.cards24 .cards-card-body {
   width: 100%;
   display: flex;
@@ -434,8 +426,6 @@
   margin-right: 0;
   text-align: center;
 }
-
-/* Name: large, bold, serif, space below */
 .cards.cards24 .cards-card-body > p:first-of-type {
   font-family: var(--heading-font-family);
   font-size: 20px;
@@ -443,8 +433,6 @@
   color: #222;
   margin: 0 0 8px 0;
 }
-
-/* Subtitle: uppercase, light gray, spaced below */
 .cards.cards24 .cards-card-body > p:nth-of-type(2) {
   text-transform: uppercase;
   font-size: 13px;
@@ -452,8 +440,6 @@
   color: #555;
   margin: 0 0 22px 0;
 }
-
-/* Social icons row: flex row, even gap, more margin above */
 .cards.cards24 .cards-card-body ul,
 .cards.cards24 .cards-card-body ol,
 .cards.cards24 .cards-card-body .social {
@@ -466,8 +452,6 @@
   margin: 24px 0 0 0;
   list-style: none;
 }
-
-/* Social icon: square, dark bg, rounded, hover effect */
 .cards.cards24 .cards-card-body a,
 .cards.cards24 .cards-card-body ul a,
 .cards.cards24 .cards-card-body ol a {
@@ -490,8 +474,6 @@
   background: #c7b379;
   color: #222;
 }
-
-/* Section headings: left-aligned, gold underline left-aligned and short */
 .cards.cards24 > h2 {
   font-size: 28px;
   font-weight: bold;
@@ -514,25 +496,145 @@
   border-radius: 1px;
   content: "";
 }
-
-/* Description (under section headings): left-aligned, muted, extra spacing */
 .cards.cards24 > p {
   color: #666;
   font-size: 16px;
   margin: 0 0 34px 0;
   text-align: left;
 }
-
-/* Prevent unwanted space between cards in a row */
 .cards.cards24 > ul > li + li {
   margin-top: 0;
 }
-
-/* Responsive: image size smaller on mobile */
 @media (max-width: 750px) {
   .cards.cards24 .cards-card-image,
   .cards.cards24 > ul > li img {
     width: 88px;
     height: 88px;
+  }
+}
+
+
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  align-items: flex-start;
+}
+
+.cards.cards26 > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  background: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.cards.cards26 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cards.cards26 .cards-card-body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+}
+
+.cards.cards26 .cards-card-body .button-container {
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+  text-align: left;
+}
+
+/* Remove any extra vertical spacing between image and title */
+.cards.cards26 .cards-card-image + .cards-card-body {
+  margin-top: 0;
+}
+.cards.cards26 .cards-card-body .button-container {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.cards.cards26 .cards-card-body .button.primary {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.cards.cards26 .cards-card-body .button.primary {
+  background: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  line-height: 1.2;
+  text-align: left;
+  display: inline;
+  cursor: pointer;
+}
+
+.cards.cards26 .cards-card-body strong {
+  font-weight: 700;
+}
+
+/* Remove default paragraph margin; description is flush under title */
+.cards.cards26 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* Description: small, gray, single line, ellipsis, aligned flush left */
+.cards.cards26 .cards-card-body p:not(.button-container) {
+  color: #757575;
+  font-size: 11px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 600px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cards.cards26 > ul > li {
+    width: 100%;
+    max-width: 340px;
   }
 }
