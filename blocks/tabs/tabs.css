@@ -838,8 +838,6 @@
   gap: 36px;
   padding: 0;
 }
-
-/* Sidebar: meta only, narrower, hide .tabs-list if present */
 .tabs.tabs12 > div:first-child {
   flex: 0 0 120px;
   max-width: 140px;
@@ -858,8 +856,6 @@
 .tabs.tabs12 > div:first-child .tabs-list {
   display: none;
 }
-
-/* Main content: tabs row above, then active panel */
 .tabs.tabs12 > .tabs,
 .tabs.tabs12 > .block.tabs {
   flex: 1 1 0;
@@ -874,8 +870,6 @@
   flex-direction: column;
   align-items: flex-start;
 }
-
-/* Horizontal tabs at top of main content */
 .tabs.tabs12 > .tabs > .tabs-list,
 .tabs.tabs12 > .block.tabs > .tabs-list {
   width: 100%;
@@ -927,8 +921,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* Only show the active panel, hide the others */
 .tabs.tabs12 .tabs-panel {
   border: none;
   padding: 0;
@@ -943,8 +935,6 @@
 .tabs.tabs12 .tabs-panel[aria-hidden="false"] {
   display: block;
 }
-
-/* Title styles */
 .tabs.tabs12 .tabs-panel h3 {
   font-family: var(--heading-font-family), serif;
   font-weight: 700;
@@ -958,8 +948,6 @@
   border-bottom: 3px solid #f9d97b;
   width: fit-content;
 }
-
-/* Image styles */
 .tabs.tabs12 .tabs-panel picture,
 .tabs.tabs12 .tabs-panel img {
   display: block;
@@ -970,8 +958,6 @@
   border-radius: 0;
   box-shadow: none;
 }
-
-/* Body text styles */
 .tabs.tabs12 .tabs-panel p {
   color: #222;
   font-size: 1.06em;
@@ -1001,8 +987,6 @@
   margin-bottom: 0.5em;
   font-size: 1em;
 }
-
-/* Responsive: stack columns on small screens */
 @media (max-width: 900px) {
   .tabs.tabs12 {
     flex-direction: column;
@@ -1028,9 +1012,195 @@
     padding-bottom: 6px;
   }
 }
-
-/* Optional: remove extra top margin from first element in content column */
 .tabs.tabs12 > .tabs > *,
 .tabs.tabs12 > .block.tabs > * {
   margin-top: 0;
+}
+
+
+.tabs.tabs13 {
+  max-width: 930px;
+  margin: 56px auto 0 auto;
+  background: #fff;
+  padding: 0 0 32px 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+/* TAB BAR */
+.tabs.tabs13 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin: 0 0 20px 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.tabs.tabs13 .tabs-list button {
+  background: #f8f8f8;
+  color: #222;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 10px 24px 8px 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+  min-width: 100px;
+  text-align: left;
+}
+
+.tabs.tabs13 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs13 .tabs-list button[aria-selected='false'] {
+  background: #f8f8f8;
+  color: #222;
+}
+
+.tabs.tabs13 .tabs-list button p {
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  text-align: left;
+}
+
+/* PANELS */
+.tabs.tabs13 .tabs-panel {
+  border: none;
+  background: #fff;
+  margin-top: 0;
+  padding: 0;
+  box-shadow: none;
+  overflow: unset;
+}
+
+.tabs.tabs13 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* HEADINGS */
+.tabs.tabs13 h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #222;
+  letter-spacing: -0.01em;
+  display: block;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.tabs.tabs13 h3::after {
+  display: block;
+  width: 84px;
+  height: 3px;
+  background: #fbd144;
+  border-radius: 1.5px;
+  margin-top: 2px;
+  margin-left: 0;
+  content: "";
+}
+
+/* IMAGE */
+.tabs.tabs13 picture,
+.tabs.tabs13 img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* CAPTION */
+.tabs.tabs13 > .tabs-panel > div > p:first-of-type {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1565c0;
+  margin: 6px 0 18px 0;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  text-align: left;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* BODY PARAGRAPHS */
+.tabs.tabs13 > .tabs-panel > div > p:not(:first-of-type) {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 15px;
+  color: #222;
+  margin-top: 20px;
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+/* HEADINGS INSIDE PANELS (eg. h2) */
+.tabs.tabs13 > .tabs-panel h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 28px 0 10px 0;
+  color: #222;
+}
+
+/* LISTS */
+.tabs.tabs13 ul {
+  margin: 10px 0 0 24px;
+  padding: 0;
+  font-size: 15px;
+  color: #222;
+}
+
+.tabs.tabs13 li {
+  margin-bottom: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .tabs.tabs13 {
+    max-width: 100%;
+    padding: 0 4vw 22px 4vw;
+  }
+  .tabs.tabs13 picture,
+  .tabs.tabs13 img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs13 {
+    padding: 0 2vw 18px 2vw;
+    margin: 14px 0 0 0;
+  }
+  .tabs.tabs13 .tabs-list button {
+    padding: 8px 6px 6px 0;
+    font-size: 12px;
+    min-width: 70px;
+  }
+  .tabs.tabs13 h3 {
+    font-size: 1.15rem;
+  }
+  .tabs.tabs13 h3::after {
+    margin-top: 2px;
+    width: 36px;
+    height: 2px;
+  }
 }
