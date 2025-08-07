@@ -589,7 +589,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* Create the effect of floating over the image */
   transform: translateY(20%);
 }
 
@@ -650,4 +649,130 @@
 .carousel.carousel27 .carousel-navigation-buttons,
 .carousel.carousel27 .carousel-slide-indicators {
   display: none;
+}
+
+
+.carousel.carousel40 ul.carousel-slide-indicators,
+.carousel.carousel40 .carousel-slide-indicators,
+.carousel.carousel40 li.carousel-slide-indicator {
+  display: none;
+}
+
+.carousel.carousel40 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel40 .carousel-slide {
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 320px;
+  padding: 0;
+  gap: 0;
+}
+
+.carousel.carousel40 .carousel-slide-image {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 300px;
+  position: relative;
+  height: auto;
+}
+
+.carousel.carousel40 .carousel-slide-image picture,
+.carousel.carousel40 .carousel-slide-image picture > img {
+  position: static;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Fine-tuned content panel width and padding */
+.carousel.carousel40 .carousel-slide-content {
+  flex: 0 1 500px;
+  min-width: 320px;
+  max-width: 500px;
+  background: #ededed;
+  color: #181818;
+  margin: 0;
+  padding: 34px 32px 30px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+@media (max-width: 900px) {
+  .carousel.carousel40 .carousel-slide {
+    flex-direction: column;
+  }
+  .carousel.carousel40 .carousel-slide-content {
+    max-width: none;
+    min-width: 0;
+    padding: 20px 10px 16px 10px;
+  }
+}
+
+/* Lighter, uppercase label, very tight margin */
+.carousel.carousel40 .carousel-slide-content > p:first-child {
+  margin: 0 0 4px 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #b0b0b0;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+/* Headline: slightly smaller, less bold, more open */
+.carousel.carousel40 .carousel-slide-content h2 {
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  font-size: 1.62rem;
+  color: #1a1a1a;
+  margin: 0 0 7px 0;
+  line-height: 1.26;
+  letter-spacing: -0.01em;
+}
+
+/* Body text: smaller, lighter, improved spacing */
+.carousel.carousel40 .carousel-slide-content p:not(:first-child):not(.button-container) {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 18px 0;
+  line-height: 1.6;
+  max-width: 95%;
+}
+
+/* CTA button: square, tight, crisp */
+.carousel.carousel40 .carousel-slide-content .button-container {
+  margin: 0;
+}
+
+.carousel.carousel40 .carousel-slide-content .button {
+  background: #ffe000;
+  color: #181818;
+  border: none;
+  border-radius: 2px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 9px 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+  margin-bottom: 0;
+  min-width: 120px;
+  min-height: 36px;
+  box-shadow: none;
+  line-height: 1.15;
+  transition: background 0.12s, color 0.12s;
+}
+
+.carousel.carousel40 .carousel-slide-content .button:hover,
+.carousel.carousel40 .carousel-slide-content .button:focus {
+  background: #ffe94a;
+  color: #181818;
+  text-decoration: none;
 }
