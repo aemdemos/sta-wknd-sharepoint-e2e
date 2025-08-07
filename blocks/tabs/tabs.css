@@ -1,6 +1,3 @@
-/* Disable no-descending-specificity validation globally */
-/* stylelint-disable no-descending-specificity */
-
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -279,8 +276,6 @@
   position: relative;
   padding: 0;
 }
-
-/* --- Tab Bar --- */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -336,8 +331,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* --- Panel --- */
 .tabs.tabs7 .tabs-panel {
   display: block;
   border: none;
@@ -352,8 +345,6 @@
 .tabs.tabs7 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
-
-/* --- Headings --- */
 .tabs.tabs7 h3 {
   font-family: var(--heading-font-family);
   font-size: 2.4rem;
@@ -378,15 +369,11 @@
   margin-bottom: 1.25rem;
   line-height: 1.23;
 }
-
-/* --- Content Alignment --- */
 .tabs.tabs7 .tabs-panel > div,
 .tabs.tabs7 .tabs-panel > div > * {
   text-align: left;
   align-items: flex-start;
 }
-
-/* --- Image Styling --- */
 .tabs.tabs7 picture,
 .tabs.tabs7 picture img {
   display: block;
@@ -398,8 +385,6 @@
   background: none;
   box-shadow: none;
 }
-
-/* --- Paragraphs and Text --- */
 .tabs.tabs7 .tabs-panel p {
   font-family: var(--body-font-family);
   font-size: 1.13rem;
@@ -411,13 +396,9 @@
   max-width: none;
   padding: 0;
 }
-
-/* Remove extra margin from paragraph wrapping picture */
 .tabs.tabs7 .tabs-panel p:has(picture) {
   margin: 0;
 }
-
-/* --- List Styling --- */
 .tabs.tabs7 .tabs-panel ul {
   margin-top: 1.1rem;
   margin-bottom: 1.45rem;
@@ -432,8 +413,6 @@
 .tabs.tabs7 .tabs-panel li {
   margin-bottom: 0.34rem;
 }
-
-/* --- Responsive --- */
 @media (width <= 900px) {
   .tabs.tabs7 {
     max-width: 100vw;
@@ -460,5 +439,229 @@
   .tabs.tabs7 .tabs-panel {
     padding-left: 2vw;
     padding-right: 2vw;
+  }
+}
+
+
+.tabs.tabs8 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 48px auto 0 auto;
+  background: #fff;
+  box-shadow: none;
+  border: none;
+  min-height: 80vh;
+}
+
+/* Sidebar: wider for overview content, no black background except for label */
+.tabs.tabs8 > .tabs-list {
+  flex: 0 0 300px;
+  max-width: 340px;
+  min-width: 220px;
+  padding: 0 28px 0 0;
+  background: #fff;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 0;
+}
+
+/* Only tab label has dark background, rest is white */
+.tabs.tabs8 > .tabs-list .tabs-tab {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  text-align: left;
+  padding: 0.2em 0;
+  font-size: 1rem;
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  line-height: 1.3;
+  box-sizing: border-box;
+  min-height: 0;
+  position: relative;
+}
+
+/* Visually separate the label (first child) from content in overview/hero button */
+.tabs.tabs8 > .tabs-list .tabs-tab[aria-selected="true"] > p:first-child {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  display: inline-block;
+  width: 100%;
+  padding: 0.4em 0.8em;
+  border-radius: 3px 3px 0 0;
+  margin-bottom: 0.8em;
+}
+
+.tabs.tabs8 > .tabs-list .tabs-tab:not([aria-selected="true"]) > p:first-child {
+  background: transparent;
+  color: #222;
+  font-weight: 500;
+  padding: 0.4em 0.8em 0.4em 0.2em;
+}
+
+.tabs.tabs8 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: transparent;
+  color: #222;
+  font-weight: 500;
+}
+
+.tabs.tabs8 > .tabs-list .tabs-tab:not([aria-selected="true"]):hover > p:first-child {
+  background: #f5e29d;
+  color: #000;
+}
+
+.tabs.tabs8 > .tabs-list .tabs-tab p,
+.tabs.tabs8 > .tabs-list .tabs-tab h2 {
+  margin: 0.3em 0;
+  font-size: inherit;
+  font-family: inherit;
+  background: transparent;
+  color: inherit;
+}
+
+.tabs.tabs8 > .tabs-list .tabs-tab > *:not(:first-child) {
+  padding-left: 0.8em;
+}
+
+/* Main column: .tabs-panel takes remaining space */
+.tabs.tabs8 > .tabs-panel {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 32px 0 32px;
+  margin: 0;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  max-width: 900px;
+  gap: 2.7rem;
+}
+
+.tabs.tabs8 > .tabs-panel > div {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0;
+}
+
+.tabs.tabs8 > .tabs-panel h2 {
+  font-size: 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  margin-top: 2.4rem;
+  margin-bottom: 1.3rem;
+  line-height: 1.1;
+}
+
+.tabs.tabs8 > .tabs-panel picture,
+.tabs.tabs8 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 0.5em 0 1.5em 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs8 > .tabs-panel p {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.6;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  max-width: 700px;
+  text-align: left;
+}
+
+.tabs.tabs8 > .tabs-panel ul,
+.tabs.tabs8 > .tabs-panel ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+  max-width: 700px;
+}
+
+.tabs.tabs8 > .tabs-panel li {
+  margin-bottom: 0.4em;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsive: Stack vertically on small screens */
+@media (max-width: 1200px) {
+  .tabs.tabs8 {
+    max-width: 100vw;
+  }
+  .tabs.tabs8 > .tabs-panel {
+    padding: 0 2vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .tabs.tabs8 {
+    flex-direction: column;
+    margin: 32px 0 0 0;
+    min-height: unset;
+  }
+  .tabs.tabs8 > .tabs-list {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0 0 1rem 0;
+    min-width: 0;
+    max-width: 100%;
+    border: none;
+    width: 100%;
+    margin-bottom: 2rem;
+    position: static;
+  }
+  .tabs.tabs8 > .tabs-list .tabs-tab,
+  .tabs.tabs8 > .tabs-list .tabs-tab[aria-selected="true"] {
+    width: auto;
+    min-width: 90px;
+    text-align: center;
+    padding: 0.5em 1.2em;
+    font-size: 1rem;
+    position: static;
+  }
+  .tabs.tabs8 > .tabs-panel {
+    padding: 0 1vw;
+    margin: 0;
+    max-width: 100%;
+  }
+  .tabs.tabs8 > .tabs-panel > div {
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs8 {
+    margin: 16px 0 0 0;
+  }
+  .tabs.tabs8 > .tabs-list .tabs-tab,
+  .tabs.tabs8 > .tabs-list .tabs-tab[aria-selected="true"] {
+    min-width: 70px;
+    padding: 0.4em 0.5em;
+    font-size: 0.95rem;
+  }
+  .tabs.tabs8 > .tabs-panel {
+    padding: 0.5em 0.5em 0 0.5em;
+  }
+  .tabs.tabs8 > .tabs-panel > div {
+    max-width: 100vw;
   }
 }
