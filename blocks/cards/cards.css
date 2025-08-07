@@ -1,4 +1,4 @@
-/* Disable no-descending-specificity rule globally */
+/* Disable no-descending-specificity globally */
 /* stylelint-disable no-descending-specificity */
 
 .cards > ul {
@@ -160,7 +160,6 @@
   min-width: 0;
 }
 
-/* Slightly taller image to match original's proportions */
 .cards.cards14 .cards-card-image {
   background: #fff;
   margin: 0;
@@ -238,4 +237,122 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0;
+}
+
+.cards.cards21 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Grid: slightly tighter horizontal gap for closer match to original */
+.cards.cards21 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px 12px; /* 15px row, 12px column gap */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  align-items: stretch;
+}
+
+/* Responsive grid adjustments */
+@media (width <= 1100px) {
+  .cards.cards21 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 8px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards21 > ul {
+    grid-template-columns: 1fr;
+    gap: 8px 0;
+  }
+}
+
+/* Force even card heights per row */
+.cards.cards21 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+/* Ensure card body fills vertical space for alignment */
+.cards.cards21 .cards-card-body {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Image fills card width, consistent aspect and no extra space */
+.cards.cards21 .cards-card-image picture,
+.cards.cards21 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  background: #eaeaea;
+}
+
+/* Title styling and compact spacing */
+.cards.cards21 .cards-card-body .button-container {
+  margin: 0 0 6px;
+  padding: 0;
+}
+
+.cards.cards21 .cards-card-body .button.primary {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  color: #222;
+  font-weight: bold;
+  font-size: 1.13em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+  cursor: pointer;
+  line-height: 1.23;
+  display: inline;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.cards.cards21 .cards-card-body .button.primary:hover,
+.cards.cards21 .cards-card-body .button.primary:focus {
+  background: none;
+  color: #222;
+  text-decoration: underline;
+}
+
+/* Description: gray, slightly smaller, almost flush */
+.cards.cards21 .cards-card-body > p:not(.button-container) {
+  color: #8e8e8e;
+  font-size: 0.98em;
+  line-height: 1.5;
+  font-weight: normal;
+  margin: 0 0 4px;
+}
+
+.cards.cards21 .cards-card-body > p:last-child {
+  margin-bottom: 0;
 }
