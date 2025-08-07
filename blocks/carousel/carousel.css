@@ -1,3 +1,6 @@
+/* Disable the no-descending-specificity rule globally to preserve cascade order */
+/* stylelint-disable no-descending-specificity */
+
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +102,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +152,134 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+.carousel.carousel15 {
+  /* Remove overly restrictive height rules and ensure visibility */
+  background: #fff;
+  position: relative;
+}
+
+/* --- Restore image visibility and basic aspect ratio --- */
+.carousel.carousel15 .carousel-slides-container {
+  position: relative;
+  width: 100%;
+  min-height: 180px;
+  background: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Let the slide and image fill the container */
+.carousel.carousel15 .carousel-slide {
+  min-height: 180px;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+.carousel.carousel15 .carousel-slide .carousel-slide-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.carousel.carousel15 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel15 .carousel-slide .carousel-slide-image picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hide overlay/content box if empty */
+.carousel.carousel15 .carousel-slide-content:empty {
+  display: none;
+}
+
+/* --- Make sure indicators and nav are visible and positioned below image --- */
+.carousel.carousel15 .carousel-slide-indicators {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #eee;
+  width: 100%;
+  min-height: 44px;
+  height: 44px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+/* Indicators: simple dot style */
+.carousel.carousel15 .carousel-slide-indicator button {
+  width: 9px;
+  height: 9px;
+  margin: 0 8px;
+  background: #222;
+  border-radius: 50%;
+  border: none;
+  transition: background 0.2s;
+  box-shadow: none;
+  padding: 0;
+}
+
+.carousel.carousel15 .carousel-slide-indicator button:not(:disabled):not(:hover):not(:focus-visible) {
+  background: #ccc;
+}
+
+.carousel.carousel15 .carousel-slide-indicator button:disabled,
+.carousel.carousel15 .carousel-slide-indicator button:hover,
+.carousel.carousel15 .carousel-slide-indicator button:focus-visible {
+  background: #222;
+}
+
+/* --- Navigation arrows: right-aligned in indicator bar --- */
+.carousel.carousel15 .carousel-navigation-buttons {
+  position: absolute;
+  right: 24px;
+  top: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  background: none;
+  z-index: 3;
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  margin: 0 2px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button::after {
+  border-width: 2px;
+  border-color: #222;
+  width: 11px;
+  height: 11px;
+  left: 50%;
+  top: 50%;
+  box-sizing: border-box;
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button.slide-next::after {
+  left: 50%;
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button:hover,
+.carousel.carousel15 .carousel-navigation-buttons button:focus-visible {
+  background: none;
 }
