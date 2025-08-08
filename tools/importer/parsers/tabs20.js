@@ -1,53 +1,41 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block within the given element
-  const tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
+  // Find the .cmp-tabs element within the provided element
+  const tabs = element.querySelector('.cmp-tabs');
+  if (!tabs) return;
 
-  // Get all the tab labels (li.cmp-tabs__tab)
-  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabLabels = Array.from(tabList.querySelectorAll('li'));
+  // Get tab labels
+  const tabLabels = Array.from(tabs.querySelectorAll('.cmp-tabs__tablist > li'));
 
-  // Get all tabpanel containers (must maintain source order)
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
-  // Defensive: Only keep as many panels as we have labels (should always match)
-  const count = Math.min(tabLabels.length, tabPanels.length);
+  // Get tab panels
+  const tabPanels = Array.from(tabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Build the table header row (block name exactly as required)
-  const cells = [
-    ['Tabs (tabs20)']
-  ];
+  // Header row with exact block name
+  const cells = [['Tabs (tabs20)']];
 
-  // Add a row for each tab: [tab label, tab content]
-  for (let i = 0; i < count; i++) {
-    // Use the source LI for the label (strong semantic for tab label)
-    const label = document.createElement('span');
-    label.textContent = tabLabels[i].textContent.trim();
-    // Use strong to match visual tab indicator in many tab patterns
-    const strong = document.createElement('strong');
-    strong.appendChild(label);
-
-    // For the tab content: find the main article/contentfragment or fallback to panel children
-    let contentElem = null;
-    const article = tabPanels[i].querySelector('article');
-    if (article) {
-      // Reference the article element (do not clone)
-      contentElem = article;
-    } else {
-      // If no article, create a fragment with all child nodes (excluding empty text nodes)
-      const frag = document.createDocumentFragment();
+  // For each tab, get the label and its corresponding panel content
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i] ? tabLabels[i].textContent.trim() : '';
+    let contentCell = '';
+    if (tabPanels[i]) {
+      // Instead of cloning, reference the first element child with its contents
+      // We'll extract all valid child nodes of the tab panel into a fragment, referencing those nodes
+      const fragment = document.createDocumentFragment();
+      // Only reference direct child nodes (so that any structure is preserved)
       Array.from(tabPanels[i].childNodes).forEach(node => {
-        if (node.nodeType === Node.TEXT_NODE && !node.textContent.trim()) return;
-        frag.appendChild(node);
+        // Reference existing element node from the document for import, do not clone
+        if (node.nodeType === Node.ELEMENT_NODE || (node.nodeType === Node.TEXT_NODE && node.textContent.trim())) {
+          fragment.appendChild(node);
+        }
       });
-      contentElem = frag;
+      // If the fragment has nodes, use it; otherwise, use empty string
+      contentCell = fragment.childNodes.length > 0 ? fragment : '';
     }
-    cells.push([strong, contentElem]);
+    cells.push([label, contentCell]);
   }
 
-  // Create the tab block table
+  // Create the table block from cells
   const block = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace the .cmp-tabs element with the block table
-  tabsBlock.replaceWith(block);
+  // Replace the original element with the new block table
+  element.replaceWith(block);
 }

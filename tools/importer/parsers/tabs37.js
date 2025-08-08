@@ -1,49 +1,70 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the cmp-tabs element
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Locate the .cmp-tabs block inside the element
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Extract tab labels
-  const tabLabels = Array.from(
-    tabs.querySelectorAll('.cmp-tabs__tablist .cmp-tabs__tab')
-  ).map(tab => tab.textContent.trim());
+  // Get all tab labels (as <li> in .cmp-tabs__tablist)
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
+  const tabLabels = Array.from(tabList ? tabList.children : []);
 
-  // Extract tab panels
-  const tabPanels = Array.from(
-    tabs.querySelectorAll('[role="tabpanel"][data-cmp-hook-tabs="tabpanel"]')
-  );
+  // Get all tab panels (in DOM order)
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  if (!tabLabels.length || tabLabels.length !== tabPanels.length) return;
+  // Header row: exactly as block name
+  const headerRow = ['Tabs (tabs37)'];
 
-  // Get column count for padding
-  const colCount = tabLabels.length;
+  // Compose table rows: each row is [label, content]
+  const rows = [];
+  for (let i = 0; i < tabLabels.length && i < tabPanels.length; i += 1) {
+    const labelText = tabLabels[i].textContent.trim();
+    // Use a <strong> element for tab label as in most tab UI (optional, but matches style)
+    const labelElem = document.createElement('strong');
+    labelElem.textContent = labelText;
 
-  // First row: header, block name in first cell, then pad with empty string
-  const headerRow = [ 'Tabs (tabs37)' ];
-  while (headerRow.length < colCount) headerRow.push('');
-
-  // Second row: tab labels as <strong>, in each respective column
-  const labelsRow = tabLabels.map(label => {
-    const strong = document.createElement('strong');
-    strong.textContent = label;
-    return strong;
-  });
-
-  // Third row: tab content, each in its column
-  const contentsRow = tabPanels.map(panel => {
+    // Try to find the main article (contentfragment) inside the tab panel
+    const panel = tabPanels[i];
+    let contentElem = null;
     const cf = panel.querySelector('article.cmp-contentfragment');
-    if (cf) return cf;
-    // fallback to all element and significant text content if no article found
-    const contents = Array.from(panel.childNodes).filter(
-      n => (n.nodeType === Node.ELEMENT_NODE || (n.nodeType === Node.TEXT_NODE && n.textContent.trim()))
-    );
-    if (contents.length === 1) return contents[0];
-    if (contents.length > 1) return contents;
-    return '';
-  });
+    if (cf) {
+      // The main content is usually inside .cmp-contentfragment__elements
+      const cfEls = cf.querySelector('.cmp-contentfragment__elements');
+      if (cfEls) {
+        // For robustness, gather all direct children of .cmp-contentfragment__elements
+        const contentParts = [];
+        Array.from(cfEls.children).forEach(child => {
+          // Skip empty grid containers
+          if (
+            child.classList.contains('aem-Grid') &&
+            child.children.length === 0
+          ) return;
+          // Skip grid containers with only empty content
+          if (child.classList.contains('aem-Grid') && child.children.length > 0) {
+            // Check if all children are empty
+            const allEmpty = Array.from(child.children).every(grandchild => grandchild.innerHTML.trim() === '');
+            if (allEmpty) return;
+          }
+          contentParts.push(child);
+        });
+        // If nothing found, as fallback use the .cmp-contentfragment__elements itself
+        contentElem = contentParts.length > 0 ? contentParts : cfEls;
+      } else {
+        // Fallback to entire article
+        contentElem = cf;
+      }
+    } else {
+      // Fallback: use panel itself
+      contentElem = panel;
+    }
+    rows.push([labelElem, contentElem]);
+  }
 
-  const rows = [headerRow, labelsRow, contentsRow];
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+  // Compose the table
+  const table = WebImporter.DOMUtils.createTable([
+    headerRow,
+    ...rows
+  ], document);
+
+  // Replace the original tabs block with the new table
+  tabsBlock.replaceWith(table);
 }

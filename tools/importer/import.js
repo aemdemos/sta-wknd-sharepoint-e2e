@@ -11,38 +11,38 @@
  */
 /* global WebImporter */
 /* eslint-disable no-console */
-import accordion3Parser from './parsers/accordion3.js';
-import tabs7Parser from './parsers/tabs7.js';
-import tabs8Parser from './parsers/tabs8.js';
-import hero11Parser from './parsers/hero11.js';
-import cards14Parser from './parsers/cards14.js';
 import tabs12Parser from './parsers/tabs12.js';
+import hero11Parser from './parsers/hero11.js';
+import tabs6Parser from './parsers/tabs6.js';
+import tabs7Parser from './parsers/tabs7.js';
+import cards14Parser from './parsers/cards14.js';
 import columns2Parser from './parsers/columns2.js';
 import tabs18Parser from './parsers/tabs18.js';
-import tabs20Parser from './parsers/tabs20.js';
-import carousel15Parser from './parsers/carousel15.js';
-import tabs6Parser from './parsers/tabs6.js';
-import cards21Parser from './parsers/cards21.js';
+import accordion3Parser from './parsers/accordion3.js';
+import cards4Parser from './parsers/cards4.js';
+import tabs13Parser from './parsers/tabs13.js';
 import carousel22Parser from './parsers/carousel22.js';
+import cards21Parser from './parsers/cards21.js';
+import carousel15Parser from './parsers/carousel15.js';
 import carousel27Parser from './parsers/carousel27.js';
 import cards26Parser from './parsers/cards26.js';
 import tabs31Parser from './parsers/tabs31.js';
 import tabs30Parser from './parsers/tabs30.js';
 import tabs10Parser from './parsers/tabs10.js';
-import accordion33Parser from './parsers/accordion33.js';
-import tabs34Parser from './parsers/tabs34.js';
-import columns9Parser from './parsers/columns9.js';
-import hero39Parser from './parsers/hero39.js';
-import carousel17Parser from './parsers/carousel17.js';
-import cards4Parser from './parsers/cards4.js';
-import tabs36Parser from './parsers/tabs36.js';
-import carousel40Parser from './parsers/carousel40.js';
 import tabs23Parser from './parsers/tabs23.js';
-import tabs13Parser from './parsers/tabs13.js';
+import tabs36Parser from './parsers/tabs36.js';
 import tabs38Parser from './parsers/tabs38.js';
-import tabs28Parser from './parsers/tabs28.js';
 import tabs37Parser from './parsers/tabs37.js';
+import tabs20Parser from './parsers/tabs20.js';
+import hero39Parser from './parsers/hero39.js';
+import carousel40Parser from './parsers/carousel40.js';
+import tabs34Parser from './parsers/tabs34.js';
+import tabs28Parser from './parsers/tabs28.js';
+import columns9Parser from './parsers/columns9.js';
+import tabs8Parser from './parsers/tabs8.js';
+import accordion33Parser from './parsers/accordion33.js';
 import cards24Parser from './parsers/cards24.js';
+import carousel17Parser from './parsers/carousel17.js';
 import headerParser from './parsers/header.js';
 import metadataParser from './parsers/metadata.js';
 import cleanupTransformer from './transformers/cleanup.js';
@@ -59,38 +59,38 @@ import {
 
 const parsers = {
   metadata: metadataParser,
-  accordion3: accordion3Parser,
-  tabs7: tabs7Parser,
-  tabs8: tabs8Parser,
-  hero11: hero11Parser,
-  cards14: cards14Parser,
   tabs12: tabs12Parser,
+  hero11: hero11Parser,
+  tabs6: tabs6Parser,
+  tabs7: tabs7Parser,
+  cards14: cards14Parser,
   columns2: columns2Parser,
   tabs18: tabs18Parser,
-  tabs20: tabs20Parser,
-  carousel15: carousel15Parser,
-  tabs6: tabs6Parser,
-  cards21: cards21Parser,
+  accordion3: accordion3Parser,
+  cards4: cards4Parser,
+  tabs13: tabs13Parser,
   carousel22: carousel22Parser,
+  cards21: cards21Parser,
+  carousel15: carousel15Parser,
   carousel27: carousel27Parser,
   cards26: cards26Parser,
   tabs31: tabs31Parser,
   tabs30: tabs30Parser,
   tabs10: tabs10Parser,
-  accordion33: accordion33Parser,
-  tabs34: tabs34Parser,
-  columns9: columns9Parser,
-  hero39: hero39Parser,
-  carousel17: carousel17Parser,
-  cards4: cards4Parser,
-  tabs36: tabs36Parser,
-  carousel40: carousel40Parser,
   tabs23: tabs23Parser,
-  tabs13: tabs13Parser,
+  tabs36: tabs36Parser,
   tabs38: tabs38Parser,
-  tabs28: tabs28Parser,
   tabs37: tabs37Parser,
+  tabs20: tabs20Parser,
+  hero39: hero39Parser,
+  carousel40: carousel40Parser,
+  tabs34: tabs34Parser,
+  tabs28: tabs28Parser,
+  columns9: columns9Parser,
+  tabs8: tabs8Parser,
+  accordion33: accordion33Parser,
   cards24: cards24Parser,
+  carousel17: carousel17Parser,
   ...customParsers,
 };
 

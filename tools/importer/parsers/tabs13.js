@@ -1,55 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tab component within the element
-  const tabsRoot = element.querySelector('.cmp-tabs');
-  if (!tabsRoot) return;
+  // Find the tabs block: div with class 'cmp-tabs'
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Get the tab labels (in order)
-  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
-  const tabItems = Array.from(tabList ? tabList.children : []);
-  const tabLabels = tabItems.map(li => li.textContent.trim());
-  const numTabColumns = 2; // Tabs block is always 2 columns (label, content)
+  // Get tab labels from the tablist
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabLabels = Array.from(tabList.querySelectorAll('[role="tab"]')).map(tabEl => tabEl.textContent.trim());
 
-  // Get the tab panels (in order)
-  const tabPanelNodes = Array.from(tabsRoot.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  // Find tab panels in DOM order (should match tab labels)
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  if (tabLabels.length !== tabPanels.length || tabLabels.length === 0) return;
 
-  // Build rows: first row is header (ONE CELL only), then each row: [label, content]
-  const rows = [];
-  // Header row: one cell with correct colspan attribute set after table creation
-  rows.push(['Tabs (tabs13)']);
+  // Build header row from block name - single cell
+  const headerRow = ['Tabs (tabs13)'];
 
-  // For each tab, add the row [label, content]
-  for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i];
-    let contentElem = '';
-    if (tabPanelNodes[i]) {
-      // Reference all child nodes (preserving elements)
-      const panel = tabPanelNodes[i];
-      const fragment = document.createDocumentFragment();
-      Array.from(panel.childNodes).forEach(node => {
-        if (node.nodeType === 3 && !node.textContent.trim()) return;
-        if (node.nodeType === 1 && node.matches('div.aem-Grid') && node.childElementCount === 0) return;
-        fragment.appendChild(node);
-      });
-      contentElem = Array.from(fragment.childNodes);
-    }
-    rows.push([label, contentElem]);
-  }
+  // Build the column header row (tab labels)
+  const labelRow = tabLabels;
 
-  // Create the block table
-  const table = WebImporter.DOMUtils.createTable(rows, document);
+  // For each tab, create a row with the tab content only in its column, others empty
+  const contentRows = tabPanels.map((panel, i) => {
+    const row = tabLabels.map(() => ''); // fill with empty strings first
+    // Prefer contentfragment/article in the tab panel, else use the panel content directly
+    const contentFragment = panel.querySelector('article');
+    const content = contentFragment ? contentFragment : panel;
+    row[i] = content;
+    return row;
+  });
 
-  // Fix the first row to have exactly one th with colspan=2
-  const firstRow = table.querySelector('tr');
-  if (firstRow) {
-    // Remove all children
-    while (firstRow.firstChild) firstRow.removeChild(firstRow.firstChild);
-    const th = document.createElement('th');
-    th.textContent = 'Tabs (tabs13)';
-    th.setAttribute('colspan', numTabColumns);
-    firstRow.appendChild(th);
-  }
+  // Compose final table cells array
+  const cells = [headerRow, labelRow, ...contentRows];
 
-  // Replace the tabsRoot with the block table
-  tabsRoot.replaceWith(table);
+  // Create the table and replace the tabs block in the DOM
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  tabsBlock.replaceWith(table);
 }

@@ -1,46 +1,110 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main contentfragment/article containing the surf spots sections
-  const cf = element.querySelector('article.contentfragment');
-  if (!cf) return;
-  const cfBody = cf.querySelector('.cmp-contentfragment__elements > div');
-  if (!cfBody) return;
+  // Locate the content fragment area containing the accordion content
+  const mainFragment = element.querySelector('.cmp-contentfragment__elements');
+  if (!mainFragment) return;
 
-  // The example block is a single Accordion (accordion33) table, header row only
-  const rows = [['Accordion (accordion33)']];
-
-  // Helper: collect all top-level nodes in cfBody that are H2 and everything after until next H2
-  const children = Array.from(cfBody.children);
-  let i = 0;
-  while (i < children.length) {
-    if (children[i].tagName === 'H2') {
-      const titleEl = children[i];
-      i++;
-      // collect all following siblings until next H2 or end
-      let contentEls = [];
-      while (i < children.length && children[i].tagName !== 'H2') {
-        // Filter out empty .aem-Grid and empty divs
-        if (
-          !(children[i].classList && children[i].classList.contains('aem-Grid')) &&
-          !(children[i].classList && children[i].classList.contains('aem-GridColumn')) &&
-          // skip empty divs
-          !(children[i].tagName === 'DIV' && children[i].children.length === 0 && children[i].textContent.trim() === '')
+  // Helper to extract each accordion section: title (h2) + content (until next h2)
+  function extractAccordionItems(root) {
+    const items = [];
+    const children = Array.from(root.childNodes);
+    let i = 0;
+    while (i < children.length) {
+      const node = children[i];
+      // Find the next H2 (accordion title)
+      if (node.nodeType === 1 && node.tagName === 'H2') {
+        const title = node;
+        i++;
+        const content = [];
+        // Gather all nodes (including images, paragraphs, divs) until next H2 or end
+        while (
+          i < children.length &&
+          !(children[i].nodeType === 1 && children[i].tagName === 'H2')
         ) {
-          contentEls.push(children[i]);
+          const el = children[i];
+          // Skip empty grid wrappers common in AEM
+          if (
+            el.nodeType === 1 &&
+            el.classList &&
+            el.classList.contains('aem-Grid') &&
+            el.childElementCount === 0
+          ) {
+            i++;
+            continue;
+          }
+          if (
+            el.nodeType === 1 &&
+            el.tagName === 'DIV' &&
+            el.childElementCount === 1 &&
+            el.firstElementChild &&
+            el.firstElementChild.classList.contains('aem-Grid') &&
+            el.firstElementChild.childElementCount === 0
+          ) {
+            i++;
+            continue;
+          }
+          // Add non-empty content
+          content.push(el);
+          i++;
         }
+        // Only add if there is content for this section
+        if (title && content.length > 0) {
+          items.push({ title, content });
+        } else if (title && content.length === 0) {
+          // Add empty section if exists (edge case)
+          items.push({ title, content: [] });
+        }
+      } else {
         i++;
       }
-      // If only one element, use it directly. Otherwise, use the array.
-      let contentCell = contentEls.length === 1 ? contentEls[0] : contentEls.length > 1 ? contentEls : '';
-      rows.push([titleEl, contentCell]);
-    } else {
-      i++;
     }
+    return items;
   }
 
-  // Only create the block if at least one accordion item was found
-  if (rows.length > 1) {
-    const block = WebImporter.DOMUtils.createTable(rows, document);
-    cf.replaceWith(block);
+  // Extract all accordion items (sections)
+  const accordionItems = extractAccordionItems(mainFragment);
+  if (!accordionItems.length) return;
+
+  // Compose the table rows: header + rows for each accordion section
+  const rows = [['Accordion (accordion33)']];
+  accordionItems.forEach(({ title, content }) => {
+    // Clean up: remove any empty wrappers inside content
+    const filteredContent = (content || []).filter(el => {
+      if (
+        el.nodeType === 1 &&
+        el.classList &&
+        el.classList.contains('aem-Grid') &&
+        el.childElementCount === 0
+      ) {
+        return false;
+      }
+      if (
+        el.nodeType === 1 &&
+        el.tagName === 'DIV' &&
+        el.childElementCount === 1 &&
+        el.firstElementChild &&
+        el.firstElementChild.classList.contains('aem-Grid') &&
+        el.firstElementChild.childElementCount === 0
+      ) {
+        return false;
+      }
+      // Remove whitespace-only text nodes
+      if (el.nodeType === 3 && !el.textContent.trim()) {
+        return false;
+      }
+      return true;
+    });
+    rows.push([
+      title,
+      filteredContent.length > 1 ? filteredContent : (filteredContent[0] || '')
+    ]);
+  });
+
+  // Create the accordion block table and replace the content fragment with it
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  // Replace the whole contentfragment article (not just the elements) for block-level replacement
+  const cfArticle = element.querySelector('article.contentfragment');
+  if (cfArticle) {
+    cfArticle.replaceWith(table);
   }
 }

@@ -1,44 +1,52 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the .cmp-tabs element within the given element
-  const tabsContainer = element.querySelector('.cmp-tabs');
-  if (!tabsContainer) return;
+  // Find the tabs block
+  const tabs = element.querySelector('.cmp-tabs');
+  if (!tabs) return;
 
-  // Extract tab labels (li elements inside .cmp-tabs__tablist)
+  // Get all tab labels (li elements in ol.cmp-tabs__tablist)
   const tabLabels = Array.from(
-    tabsContainer.querySelectorAll('.cmp-tabs__tablist > li')
+    tabs.querySelectorAll('.cmp-tabs__tablist > li.cmp-tabs__tab')
   );
 
-  // Extract tab content panels (divs with .cmp-tabs__tabpanel)
+  // Get all tab panels (divs with .cmp-tabs__tabpanel)
   const tabPanels = Array.from(
-    tabsContainer.querySelectorAll('.cmp-tabs__tabpanel')
+    tabs.querySelectorAll('.cmp-tabs__tabpanel')
   );
 
-  // Ensure proper matching of label and panel count
-  if (tabLabels.length === 0 || tabPanels.length === 0 || tabLabels.length !== tabPanels.length) return;
-
-  // Table header as specified in the block info
+  // Build the header row as in the example
   const headerRow = ['Tabs (tabs7)'];
+  const cells = [headerRow];
 
-  // Each subsequent row is [Tab Label, Tab Content]
-  const rows = tabLabels.map((li, idx) => {
-    // Always reference the existing tab label and tab content element
-    const label = li.textContent.trim();
-    const tabPanel = tabPanels[idx];
-    // For semantic clarity, we will only place the *content* of the tab panel, not the outer div
-    // However, since each tabpanel may have a single content block, we'll reference its content
-    // If the tabPanel only has one child, use that; else, use all its children
-    let tabContent;
-    if (tabPanel.children.length === 1) {
-      tabContent = tabPanel.firstElementChild;
-    } else {
-      tabContent = Array.from(tabPanel.childNodes);
+  // Build the rows for each tab
+  // Tab label goes in the first cell, tab content in the second cell
+  for (let i = 0; i < tabLabels.length; i++) {
+    let label = tabLabels[i]?.textContent?.trim() || '';
+    let panel = tabPanels[i];
+    if (!panel) continue; // skip if no corresponding panel
+
+    // Find the FIRST child that looks like the main tab content
+    // Usually a <div class="contentfragment"> or <article>
+    // We'll include the full panel content to preserve all formatting and structure
+    // But if there's a <article> inside, that's the actual content
+    let content = panel.querySelector('article') || panel.querySelector('.contentfragment') || panel.children[0] || panel;
+
+    // If content is a wrapper (like .contentfragment), but contains only one child (the article), extract it
+    if (
+      content.classList &&
+      content.classList.contains('contentfragment') &&
+      content.children.length === 1 &&
+      content.firstElementChild.tagName.toLowerCase() === 'article'
+    ) {
+      content = content.firstElementChild;
     }
-    return [label, tabContent];
-  });
 
-  const tableData = [headerRow, ...rows];
+    // Push the row [Tab Label, Tab Content]
+    cells.push([label, content]);
+  }
 
-  const table = WebImporter.DOMUtils.createTable(tableData, document);
-  element.replaceWith(table);
+  // Create the block table
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace the tabs block with the table
+  tabs.replaceWith(table);
 }

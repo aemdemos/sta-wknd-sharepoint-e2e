@@ -1,51 +1,97 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the deepest visible .aem-Grid.aem-Grid--12 (the content grid)
-  let grid = element.querySelector('.aem-Grid.aem-Grid--12');
-  if (!grid) return;
+  // Find the deepest grid structure with columns
+  let mainGrid;
+  const grids = element.querySelectorAll('.aem-Grid');
+  mainGrid = Array.from(grids).sort((a, b) => b.children.length - a.children.length)[0];
+  if (!mainGrid) {
+    return;
+  }
+  // Extract logo image
+  const logoDiv = mainGrid.querySelector('.image');
+  let logoWrap = null;
+  if (logoDiv) {
+    logoWrap = logoDiv.querySelector('[data-cmp-is="image"]');
+  }
+  // Extract navigation
+  const navDiv = mainGrid.querySelector('.navigation');
+  let nav = null;
+  if (navDiv) {
+    nav = navDiv.querySelector('nav');
+  }
+  // Extract "Follow Us" title
+  const titleDiv = mainGrid.querySelector('.title');
+  let title = null;
+  if (titleDiv) {
+    title = titleDiv.querySelector('.cmp-title');
+  }
+  // Extract social buttons
+  const socialBlock = mainGrid.querySelector('.buildingblock');
+  // Extract copyright/text
+  const textBlock = mainGrid.querySelector('.text');
+  let copyrightDiv = null;
+  if (textBlock) {
+    copyrightDiv = textBlock.querySelector('.cmp-text');
+  }
+  // Build columns:
+  // Column 1: logo image
+  // Column 2: navigation
+  // Column 3: follow title + social
+  let col1 = [];
+  if (logoWrap) col1.push(logoWrap);
+  let col2 = [];
+  if (nav) col2.push(nav);
+  let col3 = [];
+  if (title) col3.push(title);
+  if (socialBlock) col3.push(socialBlock);
+  // Only keep columns that have content
+  let cols = [col1, col2, col3].filter(col => col.length);
+  const columnsCount = cols.length;
+  // Content row
+  const contentRow = cols.map((col) => col.length === 1 ? col[0] : col);
+  // Copyright row: copyright text in first cell, empty others
+  const copyrightRow = [copyrightDiv ? copyrightDiv : ''];
+  for (let i = 1; i < columnsCount; i++) copyrightRow.push('');
 
-  // Get all direct children (columns) of the grid
-  const gridChildren = Array.from(grid.children);
-
-  // --- Left column: logo (image block) ---
-  const logoCol = gridChildren.find(c => c.classList.contains('image') && c.querySelector('.cmp-image'));
-  const logo = logoCol ? logoCol.querySelector('.cmp-image') : null;
-
-  // --- Middle column: navigation (may have just one link or more, may be home only or a multi-level list) ---
-  const navCol = gridChildren.find(c => c.classList.contains('navigation') && c.querySelector('nav.cmp-navigation'));
-  const nav = navCol ? navCol.querySelector('nav.cmp-navigation') : null;
-
-  // --- Right column: 'Follow Us' title and buildingblock with buttons ---
-  const titleCol = gridChildren.find(c => c.classList.contains('title') && c.querySelector('.cmp-title__text'));
-  const followTitle = titleCol ? titleCol.querySelector('.cmp-title') : null;
-  const socialCol = gridChildren.find(c => c.classList.contains('buildingblock') && c.querySelector('.xf-master-building-block'));
-  const socialBlock = socialCol ? socialCol.querySelector('.xf-master-building-block') : null;
-
-  // Compose the right column content: stack the title and social buttons vertically inside the cell
-  let rightColContent = [];
-  if (followTitle) rightColContent.push(followTitle);
-  if (socialBlock) rightColContent.push(socialBlock);
-  rightColContent = rightColContent.length === 1 ? rightColContent[0] : rightColContent;
-
-  // Table header: block name
-  const headerRow = ['Columns (columns9)'];
-
-  // Columns row: 3 cells for logo, nav, follow/social
-  const columnsRow = [logo || '', nav || '', rightColContent || ''];
-
-  // --- Third row: full width text footer ---
-  // The text is always a .cmp-text inside a .text class at grid level
-  const textCol = gridChildren.find(c => c.classList.contains('text') && c.querySelector('.cmp-text'));
-  const footerText = textCol ? textCol.querySelector('.cmp-text') : '';
-
-  // Compose cells array
-  const cells = [
-    headerRow,
-    columnsRow,
-    [footerText || ''],
-  ];
-
-  // Replace the element with the block table
-  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Create table with header cell spanning all columns
+  const table = document.createElement('table');
+  // Header row with colspan
+  const trHeader = document.createElement('tr');
+  const th = document.createElement('th');
+  th.innerHTML = 'Columns (columns9)';
+  if (columnsCount > 1) {
+    th.setAttribute('colspan', columnsCount);
+  }
+  trHeader.appendChild(th);
+  table.appendChild(trHeader);
+  // Content row
+  const trContent = document.createElement('tr');
+  contentRow.forEach(cell => {
+    const td = document.createElement('td');
+    if (typeof cell === 'string') {
+      td.innerHTML = cell;
+    } else if (Array.isArray(cell)) {
+      td.append(...cell);
+    } else if (cell) {
+      td.append(cell);
+    }
+    trContent.appendChild(td);
+  });
+  table.appendChild(trContent);
+  // Copyright row
+  const trCopyright = document.createElement('tr');
+  copyrightRow.forEach(cell => {
+    const td = document.createElement('td');
+    if (typeof cell === 'string') {
+      td.innerHTML = cell;
+    } else if (Array.isArray(cell)) {
+      td.append(...cell);
+    } else if (cell) {
+      td.append(cell);
+    }
+    trCopyright.appendChild(td);
+  });
+  table.appendChild(trCopyright);
+  // Replace element
   element.replaceWith(table);
 }
