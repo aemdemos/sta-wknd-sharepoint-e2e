@@ -58,23 +58,23 @@
 @font-face {
   font-family:"Source Sans Pro Fallback";
   font-style:normal;
-  font-weight:400;
-  src:local("Arial");
-  ascent-override:104.47%;
-  descent-override:28.98%;
-  line-gap-override:0.00%;
-  size-adjust:94.19%;
-}
-
-@font-face {
-  font-family:"Source Sans Pro Fallback";
-  font-style:normal;
   font-weight:600;
   src:local("Arial Bold");
   ascent-override:109.50%;
   descent-override:30.38%;
   line-gap-override:0.00%;
   size-adjust:89.87%;
+}
+
+@font-face {
+  font-family:"Source Sans Pro Fallback";
+  font-style:normal;
+  font-weight:400;
+  src:local("Arial");
+  ascent-override:104.47%;
+  descent-override:28.98%;
+  line-gap-override:0.00%;
+  size-adjust:94.19%;
 }
 
 @media (width>=900px) {
