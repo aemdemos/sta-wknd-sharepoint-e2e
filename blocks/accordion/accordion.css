@@ -61,26 +61,41 @@
 
 
 .accordion.accordion3 {
-  max-width: 640px;
-  margin: 0 auto;
+  /* Reduce left margin to integrate with main column layout */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 760px;
+  margin-left: 24px;
+  margin-right: 0;
+  padding: 44px 0;
   background: #fff;
-  padding: 0;
-  box-shadow: none;
-  border-radius: 0;
   font-family: var(--body-font-family);
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
-  /* Add a little top margin for visual balance if needed */
-  margin-top: 24px;
+@media (width <= 1100px) {
+  .accordion.accordion3 {
+    max-width: 100%;
+    margin-left: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 
 .accordion.accordion3 details {
+  width: 100%;
   border: none;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #ddd;
   margin: 0;
   background: none;
   box-shadow: none;
-  transition: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .accordion.accordion3 details:last-child {
@@ -88,65 +103,56 @@
 }
 
 .accordion.accordion3 details summary {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 40px;
-  padding: 8px 76px 8px 0;
+  min-height: 68px;
+  padding: 0;
   cursor: pointer;
   background: none;
   border: none;
   outline: none;
   position: relative;
-  transition: none;
-}
-
-.accordion.accordion3 details summary::-webkit-details-marker {
-  display: none;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
 }
 
 .accordion.accordion3 details summary p {
   margin: 0;
   font-family: var(--body-font-family);
-  font-size: 14px;
+  font-size: 15.5px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #111;
+  color: #232323;
   letter-spacing: 0.01em;
   flex: 1 1 auto;
-  line-height: 1.4;
-
-  /* Ensure text doesn't overlap with icon or row edge */
-  padding-right: 24px;
+  line-height: 1.7;
+  padding-right: 64px;
   text-align: left;
   white-space: normal;
 }
 
-/* Plus icon: bold, flush right, visually strong */
 .accordion.accordion3 details summary::before,
 .accordion.accordion3 details summary::after {
-  display: block;
   position: absolute;
+  display: block;
+  right: 40px;
   top: 50%;
-  right: 24px;
-  width: 18px;
-  height: 3.5px;
-  background: #333;
+  width: 22px;
+  height: 2.8px;
+  background: #666;
   border-radius: 2px;
-  transition: opacity 0.2s;
-  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  content: "";
 }
 
 .accordion.accordion3 details summary::before {
-  /* Horizontal bar: always visible */
   transform: translateY(-50%);
 }
 
 .accordion.accordion3 details summary::after {
-  /* Vertical bar: "+" when closed, hidden when open */
   transform: translateY(-50%) rotate(90deg);
-  opacity: 1;
 }
 
 .accordion.accordion3 details[open] summary::after {
@@ -154,8 +160,8 @@
 }
 
 .accordion.accordion3 details .accordion-item-body {
-  padding: 0 0 12px;
-  font-size: 14px;
+  padding: 0 0 28px;
+  font-size: 15px;
   color: #444;
   background: none;
   border: none;
@@ -170,26 +176,4 @@
 .accordion.accordion3 details summary:focus,
 .accordion.accordion3 details summary:hover {
   background: none;
-}
-
-@media (width <= 900px) {
-  .accordion.accordion3 {
-    max-width: 100%;
-    margin: 0;
-    padding: 0 6px;
-  }
-
-  .accordion.accordion3 details summary {
-    padding-right: 56px;
-  }
-
-  .accordion.accordion3 details summary::before,
-  .accordion.accordion3 details summary::after {
-    right: 12px;
-    width: 16px;
-  }
-
-  .accordion.accordion3 details summary p {
-    padding-right: 8px;
-  }
 }
