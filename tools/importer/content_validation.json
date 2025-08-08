@@ -3546,168 +3546,28 @@
           "text": "United States en-US es-US Canada en-CA fr-CA Switzerland de-CH fr-CH it-CH Germany de-DE France fr-FR Spain es-ES Italy it-IT "
         },
         {
-          "change_type": "deletion",
-          "text": "Home Magazine Adventures FAQs About Us About Us Our Contributors Meet the outstanding individuals responsible for bringing you the most compelling stories across the"
-        },
-        {
           "change_type": "insertion",
-          "text": "Welcome"
+          "text": "Welcome Sign In Sign Out de-DE "
         },
         {
           "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "globe. Stacey"
+          "text": "Home Magazine Adventures FAQs About Us "
         },
         {
           "change_type": "insertion",
-          "text": "Sign"
+          "text": "Search "
         },
         {
           "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Roswells"
+          "text": "About Us Our Contributors Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter Home Magazine Adventures FAQs About Us "
         },
         {
           "change_type": "insertion",
-          "text": "In"
+          "text": "Deutsch "
         },
         {
           "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Artist | Photographer | Traveler"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Sign"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Facebook"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Out"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Twitter"
-        },
-        {
-          "change_type": "insertion",
-          "text": "de-DE"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Instagram"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Home"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Jake"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Magazine"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Hammer"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Adventures"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Influencer | Writer"
-        },
-        {
-          "change_type": "insertion",
-          "text": "FAQs"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Facebook"
-        },
-        {
-          "change_type": "insertion",
-          "text": "About"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Us"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Skater | Writer Facebook Twitter Instagram WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Search"
-        },
-        {
-          "change_type": "equal",
-          "text": " Home Magazine Adventures FAQs About Us"
-        },
-        {
-          "change_type": "insertion",
-          "text": " Deutsch"
-        },
-        {
-          "change_type": "equal",
-          "text": " Follow Us Facebook Twitter Instagram \u24b8 2019, WKND Site. WKND is a fictitious adventure and travel website created by Adobe to demonstrate how anyone can use Adobe Experience Manager to build a beautiful, feature-rich website over a single weekend. This site is built entirely with Adobe Experience Manager Core Components and Archetype that are available as open source code to the public. The entire site source code is available as open source as well and is accompanied with a detailed tutorial on how to recreate the site. Many of the beautiful images in the WKND site are available for purchase via Adobe Stock"
+          "text": "Follow Us Facebook Twitter Instagram \u24b8 2019, WKND Site. WKND is a fictitious adventure and travel website created by Adobe to demonstrate how anyone can use Adobe Experience Manager to build a beautiful, feature-rich website over a single weekend. This site is built entirely with Adobe Experience Manager Core Components and Archetype that are available as open source code to the public. The entire site source code is available as open source as well and is accompanied with a detailed tutorial on how to recreate the site. Many of the beautiful images in the WKND site are available for purchase via Adobe Stock"
         },
         {
           "change_type": "deletion",
@@ -3718,7 +3578,7 @@
           "text": " ."
         }
       ],
-      "similarity_score": 0.7693265199696213
+      "similarity_score": 0.9889562407949692
     }
   ]
 }
