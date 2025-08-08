@@ -1,44 +1,43 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block within the given element
+  // Find the main tabs container
   const tabs = element.querySelector('.cmp-tabs');
   if (!tabs) return;
 
-  // Get the tab labels
-  const tablist = tabs.querySelector('[role="tablist"]');
-  const tabLabels = [];
-  if (tablist) {
-    tablist.querySelectorAll('[role="tab"]').forEach(tab => {
-      tabLabels.push(tab.textContent.trim());
-    });
-  }
+  // Get the tab labels (li elements under ol.cmp-tabs__tablist)
+  const tabList = tabs.querySelector('.cmp-tabs__tablist');
+  const tabLabels = tabList ? Array.from(tabList.children) : [];
 
-  // Get the tab panels (tab content) - panels are in DOM order and correspond to tabLabels order
-  const tabPanels = tabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]');
+  // Get the tab panel elements (div[data-cmp-hook-tabs="tabpanel"] in order)
+  const tabPanels = Array.from(tabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // For each panel, extract its content as an array of child nodes, preserving all structure
-  // The block header
-  const rows = [['Tabs (tabs31)']];
-  
-  tabLabels.forEach((label, i) => {
-    const panel = tabPanels[i];
-    if (!panel) return;
+  // Create the header row as required
+  const headerRow = ['Tabs (tabs31)'];
+  const rows = [headerRow];
 
-    // The content is typically a .contentfragment, but we should capture everything under the panel
-    // We'll collect all Element and non-empty Text nodes (in case of stray text)
-    const cellNodes = [];
-    Array.from(panel.childNodes).forEach(node => {
-      if (node.nodeType === Node.ELEMENT_NODE) {
-        cellNodes.push(node);
-      } else if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
-        // Text node with actual content
-        cellNodes.push(document.createTextNode(node.textContent));
-      }
-    });
-    rows.push([label, cellNodes.length === 1 ? cellNodes[0] : cellNodes]);
+  // Map each tab label to its corresponding tab content
+  tabLabels.forEach((tabLabel, idx) => {
+    const labelText = tabLabel.textContent.trim();
+    const panel = tabPanels[idx];
+    if (!panel) return; // skip if missing panel for tab
+    // Extract inner content nodes for the panel (keep structure)
+    // If there's only one child (eg. .contentfragment), use that directly, else use all children
+    let contentNodes = [];
+    if (panel.children.length === 1) {
+      contentNodes.push(panel.children[0]);
+    } else if (panel.children.length > 1) {
+      contentNodes = Array.from(panel.children);
+    } else {
+      // fallback: include all childNodes (for text nodes and elements)
+      contentNodes = Array.from(panel.childNodes).filter(node => node.nodeType !== Node.COMMENT_NODE && (node.nodeType !== Node.TEXT_NODE || node.textContent.trim() !== ''));
+      // If still empty, as last fallback, include the panel itself
+      if (contentNodes.length === 0) contentNodes = [panel];
+    }
+    rows.push([labelText, contentNodes]);
   });
 
-  // Assemble block table
+  // Create the block table
   const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+  // Replace the original tabs with the new block
+  tabs.replaceWith(block);
 }

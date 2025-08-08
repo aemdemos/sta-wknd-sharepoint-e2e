@@ -1,24 +1,41 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const cmpContainer = element.querySelector(':scope > .cmp-container');
-  if (!cmpContainer) return;
-  const aemGrid = cmpContainer.querySelector(':scope > .aem-Grid');
-  if (!aemGrid) return;
+  // Find the immediate .aem-Grid within this block
+  const grid = element.querySelector('.aem-Grid');
+  if (!grid) return;
 
-  // Find direct children for the expected three columns
-  const gridChildren = Array.from(aemGrid.querySelectorAll(':scope > div'));
-  let logoDiv = null, navDiv = null, searchDiv = null;
-  gridChildren.forEach(child => {
-    if (child.classList.contains('image')) logoDiv = child;
-    else if (child.classList.contains('navigation')) navDiv = child;
-    else if (child.classList.contains('search')) searchDiv = child;
-  });
-  // Build column cells (always 3 columns)
-  const columnsRow = [logoDiv || '', navDiv || '', (searchDiv ? (searchDiv.querySelector(':scope > section') || searchDiv) : '')];
-  // The header row must be a single cell (not three!)
+  // Get the three columns: logo/image, navigation, search
+  const columns = [];
+
+  // 1. Logo/Image Column
+  const logoCol = grid.querySelector('.cmp-image--logo');
+  let logoBlock = '';
+  if (logoCol) {
+    logoBlock = logoCol.querySelector('[data-cmp-is="image"]') || '';
+  }
+  columns.push(logoBlock);
+
+  // 2. Navigation column
+  const navCol = grid.querySelector('.cmp-navigation--header');
+  let navBlock = '';
+  if (navCol) {
+    navBlock = navCol.querySelector('nav.cmp-navigation') || '';
+  }
+  columns.push(navBlock);
+
+  // 3. Search column
+  const searchCol = grid.querySelector('.cmp-search--header');
+  let searchBlock = '';
+  if (searchCol) {
+    searchBlock = searchCol.querySelector('.cmp-search') || '';
+  }
+  columns.push(searchBlock);
+
+  // Table must have a header row with one cell, and then a content row with three cells (columns)
   const headerRow = ['Columns (columns2)'];
-  // Output table structure: header row (1 col), content row (n cols)
-  const tableArr = [headerRow, columnsRow];
-  const block = WebImporter.DOMUtils.createTable(tableArr, document);
-  element.replaceWith(block);
+  const contentRow = columns;
+  const tableRows = [headerRow, contentRow];
+
+  const table = WebImporter.DOMUtils.createTable(tableRows, document);
+  element.replaceWith(table);
 }

@@ -1,80 +1,62 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper to extract info from a single carousel item
-  function extractSlideContent(carouselItem) {
-    // Image cell: required
-    let imgCell = '';
-    // Text cell: can be empty
-    let textCell = '';
-    // Find the main teaser inside this item
-    const teaser = carouselItem.querySelector('.cmp-teaser');
-    if (teaser) {
-      // Find the image: prefer the existing <img> element inside .cmp-teaser__image
-      const imgWrapper = teaser.querySelector('.cmp-teaser__image');
-      if (imgWrapper) {
-        const img = imgWrapper.querySelector('img');
-        if (img) {
-          imgCell = img;
-        }
-      }
-      // Compose the text cell
-      const textParts = [];
-      const teaserContent = teaser.querySelector('.cmp-teaser__content');
-      if (teaserContent) {
-        // Title (h2)
-        const title = teaserContent.querySelector('.cmp-teaser__title');
-        if (title) {
-          const h2 = document.createElement('h2');
-          h2.textContent = title.textContent.trim();
-          textParts.push(h2);
-        }
-        // Description
-        const desc = teaserContent.querySelector('.cmp-teaser__description');
-        if (desc) {
-          // If description contains block elements, preserve them
-          // Otherwise, wrap in div for separation
-          if (desc.children.length > 0) {
-            Array.from(desc.children).forEach(child => {
-              textParts.push(child);
-            });
-          } else {
-            const descDiv = document.createElement('div');
-            descDiv.textContent = desc.textContent.trim();
-            textParts.push(descDiv);
-          }
-        }
-        // CTA (link)
-        const cta = teaserContent.querySelector('.cmp-teaser__action-link');
-        if (cta) {
-          // Reference the existing link element
-          textParts.push(cta);
-        }
-      }
-      if (textParts.length > 0) {
-        // Wrap all text parts in a single <div> to keep semantic grouping
-        const wrapper = document.createElement('div');
-        textParts.forEach(part => wrapper.appendChild(part));
-        textCell = wrapper;
+  // Helper function to collect text content cell from teaser content
+  function extractTextCell(teaserContent) {
+    if (!teaserContent) return '';
+    const contentPieces = [];
+    // Title (as heading, usually h2)
+    const title = Array.from(teaserContent.children).find(child => child.classList.contains('cmp-teaser__title'));
+    if (title) contentPieces.push(title);
+    // Description (possibly <div> or <div><p>...</p></div>)
+    const desc = Array.from(teaserContent.children).find(child => child.classList.contains('cmp-teaser__description'));
+    if (desc) {
+      // If the description only contains a <p>, extract the <p> element for semantic clarity
+      if (desc.children.length === 1 && desc.children[0].tagName === 'P') {
+        contentPieces.push(desc.children[0]);
+      } else {
+        contentPieces.push(desc);
       }
     }
-    // Always two cells: [img, text]
-    return [imgCell, textCell];
+    // CTA button (link)
+    const ctaContainer = Array.from(teaserContent.children).find(child => child.classList.contains('cmp-teaser__action-container'));
+    if (ctaContainer) {
+      const ctaLink = ctaContainer.querySelector('a');
+      if (ctaLink) contentPieces.push(ctaLink);
+    }
+    return contentPieces.length > 0 ? contentPieces : '';
   }
 
-  // Find the main carousel container
+  // Get the carousel element (could be wrapper or direct)
   let carousel = element.querySelector('.cmp-carousel');
   if (!carousel) carousel = element;
-  const slides = Array.from(carousel.querySelectorAll('.cmp-carousel__item'));
 
-  // Build the cells array for the block table
+  // Get all carousel item slides
+  const slides = Array.from(carousel.querySelectorAll('.cmp-carousel__content > .cmp-carousel__item'));
   const cells = [];
-  // Header row: from the spec and example
+  // Header row: exactly matches example
   cells.push(['Carousel (carousel22)']);
-  // Each slide becomes a row
-  slides.forEach(slide => {
-    cells.push(extractSlideContent(slide));
+  slides.forEach((slide) => {
+    // Find teaser (should exist in each slide)
+    const teaser = slide.querySelector('.cmp-teaser');
+    let imgEl = null;
+    // Image: look for img in .cmp-teaser__image
+    if (teaser) {
+      const teaserImg = teaser.querySelector('.cmp-teaser__image img');
+      if (teaserImg) imgEl = teaserImg;
+    }
+    // Text content cell: from .cmp-teaser__content
+    let textCell = '';
+    if (teaser) {
+      const teaserContent = teaser.querySelector('.cmp-teaser__content');
+      textCell = extractTextCell(teaserContent);
+    }
+    cells.push([
+      imgEl,
+      textCell
+    ]);
   });
 
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Create and replace element with table block
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

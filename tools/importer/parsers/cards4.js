@@ -1,61 +1,55 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the image-list (All Articles)
-  const imageList = element.querySelector('.image-list .cmp-image-list');
+  // Find the image-list block
+  const imageList = element.querySelector('.image-list.list .cmp-image-list');
   if (!imageList) return;
+  const headerRow = ['Cards (cards4)'];
+  const rows = [];
+  // Each card is a li in the list
+  const items = imageList.querySelectorAll(':scope > li');
+  items.forEach((li) => {
+    // IMAGE CELL
+    let imageEl = li.querySelector('img');
 
-  // Build header row
-  const rows = [['Cards (cards4)']];
-
-  // For each card (li)
-  imageList.querySelectorAll(':scope > li.cmp-image-list__item').forEach((li) => {
-    // First cell: image (the .cmp-image element or img)
-    let imageCell = null;
-    const cmpImageDiv = li.querySelector('.cmp-image');
-    if (cmpImageDiv) {
-      imageCell = cmpImageDiv;
-    } else {
-      const img = li.querySelector('img');
-      if (img) imageCell = img;
-    }
-
-    // Second cell: text content (title, description)
+    // TEXT CELL
     const textContent = [];
-
-    // Title (bold/strong)
-    const title = li.querySelector('.cmp-image-list__item-title');
-    if (title) {
+    // Title (with link if present)
+    let titleInserted = false;
+    const titleLink = li.querySelector('.cmp-image-list__item-title-link');
+    if (titleLink) {
+      // Put link with title in a <strong>
       const strong = document.createElement('strong');
-      strong.textContent = title.textContent.trim();
+      strong.appendChild(titleLink);
       textContent.push(strong);
-    }
-
-    // Description
-    const desc = li.querySelector('.cmp-image-list__item-description');
-    if (desc && desc.textContent.trim()) {
-      if (textContent.length > 0) {
-        textContent.push(document.createElement('br'));
+      titleInserted = true;
+    } else {
+      const titleSpan = li.querySelector('.cmp-image-list__item-title');
+      if (titleSpan) {
+        const strong = document.createElement('strong');
+        strong.textContent = titleSpan.textContent;
+        textContent.push(strong);
+        titleInserted = true;
       }
-      // Use a div for the description text
+    }
+    // Description, if present
+    const descSpan = li.querySelector('.cmp-image-list__item-description');
+    if (descSpan && descSpan.textContent.trim()) {
       const descDiv = document.createElement('div');
-      descDiv.textContent = desc.textContent.trim();
+      descDiv.textContent = descSpan.textContent.trim();
       textContent.push(descDiv);
     }
-
-    // Edge-case fallback: If no title or desc found, include all text from the card
+    // Fallback: if no title/description, just use all text
     if (textContent.length === 0) {
-      // Grab visible text nodes from article
-      const article = li.querySelector('.cmp-image-list__item-content');
-      if (article) {
-        textContent.push(document.createTextNode(article.textContent.trim()));
-      }
+      const fallbackText = li.textContent.trim();
+      if (fallbackText) textContent.push(document.createTextNode(fallbackText));
     }
-
-    // Add the row
-    rows.push([imageCell, textContent]);
+    rows.push([
+      imageEl,
+      textContent.length === 1 ? textContent[0] : textContent
+    ]);
   });
-
-  // Create the table and replace original element
-  const table = WebImporter.DOMUtils.createTable(rows, document);
+  // Compose the table
+  const cells = [headerRow, ...rows];
+  const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

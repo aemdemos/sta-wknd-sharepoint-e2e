@@ -1,45 +1,57 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // --- Header row: single cell, must match the example ---
-  const rows = [['Carousel (carousel15)']];
+  // Header row as in the example
+  const headerRow = ['Carousel (carousel15)'];
+  const rows = [];
 
-  // Find the carousel container
-  const carousel = element.querySelector('.cmp-carousel');
-  if (!carousel) return;
+  // Find the carousel root element
+  let carousel = element.querySelector('.cmp-carousel');
+  if (!carousel) carousel = element;
 
-  // Find all carousel items (slides)
+  // Get the slides container
   const content = carousel.querySelector('.cmp-carousel__content');
   if (!content) return;
-  const items = Array.from(content.querySelectorAll('.cmp-carousel__item'));
 
-  // For each slide, extract image and text content
-  items.forEach((item) => {
-    // IMAGE CELL
-    let imageCell = '';
-    const imageWrapper = item.querySelector('.image');
-    if (imageWrapper) {
-      // Prefer any <img> in the imageWrapper
-      const img = imageWrapper.querySelector('img');
-      if (img) imageCell = img;
-    }
+  // Each slide is a .cmp-carousel__item
+  const slides = content.querySelectorAll('.cmp-carousel__item');
+  slides.forEach((slide) => {
+    // First column: image (first <img> in the slide)
+    const img = slide.querySelector('img');
+    const imgCell = img || '';
 
-    // TEXT CELL
-    // Collect all direct children of cmp-carousel__item except .image
+    // Second column: all slide content except for the image container (.image)
+    // We'll collect all elements not in the image container, preserving their structure
+    const textNodes = [];
+    slide.childNodes.forEach((node) => {
+      if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('image')) return;
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        textNodes.push(node);
+      } else if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+        // For non-empty text nodes outside the image, wrap in a <p>
+        const p = document.createElement('p');
+        p.textContent = node.textContent.trim();
+        textNodes.push(p);
+      }
+    });
+    // If no text content found, fallback to img.alt if available
     let textCell = '';
-    const textElements = Array.from(item.children).filter(child => !child.classList.contains('image'));
-    // Only set textCell if we actually have non-image content
-    if (textElements.length === 1) {
-      textCell = textElements[0];
-    } else if (textElements.length > 1) {
-      textCell = textElements;
+    if (textNodes.length > 0) {
+      textCell = textNodes;
+    } else if (img && img.alt) {
+      const p = document.createElement('p');
+      p.textContent = img.alt;
+      textCell = p;
     }
-    // If there is no text content, textCell remains ''
-
-    // Every row should be exactly two cells: image, then text
-    rows.push([imageCell, textCell]);
+    
+    rows.push([imgCell, textCell]);
   });
 
-  // Create and replace
-  const table = WebImporter.DOMUtils.createTable(rows, document);
+  // Compose the block table
+  const table = WebImporter.DOMUtils.createTable([
+    headerRow,
+    ...rows
+  ], document);
+
+  // Replace the original element with the new block table
   element.replaceWith(table);
 }

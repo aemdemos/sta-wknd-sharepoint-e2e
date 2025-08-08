@@ -1,52 +1,52 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main tabs block
-  const tabsEl = element.querySelector('.cmp-tabs');
-  if (!tabsEl) return;
+  const tabs = element.querySelector('.cmp-tabs');
+  if (!tabs) return;
 
-  // Get all tab labels
-  const tabListItems = tabsEl.querySelectorAll('.cmp-tabs__tablist > li');
-  // Get all tab panels (contents)
-  const tabPanels = tabsEl.querySelectorAll('.cmp-tabs__tabpanel');
+  // Get tab labels
+  const tabLabels = Array.from(
+    tabs.querySelectorAll('.cmp-tabs__tablist > li[role="tab"]')
+  ).map(li => li.textContent.trim());
 
-  // Defensive: Only process if counts match
-  if (tabListItems.length !== tabPanels.length || tabListItems.length === 0) return;
+  // Get tab panels
+  const tabPanels = Array.from(
+    tabs.querySelectorAll('div[data-cmp-hook-tabs="tabpanel"]')
+  );
 
-  // Header row: must be a single cell with the block name
-  const headerRow = ['Tabs (tabs30)'];
-  const tableRows = [headerRow];
+  // Build table rows, starting with header row: one column only
+  const rows = [];
+  rows.push(['Tabs (tabs30)']);
 
-  // Each subsequent row: [Tab Label, Tab Content]
-  for (let i = 0; i < tabListItems.length; i++) {
-    // First cell: The tab label
-    const tabLabel = tabListItems[i].textContent.trim();
-    // Second cell: The content, as a reference to existing children of the tabpanel
+  // All subsequent rows must be two columns: [label, content]
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i];
     const panel = tabPanels[i];
-    // Try to find a main content element
-    let tabContentRoot = panel.querySelector('article') || panel;
-    // Get all children, but skip the h3.cmp-contentfragment__title if present at the top
-    const allChildren = Array.from(tabContentRoot.children);
-    let contentNodes = [];
-    let startIdx = 0;
-    if (allChildren[0] && allChildren[0].classList && allChildren[0].classList.contains('cmp-contentfragment__title')) {
-      startIdx = 1;
-    }
-    for (let j = startIdx; j < allChildren.length; j++) {
-      contentNodes.push(allChildren[j]);
-    }
-    // If nothing was added, fallback to all nodes (could be just text)
-    if (contentNodes.length === 0) {
-      contentNodes = Array.from(tabContentRoot.childNodes).filter(n => {
-        // Remove whitespace-only text nodes
-        return !(n.nodeType === 3 && !n.textContent.trim());
+    let content = '';
+    if (panel) {
+      // Find .contentfragment or .cmp-contentfragment inside panel
+      let mainContent = panel.querySelector('.contentfragment, .cmp-contentfragment');
+      if (!mainContent) {
+        // fallback: use the entire panel
+        mainContent = panel;
+      }
+
+      // Remove empty grid filler elements
+      Array.from(mainContent.querySelectorAll('.aem-Grid, .aem-Grid--12, .aem-Grid--default--12')).forEach(e => e.remove());
+      Array.from(mainContent.querySelectorAll('div')).forEach(div => {
+        if (div.childNodes.length === 0 && div.textContent.trim() === '') div.remove();
       });
+
+      content = mainContent;
     }
-    // If only one node, use that node, otherwise use array
-    const contentCell = (contentNodes.length === 1) ? contentNodes[0] : contentNodes;
-    tableRows.push([tabLabel, contentCell]);
+    rows.push([label, content]);
   }
 
-  // Create the table and replace
-  const block = WebImporter.DOMUtils.createTable(tableRows, document);
-  element.replaceWith(block);
+  // Create table:
+  //  - Header row: single column
+  //  - Content rows: two columns
+  // This causes first <tr> to have one <th>, and all subsequent <tr>s to have two <td>s
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+
+  // Replace tabs element with block table
+  tabs.replaceWith(block);
 }

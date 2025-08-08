@@ -1,41 +1,45 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block within the given element
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Locate the tabs block in the source element
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Find all tab labels
-  const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  const tabLabels = [];
-  if (tabList) {
-    tabList.querySelectorAll('li').forEach(tab => {
-      tabLabels.push(tab.textContent.trim());
-    });
-  }
+  // Get the tab labels from the tablist
+  const tablist = tabsBlock.querySelector('.cmp-tabs__tablist');
+  const tabLabelNodes = tablist ? Array.from(tablist.querySelectorAll('li')) : [];
+  const tabLabels = tabLabelNodes.map(li => li.textContent.trim());
 
-  // Get all tabpanel elements (content for each tab)
-  const tabPanels = tabs.querySelectorAll('[role="tabpanel"]');
-  const tabContents = [];
-  tabPanels.forEach(panel => {
-    // For each tabpanel, find the first child that can be used as the content
-    // In this markup, the .contentfragment is the meaningful content
-    // We'll reference the direct .contentfragment child if present, else the whole panel
-    const content = panel.querySelector('.contentfragment') || panel;
-    tabContents.push(content);
-  });
+  // Get all tabpanels
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Build the block table rows
-  // Header row: block name as a single cell
-  const rows = [['Tabs (tabs18)']];
-  // Each subsequent row: tab label, tab content
+  // Header row must match the required format
+  const headerRow = ['Tabs (tabs18)'];
+  const cells = [headerRow];
+
+  // For each tab, gather label and content
   for (let i = 0; i < tabLabels.length; i++) {
-    rows.push([
-      tabLabels[i],
-      tabContents[i]
-    ]);
+    const label = tabLabels[i];
+    // Try to get the corresponding panel; if missing, skip
+    const panel = tabPanels[i];
+    let contentNode;
+    if (panel) {
+      // Reference the article/contentfragment as the main tab content if present
+      const cf = panel.querySelector('article.cmp-contentfragment');
+      if (cf) {
+        contentNode = cf;
+      } else {
+        // If not, use the panel's first element child
+        contentNode = panel.firstElementChild || document.createDocumentFragment();
+      }
+    } else {
+      // If no panel for this label, use an empty fragment
+      contentNode = document.createDocumentFragment();
+    }
+    cells.push([label, contentNode]);
   }
 
-  // Create the table and replace the original element
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+  // Create block table
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace only the tabs block, not the entire element (preserves sidebar/other content)
+  tabsBlock.replaceWith(table);
 }
