@@ -1,55 +1,58 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the image-list block
-  const imageList = element.querySelector('.image-list.list .cmp-image-list');
-  if (!imageList) return;
+  // Create header row exactly matching the example
   const headerRow = ['Cards (cards4)'];
-  const rows = [];
-  // Each card is a li in the list
-  const items = imageList.querySelectorAll(':scope > li');
-  items.forEach((li) => {
-    // IMAGE CELL
-    let imageEl = li.querySelector('img');
+  const cells = [headerRow];
 
-    // TEXT CELL
-    const textContent = [];
-    // Title (with link if present)
-    let titleInserted = false;
-    const titleLink = li.querySelector('.cmp-image-list__item-title-link');
-    if (titleLink) {
-      // Put link with title in a <strong>
-      const strong = document.createElement('strong');
-      strong.appendChild(titleLink);
-      textContent.push(strong);
-      titleInserted = true;
-    } else {
-      const titleSpan = li.querySelector('.cmp-image-list__item-title');
-      if (titleSpan) {
-        const strong = document.createElement('strong');
-        strong.textContent = titleSpan.textContent;
-        textContent.push(strong);
-        titleInserted = true;
+  // Find the image list for cards
+  const imageList = element.querySelector('.image-list .cmp-image-list');
+  if (imageList) {
+    imageList.querySelectorAll(':scope > li.cmp-image-list__item').forEach((item) => {
+      // First cell: image element (reference)
+      let imgEl = null;
+      const cmpImage = item.querySelector('img');
+      if (cmpImage) imgEl = cmpImage;
+
+      // Second cell: text content
+      // Reference existing elements for semantic structure and robustness
+      const cardContent = [];
+      const article = item.querySelector('article');
+      if (article) {
+        // Title (prefer <span class="cmp-image-list__item-title"> inside a link, render as <h3>)
+        const titleSpan = article.querySelector('.cmp-image-list__item-title');
+        if (titleSpan && titleSpan.textContent.trim()) {
+          const h3 = document.createElement('h3');
+          h3.textContent = titleSpan.textContent.trim();
+          cardContent.push(h3);
+        }
+
+        // Description
+        const descSpan = article.querySelector('.cmp-image-list__item-description');
+        if (descSpan && descSpan.textContent.trim()) {
+          const p = document.createElement('p');
+          p.textContent = descSpan.textContent.trim();
+          cardContent.push(p);
+        }
+
+        // CTA link (must use href from the title link if present)
+        // This block's example puts CTA at the bottom of the cell
+        // If there's a title link, use it for CTA
+        const titleLink = article.querySelector('.cmp-image-list__item-title-link');
+        if (titleLink && titleLink.getAttribute('href')) {
+          const cta = document.createElement('a');
+          cta.href = titleLink.getAttribute('href');
+          cta.textContent = 'Read More';
+          cardContent.push(cta);
+        }
       }
-    }
-    // Description, if present
-    const descSpan = li.querySelector('.cmp-image-list__item-description');
-    if (descSpan && descSpan.textContent.trim()) {
-      const descDiv = document.createElement('div');
-      descDiv.textContent = descSpan.textContent.trim();
-      textContent.push(descDiv);
-    }
-    // Fallback: if no title/description, just use all text
-    if (textContent.length === 0) {
-      const fallbackText = li.textContent.trim();
-      if (fallbackText) textContent.push(document.createTextNode(fallbackText));
-    }
-    rows.push([
-      imageEl,
-      textContent.length === 1 ? textContent[0] : textContent
-    ]);
-  });
-  // Compose the table
-  const cells = [headerRow, ...rows];
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+      // Ensure all text content is captured even if selectors miss
+      if (cardContent.length === 0 && article) {
+        // Fallback: add all text from the article
+        cardContent.push(document.createTextNode(article.textContent.trim()));
+      }
+      cells.push([imgEl, cardContent]);
+    });
+  }
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

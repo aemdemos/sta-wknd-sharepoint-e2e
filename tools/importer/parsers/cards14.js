@@ -1,42 +1,40 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
   const headerRow = ['Cards (cards14)'];
-  const cells = [headerRow];
-  // Get all card <li>s
-  const items = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
-  items.forEach((item) => {
-    // Image: inside <a> -> <div> -> <img>
+  const rows = [headerRow];
+
+  // Find all image-list items (cards)
+  const cards = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
+  cards.forEach((card) => {
+    // IMAGE (first column)
     let imgEl = null;
-    const imgLink = item.querySelector('a.cmp-image-list__item-image-link');
-    if (imgLink) {
-      imgEl = imgLink.querySelector('img');
+    const imgContainer = card.querySelector('.cmp-image-list__item-image');
+    if (imgContainer) {
+      imgEl = imgContainer.querySelector('img');
     }
-    // Text cell: Title + Description (and CTA if present)
-    const textParts = [];
-    // Title: usually inside <a.cmp-image-list__item-title-link>
-    const titleLink = item.querySelector('a.cmp-image-list__item-title-link');
-    if (titleLink) {
-      // Try to find the span.title inside
-      const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
-      if (titleSpan) {
-        // Reference the title span itself, not clone or wrap
-        textParts.push(titleSpan);
-      }
+
+    // TEXT (second column)
+    const textDiv = document.createElement('div');
+
+    // Title (as heading, use <strong>)
+    const titleLink = card.querySelector('.cmp-image-list__item-title-link');
+    if (titleLink && titleLink.textContent.trim()) {
+      const strong = document.createElement('strong');
+      strong.textContent = titleLink.textContent.trim();
+      textDiv.appendChild(strong);
     }
+
     // Description
-    const desc = item.querySelector('.cmp-image-list__item-description');
-    if (desc) {
-      // If there is a title, add a <br> between title and description
-      if (textParts.length > 0) {
-        textParts.push(document.createElement('br'));
-      }
-      textParts.push(desc);
+    const descEl = card.querySelector('.cmp-image-list__item-description');
+    if (descEl && descEl.textContent.trim()) {
+      const p = document.createElement('p');
+      p.textContent = descEl.textContent.trim();
+      textDiv.appendChild(p);
     }
-    // If neither title nor description, put empty string as fallback
-    const textCell = textParts.length > 0 ? textParts : '';
-    const row = [imgEl, textCell];
-    cells.push(row);
+
+    rows.push([imgEl, textDiv]);
   });
-  const table = WebImporter.DOMUtils.createTable(cells, document);
+
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

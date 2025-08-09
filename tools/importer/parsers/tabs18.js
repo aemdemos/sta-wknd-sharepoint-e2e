@@ -1,45 +1,40 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate the tabs block in the source element
-  const tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
+  // Find the .cmp-tabs block
+  const tabs = element.querySelector('.cmp-tabs');
+  if (!tabs) return;
 
-  // Get the tab labels from the tablist
-  const tablist = tabsBlock.querySelector('.cmp-tabs__tablist');
-  const tabLabelNodes = tablist ? Array.from(tablist.querySelectorAll('li')) : [];
-  const tabLabels = tabLabelNodes.map(li => li.textContent.trim());
+  // Get the tab labels (should be <li> inside the <ol> tablist)
+  const tablist = tabs.querySelector('.cmp-tabs__tablist');
+  if (!tablist) return;
+  const tabLabels = Array.from(tablist.querySelectorAll('li'));
 
-  // Get all tabpanels
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  // Get the tab panels (role="tabpanel")
+  const tabPanels = Array.from(tabs.querySelectorAll('[role="tabpanel"]'));
 
-  // Header row must match the required format
-  const headerRow = ['Tabs (tabs18)'];
-  const cells = [headerRow];
+  // Build rows for the block table
+  const rows = [];
+  // Header row with block name exactly as required
+  rows.push(['Tabs (tabs18)']);
 
-  // For each tab, gather label and content
+  // For each tab, find the corresponding panel by aria-labelledby and add to rows
   for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i];
-    // Try to get the corresponding panel; if missing, skip
-    const panel = tabPanels[i];
-    let contentNode;
+    const label = tabLabels[i].textContent.trim();
+    const labelId = tabLabels[i].id;
+    // Find matching panel for this tab label
+    const panel = tabPanels.find(p => p.getAttribute('aria-labelledby') === labelId);
     if (panel) {
-      // Reference the article/contentfragment as the main tab content if present
-      const cf = panel.querySelector('article.cmp-contentfragment');
-      if (cf) {
-        contentNode = cf;
-      } else {
-        // If not, use the panel's first element child
-        contentNode = panel.firstElementChild || document.createDocumentFragment();
-      }
+      // For the content cell, reference the main content node inside the tab panel
+      // Usually a single <article> or .contentfragment or similar. Fallback to panel itself
+      let contentElement = panel.querySelector('article') || panel.querySelector('.contentfragment') || panel;
+      rows.push([label, contentElement]);
     } else {
-      // If no panel for this label, use an empty fragment
-      contentNode = document.createDocumentFragment();
+      // If panel is missing, push empty cell to preserve tab structure
+      rows.push([label, '']);
     }
-    cells.push([label, contentNode]);
   }
 
-  // Create block table
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace only the tabs block, not the entire element (preserves sidebar/other content)
-  tabsBlock.replaceWith(table);
+  // Create table and replace the tabs block
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  tabs.replaceWith(block);
 }

@@ -1,38 +1,30 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table Header
+  // 1. Table header (EXACT match)
   const headerRow = ['Hero (hero39)'];
 
-  // --------- IMAGE ROW ---------
-  // Try to find the background image
-  let imageCell = null;
-  // The image is inside .cmp-teaser__image > [data-cmp-is="image"]
-  const teaserImage = element.querySelector('.cmp-teaser__image [data-cmp-is="image"]');
-  if (teaserImage) {
-    imageCell = teaserImage;
+  // 2. Image row: Get the hero image container (.cmp-teaser__image)
+  const imageContainer = element.querySelector('.cmp-teaser__image');
+  // If imageContainer is missing, pass null or empty string for that cell
+  const imageRow = [imageContainer || ''];
+
+  // 3. Content row: Title & description (reference both elements directly)
+  const contentContainer = element.querySelector('.cmp-teaser__content');
+  const contentCells = [];
+  if (contentContainer) {
+    const title = contentContainer.querySelector('.cmp-teaser__title');
+    if (title) contentCells.push(title);
+    const description = contentContainer.querySelector('.cmp-teaser__description');
+    if (description) contentCells.push(description);
+    // No CTA element in provided HTML; if present, would reference directly
   }
+  // Use empty string if there's no content
+  const contentRow = [contentCells.length ? contentCells : ''];
 
-  // --------- CONTENT ROW ---------
-  // We'll combine both title and description into a single cell, matching the markdown example
-  let contentCell = null;
-  const teaserContent = element.querySelector('.cmp-teaser__content');
-  if (teaserContent) {
-    // We want to keep the heading (h2) and description (div)
-    const frag = document.createElement('div');
-    const h2 = teaserContent.querySelector('h2');
-    const desc = teaserContent.querySelector('.cmp-teaser__description');
-    if (h2) frag.appendChild(h2);
-    if (desc) frag.appendChild(desc);
-    contentCell = frag.children.length ? frag : null;
-  }
+  // 4. Build the single block table (no Section Metadata block in example)
+  const cells = [headerRow, imageRow, contentRow];
+  const table = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Table rows (always 1 column)
-  const rows = [
-    headerRow,
-    [imageCell],
-    [contentCell],
-  ];
-
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+  // 5. Replace original element with the new block table
+  element.replaceWith(table);
 }

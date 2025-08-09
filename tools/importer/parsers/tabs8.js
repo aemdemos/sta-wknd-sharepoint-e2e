@@ -1,45 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main tabs container (cmp-tabs)
+  // Locate the .cmp-tabs block within the provided element
   const tabs = element.querySelector('.cmp-tabs');
   if (!tabs) return;
 
-  // Get all tab labels in order
+  // Locate tab labels (li elements in .cmp-tabs__tablist)
   const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  const tabLabels = [];
-  let tabOrder = [];
-  if (tabList) {
-    tabList.querySelectorAll('li[role="tab"]').forEach(tab => {
-      tabLabels.push(tab.textContent.trim());
-      const tabId = tab.getAttribute('aria-controls');
-      tabOrder.push(tabId);
-    });
-  }
+  if (!tabList) return;
+  const tabLabels = Array.from(tabList.children);
 
-  // Get all tab panels according to tabOrder
-  const tabPanels = tabOrder.map(id => tabs.querySelector(`#${id}`));
+  // Locate the tab panels (.cmp-tabs__tabpanel)
+  const tabPanels = Array.from(tabs.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Build table rows: first row is header, rest are one row per tab (tab label, tab content)
-  // Per the markdown example, header is one cell: ['Tabs (tabs8)']
-  // Each subsequent row: [tab label, tab content]
-  const rows = [];
-  rows.push(['Tabs (tabs8)']);
-  for(let i=0; i<tabLabels.length; i++) {
-    const label = tabLabels[i];
-    const tabPanel = tabPanels[i];
-    let content = null;
-    if(tabPanel) {
-      // Try to find the main content element for that tab
-      // Usually article, but fallback to first .contentfragment, else to tabPanel
-      let mainContent = tabPanel.querySelector('article') || tabPanel.querySelector('.contentfragment') || tabPanel;
-      content = mainContent;
-    } else {
-      content = document.createTextNode('');
+  // Prepare the table header row exactly as specified
+  const rows = [['Tabs (tabs8)']];
+
+  // Edge-case handling: If there are no tabs, nothing to do
+  if (tabLabels.length === 0 || tabPanels.length === 0) return;
+
+  // For each tab, find its label and corresponding panel content
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i].textContent.trim();
+    // Find the panel for this tab
+    let panel = null;
+    // Determine the panel by aria-controls or by index fallback
+    const controlsId = tabLabels[i].getAttribute('aria-controls');
+    if (controlsId) {
+      panel = tabs.querySelector(`#${controlsId}`);
     }
-    rows.push([label, content]);
+    // Fallback to panel by index if not found by ID
+    if (!panel && tabPanels[i]) {
+      panel = tabPanels[i];
+    }
+    // Edge-case: If still missing, skip this tab
+    if (!panel) continue;
+    rows.push([label, panel]);
   }
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  // Replace the original element with the new block
-  element.replaceWith(block);
+
+  // Create the block table using referenced elements
+  const blockTable = WebImporter.DOMUtils.createTable(rows, document);
+  // Replace the tabs block with the table
+  tabs.replaceWith(blockTable);
 }

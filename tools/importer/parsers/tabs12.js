@@ -1,47 +1,62 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Locate the cmp-tabs block inside the provided element
-  const tabsBlock = element.querySelector('.cmp-tabs');
+  // Locate the tabs block by its known class structure
+  const tabsBlock = element.querySelector('.tabs.panelcontainer');
   if (!tabsBlock) return;
 
-  // 2. Extract tab labels in order
-  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  const tabLabels = [];
-  if (tabList) {
-    tabList.querySelectorAll('li[role="tab"]').forEach(li => {
-      tabLabels.push(li.textContent.trim());
-    });
-  }
+  // Find the cmp-tabs element within the block
+  const cmpTabs = tabsBlock.querySelector('.cmp-tabs');
+  if (!cmpTabs) return;
 
-  // 3. Extract tab panels in the same order as the labels
-  // The tab panels are direct children of .cmp-tabs, order matches the tabs
-  const panelNodes = Array.from(
-    tabsBlock.querySelectorAll('div[role="tabpanel"][data-cmp-hook-tabs="tabpanel"]')
-  );
+  // Get the tab labels from the tablist
+  const tabList = cmpTabs.querySelector('.cmp-tabs__tablist');
+  const tabLabelNodes = tabList ? Array.from(tabList.querySelectorAll('[role="tab"]')) : [];
+  const tabLabels = tabLabelNodes.map(tab => tab.textContent.trim());
 
-  // 4. Compose table rows: first header, then [tab label, tab content] per tab
-  const rows = [ ['Tabs (tabs12)'] ];
+  // Get all tab panels which contain the tab content
+  const tabPanels = Array.from(cmpTabs.querySelectorAll('[role="tabpanel"]'));
+
+  // Start building the rows for the tabs block table
+  const rows = [];
+  rows.push(['Tabs (tabs12)']); // Header row must match block name exactly
+
+  // For each tab, add a row with [Tab Label, Tab Content]
   for (let i = 0; i < tabLabels.length; i++) {
     const label = tabLabels[i];
-    const panel = panelNodes[i];
-    let content = '';
-    if (panel) {
-      // Only use the main content inside the tab panel
-      // Prefer .contentfragment > article, but fallback to full panel if missing
-      const article = panel.querySelector('article');
-      if (article) {
-        content = article;
-      } else {
-        // As backup, include the entire panel
-        content = panel;
+    const panel = tabPanels[i];
+    if (!label || !panel) continue;
+
+    // For robustness, grab all direct children of the tabpanel (skipping empty grids)
+    // We'll filter out empty or mostly empty grid divs
+    const contentElements = Array.from(panel.childNodes).filter((node) => {
+      if (node.nodeType === 1) {
+        // element
+        if (
+          node.classList.contains('aem-Grid') ||
+          node.classList.contains('aem-Grid--12') ||
+          node.classList.contains('aem-Grid--default--12')
+        ) {
+          // skip empty grid wrappers
+          return node.textContent.trim().length > 0;
+        }
+        return true;
+      } else if (node.nodeType === 3) {
+        // text node
+        return node.textContent.trim().length > 0;
       }
+      return false;
+    });
+    // If only one content element, use it directly, otherwise pass as array
+    let tabContentCell;
+    if (contentElements.length === 1) {
+      tabContentCell = contentElements[0];
+    } else {
+      tabContentCell = contentElements;
     }
-    rows.push([label, content]);
+    rows.push([label, tabContentCell]);
   }
 
-  // 5. Create the block table
+  // Create the table and replace the tabs block with it
   const table = WebImporter.DOMUtils.createTable(rows, document);
-
-  // 6. Replace the cmp-tabs element with the new table
   tabsBlock.replaceWith(table);
 }
