@@ -242,187 +242,6 @@
 }
 
 
-.tabs.tabs12 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 26px;
-  background: #fff;
-  box-sizing: border-box;
-  padding: 0;
-}
-
-.tabs.tabs12 > .tabs-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 0;
-  min-width: 120px;
-  max-width: 128px;
-  flex: 0 0 120px;
-  gap: 14px;
-  margin: 0;
-  justify-content: flex-start;
-}
-
-.tabs.tabs12 > .tabs-list button {
-  background: none;
-  border: none;
-  color: #222;
-  font-family: var(--body-font-family);
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1.06em;
-  letter-spacing: 1.2px;
-  border-radius: 4px;
-  padding: 13px 0 13px 13px;
-  margin: 0;
-  min-width: 90px;
-  min-height: 36px;
-  box-shadow: none;
-  outline: none;
-  transition: background 0.18s, color 0.18s;
-  cursor: pointer;
-  display: block;
-  text-align: left;
-  line-height: 1.23;
-}
-
-.tabs.tabs12 > .tabs-list button[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-}
-
-.tabs.tabs12 > .tabs-list button:not([aria-selected="true"]):hover {
-  background: #ececec;
-}
-
-.tabs.tabs12 > .tabs-list button p {
-  margin: 0;
-  padding: 0;
-}
-
-.tabs.tabs12 > .tabs-panel {
-  flex: 1 1 0;
-  max-width: 940px;
-  width: 100%;
-  padding-top: 0;
-  padding-left: 0;
-  background: none;
-  box-shadow: none;
-  border: none;
-  overflow: visible;
-  display: none;
-}
-
-.tabs.tabs12 > .tabs-list,
-.tabs.tabs12 > .tabs-panel {
-  align-self: flex-start;
-}
-
-.tabs.tabs12 > .tabs-panel[aria-hidden="false"] {
-  display: block;
-}
-
-.tabs.tabs12 > .tabs-panel h3 {
-  font-family: var(--heading-font-family), serif;
-  font-weight: 800;
-  font-size: 2.7em;
-  color: #222;
-  margin-top: 0;
-  margin-bottom: 0.07em;
-  line-height: 1.08;
-  letter-spacing: 0;
-  padding-bottom: 12px;
-  border-bottom: 3px solid #e6d74e;
-  width: fit-content;
-}
-
-.tabs.tabs12 > .tabs-panel picture,
-.tabs.tabs12 > .tabs-panel img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  margin-bottom: 17px;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.tabs.tabs12 > .tabs-panel p:first-of-type {
-  font-size: 1em;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #767676;
-  margin-top: 24px;
-  margin-bottom: 28px;
-  letter-spacing: 1px;
-}
-
-.tabs.tabs12 > .tabs-panel p {
-  color: #222;
-  font-size: 1.07em;
-  font-family: var(--body-font-family);
-  line-height: 1.7;
-  margin-top: 0.7em;
-  margin-bottom: 1.4em;
-}
-
-.tabs.tabs12 > .tabs-panel ul,
-.tabs.tabs12 > .tabs-panel ol {
-  margin-left: 1.2em;
-  margin-bottom: 1.5em;
-  color: #222;
-}
-
-.tabs.tabs12 > .tabs-panel li {
-  margin-bottom: 0.5em;
-  font-size: 1em;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs12 {
-    flex-direction: column;
-    gap: 12px;
-    max-width: 100%;
-  }
-
-  .tabs.tabs12 > .tabs-list {
-    flex-direction: row;
-    align-items: stretch;
-    min-width: 0;
-    max-width: 100%;
-    gap: 8px;
-    padding-top: 0;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-
-  .tabs.tabs12 > .tabs-list button {
-    padding: 9px 11px;
-    min-width: 68px;
-    min-height: 26px;
-    text-align: center;
-    font-size: 0.99em;
-  }
-
-  .tabs.tabs12 > .tabs-panel {
-    max-width: 100%;
-    padding-left: 0;
-    padding-top: 0;
-  }
-
-  .tabs.tabs12 > .tabs-panel h3 {
-    font-size: 1.27em;
-    margin-bottom: 8px;
-    padding-bottom: 4px;
-  }
-}
-
-
 .tabs.tabs13 {
   display: flex;
   flex-direction: row;
@@ -2981,7 +2800,6 @@
   box-sizing: border-box;
 }
 
-/* Ensure .tabs-list (tab bar) is always at the very top of the block, horizontally aligned */
 .tabs.tabs10 > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2995,7 +2813,6 @@
   background: none;
 }
 
-/* Style tab buttons for horizontal bar appearance */
 .tabs.tabs10 > .tabs-list button {
   background: none;
   border: none;
@@ -3024,7 +2841,6 @@
   color: #222;
 }
 
-/* Use FLEXBOX for tab panel child layout: two columns on wide screens */
 .tabs.tabs10 .tabs-panel {
   display: flex;
   flex-direction: row;
@@ -3046,7 +2862,6 @@
   }
 }
 
-/* SIDEBAR ("sidebar" is first div in .tabs-panel) */
 .tabs.tabs10 .tabs-panel > div:first-child {
   display: flex;
   flex-direction: column;
@@ -3077,7 +2892,6 @@
   }
 }
 
-/* MAIN CONTENT AREA (second div in .tabs-panel): left-aligned, readable width */
 .tabs.tabs10 .tabs-panel > div:last-child {
   width: 100%;
   max-width: 750px;
@@ -3089,7 +2903,6 @@
   background: none;
 }
 
-/* Headings in main content */
 .tabs.tabs10 .tabs-panel > div:last-child h3 {
   font-family: var(--heading-font-family);
   font-size: 2rem;
@@ -3114,7 +2927,6 @@
   color: #222;
 }
 
-/* Images in main content */
 .tabs.tabs10 .tabs-panel > div:last-child picture,
 .tabs.tabs10 .tabs-panel > div:last-child img {
   display: block;
@@ -3126,7 +2938,6 @@
   box-shadow: none;
 }
 
-/* Paragraphs and lists in main content */
 .tabs.tabs10 .tabs-panel > div:last-child p,
 .tabs.tabs10 .tabs-panel > div:last-child ul {
   font-family: var(--body-font-family);
@@ -3150,17 +2961,14 @@
   color: #222;
 }
 
-/* Spacing between sidebar items */
 .tabs.tabs10 .tabs-panel > div:first-child > *:not(:last-child) {
   margin-bottom: 22px;
 }
 
-/* Vertical spacing between sections in main content */
 .tabs.tabs10 .tabs-panel > div:last-child > *:not(:last-child) {
   margin-bottom: 18px;
 }
 
-/* Responsive: stack columns on mobile/tablet, adjust paddings */
 @media (width <= 700px) {
   .tabs.tabs10 {
     padding: 0 0 24px;
@@ -3184,4 +2992,177 @@
   }
 }
 
-/* Optional: visually differentiate the sidebar "meta info" block */
+
+.tabs.tabs12 {
+  /* Single column layout, centered and wide */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1120px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  padding-top: 32px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Tabs: horizontal row above content */
+.tabs.tabs12 > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 32px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs12 > .tabs-list {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+
+/* Tabs buttons styling */
+.tabs.tabs12 > .tabs-list button {
+  background: none;
+  border: none;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-radius: 4px 4px 0 0;
+  padding: 10px 24px;
+  margin: 0;
+  min-width: 96px;
+  min-height: 40px;
+  box-shadow: none;
+  outline: none;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  display: block;
+  text-align: left;
+  line-height: 1.18;
+}
+
+.tabs.tabs12 > .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs12 > .tabs-list button:not([aria-selected="true"]):hover {
+  background: #ececec;
+  color: #222;
+}
+
+.tabs.tabs12 > .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main content area */
+.tabs.tabs12 > .tabs-panel {
+  width: 100%;
+  max-width: 900px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+  overflow: visible;
+  display: none;
+}
+
+.tabs.tabs12 > .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Title and divider */
+.tabs.tabs12 > .tabs-panel h3 {
+  font-family: var(--heading-font-family), serif;
+  font-weight: 700;
+  font-size: 34px;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.18;
+  width: fit-content;
+  padding-bottom: 7px;
+  border-bottom: 3px solid #f7d560;
+}
+
+/* Image styling */
+.tabs.tabs12 > .tabs-panel picture,
+.tabs.tabs12 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 900px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    padding-top: 0;
+    max-width: 100%;
+  }
+
+  .tabs.tabs12 > .tabs-panel {
+    max-width: 100%;
+  }
+
+  .tabs.tabs12 > .tabs-panel picture,
+  .tabs.tabs12 > .tabs-panel img {
+    max-width: 100%;
+    border-radius: 3px;
+  }
+
+  .tabs.tabs12 > .tabs-list {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Subtitle styling */
+.tabs.tabs12 > .tabs-panel p:first-of-type {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #222;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: var(--body-font-family);
+}
+
+/* Body text styling */
+.tabs.tabs12 > .tabs-panel p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  color: #222;
+  line-height: 1.7;
+  margin-top: 0.7em;
+  margin-bottom: 1em;
+}
+
+/* List styling */
+.tabs.tabs12 > .tabs-panel ul,
+.tabs.tabs12 > .tabs-panel ol {
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+  color: #222;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+}
+
+.tabs.tabs12 > .tabs-panel li {
+  margin-bottom: 0.5em;
+  font-size: 16px;
+}
