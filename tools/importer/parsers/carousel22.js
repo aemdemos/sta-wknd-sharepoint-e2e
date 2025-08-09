@@ -1,62 +1,56 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper function to collect text content cell from teaser content
-  function extractTextCell(teaserContent) {
-    if (!teaserContent) return '';
-    const contentPieces = [];
-    // Title (as heading, usually h2)
-    const title = Array.from(teaserContent.children).find(child => child.classList.contains('cmp-teaser__title'));
-    if (title) contentPieces.push(title);
-    // Description (possibly <div> or <div><p>...</p></div>)
-    const desc = Array.from(teaserContent.children).find(child => child.classList.contains('cmp-teaser__description'));
-    if (desc) {
-      // If the description only contains a <p>, extract the <p> element for semantic clarity
-      if (desc.children.length === 1 && desc.children[0].tagName === 'P') {
-        contentPieces.push(desc.children[0]);
-      } else {
-        contentPieces.push(desc);
-      }
-    }
-    // CTA button (link)
-    const ctaContainer = Array.from(teaserContent.children).find(child => child.classList.contains('cmp-teaser__action-container'));
-    if (ctaContainer) {
-      const ctaLink = ctaContainer.querySelector('a');
-      if (ctaLink) contentPieces.push(ctaLink);
-    }
-    return contentPieces.length > 0 ? contentPieces : '';
-  }
+  // Header row matches exactly
+  const headerRow = ['Carousel (carousel22)'];
 
-  // Get the carousel element (could be wrapper or direct)
-  let carousel = element.querySelector('.cmp-carousel');
-  if (!carousel) carousel = element;
+  // Find the carousel root - the first .cmp-carousel inside element
+  const carousel = element.querySelector('.cmp-carousel');
+  if (!carousel) return;
 
-  // Get all carousel item slides
-  const slides = Array.from(carousel.querySelectorAll('.cmp-carousel__content > .cmp-carousel__item'));
-  const cells = [];
-  // Header row: exactly matches example
-  cells.push(['Carousel (carousel22)']);
-  slides.forEach((slide) => {
-    // Find teaser (should exist in each slide)
+  // Find all slides (direct children of .cmp-carousel__content)
+  const slides = Array.from(
+    carousel.querySelectorAll(':scope > .cmp-carousel__content > .cmp-carousel__item')
+  );
+
+  const rows = slides.map((slide) => {
+    // Each slide should always have a teaser
     const teaser = slide.querySelector('.cmp-teaser');
     let imgEl = null;
-    // Image: look for img in .cmp-teaser__image
-    if (teaser) {
-      const teaserImg = teaser.querySelector('.cmp-teaser__image img');
-      if (teaserImg) imgEl = teaserImg;
-    }
-    // Text content cell: from .cmp-teaser__content
-    let textCell = '';
-    if (teaser) {
-      const teaserContent = teaser.querySelector('.cmp-teaser__content');
-      textCell = extractTextCell(teaserContent);
-    }
-    cells.push([
-      imgEl,
-      textCell
-    ]);
-  });
+    let textCell = [];
 
-  // Create and replace element with table block
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+    if (teaser) {
+      // Image: find first <img> under .cmp-teaser__image
+      const imgContainer = teaser.querySelector('.cmp-teaser__image');
+      if (imgContainer) {
+        imgEl = imgContainer.querySelector('img');
+      }
+
+      // Title: look for h2.cmp-teaser__title
+      const title = teaser.querySelector('.cmp-teaser__title');
+      if (title) {
+        textCell.push(title);
+      }
+      // Description: .cmp-teaser__description (could contain HTML)
+      const desc = teaser.querySelector('.cmp-teaser__description');
+      if (desc) {
+        textCell.push(desc);
+      }
+      // CTA: .cmp-teaser__action-link (if present)
+      const cta = teaser.querySelector('.cmp-teaser__action-link');
+      if (cta) {
+        textCell.push(cta);
+      }
+    }
+    // Defensive: image is required, but if missing, skip row
+    if (!imgEl) {
+      return null;
+    }
+    // If there is no text content, supply empty string for cell
+    return [imgEl, textCell.length > 0 ? textCell : ''];
+  }).filter(Boolean); // Remove any null rows (should not happen)
+
+  // Compose table rows
+  const tableData = [headerRow, ...rows];
+  const block = WebImporter.DOMUtils.createTable(tableData, document);
+  element.replaceWith(block);
 }

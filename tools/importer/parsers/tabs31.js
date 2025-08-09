@@ -1,43 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main tabs container
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Locate only the tabs block in the element
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Get the tab labels (li elements under ol.cmp-tabs__tablist)
-  const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  const tabLabels = tabList ? Array.from(tabList.children) : [];
+  // Get tab labels
+  const tabLabels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
+  // Get the tab panels
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Get the tab panel elements (div[data-cmp-hook-tabs="tabpanel"] in order)
-  const tabPanels = Array.from(tabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
-
-  // Create the header row as required
+  // Prepare the block header row
   const headerRow = ['Tabs (tabs31)'];
-  const rows = [headerRow];
 
-  // Map each tab label to its corresponding tab content
-  tabLabels.forEach((tabLabel, idx) => {
-    const labelText = tabLabel.textContent.trim();
-    const panel = tabPanels[idx];
-    if (!panel) return; // skip if missing panel for tab
-    // Extract inner content nodes for the panel (keep structure)
-    // If there's only one child (eg. .contentfragment), use that directly, else use all children
-    let contentNodes = [];
-    if (panel.children.length === 1) {
-      contentNodes.push(panel.children[0]);
-    } else if (panel.children.length > 1) {
-      contentNodes = Array.from(panel.children);
-    } else {
-      // fallback: include all childNodes (for text nodes and elements)
-      contentNodes = Array.from(panel.childNodes).filter(node => node.nodeType !== Node.COMMENT_NODE && (node.nodeType !== Node.TEXT_NODE || node.textContent.trim() !== ''));
-      // If still empty, as last fallback, include the panel itself
-      if (contentNodes.length === 0) contentNodes = [panel];
+  // Compose rows: [Tab Label, Tab Content]
+  const rows = tabLabels.map((tabLabel) => {
+    const label = tabLabel.textContent.trim();
+    // Panel id from aria-controls
+    const tabPanelId = tabLabel.getAttribute('aria-controls');
+    const panel = tabPanelId ? tabsBlock.querySelector(`#${tabPanelId}`) : null;
+    let tabContent = '';
+    if (panel) {
+      // Find the core content in the panel
+      // Grab the first contentfragment/article if present, otherwise the panel
+      let contentBlock = panel.querySelector('article') || panel;
+      // Collect all ELEMENT children of the content block
+      const fragment = document.createDocumentFragment();
+      Array.from(contentBlock.children).forEach(child => {
+        fragment.appendChild(child);
+      });
+      // Use the fragment if it contains nodes, else fallback to contentBlock
+      tabContent = fragment.childNodes.length ? fragment : contentBlock;
     }
-    rows.push([labelText, contentNodes]);
+    return [label, tabContent];
   });
 
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  // Replace the original tabs with the new block
-  tabs.replaceWith(block);
+  // Compose the table
+  const cells = [headerRow, ...rows];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace the tabs block only
+  tabsBlock.parentElement.replaceChild(block, tabsBlock);
 }

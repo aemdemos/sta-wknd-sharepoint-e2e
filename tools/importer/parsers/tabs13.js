@@ -1,38 +1,33 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block: div with class 'cmp-tabs'
+  // Find the cmp-tabs block within this element
   const tabsBlock = element.querySelector('.cmp-tabs');
   if (!tabsBlock) return;
 
-  // Get tab labels from the tablist
-  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabLabels = Array.from(tabList.querySelectorAll('[role="tab"]')).map(tabEl => tabEl.textContent.trim());
+  // Get the tab labels from the tablist (should be <li> elements)
+  const tablist = tabsBlock.querySelector('.cmp-tabs__tablist');
+  const tabLabels = Array.from(tablist ? tablist.children : []);
 
-  // Find tab panels in DOM order (should match tab labels)
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
-  if (tabLabels.length !== tabPanels.length || tabLabels.length === 0) return;
+  // Get all tab panels (should be in order matching tabLabels)
+  const tabPanels = tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]');
 
-  // Build header row from block name - single cell
-  const headerRow = ['Tabs (tabs13)'];
+  // Compose table rows
+  const rows = [];
+  // Header row: block name from the specification (must match exactly)
+  rows.push(['Tabs (tabs13)']);
 
-  // Build the column header row (tab labels)
-  const labelRow = tabLabels;
+  // Each following row: [tab label, tab content element]
+  for (let i = 0; i < tabLabels.length && i < tabPanels.length; i++) {
+    // Get the label text for this tab
+    const label = tabLabels[i]?.textContent?.trim() || '';
+    // Use the existing panel element directly (never clone)
+    const panel = tabPanels[i];
+    rows.push([label, panel]);
+  }
 
-  // For each tab, create a row with the tab content only in its column, others empty
-  const contentRows = tabPanels.map((panel, i) => {
-    const row = tabLabels.map(() => ''); // fill with empty strings first
-    // Prefer contentfragment/article in the tab panel, else use the panel content directly
-    const contentFragment = panel.querySelector('article');
-    const content = contentFragment ? contentFragment : panel;
-    row[i] = content;
-    return row;
-  });
+  // Create the table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
 
-  // Compose final table cells array
-  const cells = [headerRow, labelRow, ...contentRows];
-
-  // Create the table and replace the tabs block in the DOM
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  tabsBlock.replaceWith(table);
+  // Replace the original tabs block (not the whole parent)
+  tabsBlock.replaceWith(block);
 }

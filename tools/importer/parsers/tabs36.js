@@ -1,44 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block (with class 'tabs')
-  const tabsBlock = element.querySelector('.tabs');
-  if (!tabsBlock) return; // No tabs block found
+  // Find the tabs block root
+  const tabsRoot = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsRoot) return;
 
-  const cmpTabs = tabsBlock.querySelector('.cmp-tabs');
-  if (!cmpTabs) return; // No cmp-tabs inside tabs block
+  // Get all tab labels (li elements inside tablist)
+  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
+  const tabLabelElements = tabList ? Array.from(tabList.querySelectorAll('li')) : [];
+  // Get all tab panels (tab content containers)
+  const tabPanelElements = Array.from(tabsRoot.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Get all tab labels (li elements with class 'cmp-tabs__tab')
-  const tabLabelEls = Array.from(cmpTabs.querySelectorAll(':scope > .cmp-tabs__tablist > li.cmp-tabs__tab'));
-  // Get all tab panels (divs with class 'cmp-tabs__tabpanel')
-  const tabPanelEls = Array.from(cmpTabs.querySelectorAll(':scope > .cmp-tabs__tabpanel'));
+  // Compose the table rows
+  const tableRows = [];
+  // First row: Header (block name), single cell
+  tableRows.push(['Tabs (tabs36)']);
 
-  // Defensive: Only as many rows as we have pairs
-  const rowsCount = Math.min(tabLabelEls.length, tabPanelEls.length);
-
-  // Header row as per block specs
-  const cells = [[ 'Tabs (tabs36)' ]];
-
-  // Each row: [tab label text, tab content (HTML/element)]
-  for (let i = 0; i < rowsCount; i++) {
-    // Extract tab label text
-    const tabLabel = tabLabelEls[i].textContent.trim();
-
-    // For tab content, use all child nodes of the tab panel (reference, don't clone)
-    const panelEl = tabPanelEls[i];
-    // Only get real content nodes
-    const contentNodes = Array.from(panelEl.childNodes).filter(node => {
-      // Filter out whitespace text nodes
-      return !(node.nodeType === Node.TEXT_NODE && !node.textContent.trim());
-    });
-    // Use array if multiple nodes, else single node
-    const tabContent = contentNodes.length > 1 ? contentNodes : (contentNodes[0] || '');
-
-    cells.push([tabLabel, tabContent]);
+  // Next rows: one row per tab [Tab Label, Tab Content]
+  for (let i = 0; i < tabLabelElements.length; i++) {
+    // Tab label as <strong>text</strong> (not <li>)
+    const label = document.createElement('strong');
+    label.textContent = tabLabelElements[i].textContent.trim();
+    // Tab content: use .contentfragment if present, else panel itself
+    let content = tabPanelElements[i];
+    if (content) {
+      const contentFragment = content.querySelector('.contentfragment');
+      if (contentFragment) content = contentFragment;
+      tableRows.push([label, content]);
+    }
+    // If no content panel, skip
   }
 
-  // Build table block
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace tabs block with table
-  tabsBlock.replaceWith(table);
+  // Create and replace
+  const table = WebImporter.DOMUtils.createTable(tableRows, document);
+  tabsRoot.replaceWith(table);
 }

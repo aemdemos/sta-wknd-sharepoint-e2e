@@ -1,41 +1,46 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the .cmp-tabs element within the provided element
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Find the main tabs block within the element
+  const tabsContainer = element.querySelector('.tabs');
+  if (!tabsContainer) return;
+  const cmpTabs = tabsContainer.querySelector('.cmp-tabs');
+  if (!cmpTabs) return;
 
-  // Get tab labels
-  const tabLabels = Array.from(tabs.querySelectorAll('.cmp-tabs__tablist > li'));
+  // Extract the tab labels
+  const tabList = cmpTabs.querySelector('ol[role="tablist"], ul[role="tablist"]');
+  if (!tabList) return;
+  const tabLabelEls = Array.from(tabList.children);
+  const tabLabels = tabLabelEls.map(li => li.textContent.trim());
 
-  // Get tab panels
-  const tabPanels = Array.from(tabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  // Extract the tab contents (panel for each tab)
+  // Panels may not be in the same order as tabs, so we use the aria-controls/id linkage.
+  const tabPanels = Array.from(cmpTabs.querySelectorAll('div[role="tabpanel"]'));
 
-  // Header row with exact block name
-  const cells = [['Tabs (tabs20)']];
+  // Map aria attributes to their elements for reliable lookup
+  const panelsById = {};
+  tabPanels.forEach(panel => {
+    panelsById[panel.id] = panel;
+  });
 
-  // For each tab, get the label and its corresponding panel content
-  for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i] ? tabLabels[i].textContent.trim() : '';
-    let contentCell = '';
-    if (tabPanels[i]) {
-      // Instead of cloning, reference the first element child with its contents
-      // We'll extract all valid child nodes of the tab panel into a fragment, referencing those nodes
-      const fragment = document.createDocumentFragment();
-      // Only reference direct child nodes (so that any structure is preserved)
-      Array.from(tabPanels[i].childNodes).forEach(node => {
-        // Reference existing element node from the document for import, do not clone
-        if (node.nodeType === Node.ELEMENT_NODE || (node.nodeType === Node.TEXT_NODE && node.textContent.trim())) {
-          fragment.appendChild(node);
-        }
-      });
-      // If the fragment has nodes, use it; otherwise, use empty string
-      contentCell = fragment.childNodes.length > 0 ? fragment : '';
+  // Each label <li> has aria-controls=panelId
+  const headerRow = ['Tabs (tabs20)'];
+  const rows = [headerRow];
+  for (const labelEl of tabLabelEls) {
+    const label = labelEl.textContent.trim();
+    const panelId = labelEl.getAttribute('aria-controls');
+    let content = null;
+    if (panelId && panelsById[panelId]) {
+      // Always use the main contentfragment/article if found, otherwise the full panel
+      const panel = panelsById[panelId];
+      const contentFragment = panel.querySelector('.contentfragment') || panel;
+      content = contentFragment;
+    } else {
+      // Fallback: just label in first cell, empty in second
+      content = document.createElement('div');
     }
-    cells.push([label, contentCell]);
+    rows.push([label, content]);
   }
 
-  // Create the table block from cells
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace the original element with the new block table
-  element.replaceWith(block);
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  tabsContainer.replaceWith(table);
 }

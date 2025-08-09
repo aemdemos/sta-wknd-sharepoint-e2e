@@ -1,62 +1,51 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Prepare the block table rows
-  // First, determine the number of columns needed (always 2 for carousel: image + content)
-  const columns = 2;
-  // Header row: single cell, but should span both columns
-  const headerRow = [{
-    value: 'Carousel (carousel40)',
-    colspan: columns,
-  }];
+  // Create header row exactly as required
+  const headerRow = ['Carousel (carousel40)'];
 
-  // Find content and image containers
-  const content = element.querySelector('.cmp-teaser__content');
-  const imageWrapper = element.querySelector('.cmp-teaser__image');
-  let imageEl = null;
-  if (imageWrapper) {
-    imageEl = imageWrapper.querySelector('img');
+  // Find image (mandatory)
+  let img = null;
+  const imageDiv = element.querySelector('.cmp-teaser__image');
+  if (imageDiv) {
+    img = imageDiv.querySelector('img');
   }
 
-  // Build content cell contents
-  const textFragments = [];
-  if (content) {
-    // Pretitle
-    const pretitle = content.querySelector('.cmp-teaser__pretitle');
-    if (pretitle && pretitle.textContent.trim()) textFragments.push(pretitle);
-    // Title
-    const title = content.querySelector('.cmp-teaser__title');
-    if (title && title.textContent.trim()) textFragments.push(title);
-    // Description
-    const desc = content.querySelector('.cmp-teaser__description');
-    if (desc && desc.textContent.trim()) {
-      // Wrap in p if not
-      if (desc.tagName.toLowerCase() !== 'p') {
-        const p = document.createElement('p');
-        p.textContent = desc.textContent.trim();
-        textFragments.push(p);
-      } else {
-        textFragments.push(desc);
+  // Gather the text content cell
+  const textCell = [];
+  const contentDiv = element.querySelector('.cmp-teaser__content');
+  if (contentDiv) {
+    // pretitle (optional)
+    const pretitle = contentDiv.querySelector('.cmp-teaser__pretitle');
+    if (pretitle && pretitle.textContent.trim()) {
+      textCell.push(pretitle);
+    }
+    // title (optional)
+    const title = contentDiv.querySelector('.cmp-teaser__title');
+    if (title && title.textContent.trim()) {
+      textCell.push(title);
+    }
+    // description (optional)
+    const description = contentDiv.querySelector('.cmp-teaser__description');
+    if (description && description.textContent.trim()) {
+      textCell.push(description);
+    }
+    // CTA (optional)
+    const actionContainer = contentDiv.querySelector('.cmp-teaser__action-container');
+    if (actionContainer) {
+      const cta = actionContainer.querySelector('.cmp-teaser__action-link');
+      if (cta && cta.textContent.trim()) {
+        textCell.push(cta);
       }
     }
-    // CTA
-    const cta = content.querySelector('.cmp-teaser__action-link');
-    if (cta && cta.textContent.trim()) {
-      const ctaP = document.createElement('p');
-      ctaP.appendChild(cta);
-      textFragments.push(ctaP);
-    }
   }
-  // Compose content cell
-  const contentCell = textFragments.length ? textFragments : '';
 
-  // Add slide row (2 columns)
-  const slideRow = [imageEl, contentCell];
+  // Build the table
+  const rows = [headerRow];
+  if (img || textCell.length > 0) {
+    rows.push([img, textCell]);
+  }
 
-  // Compose cells array: header then slide
-  // To support colspan in header, use objects for cell definition
-  // WebImporter.DOMUtils.createTable supports cell objects: { value, colspan }
-  const cells = [headerRow, slideRow];
-
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Create the block table and replace the element
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(block);
 }

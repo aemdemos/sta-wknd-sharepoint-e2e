@@ -1,95 +1,53 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the accordion block
+  // Find the main accordion block container within the provided element
   const accordion = element.querySelector('.cmp-accordion');
   if (!accordion) return;
 
-  // Header row: single cell, as per example
-  const headerRow = ['Accordion (accordion3)'];
-  const rows = [headerRow];
+  // Get all accordion items directly under this accordion
+  const items = accordion.querySelectorAll(':scope > .cmp-accordion__item');
 
-  // Collect all accordion items
-  const items = accordion.querySelectorAll('.cmp-accordion__item');
+  // Compose the cells array for createTable
+  const cells = [];
+  const headerRow = ['Accordion (accordion3)'];
+  cells.push(headerRow);
+
   items.forEach(item => {
-    // Title cell: use the visible text from .cmp-accordion__title
-    let titleCell;
-    const titleSpan = item.querySelector('.cmp-accordion__title');
-    if (titleSpan) {
-      titleCell = titleSpan;
-    } else {
-      const btn = item.querySelector('button');
-      if (btn) {
-        const strong = document.createElement('strong');
-        strong.textContent = btn.textContent.trim();
-        titleCell = strong;
-      } else {
-        titleCell = '';
-      }
+    // Title cell (mandatory) – the clickable title or label for the accordion item.
+    let titleContent = '';
+    const spanTitle = item.querySelector('.cmp-accordion__title');
+    if (spanTitle) {
+      titleContent = spanTitle.textContent.trim();
     }
-    // Content cell: get the content of the panel
-    let contentCell = '';
+    // Use a <div> to preserve any formatting or structure, but reference the real child span.
+    let titleElem;
+    if (spanTitle) {
+      // Reference the span directly, not a clone
+      titleElem = spanTitle;
+    } else {
+      titleElem = document.createTextNode(titleContent);
+    }
+
+    // Content cell (mandatory) – the body text, media, or any additional elements that will appear when expanded.
+    // Reference the innermost .cmp-container (if available) so we get only the real accordion panel content.
+    let contentElem = null;
     const panel = item.querySelector('[data-cmp-hook-accordion="panel"]');
     if (panel) {
-      const cmpContainer = panel.querySelector('.cmp-container');
+      let cmpContainer = panel.querySelector('.cmp-container');
       if (cmpContainer) {
-        const textBlocks = cmpContainer.querySelectorAll('.cmp-text');
-        if (textBlocks.length) {
-          contentCell = Array.from(textBlocks);
-        } else {
-          contentCell = Array.from(cmpContainer.childNodes).filter(node => {
-            if (node.nodeType === Node.ELEMENT_NODE) {
-              return node.textContent.trim();
-            }
-            if (node.nodeType === Node.TEXT_NODE) {
-              return node.textContent.trim();
-            }
-            return false;
-          });
-          if (contentCell.length === 1) contentCell = contentCell[0];
-        }
+        contentElem = cmpContainer;
       } else {
-        contentCell = Array.from(panel.childNodes).filter(node => {
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            return node.textContent.trim();
-          }
-          if (node.nodeType === Node.TEXT_NODE) {
-            return node.textContent.trim();
-          }
-          return false;
-        });
-        if (contentCell.length === 1) contentCell = contentCell[0];
+        // fallback: just use the panel's content
+        contentElem = panel;
       }
     }
-    rows.push([titleCell, contentCell]);
+    cells.push([
+      titleElem,
+      contentElem
+    ]);
   });
 
-  // Create the table with a special header row (1 cell) and subsequent rows with 2 cells
-  const table = document.createElement('table');
-  // Header row: 1 cell spanning 2 columns
-  const trHeader = document.createElement('tr');
-  const th = document.createElement('th');
-  th.textContent = headerRow[0];
-  th.colSpan = '2';
-  trHeader.appendChild(th);
-  table.appendChild(trHeader);
-  // Add the content rows (each with 2 cells)
-  for (let i = 1; i < rows.length; i++) {
-    const tr = document.createElement('tr');
-    const cells = rows[i];
-    for (let j = 0; j < 2; j++) {
-      const td = document.createElement('td');
-      const cell = cells[j];
-      if (Array.isArray(cell)) {
-        td.append(...cell);
-      } else if (cell instanceof Node) {
-        td.append(cell);
-      } else {
-        td.innerHTML = cell || '';
-      }
-      tr.appendChild(td);
-    }
-    table.appendChild(tr);
-  }
-  // Replace the accordion element with the new table
-  accordion.replaceWith(table);
+  // Create and replace
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

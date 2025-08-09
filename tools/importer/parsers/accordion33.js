@@ -1,110 +1,83 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate the content fragment area containing the accordion content
-  const mainFragment = element.querySelector('.cmp-contentfragment__elements');
-  if (!mainFragment) return;
+  // Find the main content area that contains the contentfragment
+  const mainSection = element.querySelector('main > div > main');
+  if (!mainSection) return;
+  // Locate the content fragment article
+  const cf = mainSection.querySelector('article.contentfragment');
+  if (!cf) return;
+  // Get the .cmp-contentfragment__elements as the parent of accordion items
+  const cfElements = cf.querySelector('.cmp-contentfragment__elements');
+  if (!cfElements) return;
 
-  // Helper to extract each accordion section: title (h2) + content (until next h2)
-  function extractAccordionItems(root) {
-    const items = [];
-    const children = Array.from(root.childNodes);
-    let i = 0;
-    while (i < children.length) {
-      const node = children[i];
-      // Find the next H2 (accordion title)
-      if (node.nodeType === 1 && node.tagName === 'H2') {
-        const title = node;
-        i++;
-        const content = [];
-        // Gather all nodes (including images, paragraphs, divs) until next H2 or end
-        while (
-          i < children.length &&
-          !(children[i].nodeType === 1 && children[i].tagName === 'H2')
-        ) {
-          const el = children[i];
-          // Skip empty grid wrappers common in AEM
-          if (
-            el.nodeType === 1 &&
-            el.classList &&
-            el.classList.contains('aem-Grid') &&
-            el.childElementCount === 0
-          ) {
-            i++;
-            continue;
-          }
-          if (
-            el.nodeType === 1 &&
-            el.tagName === 'DIV' &&
-            el.childElementCount === 1 &&
-            el.firstElementChild &&
-            el.firstElementChild.classList.contains('aem-Grid') &&
-            el.firstElementChild.childElementCount === 0
-          ) {
-            i++;
-            continue;
-          }
-          // Add non-empty content
-          content.push(el);
-          i++;
-        }
-        // Only add if there is content for this section
-        if (title && content.length > 0) {
-          items.push({ title, content });
-        } else if (title && content.length === 0) {
-          // Add empty section if exists (edge case)
-          items.push({ title, content: [] });
-        }
-      } else {
-        i++;
-      }
+  const rows = [];
+  const headerRow = ['Accordion (accordion33)'];
+  rows.push(headerRow);
+
+  // We'll process by walking through direct children of .cmp-contentfragment__elements
+  // Each accordion item is: [title, content], where title comes from an H2 (except for intro)
+  // The intro section (before first H2) is an accordion item as well
+
+  const cfChildren = Array.from(cfElements.childNodes).filter(n => n.nodeType === 1 && (n.tagName || '').toLowerCase() !== 'script');
+
+  let i = 0;
+  // Process intro section (before first H2)
+  let introTitleEl = null;
+  let introContentEls = [];
+  while (i < cfChildren.length) {
+    const node = cfChildren[i];
+    if (node.tagName && node.tagName.toLowerCase() === 'h2') break;
+    // Use first <p> as intro title
+    if (!introTitleEl && node.tagName && node.tagName.toLowerCase() === 'p') {
+      introTitleEl = node;
+    } else if (node.tagName && node.tagName.toLowerCase() === 'div' && node.querySelector('.cmp-image')) {
+      introContentEls.push(node);
     }
-    return items;
+    i++;
   }
-
-  // Extract all accordion items (sections)
-  const accordionItems = extractAccordionItems(mainFragment);
-  if (!accordionItems.length) return;
-
-  // Compose the table rows: header + rows for each accordion section
-  const rows = [['Accordion (accordion33)']];
-  accordionItems.forEach(({ title, content }) => {
-    // Clean up: remove any empty wrappers inside content
-    const filteredContent = (content || []).filter(el => {
-      if (
-        el.nodeType === 1 &&
-        el.classList &&
-        el.classList.contains('aem-Grid') &&
-        el.childElementCount === 0
-      ) {
-        return false;
-      }
-      if (
-        el.nodeType === 1 &&
-        el.tagName === 'DIV' &&
-        el.childElementCount === 1 &&
-        el.firstElementChild &&
-        el.firstElementChild.classList.contains('aem-Grid') &&
-        el.firstElementChild.childElementCount === 0
-      ) {
-        return false;
-      }
-      // Remove whitespace-only text nodes
-      if (el.nodeType === 3 && !el.textContent.trim()) {
-        return false;
-      }
-      return true;
-    });
+  if (introTitleEl || introContentEls.length) {
+    const contentCell = introContentEls.length > 1 ? introContentEls : (introContentEls.length === 1 ? introContentEls[0] : '');
     rows.push([
-      title,
-      filteredContent.length > 1 ? filteredContent : (filteredContent[0] || '')
+      introTitleEl ? introTitleEl : '',
+      contentCell
     ]);
-  });
-
-  // Create the accordion block table and replace the content fragment with it
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  // Replace the whole contentfragment article (not just the elements) for block-level replacement
-  const cfArticle = element.querySelector('article.contentfragment');
-  if (cfArticle) {
-    cfArticle.replaceWith(table);
   }
+
+  // Process each accordion section (from H2 on)
+  while (i < cfChildren.length) {
+    // Find the next H2
+    while (i < cfChildren.length && (cfChildren[i].tagName || '').toLowerCase() !== 'h2') i++;
+    if (i >= cfChildren.length) break;
+    const h2 = cfChildren[i];
+    const sectionTitle = h2;
+    i++;
+    // Gather all content up to next H2
+    const contentEls = [];
+    while (i < cfChildren.length && (cfChildren[i].tagName || '').toLowerCase() !== 'h2') {
+      const node = cfChildren[i];
+      // Accept paragraphs or images
+      if (node.tagName && node.tagName.toLowerCase() === 'p') {
+        contentEls.push(node);
+      } else if (node.tagName && node.tagName.toLowerCase() === 'div' && node.querySelector('.cmp-image')) {
+        contentEls.push(node);
+      }
+      i++;
+    }
+    let contentCell;
+    if (contentEls.length > 1) {
+      contentCell = contentEls;
+    } else if (contentEls.length === 1) {
+      contentCell = contentEls[0];
+    } else {
+      contentCell = '';
+    }
+    rows.push([
+      sectionTitle,
+      contentCell
+    ]);
+  }
+
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  cf.replaceWith(block);
 }
