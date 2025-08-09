@@ -1,6 +1,4 @@
-/* Globally disable no-descending-specificity rule */
 /* stylelint-disable no-descending-specificity */
-
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -33,119 +31,6 @@
     flex: 1;
     order: unset;
   }
-}
-
-.columns.columns2 {
-  background: #fff;
-  padding: 0;
-}
-
-.columns.columns2 > div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 96px;
-  padding: 1.65rem 5vw;
-  box-sizing: border-box;
-  width: 100%;
-  gap: 0;
-}
-
-@media (width >= 900px) {
-  .columns.columns2 > div > div:nth-child(2) {
-    display: none;
-  }
-}
-
-@media (width <= 899px) {
-  .columns.columns2 > div {
-    flex-direction: column;
-    align-items: stretch;
-    min-height: unset;
-    padding: 14px 3vw;
-    gap: 10px;
-  }
-
-  .columns.columns2 > div > div:nth-child(2) {
-    display: block;
-    margin: 8px 0;
-  }
-}
-
-.columns.columns2 .columns-img-col {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.columns.columns2 .columns-img-col img {
-  display: block;
-  height: 50px;
-  max-width: 162px;
-  width: auto;
-  margin: 0;
-}
-
-.columns.columns2 .columns-img-col ul,
-.columns.columns2 > div > div:nth-child(2) ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.99rem;
-}
-
-.columns.columns2 .columns-img-col ul li,
-.columns.columns2 > div > div:nth-child(2) ul li {
-  display: inline;
-  margin-right: 0.7em;
-}
-
-.columns.columns2 > div > div:nth-child(2) {
-  margin: 0;
-  padding: 0;
-  min-width: 0;
-  min-height: 0;
-}
-
-.columns.columns2 > div > div:last-child {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-width: 120px;
-  height: 100%;
-  padding: 0;
-}
-
-.columns.columns2 > div > div:last-child p {
-  margin: 0;
-  background: #f5f5f5;
-  border-radius: 4px;
-  font-size: 1.02rem;
-  color: #b3b3b3;
-  font-family: var(--body-font-family), sans-serif;
-  font-weight: 400;
-  padding: 8px 18px 8px 32px;
-  box-sizing: border-box;
-  min-width: 80px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='7' cy='7' r='6' stroke='black' stroke-width='2' fill='none'/><line x1='11' y1='11' x2='15' y2='15' stroke='black' stroke-width='2'/></svg>");
-  background-repeat: no-repeat;
-  background-position: 9px center;
-  background-size: 16px 16px;
-}
-
-.columns.columns2 > div > div {
-  min-width: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .columns.columns9 {
@@ -326,4 +211,136 @@
 
 .columns.columns9 > div:last-child a:hover {
   color: #fff;
+}
+
+.columns.columns2 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Flex row, centering, with taller min-height for better vertical centering */
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 120px;      /* Increased for more vertical space */
+  padding: 0 2vw;         /* No explicit vertical padding, let flexbox center */
+  box-sizing: border-box;
+  width: 100%;
+  gap: 0;
+}
+
+/* Hide the middle column (language list) */
+.columns.columns2 > div > div:nth-child(2) {
+  display: none;
+}
+
+/* Left: logo column - vertical centering and no margin */
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+/* Remove margin from picture/img for centering */
+.columns.columns2 .columns-img-col picture,
+.columns.columns2 .columns-img-col img {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Logo image sizing & vertical alignment */
+.columns.columns2 .columns-img-col img {
+  height: 64px;
+  max-width: 210px;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Right: search column - vertical centering */
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 170px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Search "input" styling */
+.columns.columns2 > div > div:last-child p {
+  margin: 0;
+  background: #f5f5f5;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: #888;
+  font-family: var(--body-font-family), sans-serif;
+  font-weight: 400;
+  padding: 8px 18px 8px 32px;
+  box-sizing: border-box;
+  min-width: 90px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='7' cy='7' r='6' stroke='black' stroke-width='2' fill='none'/><line x1='11' y1='11' x2='15' y2='15' stroke='black' stroke-width='2'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 9px center;
+  background-size: 16px 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Eliminate any margin/padding that would bias vertical alignment */
+.columns.columns2 .columns-img-col,
+.columns.columns2 > div > div:last-child,
+.columns.columns2 .columns-img-col img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Remove ul/list if present */
+.columns.columns2 .columns-img-col ul,
+.columns.columns2 > div > div:nth-child(2) ul {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: stack on mobile */
+@media (width <= 899px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: unset;
+    padding: 14px 3vw;
+    gap: 10px;
+  }
+
+  .columns.columns2 > div > div:nth-child(2) {
+    display: none;
+  }
+
+  .columns.columns2 .columns-img-col img {
+    height: 38px;
+    max-width: 120px;
+  }
+
+  .columns.columns2 > div > div:last-child {
+    min-width: 100px;
+    height: auto;
+    justify-content: flex-start;
+  }
+
+  .columns.columns2 > div > div:last-child p {
+    min-width: 60px;
+    height: 32px;
+    font-size: 0.88rem;
+    padding: 7px 13px 7px 29px;
+  }
 }
