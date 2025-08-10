@@ -1,38 +1,48 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate the main tabs component
-  const tabsEl = element.querySelector('.cmp-tabs');
-  if (!tabsEl) return;
+  // Find the tabs block
+  const tabs = element.querySelector('.cmp-tabs');
+  if (!tabs) return;
 
-  // Extract tab labels
-  const tabLabels = Array.from(tabsEl.querySelectorAll('.cmp-tabs__tablist > li')).map(li => li.textContent.trim());
-  // Extract all tab panels (each has role=tabpanel)
-  const tabPanels = Array.from(tabsEl.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  // Get tab labels
+  const tabList = tabs.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabNodes = Array.from(tabList.querySelectorAll('[role="tab"]'));
+  const tabLabels = tabNodes.map((tab) => tab.textContent.trim());
 
-  // Build table rows
-  const rows = [['Tabs (tabs7)']];
+  // Get tab panels in DOM order
+  const tabPanels = Array.from(tabs.querySelectorAll('.cmp-tabs__tabpanel'));
+
+  // Compose table: header row (block name), then one row per tab (label, content)
+  const rows = [ [ 'Tabs (tabs7)' ] ];
+
   for (let i = 0; i < tabLabels.length; i++) {
     const label = tabLabels[i];
-    let content = null;
-    if (tabPanels[i]) {
-      // Per block guidelines, tab content is often an entire article element
-      // Place the first <article> in tabPanel if available, otherwise use the full tabPanel
-      const article = tabPanels[i].querySelector('article');
+    const panel = tabPanels[i];
+    let contentCell;
+    if (panel) {
+      // Prefer the main article if present
+      const article = panel.querySelector('article');
       if (article) {
-        content = article;
+        contentCell = article;
       } else {
-        // fallback: reference the tabPanel directly (should be resilient)
-        content = tabPanels[i];
+        // Else, all children (except empty text nodes)
+        const nodes = Array.from(panel.childNodes).filter(n => {
+          if (n.nodeType === Node.TEXT_NODE) {
+            return n.textContent.trim().length > 0;
+          }
+          return true;
+        });
+        contentCell = nodes.length === 1 ? nodes[0] : nodes;
       }
     } else {
-      // If no tabPanel, just leave cell empty
-      content = '';
+      // Panel missing: empty div
+      contentCell = document.createElement('div');
     }
-    rows.push([label, content]);
+    rows.push([label, contentCell]);
   }
 
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  // Replace the original tabs element only (not the full input element!)
-  tabsEl.replaceWith(block);
+  // Create block table and replace the original tabs element
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  tabs.replaceWith(table);
 }

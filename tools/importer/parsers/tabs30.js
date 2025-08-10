@@ -1,48 +1,68 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main tabs wrapper within the provided element
-  const tabsRoot = element.querySelector('.tabs .cmp-tabs');
-  if (!tabsRoot) return;
+  // Locate the tabs block within the element
+  const tabsBlock = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Get all tab labels from the tablist
-  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
-  const tabLabels = Array.from(tabList ? tabList.querySelectorAll('[role="tab"]') : []).map(tab => tab.textContent.trim());
-
-  // Find all tab panels in order they appear
-  const tabPanels = Array.from(tabsRoot.querySelectorAll('[role="tabpanel"]'));
-
-  // Build table header row
+  // Header row as seen in example
   const headerRow = ['Tabs (tabs30)'];
 
-  // Compose the rows: each tab label + its content
-  const rows = [headerRow];
-  for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i];
-    let contentElement = '';
+  // Tab labels (in order)
+  const tabLabels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
+  // Tab panels (in order)
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+
+  // Prepare data rows for each tab
+  const rows = tabLabels.map((tabLabel, i) => {
+    // Tab label text
+    const label = tabLabel ? tabLabel.textContent.trim() : '';
+    // Tab panel content
     const panel = tabPanels[i];
+    let tabContent = [];
     if (panel) {
-      // Prefer the article inside the tabpanel if present (captures all content for the tab)
-      const article = panel.querySelector('article');
-      if (article) {
-        contentElement = article;
+      // Grab all direct children except empty grids
+      const contentFragment = panel.querySelector('article.cmp-contentfragment');
+      if (contentFragment) {
+        // Remove title (matches the tab title, not the content)
+        const title = contentFragment.querySelector('.cmp-contentfragment__title');
+        if (title) title.remove();
+        // Remove empty grid wrappers
+        contentFragment.querySelectorAll('.aem-Grid').forEach(grid => {
+          if (!grid.textContent.trim() && !grid.querySelector('img,ul,ol,li,p,h1,h2,h3,h4,h5,h6')) {
+            grid.remove();
+          }
+        });
+        // Get non-empty children
+        tabContent = Array.from(contentFragment.childNodes).filter(n => {
+          // Filter out empty text, and empty divs
+          if (n.nodeType === Node.TEXT_NODE) return n.textContent.trim();
+          if (n.nodeType === Node.ELEMENT_NODE) {
+            if (n.tagName === 'DIV' && !n.textContent.trim()) return false;
+            return true;
+          }
+          return false;
+        });
       } else {
-        // If no article, use the tabpanel's direct children (excluding script/style)
-        const children = Array.from(panel.childNodes).filter(
-          node => (node.nodeType === 1 && node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') || node.nodeType === 3
-        );
-        if (children.length === 1) {
-          contentElement = children[0];
-        } else if (children.length > 1) {
-          contentElement = children;
-        } else {
-          contentElement = '';
-        }
+        // Fallback: use all non-empty child nodes of panel
+        tabContent = Array.from(panel.childNodes).filter(n => {
+          if (n.nodeType === Node.TEXT_NODE) return n.textContent.trim();
+          if (n.nodeType === Node.ELEMENT_NODE) {
+            if (n.tagName === 'DIV' && !n.textContent.trim()) return false;
+            return true;
+          }
+          return false;
+        });
       }
     }
-    rows.push([label, contentElement]);
-  }
+    // If only one node, pass it directly; else pass the array
+    const contentCell = tabContent.length === 1 ? tabContent[0] : tabContent;
+    return [label, contentCell];
+  });
 
-  // Replace the original element with the new block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+  // Compose the table data
+  const cells = [headerRow, ...rows];
+  // Create the block table
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace the whole tabs block with the new table
+  tabsBlock.replaceWith(table);
 }

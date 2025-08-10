@@ -1,47 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Get first .cmp-teaser--hero or .cmp-teaser block (the hero block)
-  let teaser = element.querySelector('.cmp-teaser--hero');
-  if (!teaser) teaser = element.querySelector('.cmp-teaser');
+  // Find the cmp-teaser block containing the hero content
+  const teaser = element.querySelector('.cmp-teaser');
+  if (!teaser) return;
 
-  // Get image (background image)
-  let imageEl = null;
-  if (teaser) {
-    const imgContainer = teaser.querySelector('.cmp-teaser__image');
-    if (imgContainer) {
-      imageEl = imgContainer.querySelector('img');
-    }
+  // Extract the background image element (if present)
+  let backgroundImage = null;
+  const imageWrapper = teaser.querySelector('.cmp-teaser__image');
+  if (imageWrapper) {
+    backgroundImage = imageWrapper;
   }
 
-  // Get headline/title
-  let headingEl = null;
-  if (teaser) {
-    const content = teaser.querySelector('.cmp-teaser__content');
-    if (content) {
-      headingEl = content.querySelector('h1, h2, h3, h4, h5, h6');
-    }
+  // Extract hero textual content (title, subheading, cta, etc.), referencing existing elements
+  const contentDiv = teaser.querySelector('.cmp-teaser__content');
+  let heroContent = [];
+  if (contentDiv) {
+    // Push all direct children (headings, paragraphs, etc.) to maintain structure
+    Array.from(contentDiv.childNodes).forEach((node) => {
+      // Only add non-empty nodes
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        heroContent.push(node);
+      } else if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+        // Wrap text nodes in a paragraph for structure
+        const p = document.createElement('p');
+        p.textContent = node.textContent.trim();
+        heroContent.push(p);
+      }
+    });
   }
 
-  // Compose block table: 1 col x 3 rows
-  // Header row is EXACTLY as in example
-  const headerRow = ['Hero (hero11)'];
-
-  // 2nd row: background image (optional)
-  const imageRow = [imageEl ? imageEl : ''];
-
-  // 3rd row: title (optional), subheading, CTA - but only title present in this example
-  // Must preserve heading level and reference original element.
-  const contentItems = [];
-  if (headingEl) contentItems.push(headingEl);
-  if (contentItems.length === 0) contentItems.push('');
-
+  // Build the table cells as per the required structure: 1 column, 3 rows
   const cells = [
-    headerRow,
-    imageRow,
-    [contentItems]
+    ['Hero (hero11)'],
+    [backgroundImage ? backgroundImage : ''],
+    [heroContent.length ? heroContent : '']
   ];
 
-  // Create table and replace element
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Create and insert the table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

@@ -1,59 +1,48 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the innermost grid
-  let grid;
-  const grids = element.querySelectorAll('.aem-Grid.aem-Grid--12');
-  if (grids.length) {
-    grid = grids[grids.length - 1];
-  } else {
-    grid = element.querySelector('.aem-Grid');
-  }
-  if (!grid) grid = element;
+  // Find the deepest .aem-Grid with 12 columns (contains the three main footer columns)
+  const grid = element.querySelector('.aem-Grid.aem-Grid--12');
+  if (!grid) return;
+  const gridChildren = Array.from(grid.children);
 
-  // Get all direct children of the grid
-  const cols = Array.from(grid.children);
+  // 1st column: logo
+  const logoCol = gridChildren.find(el => el.classList && el.className.includes('cmp-image--logo'));
+  let logoBlock = logoCol ? logoCol.firstElementChild : '';
 
-  // Group for left cell: logo and navigation
-  const leftCellElements = [];
-  const imageCol = cols.find(col => col.classList.contains('image'));
-  if (imageCol) {
-    const cmpImage = imageCol.querySelector('.cmp-image');
-    if (cmpImage) leftCellElements.push(cmpImage);
-  }
-  const navCol = cols.find(col => col.classList.contains('navigation'));
-  if (navCol) {
-    const nav = navCol.querySelector('nav');
-    if (nav) leftCellElements.push(nav);
-  }
+  // 2nd column: navigation
+  const navCol = gridChildren.find(el => el.classList && el.className.includes('cmp-navigation--footer'));
+  let navBlock = navCol ? navCol.querySelector('nav') : '';
 
-  // Group for right cell: title, social buttons, copyright/info text
-  const rightCellElements = [];
-  const titleCol = cols.find(col => col.classList.contains('title'));
+  // 3rd column: follow us title and social buttons
+  const titleCol = gridChildren.find(el => el.classList && el.className.includes('cmp-title--right'));
+  const socialCol = gridChildren.find(el => el.classList && el.className.includes('cmp-buildingblock--btn-list'));
+  const thirdCol = [];
   if (titleCol) {
-    const cmpTitle = titleCol.querySelector('.cmp-title');
-    if (cmpTitle) rightCellElements.push(cmpTitle);
+    const titleBlock = titleCol.querySelector('.cmp-title');
+    if (titleBlock) thirdCol.push(titleBlock);
   }
-  const btnCol = cols.find(col => col.classList.contains('cmp-buildingblock--btn-list'));
-  if (btnCol) {
-    const btnGrid = btnCol.querySelector('.aem-Grid');
-    if (btnGrid) rightCellElements.push(btnGrid);
-  }
-  const textCol = cols.find(col => col.classList.contains('text'));
-  if (textCol) {
-    const cmpText = textCol.querySelector('.cmp-text');
-    if (cmpText) rightCellElements.push(cmpText);
+  if (socialCol) {
+    const socialButtons = Array.from(socialCol.querySelectorAll('a.cmp-button'));
+    thirdCol.push(...socialButtons);
   }
 
-  // Always make each cell as a single element or array (not spread out as separate columns)
-  // This is the CRITICAL FIX: pass as two cells only
-  const contentRow = [leftCellElements, rightCellElements];
+  // Bottom copyright/info text (full block in a cell)
+  let textBlock = null;
+  const parentContainer = grid.parentElement;
+  if (parentContainer) {
+    textBlock = parentContainer.querySelector('.cmp-text--font-xsmall');
+  }
 
-  // Build the table block
-  const cells = [
-    ['Columns (columns9)'],
-    contentRow
-  ];
+  // Assemble table rows
+  // Header row - ONE cell only
+  const headerRow = ['Columns (columns9)'];
+  // Data row - three columns
+  const contentRow = [logoBlock, navBlock, thirdCol];
+  const rows = [headerRow, contentRow];
+  // Copyright/info row - three columns, text in 3rd col
+  if (textBlock) rows.push(['', '', textBlock]);
 
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Create table and replace
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(table);
 }
