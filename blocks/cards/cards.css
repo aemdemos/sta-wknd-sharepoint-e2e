@@ -27,124 +27,6 @@
   object-fit: cover;
 }
 
-.cards.cards4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  place-items: start stretch;
-}
-
-.cards.cards4 > ul {
-  display: contents;
-}
-
-.cards.cards4 > ul > li {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  align-items: flex-start;
-}
-
-.cards.cards4 .cards-card-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  line-height: 0;
-  display: block;
-}
-
-.cards.cards4 .cards-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.cards.cards4 .cards-card-body {
-  padding: 0;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background: #fff;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.cards.cards4 .cards-card-body .button-container {
-  margin: 0;
-  padding: 0;
-}
-
-.cards.cards4 .cards-card-body .button.primary {
-  background: none;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  color: #222;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  padding: 0;
-  margin: 0 0 2px;
-  max-width: 100%;
-  text-overflow: ellipsis;
-  white-space: normal;
-  overflow: visible;
-  display: inline;
-  text-align: left;
-}
-
-.cards.cards4 .cards-card-body p:not(.button-container) {
-  font-size: 13px;
-  color: #666;
-  margin: 0;
-  padding: 0;
-  line-height: 1.55;
-  text-align: left;
-}
-
-.cards.cards4 ul,
-.cards.cards4 li,
-.cards.cards4 p {
-  margin: 0;
-  padding: 0;
-}
-
-@media (width <= 1200px) {
-  .cards.cards4 {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
-}
-
-@media (width <= 900px) {
-  .cards.cards4 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
-  }
-}
-
-@media (width <= 600px) {
-  .cards.cards4 {
-    grid-template-columns: 1fr;
-    gap: 4px;
-    padding: 0 8px;
-  }
-}
-
 
 .cards.cards14 {
   background: #fff;
@@ -606,7 +488,6 @@
 
 
 .cards.cards26 {
-  /* Ensure block width does not force stacking on wide screens */
   width: 100%;
 }
 
@@ -673,8 +554,6 @@
   margin: 0;
   padding: 0;
   line-height: 1.2;
-
-  /* Truncate to one line with ellipsis */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -693,4 +572,166 @@
   overflow: visible;
   text-overflow: unset;
   line-height: 1.1;
+}
+
+
+.cards.cards4,
+.cards-wrapper,
+.block.cards {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Main grid layout: tighter vertical gap, cards pack closely */
+.cards.cards4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 24px; /* 12px row gap, 24px column gap */
+  align-items: start;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Remove excess margin from the list */
+.cards.cards4 > ul {
+  display: contents;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Card: increase height so all text fits, consistent aspect ratio */
+.cards.cards4 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgb(60 60 60 / 13%);
+  overflow: hidden;
+  min-height: 260px;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  transition: box-shadow 0.12s;
+}
+
+/* Card hover effect */
+.cards.cards4 > ul > li:hover {
+  box-shadow: 0 6px 24px rgb(60 60 60 / 18%);
+}
+
+/* Image side: visually dominant, fills height */
+.cards.cards4 .cards-card-image {
+  flex: 0 0 60%;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  background: #eee;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Text side: more horizontal padding, allow full wrapping */
+.cards.cards4 .cards-card-body {
+  flex: 1 1 40%;
+  width: 40%;
+  height: 100%;
+  background: #fff;
+  padding: 38px 32px 22px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Prevent truncation and allow wrapping */
+.cards.cards4 .cards-card-body,
+.cards.cards4 .cards-card-body p {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: unset;
+}
+
+/* Title styling */
+.cards.cards4 .cards-card-body strong {
+  font-size: 18px;
+  color: #222;
+  font-family: var(--heading-font-family, serif);
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  display: block;
+  text-align: left;
+}
+
+.cards.cards4 .cards-card-body p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font-family);
+  text-align: left;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+/* Remove default margins/paddings from ul, li, p */
+.cards.cards4 ul,
+.cards.cards4 > ul > li,
+.cards.cards4 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack vertically and adjust padding on mobile */
+@media (width <= 900px) {
+  .cards.cards4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .cards.cards4 > ul > li {
+    height: 210px;
+    min-height: 150px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards4 {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .cards.cards4 > ul > li {
+    flex-direction: column;
+    height: auto;
+    min-height: unset;
+  }
+
+  .cards.cards4 .cards-card-image,
+  .cards.cards4 .cards-card-body {
+    width: 100%;
+    height: auto;
+    padding: 14px;
+  }
+
+  .cards.cards4 .cards-card-body {
+    padding-top: 10px;
+  }
 }
