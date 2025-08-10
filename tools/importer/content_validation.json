@@ -2884,13 +2884,25 @@
               "differences": [
                 {
                   "change_type": "deletion",
-                  "text": "About Us Our Contributors Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter"
+                  "text": "About Us Our Contributors Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter"
                 }
               ],
-              "dissimilarity_score": 1.0
+              "dissimilarity_score": 0.26
             }
           ],
-          "similarity_score": 0.0
+          "similarity_score": 0.74
         }
       ]
     },
@@ -3547,7 +3559,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Home Magazine Adventures FAQs About Us About Us Our Contributors Meet the outstanding individuals responsible for bringing you the most compelling stories across the"
+          "text": "Home Magazine Adventures FAQs About Us About Us Our Contributors Meet the"
         },
         {
           "change_type": "insertion",
@@ -3559,7 +3571,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "globe. Stacey"
+          "text": "outstanding"
         },
         {
           "change_type": "insertion",
@@ -3571,7 +3583,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Roswells"
+          "text": "individuals"
         },
         {
           "change_type": "insertion",
@@ -3583,7 +3595,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Artist | Photographer | Traveler"
+          "text": "responsible"
         },
         {
           "change_type": "insertion",
@@ -3595,7 +3607,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Facebook"
+          "text": "for"
         },
         {
           "change_type": "insertion",
@@ -3607,7 +3619,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Twitter"
+          "text": "bringing"
         },
         {
           "change_type": "insertion",
@@ -3619,7 +3631,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Instagram"
+          "text": "you"
         },
         {
           "change_type": "insertion",
@@ -3631,7 +3643,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Jake"
+          "text": "the"
         },
         {
           "change_type": "insertion",
@@ -3643,7 +3655,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Hammer"
+          "text": "most"
         },
         {
           "change_type": "insertion",
@@ -3655,7 +3667,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Influencer | Writer"
+          "text": "compelling"
         },
         {
           "change_type": "insertion",
@@ -3667,7 +3679,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Facebook"
+          "text": "stories"
         },
         {
           "change_type": "insertion",
@@ -3679,7 +3691,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester"
+          "text": "across"
         },
         {
           "change_type": "insertion",
@@ -3691,7 +3703,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "Skater | Writer Facebook Twitter Instagram WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter"
+          "text": "the"
         },
         {
           "change_type": "insertion",
@@ -3699,7 +3711,23 @@
         },
         {
           "change_type": "equal",
-          "text": " Home Magazine Adventures FAQs About Us"
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "globe. "
+        },
+        {
+          "change_type": "equal",
+          "text": "Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram "
+        },
+        {
+          "change_type": "deletion",
+          "text": "WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. "
+        },
+        {
+          "change_type": "equal",
+          "text": "Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter Home Magazine Adventures FAQs About Us"
         },
         {
           "change_type": "insertion",
@@ -3718,7 +3746,7 @@
           "text": " ."
         }
       ],
-      "similarity_score": 0.7693265199696213
+      "similarity_score": 0.913338291184809
     }
   ]
 }
