@@ -58,225 +58,6 @@
 }
 
 
-.tabs.tabs6 {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 0 56px;
-  max-width: 1200px;
-  margin: 48px auto 0;
-  background: #fff;
-  box-sizing: border-box;
-  padding: 0 0 56px;
-  align-items: flex-start;
-}
-
-.tabs.tabs6 > .tabs-list,
-.tabs.tabs6 .tabs-panel {
-  align-self: start;
-}
-
-.tabs.tabs6 > .tabs-list {
-  grid-column: 1;
-  grid-row: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  min-width: 0;
-}
-
-.tabs.tabs6 > .tabs-list .tabs-tab {
-  background: none;
-  border: none;
-  border-radius: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #888;
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-  margin: 0;
-  outline: none;
-  transition: background 0.2s, color 0.2s;
-}
-
-.tabs.tabs6 > .tabs-list .tabs-tab[aria-selected='true'] {
-  background: #222;
-  color: #fff;
-  border-radius: 22px;
-}
-
-.tabs.tabs6 .tabs-panel .tabs-list {
-  display: none;
-}
-
-.tabs.tabs6 .tabs-panel {
-  grid-column: 2;
-  grid-row: 1;
-  padding: 0;
-  background: #fff;
-  width: 100%;
-  max-width: 880px;
-  min-width: 0;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 0;
-}
-
-.tabs.tabs6 .tabs-panel > div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  box-sizing: border-box;
-  gap: 28px;
-  margin: 0;
-}
-
-.tabs.tabs6 .tabs-panel > div > * {
-  margin-top: 0;
-  margin-bottom: 0;
-  width: 100%;
-  max-width: 800px;
-  box-sizing: border-box;
-  position: static;
-}
-
-.tabs.tabs6 .tabs-panel h3,
-.tabs.tabs6 .tabs-panel h2 {
-  font-family: var(--heading-font-family);
-  color: #222;
-  font-weight: bold;
-  line-height: 1.18;
-  background: transparent;
-  width: 100%;
-}
-
-.tabs.tabs6 .tabs-panel h3:first-child {
-  font-size: 2rem;
-  margin-bottom: 4px;
-  border-bottom: 4px solid #ffe066;
-  padding-bottom: 8px;
-  display: inline-block;
-  width: auto;
-}
-
-.tabs.tabs6 .tabs-panel h3:not(:first-child) {
-  font-size: 1.3rem;
-  margin-top: 0;
-  margin-bottom: 6px;
-  border: none;
-  padding-bottom: 0;
-  width: auto;
-}
-
-.tabs.tabs6 .tabs-panel h2 {
-  font-size: 1.3rem;
-  margin-top: 0;
-  margin-bottom: 6px;
-  border-bottom: 4px solid #ffe066;
-  padding-bottom: 8px;
-  display: inline-block;
-  width: auto;
-}
-
-.tabs.tabs6 .tabs-panel p {
-  color: #222;
-  font-size: 16px;
-  line-height: 1.7;
-  margin: 0 0 12px;
-  max-width: 800px;
-}
-
-.tabs.tabs6 .tabs-panel ul {
-  margin: 0 0 0 24px;
-  padding: 0;
-  max-width: 550px;
-}
-
-.tabs.tabs6 .tabs-panel li {
-  margin-bottom: 10px;
-  color: #222;
-  font-size: 15px;
-  font-weight: 400;
-  text-transform: none;
-}
-
-.tabs.tabs6 .tabs-panel img,
-.tabs.tabs6 .tabs-panel picture {
-  display: block;
-  width: 100%;
-  max-width: 800px;
-  margin: 18px 0 24px;
-  border-radius: 4px;
-  position: static;
-}
-
-.tabs.tabs6 .tabs-panel h3,
-.tabs.tabs6 .tabs-panel h2,
-.tabs.tabs6 .tabs-panel ul,
-.tabs.tabs6 .tabs-panel img,
-.tabs.tabs6 .tabs-panel picture,
-.tabs.tabs6 .tabs-panel p {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.tabs.tabs6 .tabs-panel > div > * + * {
-  margin-top: 0;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs6 {
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding-bottom: 32px;
-  }
-
-  .tabs.tabs6 > .tabs-list {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 32px;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .tabs.tabs6 > .tabs-list .tabs-tab {
-    padding: 12px 24px;
-    font-size: 15px;
-    width: auto;
-    text-align: center;
-    border-radius: 22px;
-  }
-
-  .tabs.tabs6 .tabs-panel {
-    grid-column: 1;
-    padding: 0;
-    margin-top: 24px;
-    max-width: 100%;
-  }
-
-  .tabs.tabs6 .tabs-panel > div {
-    gap: 22px;
-  }
-}
-
-.tabs.tabs6 .tabs-panel,
-.tabs.tabs6 > .tabs-list .tabs-tab {
-  border: none;
-  background: none;
-}
-
-
 .tabs.tabs8 {
   display: flex;
   flex-direction: row;
@@ -2946,10 +2727,9 @@
   padding-right: 0;
   background: #fff;
   box-sizing: border-box;
-  gap: 14px; /* tighter gap for closer columns */
+  gap: 14px;
 }
 
-/* Sidebar (tabs-list) styles */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -2967,7 +2747,6 @@
   box-sizing: border-box;
 }
 
-/* Tab buttons: vertical stack, left aligned, compact */
 .tabs.tabs7 .tabs-list button {
   background: none;
   color: #222;
@@ -3005,7 +2784,6 @@
   padding: 0;
 }
 
-/* Only show the active tab panel, hide the rest */
 .tabs.tabs7 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
@@ -3024,7 +2802,6 @@
   box-shadow: none;
 }
 
-/* Headings and content alignment for the active panel */
 .tabs.tabs7 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.36rem;
@@ -3100,7 +2877,6 @@
   margin-bottom: 0.34rem;
 }
 
-/* Responsive: stack sidebar and main panel vertically on small screens */
 @media (width <= 900px) {
   .tabs.tabs7 {
     flex-direction: column;
@@ -3144,4 +2920,67 @@
     padding-left: 2vw;
     padding-right: 2vw;
   }
+}
+
+
+.tabs.tabs6 {
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Tabs row: horizontal, pill-shaped, visually distinct active tab */
+.tabs.tabs6 > .tabs-list {
+  border-bottom: none;
+  background: none;
+  margin-bottom: 0;
+  gap: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+
+/* Pill tab style */
+.tabs.tabs6 > .tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  border-radius: 22px;
+  padding: 10px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #262626;
+  cursor: pointer;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  box-shadow: none;
+}
+
+.tabs.tabs6 > .tabs-list .tabs-tab[aria-selected='true'] {
+  background: #262626;
+  color: #fff;
+}
+
+.tabs.tabs6 > .tabs-list .tabs-tab:not([aria-selected='true']):hover,
+.tabs.tabs6 > .tabs-list .tabs-tab:not([aria-selected='true']):focus {
+  background: #f9d86c;
+  color: #262626;
+}
+
+/* Remove card/border effect from main panel */
+.tabs.tabs6 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
 }
