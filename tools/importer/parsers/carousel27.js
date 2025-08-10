@@ -1,43 +1,45 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Build header row
+  // Block header row
   const headerRow = ['Carousel (carousel27)'];
 
-  // The block only contains one carousel slide in the provided HTML
-  // We want [image, text content] in the row
-
-  // Find the .cmp-teaser__image for the image column
-  const imageParent = element.querySelector('.cmp-teaser__image');
+  // Find the teaser slide image
   let imageCell = '';
-  if (imageParent) {
-    // Use the <img> inside .cmp-teaser__image if it exists
-    const img = imageParent.querySelector('img');
-    if (img) imageCell = img;
-    else imageCell = imageParent;
+  const teaserImg = element.querySelector('.cmp-teaser__image img');
+  if (teaserImg) {
+    // Reference the actual image element
+    imageCell = teaserImg;
   }
 
-  // The text content cell: contains title, description, and CTA if present
-  const contentParent = element.querySelector('.cmp-teaser__content');
-  let textCell = '';
-  if (contentParent) {
-    // We'll reference child nodes in order
-    const cellContent = [];
-    // Title (e.g., h2)
-    const title = contentParent.querySelector('.cmp-teaser__title');
-    if (title) cellContent.push(title);
+  // Find the text content
+  let textCell = [];
+  const content = element.querySelector('.cmp-teaser__content');
+  if (content) {
+    // Title (preserve heading level from source if possible)
+    const title = content.querySelector('.cmp-teaser__title');
+    if (title) {
+      textCell.push(title);
+    }
     // Description
-    const desc = contentParent.querySelector('.cmp-teaser__description');
-    if (desc) cellContent.push(desc);
-    // CTA link if present
-    const cta = contentParent.querySelector('.cmp-teaser__action-link');
-    if (cta) cellContent.push(cta);
-    // Only add if there is text content
-    if (cellContent.length) textCell = cellContent;
+    const desc = content.querySelector('.cmp-teaser__description');
+    if (desc) {
+      textCell.push(desc);
+    }
+    // CTA
+    const cta = content.querySelector('.cmp-teaser__action-link');
+    if (cta) {
+      textCell.push(cta);
+    }
   }
+  if (textCell.length === 0) textCell = '';
 
-  // Always create the table with 2 columns
-  const rows = [headerRow, [imageCell, textCell]];
+  // Prepare the table rows: header, then slide row
+  const rows = [
+    headerRow,
+    [imageCell, textCell]
+  ];
 
+  // Create and replace
   const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

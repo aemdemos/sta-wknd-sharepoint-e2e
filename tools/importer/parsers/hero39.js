@@ -1,30 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Table header (EXACT match)
+  // Block name as header row (must match exactly)
   const headerRow = ['Hero (hero39)'];
 
-  // 2. Image row: Get the hero image container (.cmp-teaser__image)
+  // Get the background image (optional)
+  let bgImg = '';
   const imageContainer = element.querySelector('.cmp-teaser__image');
-  // If imageContainer is missing, pass null or empty string for that cell
-  const imageRow = [imageContainer || ''];
-
-  // 3. Content row: Title & description (reference both elements directly)
-  const contentContainer = element.querySelector('.cmp-teaser__content');
-  const contentCells = [];
-  if (contentContainer) {
-    const title = contentContainer.querySelector('.cmp-teaser__title');
-    if (title) contentCells.push(title);
-    const description = contentContainer.querySelector('.cmp-teaser__description');
-    if (description) contentCells.push(description);
-    // No CTA element in provided HTML; if present, would reference directly
+  if (imageContainer) {
+    const img = imageContainer.querySelector('img');
+    if (img) {
+      bgImg = img;
+    }
   }
-  // Use empty string if there's no content
-  const contentRow = [contentCells.length ? contentCells : ''];
 
-  // 4. Build the single block table (no Section Metadata block in example)
-  const cells = [headerRow, imageRow, contentRow];
-  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Compose the title & description content (title, subheading, CTA)
+  const teaserContent = element.querySelector('.cmp-teaser__content');
+  const contentNodes = [];
+  if (teaserContent) {
+    // Title (use as is; keep heading level)
+    const title = teaserContent.querySelector('.cmp-teaser__title');
+    if (title) contentNodes.push(title);
+    // Description, push all element children of description block
+    const desc = teaserContent.querySelector('.cmp-teaser__description');
+    if (desc) {
+      Array.from(desc.childNodes).forEach((node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          contentNodes.push(node);
+        }
+      });
+    }
+  }
 
-  // 5. Replace original element with the new block table
-  element.replaceWith(table);
+  // Build the table rows.
+  const rows = [
+    headerRow,
+    [bgImg ? bgImg : ''],
+    [contentNodes.length > 0 ? contentNodes : ''],
+  ];
+
+  // Create the block and replace the element
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(block);
 }

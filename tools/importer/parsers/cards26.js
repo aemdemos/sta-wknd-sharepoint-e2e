@@ -1,59 +1,59 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
+  // Header row for the block
   const headerRow = ['Cards (cards26)'];
-  const cells = [headerRow];
 
-  // Find all cards
-  const ul = element.querySelector('ul.cmp-image-list');
-  if (ul) {
-    const items = ul.querySelectorAll('li.cmp-image-list__item');
-    items.forEach((li) => {
-      const article = li.querySelector('article.cmp-image-list__item-content');
-      if (!article) return;
+  // Get all card items
+  const list = element.querySelector('ul.cmp-image-list');
+  if (!list) return;
+  const items = Array.from(list.children).filter(li => li.classList.contains('cmp-image-list__item'));
 
-      // Image (first cell)
-      let imgEl = null;
-      const imgLink = article.querySelector('.cmp-image-list__item-image-link');
-      if (imgLink) {
-        // Find the <img> inside the link
-        const img = imgLink.querySelector('img');
-        if (img) {
-          imgEl = img;
-        } else {
-          // fallback: use the div[data-cmp-is=image] if present
-          const imgDiv = imgLink.querySelector('div[data-cmp-is="image"]');
-          if (imgDiv) imgEl = imgDiv;
-        }
-      }
-      
-      // Text (second cell)
-      const textCell = [];
-      // Title (as <strong> for heading)
-      const titleLink = article.querySelector('.cmp-image-list__item-title-link');
-      if (titleLink) {
-        const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
-        if (titleSpan) {
-          const strong = document.createElement('strong');
-          strong.textContent = titleSpan.textContent;
-          textCell.push(strong);
-        }
-      }
-      // Description
-      const desc = article.querySelector('.cmp-image-list__item-description');
-      if (desc) {
-        // Add a <br> if there is a title above
-        if (textCell.length > 0) {
-          textCell.push(document.createElement('br'));
-        }
-        textCell.push(desc);
-      }
-      cells.push([
-        imgEl,
-        textCell
-      ]);
-    });
-  }
+  // Prepare table rows
+  const rows = [headerRow];
 
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  items.forEach(item => {
+    // Content container
+    const article = item.querySelector('article.cmp-image-list__item-content');
+    if (!article) return;
+
+    // Image (first column)
+    let imageCell = null;
+    const imageLink = article.querySelector('.cmp-image-list__item-image-link');
+    if (imageLink) {
+      // Find the actual img element (reference, not clone)
+      const img = imageLink.querySelector('img');
+      if (img) {
+        imageCell = img;
+      }
+    }
+
+    // Text (second column)
+    let textCellChildren = [];
+    const titleLink = article.querySelector('.cmp-image-list__item-title-link');
+    const titleSpan = titleLink ? titleLink.querySelector('.cmp-image-list__item-title') : null;
+    if (titleSpan) {
+      const strong = document.createElement('strong');
+      strong.textContent = titleSpan.textContent;
+      textCellChildren.push(strong);
+    }
+    const descriptionSpan = article.querySelector('.cmp-image-list__item-description');
+    if (descriptionSpan) {
+      // If there is a title, add a <br> to separate
+      if (textCellChildren.length > 0) {
+        textCellChildren.push(document.createElement('br'));
+      }
+      textCellChildren.push(descriptionSpan);
+    }
+    // If neither title nor description, put empty string
+    if (textCellChildren.length === 0) textCellChildren = [''];
+
+    rows.push([
+      imageCell || '',
+      textCellChildren.length === 1 ? textCellChildren[0] : textCellChildren
+    ]);
+  });
+
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(block);
 }

@@ -1,34 +1,35 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block
+  // Locate the tabs block
   const tabsBlock = element.querySelector('.cmp-tabs');
   if (!tabsBlock) return;
 
-  // Extract tab labels
+  // Get tab labels in order
   const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabLabelNodes = Array.from(tabList.querySelectorAll('[role="tab"]'));
-  if (!tabLabelNodes.length) return;
-  const tabLabels = tabLabelNodes.map(tab => tab.textContent.trim());
+  const tabLabels = [];
+  if (tabList) {
+    tabList.querySelectorAll('[role="tab"]').forEach(tabEl => {
+      tabLabels.push(tabEl.textContent.trim());
+    });
+  }
 
-  // Extract tab panel contents
-  const panelNodes = Array.from(tabsBlock.querySelectorAll('[role="tabpanel"]'));
-  if (panelNodes.length !== tabLabels.length) return;
-  const tabContents = panelNodes.map(panel => {
-    // Prefer main article.cmp-contentfragment, else use panel itself
-    const article = panel.querySelector('article.cmp-contentfragment');
-    return article || panel;
-  });
+  // Get tab panels in order
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[role="tabpanel"]'));
 
-  // Compose table rows as per example:
-  // First row: header, single cell
-  // Second row: tab labels, each in one column
-  // Third row: tab contents, each in one column corresponding to label
-  const rows = [];
-  rows.push(['Tabs (tabs37)']);
-  rows.push(tabLabels);
-  rows.push(tabContents);
+  // Header row: single cell, block name
+  const tableRows = [['Tabs (tabs37)']];
 
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+  // Each tab: [label, content]
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i];
+    const panel = tabPanels[i];
+    if (!label || !panel) continue;
+    // Get the main article/content fragment for robustness
+    const article = panel.querySelector('article');
+    let contentCell = article || panel;
+    tableRows.push([label, contentCell]);
+  }
+
+  const table = WebImporter.DOMUtils.createTable(tableRows, document);
+  element.replaceWith(table);
 }

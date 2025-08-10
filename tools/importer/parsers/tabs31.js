@@ -1,42 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate only the tabs block in the element
-  const tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
+  // Find the tabs block inside the given element
+  const tabsRoot = element.querySelector('.cmp-tabs');
+  if (!tabsRoot) return;
 
-  // Get tab labels
-  const tabLabels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
-  // Get the tab panels
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  // Get the tab labels from the tablist
+  const tabList = tabsRoot.querySelector('[role="tablist"]');
+  const tabLabels = [];
+  if (tabList) {
+    tabList.querySelectorAll('[role="tab"]').forEach(tabEl => {
+      tabLabels.push(tabEl.textContent.trim());
+    });
+  }
 
-  // Prepare the block header row
+  // Get all tab panels
+  const tabPanels = Array.from(tabsRoot.querySelectorAll('[role="tabpanel"]'));
+
+  // Prepare the table header and rows
   const headerRow = ['Tabs (tabs31)'];
+  const cells = [headerRow];
 
-  // Compose rows: [Tab Label, Tab Content]
-  const rows = tabLabels.map((tabLabel) => {
-    const label = tabLabel.textContent.trim();
-    // Panel id from aria-controls
-    const tabPanelId = tabLabel.getAttribute('aria-controls');
-    const panel = tabPanelId ? tabsBlock.querySelector(`#${tabPanelId}`) : null;
-    let tabContent = '';
-    if (panel) {
-      // Find the core content in the panel
-      // Grab the first contentfragment/article if present, otherwise the panel
-      let contentBlock = panel.querySelector('article') || panel;
-      // Collect all ELEMENT children of the content block
-      const fragment = document.createDocumentFragment();
-      Array.from(contentBlock.children).forEach(child => {
-        fragment.appendChild(child);
-      });
-      // Use the fragment if it contains nodes, else fallback to contentBlock
-      tabContent = fragment.childNodes.length ? fragment : contentBlock;
+  // For each tab, get the label and main content
+  for (let i = 0; i < tabLabels.length && i < tabPanels.length; i++) {
+    const label = tabLabels[i];
+    const panel = tabPanels[i];
+    // Find the content element inside the tabpanel. For this HTML, it's article.cmp-contentfragment
+    let tabContent = null;
+    const article = panel.querySelector('article.cmp-contentfragment');
+    if (article) {
+      tabContent = article;
+    } else {
+      // fallback to entire panel content
+      tabContent = panel;
     }
-    return [label, tabContent];
-  });
+    cells.push([label, tabContent]);
+  }
 
-  // Compose the table
-  const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace the tabs block only
-  tabsBlock.parentElement.replaceChild(block, tabsBlock);
+  // Create the table and replace the original tabs element
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  tabsRoot.replaceWith(table);
 }

@@ -1,55 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate the tabs block root in the given element
-  const tabsRoot = element.querySelector('.tabs .cmp-tabs');
-  if (!tabsRoot) return;
+  // Find the tabs block
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Get the tab labels
-  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabItems = Array.from(tabList.querySelectorAll('li'));
+  // Get the tab labels in order
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
+  const tabLabelEls = tabList ? tabList.querySelectorAll('[role="tab"]') : [];
+  const tabLabels = Array.from(tabLabelEls).map(tab => tab.textContent.trim());
 
-  // Get all tab panels (in DOM order)
-  const tabPanels = Array.from(
-    tabsRoot.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]')
-  );
+  // Get the tab panels in order
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
+  // Defensive: Match panels to labels by order
 
-  // Defensive: ensure tabItems and tabPanels have the same length
-  const count = Math.min(tabItems.length, tabPanels.length);
+  // Build the header row
+  const headerRow = ['Tabs (tabs38)'];
+  const tableRows = [headerRow];
 
-  // Header row as required
-  const header = ['Tabs (tabs38)'];
-  const rows = [];
-
-  for (let i = 0; i < count; i++) {
-    const tab = tabItems[i];
-    const label = tab.textContent.trim();
-    const panel = tabPanels[i];
-    let content = null;
-
-    // Try to find the main contentfragment article inside the tabpanel
-    const cf = panel.querySelector('article.cmp-contentfragment');
-    if (cf) {
-      content = cf;
-    } else {
-      // Fallback to the entire panel if no contentfragment is found
-      content = panel;
+  // For each tab, create a row [label, content]
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i] || '';
+    const panel = tabPanels[i] || null;
+    let contentCell = '';
+    if (panel) {
+      // Remove aria-hidden so all content is visible in import/export context
+      panel.removeAttribute('aria-hidden');
+      contentCell = panel;
     }
-    rows.push([label, content]);
+    tableRows.push([label, contentCell]);
   }
 
-  // If there are more tab panels than tab labels (unlikely), add them as well
-  if (tabPanels.length > count) {
-    for (let i = count; i < tabPanels.length; i++) {
-      const panel = tabPanels[i];
-      const cf = panel.querySelector('article.cmp-contentfragment');
-      const label = `Tab ${i + 1}`;
-      rows.push([label, cf ? cf : panel]);
-    }
-  }
-
-  // Build table
-  const cells = [header, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Create the block table
+  const table = WebImporter.DOMUtils.createTable(tableRows, document);
+  element.replaceWith(table);
 }

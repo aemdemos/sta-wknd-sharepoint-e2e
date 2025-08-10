@@ -1,52 +1,51 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row matches example
+  // Table header must exactly match example
   const headerRow = ['Cards (cards21)'];
-  // Get all cards
-  const items = element.querySelectorAll('li.cmp-image-list__item');
+
+  // Find the UL containing the cards
+  const imageList = element.querySelector('ul.cmp-image-list');
+  if (!imageList) return;
+
   const rows = [headerRow];
-  items.forEach(item => {
-    // Image extraction (reference existing <img> element)
-    const imgLink = item.querySelector('.cmp-image-list__item-image-link');
-    let imgEl = null;
-    if (imgLink) {
-      const imgContainer = imgLink.querySelector('.cmp-image');
-      if (imgContainer) {
-        imgEl = imgContainer.querySelector('img');
-      }
+  const items = imageList.querySelectorAll(':scope > li.cmp-image-list__item');
+
+  items.forEach((item) => {
+    const article = item.querySelector('article.cmp-image-list__item-content');
+    if (!article) return;
+
+    // --- COLUMN 1: IMAGE ---
+    // Find the first <img> (image for this card)
+    let imageEl = null;
+    const imageLink = article.querySelector('a.cmp-image-list__item-image-link');
+    if (imageLink) {
+      // Only the <img> element, not the container div
+      imageEl = imageLink.querySelector('img');
     }
-    // Title extraction (reference existing <span>)
-    const titleLink = item.querySelector('.cmp-image-list__item-title-link');
-    let titleSpan = null;
-    if (titleLink) {
-      titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
-    }
-    // Description extraction (reference existing <span>)
-    const descSpan = item.querySelector('.cmp-image-list__item-description');
-    // Compose text cell content preserving semantic meaning
-    const cellContent = [];
+
+    // --- COLUMN 2: TEXT CONTENT ---
+    const textElems = [];
+    // Title: use bold (<strong>) like the example
+    const titleSpan = article.querySelector('.cmp-image-list__item-title');
     if (titleSpan) {
-      // Title as <strong> (matches example style)
       const strong = document.createElement('strong');
-      strong.textContent = titleSpan.textContent;
-      cellContent.push(strong);
+      strong.textContent = titleSpan.textContent.trim();
+      textElems.push(strong);
     }
+    // Description
+    const descSpan = article.querySelector('.cmp-image-list__item-description');
     if (descSpan) {
-      // Insert <br> if both title and description
-      if (cellContent.length > 0) {
-        cellContent.push(document.createElement('br'));
-      }
-      cellContent.push(descSpan);
+      // Add as a <div> so it appears below title, as in the example
+      const descDiv = document.createElement('div');
+      descDiv.textContent = descSpan.textContent.trim();
+      textElems.push(descDiv);
     }
-    // Edge case: if no title nor description, just add empty cell
-    if (cellContent.length === 0) {
-      cellContent.push('');
-    }
-    // Always reference existing elements; do not clone
-    rows.push([imgEl, cellContent]);
+
+    // No extra columns, only exactly two per row
+    rows.push([imageEl, textElems]);
   });
-  // Create table using helper function
+
+  // Build and replace table
   const table = WebImporter.DOMUtils.createTable(rows, document);
-  // Replace original element
   element.replaceWith(table);
 }

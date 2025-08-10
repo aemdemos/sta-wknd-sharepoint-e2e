@@ -1,56 +1,70 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row matches exactly
-  const headerRow = ['Carousel (carousel22)'];
+  // Helper to extract the slide details from a carousel item
+  function extractSlide(slide) {
+    // 1. Image (first cell)
+    let img = null;
+    let imgContainer = slide.querySelector('.cmp-teaser__image');
+    if (imgContainer) {
+      img = imgContainer.querySelector('img');
+    }
+    if (!img) {
+      img = slide.querySelector('img');
+    }
 
-  // Find the carousel root - the first .cmp-carousel inside element
-  const carousel = element.querySelector('.cmp-carousel');
-  if (!carousel) return;
-
-  // Find all slides (direct children of .cmp-carousel__content)
-  const slides = Array.from(
-    carousel.querySelectorAll(':scope > .cmp-carousel__content > .cmp-carousel__item')
-  );
-
-  const rows = slides.map((slide) => {
-    // Each slide should always have a teaser
-    const teaser = slide.querySelector('.cmp-teaser');
-    let imgEl = null;
-    let textCell = [];
-
-    if (teaser) {
-      // Image: find first <img> under .cmp-teaser__image
-      const imgContainer = teaser.querySelector('.cmp-teaser__image');
-      if (imgContainer) {
-        imgEl = imgContainer.querySelector('img');
-      }
-
-      // Title: look for h2.cmp-teaser__title
-      const title = teaser.querySelector('.cmp-teaser__title');
+    // 2. Text content (second cell)
+    let textItems = [];
+    let content = slide.querySelector('.cmp-teaser__content');
+    if (content) {
+      // Title (Heading)
+      const title = content.querySelector('.cmp-teaser__title');
       if (title) {
-        textCell.push(title);
+        // Use the existing h2 node if possible
+        textItems.push(title);
       }
-      // Description: .cmp-teaser__description (could contain HTML)
-      const desc = teaser.querySelector('.cmp-teaser__description');
+      // Description
+      const desc = content.querySelector('.cmp-teaser__description');
       if (desc) {
-        textCell.push(desc);
+        // If only text, wrap in a <p>, if already has <p>, use as is
+        if (desc.children.length === 0) {
+          const p = document.createElement('p');
+          p.textContent = desc.textContent.trim();
+          textItems.push(p);
+        } else {
+          // Use all direct child nodes (may contain <p>, <span>, etc)
+          Array.from(desc.childNodes).forEach(child => {
+            textItems.push(child);
+          });
+        }
       }
-      // CTA: .cmp-teaser__action-link (if present)
-      const cta = teaser.querySelector('.cmp-teaser__action-link');
+      // CTA link (if present)
+      const cta = content.querySelector('.cmp-teaser__action-link');
       if (cta) {
-        textCell.push(cta);
+        textItems.push(cta);
       }
     }
-    // Defensive: image is required, but if missing, skip row
-    if (!imgEl) {
-      return null;
-    }
-    // If there is no text content, supply empty string for cell
-    return [imgEl, textCell.length > 0 ? textCell : ''];
-  }).filter(Boolean); // Remove any null rows (should not happen)
+    return [img, textItems.length ? textItems : ''];
+  }
 
-  // Compose table rows
-  const tableData = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(tableData, document);
+  // Find the carousel DOM root
+  let carouselRoot = element.querySelector('.cmp-carousel');
+  if (!carouselRoot) carouselRoot = element;
+
+  // Find direct slide containers (role=tabpanel)
+  const slides = Array.from(carouselRoot.querySelectorAll(':scope > .cmp-carousel__content > .cmp-carousel__item'));
+
+  const rows = [];
+  // Table header
+  rows.push(['Carousel (carousel22)']);
+
+  // Each slide: [image, [title, desc, cta]]
+  slides.forEach(slide => {
+    // Look for the inner .teaser, fall back to slide itself
+    const teaser = slide.querySelector('.teaser') || slide;
+    const [img, text] = extractSlide(teaser);
+    rows.push([img || '', text]);
+  });
+
+  const block = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(block);
 }

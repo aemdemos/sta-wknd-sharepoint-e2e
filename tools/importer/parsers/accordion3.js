@@ -1,53 +1,57 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main accordion block container within the provided element
+  // Find the accordion root (the first .cmp-accordion inside the element)
   const accordion = element.querySelector('.cmp-accordion');
   if (!accordion) return;
 
-  // Get all accordion items directly under this accordion
-  const items = accordion.querySelectorAll(':scope > .cmp-accordion__item');
+  // Compose rows for the block table
+  const rows = [];
+  // Header row
+  rows.push(['Accordion (accordion3)']);
 
-  // Compose the cells array for createTable
-  const cells = [];
-  const headerRow = ['Accordion (accordion3)'];
-  cells.push(headerRow);
-
-  items.forEach(item => {
-    // Title cell (mandatory) – the clickable title or label for the accordion item.
-    let titleContent = '';
-    const spanTitle = item.querySelector('.cmp-accordion__title');
-    if (spanTitle) {
-      titleContent = spanTitle.textContent.trim();
-    }
-    // Use a <div> to preserve any formatting or structure, but reference the real child span.
-    let titleElem;
-    if (spanTitle) {
-      // Reference the span directly, not a clone
-      titleElem = spanTitle;
+  // All accordion items
+  const items = accordion.querySelectorAll('.cmp-accordion__item');
+  items.forEach((item) => {
+    // Title cell: Text inside the button (could contain markup)
+    let titleNode = item.querySelector('.cmp-accordion__title');
+    let titleCell;
+    if (titleNode) {
+      // Reference the actual span element from the DOM
+      titleCell = titleNode;
     } else {
-      titleElem = document.createTextNode(titleContent);
+      titleCell = '';
     }
 
-    // Content cell (mandatory) – the body text, media, or any additional elements that will appear when expanded.
-    // Reference the innermost .cmp-container (if available) so we get only the real accordion panel content.
-    let contentElem = null;
-    const panel = item.querySelector('[data-cmp-hook-accordion="panel"]');
+    // Content cell: The panel content (usually a .cmp-accordion__panel)
+    let panel = item.querySelector('.cmp-accordion__panel');
+    let panelCell;
     if (panel) {
-      let cmpContainer = panel.querySelector('.cmp-container');
-      if (cmpContainer) {
-        contentElem = cmpContainer;
+      // Only reference first-level children (elements) of the panel
+      // If there's only one child, use it directly; otherwise, use an array
+      const contentNodes = Array.from(panel.children).filter(el => el);
+      if (contentNodes.length === 1) {
+        panelCell = contentNodes[0];
+      } else if (contentNodes.length > 1) {
+        panelCell = contentNodes;
       } else {
-        // fallback: just use the panel's content
-        contentElem = panel;
+        // If no element children, check for text
+        const text = panel.textContent.trim();
+        if (text) {
+          const span = document.createElement('span');
+          span.textContent = text;
+          panelCell = span;
+        } else {
+          panelCell = '';
+        }
       }
+    } else {
+      panelCell = '';
     }
-    cells.push([
-      titleElem,
-      contentElem
-    ]);
+
+    rows.push([titleCell, panelCell]);
   });
 
   // Create and replace
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  element.parentNode.replaceChild(table, element);
 }
