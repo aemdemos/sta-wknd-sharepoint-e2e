@@ -1,47 +1,52 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs container (by class 'cmp-tabs') in the given element
-  const tabsContainer = element.querySelector('.cmp-tabs');
-  if (!tabsContainer) return;
+  // Find the tabs block in descendants
+  const tabs = element.querySelector('.cmp-tabs');
+  if (!tabs) return;
+  
+  // Get tab labels in order
+  const tablist = tabs.querySelector('.cmp-tabs__tablist');
+  if (!tablist) return;
+  const tabLabels = Array.from(tablist.querySelectorAll('[role="tab"]')).map(li => li.textContent.trim());
+  
+  // Get tab panels in order
+  const tabPanels = tabLabels.map(label => {
+    // Each tab has aria-controls to its panel
+    const tabLi = Array.from(tablist.querySelectorAll('[role="tab"]')).find(li => li.textContent.trim() === label);
+    if (!tabLi) return null;
+    const panelId = tabLi.getAttribute('aria-controls');
+    if (!panelId) return null;
+    return tabs.querySelector(`#${panelId}`);
+  });
+  
+  // Build table rows
+  const rows = [];
+  // Header row
+  rows.push(['Tabs (tabs8)']);
 
-  // Get the tab labels (li elements inside ol[role=tablist])
-  const tabList = tabsContainer.querySelector('ol[role="tablist"]');
-  const tabLabels = [];
-  if (tabList) {
-    tabList.querySelectorAll('li[role="tab"]').forEach(li => {
-      tabLabels.push(li.textContent.trim());
-    });
-  }
-
-  // Get the tab panels (div[data-cmp-hook-tabs="tabpanel"])
-  const tabPanels = Array.from(tabsContainer.querySelectorAll('div[data-cmp-hook-tabs="tabpanel"]'));
-
-  // For each tab, get its label and content
-  const cells = [];
-  // Header
-  cells.push(['Tabs (tabs8)']);
-
-  // Loop through the tabs and build the rows
-  for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i];
+  // For each tab, extract its label and all its meaningful content in a cell
+  tabLabels.forEach((label, i) => {
     const panel = tabPanels[i];
-    let contentEl = null;
-    if (panel) {
-      // Use the contentfragment child, if present, otherwise use the panel itself
-      const cf = panel.querySelector('article.cmp-contentfragment');
-      if (cf) {
-        contentEl = cf;
-      } else {
-        // fallback: reference panel itself
-        contentEl = panel;
-      }
+    if (!panel) return;
+    // The tab's content is everything inside the corresponding tabpanel
+    // We want to reference the contentfragment/article inside the tabpanel for resilience
+    const cfArticle = panel.querySelector('article');
+    let tabContent;
+    if (cfArticle) {
+      tabContent = cfArticle;
     } else {
-      // No panel for this tab: leave cell empty
-      contentEl = '';
+      // fallback: reference everything in the tabpanel
+      tabContent = document.createElement('div');
+      Array.from(panel.childNodes).forEach(node => {
+        if (node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE) {
+          tabContent.appendChild(node);
+        }
+      });
     }
-    cells.push([label, contentEl]);
-  }
+    rows.push([label, tabContent]);
+  });
 
-  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Create tabs block table
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

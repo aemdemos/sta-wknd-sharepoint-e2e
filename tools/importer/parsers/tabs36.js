@@ -1,46 +1,52 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block inside the element
-  const tabsWrapper = Array.from(element.querySelectorAll(':scope > div')).find(div =>
-    div.classList.contains('tabs') && div.querySelector('.cmp-tabs')
-  );
-  if (!tabsWrapper) return;
-  const tabs = tabsWrapper.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Find the tabs block
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Extract tab labels
-  const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  const tabLabels = [];
-  if (tabList) {
-    tabList.querySelectorAll('li[role="tab"]').forEach((li) => {
-      tabLabels.push(li.textContent.trim());
-    });
-  }
+  // Get tab labels
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabLabels = Array.from(tabList.querySelectorAll('li'));
 
-  // Extract tab contents (each cell should be the panel content, in order)
-  const tabPanels = [];
-  tabs.querySelectorAll('[role="tabpanel"]').forEach((panel) => {
-    // Get all element children (skipping empty text nodes)
-    const nodes = Array.from(panel.childNodes).filter(n => n.nodeType === 1 || (n.nodeType === 3 && n.textContent.trim()));
-    if (nodes.length === 1) {
-      tabPanels.push(nodes[0]);
-    } else if (nodes.length > 1) {
-      // Group multiple nodes in a DocumentFragment (to avoid unnecessary <div>)
-      const frag = document.createDocumentFragment();
-      nodes.forEach(n => frag.appendChild(n));
-      tabPanels.push(frag);
+  // Get tab panels
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+
+  // Table cells: first row is header, then each tab: [tab label, tab content]
+  const cells = [['Tabs (tabs36)']];
+
+  tabPanels.forEach((panel, i) => {
+    // Tab label in first cell
+    let label = '';
+    if (tabLabels[i]) {
+      label = tabLabels[i].textContent.trim();
     } else {
-      tabPanels.push(document.createTextNode(''));
+      const labelId = panel.getAttribute('aria-labelledby');
+      if (labelId) {
+        const labelEl = document.getElementById(labelId);
+        if (labelEl) label = labelEl.textContent.trim();
+      }
+      if (!label) {
+        try {
+          const panelDataLayer = panel.getAttribute('data-cmp-data-layer');
+          if (panelDataLayer) {
+            const obj = JSON.parse(panelDataLayer.replace(/&quot;/g, '"'));
+            for (const k in obj) {
+              if (obj[k].dc && obj[k].dc.title) {
+                label = obj[k].dc.title;
+                break;
+              }
+            }
+          }
+        } catch(e) {}
+      }
     }
+    // Tab content in second cell
+    const contentEls = Array.from(panel.childNodes).filter(n => n.nodeType !== 3 || n.textContent.trim());
+    cells.push([label, contentEls]);
   });
 
-  // Compose table as: header row (one cell), tab labels row (one per label), tab content row (one per content)
-  const headerRow = ['Tabs (tabs36)'];
-  const cells = [
-    headerRow,
-    tabLabels,
-    tabPanels
-  ];
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  tabsWrapper.replaceWith(table);
+  // Create table and replace element
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

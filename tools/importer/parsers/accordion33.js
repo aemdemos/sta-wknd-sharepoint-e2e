@@ -1,59 +1,63 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the specific content fragment article (accordion content)
-  const article = element.querySelector('article.cmp-contentfragment');
-  if (!article) return;
+  // Table header
+  const headerRow = ['Accordion (accordion33)'];
+  const rows = [headerRow];
 
-  // Find the content root for the accordion blocks
-  const elementsRoot = article.querySelector('.cmp-contentfragment__elements');
-  if (!elementsRoot) return;
+  // Find the main article content block to process for accordion sections
+  const mainContent = element.querySelector('main.container.responsivegrid.aem-GridColumn--tablet--12');
+  if (!mainContent) return;
+  // Find contentfragment article
+  const cfArticle = mainContent.querySelector('article.contentfragment article.cmp-contentfragment');
+  if (!cfArticle) return;
+  // Find the contentfragment elements (contains the main body)
+  const cfElements = cfArticle.querySelector('.cmp-contentfragment__elements');
+  if (!cfElements) return;
 
-  // We'll iterate over children to group H2 (titles) and their following content (body)
-  const children = Array.from(elementsRoot.children);
+  // Helper: Get all child nodes, preserving order
+  const nodes = Array.from(cfElements.childNodes);
 
-  const rows = [];
-  let currentTitle = null;
-  let currentContents = [];
-  let foundFirstH2 = false;
-  
-  // Helper to flush an accordion row if both title and content exist
-  function flushItem() {
-    if (currentTitle && currentContents.length) {
-      // Remove trailing empty divs
-      while (
-        currentContents.length &&
-        currentContents[currentContents.length - 1].tagName === 'DIV' &&
-        currentContents[currentContents.length - 1].innerHTML.trim() === ''
+  // Only h2 sections are valid accordion items; intro before first h2 is not part of accordion
+  let i = 0;
+  while (i < nodes.length) {
+    // Find next h2 as section title
+    while (i < nodes.length && !(nodes[i].tagName && nodes[i].tagName.toLowerCase() === 'h2')) {
+      i++;
+    }
+    if (i >= nodes.length) break;
+    const titleNode = nodes[i];
+    i++;
+    // Gather content for this section until next h2
+    const sectionContent = [];
+    while (i < nodes.length && !(nodes[i].tagName && nodes[i].tagName.toLowerCase() === 'h2')) {
+      // Filter out empty grid divs and empty text nodes
+      if (
+        nodes[i].nodeType === 3 && nodes[i].textContent.trim() === ''
       ) {
-        currentContents.pop();
+        i++; continue;
       }
-      // If only one node, place it directly, else as an array
-      rows.push([currentTitle, currentContents.length === 1 ? currentContents[0] : currentContents]);
+      if (
+        nodes[i].tagName === 'DIV' &&
+        nodes[i].classList.contains('aem-Grid') &&
+        nodes[i].children.length === 0
+      ) {
+        i++; continue;
+      }
+      sectionContent.push(nodes[i]);
+      i++;
     }
-    currentTitle = null;
-    currentContents = [];
-  }
-
-  for (let i = 0; i < children.length; i++) {
-    const node = children[i];
-    if (node.tagName === 'H2') {
-      if (foundFirstH2) {
-        flushItem();
-      }
-      foundFirstH2 = true;
-      currentTitle = node;
-    } else if (foundFirstH2) {
-      // Only start collecting content after the first H2 is found
-      currentContents.push(node);
+    // If we found real content, add accordion row
+    if (sectionContent.length > 0) {
+      rows.push([
+        titleNode,
+        sectionContent.length === 1 ? sectionContent[0] : sectionContent
+      ]);
     }
   }
-  flushItem();
 
-  // Only create the block if we found at least one accordion row
-  if (rows.length) {
-    const headerRow = ['Accordion (accordion33)'];
-    const cells = [headerRow, ...rows];
-    const table = WebImporter.DOMUtils.createTable(cells, document);
-    article.replaceWith(table);
+  // Only build the table if we have at least a header and one item
+  if (rows.length > 1) {
+    const table = WebImporter.DOMUtils.createTable(rows, document);
+    element.replaceWith(table);
   }
 }

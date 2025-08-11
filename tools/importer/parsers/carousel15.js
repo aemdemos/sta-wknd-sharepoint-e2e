@@ -1,54 +1,53 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Block header as in the example
-  const cells = [['Carousel (carousel15)']];
+  // Header as per example markdown
+  const headerRow = ['Carousel (carousel15)'];
 
-  // Find the main carousel element
+  // Find carousel
   const carousel = element.querySelector('.cmp-carousel');
   if (!carousel) return;
+  const content = carousel.querySelector('.cmp-carousel__content');
+  if (!content) return;
 
-  // Find all carousel slide items
-  const items = carousel.querySelectorAll('.cmp-carousel__item');
+  // Get all slides
+  const slides = Array.from(content.children).filter(child => child.classList.contains('cmp-carousel__item'));
 
-  items.forEach((item) => {
-    // IMAGE CELL
-    let imgCell = null;
-    const imageDiv = item.querySelector('.image');
-    if (imageDiv) {
-      const img = imageDiv.querySelector('img');
-      if (img) imgCell = img;
-    }
+  const rows = slides.map(slide => {
+    // Image cell: always reference the <img> inside the slide
+    const img = slide.querySelector('img');
+    const imageCell = img || '';
 
-    // TEXT CELL
-    // Gather all direct children that are not the image div
-    const textBlocks = [];
-    Array.from(item.children).forEach((child) => {
-      if (!child.classList.contains('image')) {
-        // Only push if it's not empty
-        if ((child.nodeType === 1 && child.innerText.trim().length > 0) || (child.nodeType === 3 && child.textContent.trim().length > 0)) {
-          textBlocks.push(child);
-        }
-      }
-    });
-
-    // Also gather inline text nodes directly under the item (between elements)
-    Array.from(item.childNodes).forEach((child) => {
-      if (child.nodeType === 3 && child.textContent.trim().length > 0) {
-        // Wrap in p element for consistency
+    // Text cell: collect all content not in image containers
+    // We want ANY meaningful content (including text nodes, headings, paragraphs, links, etc.)
+    const textElements = [];
+    Array.from(slide.childNodes).forEach(node => {
+      // Skip image containers
+      if (node.nodeType === 1) {
+        const cls = node.classList;
+        if (cls && (cls.contains('image') || cls.contains('cmp-image'))) return;
+        // If this is an element and not image container, include it
+        textElements.push(node);
+      } else if (node.nodeType === 3 && node.textContent.trim()) {
+        // Text node: wrap in <p> to preserve content
         const p = document.createElement('p');
-        p.textContent = child.textContent.trim();
-        textBlocks.push(p);
+        p.textContent = node.textContent.trim();
+        textElements.push(p);
       }
     });
-
-    // Compose row
-    if (textBlocks.length > 0) {
-      cells.push([imgCell, textBlocks]);
-    } else {
-      cells.push([imgCell]);
-    }
+    // Also, check recursively for any headings, paragraphs, or links inside other containers except images
+    Array.from(slide.children).forEach(child => {
+      const cls = child.classList;
+      if (cls && (cls.contains('image') || cls.contains('cmp-image'))) return;
+      // Query for meaningful descendants
+      child.querySelectorAll('h1,h2,h3,h4,h5,h6,p,a,ul,ol,li').forEach(el => {
+        if (!textElements.includes(el)) textElements.push(el);
+      });
+    });
+    const textCell = textElements.length > 0 ? textElements : '';
+    return [imageCell, textCell];
   });
 
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  const cells = [headerRow, ...rows];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

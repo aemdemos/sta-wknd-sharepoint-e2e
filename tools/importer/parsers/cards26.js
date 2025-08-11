@@ -1,59 +1,52 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row for the block
+  // Table header row EXACTLY as specified
   const headerRow = ['Cards (cards26)'];
+  const cells = [headerRow];
 
-  // Get all card items
-  const list = element.querySelector('ul.cmp-image-list');
-  if (!list) return;
-  const items = Array.from(list.children).filter(li => li.classList.contains('cmp-image-list__item'));
-
-  // Prepare table rows
-  const rows = [headerRow];
+  // Get all card items (li)
+  const ul = element.querySelector('ul');
+  if (!ul) return;
+  const items = ul.querySelectorAll(':scope > li');
 
   items.forEach(item => {
-    // Content container
-    const article = item.querySelector('article.cmp-image-list__item-content');
-    if (!article) return;
+    // --- IMAGE CELL ---
+    let imageEl = null;
+    const imageDiv = item.querySelector('.cmp-image-list__item-image');
+    if (imageDiv) {
+      imageEl = imageDiv.querySelector('img'); // reference img directly
+    }
 
-    // Image (first column)
-    let imageCell = null;
-    const imageLink = article.querySelector('.cmp-image-list__item-image-link');
-    if (imageLink) {
-      // Find the actual img element (reference, not clone)
-      const img = imageLink.querySelector('img');
-      if (img) {
-        imageCell = img;
+    // --- TEXT CELL ---
+    const textCell = [];
+    // Title: Use strong for semantic meaning (example uses bold)
+    const titleLink = item.querySelector('.cmp-image-list__item-title-link');
+    if (titleLink) {
+      const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
+      if (titleSpan) {
+        const strong = document.createElement('strong');
+        strong.textContent = titleSpan.textContent;
+        textCell.push(strong);
       }
     }
-
-    // Text (second column)
-    let textCellChildren = [];
-    const titleLink = article.querySelector('.cmp-image-list__item-title-link');
-    const titleSpan = titleLink ? titleLink.querySelector('.cmp-image-list__item-title') : null;
-    if (titleSpan) {
-      const strong = document.createElement('strong');
-      strong.textContent = titleSpan.textContent;
-      textCellChildren.push(strong);
-    }
-    const descriptionSpan = article.querySelector('.cmp-image-list__item-description');
-    if (descriptionSpan) {
-      // If there is a title, add a <br> to separate
-      if (textCellChildren.length > 0) {
-        textCellChildren.push(document.createElement('br'));
+    // Description: If present, add below title
+    const descSpan = item.querySelector('.cmp-image-list__item-description');
+    if (descSpan && descSpan.textContent.trim()) {
+      // Use a <br> only if there is a title above
+      if (textCell.length > 0) {
+        textCell.push(document.createElement('br'));
       }
-      textCellChildren.push(descriptionSpan);
+      textCell.push(document.createTextNode(descSpan.textContent.trim()));
     }
-    // If neither title nor description, put empty string
-    if (textCellChildren.length === 0) textCellChildren = [''];
 
-    rows.push([
-      imageCell || '',
-      textCellChildren.length === 1 ? textCellChildren[0] : textCellChildren
+    // Add the row for this card
+    cells.push([
+      imageEl,
+      textCell
     ]);
   });
 
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+  // Create table and replace original element
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

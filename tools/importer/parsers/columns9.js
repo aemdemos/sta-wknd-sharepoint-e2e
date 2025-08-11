@@ -1,48 +1,59 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the deepest .aem-Grid with 12 columns (contains the three main footer columns)
-  const grid = element.querySelector('.aem-Grid.aem-Grid--12');
+  // Helper: get direct children by class
+  function findDirectChildByClass(parent, cls) {
+    return Array.from(parent.children).find(child => child.classList.contains(cls));
+  }
+  // Drill to deepest .aem-Grid
+  let grid = null;
+  let current = element;
+  while (current) {
+    grid = current.querySelector(':scope > .cmp-experiencefragment > .xf-content-height > .cmp-container > .container > .cmp-container > .container > .cmp-container > .aem-Grid');
+    if (grid) break;
+    grid = current.querySelector('.aem-Grid');
+    if (grid) break;
+    current = findDirectChildByClass(current, 'cmp-container') || current.querySelector('.container');
+    if (!current || current === element) break;
+  }
   if (!grid) return;
-  const gridChildren = Array.from(grid.children);
-
-  // 1st column: logo
-  const logoCol = gridChildren.find(el => el.classList && el.className.includes('cmp-image--logo'));
-  let logoBlock = logoCol ? logoCol.firstElementChild : '';
-
-  // 2nd column: navigation
-  const navCol = gridChildren.find(el => el.classList && el.className.includes('cmp-navigation--footer'));
-  let navBlock = navCol ? navCol.querySelector('nav') : '';
-
-  // 3rd column: follow us title and social buttons
-  const titleCol = gridChildren.find(el => el.classList && el.className.includes('cmp-title--right'));
-  const socialCol = gridChildren.find(el => el.classList && el.className.includes('cmp-buildingblock--btn-list'));
-  const thirdCol = [];
-  if (titleCol) {
-    const titleBlock = titleCol.querySelector('.cmp-title');
-    if (titleBlock) thirdCol.push(titleBlock);
+  // Get direct children
+  const columns = Array.from(grid.children);
+  // Extract blocks
+  let logo = columns.find(col => col.classList.contains('image'));
+  if (logo) logo = logo.querySelector('[data-cmp-is="image"]');
+  let navigation = columns.find(col => col.classList.contains('navigation'));
+  if (navigation) navigation = navigation.querySelector('nav');
+  let title = columns.find(col => col.classList.contains('title'));
+  if (title) title = title.querySelector('.cmp-title');
+  let btnList = columns.find(col => col.classList.contains('buildingblock'));
+  let btnItems = [];
+  if (btnList) {
+    const btnGrid = btnList.querySelector('.aem-Grid');
+    if (btnGrid) {
+      btnItems = Array.from(btnGrid.children);
+    }
   }
-  if (socialCol) {
-    const socialButtons = Array.from(socialCol.querySelectorAll('a.cmp-button'));
-    thirdCol.push(...socialButtons);
-  }
-
-  // Bottom copyright/info text (full block in a cell)
-  let textBlock = null;
-  const parentContainer = grid.parentElement;
-  if (parentContainer) {
-    textBlock = parentContainer.querySelector('.cmp-text--font-xsmall');
-  }
-
-  // Assemble table rows
-  // Header row - ONE cell only
+  let text = columns.find(col => col.classList.contains('text'));
+  if (text) text = text.querySelector('.cmp-text');
+  // Compose table rows
   const headerRow = ['Columns (columns9)'];
-  // Data row - three columns
-  const contentRow = [logoBlock, navBlock, thirdCol];
-  const rows = [headerRow, contentRow];
-  // Copyright/info row - three columns, text in 3rd col
-  if (textBlock) rows.push(['', '', textBlock]);
-
-  // Create table and replace
-  const table = WebImporter.DOMUtils.createTable(rows, document);
+  // 2nd row: left column logo+navigation, right column title+buttons
+  const leftCol = [];
+  if (logo) leftCol.push(logo);
+  if (navigation) leftCol.push(navigation);
+  const rightCol = [];
+  if (title) rightCol.push(title);
+  if (btnItems.length) rightCol.push(...btnItems);
+  // 3rd row: left = text, right = text (for strict 2-col layout)
+  // If text exists, place it in both columns for 2-col consistency,
+  // or put empty string if not found
+  const thirdRow = [text || '', text || ''];
+  // Build and replace table
+  const cells = [
+    headerRow,
+    [leftCol, rightCol],
+    thirdRow
+  ];
+  const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

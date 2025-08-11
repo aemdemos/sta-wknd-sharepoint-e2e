@@ -1,42 +1,37 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
   // Find the tabs block inside the given element
-  const tabsRoot = element.querySelector('.cmp-tabs');
-  if (!tabsRoot) return;
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Get the tab labels from the tablist
-  const tabList = tabsRoot.querySelector('[role="tablist"]');
-  const tabLabels = [];
-  if (tabList) {
-    tabList.querySelectorAll('[role="tab"]').forEach(tabEl => {
-      tabLabels.push(tabEl.textContent.trim());
-    });
-  }
+  // Get tab labels from tablist, maintaining order
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
+  const tabLabels = tabList ? Array.from(tabList.children).map(
+    (li) => li.textContent.trim()
+  ) : [];
 
-  // Get all tab panels
-  const tabPanels = Array.from(tabsRoot.querySelectorAll('[role="tabpanel"]'));
+  // Get tab panels in the order they appear
+  const tabPanels = Array.from(
+    tabsBlock.querySelectorAll('.cmp-tabs__tabpanel')
+  );
 
-  // Prepare the table header and rows
+  // Prepare header row: block name and its variant (exact from example)
   const headerRow = ['Tabs (tabs31)'];
-  const cells = [headerRow];
 
-  // For each tab, get the label and main content
-  for (let i = 0; i < tabLabels.length && i < tabPanels.length; i++) {
-    const label = tabLabels[i];
-    const panel = tabPanels[i];
-    // Find the content element inside the tabpanel. For this HTML, it's article.cmp-contentfragment
-    let tabContent = null;
-    const article = panel.querySelector('article.cmp-contentfragment');
-    if (article) {
-      tabContent = article;
-    } else {
-      // fallback to entire panel content
-      tabContent = panel;
-    }
-    cells.push([label, tabContent]);
-  }
+  // Build a table row for each tab: [label, content]
+  const rows = tabPanels.map((panel, idx) => {
+    // Use the label from tabLabels
+    const label = tabLabels[idx] || `Tab ${idx+1}`;
+    // Reference the panel directly (contains all tab content, including images)
+    return [label, panel];
+  });
 
-  // Create the table and replace the original tabs element
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  tabsRoot.replaceWith(table);
+  // Compose cells: header followed by all tab rows
+  const cells = [headerRow, ...rows];
+
+  // Create the table block
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Replace the original tabs block element with the block table
+  tabsBlock.parentElement.replaceChild(block, tabsBlock);
 }

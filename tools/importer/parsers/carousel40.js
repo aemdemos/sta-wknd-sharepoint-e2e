@@ -1,45 +1,55 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Carousel40 block header as in example
+  // === Carousel (carousel40) block ===
+  // 1. Header row as per example
   const headerRow = ['Carousel (carousel40)'];
 
-  // Prepare image cell: find the main img in the teaser
-  let imageCell = '';
-  const imgContainer = element.querySelector('.cmp-teaser__image');
-  if (imgContainer) {
-    const img = imgContainer.querySelector('img');
-    if (img) imageCell = img;
+  // 2. Extract image from the teaser block
+  // The image is always required as first cell
+  const imageContainer = element.querySelector('.cmp-teaser__image');
+  let imageEl = null;
+  if (imageContainer) {
+    imageEl = imageContainer.querySelector('img');
   }
 
-  // Prepare content cell: collect all relevant elements in source order
-  const contentCellItems = [];
+  // 3. Extract text content for the second cell
+  const textEls = [];
+  const contentContainer = element.querySelector('.cmp-teaser__content');
+  if (contentContainer) {
+    // Pretitle
+    const pretitle = contentContainer.querySelector('.cmp-teaser__pretitle');
+    if (pretitle && pretitle.textContent.trim()) {
+      textEls.push(pretitle);
+    }
+    // Title
+    const title = contentContainer.querySelector('.cmp-teaser__title');
+    if (title && title.textContent.trim()) {
+      textEls.push(title);
+    }
+    // Description
+    const desc = contentContainer.querySelector('.cmp-teaser__description');
+    if (desc && desc.textContent.trim()) {
+      textEls.push(desc);
+    }
+    // CTA/link (may be absent)
+    const actionContainer = contentContainer.querySelector('.cmp-teaser__action-container');
+    if (actionContainer) {
+      const actionLink = actionContainer.querySelector('.cmp-teaser__action-link');
+      if (actionLink) {
+        textEls.push(actionLink);
+      }
+    }
+  }
+  // If no text content, keep as empty array to ensure semantic meaning
 
-  // Pretitle
-  const pretitle = element.querySelector('.cmp-teaser__pretitle');
-  if (pretitle && pretitle.textContent.trim()) {
-    contentCellItems.push(pretitle);
-  }
-  // Title (keep heading element)
-  const title = element.querySelector('.cmp-teaser__title');
-  if (title && title.textContent.trim()) {
-    contentCellItems.push(title);
-  }
-  // Description
-  const desc = element.querySelector('.cmp-teaser__description');
-  if (desc && desc.textContent.trim()) {
-    contentCellItems.push(desc);
-  }
-  // CTA (anchor)
-  const cta = element.querySelector('.cmp-teaser__action-link');
-  if (cta && cta.textContent.trim()) {
-    contentCellItems.push(cta);
-  }
+  // 4. Compose the slide row
+  // Always two cells: image | text content (may be empty array if nothing found)
+  const slideRow = [imageEl, textEls];
 
-  // Each slide is a row with [image, [content...]]
-  const rows = [headerRow, [imageCell, contentCellItems]];
+  // 5. Construct the block table
+  const cells = [headerRow, slideRow];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Create the carousel block table
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  // Replace the original element with the block
-  element.replaceWith(table);
+  // 6. Replace the original element with the block
+  element.replaceWith(block);
 }
