@@ -1,52 +1,50 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs container inside the provided element
-  const tabsRoot = element.querySelector('.cmp-tabs');
-  if (!tabsRoot) return;
+  // Find the tabs block inside the element
+  const tabsBlock = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Get tab labels in order
-  const tablist = tabsRoot.querySelector('.cmp-tabs__tablist');
-  if (!tablist) return;
-  const tabLabelEls = Array.from(tablist.querySelectorAll('li'));
-  const tabLabels = tabLabelEls.map(li => li.textContent.trim());
+  // Get tab labels (li elements)
+  const tabLabels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
 
-  // Get all tab panels (in order)
-  const tabPanelEls = Array.from(tabsRoot.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  // Get tab content panels, in order
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Helper: filter out grid/utility divs from tab content
-  function extractTabContent(panel) {
-    const content = [];
-    Array.from(panel.children).forEach(child => {
-      if (
-        child.classList && (
-          child.classList.contains('aem-Grid') ||
-          child.classList.contains('aem-Grid--12') ||
-          child.classList.contains('aem-Grid--default--12')
-        )
-      ) return;
-      if (
-        child.tagName &&
-        child.tagName.toLowerCase() !== 'script' &&
-        child.tagName.toLowerCase() !== 'style'
-      ) {
-        if (child.querySelector && child.querySelector('article.cmp-contentfragment')) {
-          content.push(child.querySelector('article.cmp-contentfragment'));
-        } else if (child.textContent.trim() || child.querySelector('img,ul,ol')) {
-          content.push(child);
-        }
-      }
-    });
-    // If only one content block, just return it
-    return content.length === 1 ? content[0] : content;
-  }
+  // Begin table array with header row exactly as specified
+  const headerRow = ['Tabs (tabs18)'];
+  const tableRows = [headerRow];
 
-  // Structure: [[header], [tab labels...], [tab content...]]
-  const rows = [];
-  rows.push(["Tabs (tabs18)"]);
-  rows.push(tabLabels);
-  const contentRow = tabPanelEls.map(panel => extractTabContent(panel));
-  rows.push(contentRow);
+  // Iterate tabs and build row for each
+  tabLabels.forEach((tabLabel, idx) => {
+    const label = tabLabel.textContent.trim();
+    // Get corresponding tabpanel
+    const tabPanel = tabPanels[idx];
+    if (!tabPanel) return;
+    // Find inner contentfragment/article (if exists)
+    const contentFragment = tabPanel.querySelector('article.cmp-contentfragment');
 
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+    let tabContent;
+    if (contentFragment) {
+      // Remove the title from contentfragment (if exists)
+      const children = Array.from(contentFragment.children).filter(child => {
+        return !child.classList || !child.classList.contains('cmp-contentfragment__title');
+      });
+      // If no child, fallback to all childNodes
+      tabContent = children.length ? children : Array.from(contentFragment.childNodes);
+    } else {
+      // fallback to all tabPanel childNodes
+      tabContent = Array.from(tabPanel.childNodes);
+    }
+    // If only one element, use it directly; otherwise, pass an array
+    if (Array.isArray(tabContent) && tabContent.length === 1) {
+      tabContent = tabContent[0];
+    }
+    tableRows.push([label, tabContent]);
+  });
+
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(tableRows, document);
+
+  // Replace the old tabs block with the new block table
+  tabsBlock.parentNode.replaceChild(block, tabsBlock);
 }

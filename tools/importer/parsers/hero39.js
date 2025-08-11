@@ -1,44 +1,51 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Block name as header row (must match exactly)
+  // 1. Header row: block name exactly as given
   const headerRow = ['Hero (hero39)'];
 
-  // Get the background image (optional)
-  let bgImg = '';
+  // 2. Second row: background image
+  let imageEl = '';
   const imageContainer = element.querySelector('.cmp-teaser__image');
   if (imageContainer) {
+    // Use <img> directly if present
     const img = imageContainer.querySelector('img');
     if (img) {
-      bgImg = img;
+      imageEl = img;
     }
   }
+  const imageRow = [imageEl];
 
-  // Compose the title & description content (title, subheading, CTA)
-  const teaserContent = element.querySelector('.cmp-teaser__content');
-  const contentNodes = [];
-  if (teaserContent) {
-    // Title (use as is; keep heading level)
-    const title = teaserContent.querySelector('.cmp-teaser__title');
-    if (title) contentNodes.push(title);
-    // Description, push all element children of description block
-    const desc = teaserContent.querySelector('.cmp-teaser__description');
-    if (desc) {
-      Array.from(desc.childNodes).forEach((node) => {
-        if (node.nodeType === Node.ELEMENT_NODE) {
-          contentNodes.push(node);
+  // 3. Third row: headline, subheading, CTA, all text content
+  const contentEls = [];
+  const content = element.querySelector('.cmp-teaser__content');
+  if (content) {
+    // Use all children in order
+    Array.from(content.children).forEach((child) => {
+      // For title, keep original element (likely h2)
+      if (child.classList.contains('cmp-teaser__title')) {
+        contentEls.push(child);
+      } else if (child.classList.contains('cmp-teaser__description')) {
+        // If this is just a wrapper around <p>, use the <p> directly for cleaner output
+        if (child.children.length === 1 && child.firstElementChild.tagName === 'P') {
+          contentEls.push(child.firstElementChild);
+        } else {
+          // Otherwise, add the whole description block
+          contentEls.push(child);
         }
-      });
-    }
+      } else {
+        contentEls.push(child);
+      }
+    });
   }
+  const contentRow = [contentEls.length ? contentEls : ''];
 
-  // Build the table rows.
-  const rows = [
+  // Compose the table rows as specified
+  const cells = [
     headerRow,
-    [bgImg ? bgImg : ''],
-    [contentNodes.length > 0 ? contentNodes : ''],
+    imageRow,
+    contentRow
   ];
 
-  // Create the block and replace the element
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

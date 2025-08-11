@@ -1,73 +1,58 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the correct cmp-tabs root
-  let tabsEl = element;
-  if (!tabsEl.classList.contains('cmp-tabs')) {
-    tabsEl = element.querySelector('.cmp-tabs');
-    if (!tabsEl) return;
-  }
-  // Extract tab labels in order
-  const tabLabels = Array.from(
-    tabsEl.querySelectorAll('.cmp-tabs__tablist li.cmp-tabs__tab')
-  ).map(li => li.textContent.trim());
+  // Find the tabs block
+  const tabsRoot = element.querySelector('.cmp-tabs');
+  if (!tabsRoot) return;
 
-  // Extract tab panel elements in order
-  const tabPanels = Array.from(
-    tabsEl.querySelectorAll('.cmp-tabs__tabpanel')
-  );
+  // Get tab labels
+  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
+  const tabLabelEls = Array.from(tabList ? tabList.querySelectorAll('[role="tab"]') : []);
+  const tabLabels = tabLabelEls.map(tab => tab.textContent.trim());
 
-  // Guard: skip if mismatch
-  if (tabLabels.length !== tabPanels.length) return;
+  // Get tab panels (contents)
+  // Each tabpanel is a div[role=tabpanel] in .cmp-tabs
+  const tabPanelEls = Array.from(tabsRoot.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Compose rows for the table
-  const rows = [['Tabs (tabs28)']];
+  // Build the rows for the table
+  // First row: block header as one column (per example)
+  const rows = [ ['Tabs (tabs28)'] ];
+
+  // For each tab, grab its content and construct [Tab Label, Tab Content] for each row
   for (let i = 0; i < tabLabels.length; i++) {
     const label = tabLabels[i];
-    const panel = tabPanels[i];
-    // Get all meaningful children inside panel
-    // Find the first child .contentfragment or .cmp-contentfragment or article if present, else fallback to all children
-    let contentEl = null;
-    let main = panel.querySelector('article.cmp-contentfragment, .contentfragment, .cmp-contentfragment');
-    if (main) {
-      // Use the elements section if present (contains main content)
-      let elSection = main.querySelector('.cmp-contentfragment__elements');
-      if (elSection && elSection.children.length > 0) {
-        // If there's only one div direct child, unwrap it
-        if (
-          elSection.children.length === 1 &&
-          elSection.children[0].tagName === 'DIV' &&
-          elSection.children[0].children.length > 0
-        ) {
-          // If that DIV has multiple children, use those
-          const frag = document.createElement('div');
-          Array.from(elSection.children[0].children).forEach(child => frag.appendChild(child));
-          contentEl = frag;
+    // Try to match tab label to panel by order
+    const panelEl = tabPanelEls[i];
+    let contentCell = '';
+    if (panelEl) {
+      // Content is typically a contentfragment > article > .cmp-contentfragment__elements
+      const cf = panelEl.querySelector('article.cmp-contentfragment');
+      if (cf) {
+        // Get all content inside .cmp-contentfragment__elements
+        const elementsContainer = cf.querySelector('.cmp-contentfragment__elements');
+        if (elementsContainer) {
+          // Remove any aem-Grid fillers and empty divs
+          const cleanNodes = Array.from(elementsContainer.childNodes).filter(node => {
+            if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('aem-Grid')) return false;
+            if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'DIV' && node.innerHTML.trim() === '') return false;
+            return true;
+          });
+          if (cleanNodes.length > 0) {
+            contentCell = cleanNodes;
+          } else {
+            contentCell = elementsContainer;
+          }
         } else {
-          contentEl = elSection;
+          contentCell = cf;
         }
       } else {
-        contentEl = main;
+        contentCell = panelEl;
       }
-    } else {
-      // fallback: use all children of panel
-      // Remove script/style and empty text nodes
-      const frag = document.createElement('div');
-      Array.from(panel.childNodes).forEach(n => {
-        if (
-          n.nodeType === Node.ELEMENT_NODE &&
-          n.tagName !== 'SCRIPT' &&
-          n.tagName !== 'STYLE'
-        ) {
-          frag.appendChild(n);
-        } else if (n.nodeType === Node.TEXT_NODE && n.textContent.trim() !== '') {
-          frag.appendChild(document.createTextNode(n.textContent));
-        }
-      });
-      contentEl = frag;
     }
-    // As per requirements, use direct reference
-    rows.push([label, contentEl]);
+    // Push a 2-column row: [Tab Label, Tab Content]
+    rows.push([label, contentCell]);
   }
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+
+  // Create block table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(block);
 }

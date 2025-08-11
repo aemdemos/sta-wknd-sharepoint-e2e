@@ -1,48 +1,53 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the image-list (cards) block
-  const imageList = element.querySelector('.image-list .cmp-image-list');
-  if (!imageList) return;
+  // 1. Locate the 'All Articles' section by finding the h2 with text 'All Articles'
+  const allArticlesTitle = Array.from(element.querySelectorAll('.cmp-title__text')).find(h => h.textContent.trim().toLowerCase() === 'all articles');
+  if (!allArticlesTitle) return;
+  // 2. The image-list div is after the All Articles title
+  let curr = allArticlesTitle.closest('.cmp-title').parentElement;
+  // Find the next sibling containing the image list (should be div.image-list)
+  let imageListDiv = curr.nextElementSibling;
+  while (imageListDiv && !imageListDiv.classList.contains('image-list')) {
+    imageListDiv = imageListDiv.nextElementSibling;
+  }
+  if (!imageListDiv) return;
+  const ul = imageListDiv.querySelector('ul.cmp-image-list');
+  if (!ul) return;
 
-  // Build table header as per the example
-  const rows = [['Cards (cards4)']];
-
-  // Each li.cmp-image-list__item is a card
-  imageList.querySelectorAll(':scope > li.cmp-image-list__item').forEach(card => {
-    // Extract the image (first <img> in the card)
-    const img = card.querySelector('img');
-
-    // Compose text cell, referencing existing elements from the DOM
-    const textFragments = [];
-
-    // Title: Use the text content of .cmp-image-list__item-title if available
-    const titleEl = card.querySelector('.cmp-image-list__item-title');
-    if (titleEl) {
-      // Use a <div> with <strong> for semantic heading (matches markdown intent)
-      const strong = document.createElement('strong');
-      strong.textContent = titleEl.textContent.trim();
-      textFragments.push(strong);
+  // 3. For each card (li), extract image and text content as per spec
+  const cards = Array.from(ul.children).map(li => {
+    const article = li.querySelector('article');
+    // Image: first .cmp-image (img element) inside article
+    let image = null;
+    const imgDiv = article && article.querySelector('.cmp-image-list__item-image .cmp-image');
+    if (imgDiv) {
+      image = imgDiv.querySelector('img');
     }
-
-    // Description: Append below with <br><br> if there was a title
-    const descEl = card.querySelector('.cmp-image-list__item-description');
-    if (descEl) {
-      if (textFragments.length > 0) {
-        textFragments.push(document.createElement('br'));
-        textFragments.push(document.createElement('br'));
-      }
-      // Reference the existing element, not a cloned one
-      textFragments.push(descEl);
+    // Title: .cmp-image-list__item-title (as <strong>, per example style)
+    let titleElem = null;
+    const titleSpan = article && article.querySelector('.cmp-image-list__item-title');
+    if (titleSpan && titleSpan.textContent.trim()) {
+      titleElem = document.createElement('strong');
+      titleElem.textContent = titleSpan.textContent.trim();
     }
-
-    // Compose row
-    rows.push([
-      img,
-      textFragments
-    ]);
+    // Description:
+    const descElem = article && article.querySelector('.cmp-image-list__item-description');
+    // Compose text cell: Title (<strong>), <br> if desc, description span
+    const textCellContent = [];
+    if (titleElem) textCellContent.push(titleElem);
+    if (descElem && descElem.textContent.trim()) {
+      if (titleElem) textCellContent.push(document.createElement('br'));
+      textCellContent.push(descElem);
+    }
+    return [image, textCellContent];
   });
 
-  // Create and insert the block table
+  // 4. Compose table rows
+  const rows = [
+    ['Cards (cards4)'],
+    ...cards
+  ];
+  // 5. Create and replace with table
   const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+  imageListDiv.replaceWith(table);
 }

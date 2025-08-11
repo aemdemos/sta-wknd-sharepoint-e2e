@@ -1,78 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block (the block to convert)
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Locate the main tabs block inside the element
+  const tabsBlock = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Extract tab labels (li elements)
-  const tabLabelEls = tabs.querySelectorAll('.cmp-tabs__tablist > li');
-  const tabLabels = Array.from(tabLabelEls).map(li => li.textContent.trim());
+  // Extract the tab labels (the tab headers/labels)
+  const tabLabels = Array.from(
+    tabsBlock.querySelectorAll('.cmp-tabs__tablist > li')
+  ).map((li) => li.textContent.trim());
 
-  // Extract tab panels (divs with cmp-tabs__tabpanel)
-  const tabPanels = tabs.querySelectorAll('.cmp-tabs__tabpanel');
+  // Extract all tab content panels
+  const tabPanels = Array.from(
+    tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]')
+  );
 
-  // Prepare table header row (exactly as requested)
-  const cells = [['Tabs (tabs6)']];
+  // Build the header row: exactly as specified
+  const headerRow = ['Tabs (tabs6)'];
 
-  // For each tab, create a row: [Tab Label, Tab Content]
-  for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i];
-    const panel = tabPanels[i];
-    let contentEl = null;
-    if (panel) {
-      // Find main content inside panel -- prefer .cmp-contentfragment__elements, else all direct children of panel
-      const contentFragment = panel.querySelector('.cmp-contentfragment__elements');
-      if (contentFragment) {
-        // Gather only non-empty and non-grid children
-        const children = Array.from(contentFragment.childNodes).filter(node => {
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            // Ignore aem-Grid wrappers
-            if (node.classList.contains('aem-Grid')) return false;
-            // Ignore empty divs
-            if (node.tagName === 'DIV' && node.childNodes.length === 0) return false;
-          }
-          if (node.nodeType === Node.TEXT_NODE && !node.textContent.trim()) return false;
-          return true;
-        });
-        // If only one, return that element; if multiple, array
-        contentEl = children.length === 1 ? children[0] : children;
-        // If nothing found, fallback
-        if (!contentEl || (Array.isArray(contentEl) && contentEl.length === 0)) {
-          // fallback to article
-          const article = panel.querySelector('article');
-          if (article) {
-            contentEl = article;
-          } else {
-            // fallback to all panel children
-            const panelKids = Array.from(panel.childNodes).filter(node => {
-              if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('aem-Grid')) return false;
-              if (node.nodeType === Node.TEXT_NODE && !node.textContent.trim()) return false;
-              return true;
-            });
-            contentEl = panelKids.length === 1 ? panelKids[0] : panelKids;
-          }
-        }
-      } else {
-        // fallback to article inside panel
-        const article = panel.querySelector('article');
-        if (article) {
-          contentEl = article;
-        } else {
-          // fallback to children of panel
-          const panelKids = Array.from(panel.childNodes).filter(node => {
-            if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('aem-Grid')) return false;
-            if (node.nodeType === Node.TEXT_NODE && !node.textContent.trim()) return false;
-            return true;
-          });
-          contentEl = panelKids.length === 1 ? panelKids[0] : panelKids;
-        }
-      }
-    }
-    // Add row: [Tab Label, Content]
-    cells.push([label, contentEl]);
-  }
+  // Build the tab rows - each is [TabLabel, TabContent]
+  const rows = tabPanels.map((panel, idx) => {
+    // Determine the label
+    const label = tabLabels[idx] || `Tab ${idx + 1}`;
+    // Try to get the main article/contentfragment inside this panel
+    // If not found, use the panel itself
+    let content = panel.querySelector('.contentfragment') || panel;
+    return [label, content];
+  });
 
-  // Create table using the helper and replace the tabs block
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  tabs.replaceWith(table);
+  // Create the table cell array
+  const cells = [headerRow, ...rows];
+
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Replace the original block with the constructed block table
+  element.replaceWith(block);
 }

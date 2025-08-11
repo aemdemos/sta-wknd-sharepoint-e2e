@@ -1,47 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block inside the provided element
-  const tabsRoot = element.querySelector('.tabs .cmp-tabs');
-  if (!tabsRoot) return;
+  // Locate the .cmp-tabs block within the given element
+  const tabsEl = element.querySelector('.cmp-tabs');
+  if (!tabsEl) return;
 
-  // Collect the tab labels
-  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
-  const tabLabels = [];
-  if (tabList) {
-    tabList.querySelectorAll('li[role="tab"]').forEach(tab => {
-      tabLabels.push(tab.textContent.trim());
-    });
-  }
+  // Collect tab labels (from the top tab list)
+  const tabLabelEls = Array.from(tabsEl.querySelectorAll('.cmp-tabs__tablist > li'));
 
-  // Collect the tab contents: each tabpanel corresponds to a tab label
-  const tabPanels = Array.from(tabsRoot.querySelectorAll('.cmp-tabs__tabpanel'));
-  const tabContents = tabPanels.map(panel => {
-    // Try to find all direct .contentfragment or article children for robust extraction
-    const contentFragments = Array.from(panel.querySelectorAll(':scope > .contentfragment, :scope > article, :scope > .cmp-contentfragment'));
-    if (contentFragments.length > 0) {
-      return contentFragments.length === 1 ? contentFragments[0] : contentFragments;
-    } else {
-      // If none found, fallback to all direct children
-      const directChildren = Array.from(panel.children);
-      return directChildren.length === 1 ? directChildren[0] : directChildren;
-    }
-  });
+  // Collect tab panel contents in the order they appear
+  const tabPanels = Array.from(tabsEl.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Only build the tabs table if we have matching labels and contents
-  if (!tabLabels.length || tabLabels.length !== tabContents.length) return;
+  // Defensive: ensure matching count
+  const nTabs = Math.min(tabLabelEls.length, tabPanels.length);
 
-  // Build the table: header row (single cell), then each tab in a row of two cells (label, content)
+  // Build header row as shown in the example
   const headerRow = ['Tabs (tabs20)'];
-  const tableRows = [headerRow];
-  for (let i = 0; i < tabLabels.length; i++) {
-    tableRows.push([
-      tabLabels[i],
-      tabContents[i]
-    ]);
+  const rows = [headerRow];
+
+  // Each following row is: [Tab Label, Tab Content]
+  for (let i = 0; i < nTabs; i++) {
+    // Tab label as text
+    const tabLabel = tabLabelEls[i].textContent.trim();
+
+    // Tab content: The tab panel (reference the live element)
+    const tabContent = tabPanels[i];
+
+    rows.push([tabLabel, tabContent]);
   }
 
-  // Create the table
-  const table = WebImporter.DOMUtils.createTable(tableRows, document);
-  // Replace the tabs block element with the new block table
-  element.replaceWith(table);
+  // Create the tabs block table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+
+  // Replace the original tabs element with the new table block
+  tabsEl.replaceWith(block);
 }

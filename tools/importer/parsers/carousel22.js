@@ -1,70 +1,65 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper to extract the slide details from a carousel item
-  function extractSlide(slide) {
-    // 1. Image (first cell)
-    let img = null;
-    let imgContainer = slide.querySelector('.cmp-teaser__image');
-    if (imgContainer) {
-      img = imgContainer.querySelector('img');
-    }
-    if (!img) {
-      img = slide.querySelector('img');
+  // Define header row as in example
+  const headerRow = ['Carousel (carousel22)'];
+  const cells = [headerRow];
+
+  // Find the carousel content
+  const carouselContent = element.querySelector('.cmp-carousel__content');
+  if (!carouselContent) return;
+  // Get all slide items
+  const items = Array.from(carouselContent.querySelectorAll('.cmp-carousel__item'));
+
+  items.forEach((item) => {
+    // IMAGE: in the first cell, must be an <img> element
+    let imgEl = item.querySelector('.cmp-teaser__image img');
+    if (!imgEl) {
+      imgEl = item.querySelector('img');
     }
 
-    // 2. Text content (second cell)
-    let textItems = [];
-    let content = slide.querySelector('.cmp-teaser__content');
-    if (content) {
-      // Title (Heading)
-      const title = content.querySelector('.cmp-teaser__title');
-      if (title) {
-        // Use the existing h2 node if possible
-        textItems.push(title);
+    // TEXT CELL: Title, Description, CTA (if present)
+    const cellContent = [];
+    // Title: Heading (use h2 if found, else fallback to first heading)
+    const teaserContent = item.querySelector('.cmp-teaser__content');
+    if (teaserContent) {
+      // Title
+      let titleEl = teaserContent.querySelector('.cmp-teaser__title, h1, h2, h3');
+      if (titleEl) {
+        // Use the element as-is for semantic heading
+        cellContent.push(titleEl);
       }
       // Description
-      const desc = content.querySelector('.cmp-teaser__description');
-      if (desc) {
-        // If only text, wrap in a <p>, if already has <p>, use as is
-        if (desc.children.length === 0) {
-          const p = document.createElement('p');
-          p.textContent = desc.textContent.trim();
-          textItems.push(p);
-        } else {
-          // Use all direct child nodes (may contain <p>, <span>, etc)
-          Array.from(desc.childNodes).forEach(child => {
-            textItems.push(child);
+      let descEl = teaserContent.querySelector('.cmp-teaser__description');
+      if (descEl) {
+        // Some descriptions have <p> or plain text
+        if (descEl.children.length > 0) {
+          Array.from(descEl.childNodes).forEach((node) => {
+            cellContent.push(node);
           });
+        } else {
+          cellContent.push(document.createTextNode(descEl.textContent.trim()));
         }
       }
-      // CTA link (if present)
-      const cta = content.querySelector('.cmp-teaser__action-link');
-      if (cta) {
-        textItems.push(cta);
+      // CTA
+      let actionLink = teaserContent.querySelector('.cmp-teaser__action-link');
+      if (actionLink) {
+        cellContent.push(actionLink);
       }
     }
-    return [img, textItems.length ? textItems : ''];
-  }
 
-  // Find the carousel DOM root
-  let carouselRoot = element.querySelector('.cmp-carousel');
-  if (!carouselRoot) carouselRoot = element;
+    // If no content found, fallback to all text in item (should not occur in provided HTML)
+    if (cellContent.length === 0) {
+      cellContent.push(document.createTextNode(item.textContent.trim()));
+    }
 
-  // Find direct slide containers (role=tabpanel)
-  const slides = Array.from(carouselRoot.querySelectorAll(':scope > .cmp-carousel__content > .cmp-carousel__item'));
-
-  const rows = [];
-  // Table header
-  rows.push(['Carousel (carousel22)']);
-
-  // Each slide: [image, [title, desc, cta]]
-  slides.forEach(slide => {
-    // Look for the inner .teaser, fall back to slide itself
-    const teaser = slide.querySelector('.teaser') || slide;
-    const [img, text] = extractSlide(teaser);
-    rows.push([img || '', text]);
+    // Table row: image in first cell, array of elements in second
+    cells.push([
+      imgEl,
+      cellContent
+    ]);
   });
 
-  const block = WebImporter.DOMUtils.createTable(rows, document);
+  // Create the block table and replace the original element
+  const block = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(block);
 }

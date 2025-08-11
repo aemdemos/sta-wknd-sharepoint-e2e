@@ -1,35 +1,29 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate the tabs block
-  const tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
+  // Find the tabs block (.cmp-tabs)
+  const cmpTabs = element.querySelector('.cmp-tabs');
+  if (!cmpTabs) return;
 
-  // Get tab labels in order
-  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  const tabLabels = [];
-  if (tabList) {
-    tabList.querySelectorAll('[role="tab"]').forEach(tabEl => {
-      tabLabels.push(tabEl.textContent.trim());
-    });
-  }
+  // Find tab labels
+  const tablist = cmpTabs.querySelector('.cmp-tabs__tablist');
+  const tabLabels = tablist ? Array.from(tablist.querySelectorAll('li')).map(li => li.textContent.trim()) : [];
+  // Find tabpanels in the same order
+  const tabPanels = Array.from(cmpTabs.querySelectorAll('[role="tabpanel"]'));
 
-  // Get tab panels in order
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('[role="tabpanel"]'));
-
-  // Header row: single cell, block name
-  const tableRows = [['Tabs (tabs37)']];
-
-  // Each tab: [label, content]
+  // Build table: header row, then one row per tab (label, content)
+  const rows = [['Tabs (tabs37)']];
   for (let i = 0; i < tabLabels.length; i++) {
     const label = tabLabels[i];
-    const panel = tabPanels[i];
-    if (!label || !panel) continue;
-    // Get the main article/content fragment for robustness
-    const article = panel.querySelector('article');
-    let contentCell = article || panel;
-    tableRows.push([label, contentCell]);
+    let content = '';
+    if (tabPanels[i]) {
+      // Prefer the <article> contentfragment, otherwise use the whole panel
+      const article = tabPanels[i].querySelector('article');
+      content = article || tabPanels[i];
+    }
+    rows.push([label, content]);
   }
 
-  const table = WebImporter.DOMUtils.createTable(tableRows, document);
-  element.replaceWith(table);
+  // Create table and replace block
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  cmpTabs.parentNode.replaceChild(block, cmpTabs);
 }
