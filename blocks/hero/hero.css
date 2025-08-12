@@ -53,125 +53,6 @@
 }
 
 
-.hero.hero39 {
-  position: relative;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  display: block;
-}
-
-.hero.hero39 > div:first-child {
-  width: 100vw;
-  min-height: 480px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero.hero39 picture,
-.hero.hero39 picture > img {
-  width: 100vw;
-  height: 480px;
-  max-width: 100vw;
-  object-fit: cover;
-  display: block;
-}
-
-.hero.hero39 > div:nth-child(2) {
-  position: absolute;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  background: #fff;
-  width: 76vw;
-  max-width: 950px;
-  box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
-  border-radius: 0;
-  z-index: 2;
-  padding: 1.7rem 2rem 1.3rem;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hero.hero39 > div:nth-child(2) > div {
-  width: 100%;
-}
-
-.hero.hero39 > div:nth-child(2) h2,
-.hero.hero39 > div:nth-child(2) h1 {
-  color: #222;
-  font-family: var(--heading-font-family, Georgia, serif);
-  font-size: 1.9rem;
-  font-weight: 500;
-  margin: 0 0 1rem;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
-  text-align: left;
-}
-
-.hero.hero39 > div:nth-child(2) p {
-  color: #444;
-  font-family: var(--body-font-family, Arial, sans-serif);
-  font-size: 1rem;
-  margin: 0;
-  line-height: 1.5;
-  text-align: left;
-}
-
-@media (width <= 1200px) {
-  .hero.hero39 > div:nth-child(2) {
-    width: 95vw;
-    max-width: 99vw;
-    padding: 1.2rem 0.8rem 0.8rem;
-    bottom: 12px;
-  }
-
-  .hero.hero39 > div:nth-child(2) h2,
-  .hero.hero39 > div:nth-child(2) h1 {
-    font-size: 1.3rem;
-  }
-
-  .hero.hero39 > div:nth-child(2) p {
-    font-size: 0.98rem;
-  }
-
-  .hero.hero39 > div:first-child,
-  .hero.hero39 picture,
-  .hero.hero39 picture > img {
-    min-height: 320px;
-    height: 320px;
-  }
-}
-
-@media (width <= 900px) {
-  .hero.hero39 > div:nth-child(2) {
-    width: 99vw;
-    max-width: 100vw;
-    padding: 0.7rem 0.3rem 0.5rem;
-    bottom: 4px;
-  }
-
-  .hero.hero39 > div:nth-child(2) h2,
-  .hero.hero39 > div:nth-child(2) h1 {
-    font-size: 1.1rem;
-  }
-
-  .hero.hero39 > div:nth-child(2) p {
-    font-size: 0.93rem;
-  }
-
-  .hero.hero39 > div:first-child,
-  .hero.hero39 picture,
-  .hero.hero39 picture > img {
-    min-height: 180px;
-    height: 180px;
-  }
-}
-
-
 .hero.hero11 {
   position: relative;
   width: 100vw;
@@ -203,12 +84,11 @@
   padding: 0;
 }
 
-/* Lower the white box to overlap the bottom third of the image */
 .hero.hero11 > div:nth-child(2) {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 44px; /* Lowered from previous 60/120px for more natural overlap */
+  bottom: 44px;
   z-index: 2;
   width: 64vw;
   max-width: 720px;
@@ -254,7 +134,6 @@
   transform: translateX(-50%);
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero11 > div:first-child {
     height: 220px;
@@ -303,5 +182,125 @@
     width: 97vw;
     max-width: 99vw;
     margin-top: 4px;
+  }
+}
+
+
+.hero.hero39 {
+  position: relative;
+  width: 100vw;
+  min-height: 380px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+}
+
+/* Make image fill the block, regardless of nesting */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  z-index: 1;
+  overflow: hidden;
+  display: block;
+  pointer-events: none;
+}
+
+.hero.hero39 > div:first-child picture,
+.hero.hero39 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 380px;
+}
+
+/* Overlay text panel horizontally centered, flush to the bottom */
+.hero.hero39 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 6%);
+  border-radius: 0;
+  min-width: 320px;
+  max-width: 950px;
+  width: 76vw;
+  padding: 1.1rem 2rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0;
+}
+
+/* Remove default block spacing */
+.hero.hero39 > div:nth-child(2) > div {
+  width: 100%;
+}
+
+/* Heading and text styles as before */
+.hero.hero39 > div:nth-child(2) h2,
+.hero.hero39 > div:nth-child(2) h1 {
+  color: #222;
+  font-family: var(--heading-font-family, Georgia, serif);
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+
+.hero.hero39 > div:nth-child(2) p {
+  color: #444;
+  font-family: var(--body-font-family, Arial, sans-serif);
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Responsive: stack text panel below image on small screens */
+@media (width <= 900px) {
+  .hero.hero39 {
+    min-height: 0;
+    height: auto;
+  }
+
+  .hero.hero39 > div:first-child,
+  .hero.hero39 > div:first-child picture,
+  .hero.hero39 > div:first-child img {
+    position: static;
+    min-height: 180px;
+    height: 220px;
+  }
+
+  .hero.hero39 > div:nth-child(2) {
+    position: static;
+    transform: none;
+    left: auto;
+    bottom: auto;
+    margin: 0 auto;
+    width: 97vw;
+    max-width: 99vw;
+    min-width: unset;
+    box-shadow: none;
+    padding: 1.1rem 0.8rem 0.8rem;
+  }
+
+  .hero.hero39 > div:nth-child(2) h2,
+  .hero.hero39 > div:nth-child(2) h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero.hero39 > div:nth-child(2) p {
+    font-size: 0.98rem;
   }
 }
