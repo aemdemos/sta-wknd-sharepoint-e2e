@@ -1,63 +1,65 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header
+  // Accordion block name
   const headerRow = ['Accordion (accordion33)'];
   const rows = [headerRow];
 
-  // Find the main article content block to process for accordion sections
-  const mainContent = element.querySelector('main.container.responsivegrid.aem-GridColumn--tablet--12');
-  if (!mainContent) return;
-  // Find contentfragment article
-  const cfArticle = mainContent.querySelector('article.contentfragment article.cmp-contentfragment');
-  if (!cfArticle) return;
-  // Find the contentfragment elements (contains the main body)
-  const cfElements = cfArticle.querySelector('.cmp-contentfragment__elements');
-  if (!cfElements) return;
+  // Locate the contentfragment/article containing the main headings and content
+  let contentArticle = element.querySelector('article.contentfragment, article.cmp-contentfragment');
+  if (!contentArticle) {
+    contentArticle = element.querySelector('article');
+  }
+  if (!contentArticle) {
+    // If no article, abort
+    return;
+  }
 
-  // Helper: Get all child nodes, preserving order
-  const nodes = Array.from(cfElements.childNodes);
+  // Get all direct children of cmp-contentfragment__elements
+  let elementsWrapper = contentArticle.querySelector('.cmp-contentfragment__elements');
+  if (!elementsWrapper) elementsWrapper = contentArticle;
+  // We want to collect all accordion items as [title, content] pairs
+  // We'll scan children and look for H2s, then collect all between them as content
 
-  // Only h2 sections are valid accordion items; intro before first h2 is not part of accordion
+  // Gather all children into array for easier sequential scan
+  const children = Array.from(elementsWrapper.childNodes);
   let i = 0;
-  while (i < nodes.length) {
-    // Find next h2 as section title
-    while (i < nodes.length && !(nodes[i].tagName && nodes[i].tagName.toLowerCase() === 'h2')) {
-      i++;
-    }
-    if (i >= nodes.length) break;
-    const titleNode = nodes[i];
-    i++;
-    // Gather content for this section until next h2
-    const sectionContent = [];
-    while (i < nodes.length && !(nodes[i].tagName && nodes[i].tagName.toLowerCase() === 'h2')) {
-      // Filter out empty grid divs and empty text nodes
-      if (
-        nodes[i].nodeType === 3 && nodes[i].textContent.trim() === ''
-      ) {
-        i++; continue;
+  while (i < children.length) {
+    const node = children[i];
+    if (node.nodeType === 1 && node.tagName === 'H2') {
+      // Title cell is the h2 itself (reference)
+      const titleCell = node;
+      // Content is all nodes up to (but not including) next H2
+      const contentEls = [];
+      let j = i + 1;
+      while (j < children.length) {
+        const nextNode = children[j];
+        if (nextNode.nodeType === 1 && nextNode.tagName === 'H2') break;
+        // Only push if element node not empty grid, or text node is not all whitespace
+        if (nextNode.nodeType === 1) {
+          // Skip empty grid containers
+          if (!(nextNode.classList && nextNode.classList.contains('aem-Grid'))) {
+            contentEls.push(nextNode);
+          }
+        } else if (nextNode.nodeType === 3 && nextNode.textContent.trim().length) {
+          // Preserve text nodes with actual content
+          const span = document.createElement('span');
+          span.textContent = nextNode.textContent;
+          contentEls.push(span);
+        }
+        j++;
       }
-      if (
-        nodes[i].tagName === 'DIV' &&
-        nodes[i].classList.contains('aem-Grid') &&
-        nodes[i].children.length === 0
-      ) {
-        i++; continue;
-      }
-      sectionContent.push(nodes[i]);
+      // If content is empty, put an empty string
+      const contentCell = contentEls.length === 0 ? '' : (contentEls.length === 1 ? contentEls[0] : contentEls);
+      rows.push([titleCell, contentCell]);
+      i = j; // move to next H2
+    } else {
       i++;
-    }
-    // If we found real content, add accordion row
-    if (sectionContent.length > 0) {
-      rows.push([
-        titleNode,
-        sectionContent.length === 1 ? sectionContent[0] : sectionContent
-      ]);
     }
   }
 
-  // Only build the table if we have at least a header and one item
+  // Only create accordion block if at least one section found
   if (rows.length > 1) {
-    const table = WebImporter.DOMUtils.createTable(rows, document);
-    element.replaceWith(table);
+    const block = WebImporter.DOMUtils.createTable(rows, document);
+    element.replaceWith(block);
   }
 }

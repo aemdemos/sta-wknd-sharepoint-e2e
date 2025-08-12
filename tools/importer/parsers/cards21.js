@@ -1,40 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header matches example
+  // Table header row exactly as required
   const headerRow = ['Cards (cards21)'];
+  const cells = [headerRow];
 
-  // Find the image list
-  const list = element.querySelector('ul.cmp-image-list');
-  if (!list) return;
+  // Find all card list items
+  const cardItems = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
+  cardItems.forEach((li) => {
+    // --- IMAGE CELL ---
+    // Locate the image element
+    let imgEl = null;
+    const imgContainer = li.querySelector('.cmp-image-list__item-image');
+    if (imgContainer) {
+      imgEl = imgContainer.querySelector('img');
+    }
+    // --- TEXT CELL ---
+    // Title
+    let titleSpan = li.querySelector('.cmp-image-list__item-title');
+    // Description
+    let descSpan = li.querySelector('.cmp-image-list__item-description');
 
-  // Get all cards
-  const rows = Array.from(list.children).filter(li => li.matches('.cmp-image-list__item')).map(li => {
-    // Image: first <img> inside the card
-    let img = li.querySelector('img');
-    // Text: Compose from existing elements (title and description)
-    const titleLink = li.querySelector('.cmp-image-list__item-title-link');
-    const titleSpan = titleLink ? titleLink.querySelector('.cmp-image-list__item-title') : null;
-    const descSpan = li.querySelector('.cmp-image-list__item-description');
-
-    // Compose card text cell
-    // Use a fragment to reference original elements and preserve semantics
-    const textCell = document.createElement('div');
+    // Compose the text cell
+    const textCellElements = [];
     if (titleSpan) {
-      const heading = document.createElement('strong');
-      heading.textContent = titleSpan.textContent;
-      textCell.appendChild(heading);
+      const titleEl = document.createElement('strong');
+      titleEl.textContent = titleSpan.textContent;
+      textCellElements.push(titleEl);
     }
-    if (descSpan) {
-      // Use block semantics for description
-      const desc = document.createElement('p');
-      desc.textContent = descSpan.textContent;
-      textCell.appendChild(desc);
+    if (descSpan && descSpan.textContent.trim()) {
+      // Add break only if there's a title above
+      if (titleSpan) textCellElements.push(document.createElement('br'));
+      textCellElements.push(document.createTextNode(descSpan.textContent.trim()));
     }
-    return [img, textCell];
+    // If no title or description, leave blank cell
+    let textCellRef = textCellElements.length ? textCellElements : '';
+
+    cells.push([imgEl, textCellRef]);
   });
 
-  // Build table and replace
-  const cells = [headerRow, ...rows];
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Build and replace block table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

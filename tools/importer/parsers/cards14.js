@@ -1,54 +1,47 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header must match the example
+  // Table header: matches example exactly
   const headerRow = ['Cards (cards14)'];
-  const cells = [headerRow];
 
-  // Defensive: Find the UL for cards, handle if missing
-  const ul = element.querySelector('ul.cmp-image-list');
-  if (!ul) {
-    // No cards found, replace with a header block only
-    const table = WebImporter.DOMUtils.createTable(cells, document);
-    element.replaceWith(table);
-    return;
-  }
+  // Find all cards in the block
+  const items = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
+  const rows = [headerRow];
 
-  const items = ul.querySelectorAll('li.cmp-image-list__item');
   items.forEach((item) => {
-    // Find the image (should always exist)
+    // Extract image: reference existing element
     const img = item.querySelector('img');
-    // Find the title
+    let imageEl = null;
+    if (img) {
+      imageEl = img;
+    }
+
+    // Extract title and description
+    const titleLink = item.querySelector('.cmp-image-list__item-title-link');
     const titleSpan = item.querySelector('.cmp-image-list__item-title');
-    // Find the description
-    const descSpan = item.querySelector('.cmp-image-list__item-description');
+    const descriptionSpan = item.querySelector('.cmp-image-list__item-description');
 
-    // Compose text content for cell 2
-    const textCellContent = [];
-    if (titleSpan && titleSpan.textContent.trim()) {
-      // Use <strong> for the title as in the example
-      const strong = document.createElement('strong');
-      strong.textContent = titleSpan.textContent;
-      textCellContent.push(strong);
-    }
-    if (descSpan && descSpan.textContent.trim()) {
-      // Use a <div> for the description as in the example (for line-break)
-      const descDiv = document.createElement('div');
-      descDiv.textContent = descSpan.textContent;
-      textCellContent.push(descDiv);
-    }
-    // If both missing, insert at least a blank cell to preserve structure
-    if (textCellContent.length === 0) {
-      textCellContent.push('');
-    }
+    // Build text content cell
+    const textContent = document.createElement('div');
 
-    // img may be null, in which case the cell should be empty
-    cells.push([
-      img || '',
-      textCellContent
-    ]);
+    if (titleSpan) {
+      // Heading (level 3, to match card pattern)
+      const h3 = document.createElement('h3');
+      if (titleLink && titleLink.href) {
+        // Reference the actual A element from the DOM (not clone)
+        h3.appendChild(titleLink);
+      } else {
+        h3.textContent = titleSpan.textContent;
+      }
+      textContent.appendChild(h3);
+    }
+    if (descriptionSpan) {
+      // Reference the actual SPAN for description
+      textContent.appendChild(descriptionSpan);
+    }
+    rows.push([imageEl, textContent]);
   });
 
-  // Create and replace table
-  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Create and replace block table
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

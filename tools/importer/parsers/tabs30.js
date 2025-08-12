@@ -1,46 +1,47 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block (cmp-tabs)
-  const tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
+  // Find the tabs block root
+  const tabsRoot = element.querySelector('.cmp-tabs');
+  if (!tabsRoot) return;
 
-  // Get tab labels from ordered list
-  const tabLabels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
-  // Get tab panels (tab content)
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  // Find tab labels from <ol> or <ul> in tablist
+  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
+  const tabItems = Array.from(tabList ? tabList.children : []);
 
-  // Prepare header row: exactly as example - 'Tabs (tabs30)'
+  // Find all tabpanels (each tab's content)
+  const tabPanels = Array.from(tabsRoot.querySelectorAll('.cmp-tabs__tabpanel'));
+
+  // Prepare header row
   const headerRow = ['Tabs (tabs30)'];
+  const cells = [headerRow];
 
-  // Prepare tab rows
-  const rows = tabLabels.map((tabLabel, i) => {
-    // Tab label text
-    const label = tabLabel.textContent.trim();
-    // Tab content: usually a contentfragment inside each tabpanel
-    const tabPanel = tabPanels[i];
-    let content;
+  // For each tab, extract label (first cell) and content (second cell)
+  tabItems.forEach(tabItem => {
+    const tabLabel = tabItem.textContent.trim();
+    // Panel id is linked via aria-controls
+    const panelId = tabItem.getAttribute('aria-controls');
+    const tabPanel = tabPanels.find(panel => panel.id === panelId);
+    let contentCell = null;
     if (tabPanel) {
-      // Reference the whole article or tabPanel structure for resilience
+      // Usually the contentfragment/article has the actual content
+      // Sometimes there may be multiple wrappers, so take the main <article> if exists
       const contentFragment = tabPanel.querySelector('article.cmp-contentfragment');
       if (contentFragment) {
-        content = contentFragment;
+        contentCell = contentFragment;
       } else {
-        // Fallback: use tabPanel if no article is present
-        content = tabPanel;
+        // fallback to the tabPanel itself
+        contentCell = tabPanel;
       }
     } else {
-      // If no tabPanel, return empty string for content cell
-      content = '';
+      // fallback: empty
+      contentCell = '';
     }
-    return [label, content];
+    cells.push([tabLabel, contentCell]);
   });
-
-  // Compose cells for table
-  const cells = [headerRow, ...rows];
 
   // Create block table
   const block = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Replace the tabsBlock element with the block table
-  tabsBlock.parentNode.replaceChild(block, tabsBlock);
+  // Replace tabsRoot with block table
+  tabsRoot.replaceWith(block);
 }

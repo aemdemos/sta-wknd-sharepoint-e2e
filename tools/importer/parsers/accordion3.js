@@ -1,63 +1,56 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the accordion block
+  // Find the main accordion block inside the passed element
   const accordion = element.querySelector('.accordion .cmp-accordion');
   if (!accordion) return;
 
-  // Table header row: exact match per requirements
-  const headerRow = ['Accordion (accordion3)'];
-  const rows = [headerRow];
+  // Prepare the table cells, header as in the example
+  const cells = [['Accordion (accordion3)']];
 
-  // Find all accordion items
+  // Select all accordion items
   const items = accordion.querySelectorAll('.cmp-accordion__item');
-  items.forEach(item => {
-    // Title cell: get text from .cmp-accordion__title, preserve semantics (strong for FAQ)
-    let titleElem = null;
-    const button = item.querySelector('.cmp-accordion__button');
-    if (button) {
-      const titleSpan = button.querySelector('.cmp-accordion__title');
-      if (titleSpan) {
-        // Use an existing span if possible, otherwise wrap in <strong>
-        titleElem = document.createElement('strong');
-        titleElem.textContent = titleSpan.textContent.trim();
-      } else {
-        // fallback: whole button text
-        titleElem = document.createElement('strong');
-        titleElem.textContent = button.textContent.trim();
-      }
-    } else {
-      // fallback: missing button
-      titleElem = document.createElement('strong');
-      titleElem.textContent = '';
-    }
 
-    // Content cell: get the main content from the panel
-    const panel = item.querySelector('[data-cmp-hook-accordion="panel"]');
-    let contentElem = null;
+  items.forEach(item => {
+    // Title cell: the visible title comes from the .cmp-accordion__title span
+    let titleNode = item.querySelector('.cmp-accordion__title');
+    let titleCellContent = '';
+    if (titleNode) {
+      // Use a <p> like in the markdown example (for resilience), but reference existing text
+      const p = document.createElement('p');
+      p.textContent = titleNode.textContent.trim();
+      titleCellContent = p;
+    }
+    
+    // Content cell: looks for the main answer/content, usually in .cmp-text
+    let contentCell = null;
+    const panel = item.querySelector('.cmp-accordion__panel');
     if (panel) {
-      // Try to get the deepest .cmp-text in the panel
-      let textElem = panel.querySelector('.cmp-container .text .cmp-text');
-      if (textElem) {
-        contentElem = textElem;
+      // If there are one or more cmp-text blocks in the panel, use them
+      const textBlocks = [...panel.querySelectorAll('.cmp-text')];
+      if (textBlocks.length > 0) {
+        // If just one, use the element directly
+        // If multiple, use them in an array (spread for multiple paragraphs, etc)
+        contentCell = textBlocks.length === 1 ? textBlocks[0] : textBlocks;
       } else {
-        // fallback to the cmp-container itself
-        let containerElem = panel.querySelector('.cmp-container');
-        if (containerElem) {
-          contentElem = containerElem;
-        } else {
-          // fallback to panel (should never happen for this HTML)
-          contentElem = panel;
+        // Fallback: use the entire panel content (could include images or other blocks)
+        // But avoid including the panel container (with ARIA, etc) -- just its children
+        contentCell = Array.from(panel.childNodes).filter(n => n.nodeType === 1);
+        if (contentCell.length === 1) {
+          contentCell = contentCell[0];
+        } else if (contentCell.length === 0) {
+          // fallback: use the panel itself
+          contentCell = panel;
         }
       }
-    } else {
-      // fallback: missing panel
-      contentElem = document.createElement('div');
     }
-
-    rows.push([titleElem, contentElem]);
+    // Only add row if at least the title is present
+    if (titleCellContent && contentCell) {
+      cells.push([titleCellContent, contentCell]);
+    }
   });
 
-  // Create the block table using referenced elements
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace original accordion with the table
+  accordion.parentNode.replaceChild(block, accordion);
 }
