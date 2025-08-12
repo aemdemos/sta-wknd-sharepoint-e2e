@@ -1,45 +1,30 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Header row: block name exactly as given
+  // Header: Block name as in the requirements
   const headerRow = ['Hero (hero39)'];
 
-  // 2. Second row: background image
-  let imageEl = '';
-  const imageContainer = element.querySelector('.cmp-teaser__image');
-  if (imageContainer) {
-    // Use <img> directly if present
-    const img = imageContainer.querySelector('img');
-    if (img) {
-      imageEl = img;
-    }
-  }
-  const imageRow = [imageEl];
+  // Second row: Background image (optional)
+  // Try to get the image wrapper div
+  const imageDiv = element.querySelector('.cmp-teaser__image');
+  // If found and non-empty, use it; else leave null
+  const imageRow = [imageDiv && imageDiv.children.length > 0 ? imageDiv : ''];
 
-  // 3. Third row: headline, subheading, CTA, all text content
-  const contentEls = [];
-  const content = element.querySelector('.cmp-teaser__content');
-  if (content) {
-    // Use all children in order
-    Array.from(content.children).forEach((child) => {
-      // For title, keep original element (likely h2)
-      if (child.classList.contains('cmp-teaser__title')) {
-        contentEls.push(child);
-      } else if (child.classList.contains('cmp-teaser__description')) {
-        // If this is just a wrapper around <p>, use the <p> directly for cleaner output
-        if (child.children.length === 1 && child.firstElementChild.tagName === 'P') {
-          contentEls.push(child.firstElementChild);
-        } else {
-          // Otherwise, add the whole description block
-          contentEls.push(child);
-        }
-      } else {
-        contentEls.push(child);
-      }
+  // Third row: Title, subheading, description, CTA
+  // Get the content in the hero (headline, description etc.)
+  const contentDiv = element.querySelector('.cmp-teaser__content');
+  let contentRowNode;
+  if (contentDiv && contentDiv.children.length > 0) {
+    // Use content children, preserving order and types
+    contentRowNode = document.createElement('div');
+    Array.from(contentDiv.children).forEach(child => {
+      contentRowNode.appendChild(child);
     });
+  } else {
+    contentRowNode = '';
   }
-  const contentRow = [contentEls.length ? contentEls : ''];
+  const contentRow = [contentRowNode];
 
-  // Compose the table rows as specified
+  // Compose the table
   const cells = [
     headerRow,
     imageRow,

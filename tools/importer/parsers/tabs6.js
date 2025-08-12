@@ -1,38 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate the main tabs block inside the element
-  const tabsBlock = element.querySelector('.tabs .cmp-tabs');
+  // Find the tabs block
+  const tabsBlock = element.querySelector('.cmp-tabs');
   if (!tabsBlock) return;
 
-  // Extract the tab labels (the tab headers/labels)
-  const tabLabels = Array.from(
-    tabsBlock.querySelectorAll('.cmp-tabs__tablist > li')
-  ).map((li) => li.textContent.trim());
+  // Get tab labels as text (for the second row)
+  const tabLabelEls = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
+  const tabLabels = tabLabelEls.map(e => e.textContent.trim());
 
-  // Extract all tab content panels
-  const tabPanels = Array.from(
-    tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]')
-  );
+  // Get all tab panels in order
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Build the header row: exactly as specified
-  const headerRow = ['Tabs (tabs6)'];
-
-  // Build the tab rows - each is [TabLabel, TabContent]
-  const rows = tabPanels.map((panel, idx) => {
-    // Determine the label
-    const label = tabLabels[idx] || `Tab ${idx + 1}`;
-    // Try to get the main article/contentfragment inside this panel
-    // If not found, use the panel itself
-    let content = panel.querySelector('.contentfragment') || panel;
-    return [label, content];
+  // Build the table rows
+  // 1. Header row
+  const cells = [['Tabs (tabs6)']];
+  // 2. Tab labels row
+  cells.push(tabLabels);
+  // 3+. Each tab panel is a row with one cell: the content of that tab
+  tabPanels.forEach(panel => {
+    // The main content inside each tab panel is a .contentfragment (article)
+    const content = panel.querySelector('.contentfragment, article, .cmp-contentfragment, .cmp-contentfragment__elements') || panel;
+    // Wrap the referenced content in a div for safety, but reference the existing content
+    const wrapper = document.createElement('div');
+    // Reference all children of the content element, not clone
+    Array.from(content.childNodes).forEach(node => {
+      wrapper.appendChild(node);
+    });
+    cells.push([wrapper]);
   });
 
-  // Create the table cell array
-  const cells = [headerRow, ...rows];
-
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace the original block with the constructed block table
-  element.replaceWith(block);
+  // Create the table
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace the tabs block with the table
+  tabsBlock.replaceWith(table);
 }

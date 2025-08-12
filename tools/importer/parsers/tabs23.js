@@ -1,58 +1,34 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main tabs container
-  let tabsRoot = element.querySelector('.tabs.panelcontainer, .cmp-tabs');
-  let tabs = tabsRoot;
-  // If .tabs.panelcontainer is a wrapper, get the .cmp-tabs child
-  if (tabsRoot && !tabsRoot.classList.contains('cmp-tabs')) {
-    tabs = tabsRoot.querySelector(':scope > .cmp-tabs');
-  }
-  if (!tabs) return; // Defensive: no tabs block found
+  // Find the tabs block
+  const tabsWrapper = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsWrapper) return;
 
-  // Get all tab labels (li[role=tab])
-  const tablist = tabs.querySelector('.cmp-tabs__tablist');
-  if (!tablist) return; // Defensive: tablist missing
-  const tabLabels = Array.from(tablist.querySelectorAll('li[role="tab"]'));
+  // Get all tab labels and tab content panels in order
+  const tabLabels = Array.from(tabsWrapper.querySelectorAll('.cmp-tabs__tablist [role="tab"]'));
+  const tabPanels = Array.from(tabsWrapper.querySelectorAll('[role="tabpanel"]'));
 
-  // Get all tab panels (div[role=tabpanel])
-  const tabPanels = Array.from(tabs.querySelectorAll('div[role="tabpanel"]'));
-  if (tabPanels.length !== tabLabels.length) {
-    // Defensive: fallback, only use matching number of panels and labels
-    const minLen = Math.min(tabPanels.length, tabLabels.length);
-    tabLabels.length = minLen;
-    tabPanels.length = minLen;
-  }
+  if (!tabLabels.length || !tabPanels.length) return;
 
-  // HEADER: block name exactly as provided in the prompt
+  // Build the header row: single column
   const headerRow = ['Tabs (tabs23)'];
 
-  // Row: Tab labels as <strong> elements, using the existing textContent
-  const tabLabelCells = tabLabels.map(tab => {
-    const strong = document.createElement('strong');
-    strong.textContent = tab.textContent.trim();
-    return strong;
+  // Each tab gets its own row: [label, content]
+  const rows = tabLabels.map((tab, i) => {
+    // For the label column, use only the label text as a <span>
+    const labelSpan = document.createElement('span');
+    labelSpan.textContent = tab.textContent.trim();
+    // For the content column, use the main .contentfragment if present, else full panel
+    const panel = tabPanels[i];
+    let content = panel.querySelector('.contentfragment');
+    if (!content) content = panel;
+    return [labelSpan, content];
   });
 
-  // Row: Tab panel content
-  const tabContentCells = tabPanels.map(panel => {
-    // Try to find the main content element (usually <article>), otherwise use panel
-    let content = panel.querySelector('article, .contentfragment, .cmp-contentfragment');
-    if (content) {
-      return content;
-    } else {
-      // Defensive: If no contentfragment is found, use the panel itself
-      return panel;
-    }
-  });
+  // Compose the table cells
+  const cells = [headerRow, ...rows];
 
-  // Compose the table: 1 header row, 1 row for labels, 1 row for contents
-  const cells = [
-    headerRow,
-    tabLabelCells,
-    tabContentCells
-  ];
-
-  // Create and replace
+  // Create the table and replace the block
   const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.parentNode.replaceChild(table, element);
+  tabsWrapper.replaceWith(table);
 }

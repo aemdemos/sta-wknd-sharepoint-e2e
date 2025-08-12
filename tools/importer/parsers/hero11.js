@@ -1,44 +1,34 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Header row: Block name matches example exactly
-  const headerRow = ['Hero (hero11)'];
+  // Find the first cmp-teaser--hero block (the hero section)
+  const heroTeaser = element.querySelector('.cmp-teaser--hero, .teaser.cmp-teaser--hero');
+  if (!heroTeaser) return;
 
-  // 2. Second row: Background image (optional)
-  // Look for .cmp-teaser--hero > .cmp-teaser > .cmp-teaser__image > [img]
-  let imageEl = null;
-  const heroTeaser = element.querySelector('.cmp-teaser--hero');
-  if (heroTeaser) {
-    const teaser = heroTeaser.querySelector('.cmp-teaser');
-    if (teaser) {
-      const teaserImage = teaser.querySelector('.cmp-teaser__image');
-      if (teaserImage) {
-        imageEl = teaserImage.querySelector('img');
-      }
-    }
+  // Get the background image (optional)
+  let imgEl = null;
+  const imageContainer = heroTeaser.querySelector('.cmp-teaser__image');
+  if (imageContainer) {
+    imgEl = imageContainer.querySelector('img');
   }
-  const imageRow = [imageEl ? imageEl : ''];
 
-  // 3. Third row: Text content (title, subheading, CTA, etc.)
-  // Look for .cmp-teaser--hero > .cmp-teaser > .cmp-teaser__content
-  let contentEls = [];
-  if (heroTeaser) {
-    const teaser = heroTeaser.querySelector('.cmp-teaser');
-    if (teaser) {
-      const contentEl = teaser.querySelector('.cmp-teaser__content');
-      if (contentEl) {
-        // Take all child nodes that are elements, or non-empty text
-        contentEls = Array.from(contentEl.childNodes).filter(node => {
-          if (node.nodeType === Node.ELEMENT_NODE) return true;
-          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) return true;
-          return false;
-        });
-      }
-    }
+  // Get the title (optional)
+  let titleEl = null;
+  const teaserContent = heroTeaser.querySelector('.cmp-teaser__content');
+  if (teaserContent) {
+    titleEl = teaserContent.querySelector('.cmp-teaser__title');
   }
-  const textRow = [contentEls.length ? contentEls : ''];
 
-  // Table structure: header, image, text rows (1 col, 3 rows)
-  const cells = [headerRow, imageRow, textRow];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Compose text cell contents (can be multiple items, but here only title exists)
+  const textCell = [];
+  if (titleEl) textCell.push(titleEl);
+
+  // Table rows
+  const rows = [];
+  rows.push(['Hero (hero11)']); // Header row exactly as required
+  rows.push([imgEl ? imgEl : '']); // Image row, empty string if missing
+  rows.push([textCell.length ? textCell : '']); // Text row, empty string if missing
+
+  // Create and replace
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(table);
 }

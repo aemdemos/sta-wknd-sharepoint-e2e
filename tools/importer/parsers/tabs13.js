@@ -1,47 +1,34 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main tabs container by class
-  const tabsContainer = element.querySelector('.cmp-tabs');
-  if (!tabsContainer) return;
+  // Find the cmp-tabs block within the element
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Find all tab labels (li elements in the tablist)
-  const tablist = tabsContainer.querySelector('[role="tablist"]');
-  const tabLabels = Array.from(tablist ? tablist.children : []);
-  
-  // Find all tab panels (each contains content for a tab)
-  const tabPanels = Array.from(tabsContainer.querySelectorAll('[role="tabpanel"]'));
-  
-  // Compose header row (block name per spec)
-  const headerRow = ['Tabs (tabs13)'];
-  
-  // Compose each tab row: [label, content]
-  const rows = tabLabels.map((labelEl, i) => {
-    let tabLabelText = labelEl.textContent.trim();
+  // Tab labels (in order)
+  const tablist = tabsBlock.querySelector('.cmp-tabs__tablist');
+  const tabLabels = Array.from(tablist ? tablist.querySelectorAll('.cmp-tabs__tab') : []);
 
-    // Find the corresponding tab panel by aria-controls or index fallback
-    let tabPanel = null;
-    const ariaControls = labelEl.getAttribute('aria-controls');
-    if (ariaControls) {
-      tabPanel = tabsContainer.querySelector(`#${ariaControls}`);
+  // Tab panels (in order)
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+
+  // Table rows
+  const rows = [['Tabs (tabs13)']]; // Header row exactly as required
+
+  // Iterate and add each tab label and its content panel
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i]?.textContent?.trim() || '';
+    let panel = tabPanels[i] || null;
+    // Defensive: If not found, try by aria-controls
+    if (!panel && tabLabels[i]?.hasAttribute('aria-controls')) {
+      const pid = tabLabels[i].getAttribute('aria-controls');
+      panel = tabsBlock.querySelector(`#${pid}`);
     }
-    if (!tabPanel) {
-      tabPanel = tabPanels[i];
-    }
-    if (!tabPanel) return [tabLabelText, ''];
+    // Defensive: If panel is missing, provide blank cell
+    rows.push([label, panel ? panel : '']);
+  }
 
-    // Prefer the .cmp-contentfragment child as content
-    const contentFragment = tabPanel.querySelector('.cmp-contentfragment');
-    let tabContent = contentFragment ? contentFragment : tabPanel;
-
-    // Remove tabPanel's id/aria attributes for cleanliness if referencing tabPanel
-    // but only reference existing DOM nodes (do not clone/copy)
-    return [tabLabelText, tabContent];
-  });
-
-  // Build the table
-  const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace original tabs container with block table
-  tabsContainer.parentNode.replaceChild(block, tabsContainer);
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  // Replace the tabs block in the DOM
+  tabsBlock.replaceWith(block);
 }

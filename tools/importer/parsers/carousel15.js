@@ -1,53 +1,65 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header as per example markdown
+  // Header row exactly as needed
   const headerRow = ['Carousel (carousel15)'];
 
-  // Find carousel
+  // Find the carousel root
   const carousel = element.querySelector('.cmp-carousel');
   if (!carousel) return;
-  const content = carousel.querySelector('.cmp-carousel__content');
-  if (!content) return;
 
-  // Get all slides
-  const slides = Array.from(content.children).filter(child => child.classList.contains('cmp-carousel__item'));
+  // Find all slides/items (each is a row)
+  const items = Array.from(carousel.querySelectorAll('.cmp-carousel__item'));
+  const rows = [];
 
-  const rows = slides.map(slide => {
-    // Image cell: always reference the <img> inside the slide
-    const img = slide.querySelector('img');
-    const imageCell = img || '';
+  items.forEach(item => {
+    // Column 1: Image
+    let img = null;
+    let imgContainer = item.querySelector('.image');
+    if (imgContainer) {
+      img = imgContainer.querySelector('img');
+    }
+    if (!img) {
+      img = item.querySelector('img'); // fallback
+    }
 
-    // Text cell: collect all content not in image containers
-    // We want ANY meaningful content (including text nodes, headings, paragraphs, links, etc.)
-    const textElements = [];
-    Array.from(slide.childNodes).forEach(node => {
-      // Skip image containers
-      if (node.nodeType === 1) {
-        const cls = node.classList;
-        if (cls && (cls.contains('image') || cls.contains('cmp-image'))) return;
-        // If this is an element and not image container, include it
-        textElements.push(node);
-      } else if (node.nodeType === 3 && node.textContent.trim()) {
-        // Text node: wrap in <p> to preserve content
-        const p = document.createElement('p');
-        p.textContent = node.textContent.trim();
-        textElements.push(p);
+    // Column 2: Text content (robust extraction)
+    // Collect all elements (at any depth) that are not images
+    // and are not part of carousel controls/indicators
+    const excludeClasses = ['image', 'cmp-carousel__actions', 'cmp-carousel__indicators'];
+    let textContentElements = [];
+
+    // Helper: Recursively collect non-image and non-control elements with text
+    function collectTextNodes(node) {
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        // Exclude image containers and carousel controls/indicators
+        if (excludeClasses.some(cls => node.classList.contains(cls))) {
+          return;
+        }
+        // Exclude img tags
+        if (node.tagName === 'IMG') {
+          return;
+        }
+        // If this node has text, and isn't excluded, add it
+        if (node.textContent.trim() && node.children.length === 0) {
+          textContentElements.push(node);
+        } else {
+          // Recursively check children
+          Array.from(node.childNodes).forEach(collectTextNodes);
+        }
       }
-    });
-    // Also, check recursively for any headings, paragraphs, or links inside other containers except images
-    Array.from(slide.children).forEach(child => {
-      const cls = child.classList;
-      if (cls && (cls.contains('image') || cls.contains('cmp-image'))) return;
-      // Query for meaningful descendants
-      child.querySelectorAll('h1,h2,h3,h4,h5,h6,p,a,ul,ol,li').forEach(el => {
-        if (!textElements.includes(el)) textElements.push(el);
-      });
-    });
-    const textCell = textElements.length > 0 ? textElements : '';
-    return [imageCell, textCell];
+    }
+    collectTextNodes(item);
+
+    // If no text content found, keep cell empty string
+    // If there's only one block, use that directly, else use array
+    const textCell = textContentElements.length === 0
+      ? ''
+      : (textContentElements.length === 1 ? textContentElements[0] : textContentElements);
+
+    rows.push([img, textCell]);
   });
 
   const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(blockTable);
 }

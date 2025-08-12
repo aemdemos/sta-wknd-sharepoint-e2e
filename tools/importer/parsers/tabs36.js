@@ -1,52 +1,40 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block
-  const tabsBlock = element.querySelector('.cmp-tabs');
+  // Locate the cmp-tabs element inside the block
+  let tabsBlock = element.querySelector('.cmp-tabs');
   if (!tabsBlock) return;
 
-  // Get tab labels
-  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabLabels = Array.from(tabList.querySelectorAll('li'));
+  // Get tab labels (in order)
+  const tabList = tabsBlock.querySelector('[role="tablist"]');
+  const tabLabels = [];
+  if (tabList) {
+    const tabItems = tabList.querySelectorAll('[role="tab"]');
+    tabItems.forEach(tab => {
+      tabLabels.push(tab.textContent.trim());
+    });
+  }
 
-  // Get tab panels
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
-
-  // Table cells: first row is header, then each tab: [tab label, tab content]
-  const cells = [['Tabs (tabs36)']];
-
-  tabPanels.forEach((panel, i) => {
-    // Tab label in first cell
-    let label = '';
-    if (tabLabels[i]) {
-      label = tabLabels[i].textContent.trim();
-    } else {
-      const labelId = panel.getAttribute('aria-labelledby');
-      if (labelId) {
-        const labelEl = document.getElementById(labelId);
-        if (labelEl) label = labelEl.textContent.trim();
-      }
-      if (!label) {
-        try {
-          const panelDataLayer = panel.getAttribute('data-cmp-data-layer');
-          if (panelDataLayer) {
-            const obj = JSON.parse(panelDataLayer.replace(/&quot;/g, '"'));
-            for (const k in obj) {
-              if (obj[k].dc && obj[k].dc.title) {
-                label = obj[k].dc.title;
-                break;
-              }
-            }
-          }
-        } catch(e) {}
-      }
-    }
-    // Tab content in second cell
-    const contentEls = Array.from(panel.childNodes).filter(n => n.nodeType !== 3 || n.textContent.trim());
-    cells.push([label, contentEls]);
+  // Get tab panels (in order)
+  const tabPanels = [];
+  const panelNodes = tabsBlock.querySelectorAll('.cmp-tabs__tabpanel');
+  panelNodes.forEach(panel => {
+    // For resilience, get the main content node, else use the panel itself
+    // Usually a .contentfragment or article direct child
+    let mainContent = panel.querySelector('article, .contentfragment');
+    if (!mainContent) mainContent = panel;
+    tabPanels.push(mainContent);
   });
 
-  // Create table and replace element
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Build table rows
+  const rows = [];
+  rows.push(['Tabs (tabs36)']);
+  for (let i = 0; i < tabLabels.length; i++) {
+    // Use referenced existing elements
+    const label = tabLabels[i] || '';
+    const content = tabPanels[i] || '';
+    rows.push([label, content]);
+  }
+
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(table);
 }

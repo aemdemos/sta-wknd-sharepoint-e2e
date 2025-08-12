@@ -1,37 +1,37 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Get all direct grid children columns
+  // Find the main grid container
   const grid = element.querySelector('.aem-Grid');
   if (!grid) return;
-  const columns = Array.from(grid.children);
 
-  // We'll expect 3 columns: logo, navigation, search
-  let logoContent = null;
-  let navContent = null;
-  let searchContent = null;
-
-  columns.forEach(col => {
-    if (col.classList.contains('cmp-image--logo')) {
-      // Find the image block (logo)
-      const cmpImage = col.querySelector('.cmp-image');
-      if (cmpImage) logoContent = cmpImage;
-    } else if (col.classList.contains('cmp-navigation--header')) {
-      // Find the navigation block
-      const nav = col.querySelector('nav.cmp-navigation');
-      if (nav) navContent = nav;
-    } else if (col.classList.contains('cmp-search--header')) {
-      // Find the search block
-      const search = col.querySelector('section.cmp-search');
-      if (search) searchContent = search;
+  // Get each major section in the grid
+  let logoCol = null;
+  let navCol = null;
+  let searchCol = null;
+  Array.from(grid.children).forEach((child) => {
+    if (child.classList.contains('image')) {
+      logoCol = child;
+    } else if (child.classList.contains('navigation')) {
+      navCol = child;
+    } else if (child.classList.contains('search')) {
+      searchCol = child;
     }
   });
 
-  // Table header must be a single column (one cell array)
-  const headerRow = ['Columns (columns2)'];
-  // Content row has as many columns as there is content
-  const contentRow = [logoContent, navContent, searchContent];
+  // Compose columns. Only include those that exist (never create new elements)
+  const contentColumns = [];
+  if (logoCol) contentColumns.push(logoCol);
+  if (navCol) contentColumns.push(navCol);
+  if (searchCol) contentColumns.push(searchCol);
 
-  const cells = [headerRow, contentRow];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // If there are less than 2 columns, pad with empty string for robustness
+  while (contentColumns.length < 2) contentColumns.push('');
+
+  // Header row: must be a single cell (not multiple columns)
+  const headerRow = ['Columns (columns2)'];
+  const tableRows = [headerRow, contentColumns];
+
+  // Create the table and replace original element
+  const block = WebImporter.DOMUtils.createTable(tableRows, document);
   element.replaceWith(block);
 }

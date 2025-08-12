@@ -1,40 +1,57 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row must be a single cell, matching the example
+  // Header row as in example
   const headerRow = ['Carousel (carousel17)'];
 
-  // Find the carousel root
-  let carousel = element.querySelector('.cmp-carousel');
-  if (!carousel) carousel = element;
-  // Find all slide items
+  // Locate carousel content
+  const carousel = element.querySelector('.cmp-carousel');
+  if (!carousel) return;
   const content = carousel.querySelector('.cmp-carousel__content');
-  const items = content ? Array.from(content.children).filter(e => e.classList.contains('cmp-carousel__item')) : [];
+  if (!content) return;
 
-  // Build output rows: first row is header (single cell), subsequent rows are slides (2 cells)
-  const rows = [headerRow];
+  // Get all slides
+  const slides = Array.from(content.children).filter(child => child.classList.contains('cmp-carousel__item'));
 
-  items.forEach(item => {
-    // Get image element for first cell
-    const image = item.querySelector('img');
-    // Gather all non-image content for the second cell
-    let textCellContent = [];
-    Array.from(item.children).forEach(child => {
-      if (!child.classList.contains('image')) {
-        textCellContent.push(child);
+  // For each slide, extract image and all text content (not in .image/.cmp-image)
+  const rows = slides.map(slide => {
+    // First column: image
+    const img = slide.querySelector('.cmp-image img');
+
+    // Second column: all non-image content
+    // We'll gather all direct child elements and text nodes of the slide that are NOT part of .image or .cmp-image
+    const textParts = [];
+    Array.from(slide.childNodes).forEach(node => {
+      // If element and not image container
+      if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('image') && !node.classList.contains('cmp-image')) {
+        textParts.push(node);
       }
-    });
-    // Also check for any direct text nodes
-    Array.from(item.childNodes).forEach(node => {
-      if (node.nodeType === 3 && node.textContent.trim()) {
+      // If text node and not empty
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
         const span = document.createElement('span');
-        span.textContent = node.textContent.trim();
-        textCellContent.push(span);
+        span.textContent = node.textContent;
+        textParts.push(span);
       }
     });
-    const textCell = textCellContent.length > 0 ? textCellContent : '';
-    rows.push([image, textCell]); // Each slide is a row with 2 columns
+    // If the image container (.image) contains further valid content (besides the .cmp-image itself), include it
+    const imageContainer = slide.querySelector('.image');
+    if (imageContainer) {
+      Array.from(imageContainer.childNodes).forEach(node => {
+        if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('cmp-image')) {
+          textParts.push(node);
+        }
+        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+          const span = document.createElement('span');
+          span.textContent = node.textContent;
+          textParts.push(span);
+        }
+      });
+    }
+    // If there's any text content, use it (as array), else use empty string
+    return [img, textParts.length > 0 ? textParts : ''];
   });
 
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+  // Compose the table and replace the element
+  const cells = [headerRow, ...rows];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

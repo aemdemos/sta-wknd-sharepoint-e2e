@@ -1,51 +1,29 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block
-  const tabsWrapper = element.querySelector('.tabs');
-  if (!tabsWrapper) return;
-  const tabs = tabsWrapper.querySelector('.cmp-tabs');
+  // Find the cmp-tabs block inside the given element
+  const tabs = element.querySelector('.cmp-tabs');
   if (!tabs) return;
 
-  // Get tab labels from the tablist
-  const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabLabelEls = Array.from(tabList.children).filter(li => li.getAttribute('role') === 'tab');
-  const tabLabels = tabLabelEls.map(tabEl => tabEl.textContent.trim());
+  // Get all tab labels (order matters)
+  const tabLabels = Array.from(tabs.querySelectorAll('.cmp-tabs__tablist [role=tab]'));
+  // Get all tab panels (order matches tabLabels)
+  const tabPanels = Array.from(tabs.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Get all tab panels in order, matching tab labels
-  const tabPanelEls = tabLabels.map(label => {
-    // Find the li with this label
-    const li = tabLabelEls.find(el => el.textContent.trim() === label);
-    if (!li) return null;
-    // aria-controls points to the tabpanel id
-    const panelId = li.getAttribute('aria-controls');
-    if (!panelId) return null;
-    const tabPanel = tabs.querySelector(`#${panelId}`);
-    if (!tabPanel) return null;
-    // Find the .contentfragment > article inside the tabPanel
-    const article = tabPanel.querySelector('article');
-    return article || tabPanel;
-  });
-
-  // Remove any null panels (due to edge cases)
-  const cleanedPanels = tabPanelEls.map(panel => panel ? panel : document.createElement('div'));
-
-  // Prepare table rows
+  // Prepare the header row
   const headerRow = ['Tabs (tabs10)'];
-  const labelRow = tabLabels.map(label => label);
-  const contentRow = cleanedPanels;
 
-  // Compose block table
-  // 1st row: header, single column
-  // 2nd row: tab labels, one cell per tab (multi-column)
-  // 3rd row: tab content, one cell per tab (multi-column)
-  const cells = [
-    headerRow,
-    labelRow,
-    contentRow
-  ];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace the tabs block in the DOM, only tabs-wrapper
-  tabsWrapper.parentElement.replaceChild(block, tabsWrapper);
+  // Compose rows: each tab label in first cell, corresponding panel content in second cell
+  const rows = [headerRow];
+  for (let i = 0; i < tabLabels.length; i++) {
+    // Use label text as first cell
+    const label = tabLabels[i].textContent.trim();
+    // For content, reference the existing tab panel's content
+    // Panels could have content wrapped in article or direct children
+    let content = tabPanels[i].querySelector('article') || tabPanels[i];
+    rows.push([label, content]);
+  }
+  // Create block table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  // Replace original element with block table
+  element.replaceWith(block);
 }

@@ -1,37 +1,35 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block inside the given element
-  const tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
+  // Find the tabs block inside the provided element
+  const tabsRoot = element.querySelector('.cmp-tabs');
+  if (!tabsRoot) return;
 
-  // Get tab labels from tablist, maintaining order
-  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  const tabLabels = tabList ? Array.from(tabList.children).map(
-    (li) => li.textContent.trim()
-  ) : [];
+  // Get tab labels from the tablist
+  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabLabelEls = Array.from(tabList.querySelectorAll('[role="tab"]'));
+  if (tabLabelEls.length === 0) return;
+  const tabLabels = tabLabelEls.map(tab => tab.textContent.trim());
 
-  // Get tab panels in the order they appear
-  const tabPanels = Array.from(
-    tabsBlock.querySelectorAll('.cmp-tabs__tabpanel')
-  );
-
-  // Prepare header row: block name and its variant (exact from example)
-  const headerRow = ['Tabs (tabs31)'];
-
-  // Build a table row for each tab: [label, content]
-  const rows = tabPanels.map((panel, idx) => {
-    // Use the label from tabLabels
-    const label = tabLabels[idx] || `Tab ${idx+1}`;
-    // Reference the panel directly (contains all tab content, including images)
-    return [label, panel];
+  // For each tab label, find its corresponding tabpanel for the correct order
+  const tabPanels = tabLabelEls.map(tabEl => {
+    const controlsId = tabEl.getAttribute('aria-controls');
+    if (!controlsId) return '';
+    const tabPanel = tabsRoot.querySelector(`#${controlsId}`);
+    return tabPanel || '';
   });
 
-  // Compose cells: header followed by all tab rows
-  const cells = [headerRow, ...rows];
+  // Build the rows for the block table as per the specification:
+  // 1. Header row (single cell)
+  // 2. Tab labels row (one cell per tab)
+  // 3. Tab content row (one cell per tab, referencing panel elements)
+  const cells = [
+    ['Tabs (tabs31)'],
+    tabLabels,
+    tabPanels
+  ];
 
-  // Create the table block
+  // Create block table and replace the original element
   const block = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace the original tabs block element with the block table
-  tabsBlock.parentElement.replaceChild(block, tabsBlock);
+  element.replaceWith(block);
 }

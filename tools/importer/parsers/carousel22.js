@@ -1,65 +1,64 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Define header row as in example
+  // HEADER ROW: Block name as in example
   const headerRow = ['Carousel (carousel22)'];
   const cells = [headerRow];
 
-  // Find the carousel content
+  // Find carousel content container
   const carouselContent = element.querySelector('.cmp-carousel__content');
   if (!carouselContent) return;
-  // Get all slide items
-  const items = Array.from(carouselContent.querySelectorAll('.cmp-carousel__item'));
 
-  items.forEach((item) => {
-    // IMAGE: in the first cell, must be an <img> element
-    let imgEl = item.querySelector('.cmp-teaser__image img');
-    if (!imgEl) {
-      imgEl = item.querySelector('img');
+  // Select all carousel items (slides)
+  const slideElements = carouselContent.querySelectorAll('.cmp-carousel__item');
+
+  slideElements.forEach((slide) => {
+    // --- Image ---
+    let imageEl = null;
+    // Find the teaser image
+    const teaserImageContainer = slide.querySelector('.cmp-teaser__image');
+    if (teaserImageContainer) {
+      imageEl = teaserImageContainer.querySelector('img'); // Use reference from DOM
     }
-
-    // TEXT CELL: Title, Description, CTA (if present)
-    const cellContent = [];
-    // Title: Heading (use h2 if found, else fallback to first heading)
-    const teaserContent = item.querySelector('.cmp-teaser__content');
+    // Fallback if not found
+    if (!imageEl) {
+      imageEl = slide.querySelector('img');
+    }
+    // --- Text Content ---
+    const textContent = [];
+    const teaserContent = slide.querySelector('.cmp-teaser__content');
     if (teaserContent) {
-      // Title
-      let titleEl = teaserContent.querySelector('.cmp-teaser__title, h1, h2, h3');
-      if (titleEl) {
-        // Use the element as-is for semantic heading
-        cellContent.push(titleEl);
-      }
-      // Description
-      let descEl = teaserContent.querySelector('.cmp-teaser__description');
+      // Title: Styled as Heading (preserve heading element)
+      const titleEl = teaserContent.querySelector('.cmp-teaser__title');
+      if (titleEl) textContent.push(titleEl);
+      // Description: preserve <div> or <p> structure
+      const descEl = teaserContent.querySelector('.cmp-teaser__description');
       if (descEl) {
-        // Some descriptions have <p> or plain text
-        if (descEl.children.length > 0) {
-          Array.from(descEl.childNodes).forEach((node) => {
-            cellContent.push(node);
-          });
+        // If descEl contains a <p>, push the <p>, else push descEl
+        const p = descEl.querySelector('p');
+        if (p) {
+          textContent.push(p);
         } else {
-          cellContent.push(document.createTextNode(descEl.textContent.trim()));
+          textContent.push(descEl);
         }
       }
-      // CTA
-      let actionLink = teaserContent.querySelector('.cmp-teaser__action-link');
-      if (actionLink) {
-        cellContent.push(actionLink);
+      // Call-to-action link(s) at bottom
+      const actionContainer = teaserContent.querySelector('.cmp-teaser__action-container');
+      if (actionContainer) {
+        // Find all links inside
+        const links = actionContainer.querySelectorAll('a');
+        links.forEach(link => {
+          textContent.push(link);
+        });
       }
     }
-
-    // If no content found, fallback to all text in item (should not occur in provided HTML)
-    if (cellContent.length === 0) {
-      cellContent.push(document.createTextNode(item.textContent.trim()));
-    }
-
-    // Table row: image in first cell, array of elements in second
+    // Push row: [image, text] (preserve reference, do not clone)
     cells.push([
-      imgEl,
-      cellContent
+      imageEl ? imageEl : '',
+      textContent.length ? textContent : ''
     ]);
   });
 
-  // Create the block table and replace the original element
+  // Create the block table
   const block = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(block);
 }
