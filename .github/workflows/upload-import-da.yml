@@ -5,7 +5,9 @@ description: |
   The action is triggered by a workflow dispatch event with inputs as follows.
 
 env:
-  IMS_TOKEN: ${{ secrets.IMS_TOKEN }}
+  DA_CLIENT_ID: ${{ secrets.DA_CLIENT_ID }}
+  DA_CLIENT_SECRET: ${{ secrets.DA_CLIENT_SECRET }}
+  DA_SERVICE_TOKEN: ${{ secrets.DA_SERVICE_TOKEN }}
   AEMY_API_KEY: ${{ secrets.AEMY_API_KEY }}
 on:
   workflow_dispatch:
@@ -57,9 +59,14 @@ jobs:
             echo "ACTION_URL=$ACTION_URL" >> $GITHUB_ENV
           fi
           
-          # Ensure the secret was set, and was set in the env variable properly.
+          # Ensure the secrets were set, and were set in the env variables properly.
           if [ -z "${{ env.AEMY_API_KEY }}" ]; then
             errorMessage="❌ The following secret is not set in your GitHub repo: JS_LF- AEMY_API_KEY JS_LF"
+            echo "errorMessage=$errorMessage" >> $GITHUB_ENV
+          fi
+          
+          if [ -z "${{ env.DA_CLIENT_ID }}" ] || [ -z "${{ env.DA_CLIENT_SECRET }}" ] || [ -z "${{ env.DA_SERVICE_TOKEN }}" ]; then
+            errorMessage="❌ DA credentials are not set in your GitHub repo. Required secrets: DA_CLIENT_ID, DA_CLIENT_SECRET, DA_SERVICE_TOKEN"
             echo "errorMessage=$errorMessage" >> $GITHUB_ENV
           fi
 
