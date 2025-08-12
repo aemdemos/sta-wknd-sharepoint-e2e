@@ -36,140 +36,6 @@
 }
 
 
-.cards.cards14 {
-  background: #fff;
-  padding: 0;
-  margin: 0;
-}
-
-.cards.cards14 > ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  box-sizing: border-box;
-  place-items: start stretch;
-}
-
-@media (width <= 1050px) {
-  .cards.cards14 > ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (width <= 700px) {
-  .cards.cards14 > ul {
-    grid-template-columns: 1fr;
-  }
-}
-
-.cards.cards14 > ul > li {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  min-width: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  border: none;
-  box-shadow: none;
-  height: 100%;
-  overflow: hidden;
-}
-
-.cards.cards14 .cards-card-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  flex: 0 0 auto;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  display: block;
-  border: none;
-}
-
-.cards.cards14 .cards-card-image img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  height: auto;
-  display: block;
-  margin: 0;
-  padding: 0;
-  vertical-align: top;
-}
-
-.cards.cards14 .cards-card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 2px 0 0;
-  margin: 0;
-  flex: 0 0 auto;
-  align-items: flex-start;
-}
-
-.cards.cards14 .cards-card-body > p.button-container {
-  margin: 0;
-  padding: 0;
-  line-height: 1.2;
-}
-
-.cards.cards14 .cards-card-body > p.button-container strong {
-  display: block;
-  color: #000;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0;
-  line-height: 1.2;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
-}
-
-.cards.cards14 .cards-card-body > p.button-container strong > a.button {
-  all: unset;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #000;
-  font-size: 16px;
-  letter-spacing: 0;
-  cursor: pointer;
-  display: inline;
-}
-
-.cards.cards14 .cards-card-body > p:not(.button-container) {
-  color: #757575;
-  font-size: 13px;
-  line-height: 1.22;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: normal;
-  text-align: left;
-  max-width: 100%;
-}
-
-.cards.cards14 ul,
-.cards.cards14 ul > li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-
 .cards.cards21 {
   display: block;
 }
@@ -631,7 +497,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  display: contents; /* Only on ul */
+  display: contents;
 }
 
 .cards.cards4 > ul > li {
@@ -709,7 +575,6 @@
   text-align: left;
 }
 
-/* Responsive adjustments for tablet and mobile */
 @media (width <= 1000px) {
   .cards.cards4 {
     grid-template-columns: repeat(2, 1fr);
@@ -737,3 +602,148 @@
     min-height: 220px;
   }
 }
+
+
+.cards.cards14 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* Card row layout: four cards side by side using flexbox */
+.cards.cards14 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 0;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 1050px) {
+  .cards.cards14 > ul {
+    flex-wrap: wrap;
+  }
+
+  .cards.cards14 > ul > li {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards14 > ul > li {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Card styling */
+.cards.cards14 > ul > li {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 240px;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Image container: aspect-ratio and responsive sizing */
+.cards.cards14 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 140px;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Image sizing: fill container */
+.cards.cards14 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  border: none;
+  background: #fff;
+}
+
+/* Card body: stack title and description vertically, add padding for breathing room */
+.cards.cards14 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08em;
+  align-items: flex-start;
+  padding: 0.25em 0 0;
+  margin: 0;
+  background: #fff;
+}
+
+/* Title styling - more spacing, increased letter-spacing */
+.cards.cards14 .cards-card-body h3 {
+  font-family: "Source Sans Pro", "Source Sans Pro Fallback", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #232323;
+  margin: 0.5em 0 0.25em;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  padding: 0;
+}
+
+.cards.cards14 .cards-card-body h3 a {
+  color: #232323;
+  font: inherit;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Description styling - correct color, spacing, truncation */
+.cards.cards14 .cards-card-body p {
+  color: #888;
+  font-size: 12px;
+  font-family: "Source Sans Pro", "Source Sans Pro Fallback", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.22;
+  text-align: left;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* Remove list styles from ul/li, no gaps */
+.cards.cards14 ul,
+.cards.cards14 ul > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove accidental extra space/padding on main image or card */
+.cards.cards14 .cards-card-image picture,
+.cards.cards14 .cards-card-image img {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove border, box-shadow from each card if inherited */
