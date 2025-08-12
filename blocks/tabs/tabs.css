@@ -240,66 +240,6 @@
 }
 
 
-.tabs.tabs6 {
-  border: none;
-  padding: 0;
-  box-shadow: none;
-  background: transparent;
-}
-
-.tabs.tabs6 > .tabs-list {
-  border-bottom: none;
-  background: none;
-  margin-bottom: 0;
-  gap: 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-}
-
-.tabs.tabs6 > .tabs-list .tabs-tab {
-  background: none;
-  border: none;
-  border-radius: 22px;
-  padding: 10px 32px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #262626;
-  cursor: pointer;
-  margin: 0;
-  transition: background 0.2s, color 0.2s;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  height: 44px;
-  box-shadow: none;
-}
-
-.tabs.tabs6 > .tabs-list .tabs-tab[aria-selected='true'] {
-  background: #262626;
-  color: #fff;
-}
-
-.tabs.tabs6 > .tabs-list .tabs-tab:not([aria-selected='true']):hover,
-.tabs.tabs6 > .tabs-list .tabs-tab:not([aria-selected='true']):focus {
-  background: #f9d86c;
-  color: #262626;
-}
-
-.tabs.tabs6 .tabs-panel {
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  padding: 0;
-}
-
-
 .tabs.tabs7 {
   display: flex;
   flex-direction: column;
@@ -2789,7 +2729,6 @@
 
 
 .tabs.tabs38 {
-  /* Two columns: left (narrow, for future meta/sidebar), right (main content) */
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr);
   gap: 0;
@@ -2808,7 +2747,6 @@
   }
 }
 
-/* Left column: keep as whitespace for desktop, show as block for mobile */
 .tabs.tabs38 > div:first-child {
   min-width: 80px;
   max-width: 120px;
@@ -2822,7 +2760,6 @@
   }
 }
 
-/* Right column: main content */
 .tabs.tabs38 > div:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -2832,7 +2769,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs vertical layout in sidebar */
 .tabs.tabs38 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -2876,7 +2812,6 @@
   margin: 0;
 }
 
-/* Title styling */
 .tabs.tabs38 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.2rem;
@@ -2891,7 +2826,6 @@
   display: inline-block;
 }
 
-/* Custom underline (block) below the title */
 .tabs.tabs38 .tabs-panel h3::after {
   display: block;
   width: 48%;
@@ -2901,7 +2835,6 @@
   border-radius: 0;
 }
 
-/* Body text */
 .tabs.tabs38 .tabs-panel p {
   font-size: 17px;
   color: #222;
@@ -2920,7 +2853,6 @@
   }
 }
 
-/* Image */
 .tabs.tabs38 .tabs-panel picture {
   display: block;
   max-width: 900px;
@@ -2936,7 +2868,6 @@
   box-shadow: none;
 }
 
-/* Caption */
 .tabs.tabs38 .tabs-panel p:last-child,
 .tabs.tabs38 .tabs-panel p:only-child {
   font-size: 12px;
@@ -2951,7 +2882,6 @@
   text-align: left;
 }
 
-/* Responsive adjustments */
 @media (width <= 1100px) {
   .tabs.tabs38 .tabs-panel p,
   .tabs.tabs38 .tabs-panel picture,
@@ -3003,3 +2933,115 @@
   box-shadow: none;
   border: none;
 }
+
+
+.tabs.tabs6 {
+  background: var(--background-color);
+  border-radius: 6px;
+  padding: 40px 32px 32px;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-sizing: border-box;
+
+  /* Remove excess vertical space around the block */
+}
+
+.tabs.tabs6 .tabs-panel {
+  /* Use flex layout for direct children: side-by-side if possible */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 0;
+  min-height: 80px;
+  background: none;
+  border: none;
+}
+
+.tabs.tabs6 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.tabs.tabs6 .tabs-panel > div:first-child,
+.tabs.tabs6 .tabs-panel > div:nth-child(2) {
+  min-width: 220px;
+  max-width: 260px;
+  margin-right: 0;
+  padding-right: 0;
+  padding-top: 14px;
+  padding-bottom: 12px;
+  align-items: flex-start;
+  border-right: none;
+}
+
+.tabs.tabs6 .tabs-panel > div:first-child {
+  margin-right: 24px;
+}
+
+.tabs.tabs6 .tabs-panel > div:nth-child(2) {
+  margin-right: 24px;
+}
+
+.tabs.tabs6 .tabs-panel > div:not(:first-child, :nth-child(2)) {
+  display: none;
+  margin-left: 40px;
+}
+
+.tabs.tabs6 .tabs-panel > div:first-child p,
+.tabs.tabs6 .tabs-panel > div:nth-child(2) p {
+  font-size: 15px;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #505050;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.tabs.tabs6 .tabs-panel > div:first-child p:last-child,
+.tabs.tabs6 .tabs-panel > div:nth-child(2) p:last-child {
+  margin-bottom: 0;
+}
+
+/* Remove border-right and overly large gaps */
+
+/* Responsive: stack items vertically on small screens */
+@media (width <= 700px) {
+  .tabs.tabs6 {
+    padding: 20px 8px;
+  }
+
+  .tabs.tabs6 .tabs-panel {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tabs.tabs6 .tabs-panel > div {
+    min-width: unset;
+    max-width: unset;
+    margin-right: 0;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .tabs.tabs6 .tabs-panel > div:first-child,
+  .tabs.tabs6 .tabs-panel > div:nth-child(2) {
+    padding-right: 0;
+  }
+}
+
+@media (width <= 400px) {
+  .tabs.tabs6 {
+    padding: 10px 3px;
+  }
+}
+
+/* If more than two columns appear (future-proof), ensure proper spacing */
