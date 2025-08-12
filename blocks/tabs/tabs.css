@@ -240,213 +240,6 @@
 }
 
 
-.tabs.tabs12 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  max-width: 1120px;
-  margin: 0 auto;
-  background: #fff;
-  box-sizing: border-box;
-  padding: 48px 0 0;
-  gap: 0;
-}
-
-.tabs.tabs12 > div:first-child {
-  flex: 0 0 90px;
-  min-width: 80px;
-  max-width: 90px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 0 0 24px;
-  background: none;
-  box-sizing: border-box;
-  border: none;
-}
-
-.tabs.tabs12 > div:first-child > * {
-  margin-bottom: 8px;
-}
-
-.tabs.tabs12 > div:first-child > .tabs-list {
-  display: none !important;
-}
-
-.tabs.tabs12 > .block {
-  flex: 1 1 0;
-  max-width: 1000px;
-  padding: 0;
-  box-sizing: border-box;
-  background: none;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.tabs.tabs12 > .block > .tabs-list {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 24px;
-  margin: 0 0 22px;
-  padding: 0;
-  width: 100%;
-}
-
-.tabs.tabs12 > .block > .tabs-list .tabs-tab {
-  background: transparent;
-  border-radius: 24px 24px 0 0;
-  border: none;
-  padding: 12px 36px;
-  color: #222;
-  font-family: var(--body-font-family);
-  font-weight: 700;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background 0.2s, color 0.2s;
-  cursor: pointer;
-  box-shadow: none;
-  outline: none;
-  margin: 0;
-  text-align: center;
-  line-height: 1.1;
-}
-
-.tabs.tabs12 > .block > .tabs-list .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-}
-
-.tabs.tabs12 > .block > .tabs-list .tabs-tab:not([aria-selected="true"]):hover {
-  background: #ececec;
-  color: #222;
-}
-
-.tabs.tabs12 > .block > .tabs-panel {
-  background: none;
-  border: none;
-  box-shadow: none;
-  margin: 0;
-  padding: 0;
-  max-width: 100%;
-}
-
-.tabs.tabs12 > .block > .tabs-panel h3 {
-  font-family: var(--heading-font-family);
-  font-size: 30px;
-  font-weight: 700;
-  color: #222;
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 1.15;
-  width: fit-content;
-  text-align: left;
-  padding-bottom: 0;
-  border-bottom: none;
-  position: relative;
-}
-
-.tabs.tabs12 > .block > .tabs-panel h3::after {
-  display: block;
-  height: 2px;
-  width: 80px;
-  background: #f7c948;
-  margin-top: 3px;
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  border-radius: 0;
-  content: "";
-}
-
-.tabs.tabs12 > .block > .tabs-panel picture,
-.tabs.tabs12 > .block > .tabs-panel img {
-  display: block;
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-  margin-bottom: 8px;
-  border-radius: 0;
-  box-shadow: none;
-  margin-top: 0;
-  object-fit: cover;
-}
-
-.tabs.tabs12 > .block > .tabs-panel p strong {
-  display: block;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #222;
-  font-size: 13px;
-  margin-bottom: 2px;
-  margin-top: 0;
-  letter-spacing: 0.5px;
-}
-
-.tabs.tabs12 > .block > .tabs-panel p {
-  font-family: var(--body-font-family);
-  font-size: 15px;
-  color: #222;
-  line-height: 1.55;
-  margin: 0 0 10px;
-  text-align: left;
-}
-
-.tabs.tabs12 > .block > .tabs-panel ul,
-.tabs.tabs12 > .block > .tabs-panel ol {
-  margin-left: 1.5em;
-  margin-bottom: 1.5em;
-  color: #222;
-  font-family: var(--body-font-family);
-  font-size: 15px;
-}
-
-.tabs.tabs12 > .block > .tabs-panel li {
-  margin-bottom: 0.5em;
-  font-size: 15px;
-}
-
-@media (width <= 700px) {
-  .tabs.tabs12 {
-    flex-direction: column;
-    padding: 14px 0;
-  }
-
-  .tabs.tabs12 > div:first-child {
-    max-width: 100%;
-    padding: 0;
-    margin-bottom: 32px;
-  }
-
-  .tabs.tabs12 > .block {
-    padding: 0 8px;
-    max-width: 100%;
-  }
-
-  .tabs.tabs12 > .block > .tabs-list {
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-bottom: 18px;
-  }
-
-  .tabs.tabs12 > .block > .tabs-panel h3 {
-    font-size: 22px;
-  }
-
-  .tabs.tabs12 > .block > .tabs-panel h3::after {
-    width: 50px;
-    bottom: -6px;
-    margin-top: 2px;
-  }
-}
-
-
 .tabs.tabs13 {
   display: flex;
   flex-direction: row;
@@ -2835,7 +2628,6 @@
 
 
 .tabs.tabs10 {
-  /* Compact grid: sidebar much narrower, main content tighter, less gap */
   display: grid;
   grid-template-columns: 72px minmax(0, 780px);
   gap: 0 18px;
@@ -2847,7 +2639,6 @@
   align-items: flex-start;
 }
 
-/* Sidebar: vertical, compact, tight spacing */
 .tabs.tabs10 > .tabs-list {
   grid-column: 1;
   display: flex;
@@ -2889,7 +2680,6 @@
   color: #222;
 }
 
-/* Main content column: less padding, more compact */
 .tabs.tabs10 > .tabs-panel {
   grid-column: 2;
   width: 100%;
@@ -2917,7 +2707,6 @@
   box-sizing: border-box;
 }
 
-/* Section title: more compact */
 .tabs.tabs10 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2rem;
@@ -2931,7 +2720,6 @@
   letter-spacing: -0.01em;
 }
 
-/* Headline: reduce margin above/below */
 .tabs.tabs10 .tabs-panel h2,
 .tabs.tabs10 .tabs-panel h2 strong {
   font-family: var(--heading-font-family);
@@ -2943,7 +2731,6 @@
   line-height: 1.12;
 }
 
-/* Paragraphs: tighter spacing */
 .tabs.tabs10 .tabs-panel p {
   font-family: var(--body-font-family);
   font-size: 15px;
@@ -2955,7 +2742,6 @@
   padding: 0;
 }
 
-/* Related trips list: compact */
 .tabs.tabs10 .tabs-panel ul {
   list-style-type: disc;
   margin-left: 19px;
@@ -2969,7 +2755,6 @@
   margin-bottom: 3px;
 }
 
-/* Images: more compact and slightly less rounded */
 .tabs.tabs10 .tabs-panel picture,
 .tabs.tabs10 .tabs-panel img {
   display: block;
@@ -2983,7 +2768,6 @@
   background: none;
 }
 
-/* Responsive: stack columns, reduce padding for small screens */
 @media (width <= 900px) {
   .tabs.tabs10 {
     display: block;
@@ -3014,4 +2798,210 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+
+.tabs.tabs12 {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 0 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Sidebar (left column): minimal, vertical stack, left-aligned, no card */
+.tabs.tabs12 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 220px;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+
+  /* Remove card borders from sidebar */
+}
+
+.tabs.tabs12 > div:first-child .tabs-list {
+  display: none;
+}
+
+/* Main (right column): all tab+main content, vertical stack */
+.tabs.tabs12 > .block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Tabs bar: horizontal row, flush left, above all main content */
+.tabs.tabs12 > .block > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin: 0 0 32px;
+  padding: 0;
+  width: 100%;
+  border: none;
+  background: none;
+  align-items: flex-end;
+}
+
+.tabs.tabs12 > .block > .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  padding: 12px 32px;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  cursor: pointer;
+  margin: 0;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tabs.tabs12 > .block > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Main content panel: stack panel items vertically, left-aligned, no box/card */
+.tabs.tabs12 > .block > .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  max-width: 780px;
+  align-items: flex-start;
+}
+
+/* Remove card/border from main panel and its descendants */
+.tabs.tabs12 > .block > .tabs-panel,
+.tabs.tabs12 > .block > .tabs-panel > * {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Headings: large, bold, gold underline, flush left */
+.tabs.tabs12 > .block > .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 14px;
+  line-height: 1.15;
+  text-align: left;
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #E9C46A;
+}
+
+/* Images: wide, open, no border */
+.tabs.tabs12 > .block > .tabs-panel img,
+.tabs.tabs12 > .block > .tabs-panel picture {
+  display: block;
+  width: 100%;
+  max-width: 740px;
+  margin-bottom: 12px;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+/* Main panel paragraphs */
+.tabs.tabs12 > .block > .tabs-panel p {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #222;
+  line-height: 1.6;
+  text-align: left;
+  margin: 0 0 12px;
+}
+
+.tabs.tabs12 > .block > .tabs-panel p strong {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #222;
+  font-size: 13px;
+  margin-bottom: 2px;
+  margin-top: 0;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+/* Panel lists */
+.tabs.tabs12 > .block > .tabs-panel ul,
+.tabs.tabs12 > .block > .tabs-panel ol {
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+}
+
+.tabs.tabs12 > .block > .tabs-panel li {
+  margin-bottom: 0.5em;
+  font-size: 15px;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 0 0;
+    max-width: 100%;
+  }
+
+  .tabs.tabs12 > div:first-child,
+  .tabs.tabs12 > .block {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .tabs.tabs12 > .block > .tabs-list {
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .tabs.tabs12 > .block > .tabs-panel {
+    max-width: 100%;
+  }
+
+  .tabs.tabs12 > .block > .tabs-panel img,
+  .tabs.tabs12 > .block > .tabs-panel picture {
+    max-width: 100%;
+  }
+}
+
+/* Remove excess margin from direct children */
+.tabs.tabs12 > div {
+  margin: 0;
 }
