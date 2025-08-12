@@ -2884,25 +2884,25 @@
               "differences": [
                 {
                   "change_type": "deletion",
-                  "text": "About Us Our Contributors Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. "
+                  "text": "About Us Our Contributors "
                 },
                 {
                   "change_type": "equal",
-                  "text": "Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram "
+                  "text": "Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram"
                 },
                 {
                   "change_type": "deletion",
-                  "text": "WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. "
+                  "text": " WKND Guides"
                 },
                 {
                   "change_type": "equal",
-                  "text": "Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter"
+                  "text": " Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter"
                 }
               ],
-              "dissimilarity_score": 0.26
+              "dissimilarity_score": 0.02
             }
           ],
-          "similarity_score": 0.74
+          "similarity_score": 0.98
         }
       ]
     },
@@ -3555,155 +3555,19 @@
         },
         {
           "change_type": "equal",
-          "text": "United States en-US es-US Canada en-CA fr-CA Switzerland de-CH fr-CH it-CH Germany de-DE France fr-FR Spain es-ES Italy it-IT "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Home Magazine Adventures FAQs About Us About Us Our Contributors Meet the"
+          "text": "United States en-US es-US Canada en-CA fr-CA Switzerland de-CH fr-CH it-CH Germany de-DE France fr-FR Spain es-ES Italy it-IT"
         },
         {
           "change_type": "insertion",
-          "text": "Welcome"
+          "text": " Welcome Sign In Sign Out de-DE"
         },
         {
           "change_type": "equal",
-          "text": " "
+          "text": " Home Magazine Adventures FAQs About Us "
         },
         {
           "change_type": "deletion",
-          "text": "outstanding"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Sign"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "individuals"
-        },
-        {
-          "change_type": "insertion",
-          "text": "In"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "responsible"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Sign"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "for"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Out"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "bringing"
-        },
-        {
-          "change_type": "insertion",
-          "text": "de-DE"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "you"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Home"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "the"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Magazine"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "most"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Adventures"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "compelling"
-        },
-        {
-          "change_type": "insertion",
-          "text": "FAQs"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "stories"
-        },
-        {
-          "change_type": "insertion",
-          "text": "About"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "across"
-        },
-        {
-          "change_type": "insertion",
-          "text": "Us"
-        },
-        {
-          "change_type": "equal",
-          "text": " "
-        },
-        {
-          "change_type": "deletion",
-          "text": "the"
+          "text": "About Us Our Contributors"
         },
         {
           "change_type": "insertion",
@@ -3711,23 +3575,15 @@
         },
         {
           "change_type": "equal",
-          "text": " "
+          "text": " Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram"
         },
         {
           "change_type": "deletion",
-          "text": "globe. "
+          "text": " WKND Guides"
         },
         {
           "change_type": "equal",
-          "text": "Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram "
-        },
-        {
-          "change_type": "deletion",
-          "text": "WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. "
-        },
-        {
-          "change_type": "equal",
-          "text": "Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter Home Magazine Adventures FAQs About Us"
+          "text": " Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter Home Magazine Adventures FAQs About Us"
         },
         {
           "change_type": "insertion",
@@ -3746,7 +3602,7 @@
           "text": " ."
         }
       ],
-      "similarity_score": 0.913338291184809
+      "similarity_score": 0.9811248817205098
     }
   ]
 }
