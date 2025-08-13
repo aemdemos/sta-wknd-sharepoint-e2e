@@ -58,199 +58,6 @@
 }
 
 
-.tabs.tabs12 {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 48px 0 0;
-  background: #fff;
-  box-sizing: border-box;
-}
-
-.tabs.tabs12 > div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-width: 0;
-  max-width: 220px;
-  width: 100%;
-  padding: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-
-.tabs.tabs12 > div:first-child .tabs-list {
-  display: none;
-}
-
-.tabs.tabs12 > .block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-  width: 100%;
-  padding: 0;
-  background: none;
-  border: none;
-  box-sizing: border-box;
-}
-
-.tabs.tabs12 > .block > .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 18px;
-  margin: 0 0 32px;
-  padding: 0;
-  width: 100%;
-  border: none;
-  background: none;
-  align-items: flex-end;
-}
-
-.tabs.tabs12 > .block > .tabs-list .tabs-tab {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  padding: 12px 32px;
-  color: #222;
-  font-family: var(--body-font-family);
-  font-weight: 700;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 1.1;
-  cursor: pointer;
-  margin: 0;
-  text-align: left;
-  transition: background 0.2s, color 0.2s;
-}
-
-.tabs.tabs12 > .block > .tabs-list .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  border-radius: 4px 4px 0 0;
-}
-
-.tabs.tabs12 > .block > .tabs-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  background: none;
-  border: none;
-  box-shadow: none;
-  margin: 0;
-  padding: 0;
-  max-width: 780px;
-  align-items: flex-start;
-}
-
-.tabs.tabs12 > .block > .tabs-panel,
-.tabs.tabs12 > .block > .tabs-panel > * {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.tabs.tabs12 > .block > .tabs-panel h3 {
-  font-family: var(--heading-font-family);
-  font-size: 32px;
-  font-weight: 400;
-  color: #222;
-  margin: 0 0 14px;
-  line-height: 1.15;
-  text-align: left;
-  width: 100%;
-  padding-bottom: 10px;
-  border-bottom: 3px solid #E9C46A;
-}
-
-.tabs.tabs12 > .block > .tabs-panel img,
-.tabs.tabs12 > .block > .tabs-panel picture {
-  display: block;
-  width: 100%;
-  max-width: 740px;
-  margin-bottom: 12px;
-  border-radius: 0;
-  box-shadow: none;
-  object-fit: cover;
-}
-
-.tabs.tabs12 > .block > .tabs-panel p {
-  font-family: var(--body-font-family);
-  font-size: 15px;
-  color: #222;
-  line-height: 1.6;
-  text-align: left;
-  margin: 0 0 12px;
-}
-
-.tabs.tabs12 > .block > .tabs-panel p strong {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #222;
-  font-size: 13px;
-  margin-bottom: 2px;
-  margin-top: 0;
-  letter-spacing: 0.5px;
-  display: block;
-}
-
-.tabs.tabs12 > .block > .tabs-panel ul,
-.tabs.tabs12 > .block > .tabs-panel ol {
-  margin-left: 1.5em;
-  margin-bottom: 1.5em;
-  color: #222;
-  font-family: var(--body-font-family);
-  font-size: 15px;
-}
-
-.tabs.tabs12 > .block > .tabs-panel li {
-  margin-bottom: 0.5em;
-  font-size: 15px;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs12 {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 24px 0 0;
-    max-width: 100%;
-  }
-
-  .tabs.tabs12 > div:first-child,
-  .tabs.tabs12 > .block {
-    max-width: 100%;
-    width: 100%;
-    padding: 0;
-  }
-
-  .tabs.tabs12 > .block > .tabs-list {
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-  }
-
-  .tabs.tabs12 > .block > .tabs-panel {
-    max-width: 100%;
-  }
-
-  .tabs.tabs12 > .block > .tabs-panel img,
-  .tabs.tabs12 > .block > .tabs-panel picture {
-    max-width: 100%;
-  }
-}
-
-.tabs.tabs12 > div {
-  margin: 0;
-}
-
-
 .tabs.tabs13 {
   display: grid;
   grid-template-columns: 250px 1fr;
@@ -2879,7 +2686,6 @@
   gap: 0;
 }
 
-/* Sidebar: Make it wider, visually separate, and pad */
 .tabs.tabs10 > .tabs-list {
   flex: 0 0 250px;
   max-width: 250px;
@@ -2897,13 +2703,11 @@
   z-index: 2;
 }
 
-/* Sidebar group spacing - treat each direct child as a block */
 .tabs.tabs10 > .tabs-list > * {
   margin-bottom: 32px;
   width: 100%;
 }
 
-/* Main content: Make it wider, pad left, align with sidebar top */
 .tabs.tabs10 > .tabs-panel {
   flex: 1 1 0%;
   max-width: 830px;
@@ -2919,7 +2723,6 @@
   justify-content: flex-start;
 }
 
-/* Horizontal Tabs Nav: Place at top of main content area, not sidebar */
 .tabs.tabs10 > .tabs-panel > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2953,7 +2756,6 @@
   transition: all 0.18s;
 }
 
-/* Active tab: black background, white text */
 .tabs.tabs10 > .tabs-panel > .tabs-list button[aria-selected="true"] {
   background: #222;
   color: #fff;
@@ -2961,13 +2763,11 @@
   font-weight: bold;
 }
 
-/* Hover/Focus: subtle highlight */
 .tabs.tabs10 > .tabs-panel > .tabs-list button:not([aria-selected="true"]):hover {
   background: #f7c948;
   color: #222;
 }
 
-/* Main content inner spacing */
 .tabs.tabs10 .tabs-panel > div {
   width: 100%;
   max-width: 760px;
@@ -2981,7 +2781,6 @@
   gap: 0;
 }
 
-/* Headings */
 .tabs.tabs10 .tabs-panel h2,
 .tabs.tabs10 .tabs-panel h2 strong {
   font-family: var(--heading-font-family);
@@ -3023,7 +2822,6 @@
   background: none;
 }
 
-/* Lists in main content */
 .tabs.tabs10 .tabs-panel ul {
   list-style: disc;
   padding-left: 18px;
@@ -3036,7 +2834,6 @@
   margin-bottom: 7px;
 }
 
-/* Responsive: stack columns on small screens */
 @media (width <= 900px) {
   .tabs.tabs10 {
     display: block;
@@ -3071,3 +2868,188 @@
     padding-right: 0;
   }
 }
+
+
+.tabs.tabs12 {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 0 0;
+  background: #fff;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* Responsive: stack columns on mobile */
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 0 0;
+    max-width: 100%;
+  }
+
+  .tabs.tabs12 > div,
+  .tabs.tabs12 > .block {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Sidebar (first column): show sidebar and stack children vertically */
+.tabs.tabs12 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 240px;
+  width: 100%;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  border: none;
+}
+
+/* Heading in sidebar */
+.tabs.tabs12 > div:first-child h3,
+.tabs.tabs12 > div:first-child h1 {
+  font-family: var(--heading-font-family);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #232323;
+  margin: 0 0 0.5em;
+  line-height: 1.15;
+  padding-bottom: 0;
+}
+
+/* Accent bar under heading */
+.tabs.tabs12 > div:first-child h3::after,
+.tabs.tabs12 > div:first-child h1::after {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #f7ea8f;
+  margin: 10px 0 32px;
+  border-radius: 2px;
+  content: "";
+}
+
+/* Restore visibility of other sidebar content (e.g. meta, share) and add spacing */
+.tabs.tabs12 > div:first-child > *:not(h3, h1) {
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Remove borders, backgrounds, and box-shadows from sidebar children */
+.tabs.tabs12 > div:first-child,
+.tabs.tabs12 > div:first-child * {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* --- Main content (right column) --- */
+.tabs.tabs12 > .block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  background: none;
+  box-sizing: border-box;
+}
+
+/* Tabs row: horizontal and visually above main content, always visible */
+.tabs.tabs12 > .block > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 12px;
+  margin: 0 0 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  align-items: center;
+}
+
+/* Tabs style */
+.tabs.tabs12 > .block > .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  padding: 10px 28px;
+  color: #232323;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  cursor: pointer;
+  margin: 0;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+}
+
+.tabs.tabs12 > .block > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Main panel (tab content) */
+.tabs.tabs12 > .block > .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 860px;
+  align-items: flex-start;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  border: none;
+}
+
+/* Ensure text content (Itinerary, What to Bring, etc.) is left aligned and spaced */
+.tabs.tabs12 > .block > .tabs-panel > div,
+.tabs.tabs12 > .block > .tabs-panel > p {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #232323;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+/* Remove any remaining box borders/backgrounds from main content */
+.tabs.tabs12 > .block > .tabs-panel,
+.tabs.tabs12 > .block > .tabs-panel > * {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* For extra spacing around content on desktop */
+@media (width >= 900px) {
+  .tabs.tabs12 > div:first-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .tabs.tabs12 > .block {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* Ensure no border is left around the sidebar (even from previous rules) */
