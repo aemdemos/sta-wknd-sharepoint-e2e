@@ -1,37 +1,47 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main grid container
+  // Find the grid container in the block
   const grid = element.querySelector('.aem-Grid');
   if (!grid) return;
 
-  // Get each major section in the grid
-  let logoCol = null;
-  let navCol = null;
-  let searchCol = null;
-  Array.from(grid.children).forEach((child) => {
-    if (child.classList.contains('image')) {
-      logoCol = child;
-    } else if (child.classList.contains('navigation')) {
-      navCol = child;
-    } else if (child.classList.contains('search')) {
-      searchCol = child;
+  // Get each of the three main columns by their role classes
+  const columns = [
+    Array.from(grid.children).find(el => el.classList.contains('image')),
+    Array.from(grid.children).find(el => el.classList.contains('navigation')),
+    Array.from(grid.children).find(el => el.classList.contains('search')),
+  ];
+
+  // For each column, reference the meaningful child element
+  function extractColumnContent(col) {
+    if (!col) return '';
+    // Logo image: get the .cmp-image container
+    if (col.classList.contains('image')) {
+      const imgBlock = col.querySelector('.cmp-image');
+      return imgBlock || '';
     }
-  });
+    // Navigation: get the nav block
+    if (col.classList.contains('navigation')) {
+      const navElem = col.querySelector('nav');
+      return navElem || '';
+    }
+    // Search: get the .cmp-search section
+    if (col.classList.contains('search')) {
+      const searchSection = col.querySelector('section.cmp-search');
+      return searchSection || '';
+    }
+    return '';
+  }
 
-  // Compose columns. Only include those that exist (never create new elements)
-  const contentColumns = [];
-  if (logoCol) contentColumns.push(logoCol);
-  if (navCol) contentColumns.push(navCol);
-  if (searchCol) contentColumns.push(searchCol);
+  const contentRow = columns.map(extractColumnContent);
 
-  // If there are less than 2 columns, pad with empty string for robustness
-  while (contentColumns.length < 2) contentColumns.push('');
+  // Always ensure 3 columns, fill missing with ''
+  while (contentRow.length < 3) contentRow.push('');
 
-  // Header row: must be a single cell (not multiple columns)
+  // Block table header - CORRECTED: only one column in header
   const headerRow = ['Columns (columns2)'];
-  const tableRows = [headerRow, contentColumns];
+  const cells = [headerRow, contentRow];
 
-  // Create the table and replace original element
-  const block = WebImporter.DOMUtils.createTable(tableRows, document);
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(block);
 }

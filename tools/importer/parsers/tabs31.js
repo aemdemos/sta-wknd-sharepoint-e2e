@@ -1,35 +1,46 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block inside the provided element
-  const tabsRoot = element.querySelector('.cmp-tabs');
-  if (!tabsRoot) return;
+  // Find the tabs container
+  const tabs = element.querySelector('.tabs .cmp-tabs');
+  if (!tabs) return;
 
-  // Get tab labels from the tablist
-  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabLabelEls = Array.from(tabList.querySelectorAll('[role="tab"]'));
-  if (tabLabelEls.length === 0) return;
-  const tabLabels = tabLabelEls.map(tab => tab.textContent.trim());
+  // Find tab labels
+  const tabLabels = [];
+  const tabList = tabs.querySelector('.cmp-tabs__tablist');
+  if (tabList) {
+    tabList.querySelectorAll('li[role="tab"]').forEach(li => {
+      tabLabels.push(li.textContent.trim());
+    });
+  }
 
-  // For each tab label, find its corresponding tabpanel for the correct order
-  const tabPanels = tabLabelEls.map(tabEl => {
-    const controlsId = tabEl.getAttribute('aria-controls');
-    if (!controlsId) return '';
-    const tabPanel = tabsRoot.querySelector(`#${controlsId}`);
-    return tabPanel || '';
+  // Find corresponding tab panels (contents)
+  // Only include panels that have a corresponding label
+  const tabPanels = [];
+  // Get an array of all tabpanel elements in DOM order
+  const panelsNodeList = tabs.querySelectorAll('div[role="tabpanel"]');
+  // For each panel, capture direct child relevant content
+  panelsNodeList.forEach(panel => {
+    // Prefer .contentfragment child if present, else fallback to panel itself
+    const cf = panel.querySelector('.contentfragment');
+    if (cf) {
+      tabPanels.push(cf);
+    } else {
+      tabPanels.push(panel);
+    }
   });
 
-  // Build the rows for the block table as per the specification:
-  // 1. Header row (single cell)
-  // 2. Tab labels row (one cell per tab)
-  // 3. Tab content row (one cell per tab, referencing panel elements)
-  const cells = [
-    ['Tabs (tabs31)'],
-    tabLabels,
-    tabPanels
-  ];
+  // Prepare table rows: header, then [tab label, tab content] for each tab
+  // Table header must exactly match the specification
+  const rows = [];
+  rows.push(["Tabs (tabs31)"]); // header row
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i];
+    // Defensive: ensure only as many panels as labels
+    const content = tabPanels[i] || document.createElement('div');
+    rows.push([label, content]);
+  }
 
-  // Create block table and replace the original element
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Create block table
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(table);
 }

@@ -1,56 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main accordion block inside the passed element
+  // Locate the accordion block
   const accordion = element.querySelector('.accordion .cmp-accordion');
-  if (!accordion) return;
-
-  // Prepare the table cells, header as in the example
-  const cells = [['Accordion (accordion3)']];
-
-  // Select all accordion items
-  const items = accordion.querySelectorAll('.cmp-accordion__item');
-
-  items.forEach(item => {
-    // Title cell: the visible title comes from the .cmp-accordion__title span
-    let titleNode = item.querySelector('.cmp-accordion__title');
-    let titleCellContent = '';
-    if (titleNode) {
-      // Use a <p> like in the markdown example (for resilience), but reference existing text
-      const p = document.createElement('p');
-      p.textContent = titleNode.textContent.trim();
-      titleCellContent = p;
-    }
-    
-    // Content cell: looks for the main answer/content, usually in .cmp-text
-    let contentCell = null;
-    const panel = item.querySelector('.cmp-accordion__panel');
-    if (panel) {
-      // If there are one or more cmp-text blocks in the panel, use them
-      const textBlocks = [...panel.querySelectorAll('.cmp-text')];
-      if (textBlocks.length > 0) {
-        // If just one, use the element directly
-        // If multiple, use them in an array (spread for multiple paragraphs, etc)
-        contentCell = textBlocks.length === 1 ? textBlocks[0] : textBlocks;
-      } else {
-        // Fallback: use the entire panel content (could include images or other blocks)
-        // But avoid including the panel container (with ARIA, etc) -- just its children
-        contentCell = Array.from(panel.childNodes).filter(n => n.nodeType === 1);
-        if (contentCell.length === 1) {
-          contentCell = contentCell[0];
-        } else if (contentCell.length === 0) {
-          // fallback: use the panel itself
-          contentCell = panel;
+  const cells = [['Accordion (accordion3)']]; // Header row (exactly as required)
+  if (accordion) {
+    const items = accordion.querySelectorAll('.cmp-accordion__item');
+    items.forEach((item) => {
+      // Title cell: get the title span, preserve as-is
+      let titleSpan = item.querySelector('.cmp-accordion__button .cmp-accordion__title');
+      let titleCell = titleSpan || document.createElement('span');
+      if (!titleSpan) {
+        // fallback to button's textContent if no span found
+        const btn = item.querySelector('.cmp-accordion__button');
+        titleCell.textContent = btn ? btn.textContent : '';
+      }
+      // Content cell: use all children of the panel's cmp-container
+      let panel = item.querySelector('[data-cmp-hook-accordion="panel"]');
+      let contentCell = [];
+      if (panel) {
+        // Defensive: panel may have .container > .cmp-container > .text, or just .container
+        let container = panel.querySelector('.container');
+        if (container) {
+          let cmpContainer = container.querySelector('.cmp-container');
+          if (cmpContainer) {
+            // Use all direct children (usually .text etc)
+            contentCell = Array.from(cmpContainer.children);
+          } else {
+            // Use all children of container
+            contentCell = Array.from(container.children);
+          }
+        } else {
+          // No .container: just use panel's direct children
+          contentCell = Array.from(panel.children);
         }
       }
-    }
-    // Only add row if at least the title is present
-    if (titleCellContent && contentCell) {
-      cells.push([titleCellContent, contentCell]);
-    }
-  });
-
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace original accordion with the table
-  accordion.parentNode.replaceChild(block, accordion);
+      cells.push([titleCell, contentCell]);
+    });
+  }
+  // Only replace the accordion block, and not the entire element
+  if (accordion) {
+    accordion.replaceWith(WebImporter.DOMUtils.createTable(cells, document));
+  }
 }

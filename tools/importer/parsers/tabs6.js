@@ -1,36 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block
-  const tabsBlock = element.querySelector('.cmp-tabs');
+  // Find the CMP tabs block inside 'element'
+  const tabsBlock = element.querySelector('.tabs .cmp-tabs');
   if (!tabsBlock) return;
 
-  // Get tab labels as text (for the second row)
-  const tabLabelEls = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
-  const tabLabels = tabLabelEls.map(e => e.textContent.trim());
+  // Find tab labels from tablist
+  const tabList = tabsBlock.querySelector('ol.cmp-tabs__tablist');
+  const tabLabelEls = tabList ? Array.from(tabList.querySelectorAll('li[role="tab"]')) : [];
+  const tabLabels = tabLabelEls.map(li => li.textContent.trim());
 
-  // Get all tab panels in order
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
-
-  // Build the table rows
-  // 1. Header row
-  const cells = [['Tabs (tabs6)']];
-  // 2. Tab labels row
-  cells.push(tabLabels);
-  // 3+. Each tab panel is a row with one cell: the content of that tab
-  tabPanels.forEach(panel => {
-    // The main content inside each tab panel is a .contentfragment (article)
-    const content = panel.querySelector('.contentfragment, article, .cmp-contentfragment, .cmp-contentfragment__elements') || panel;
-    // Wrap the referenced content in a div for safety, but reference the existing content
-    const wrapper = document.createElement('div');
-    // Reference all children of the content element, not clone
-    Array.from(content.childNodes).forEach(node => {
-      wrapper.appendChild(node);
-    });
-    cells.push([wrapper]);
+  // Find all panels (must match label order)
+  const tabPanels = tabLabels.map(label => {
+    // Find the panel controlled by this tab
+    // Each tab has aria-controls="..." that matches panel id
+    const tabEl = tabLabelEls.find(li => li.textContent.trim() === label);
+    if (!tabEl) return null;
+    const panelId = tabEl.getAttribute('aria-controls');
+    if (!panelId) return null;
+    return tabsBlock.querySelector(`#${panelId}`);
   });
 
-  // Create the table
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace the tabs block with the table
-  tabsBlock.replaceWith(table);
+  // Table header as per instructions
+  const headerRow = ['Tabs (tabs6)'];
+  const rows = [headerRow];
+
+  // For each tab, prepare [label, content] row
+  tabLabels.forEach((label, idx) => {
+    const panel = tabPanels[idx];
+    if (!panel) return;
+    // For content, collect all children of panel:
+    // Usually <div class="contentfragment">, etc.
+    // Reference the contentfragment/article block directly.
+    // Find article if present
+    const mainContent = panel.querySelector('article') || panel.firstElementChild;
+    rows.push([label, mainContent || panel]);
+  });
+
+  // Build the table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  element.parentNode.replaceChild(block, element);
 }
