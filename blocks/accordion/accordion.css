@@ -62,64 +62,68 @@
 
 
 .accordion.accordion3 {
-  max-width: 680px;
-  margin-left: 32px;
-  margin-top: 56px;
-  background: none;
+  max-width: 750px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
   border-radius: 0;
   box-shadow: none;
-  padding: 0;
-  width: 100%;
-  align-self: flex-start;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .accordion.accordion3 details {
-  display: block;
   border: none;
-  background: none;
-  box-shadow: none;
   margin: 0;
   padding: 0;
   width: 100%;
-  border-bottom: 1px solid #eee;
+  background: #fff;
+  box-shadow: none;
+  border-bottom: 1px solid #d3d3d3;
+  display: block;
 }
 
 .accordion.accordion3 details:last-child {
   border-bottom: none;
 }
 
-.accordion.accordion3 details + details {
-  margin-top: 0;
-}
-
 .accordion.accordion3 details summary {
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-height: 38px;
-  padding: 0;
-  background: none;
+  justify-content: space-between;
+  min-height: 48px;
+  height: 48px;
+  padding-left: 0;
+  padding-right: 0;
+  background: #fff;
   outline: none;
   border: none;
-  position: relative;
-  transition: background-color 0.2s;
-  box-sizing: border-box;
   cursor: pointer;
-  margin-left: 0;
-  margin-right: 0;
+  box-sizing: border-box;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.accordion.accordion3 details summary:hover,
+.accordion.accordion3 details summary:focus {
+  background: #fff;
 }
 
 .accordion.accordion3 details summary p {
-  font-family: var(--body-font-family);
-  font-size: 14px;
-  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
   text-transform: uppercase;
   color: #222;
   margin: 0;
-  padding: 10px 0 10px 18px;
-  letter-spacing: 0.04em;
+  padding-left: 8px;
+  padding-right: 0;
+  letter-spacing: 0.01em;
   flex: 1 1 auto;
   line-height: 1.25;
   text-align: left;
@@ -127,17 +131,21 @@
   background: none;
 }
 
-/* Icon logic: always show horizontal bar, show vertical only when closed */
+.accordion.accordion3 details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Plus icon bars */
 .accordion.accordion3 details summary::before,
 .accordion.accordion3 details summary::after {
-  display: block;
   position: absolute;
   right: 20px;
-  width: 16px;
-  height: 2px;
-  background: #444;
-  border-radius: 1px;
+  width: 20px;
+  height: 3px;
+  background: #222;
+  border-radius: 1.2px;
   transition: background 0.2s, opacity 0.2s, transform 0.2s;
+  display: block;
   content: "";
 }
 
@@ -158,30 +166,33 @@
 }
 
 .accordion.accordion3 details[open] summary::after {
-  background: #222;
   opacity: 1;
 }
 
 .accordion.accordion3 .accordion-item-body {
+  padding: 0 8px 12px;
   font-size: 14px;
-  color: #444;
-  background: none;
-  padding: 0 0 14px 18px;
-  border: none;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
+  background: #fff;
+  border: none;
 }
 
 @media (width <= 900px) {
   .accordion.accordion3 {
     max-width: 100%;
-    margin-left: 0;
-    margin-top: 32px;
-    padding: 0 8px;
+    padding: 0 4px;
   }
 
   .accordion.accordion3 details summary p,
   .accordion.accordion3 .accordion-item-body {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .accordion.accordion3 details summary::before,
+  .accordion.accordion3 details summary::after {
+    right: 12px;
   }
 }
