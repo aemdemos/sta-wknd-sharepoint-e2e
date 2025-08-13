@@ -53,139 +53,6 @@
 }
 
 
-.hero.hero11 {
-  position: relative;
-  width: 100vw;
-  margin: 0 auto;
-  padding: 0;
-  overflow: visible;
-  display: block;
-}
-
-.hero.hero11 > div:first-child {
-  position: relative;
-  width: 100vw;
-  height: 420px;
-  overflow: hidden;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.hero.hero11 > div:first-child picture,
-.hero.hero11 > div:first-child img {
-  width: 100vw;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.hero.hero11 > div:nth-child(2) {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 44px;
-  z-index: 2;
-  width: 64vw;
-  max-width: 720px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  box-sizing: border-box;
-}
-
-.hero.hero11 > div:nth-child(2) > div {
-  background: #fff;
-  padding: 38px 36px;
-  width: 100%;
-  box-shadow: none;
-  box-sizing: border-box;
-  pointer-events: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border-radius: 0;
-}
-
-.hero.hero11 h2 {
-  margin: 0;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 24px;
-  font-weight: 400;
-  color: #222;
-  line-height: 1.3;
-  text-align: left;
-}
-
-.hero.hero11::after {
-  display: block;
-  width: 64vw;
-  max-width: 720px;
-  height: 1px;
-  background: #e5e5e5;
-  margin: 44px auto 0;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@media (width <= 900px) {
-  .hero.hero11 > div:first-child {
-    height: 220px;
-  }
-
-  .hero.hero11 > div:nth-child(2) {
-    width: 94vw;
-    max-width: 98vw;
-    bottom: 16px;
-    padding: 0;
-  }
-
-  .hero.hero11 > div:nth-child(2) > div {
-    padding: 20px 8px;
-  }
-
-  .hero.hero11 h2 {
-    font-size: 18px;
-  }
-
-  .hero.hero11::after {
-    width: 94vw;
-    max-width: 98vw;
-    margin-top: 14px;
-  }
-}
-
-@media (width <= 600px) {
-  .hero.hero11 > div:first-child {
-    height: 110px;
-  }
-
-  .hero.hero11 > div:nth-child(2) {
-    bottom: 4px;
-  }
-
-  .hero.hero11 > div:nth-child(2) > div {
-    padding: 10px 2px;
-  }
-
-  .hero.hero11 h2 {
-    font-size: 16px;
-  }
-
-  .hero.hero11::after {
-    width: 97vw;
-    max-width: 99vw;
-    margin-top: 4px;
-  }
-}
-
-
 .hero.hero39 {
   position: relative;
   width: 100vw;
@@ -197,7 +64,6 @@
   display: block;
 }
 
-/* Make image fill the block, regardless of nesting */
 .hero.hero39 > div:first-child {
   position: absolute;
   inset: 0;
@@ -219,7 +85,6 @@
   min-height: 380px;
 }
 
-/* Overlay text panel horizontally centered, flush to the bottom */
 .hero.hero39 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -240,12 +105,10 @@
   margin-bottom: 0;
 }
 
-/* Remove default block spacing */
 .hero.hero39 > div:nth-child(2) > div {
   width: 100%;
 }
 
-/* Heading and text styles as before */
 .hero.hero39 > div:nth-child(2) h2,
 .hero.hero39 > div:nth-child(2) h1 {
   color: #222;
@@ -267,7 +130,6 @@
   text-align: left;
 }
 
-/* Responsive: stack text panel below image on small screens */
 @media (width <= 900px) {
   .hero.hero39 {
     min-height: 0;
@@ -302,5 +164,145 @@
 
   .hero.hero39 > div:nth-child(2) p {
     font-size: 0.98rem;
+  }
+}
+
+
+.hero.hero11 {
+  position: relative;
+  width: 100vw;
+  margin: 0 auto;
+  padding: 0;
+  overflow: visible;
+  display: block;
+  background: none;
+}
+
+/* IMAGE: tall enough for box to sit flush at the bottom */
+.hero.hero11 > div:first-child {
+  position: relative;
+  width: 100vw;
+  height: 280px;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero11 > div:first-child picture,
+.hero.hero11 > div:first-child img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* WHITE BOX: lower the box to be flush with the image bottom */
+.hero.hero11 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  top: 232px; /* Move the box down so its bottom is flush with the image */
+  transform: translateX(-50%);
+  width: 92vw;
+  max-width: 1150px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.hero.hero11 > div:nth-child(2) > div {
+  background: #fff;
+  padding: 24px 32px 32px;
+  width: 100%;
+  box-shadow: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* HEADLINE STYLING */
+.hero.hero11 h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.25;
+  text-align: left;
+}
+
+/* DIVIDER: full width, very close below box */
+.hero.hero11::after {
+  display: block;
+  width: 100vw;
+  max-width: 100vw;
+  height: 1px;
+  background: #e5e5e5;
+  margin: 4px auto 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Responsive tweaks for smaller screens */
+@media (width <= 1000px) {
+  .hero.hero11 > div:first-child {
+    height: 180px;
+  }
+
+  .hero.hero11 > div:nth-child(2) {
+    top: 148px;
+    width: 97vw;
+    max-width: 98vw;
+  }
+
+  .hero.hero11 > div:nth-child(2) > div {
+    padding: 14px 8px 18px;
+  }
+
+  .hero.hero11 h2 {
+    font-size: 16px;
+  }
+
+  .hero.hero11::after {
+    width: 98vw;
+    max-width: 98vw;
+    margin-top: 2px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero11 > div:first-child {
+    height: 96px;
+  }
+
+  .hero.hero11 > div:nth-child(2) {
+    top: 62px;
+    width: 99vw;
+    max-width: 99vw;
+  }
+
+  .hero.hero11 > div:nth-child(2) > div {
+    padding: 8px 2vw 10px;
+  }
+
+  .hero.hero11 h2 {
+    font-size: 14px;
+  }
+
+  .hero.hero11::after {
+    width: 99vw;
+    max-width: 99vw;
+    margin-top: 2px;
   }
 }
