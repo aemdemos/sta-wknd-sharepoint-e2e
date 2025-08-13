@@ -1,65 +1,69 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Accordion block name
-  const headerRow = ['Accordion (accordion33)'];
-  const rows = [headerRow];
+  // Find the content fragment (the main article)
+  const contentFragment = element.querySelector('article.contentfragment, .contentfragment');
+  if (!contentFragment) return;
+  // Find the main content container with all headings/paragraphs/images
+  const contentElementsContainer = contentFragment.querySelector('.cmp-contentfragment__elements > div');
+  if (!contentElementsContainer) return;
 
-  // Locate the contentfragment/article containing the main headings and content
-  let contentArticle = element.querySelector('article.contentfragment, article.cmp-contentfragment');
-  if (!contentArticle) {
-    contentArticle = element.querySelector('article');
-  }
-  if (!contentArticle) {
-    // If no article, abort
-    return;
-  }
+  // Get all child nodes of the content container
+  const nodes = Array.from(contentElementsContainer.childNodes);
 
-  // Get all direct children of cmp-contentfragment__elements
-  let elementsWrapper = contentArticle.querySelector('.cmp-contentfragment__elements');
-  if (!elementsWrapper) elementsWrapper = contentArticle;
-  // We want to collect all accordion items as [title, content] pairs
-  // We'll scan children and look for H2s, then collect all between them as content
+  // Prepare table rows: header first
+  const rows = [['Accordion (accordion33)', '']];
 
-  // Gather all children into array for easier sequential scan
-  const children = Array.from(elementsWrapper.childNodes);
-  let i = 0;
-  while (i < children.length) {
-    const node = children[i];
-    if (node.nodeType === 1 && node.tagName === 'H2') {
-      // Title cell is the h2 itself (reference)
-      const titleCell = node;
-      // Content is all nodes up to (but not including) next H2
-      const contentEls = [];
-      let j = i + 1;
-      while (j < children.length) {
-        const nextNode = children[j];
-        if (nextNode.nodeType === 1 && nextNode.tagName === 'H2') break;
-        // Only push if element node not empty grid, or text node is not all whitespace
-        if (nextNode.nodeType === 1) {
-          // Skip empty grid containers
-          if (!(nextNode.classList && nextNode.classList.contains('aem-Grid'))) {
-            contentEls.push(nextNode);
-          }
-        } else if (nextNode.nodeType === 3 && nextNode.textContent.trim().length) {
-          // Preserve text nodes with actual content
-          const span = document.createElement('span');
-          span.textContent = nextNode.textContent;
-          contentEls.push(span);
-        }
-        j++;
-      }
-      // If content is empty, put an empty string
-      const contentCell = contentEls.length === 0 ? '' : (contentEls.length === 1 ? contentEls[0] : contentEls);
-      rows.push([titleCell, contentCell]);
-      i = j; // move to next H2
+  let currentTitle = null;
+  let currentContent = [];
+
+  const pushSection = () => {
+    if (currentTitle && currentContent.length) {
+      // Use the first h2 as the title, and everything after as content
+      rows.push([
+        currentTitle,
+        currentContent.length === 1 ? currentContent[0] : currentContent.slice(),
+      ]);
+    }
+    currentTitle = null;
+    currentContent = [];
+  };
+
+  // Helper checks
+  const isH2 = (node) => node.nodeType === Node.ELEMENT_NODE && node.tagName === 'H2';
+  const isEmptyGrid = (node) => node.nodeType === Node.ELEMENT_NODE &&
+    node.classList && node.classList.contains('aem-Grid') && node.children.length === 0;
+
+  // Traverse node list in order
+  for (let i = 0; i < nodes.length; i++) {
+    const node = nodes[i];
+    if (isH2(node)) {
+      pushSection();
+      currentTitle = node;
     } else {
-      i++;
+      // Skip empty grid wrappers
+      if (isEmptyGrid(node)) continue;
+      // If this is a grid with children (e.g. images in section), include its children as content
+      if (
+        node.nodeType === Node.ELEMENT_NODE &&
+        node.classList &&
+        node.classList.contains('aem-Grid') &&
+        node.children.length > 0
+      ) {
+        // Add all children (often image containers)
+        Array.from(node.children).forEach(child => currentContent.push(child));
+      } else {
+        // Otherwise, if not a whitespace node, add directly
+        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === '') continue;
+        currentContent.push(node);
+      }
     }
   }
+  // Push last section
+  pushSection();
 
-  // Only create accordion block if at least one section found
+  // Only create the block if there is at least one accordion entry
   if (rows.length > 1) {
-    const block = WebImporter.DOMUtils.createTable(rows, document);
-    element.replaceWith(block);
+    const table = WebImporter.DOMUtils.createTable(rows, document);
+    element.replaceWith(table);
   }
 }

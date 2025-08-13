@@ -1,40 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate the cmp-tabs element inside the block
-  let tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
+  // Find the tabs block
+  const tabsWrapper = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsWrapper) return;
 
-  // Get tab labels (in order)
-  const tabList = tabsBlock.querySelector('[role="tablist"]');
-  const tabLabels = [];
-  if (tabList) {
-    const tabItems = tabList.querySelectorAll('[role="tab"]');
-    tabItems.forEach(tab => {
-      tabLabels.push(tab.textContent.trim());
-    });
-  }
+  // Get tab labels (as text)
+  const tabLabelEls = Array.from(tabsWrapper.querySelectorAll('.cmp-tabs__tablist > li'));
+  if (tabLabelEls.length === 0) return;
+  const labelsRow = tabLabelEls.map(li => li.textContent.trim());
 
-  // Get tab panels (in order)
-  const tabPanels = [];
-  const panelNodes = tabsBlock.querySelectorAll('.cmp-tabs__tabpanel');
-  panelNodes.forEach(panel => {
-    // For resilience, get the main content node, else use the panel itself
-    // Usually a .contentfragment or article direct child
-    let mainContent = panel.querySelector('article, .contentfragment');
-    if (!mainContent) mainContent = panel;
-    tabPanels.push(mainContent);
+  // Get all tab panels (order must match tab labels)
+  const tabPanels = Array.from(tabsWrapper.querySelectorAll('.cmp-tabs__tabpanel'));
+
+  // Header row: block name, one column only
+  const headerRow = ['Tabs (tabs36)'];
+
+  // For each tab, create a row with content only in its column; others empty
+  const tabContentRows = tabPanels.map((panel, idx) => {
+    const numCols = labelsRow.length;
+    const cf = panel.querySelector('.contentfragment') || panel;
+    // Create an array of empty strings with only the idx-th column containing cf
+    return Array.from({length: numCols}, (_, i) => i === idx ? cf : '');
   });
 
-  // Build table rows
-  const rows = [];
-  rows.push(['Tabs (tabs36)']);
-  for (let i = 0; i < tabLabels.length; i++) {
-    // Use referenced existing elements
-    const label = tabLabels[i] || '';
-    const content = tabPanels[i] || '';
-    rows.push([label, content]);
-  }
+  // Compose final table
+  const cells = [
+    headerRow,
+    labelsRow,
+    ...tabContentRows
+  ];
 
-  const table = WebImporter.DOMUtils.createTable(rows, document);
+  // Create table and replace original element
+  const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

@@ -1,52 +1,60 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row exactly as required
+  // Cards (cards26) block header
   const headerRow = ['Cards (cards26)'];
-  const rows = [headerRow];
+  const rows = [];
 
-  // Select all cards in the image list
-  const cardItems = element.querySelectorAll('ul > li');
+  // Get all LI items (cards)
+  const ul = element.querySelector('ul.cmp-image-list');
+  if (!ul) return;
+  const lis = ul.querySelectorAll(':scope > li.cmp-image-list__item');
 
-  cardItems.forEach((li) => {
-    // Image cell: first <img> in the card
-    const imageEl = li.querySelector('img');
+  lis.forEach((li) => {
+    // Extract image (reference existing <img> element)
+    let img = null;
+    const imgDiv = li.querySelector('.cmp-image-list__item-image .cmp-image');
+    if (imgDiv) {
+      img = imgDiv.querySelector('img');
+    }
 
-    // Text content cell: Title (bold, in link if present), then description
-    let titleNode;
+    // Extract title (reference existing <span> element, wrap in strong and preserve link)
+    let title = null;
     const titleLink = li.querySelector('.cmp-image-list__item-title-link');
-    const titleSpan = li.querySelector('.cmp-image-list__item-title');
-    if (titleSpan) {
-      // Always use <strong> for the title
-      const strong = document.createElement('strong');
-      strong.textContent = titleSpan.textContent;
-      if (titleLink) {
-        // Use the existing link, empty it, put <strong> inside
-        while (titleLink.firstChild) titleLink.removeChild(titleLink.firstChild);
-        titleLink.appendChild(strong);
-        titleNode = titleLink;
-      } else {
-        titleNode = strong;
+    if (titleLink) {
+      const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
+      if (titleSpan) {
+        const strong = document.createElement('strong');
+        strong.textContent = titleSpan.textContent;
+        // preserve link
+        const link = document.createElement('a');
+        link.href = titleLink.getAttribute('href');
+        link.appendChild(strong);
+        title = link;
       }
     }
 
-    // Description (optional)
-    const descriptionSpan = li.querySelector('.cmp-image-list__item-description');
-
-    // Compose cell contents, preserving formatting
-    const textCellContent = [];
-    if (titleNode) textCellContent.push(titleNode);
-    if (descriptionSpan) {
-      textCellContent.push(document.createElement('br'));
-      textCellContent.push(descriptionSpan);
+    // Extract description (reference existing <span> and preserve all text)
+    let description = null;
+    const descSpan = li.querySelector('.cmp-image-list__item-description');
+    if (descSpan) {
+      // Using a div to keep it visually below the title, as in markdown
+      description = document.createElement('div');
+      description.textContent = descSpan.textContent;
     }
 
+    // Combine title and description into one cell
+    const contentCell = [];
+    if (title) contentCell.push(title);
+    if (description) contentCell.push(description);
+
     rows.push([
-      imageEl,
-      textCellContent.length === 1 ? textCellContent[0] : textCellContent,
+      img,
+      contentCell
     ]);
   });
 
-  // Create block table
-  const table = WebImporter.DOMUtils.createTable(rows, document);
+  // Final table
+  const cells = [headerRow, ...rows];
+  const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

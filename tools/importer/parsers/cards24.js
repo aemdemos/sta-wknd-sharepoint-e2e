@@ -1,83 +1,58 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper: get all groups (Contributors, Guides) with their description and cards
-  function getGroups(scope) {
-    // Find all h2.cmp-title__text which separate groups
-    const groupTitles = Array.from(scope.querySelectorAll('h2.cmp-title__text'));
-    const groups = [];
-    groupTitles.forEach((h2) => {
-      // Find group container
-      let groupParent = h2.closest('.cmp-title');
-      let n = groupParent.parentElement;
-      // Find the next .cmp-text--font-small for the group description
-      let desc = null;
-      let search = n.nextElementSibling;
-      while (search && !desc) {
-        if (
-          search.classList &&
-          search.classList.contains('cmp-text--font-small')
-        ) {
-          desc = search.querySelector('.cmp-text') || search;
-        }
-        if (desc) break;
-        // stop if next h2 found
-        if (search.querySelector && search.querySelector('h2.cmp-title__text')) break;
-        search = search.nextElementSibling;
-      }
-      // Find all consecutive card sections after desc
-      const cards = [];
-      let cardSearch = (desc ? desc.parentElement : n).nextElementSibling;
-      while (cardSearch) {
-        // Stop if next group
-        if (cardSearch.querySelector && cardSearch.querySelector('h2.cmp-title__text')) break;
-        if (cardSearch.matches && cardSearch.matches('section.experiencefragment.cmp-experience-fragment--contributor')) {
-          cards.push(cardSearch);
-        }
-        cardSearch = cardSearch.nextElementSibling;
-      }
-      groups.push({desc, cards});
-    });
-    return groups;
-  }
-
-  // Helper: extract card row from section, prepending desc to first card
-  function cardRow(section, prependDesc) {
-    const img = section.querySelector('.cmp-image__image');
-    const textElements = [];
-    if (prependDesc) {
-      // Prepend the intro description (all nodes)
-      Array.from(prependDesc.childNodes).forEach(node => {
-        textElements.push(node.cloneNode(true));
-      });
-      textElements.push(document.createElement('br'));
-    }
-    const h3 = section.querySelector('h3');
-    if (h3) textElements.push(h3);
-    const h5 = section.querySelector('h5');
-    if (h5) textElements.push(document.createElement('br'), h5);
-    section.querySelectorAll('p').forEach(p => {
-      textElements.push(document.createElement('br'), p);
-    });
-    const socialButtons = Array.from(section.querySelectorAll('.cmp-button'));
-    if (socialButtons.length) {
-      textElements.push(document.createElement('br'));
-      const socialsDiv = document.createElement('div');
-      socialButtons.forEach(btn => socialsDiv.appendChild(btn));
-      textElements.push(socialsDiv);
-    }
-    if (!textElements.length) textElements.push(document.createTextNode(''));
-    return [img, textElements];
-  }
-
-  // Compose table
-  const groups = getGroups(element);
-  if (!groups.length) return;
+  // Table header matches example exactly
   const rows = [['Cards (cards24)']];
-  groups.forEach(group => {
-    group.cards.forEach((cardSection, idx) => {
-      rows.push(cardRow(cardSection, idx === 0 && group.desc ? group.desc : null));
-    });
+
+  // Find all the relevant section info: headings + intros, preserve structure
+  // We'll scan for .cmp-title--underline (section headings) and the next .cmp-text (intro) after it
+  const allSections = [];
+  const children = Array.from(element.children);
+  for (let i = 0; i < children.length; i++) {
+    const child = children[i];
+    if (
+      child.classList &&
+      child.classList.contains('title') &&
+      child.classList.contains('cmp-title--underline')
+    ) {
+      // Section heading
+      const heading = child.querySelector('.cmp-title__text');
+      if (heading) allSections.push([heading]);
+      // Look for intro directly after
+      const next = children[i + 1];
+      if (
+        next &&
+        next.classList &&
+        next.classList.contains('text') &&
+        next.querySelector('.cmp-text')
+      ) {
+        const intro = next.querySelector('.cmp-text');
+        if (intro) allSections.push([intro]);
+        i++; // skip next
+      }
+    }
+  }
+  // Insert all section headings and intros as single-column rows
+  allSections.forEach(row => rows.push(row));
+
+  // Process all card sections
+  const cardSections = Array.from(element.querySelectorAll('section.experiencefragment'));
+  cardSections.forEach(section => {
+    // First column: Image
+    const img = section.querySelector('img');
+    // Second column: All text content
+    const textContent = [];
+    section.querySelectorAll('h3, h5').forEach(h => textContent.push(h));
+    section.querySelectorAll('p').forEach(p => textContent.push(p));
+    const socialLinks = section.querySelectorAll('a.cmp-button');
+    if (socialLinks.length) {
+      const linksDiv = document.createElement('div');
+      socialLinks.forEach(link => linksDiv.appendChild(link));
+      textContent.push(linksDiv);
+    }
+    rows.push([img, textContent]);
   });
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+
+  // Build and replace
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(block);
 }

@@ -1,34 +1,55 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the first cmp-teaser--hero block (the hero section)
-  const heroTeaser = element.querySelector('.cmp-teaser--hero, .teaser.cmp-teaser--hero');
+  // 1. Find the hero block (teaser cmp-teaser--hero)
+  let heroTeaser = element.querySelector('.teaser.cmp-teaser--hero');
+  if (!heroTeaser) {
+    // Fallback: look for .cmp-teaser inside any container
+    const containers = element.querySelectorAll('.cmp-container');
+    for (const container of containers) {
+      const teaser = container.querySelector('.teaser.cmp-teaser--hero');
+      if (teaser) {
+        heroTeaser = teaser;
+        break;
+      }
+    }
+  }
   if (!heroTeaser) return;
 
-  // Get the background image (optional)
-  let imgEl = null;
-  const imageContainer = heroTeaser.querySelector('.cmp-teaser__image');
-  if (imageContainer) {
-    imgEl = imageContainer.querySelector('img');
+  // 2. Get the background image as a reference to the image block/div
+  let imageBlock = heroTeaser.querySelector('.cmp-teaser__image .cmp-image');
+  // If no .cmp-image div, fallback to first image inside .cmp-teaser__image
+  if (!imageBlock) {
+    const imageDiv = heroTeaser.querySelector('.cmp-teaser__image');
+    if (imageDiv) {
+      imageBlock = imageDiv.querySelector('img');
+    }
   }
 
-  // Get the title (optional)
-  let titleEl = null;
-  const teaserContent = heroTeaser.querySelector('.cmp-teaser__content');
-  if (teaserContent) {
-    titleEl = teaserContent.querySelector('.cmp-teaser__title');
+  // 3. Get the headline/title text, prefer heading elements
+  let contentBlock = heroTeaser.querySelector('.cmp-teaser__content');
+  let headline = null;
+  if (contentBlock) {
+    headline = contentBlock.querySelector('h1, h2, h3, h4, h5, h6');
   }
 
-  // Compose text cell contents (can be multiple items, but here only title exists)
-  const textCell = [];
-  if (titleEl) textCell.push(titleEl);
+  // 4. Build table rows
+  // Header row (must match example exactly)
+  const headerRow = ['Hero (hero11)'];
+  // Second row: image (background)
+  const imageRow = imageBlock ? [imageBlock] : [''];
+  // Third row: headline
+  const headlineRow = headline ? [headline] : [''];
 
-  // Table rows
-  const rows = [];
-  rows.push(['Hero (hero11)']); // Header row exactly as required
-  rows.push([imgEl ? imgEl : '']); // Image row, empty string if missing
-  rows.push([textCell.length ? textCell : '']); // Text row, empty string if missing
+  // 5. Compose only rows for which content exists (except header, always present)
+  const rows = [headerRow];
+  // Always add imageRow (background image is always present in example)
+  rows.push(imageRow);
+  // Only add headline if present (optional)
+  if (headlineRow[0] !== '') {
+    rows.push(headlineRow);
+  }
 
-  // Create and replace
+  // 6. Create and replace table
   const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

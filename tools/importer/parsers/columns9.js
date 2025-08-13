@@ -1,90 +1,51 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper to find the deepest .aem-Grid with .aem-GridColumn children
-  function findDeepestGridWithColumns(root) {
-    let current = root;
-    let lastGrid = null;
-    while (true) {
-      const nextGrid = current.querySelector(':scope > .aem-Grid');
-      if (!nextGrid) break;
-      lastGrid = nextGrid;
-      current = nextGrid;
-    }
-    return lastGrid || root;
+  // Safely identify the deepest .aem-Grid with 12 columns
+  const grid = element.querySelector('.aem-Grid.aem-Grid--12');
+  if (!grid) return;
+
+  // Helper: get first direct child with class name in grid
+  function getFirstChildWithClass(grid, className) {
+    return Array.from(grid.children).find((child) => child.classList.contains(className));
   }
 
-  // Get all direct children that are .aem-GridColumn
-  function getGridColumns(grid) {
-    return Array.from(grid.children).filter(child =>
-      child.classList && Array.from(child.classList).some(cl => cl.startsWith('aem-GridColumn'))
-    );
-  }
+  // 1. Logo column (contains .cmp-image--logo)
+  const logoCol = getFirstChildWithClass(grid, 'cmp-image--logo');
 
-  // Step 1: Find the main columns container
-  const grid = findDeepestGridWithColumns(element);
-  const columns = getGridColumns(grid);
+  // 2. Navigation column (contains .cmp-navigation--footer)
+  const navCol = getFirstChildWithClass(grid, 'cmp-navigation--footer');
 
-  // Step 2: Identify and collect the relevant column blocks
-  let logoBlock = null;
-  let navBlock = null;
-  let socialBlock = null;
-  let textBlock = null;
-  let foundTitle = null;
-  let foundBtnList = null;
+  // 3/4. Title and social buttons (contains .cmp-title--right and .cmp-buildingblock--btn-list)
+  const titleCol = getFirstChildWithClass(grid, 'cmp-title--right');
+  const buttonsCol = getFirstChildWithClass(grid, 'cmp-buildingblock--btn-list');
 
-  columns.forEach(col => {
-    if (!logoBlock && col.querySelector('.cmp-image')) {
-      logoBlock = col.querySelector('.cmp-image');
-    }
-    if (!navBlock && col.querySelector('nav.cmp-navigation')) {
-      navBlock = col.querySelector('nav.cmp-navigation');
-    }
-    if (!foundTitle && col.querySelector('.cmp-title')) {
-      foundTitle = col.querySelector('.cmp-title');
-    }
-    if (!foundBtnList && (col.querySelector('.xf-master-building-block') || col.querySelector('.aem-Grid'))) {
-      foundBtnList = col.querySelector('.xf-master-building-block') || col.querySelector('.aem-Grid');
-    }
-    if (!textBlock && col.querySelector('.cmp-text')) {
-      textBlock = col.querySelector('.cmp-text');
-    }
-  });
+  // Compose Follow Us cell (title and buttons)
+  const followUsCell = document.createElement('div');
+  if (titleCol) followUsCell.appendChild(titleCol);
+  if (buttonsCol) followUsCell.appendChild(buttonsCol);
 
-  // Compose the social block: if both title and btn list exist, put both in a wrapper for the cell
-  if (foundTitle && foundBtnList) {
-    socialBlock = document.createElement('div');
-    socialBlock.appendChild(foundTitle);
-    socialBlock.appendChild(foundBtnList);
-  } else if (foundTitle || foundBtnList) {
-    socialBlock = foundTitle || foundBtnList;
-  }
+  // Content row - each cell contains referenced content (or empty string if missing)
+  const contentRow = [logoCol || '', navCol || '', followUsCell];
 
-  // If any block is still missing, try searching grid as a fallback
-  if (!logoBlock) logoBlock = grid.querySelector('.cmp-image');
-  if (!navBlock) navBlock = grid.querySelector('nav.cmp-navigation');
-  if (!socialBlock) {
-    const t = grid.querySelector('.cmp-title');
-    const b = grid.querySelector('.xf-master-building-block') || grid.querySelector('.aem-Grid');
-    if (t && b) {
-      socialBlock = document.createElement('div');
-      socialBlock.appendChild(t);
-      socialBlock.appendChild(b);
-    } else if (t || b) {
-      socialBlock = t || b;
+  // Find copyright/description text as the .cmp-text--font-xsmall block
+  let copyrightCol = null;
+  if (grid.parentElement) {
+    const copyrightWrap = grid.parentElement.querySelector('.cmp-text--font-xsmall');
+    if (copyrightWrap) {
+      copyrightCol = copyrightWrap.querySelector('.cmp-text') || copyrightWrap;
     }
   }
-  if (!textBlock) textBlock = grid.querySelector('.cmp-text');
 
-  // Fix: Header row must be a single cell array (not 3 columns)
-  const headerRow = ['Columns (columns9)'];
-  // Second row: 3 columns as required
-  const contentRow = [logoBlock || '', navBlock || '', socialBlock || ''];
-  // Third row: copyright/footer text in first cell, rest blank
-  const footerRow = [textBlock || '', '', ''];
-  // Compose cells array: header is [headerRow], not [headerRow, headerRow, headerRow]
-  const cells = [headerRow, contentRow, footerRow];
+  // Copyright row, matching the number of columns in contentRow
+  const copyrightRow = copyrightCol ? [copyrightCol, '', ''] : null;
 
-  // Create the block table and replace the element
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Compose table rows: header (single column), then content
+  const rows = [];
+  rows.push(['Columns (columns9)']); // header row, single cell
+  rows.push(contentRow);
+  if (copyrightRow) rows.push(copyrightRow);
+
+  // Create the table block and replace the original element
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(block);
 }

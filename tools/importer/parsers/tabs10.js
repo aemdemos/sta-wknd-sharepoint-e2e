@@ -1,29 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the cmp-tabs block inside the given element
+  // Find the tabs container
   const tabs = element.querySelector('.cmp-tabs');
   if (!tabs) return;
 
-  // Get all tab labels (order matters)
-  const tabLabels = Array.from(tabs.querySelectorAll('.cmp-tabs__tablist [role=tab]'));
-  // Get all tab panels (order matches tabLabels)
-  const tabPanels = Array.from(tabs.querySelectorAll('.cmp-tabs__tabpanel'));
+  // Get tab labels in order
+  const tabList = tabs.querySelector('.cmp-tabs__tablist');
+  const tabLabels = tabList ? Array.from(tabList.querySelectorAll('li')).map(tab => tab.textContent.trim()) : [];
 
-  // Prepare the header row
+  // Get tab contents in order
+  const tabPanels = Array.from(tabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  const tabContents = tabPanels.map(panel => {
+    // Robustly extract the intended content for each tab
+    // Prefer the .contentfragment/article inside each tabpanel, else use the tabpanel itself
+    const frag = panel.querySelector('.contentfragment, article.cmp-contentfragment');
+    if (frag) return frag;
+    return panel;
+  });
+
+  // Header row matches example precisely
   const headerRow = ['Tabs (tabs10)'];
 
-  // Compose rows: each tab label in first cell, corresponding panel content in second cell
-  const rows = [headerRow];
-  for (let i = 0; i < tabLabels.length; i++) {
-    // Use label text as first cell
-    const label = tabLabels[i].textContent.trim();
-    // For content, reference the existing tab panel's content
-    // Panels could have content wrapped in article or direct children
-    let content = tabPanels[i].querySelector('article') || tabPanels[i];
-    rows.push([label, content]);
-  }
-  // Create block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  // Replace original element with block table
-  element.replaceWith(block);
+  // Structure: header row, tab labels row, tab content row (each cell matches tab order)
+  const cells = [
+    headerRow,
+    tabLabels,
+    tabContents
+  ];
+
+  // Create table using helper
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Replace original tabs with block table
+  tabs.parentNode.replaceChild(block, tabs);
 }

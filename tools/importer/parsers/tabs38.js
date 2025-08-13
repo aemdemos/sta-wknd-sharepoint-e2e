@@ -1,50 +1,51 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tab component inside the provided element
-  const tabsEl = element.querySelector('.cmp-tabs');
-  if (!tabsEl) return;
+  // Find the tabs block
+  const tabsRoot = element.querySelector('.cmp-tabs');
+  if (!tabsRoot) return;
 
-  // Get tab labels from the tablist (li[role="tab"])
-  const tabList = tabsEl.querySelector('.cmp-tabs__tablist');
+  // 1. Get tab labels in order
+  const tabList = tabsRoot.querySelector('.cmp-tabs__tablist');
   if (!tabList) return;
-  const tabLabels = Array.from(tabList.querySelectorAll('[role="tab"]'));
+  const tabLabels = Array.from(tabList.querySelectorAll('li[role="tab"]'));
 
-  // Get tab panels (div[role="tabpanel"])
-  const tabPanels = Array.from(tabsEl.querySelectorAll('[role="tabpanel"]'));
+  // 2. Get tab panels, in DOM order (required for matching content)
+  const tabPanels = Array.from(tabsRoot.querySelectorAll('[role="tabpanel"]'));
 
-  // Header row should exactly match: Tabs (tabs38)
-  const cells = [['Tabs (tabs38)']];
+  // 3. Build rows per tab: [Tab Label, Tab Content]
+  const rows = tabLabels.map((tabEl, idx) => {
+    const label = tabEl.textContent.trim();
+    // Try to find the panel with the correct aria-labelledby
+    let panel = tabPanels.find((tp) => {
+      return (tp.getAttribute('aria-labelledby') === tabEl.id);
+    }) || tabPanels[idx];
+    if (!panel) return [label, ''];
 
-  // For each tab label, find its matching tabpanel and extract its content
-  for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i].textContent.trim();
-    // Find corresponding tabpanel
-    let panelEl = null;
-    const ariaControls = tabLabels[i].getAttribute('aria-controls');
-    if (ariaControls) {
-      panelEl = tabsEl.querySelector(`#${ariaControls}`);
+    // Get panel content: gather all children inside the tabpanel
+    // If the panel has just one direct content child (e.g. .contentfragment), reference it. Otherwise, group all children into a div.
+    const children = Array.from(panel.children).filter((n) => n.nodeType === 1);
+    let content;
+    if (children.length === 1) {
+      content = children[0];
+    } else if (children.length > 1) {
+      // Group them into a single element for the cell
+      const wrapper = document.createElement('div');
+      children.forEach(child => wrapper.appendChild(child));
+      content = wrapper;
     } else {
-      // Fallback: by index
-      panelEl = tabPanels[i];
+      // fallback: use the panel itself if there is text content
+      content = panel.textContent.trim() ? panel : '';
     }
+    return [label, content];
+  });
 
-    // Prepare content: reference existing content elements
-    let tabContent = '';
-    if (panelEl) {
-      // For robustness, collect all child nodes (preserves structure: headings, paragraphs, images, lists)
-      // Remove empty text nodes
-      const fragment = document.createDocumentFragment();
-      Array.from(panelEl.childNodes).forEach((node) => {
-        if (node.nodeType === Node.TEXT_NODE && !node.textContent.trim()) return;
-        fragment.appendChild(node);
-      });
-      tabContent = fragment;
-    }
-    cells.push([label, tabContent]);
-  }
+  // 4. Compose table data: header row then rows
+  const tableData = [
+    ['Tabs (tabs38)'],
+    ...rows
+  ];
 
-  // Create the block table using the helper
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace original element with block table
-  element.replaceWith(block);
+  // 5. Create and replace
+  const table = WebImporter.DOMUtils.createTable(tableData, document);
+  element.replaceWith(table);
 }

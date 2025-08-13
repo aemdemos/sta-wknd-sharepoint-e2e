@@ -1,57 +1,75 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row as in example
+  // Header row as in the example
   const headerRow = ['Carousel (carousel17)'];
 
-  // Locate carousel content
+  // Find the main carousel content
   const carousel = element.querySelector('.cmp-carousel');
   if (!carousel) return;
   const content = carousel.querySelector('.cmp-carousel__content');
   if (!content) return;
 
-  // Get all slides
-  const slides = Array.from(content.children).filter(child => child.classList.contains('cmp-carousel__item'));
+  // Gather all slides
+  const slides = Array.from(content.querySelectorAll('.cmp-carousel__item'));
+  const rows = [headerRow];
 
-  // For each slide, extract image and all text content (not in .image/.cmp-image)
-  const rows = slides.map(slide => {
-    // First column: image
-    const img = slide.querySelector('.cmp-image img');
-
-    // Second column: all non-image content
-    // We'll gather all direct child elements and text nodes of the slide that are NOT part of .image or .cmp-image
-    const textParts = [];
-    Array.from(slide.childNodes).forEach(node => {
-      // If element and not image container
-      if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('image') && !node.classList.contains('cmp-image')) {
-        textParts.push(node);
+  slides.forEach(slide => {
+    // Get the image element (mandatory)
+    let img = slide.querySelector('img');
+    if (!img) {
+      // fallback: search inside .cmp-image
+      const imageDiv = slide.querySelector('.cmp-image');
+      if (imageDiv) {
+        img = imageDiv.querySelector('img');
       }
-      // If text node and not empty
-      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-        const span = document.createElement('span');
-        span.textContent = node.textContent;
-        textParts.push(span);
+    }
+    if (!img) return; // If no image found, skip slide
+
+    // Prepare to gather any meaningful text content except what's part of the image
+    let contentNodes = [];
+    // Collect all children that are not or do not contain the image
+    Array.from(slide.children).forEach(child => {
+      if (!child.contains(img) && child.textContent.trim()) {
+        contentNodes.push(child);
       }
     });
-    // If the image container (.image) contains further valid content (besides the .cmp-image itself), include it
-    const imageContainer = slide.querySelector('.image');
-    if (imageContainer) {
-      Array.from(imageContainer.childNodes).forEach(node => {
-        if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('cmp-image')) {
-          textParts.push(node);
-        }
-        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-          const span = document.createElement('span');
-          span.textContent = node.textContent;
-          textParts.push(span);
+    // If nothing collected, check one level deeper (handle stray wrappers)
+    if (contentNodes.length === 0) {
+      Array.from(slide.querySelectorAll(':scope > *')).forEach(child => {
+        if (!child.contains(img) && child.textContent.trim()) {
+          contentNodes.push(child);
         }
       });
     }
-    // If there's any text content, use it (as array), else use empty string
-    return [img, textParts.length > 0 ? textParts : ''];
+
+    // If still nothing, fallback to image metadata (title/alt/caption)
+    if (contentNodes.length === 0) {
+      const metaCaption = slide.querySelector('meta[itemprop="caption"]');
+      const imgTitle = img.getAttribute('title');
+      const imgAlt = img.getAttribute('alt');
+      if (imgTitle && imgTitle.trim()) {
+        const h2 = document.createElement('h2');
+        h2.textContent = imgTitle;
+        contentNodes.push(h2);
+      }
+      if (metaCaption && metaCaption.content && metaCaption.content.trim()) {
+        const p = document.createElement('p');
+        p.textContent = metaCaption.content;
+        contentNodes.push(p);
+      } else if (imgAlt && imgAlt.trim()) {
+        const p = document.createElement('p');
+        p.textContent = imgAlt;
+        contentNodes.push(p);
+      }
+    }
+    // If absolutely nothing (edge case), leave cell empty
+    const textCell = contentNodes.length > 0 ? contentNodes : '';
+
+    // Each row: [image, text cell (may be empty string or array of nodes)]
+    rows.push([img, textCell]);
   });
 
-  // Compose the table and replace the element
-  const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Create and replace
+  const block = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(block);
 }

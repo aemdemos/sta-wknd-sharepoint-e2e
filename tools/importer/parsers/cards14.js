@@ -1,47 +1,53 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header: matches example exactly
+  // 1. Header row exactly as required
   const headerRow = ['Cards (cards14)'];
+  const cells = [headerRow];
 
-  // Find all cards in the block
-  const items = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
-  const rows = [headerRow];
-
-  items.forEach((item) => {
-    // Extract image: reference existing element
-    const img = item.querySelector('img');
-    let imageEl = null;
-    if (img) {
-      imageEl = img;
-    }
-
-    // Extract title and description
-    const titleLink = item.querySelector('.cmp-image-list__item-title-link');
-    const titleSpan = item.querySelector('.cmp-image-list__item-title');
-    const descriptionSpan = item.querySelector('.cmp-image-list__item-description');
-
-    // Build text content cell
-    const textContent = document.createElement('div');
-
-    if (titleSpan) {
-      // Heading (level 3, to match card pattern)
-      const h3 = document.createElement('h3');
-      if (titleLink && titleLink.href) {
-        // Reference the actual A element from the DOM (not clone)
-        h3.appendChild(titleLink);
-      } else {
-        h3.textContent = titleSpan.textContent;
+  // 2. Find all card items
+  const list = element.querySelector('ul.cmp-image-list');
+  if (list) {
+    const items = list.querySelectorAll('li.cmp-image-list__item');
+    items.forEach((item) => {
+      // Find image (first cell)
+      let img = null;
+      const imgContainer = item.querySelector('.cmp-image-list__item-image');
+      if (imgContainer) {
+        img = imgContainer.querySelector('img');
       }
-      textContent.appendChild(h3);
-    }
-    if (descriptionSpan) {
-      // Reference the actual SPAN for description
-      textContent.appendChild(descriptionSpan);
-    }
-    rows.push([imageEl, textContent]);
-  });
 
-  // Create and replace block table
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+      // Compose text cell (second cell)
+      const textCell = document.createElement('div');
+      // Title: always bold (as in markdown, so use <strong>)
+      let title = '';
+      const titleLink = item.querySelector('.cmp-image-list__item-title-link');
+      if (titleLink) {
+        const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
+        if (titleSpan && titleSpan.textContent.trim()) {
+          title = titleSpan.textContent.trim();
+          const strong = document.createElement('strong');
+          strong.textContent = title;
+          textCell.appendChild(strong);
+        }
+      }
+      // Description (if any)
+      const descSpan = item.querySelector('.cmp-image-list__item-description');
+      if (descSpan && descSpan.textContent.trim()) {
+        // add line break if there was a title
+        if (title) textCell.appendChild(document.createElement('br'));
+        // Use a plain span for description
+        const desc = document.createElement('span');
+        desc.textContent = descSpan.textContent.trim();
+        textCell.appendChild(desc);
+      }
+      // No call-to-action in this HTML (all links are to title and image)
+
+      // 3. Reference source image and text cell (do not clone)
+      cells.push([img, textCell]);
+    });
+  }
+
+  // 4. Create and replace table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

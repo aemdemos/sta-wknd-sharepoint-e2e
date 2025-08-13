@@ -1,47 +1,45 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header row: block name as a single-cell row
+  // 1. Build the header row as a single cell array
   const headerRow = ['Carousel (carousel40)'];
 
-  // Find the image element for the left column
-  let imgEl = element.querySelector('.cmp-teaser__image img');
-  if (!imgEl) {
-    imgEl = element.querySelector('img');
+  // 2. Build the content row - 2 columns: [image, text content]
+  // Find image
+  let imageElem = null;
+  const teaserImageContainer = element.querySelector('.cmp-teaser__image');
+  if (teaserImageContainer) {
+    const img = teaserImageContainer.querySelector('img');
+    if (img) imageElem = img;
   }
 
-  // Gather right column content
-  const textContent = [];
-  const content = element.querySelector('.cmp-teaser__content');
-  if (content) {
-    // Pretitle
-    const pretitle = content.querySelector('.cmp-teaser__pretitle');
-    if (pretitle && pretitle.textContent.trim()) {
-      textContent.push(pretitle);
-    }
-    // Title
-    const title = content.querySelector('.cmp-teaser__title');
-    if (title && title.textContent.trim()) {
-      textContent.push(title);
-    }
-    // Description
-    const desc = content.querySelector('.cmp-teaser__description');
-    if (desc && desc.textContent.trim()) {
-      textContent.push(desc);
-    }
-    // CTA/link
-    const cta = content.querySelector('.cmp-teaser__action-link');
-    if (cta && cta.textContent.trim()) {
-      textContent.push(cta);
+  // Build text content block (include all relevant elements)
+  const textCellContent = [];
+  const contentDiv = element.querySelector('.cmp-teaser__content');
+  if (contentDiv) {
+    // pretitle
+    const pretitle = contentDiv.querySelector('.cmp-teaser__pretitle');
+    if (pretitle) textCellContent.push(pretitle);
+    // title
+    const title = contentDiv.querySelector('.cmp-teaser__title');
+    if (title) textCellContent.push(title);
+    // description
+    const desc = contentDiv.querySelector('.cmp-teaser__description');
+    if (desc) textCellContent.push(desc);
+    // cta
+    const cta = contentDiv.querySelector('.cmp-teaser__action-link');
+    if (cta) {
+      textCellContent.push(document.createElement('br'));
+      textCellContent.push(cta);
     }
   }
-
-  // Build table: first row is single-cell header, then content row(s) with 2 cells
+  // 3. Build the full cells array
+  //    First row: header (single cell)
+  //    Second row: [image, text]
   const cells = [
-    headerRow, // one cell in header row
-    [imgEl, textContent] // two cells in content row
+    headerRow,
+    [imageElem, textCellContent.length ? textCellContent : ''],
   ];
-
-  // Create and replace
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // 4. Create the table and replace
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }
