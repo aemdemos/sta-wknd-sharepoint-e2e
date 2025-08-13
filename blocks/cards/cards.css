@@ -36,139 +36,6 @@
 }
 
 
-.cards.cards14 {
-  background: #fff;
-  padding: 0;
-  margin: 0;
-}
-
-.cards.cards14 > ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: stretch;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  gap: 0;
-}
-
-@media (width <= 1050px) {
-  .cards.cards14 > ul {
-    flex-wrap: wrap;
-  }
-
-  .cards.cards14 > ul > li {
-    flex-basis: 50%;
-    max-width: 50%;
-  }
-}
-
-@media (width <= 700px) {
-  .cards.cards14 > ul > li {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-}
-
-.cards.cards14 > ul > li {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 0;
-  min-width: 240px;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  border: none;
-  box-shadow: none;
-  overflow: visible;
-}
-
-.cards.cards14 .cards-card-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  min-height: 140px;
-  height: auto;
-  display: block;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: #fff;
-}
-
-.cards.cards14 .cards-card-image img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-  padding: 0;
-  vertical-align: top;
-  border: none;
-  background: #fff;
-}
-
-.cards.cards14 .cards-card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.08em;
-  align-items: flex-start;
-  padding: 0.25em 0 0;
-  margin: 0;
-  background: #fff;
-}
-
-.cards.cards14 .cards-card-body h3 {
-  font-family: "Source Sans Pro", "Source Sans Pro Fallback", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #232323;
-  margin: 0.5em 0 0.25em;
-  letter-spacing: 0.06em;
-  line-height: 1.2;
-  padding: 0;
-}
-
-.cards.cards14 .cards-card-body h3 a {
-  color: #232323;
-  font: inherit;
-  text-decoration: none;
-  padding: 0;
-  margin: 0;
-}
-
-.cards.cards14 .cards-card-body p {
-  color: #888;
-  font-size: 12px;
-  font-family: "Source Sans Pro", "Source Sans Pro Fallback", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0;
-  font-weight: normal;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  line-height: 1.22;
-  text-align: left;
-  max-width: 100%;
-  padding: 0;
-}
-
-.cards.cards14 ul,
-.cards.cards14 ul > li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.cards.cards14 .cards-card-image picture,
-.cards.cards14 .cards-card-image img {
-  margin: 0;
-  padding: 0;
-}
-
-
 .cards.cards21 {
   background: #fff;
   padding: 0;
@@ -657,11 +524,10 @@
   box-sizing: border-box;
 }
 
-/* Use CSS Grid for multi-row, multi-column layout with equal row heights */
 .cards.cards4 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px 24px; /* Increase vertical gap for visual separation, horizontal gap stays tight */
+  gap: 32px 24px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -669,7 +535,6 @@
   align-items: stretch;
 }
 
-/* Each card should fill row height and stack content vertically */
 .cards.cards4 > ul > li {
   display: flex;
   flex-direction: column;
@@ -682,16 +547,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  height: 100%; /* makes sure card fills the grid cell */
+  height: 100%;
   align-self: stretch;
 }
 
-/* Add yellow accent to the first card */
 .cards.cards4 > ul > li:first-child {
   border-top: 4px solid #ffe000;
 }
 
-/* Card image styling */
 .cards.cards4 .cards-card-image {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -703,7 +566,6 @@
   flex-shrink: 0;
 }
 
-/* Responsive image sizing */
 .cards.cards4 .cards-card-image img {
   width: 100%;
   height: auto;
@@ -715,7 +577,6 @@
   padding: 0;
 }
 
-/* Card body: fill available space vertically, content top-aligned */
 .cards.cards4 .cards-card-body {
   flex: 1 1 auto;
   width: 100%;
@@ -730,7 +591,6 @@
   font-family: var(--body-font-family);
 }
 
-/* Typography */
 .cards.cards4 .cards-card-body p {
   margin: 0 0 8px;
   padding: 0;
@@ -755,7 +615,6 @@
   text-align: left;
 }
 
-/* Responsive: 2 columns tablet, 1 column mobile, content-driven height */
 @media (width <= 1000px) {
   .cards.cards4 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -776,4 +635,113 @@
   .cards.cards4 .cards-card-body {
     padding: 14px 10px 10px;
   }
+}
+
+
+.cards.cards14 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards14 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 1050px) {
+  .cards.cards14 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards14 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards.cards14 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-width: 0;
+  box-shadow: none;
+  align-items: stretch;
+}
+
+.cards.cards14 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+.cards.cards14 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  border: none;
+  background: #fff;
+}
+
+.cards.cards14 .cards-card-body {
+  padding: 7px 8px 0;
+  margin: 0;
+  background: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Card text block */
+.cards.cards14 .cards-card-body p {
+  font-size: 14px;
+  color: #757575;
+  font-weight: normal;
+  margin: 0;
+  line-height: 1.42;
+  padding: 0;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  white-space: normal;
+}
+
+/* Title styling */
+.cards.cards14 .cards-card-body p > strong {
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  display: inline;
+  line-height: 1.12;
+  margin-bottom: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Remove bullets/padding for UL/LI */
+.cards.cards14 ul,
+.cards.cards14 ul > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
