@@ -1,47 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the grid container in the block
+  // Find the main grid container
   const grid = element.querySelector('.aem-Grid');
   if (!grid) return;
+  // Get all immediate children that may represent columns
+  const children = Array.from(grid.children);
 
-  // Get each of the three main columns by their role classes
-  const columns = [
-    Array.from(grid.children).find(el => el.classList.contains('image')),
-    Array.from(grid.children).find(el => el.classList.contains('navigation')),
-    Array.from(grid.children).find(el => el.classList.contains('search')),
+  // Identify logo image, navigation, and search blocks
+  let logoContent = null;
+  let navigationContent = null;
+  let searchContent = null;
+
+  children.forEach(child => {
+    if (child.classList.contains('image')) {
+      // Get the inner div containing the image/link, fallback to the child itself
+      const inner = child.querySelector(':scope > div');
+      logoContent = inner || child;
+    } else if (child.classList.contains('navigation')) {
+      // Get the nav element
+      const nav = child.querySelector(':scope > nav');
+      navigationContent = nav || child;
+    } else if (child.classList.contains('search')) {
+      // Get the section element
+      const section = child.querySelector(':scope > section');
+      searchContent = section || child;
+    }
+  });
+
+  // Compose columns row
+  // Keep the order: logo | navigation | search as per visual screenshot
+  const columnsRow = [logoContent, navigationContent, searchContent].filter(Boolean);
+
+  // If no columns, don't create a table
+  if (columnsRow.length === 0) return;
+
+  // The header row must be exactly one cell: ['Columns (columns2)']
+  const cells = [
+    ['Columns (columns2)'], // single cell header row
+    columnsRow              // N cell row (one per column)
   ];
-
-  // For each column, reference the meaningful child element
-  function extractColumnContent(col) {
-    if (!col) return '';
-    // Logo image: get the .cmp-image container
-    if (col.classList.contains('image')) {
-      const imgBlock = col.querySelector('.cmp-image');
-      return imgBlock || '';
-    }
-    // Navigation: get the nav block
-    if (col.classList.contains('navigation')) {
-      const navElem = col.querySelector('nav');
-      return navElem || '';
-    }
-    // Search: get the .cmp-search section
-    if (col.classList.contains('search')) {
-      const searchSection = col.querySelector('section.cmp-search');
-      return searchSection || '';
-    }
-    return '';
-  }
-
-  const contentRow = columns.map(extractColumnContent);
-
-  // Always ensure 3 columns, fill missing with ''
-  while (contentRow.length < 3) contentRow.push('');
-
-  // Block table header - CORRECTED: only one column in header
-  const headerRow = ['Columns (columns2)'];
-  const cells = [headerRow, contentRow];
-
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

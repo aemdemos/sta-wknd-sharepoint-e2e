@@ -1,37 +1,35 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the .cmp-tabs element within the provided element
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Find the .cmp-tabs block
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Extract the tab labels
-  const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  const tabLabels = [];
-  if (tabList) {
-    tabList.querySelectorAll(':scope > li').forEach(li => {
-      tabLabels.push(li.textContent.trim());
-    });
-  }
+  // Get all tab labels in correct order
+  const tabLabels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
 
-  // Extract the tab contents (tab panels)
-  const tabPanels = tabs.querySelectorAll('.cmp-tabs__tabpanel');
+  // For each tab label, get the corresponding tab panel by aria-controls
+  const rows = tabLabels.map((tabLabel) => {
+    const labelText = tabLabel.textContent.trim();
+    const panelId = tabLabel.getAttribute('aria-controls');
+    const tabPanel = panelId ? tabsBlock.querySelector(`#${panelId}`) : null;
+    let tabContent = null;
 
-  // Build the table rows
-  const cells = [];
-  // Header row: only one column
-  cells.push(['Tabs (tabs8)']);
-  // Each tab row: [tab label, tab content]
-  tabLabels.forEach((label, idx) => {
-    const panel = tabPanels[idx];
-    if (!panel) return;
-    // Use article inside the tabpanel if available, else panel itself
-    let contentEl = panel.querySelector('article') || panel;
-    cells.push([label, contentEl]);
+    // Try to get the main content fragment/article inside the tab panel
+    if (tabPanel) {
+      tabContent = tabPanel.querySelector('article.cmp-contentfragment') || tabPanel;
+    } else {
+      // Defensive fallback if not found
+      tabContent = document.createTextNode('');
+    }
+
+    return [labelText, tabContent];
   });
 
-  // Create the block table
-  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Compose the table: header row, then tab rows
+  const headerRow = ['Tabs (tabs8)'];
+  const tableArray = [headerRow, ...rows];
 
-  // Replace the tabs element with the table
-  tabs.replaceWith(table);
+  // Create the block table and replace
+  const table = WebImporter.DOMUtils.createTable(tableArray, document);
+  element.replaceWith(table);
 }

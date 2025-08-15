@@ -1,55 +1,31 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Find the hero block (teaser cmp-teaser--hero)
-  let heroTeaser = element.querySelector('.teaser.cmp-teaser--hero');
-  if (!heroTeaser) {
-    // Fallback: look for .cmp-teaser inside any container
-    const containers = element.querySelectorAll('.cmp-container');
-    for (const container of containers) {
-      const teaser = container.querySelector('.teaser.cmp-teaser--hero');
-      if (teaser) {
-        heroTeaser = teaser;
-        break;
-      }
-    }
-  }
-  if (!heroTeaser) return;
+  // Find the .cmp-teaser block within the element
+  const teaser = element.querySelector('.cmp-teaser');
 
-  // 2. Get the background image as a reference to the image block/div
-  let imageBlock = heroTeaser.querySelector('.cmp-teaser__image .cmp-image');
-  // If no .cmp-image div, fallback to first image inside .cmp-teaser__image
-  if (!imageBlock) {
-    const imageDiv = heroTeaser.querySelector('.cmp-teaser__image');
-    if (imageDiv) {
-      imageBlock = imageDiv.querySelector('img');
+  let imgEl = null;
+  let titleEl = null;
+
+  if (teaser) {
+    // Get image (if present)
+    const imgContainer = teaser.querySelector('.cmp-teaser__image');
+    if (imgContainer) {
+      imgEl = imgContainer.querySelector('img');
+    }
+    // Get heading/title (if present)
+    const contentContainer = teaser.querySelector('.cmp-teaser__content');
+    if (contentContainer) {
+      // Include the full heading node (not just innerText)
+      titleEl = contentContainer.querySelector('h1, h2, h3, h4, h5, h6');
     }
   }
 
-  // 3. Get the headline/title text, prefer heading elements
-  let contentBlock = heroTeaser.querySelector('.cmp-teaser__content');
-  let headline = null;
-  if (contentBlock) {
-    headline = contentBlock.querySelector('h1, h2, h3, h4, h5, h6');
-  }
-
-  // 4. Build table rows
-  // Header row (must match example exactly)
+  // Compose the table rows according to the example: header, image, content
   const headerRow = ['Hero (hero11)'];
-  // Second row: image (background)
-  const imageRow = imageBlock ? [imageBlock] : [''];
-  // Third row: headline
-  const headlineRow = headline ? [headline] : [''];
+  const imageRow = [imgEl ? imgEl : ''];
+  const contentRow = [titleEl ? titleEl : ''];
 
-  // 5. Compose only rows for which content exists (except header, always present)
-  const rows = [headerRow];
-  // Always add imageRow (background image is always present in example)
-  rows.push(imageRow);
-  // Only add headline if present (optional)
-  if (headlineRow[0] !== '') {
-    rows.push(headlineRow);
-  }
-
-  // 6. Create and replace table
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+  const cells = [headerRow, imageRow, contentRow];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

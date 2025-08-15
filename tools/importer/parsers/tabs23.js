@@ -1,83 +1,52 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block
-  let cmpTabs = element.querySelector('.cmp-tabs');
-  if (!cmpTabs) {
-    // fallback: if top-level is cmp-tabs itself
-    if (element.classList.contains('cmp-tabs')) {
-      cmpTabs = element;
-    } else {
-      // fallback: if inside a .tabs.panelcontainer
-      const panelTabs = element.querySelector('.tabs.panelcontainer');
-      if (panelTabs) {
-        cmpTabs = panelTabs.querySelector('.cmp-tabs');
-      }
-    }
-  }
-  if (!cmpTabs) return;
+  // 1. Find the tabs block (with .cmp-tabs class)
+  const tabs = element.querySelector('.cmp-tabs');
+  if (!tabs) return;
 
-  // Get tab labels
-  const tablist = cmpTabs.querySelector('.cmp-tabs__tablist');
-  const tabLabels = tablist ? Array.from(tablist.children) : [];
-  // Defensive: skip if no tabs found
-  if (tabLabels.length === 0) return;
+  // 2. Find the tab labels (li[role=tab])
+  const tabLabels = Array.from(tabs.querySelectorAll('.cmp-tabs__tablist [role="tab"]'));
 
-  // Get tab panels
-  const tabPanels = Array.from(cmpTabs.querySelectorAll('.cmp-tabs__tabpanel'));
-  // Defensive: skip if no panels found
-  if (tabPanels.length === 0) return;
+  // 3. Find the tab panels (div[role=tabpanel])
+  const tabPanels = Array.from(tabs.querySelectorAll('[role="tabpanel"]'));
 
-  // Header row as per block name
+  // Guard: if number of panels and labels doesn't match, abort (sanity check)
+  if (tabLabels.length !== tabPanels.length || tabLabels.length === 0) return;
+
+  // 4. Build the table structure
+  // Header row - block name, as specified
   const headerRow = ['Tabs (tabs23)'];
 
-  // Tab label row: each cell is a <strong>TabName</strong>
-  const tabLabelRow = tabLabels.map(tab => {
+  // Tab labels row - use existing text, in <strong> for visual/semantic highlight
+  const tabNamesRow = tabLabels.map(tab => {
+    // Use a <strong> element for the tab label, as visually in the example
     const strong = document.createElement('strong');
     strong.textContent = tab.textContent.trim();
     return strong;
   });
 
-  // Tab content row: each cell is the main content of each tabpanel
+  // Tab content row - reference the content for each tab
   const tabContentRow = tabPanels.map(panel => {
-    // Find a contentfragment/article or use all content inside the panel
-    let content = null;
-    // Get all direct children except empty divs or ones with only whitespace
-    let children = Array.from(panel.children).filter(child => {
-      // Remove empty grid divs
-      if (
-        child.classList.contains('aem-Grid') ||
-        child.classList.contains('aem-Grid--12') ||
-        child.classList.contains('aem-Grid--default--12')
-      ) {
-        return false;
-      }
-      // Remove empty divs (no text, no element children)
-      if (child.tagName === 'DIV' && child.textContent.trim() === '' && child.children.length === 0) {
-        return false;
-      }
-      return true;
-    });
-    // If only one (likely .contentfragment or article), just use it
-    if (children.length === 1) {
-      content = children[0];
-    } else if (children.length > 1) {
-      // If multiple, combine all
-      const container = document.createElement('div');
-      children.forEach(el => container.appendChild(el));
-      content = container;
-    } else {
-      // fallback: nothing meaningful inside
-      content = document.createElement('div');
+    // Use the most semantically meaningful content inside the tabpanel.
+    // Prefer the .contentfragment > article, else all children
+    const contentFragment = panel.querySelector('.contentfragment');
+    if (contentFragment) {
+      const article = contentFragment.querySelector('article');
+      if (article) return article;
+      return contentFragment;
     }
-    return content;
+    // If neither found, return all childNodes as an array (to preserve structure)
+    return Array.from(panel.childNodes).filter(n => n.nodeType === 1 || (n.nodeType === 3 && n.textContent.trim()));
   });
 
-  // Structure: header, tab label row, tab content row
-  const cells = [headerRow, tabLabelRow, tabContentRow];
+  // 5. Compose table rows: first is header, second is tab names, third is tab content
+  const cells = [
+    headerRow,
+    tabNamesRow,
+    tabContentRow
+  ];
 
-  // Create block table
   const block = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace the tabs block with the new block
-  cmpTabs.replaceWith(block);
+  // Replace the entire tabs block with the table
+  tabs.replaceWith(block);
 }

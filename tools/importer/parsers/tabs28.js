@@ -1,52 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block in the element (cmp-tabs)
-  const tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
+  // Find the tabs container
+  const tabsContainer = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsContainer) return;
 
-  // Get all tab label elements and their text
-  const tabLabelElements = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
-  const tabLabels = tabLabelElements.map(li => li.textContent.trim());
+  // Get the tab labels (li elements)
+  const tabList = tabsContainer.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabLabels = Array.from(tabList.querySelectorAll('li'));
 
-  // Get all tab panels, order should correspond to tabLabels
-  const tabPanelElements = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
+  // For each tab, get the content panel
+  // Only direct children to avoid picking up nested tabs (defensive)
+  const tabPanels = Array.from(tabsContainer.children)
+    .filter(child => child.classList.contains('cmp-tabs__tabpanel'));
 
-  // Compose the header row exactly as required
+  // Defensive check: only keep as many panels as tabLabels
+  const nTabs = Math.min(tabLabels.length, tabPanels.length);
+
+  // Collect rows for block table
   const headerRow = ['Tabs (tabs28)'];
+  const cells = [headerRow];
 
-  // Each tab gets its own row: [Tab Label, Tab Content]
-  const rows = [headerRow];
-  for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i];
-    // Get tab content (should handle nested content blocks)
-    const panel = tabPanelElements[i];
-    let tabContent = null;
-    if (panel) {
-      // Use all immediate children except for empty grids
-      // Prefer the main contentfragment/article block if present
-      let contentFragment = panel.querySelector('article') || panel.querySelector('.contentfragment');
-      if (contentFragment) {
-        tabContent = contentFragment;
-      } else {
-        // Fallback: Use all children
-        tabContent = document.createElement('div');
-        Array.from(panel.childNodes).forEach((node) => {
-          // Skip empty text nodes or empty grid divs
-          if (node.nodeType === 3 && !node.textContent.trim()) return;
-          if (node.nodeType === 1 && node.classList.contains('aem-Grid')) return;
-          tabContent.appendChild(node);
-        });
-      }
-    } else {
-      // Fallback: create empty div for missing panel
-      tabContent = document.createElement('div');
-    }
-    rows.push([label, tabContent]);
+  for (let i = 0; i < nTabs; i++) {
+    // Tab label text
+    const label = tabLabels[i] && tabLabels[i].textContent.trim() ? tabLabels[i].textContent.trim() : '';
+    // Tab panel content (the panel div)
+    const panel = tabPanels[i];
+
+    // Collect the main tab content. Use article if present, else panel itself.
+    let tabContent = panel.querySelector('article') || panel;
+
+    // If tabContent is empty, fallback to empty string
+    let contentCell = tabContent && tabContent.hasChildNodes() ? tabContent : '';
+
+    // Put label and tabContent into the row
+    cells.push([label, contentCell]);
   }
 
-  // Create the table block
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-
-  // Replace the tabs block element with the table
-  tabsBlock.replaceWith(table);
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace original element
+  element.replaceWith(block);
 }

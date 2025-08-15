@@ -1,50 +1,41 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Build the Carousel (carousel27) block table as per the provided HTML and example
-
-  // 1. Table header row
+  // 1. Header row: block/component name EXACTLY as in example
   const headerRow = ['Carousel (carousel27)'];
 
-  // 2. Find the image for the slide (first cell)
-  let imageCell = null;
-  const teaserImageDiv = element.querySelector('.cmp-teaser__image');
-  if (teaserImageDiv) {
-    // Look for the first <img> tag inside
-    const img = teaserImageDiv.querySelector('img');
-    if (img) {
-      imageCell = img;
-    } else {
-      // If not found, just use the image wrapper div
-      imageCell = teaserImageDiv;
-    }
+  // 2. Extract: slide image (first column), and content (second column)
+  let imageEl = null;
+  // Find first image in .cmp-teaser__image
+  const teaserImage = element.querySelector('.cmp-teaser__image img');
+  if (teaserImage) {
+    imageEl = teaserImage;
   }
 
-  // 3. Compose the text cell (second cell): title, description, CTA
-  const cellContent = [];
-  const contentDiv = element.querySelector('.cmp-teaser__content');
-  if (contentDiv) {
-    // Title (keep as heading as in source)
-    const title = contentDiv.querySelector('.cmp-teaser__title, h2, h3, h4, h5, h6');
-    if (title) cellContent.push(title);
+  // Extract content for 2nd column: title (heading), description, CTA (link)
+  const contentArr = [];
+  const contentRoot = element.querySelector('.cmp-teaser__content');
+  if (contentRoot) {
+    // Heading (preserve heading level)
+    const titleEl = contentRoot.querySelector('.cmp-teaser__title');
+    if (titleEl) contentArr.push(titleEl);
     // Description
-    const desc = contentDiv.querySelector('.cmp-teaser__description');
-    if (desc) cellContent.push(desc);
-    // CTA
-    const ctaContainer = contentDiv.querySelector('.cmp-teaser__action-container');
-    if (ctaContainer) {
-      // There might be multiple links, but use all
-      const ctas = Array.from(ctaContainer.querySelectorAll('a'));
-      cellContent.push(...ctas);
-    }
+    const descEl = contentRoot.querySelector('.cmp-teaser__description');
+    if (descEl) contentArr.push(descEl);
+    // CTA link (bottom of cell)
+    const ctaEl = contentRoot.querySelector('.cmp-teaser__action-link');
+    if (ctaEl) contentArr.push(ctaEl);
   }
 
-  // Edge case: If all text cell content is missing, ensure an empty array (still a column)
-  const slideRow = [imageCell, cellContent];
+  // Build rows (header, then slide row)
+  const rows = [headerRow];
+  if (imageEl) {
+    rows.push([
+      imageEl,
+      contentArr.length ? contentArr : ''
+    ]);
+  }
 
-  // 4. Build the table for the block
-  const table = [headerRow, slideRow];
-  const block = WebImporter.DOMUtils.createTable(table, document);
-
-  // 5. Replace the original element
-  element.replaceWith(block);
+  // Create table and replace original element
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(table);
 }

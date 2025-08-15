@@ -1,45 +1,49 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Build the header row as a single cell array
+  // Table header matches example
   const headerRow = ['Carousel (carousel40)'];
 
-  // 2. Build the content row - 2 columns: [image, text content]
-  // Find image
-  let imageElem = null;
-  const teaserImageContainer = element.querySelector('.cmp-teaser__image');
-  if (teaserImageContainer) {
-    const img = teaserImageContainer.querySelector('img');
-    if (img) imageElem = img;
+  // Extract image (first column)
+  const imageWrapper = element.querySelector('.cmp-teaser__image');
+  let imageEl = null;
+  if (imageWrapper) {
+    imageEl = imageWrapper.querySelector('img'); // Reference the existing <img>
   }
 
-  // Build text content block (include all relevant elements)
-  const textCellContent = [];
+  // Extract text content (second column)
   const contentDiv = element.querySelector('.cmp-teaser__content');
+  const textCellContent = [];
   if (contentDiv) {
-    // pretitle
+    // Featured label (pretitle)
     const pretitle = contentDiv.querySelector('.cmp-teaser__pretitle');
-    if (pretitle) textCellContent.push(pretitle);
-    // title
+    if (pretitle && pretitle.textContent.trim()) {
+      textCellContent.push(pretitle); // Keep as <p>
+    }
+
+    // Title, keep heading level
     const title = contentDiv.querySelector('.cmp-teaser__title');
-    if (title) textCellContent.push(title);
-    // description
+    if (title && title.textContent.trim()) {
+      textCellContent.push(title); // already <h2>
+    }
+
+    // Description, keep <div>
     const desc = contentDiv.querySelector('.cmp-teaser__description');
-    if (desc) textCellContent.push(desc);
-    // cta
+    if (desc && desc.textContent.trim()) {
+      textCellContent.push(desc);
+    }
+
+    // CTA if present
     const cta = contentDiv.querySelector('.cmp-teaser__action-link');
-    if (cta) {
-      textCellContent.push(document.createElement('br'));
+    if (cta && cta.textContent.trim()) {
       textCellContent.push(cta);
     }
   }
-  // 3. Build the full cells array
-  //    First row: header (single cell)
-  //    Second row: [image, text]
-  const cells = [
-    headerRow,
-    [imageElem, textCellContent.length ? textCellContent : ''],
-  ];
-  // 4. Create the table and replace
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+
+  // If the text cell has at least one element, pass the array, else pass empty string
+  const row = [imageEl || '', textCellContent.length ? textCellContent : ''];
+  const cells = [headerRow, row];
+
+  // Create the table block
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

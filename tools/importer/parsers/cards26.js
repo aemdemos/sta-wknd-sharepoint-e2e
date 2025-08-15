@@ -1,60 +1,48 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Cards (cards26) block header
-  const headerRow = ['Cards (cards26)'];
-  const rows = [];
+  // Create a table where the first row is a single header cell
+  const cells = [];
+  cells.push(['Cards (cards26)']); // Header row, 1 column
 
-  // Get all LI items (cards)
-  const ul = element.querySelector('ul.cmp-image-list');
-  if (!ul) return;
-  const lis = ul.querySelectorAll(':scope > li.cmp-image-list__item');
-
-  lis.forEach((li) => {
-    // Extract image (reference existing <img> element)
-    let img = null;
-    const imgDiv = li.querySelector('.cmp-image-list__item-image .cmp-image');
-    if (imgDiv) {
-      img = imgDiv.querySelector('img');
-    }
-
-    // Extract title (reference existing <span> element, wrap in strong and preserve link)
-    let title = null;
-    const titleLink = li.querySelector('.cmp-image-list__item-title-link');
-    if (titleLink) {
-      const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
-      if (titleSpan) {
-        const strong = document.createElement('strong');
-        strong.textContent = titleSpan.textContent;
-        // preserve link
-        const link = document.createElement('a');
-        link.href = titleLink.getAttribute('href');
-        link.appendChild(strong);
-        title = link;
+  // Find all card items
+  const list = element.querySelector('ul.cmp-image-list');
+  if (list) {
+    const items = list.querySelectorAll('li.cmp-image-list__item');
+    items.forEach((item) => {
+      // Image cell (first column)
+      let imageCell = null;
+      const imageLink = item.querySelector('.cmp-image-list__item-image-link');
+      if (imageLink) {
+        const img = imageLink.querySelector('img');
+        if (img) {
+          imageCell = img;
+        } else {
+          imageCell = imageLink;
+        }
       }
-    }
+      // Text cell (second column)
+      const textCell = document.createElement('div');
+      const titleLink = item.querySelector('.cmp-image-list__item-title-link');
+      if (titleLink) {
+        const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
+        if (titleSpan) {
+          const strong = document.createElement('strong');
+          strong.textContent = titleSpan.textContent.trim();
+          textCell.appendChild(strong);
+        }
+      }
+      const desc = item.querySelector('.cmp-image-list__item-description');
+      if (desc) {
+        const p = document.createElement('p');
+        p.textContent = desc.textContent.trim();
+        textCell.appendChild(p);
+      }
+      // Add card row (2 columns)
+      cells.push([imageCell, textCell]);
+    });
+  }
 
-    // Extract description (reference existing <span> and preserve all text)
-    let description = null;
-    const descSpan = li.querySelector('.cmp-image-list__item-description');
-    if (descSpan) {
-      // Using a div to keep it visually below the title, as in markdown
-      description = document.createElement('div');
-      description.textContent = descSpan.textContent;
-    }
-
-    // Combine title and description into one cell
-    const contentCell = [];
-    if (title) contentCell.push(title);
-    if (description) contentCell.push(description);
-
-    rows.push([
-      img,
-      contentCell
-    ]);
-  });
-
-  // Final table
-  const cells = [headerRow, ...rows];
+  // Create the table — 1 column for header, 2 columns for subsequent rows
   const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }
