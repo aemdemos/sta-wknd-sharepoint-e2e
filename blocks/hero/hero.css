@@ -53,141 +53,6 @@
 }
 
 
-.hero.hero11 {
-  position: relative;
-  width: 100vw;
-  margin: 0 auto;
-  padding: 0;
-  overflow: visible;
-  display: block;
-  background: none;
-}
-
-.hero.hero11 > div:first-child {
-  position: relative;
-  width: 100vw;
-  height: 280px;
-  overflow: hidden;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.hero.hero11 > div:first-child picture,
-.hero.hero11 > div:first-child img {
-  width: 100vw;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.hero.hero11 > div:nth-child(2) {
-  position: absolute;
-  left: 50%;
-  top: 232px;
-  transform: translateX(-50%);
-  width: 92vw;
-  max-width: 1150px;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  box-sizing: border-box;
-  pointer-events: none;
-}
-
-.hero.hero11 > div:nth-child(2) > div {
-  background: #fff;
-  padding: 24px 32px 32px;
-  width: 100%;
-  box-shadow: none;
-  border-radius: 0;
-  box-sizing: border-box;
-  pointer-events: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hero.hero11 h2 {
-  margin: 0;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: #222;
-  line-height: 1.25;
-  text-align: left;
-}
-
-.hero.hero11::after {
-  display: block;
-  width: 100vw;
-  max-width: 100vw;
-  height: 1px;
-  background: #e5e5e5;
-  margin: 4px auto 0;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@media (width <= 1000px) {
-  .hero.hero11 > div:first-child {
-    height: 180px;
-  }
-
-  .hero.hero11 > div:nth-child(2) {
-    top: 148px;
-    width: 97vw;
-    max-width: 98vw;
-  }
-
-  .hero.hero11 > div:nth-child(2) > div {
-    padding: 14px 8px 18px;
-  }
-
-  .hero.hero11 h2 {
-    font-size: 16px;
-  }
-
-  .hero.hero11::after {
-    width: 98vw;
-    max-width: 98vw;
-    margin-top: 2px;
-  }
-}
-
-@media (width <= 600px) {
-  .hero.hero11 > div:first-child {
-    height: 96px;
-  }
-
-  .hero.hero11 > div:nth-child(2) {
-    top: 62px;
-    width: 99vw;
-    max-width: 99vw;
-  }
-
-  .hero.hero11 > div:nth-child(2) > div {
-    padding: 8px 2vw 10px;
-  }
-
-  .hero.hero11 h2 {
-    font-size: 14px;
-  }
-
-  .hero.hero11::after {
-    width: 99vw;
-    max-width: 99vw;
-    margin-top: 2px;
-  }
-}
-
-
 .hero.hero39 {
   position: relative;
   width: 100vw;
@@ -199,7 +64,6 @@
   display: block;
 }
 
-/* Full-width background image */
 .hero.hero39 > div:first-child {
   position: absolute;
   inset: 0;
@@ -220,7 +84,6 @@
   display: block;
 }
 
-/* Overlay box: visually matches original placement, width, and spacing */
 .hero.hero39 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -241,14 +104,12 @@
   justify-content: center;
 }
 
-/* Remove unwanted margin/padding in inner wrapper */
 .hero.hero39 > div:nth-child(2) > div {
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* Heading and paragraph refinement */
 .hero.hero39 > div:nth-child(2) h2,
 .hero.hero39 > div:nth-child(2) h1 {
   color: #222;
@@ -270,7 +131,6 @@
   text-align: left;
 }
 
-/* Responsive tweaks: keep overlay anchored near bottom, adjust width and padding */
 @media (width <= 900px) {
   .hero.hero39 {
     min-height: 180px;
@@ -304,5 +164,135 @@
 
   .hero.hero39 > div:nth-child(2) p {
     font-size: 0.95rem;
+  }
+}
+
+
+.hero.hero11 {
+  position: relative;
+  width: 100vw;
+  margin: 0 auto;
+  padding: 0;
+  overflow: visible;
+  background: none;
+}
+
+.hero.hero11 > div:first-child {
+  width: 100vw;
+  height: 350px;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hero.hero11 > div:first-child picture,
+.hero.hero11 > div:first-child img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero11 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  top: 205px; /* Raise the card to float higher and show more image below */
+  transform: translateX(-50%);
+  width: 66vw; /* Make the card slightly narrower for more side margin */
+  max-width: 700px;
+  min-width: 180px;
+  z-index: 2;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Card body with generous but balanced padding */
+.hero.hero11 > div:nth-child(2) > div {
+  background: #fff;
+  padding: 32px 36px;
+  width: 100%;
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 3%);
+}
+
+.hero.hero11 h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.4;
+  text-align: left;
+  width: 100%;
+}
+
+/* Divider below card, tighter spacing */
+.hero.hero11 > div:nth-child(2)::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #ededed;
+  margin: 16px 0 0;
+  box-sizing: border-box;
+}
+
+@media (width <= 1000px) {
+  .hero.hero11 > div:first-child {
+    height: 180px;
+  }
+
+  .hero.hero11 > div:nth-child(2) {
+    top: 86px;
+    width: 90vw;
+    max-width: 98vw;
+    min-width: 100px;
+  }
+
+  .hero.hero11 > div:nth-child(2) > div {
+    padding: 16px 6vw;
+  }
+
+  .hero.hero11 h2 {
+    font-size: 16px;
+  }
+
+  .hero.hero11 > div:nth-child(2)::after {
+    margin: 10px 0 0;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero11 > div:first-child {
+    height: 90px;
+  }
+
+  .hero.hero11 > div:nth-child(2) {
+    top: 38px;
+    width: 98vw;
+    max-width: 99vw;
+    min-width: 0;
+  }
+
+  .hero.hero11 > div:nth-child(2) > div {
+    padding: 8px 2vw;
+  }
+
+  .hero.hero11 h2 {
+    font-size: 13px;
+  }
+
+  .hero.hero11 > div:nth-child(2)::after {
+    margin: 7px 0 0;
   }
 }
