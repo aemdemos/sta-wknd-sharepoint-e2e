@@ -1,46 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs container
-  const tabs = element.querySelector('.tabs .cmp-tabs');
-  if (!tabs) return;
+  // Find the .tabs.cmp-tabs wrapper inside the given element
+  const tabsWrapper = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsWrapper) return;
 
   // Find tab labels
-  const tabLabels = [];
-  const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  if (tabList) {
-    tabList.querySelectorAll('li[role="tab"]').forEach(li => {
-      tabLabels.push(li.textContent.trim());
-    });
-  }
+  const tabList = tabsWrapper.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabLabels = Array.from(tabList.querySelectorAll('li'));
 
-  // Find corresponding tab panels (contents)
-  // Only include panels that have a corresponding label
-  const tabPanels = [];
-  // Get an array of all tabpanel elements in DOM order
-  const panelsNodeList = tabs.querySelectorAll('div[role="tabpanel"]');
-  // For each panel, capture direct child relevant content
-  panelsNodeList.forEach(panel => {
-    // Prefer .contentfragment child if present, else fallback to panel itself
-    const cf = panel.querySelector('.contentfragment');
-    if (cf) {
-      tabPanels.push(cf);
-    } else {
-      tabPanels.push(panel);
-    }
-  });
+  // Get the tab panels (order should match tabs)
+  const tabPanels = Array.from(tabsWrapper.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Prepare table rows: header, then [tab label, tab content] for each tab
-  // Table header must exactly match the specification
-  const rows = [];
-  rows.push(["Tabs (tabs31)"]); // header row
+  // Set up the cells array for the block table
+  // Header matches the spec exactly
+  const cells = [['Tabs (tabs31)']];
+
+  // For each tab, add a row with the label and content
   for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i];
-    // Defensive: ensure only as many panels as labels
-    const content = tabPanels[i] || document.createElement('div');
-    rows.push([label, content]);
+    const label = tabLabels[i]?.textContent?.trim() || '';
+    let panelContent = null;
+    if (tabPanels[i]) {
+      // Try to get the contentfragment article (which contains all for this tab)
+      const contentFragment = tabPanels[i].querySelector('article');
+      if (contentFragment) {
+        // Reference the existing element in the DOM
+        panelContent = contentFragment;
+      } else {
+        // If missing, fall back to placing the panel itself
+        panelContent = tabPanels[i];
+      }
+    } else {
+      panelContent = '';
+    }
+    cells.push([label, panelContent]);
   }
 
-  // Create block table
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Replace the original element with the new block
+  element.replaceWith(block);
 }

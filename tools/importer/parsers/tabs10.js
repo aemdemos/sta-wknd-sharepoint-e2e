@@ -1,36 +1,46 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs container
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Find the tabs block element (.cmp-tabs)
+  const cmpTabs = element.querySelector('.cmp-tabs');
+  if (!cmpTabs) return;
 
-  // Get tab labels in order
-  const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  const tabLabels = tabList ? Array.from(tabList.querySelectorAll('li')).map(tab => tab.textContent.trim()) : [];
+  // Get tab labels from the tablist
+  const tabList = cmpTabs.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabLabels = Array.from(tabList.querySelectorAll('li[role="tab"]')).map(tab => tab.textContent.trim());
 
-  // Get tab contents in order
-  const tabPanels = Array.from(tabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
-  const tabContents = tabPanels.map(panel => {
-    // Robustly extract the intended content for each tab
-    // Prefer the .contentfragment/article inside each tabpanel, else use the tabpanel itself
-    const frag = panel.querySelector('.contentfragment, article.cmp-contentfragment');
-    if (frag) return frag;
-    return panel;
-  });
+  // Get all tabpanels in order
+  const tabPanels = Array.from(cmpTabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Header row matches example precisely
+  // Compose header row as per requirement
   const headerRow = ['Tabs (tabs10)'];
 
-  // Structure: header row, tab labels row, tab content row (each cell matches tab order)
-  const cells = [
-    headerRow,
-    tabLabels,
-    tabContents
-  ];
+  // Compose rows for each tab: [Tab Label, Tab Content]
+  const rows = [];
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i];
+    const panel = tabPanels[i];
+    let tabContent = '';
+    if (panel) {
+      // Try to find the main content fragment/article inside tab panel
+      // Use the actual contentfragment/article inside as the reference for the cell
+      const contentFragment = panel.querySelector('.cmp-contentfragment');
+      if (contentFragment) {
+        tabContent = contentFragment;
+      } else {
+        // Else, reference all child elements of the panel
+        // (filter only element nodes)
+        const children = Array.from(panel.childNodes).filter(n => n.nodeType === 1);
+        tabContent = children.length > 1 ? children : (children[0] || '');
+      }
+    }
+    rows.push([label, tabContent]);
+  }
 
-  // Create table using helper
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace original tabs with block table
-  tabs.parentNode.replaceChild(block, tabs);
+  // Build the cells for the block table
+  const cells = [headerRow, ...rows];
+  // Create the block table
+  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace the cmp-tabs element with the new block table
+  cmpTabs.replaceWith(blockTable);
 }

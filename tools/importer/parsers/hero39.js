@@ -1,46 +1,54 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Header row: block/component name exactly as in example
+  // 1. Header row: Block name as required
   const headerRow = ['Hero (hero39)'];
 
-  // 2. Find image - must reference the actual <img> element (not clone or create new)
-  let imageElem = null;
-  // Find .cmp-teaser__image as direct child of the teaser block
-  const teaserMain = element.querySelector(':scope > div');
-  if (teaserMain) {
-    const imageWrapper = teaserMain.querySelector('.cmp-teaser__image');
-    if (imageWrapper) {
-      imageElem = imageWrapper.querySelector('img');
+  // 2. Image row: Find the main hero image
+  let imgCell = '';
+  const teaserImageWrap = element.querySelector('.cmp-teaser__image');
+  if (teaserImageWrap) {
+    const img = teaserImageWrap.querySelector('img');
+    if (img) {
+      imgCell = img;
     }
   }
 
-  // 3. Find content elements (title, description, call-to-action if present)
-  let contentElems = [];
-  if (teaserMain) {
-    const contentWrapper = teaserMain.querySelector('.cmp-teaser__content');
-    if (contentWrapper) {
-      // Title (usually h2)
-      const title = contentWrapper.querySelector('.cmp-teaser__title');
-      if (title) contentElems.push(title);
-      // Description (optional, div or p)
-      const descDiv = contentWrapper.querySelector('.cmp-teaser__description');
-      if (descDiv) contentElems.push(descDiv);
-      // If there is a CTA (e.g., a link), include it in semantic order
-      // For this HTML, there isn't, but code can handle it for generality
-      const cta = contentWrapper.querySelector('a');
-      if (cta) contentElems.push(cta);
-    }
+  // 3. Content row: Headline, subheading, CTA if present
+  let contentElements = [];
+  const teaserContent = element.querySelector('.cmp-teaser__content');
+  if (teaserContent) {
+    // Get all direct children of .cmp-teaser__content so we don't miss any headings, paragraphs, etc.
+    const directContent = Array.from(teaserContent.children);
+    directContent.forEach((el) => {
+      if (el.tagName === 'H2' || el.tagName === 'H1' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'H5' || el.tagName === 'H6') {
+        contentElements.push(el);
+      } else if (el.classList.contains('cmp-teaser__description')) {
+        // Description may contain paragraphs
+        Array.from(el.childNodes).forEach((descChild) => {
+          if (descChild.nodeType === 1) {
+            contentElements.push(descChild);
+          }
+        });
+      } else {
+        // fallback: add anything else directly
+        contentElements.push(el);
+      }
+    });
   }
 
-  // 4. Construct table rows as per spec
+  // Edge case: ensure at least an empty cell if nothing found
+  if (contentElements.length === 0) {
+    contentElements = [''];
+  }
+
+  // Build table data
   const cells = [
     headerRow,
-    [imageElem ? imageElem : ''],
-    [contentElems.length > 0 ? contentElems : '']
+    [imgCell],
+    [contentElements]
   ];
 
-  // 5. Create block table and replace element
+  // Create table and replace original element
   const block = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(block);
-  // No Section Metadata in the example; no <hr> or other blocks
 }

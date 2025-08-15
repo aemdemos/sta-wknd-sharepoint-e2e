@@ -1,69 +1,64 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the content fragment (the main article)
-  const contentFragment = element.querySelector('article.contentfragment, .contentfragment');
+  // The block header row exactly as required
+  const headerRow = ['Accordion (accordion33)'];
+  const rows = [];
+
+  // Find the main contentfragment that contains the accordion sections
+  const contentFragment = element.querySelector('article.cmp-contentfragment');
   if (!contentFragment) return;
-  // Find the main content container with all headings/paragraphs/images
-  const contentElementsContainer = contentFragment.querySelector('.cmp-contentfragment__elements > div');
-  if (!contentElementsContainer) return;
 
-  // Get all child nodes of the content container
-  const nodes = Array.from(contentElementsContainer.childNodes);
+  // Find the content fragment elements
+  const elementsContainer = contentFragment.querySelector('.cmp-contentfragment__elements');
+  if (!elementsContainer) return;
 
-  // Prepare table rows: header first
-  const rows = [['Accordion (accordion33)', '']];
+  // We want to process only immediate children under elementsContainer
+  // We'll treat each <h2> as the start of a new accordion item
+  const children = Array.from(elementsContainer.children);
 
   let currentTitle = null;
   let currentContent = [];
 
-  const pushSection = () => {
-    if (currentTitle && currentContent.length) {
-      // Use the first h2 as the title, and everything after as content
-      rows.push([
-        currentTitle,
-        currentContent.length === 1 ? currentContent[0] : currentContent.slice(),
-      ]);
-    }
-    currentTitle = null;
-    currentContent = [];
-  };
-
-  // Helper checks
-  const isH2 = (node) => node.nodeType === Node.ELEMENT_NODE && node.tagName === 'H2';
-  const isEmptyGrid = (node) => node.nodeType === Node.ELEMENT_NODE &&
-    node.classList && node.classList.contains('aem-Grid') && node.children.length === 0;
-
-  // Traverse node list in order
-  for (let i = 0; i < nodes.length; i++) {
-    const node = nodes[i];
-    if (isH2(node)) {
-      pushSection();
-      currentTitle = node;
+  // Helper to push a section into the rows array
+  function pushSection(titleElem, contentElems) {
+    if (!titleElem) return;
+    let contentCell;
+    if (!contentElems || contentElems.length === 0) {
+      contentCell = '';
+    } else if (contentElems.length === 1) {
+      contentCell = contentElems[0];
     } else {
-      // Skip empty grid wrappers
-      if (isEmptyGrid(node)) continue;
-      // If this is a grid with children (e.g. images in section), include its children as content
-      if (
-        node.nodeType === Node.ELEMENT_NODE &&
-        node.classList &&
-        node.classList.contains('aem-Grid') &&
-        node.children.length > 0
-      ) {
-        // Add all children (often image containers)
-        Array.from(node.children).forEach(child => currentContent.push(child));
-      } else {
-        // Otherwise, if not a whitespace node, add directly
-        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === '') continue;
-        currentContent.push(node);
+      contentCell = contentElems;
+    }
+    rows.push([titleElem, contentCell]);
+  }
+
+  // Walk through each child, grouping content between <h2>s
+  for (let i = 0; i < children.length; i++) {
+    const el = children[i];
+    if (el.tagName === 'H2') {
+      // If we have a previous section, push it
+      if (currentTitle) {
+        pushSection(currentTitle, currentContent);
       }
+      // Start new section
+      currentTitle = el;
+      currentContent = [];
+    } else {
+      // Add content to the current section
+      currentContent.push(el);
     }
   }
-  // Push last section
-  pushSection();
-
-  // Only create the block if there is at least one accordion entry
-  if (rows.length > 1) {
-    const table = WebImporter.DOMUtils.createTable(rows, document);
-    element.replaceWith(table);
+  // Push the last section
+  if (currentTitle) {
+    pushSection(currentTitle, currentContent);
   }
+
+  // If there are no accordion items, do nothing
+  if (rows.length === 0) return;
+
+  // Compose cells: header row followed by all accordion items
+  const cells = [headerRow, ...rows];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

@@ -1,42 +1,50 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the CMP tabs block inside 'element'
+  // Locate the main tabs block
   const tabsBlock = element.querySelector('.tabs .cmp-tabs');
   if (!tabsBlock) return;
 
-  // Find tab labels from tablist
-  const tabList = tabsBlock.querySelector('ol.cmp-tabs__tablist');
-  const tabLabelEls = tabList ? Array.from(tabList.querySelectorAll('li[role="tab"]')) : [];
-  const tabLabels = tabLabelEls.map(li => li.textContent.trim());
+  // Get the tab labels in order
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
+  const tabLabels = Array.from(tabList ? tabList.querySelectorAll('li[role="tab"]') : []);
 
-  // Find all panels (must match label order)
-  const tabPanels = tabLabels.map(label => {
-    // Find the panel controlled by this tab
-    // Each tab has aria-controls="..." that matches panel id
-    const tabEl = tabLabelEls.find(li => li.textContent.trim() === label);
-    if (!tabEl) return null;
-    const panelId = tabEl.getAttribute('aria-controls');
-    if (!panelId) return null;
-    return tabsBlock.querySelector(`#${panelId}`);
-  });
+  // Get all tab panels
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Table header as per instructions
+  // Header row, exactly as required
   const headerRow = ['Tabs (tabs6)'];
-  const rows = [headerRow];
+  const rows = [];
 
-  // For each tab, prepare [label, content] row
-  tabLabels.forEach((label, idx) => {
-    const panel = tabPanels[idx];
-    if (!panel) return;
-    // For content, collect all children of panel:
-    // Usually <div class="contentfragment">, etc.
-    // Reference the contentfragment/article block directly.
-    // Find article if present
-    const mainContent = panel.querySelector('article') || panel.firstElementChild;
-    rows.push([label, mainContent || panel]);
+  // For each tab, extract its label and panel content
+  tabLabels.forEach((labelEl) => {
+    const label = labelEl.textContent.trim();
+    // Find the associated tabpanel by aria-labelledby
+    const panel = tabPanels.find(p => p.getAttribute('aria-labelledby') === labelEl.id);
+
+    let tabContent;
+    if (panel) {
+      // Reference the entirety of the tabpanel's content
+      // If article (contentfragment) exists, reference that for conciseness
+      const contentFragment = panel.querySelector('article');
+      if (contentFragment) {
+        tabContent = contentFragment;
+      } else {
+        // Fallback: reference the panel itself (avoiding re-cloning)
+        tabContent = panel;
+      }
+    } else {
+      // Edge case: tab panel missing, fallback to empty text node
+      tabContent = document.createTextNode('');
+    }
+    rows.push([label, tabContent]);
   });
 
-  // Build the table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.parentNode.replaceChild(block, element);
+  // Compose the table rows
+  const cells = [headerRow, ...rows];
+
+  // Create the block table
+  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Replace the original element with the block table
+  element.replaceWith(blockTable);
 }
