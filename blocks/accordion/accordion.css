@@ -62,29 +62,24 @@
 
 
 .accordion.accordion3 {
-  max-width: 750px;
+  margin: 32px 0 0;
+  max-width: 700px;
   width: 100%;
-  margin: 0;
-  padding: 0;
   background: #fff;
   border-radius: 0;
   box-shadow: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  display: block;
 }
 
 .accordion.accordion3 details {
-  border: none;
+  width: 100%;
   margin: 0;
   padding: 0;
-  width: 100%;
   background: #fff;
-  box-shadow: none;
-  border-bottom: 1px solid #d3d3d3;
-  display: block;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .accordion.accordion3 details:last-child {
@@ -96,68 +91,53 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-height: 48px;
-  height: 48px;
-  padding-left: 0;
-  padding-right: 0;
-  background: #fff;
+  min-height: 70px;
+  padding-right: 44px;
   outline: none;
   border: none;
-  cursor: pointer;
-  box-sizing: border-box;
-  transition: background 0.2s;
-  position: relative;
-}
-
-.accordion.accordion3 details summary:hover,
-.accordion.accordion3 details summary:focus {
   background: #fff;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
 }
 
 .accordion.accordion3 details summary p {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #222;
   margin: 0;
-  padding-left: 8px;
-  padding-right: 0;
-  letter-spacing: 0.01em;
+  padding-left: 32px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
   flex: 1 1 auto;
-  line-height: 1.25;
   text-align: left;
-  white-space: normal;
+  text-transform: uppercase;
   background: none;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
 }
 
-.accordion.accordion3 details summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Plus icon bars */
+/* Plus/Minus icon logic: both bars for closed, minus for open */
 .accordion.accordion3 details summary::before,
 .accordion.accordion3 details summary::after {
+  display: inline-block;
   position: absolute;
-  right: 20px;
+  right: 22px;
+  top: 50%;
   width: 20px;
-  height: 3px;
+  height: 1.5px;
   background: #222;
-  border-radius: 1.2px;
-  transition: background 0.2s, opacity 0.2s, transform 0.2s;
-  display: block;
-  content: "";
+  border-radius: 1px;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .accordion.accordion3 details summary::before {
-  top: 50%;
+  /* Vertical bar for +, hidden for - */
   transform: translateY(-50%) rotate(90deg);
-  opacity: 1;
-}
-
-.accordion.accordion3 details summary::after {
-  top: 50%;
-  transform: translateY(-50%);
   opacity: 1;
 }
 
@@ -165,34 +145,47 @@
   opacity: 0;
 }
 
-.accordion.accordion3 details[open] summary::after {
+.accordion.accordion3 details summary::after {
+  /* Horizontal bar for both + and - */
+  transform: translateY(-50%);
   opacity: 1;
 }
 
+/* More breathing room for open FAQ content */
 .accordion.accordion3 .accordion-item-body {
-  padding: 0 8px 12px;
-  font-size: 14px;
-  color: #222;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
+  padding: 0 32px 32px;
+  font-size: 15px;
+  color: #444;
+  font-family: var(--body-font-family);
+  line-height: 1.7;
   background: #fff;
   border: none;
 }
 
+/* Responsive adjustments for smaller screens */
 @media (width <= 900px) {
   .accordion.accordion3 {
     max-width: 100%;
-    padding: 0 4px;
+    padding: 0 6px;
+  }
+
+  .accordion.accordion3 details summary {
+    padding-right: 24px;
+    min-height: 56px;
+    font-size: 15px;
   }
 
   .accordion.accordion3 details summary p,
   .accordion.accordion3 .accordion-item-body {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 15px;
   }
 
   .accordion.accordion3 details summary::before,
   .accordion.accordion3 details summary::after {
-    right: 12px;
+    right: 10px;
+    width: 14px;
+    height: 1.2px;
   }
 }
