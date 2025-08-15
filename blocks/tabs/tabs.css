@@ -1070,221 +1070,6 @@
 }
 
 
-.tabs.tabs28 {
-  box-sizing: border-box;
-  max-width: 1040px;
-  margin: 36px auto 0;
-  padding: 0 0 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tabs.tabs28 > .tabs-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  margin: 0 0 16px;
-  padding: 0;
-}
-
-.tabs.tabs28 .tabs-tab {
-  background: #fff;
-  color: #212121;
-  border: 1px solid #212121;
-  border-radius: 5px;
-  padding: 6px 20px;
-  font-family: var(--body-font-family);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-  min-width: 90px;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  margin: 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tabs.tabs28 .tabs-tab[aria-selected="true"] {
-  background: #212121;
-  color: #fff;
-  border-color: #212121;
-}
-
-.tabs.tabs28 .tabs-tab[aria-selected="false"] {
-  background: #fff;
-  color: #212121;
-  border-color: #212121;
-  opacity: 1;
-}
-
-.tabs.tabs28 .tabs-tab p {
-  margin: 0;
-  padding: 0;
-}
-
-.tabs.tabs28 > .tabs-panel {
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  background: none;
-  border: none;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.tabs.tabs28 > .tabs-panel[aria-hidden="false"] {
-  display: flex;
-}
-
-.tabs.tabs28 > .tabs-panel > div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  gap: 0;
-}
-
-.tabs.tabs28 > .tabs-panel h3:first-of-type {
-  font-family: var(--heading-font-family);
-  font-size: 2.08em;
-  font-weight: 700;
-  color: #212121;
-  margin: 0;
-  padding: 0;
-  line-height: 1.05;
-  position: relative;
-  width: 100%;
-  display: block;
-  border: none;
-  text-align: left;
-}
-
-.tabs.tabs28 > .tabs-panel h3:first-of-type::after {
-  display: block;
-  width: 44px;
-  height: 3px;
-  background: #ffe082;
-  margin-top: 2px;
-  margin-bottom: 10px;
-  border-radius: 2px;
-}
-
-.tabs.tabs28 > .tabs-panel h3:first-of-type + h3 {
-  font-family: var(--heading-font-family);
-  font-size: 1.12em;
-  font-weight: 700;
-  color: #212121;
-  margin: 0 0 15px;
-  line-height: 1.18;
-  text-align: left;
-}
-
-.tabs.tabs28 > .tabs-panel > div > p {
-  font-family: var(--body-font-family);
-  font-size: 1.04rem;
-  color: #333;
-  line-height: 1.56;
-  margin: 0 0 10px;
-  font-weight: 400;
-  max-width: 760px;
-  width: 100%;
-  text-align: left;
-}
-
-.tabs.tabs28 > .tabs-panel ul,
-.tabs.tabs28 > .tabs-panel ol {
-  font-family: var(--body-font-family);
-  color: #333;
-  font-size: 1.04rem;
-  margin-left: 18px;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-align: left;
-}
-
-.tabs.tabs28 > .tabs-panel picture img,
-.tabs.tabs28 > .tabs-panel > div > picture > img {
-  display: block;
-  width: 100%;
-  max-width: 700px;
-  min-width: 220px;
-  margin: 14px 0 0;
-  border-radius: 9px;
-  box-shadow: none;
-  object-fit: cover;
-  margin-left: 0;
-}
-
-.tabs.tabs28 > .tabs-panel > div > p:last-child {
-  font-size: 0.89rem;
-  color: #e0e0e0;
-  margin-top: 5px;
-  margin-bottom: 0;
-  width: 100%;
-  text-align: left;
-}
-
-@media (width <= 1050px) {
-  .tabs.tabs28 {
-    max-width: 99vw;
-    padding: 16px 0 28px;
-  }
-
-  .tabs.tabs28 > .tabs-list {
-    flex-direction: row;
-    gap: 7px;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 12px;
-  }
-
-  .tabs.tabs28 > .tabs-panel {
-    max-width: 98vw;
-    width: 98vw;
-    padding: 0;
-  }
-
-  .tabs.tabs28 > .tabs-panel picture img,
-  .tabs.tabs28 > .tabs-panel > div > picture > img {
-    max-width: 98vw;
-    width: 98vw;
-    margin: 9px auto 8px 0;
-    border-radius: 7px;
-  }
-}
-
-@media (width <= 750px) {
-  .tabs.tabs28 > .tabs-panel {
-    max-width: 100vw;
-    width: 100vw;
-  }
-
-  .tabs.tabs28 > .tabs-panel picture img,
-  .tabs.tabs28 > .tabs-panel > div > picture > img {
-    max-width: 100vw;
-    width: 100vw;
-    border-radius: 5px;
-  }
-
-  .tabs.tabs28 > .tabs-list {
-    gap: 3px;
-  }
-}
-
-
 .tabs.tabs6 {
   display: flex;
   flex-direction: row;
@@ -2842,7 +2627,6 @@ main > div > .tabs.tabs8 {
 
 
 .tabs.tabs23 {
-  /* Center everything and set readable max-width */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2853,7 +2637,6 @@ main > div > .tabs.tabs8 {
   box-sizing: border-box;
 }
 
-/* Horizontal tabs row: always at top, full width */
 .tabs.tabs23 > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2866,7 +2649,6 @@ main > div > .tabs.tabs8 {
   padding: 0;
 }
 
-/* Tab button appearance */
 .tabs.tabs23 > .tabs-list .tabs-tab {
   background: #fff;
   color: #222;
@@ -2896,7 +2678,6 @@ main > div > .tabs.tabs8 {
   margin: 0;
 }
 
-/* Main content panels: vertical stack, left aligned */
 .tabs.tabs23 > .tabs-panel {
   display: flex;
   flex-direction: column;
@@ -2910,7 +2691,6 @@ main > div > .tabs.tabs8 {
   box-sizing: border-box;
 }
 
-/* ---- HERO/INTRO SECTION: stack heading, description, image vertically ---- */
 .tabs.tabs23 > .tabs-panel:first-of-type {
   display: flex;
   flex-direction: column;
@@ -2921,7 +2701,6 @@ main > div > .tabs.tabs8 {
   padding-bottom: 18px;
 }
 
-/* Title in intro */
 .tabs.tabs23 > .tabs-panel:first-of-type h3 {
   font-size: 2.4rem;
   color: #222;
@@ -2935,7 +2714,6 @@ main > div > .tabs.tabs8 {
   width: 100%;
 }
 
-/* Description in intro */
 .tabs.tabs23 > .tabs-panel:first-of-type > p {
   color: #222;
   font-size: 16px;
@@ -2948,7 +2726,6 @@ main > div > .tabs.tabs8 {
   letter-spacing: 0;
 }
 
-/* Image in intro: always below description */
 .tabs.tabs23 > .tabs-panel:first-of-type picture,
 .tabs.tabs23 > .tabs-panel:first-of-type img {
   max-width: 700px;
@@ -2962,7 +2739,6 @@ main > div > .tabs.tabs8 {
   box-sizing: border-box;
 }
 
-/* Caption below image */
 .tabs.tabs23 > .tabs-panel:first-of-type p:last-child {
   font-size: 14px;
   color: #666;
@@ -2973,7 +2749,6 @@ main > div > .tabs.tabs8 {
   max-width: 700px;
 }
 
-/* ---- CONTENT PANELS: vertical stack ---- */
 .tabs.tabs23 > .tabs-panel:not(:first-of-type) {
   display: flex;
   flex-direction: column;
@@ -2987,7 +2762,6 @@ main > div > .tabs.tabs8 {
   box-sizing: border-box;
 }
 
-/* Panel title */
 .tabs.tabs23 .tabs-panel h3,
 .tabs.tabs23 .tabs-panel h2,
 .tabs.tabs23 .tabs-panel h1 {
@@ -3003,7 +2777,6 @@ main > div > .tabs.tabs8 {
   background: none;
 }
 
-/* Section headings */
 .tabs.tabs23 .tabs-panel strong {
   display: block;
   font-size: 1.08em;
@@ -3012,7 +2785,6 @@ main > div > .tabs.tabs8 {
   font-family: var(--body-font-family);
 }
 
-/* Description paragraph */
 .tabs.tabs23 .tabs-panel > p,
 .tabs.tabs23 .tabs-panel > div > p {
   color: #222;
@@ -3026,7 +2798,6 @@ main > div > .tabs.tabs8 {
   letter-spacing: 0;
 }
 
-/* Caption below image/callout */
 .tabs.tabs23 .tabs-panel > p:last-child,
 .tabs.tabs23 .tabs-panel > div > p:last-child {
   font-size: 14px;
@@ -3036,7 +2807,6 @@ main > div > .tabs.tabs8 {
   line-height: 1.5;
 }
 
-/* Lists */
 .tabs.tabs23 .tabs-panel ul {
   margin: 18px 0 24px;
   padding-left: 26px;
@@ -3050,7 +2820,6 @@ main > div > .tabs.tabs8 {
   margin-bottom: 8px;
 }
 
-/* Remove any leftover grid or column styling from previous tries */
 .tabs.tabs23 > .tabs-panel,
 .tabs.tabs23 > .tabs-panel:first-of-type,
 .tabs.tabs23 > .tabs-panel:not(:first-of-type) {
@@ -3059,7 +2828,6 @@ main > div > .tabs.tabs8 {
   gap: 0;
 }
 
-/* Responsive: stack everything and reduce spacing */
 @media (width <= 900px) {
   .tabs.tabs23 {
     max-width: 100vw;
@@ -3099,5 +2867,144 @@ main > div > .tabs.tabs8 {
   .tabs.tabs23 .tabs-panel > p:last-child,
   .tabs.tabs23 .tabs-panel > div > p:last-child {
     font-size: 11px;
+  }
+}
+
+
+.tabs.tabs28 {
+  /* Layout and container styles */
+  display: block;
+  box-sizing: border-box;
+  max-width: 860px;
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 24px;
+  padding-bottom: 40px;
+  background: #fff;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs28 {
+    max-width: 99vw;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Tabs navigation styles */
+.tabs.tabs28 > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.tabs.tabs28 .tabs-tab {
+  background: transparent;
+  color: #111;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 0;
+}
+
+.tabs.tabs28 .tabs-tab[aria-selected="true"] {
+  background: #111;
+  color: #fff;
+  border-bottom: 2px solid #ffde76;
+}
+
+.tabs.tabs28 .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #111;
+  border-bottom: 2px solid #eee;
+}
+
+/* Heading styles */
+.tabs.tabs28 > .tabs-panel h3:first-of-type {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.tabs.tabs28 > .tabs-panel h3:first-of-type::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: #ffde76;
+  margin-top: 9px;
+  margin-bottom: 16px;
+  border-radius: 2px;
+}
+
+.tabs.tabs28 > .tabs-panel h3:first-of-type + h3 {
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.tabs.tabs28 > .tabs-panel > div > p {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+/* Image styling */
+.tabs.tabs28 > .tabs-panel picture, 
+.tabs.tabs28 > .tabs-panel img {
+  display: block;
+  margin: 32px auto 24px;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+/* Footer text paragraph */
+.tabs.tabs28 > .tabs-panel > div > p:last-child {
+  font-size: 0.97rem;
+  color: #555;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+@media (width <= 650px) {
+  .tabs.tabs28 {
+    max-width: 100vw;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .tabs.tabs28 > .tabs-list {
+    gap: 5px;
+  }
+
+  .tabs.tabs28 > .tabs-panel > div > p {
+    font-size: 0.97rem;
+    margin-bottom: 13px;
+  }
+
+  .tabs.tabs28 > .tabs-panel picture, 
+  .tabs.tabs28 > .tabs-panel img {
+    margin: 16px auto;
+    border-radius: 6px;
   }
 }
