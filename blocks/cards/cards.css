@@ -35,112 +35,6 @@
 }
 
 
-.cards.cards14 {
-  background: #fff;
-  padding: 0;
-  margin: 0;
-}
-
-.cards.cards14 > ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-@media (width <= 1050px) {
-  .cards.cards14 > ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (width <= 700px) {
-  .cards.cards14 > ul {
-    grid-template-columns: 1fr;
-  }
-}
-
-.cards.cards14 > ul > li {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  margin: 0;
-  padding: 0;
-  border: none;
-  min-width: 0;
-  box-shadow: none;
-  align-items: stretch;
-}
-
-.cards.cards14 .cards-card-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  display: block;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-}
-
-.cards.cards14 .cards-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-  padding: 0;
-  vertical-align: top;
-  border: none;
-  background: #fff;
-}
-
-.cards.cards14 .cards-card-body {
-  padding: 7px 8px 0;
-  margin: 0;
-  background: #fff;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.cards.cards14 .cards-card-body p {
-  font-size: 14px;
-  color: #757575;
-  font-weight: normal;
-  margin: 0;
-  line-height: 1.42;
-  padding: 0;
-  text-align: left;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  white-space: normal;
-}
-
-.cards.cards14 .cards-card-body p > strong {
-  font-size: 17px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #000;
-  display: inline;
-  line-height: 1.12;
-  margin-bottom: 0;
-  letter-spacing: 0.01em;
-}
-
-.cards.cards14 ul,
-.cards.cards14 ul > li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-
 .cards.cards21 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -586,7 +480,7 @@
 .cards.cards4 > ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px; /* 8px vertical, 16px horizontal for tighter rows */
+  gap: 8px 16px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -603,17 +497,16 @@
   border-radius: 0;
   margin: 0;
   padding: 0;
-  width: calc(25% - 12px); /* 4 per row, match horizontal gap */
+  width: calc(25% - 12px);
   min-width: 220px;
   max-width: 1fr;
   box-sizing: border-box;
   align-items: stretch;
-  /* No margin-bottom */
 }
 
 @media (max-width: 1100px) {
   .cards.cards4 > ul > li {
-    width: calc(50% - 8px); /* 2 per row, match horizontal gap */
+    width: calc(50% - 8px);
   }
 }
 @media (max-width: 700px) {
@@ -702,12 +595,122 @@
 .cards.cards4 > ul > li {
   margin-bottom: 0;
 }
-
-/* Remove unwanted vertical margins from internal elements */
 .cards.cards4 .cards-card-body,
 .cards.cards4 .cards-card-image,
 .cards.cards4 .cards-card-body h3,
 .cards.cards4 .cards-card-body p {
   margin-bottom: 0;
   margin-top: 0;
+}
+
+
+.cards.cards14 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* Responsive grid layout for cards */
+.cards.cards14 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 1050px) {
+  .cards.cards14 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .cards.cards14 > ul {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* Card structure */
+.cards.cards14 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-width: 0;
+  box-shadow: none;
+  align-items: stretch;
+}
+
+/* Image styling */
+.cards.cards14 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  display: block;
+}
+.cards.cards14 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  border: none;
+  background: #fff;
+}
+
+/* Card body area - reduced top padding for compactness */
+.cards.cards14 .cards-card-body {
+  padding: 2px 0 0 0;
+  margin: 0;
+  background: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Title styling - even tighter gap below, reduced line-height */
+.cards.cards14 .cards-card-body p > strong {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  display: block;
+  line-height: 1.12;
+  margin-bottom: 1px;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+
+/* Description styling, tighter line height */
+.cards.cards14 .cards-card-body p {
+  font-size: 12px;
+  color: #888;
+  font-weight: normal;
+  margin: 0;
+  line-height: 1.15;
+  padding: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  word-break: break-all;
+}
+
+/* Remove list styles */
+.cards.cards14 ul,
+.cards.cards14 ul > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
