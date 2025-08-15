@@ -1070,164 +1070,6 @@
 }
 
 
-.tabs.tabs23 {
-  display: block;
-  max-width: 1000px;
-  margin: 56px auto 0;
-  background: #fff;
-  padding: 40px 40px 64px;
-  box-sizing: border-box;
-}
-
-.tabs.tabs23 > .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-bottom: 36px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  box-sizing: border-box;
-}
-
-.tabs.tabs23 > .tabs-list .tabs-tab {
-  background: transparent;
-  border: none;
-  color: #222;
-  font-weight: 700;
-  font-family: var(--body-font-family);
-  font-size: 15px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 12px 34px 10px;
-  margin: 0;
-  border-radius: 24px;
-  outline: none;
-  box-shadow: none;
-  transition: background 0.2s, color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tabs.tabs23 > .tabs-list .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-}
-
-.tabs.tabs23 .tabs-panel {
-  max-width: 680px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  border: none;
-  background: none;
-  box-sizing: border-box;
-  display: block;
-}
-
-.tabs.tabs23 .tabs-panel[aria-hidden="true"] {
-  display: none;
-}
-
-.tabs.tabs23 .tabs-panel h3,
-.tabs.tabs23 .tabs-panel h2,
-.tabs.tabs23 .tabs-panel h1 {
-  font-family: var(--heading-font-family);
-  font-size: 2.4rem;
-  color: #222;
-  font-weight: 700;
-  margin: 0 0 16px;
-  line-height: 1.1;
-  text-align: left;
-  padding-bottom: 6px;
-  border-bottom: 3px solid #ffe066;
-  display: inline-block;
-}
-
-.tabs.tabs23 .tabs-panel p {
-  color: #222;
-  font-size: 16px;
-  line-height: 1.7;
-  margin: 0 0 22px;
-  font-family: var(--body-font-family);
-  text-align: left;
-  width: 100%;
-  max-width: 680px;
-}
-
-.tabs.tabs23 .tabs-panel p:last-child {
-  font-size: 14px;
-  color: #666;
-  margin-top: 12px;
-  margin-bottom: 0;
-  line-height: 1.5;
-}
-
-.tabs.tabs23 .tabs-panel picture,
-.tabs.tabs23 .tabs-panel img {
-  max-width: 680px;
-  width: 100%;
-  margin: 28px 0 12px;
-  border-radius: 0;
-  display: block;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.tabs.tabs23 .tabs-panel ul {
-  margin: 18px 0 24px;
-  padding-left: 26px;
-  font-size: 15px;
-  color: #333;
-}
-
-.tabs.tabs23 .tabs-panel li {
-  font-size: 15px;
-  color: #444;
-  margin-bottom: 8px;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs23 {
-    padding: 18px 8px 32px;
-    max-width: 100vw;
-  }
-
-  .tabs.tabs23 .tabs-panel,
-  .tabs.tabs23 .tabs-panel picture,
-  .tabs.tabs23 .tabs-panel img,
-  .tabs.tabs23 .tabs-panel ul,
-  .tabs.tabs23 .tabs-panel li,
-  .tabs.tabs23 .tabs-panel p {
-    max-width: 98vw;
-  }
-
-  .tabs.tabs23 > .tabs-list {
-    gap: 12px;
-    margin-bottom: 18px;
-  }
-
-  .tabs.tabs23 .tabs-panel h3,
-  .tabs.tabs23 .tabs-panel h2,
-  .tabs.tabs23 .tabs-panel h1 {
-    font-size: 1.5rem;
-    padding-bottom: 4px;
-  }
-
-  .tabs.tabs23 .tabs-panel p,
-  .tabs.tabs23 .tabs-panel li {
-    font-size: 13px;
-  }
-
-  .tabs.tabs23 .tabs-panel p:last-child {
-    font-size: 11px;
-  }
-}
-
-
 .tabs.tabs28 {
   box-sizing: border-box;
   max-width: 1040px;
@@ -2817,7 +2659,6 @@ main > div > .tabs.tabs8 {
   align-items: flex-start;
 }
 
-/* Tabs horizontal row, left-aligned, above content */
 .tabs.tabs20 > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2833,7 +2674,6 @@ main > div > .tabs.tabs8 {
   position: static;
 }
 
-/* Tab button styles */
 .tabs.tabs20 .tabs-tab {
   background: #fff;
   color: #222;
@@ -2876,7 +2716,6 @@ main > div > .tabs.tabs8 {
   padding: 0;
 }
 
-/* Remove border from panel/content area */
 .tabs.tabs20 > .tabs-panel,
 .tabs.tabs20 .tabs-tab {
   border: none;
@@ -2884,9 +2723,6 @@ main > div > .tabs.tabs8 {
   background: none;
 }
 
-/* Overview content: vertical stack, left-aligned */
-
-/* Overview image left-aligned, full width */
 .tabs.tabs20 .tabs-tab picture {
   display: block;
   width: 100%;
@@ -2904,7 +2740,6 @@ main > div > .tabs.tabs8 {
   object-fit: cover;
 }
 
-/* Overview paragraph: left-aligned, normal case */
 .tabs.tabs20 .tabs-tab > p:last-child {
   font-size: 16px;
   color: #222;
@@ -2920,7 +2755,6 @@ main > div > .tabs.tabs8 {
   font-weight: 400;
 }
 
-/* Unified vertical stack for panel */
 .tabs.tabs20 .tabs-panel > div {
   display: flex;
   flex-direction: column;
@@ -2970,7 +2804,6 @@ main > div > .tabs.tabs8 {
   color: #222;
 }
 
-/* Responsive: stack and maximize widths */
 @media (width <= 900px) {
   .tabs.tabs20 {
     padding: 16px 0;
@@ -3004,5 +2837,267 @@ main > div > .tabs.tabs8 {
   .tabs.tabs20 .tabs-panel > div > ul,
   .tabs.tabs20 .tabs-tab > p:last-child {
     max-width: 100vw;
+  }
+}
+
+
+.tabs.tabs23 {
+  /* Center everything and set readable max-width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 880px;
+  margin: 56px auto 0;
+  background: #fff;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+}
+
+/* Horizontal tabs row: always at top, full width */
+.tabs.tabs23 > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 36px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+}
+
+/* Tab button appearance */
+.tabs.tabs23 > .tabs-list .tabs-tab {
+  background: #fff;
+  color: #222;
+  border: none;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 32px 10px;
+  border-radius: 24px;
+  font-weight: 700;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+}
+
+.tabs.tabs23 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs23 > .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Main content panels: vertical stack, left aligned */
+.tabs.tabs23 > .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+}
+
+/* ---- HERO/INTRO SECTION: stack heading, description, image vertically ---- */
+.tabs.tabs23 > .tabs-panel:first-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 36px;
+  padding-bottom: 18px;
+}
+
+/* Title in intro */
+.tabs.tabs23 > .tabs-panel:first-of-type h3 {
+  font-size: 2.4rem;
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  margin: 0 0 18px;
+  text-align: left;
+  border: none;
+  padding: 0;
+  background: none;
+  width: 100%;
+}
+
+/* Description in intro */
+.tabs.tabs23 > .tabs-panel:first-of-type > p {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 22px;
+  font-family: var(--body-font-family);
+  text-align: left;
+  width: 100%;
+  max-width: 700px;
+  letter-spacing: 0;
+}
+
+/* Image in intro: always below description */
+.tabs.tabs23 > .tabs-panel:first-of-type picture,
+.tabs.tabs23 > .tabs-panel:first-of-type img {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  margin: 0 0 12px;
+  display: block;
+  object-fit: cover;
+  align-self: flex-start;
+  box-sizing: border-box;
+}
+
+/* Caption below image */
+.tabs.tabs23 > .tabs-panel:first-of-type p:last-child {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+  margin-bottom: 0;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* ---- CONTENT PANELS: vertical stack ---- */
+.tabs.tabs23 > .tabs-panel:not(:first-of-type) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+}
+
+/* Panel title */
+.tabs.tabs23 .tabs-panel h3,
+.tabs.tabs23 .tabs-panel h2,
+.tabs.tabs23 .tabs-panel h1 {
+  font-family: var(--heading-font-family);
+  font-size: 2.15rem;
+  color: #222;
+  font-weight: 700;
+  margin: 30px 0 20px;
+  line-height: 1.15;
+  text-align: left;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* Section headings */
+.tabs.tabs23 .tabs-panel strong {
+  display: block;
+  font-size: 1.08em;
+  font-weight: bold;
+  margin: 20px 0 8px;
+  font-family: var(--body-font-family);
+}
+
+/* Description paragraph */
+.tabs.tabs23 .tabs-panel > p,
+.tabs.tabs23 .tabs-panel > div > p {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 24px;
+  font-family: var(--body-font-family);
+  text-align: left;
+  width: 100%;
+  max-width: 700px;
+  letter-spacing: 0;
+}
+
+/* Caption below image/callout */
+.tabs.tabs23 .tabs-panel > p:last-child,
+.tabs.tabs23 .tabs-panel > div > p:last-child {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Lists */
+.tabs.tabs23 .tabs-panel ul {
+  margin: 18px 0 24px;
+  padding-left: 26px;
+  font-size: 15px;
+  color: #333;
+}
+
+.tabs.tabs23 .tabs-panel li {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+/* Remove any leftover grid or column styling from previous tries */
+.tabs.tabs23 > .tabs-panel,
+.tabs.tabs23 > .tabs-panel:first-of-type,
+.tabs.tabs23 > .tabs-panel:not(:first-of-type) {
+  grid-template-columns: none;
+  grid-template-rows: none;
+  gap: 0;
+}
+
+/* Responsive: stack everything and reduce spacing */
+@media (width <= 900px) {
+  .tabs.tabs23 {
+    max-width: 100vw;
+    padding-bottom: 32px;
+  }
+
+  .tabs.tabs23 > .tabs-list,
+  .tabs.tabs23 > .tabs-panel {
+    max-width: 98vw;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs23 > .tabs-panel:first-of-type h3,
+  .tabs.tabs23 .tabs-panel h3,
+  .tabs.tabs23 .tabs-panel h2,
+  .tabs.tabs23 .tabs-panel h1 {
+    font-size: 1.3rem;
+    margin: 16px 0 12px;
+  }
+
+  .tabs.tabs23 > .tabs-panel:first-of-type > p,
+  .tabs.tabs23 .tabs-panel > p,
+  .tabs.tabs23 .tabs-panel > div > p,
+  .tabs.tabs23 .tabs-panel ul,
+  .tabs.tabs23 .tabs-panel li {
+    font-size: 13px;
+    max-width: 98vw;
+  }
+
+  .tabs.tabs23 > .tabs-panel:first-of-type picture,
+  .tabs.tabs23 > .tabs-panel:first-of-type img {
+    max-width: 98vw;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs23 .tabs-panel > p:last-child,
+  .tabs.tabs23 .tabs-panel > div > p:last-child {
+    font-size: 11px;
   }
 }
