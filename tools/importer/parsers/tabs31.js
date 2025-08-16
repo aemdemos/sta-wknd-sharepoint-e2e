@@ -1,44 +1,32 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the .tabs.cmp-tabs wrapper inside the given element
-  const tabsWrapper = element.querySelector('.tabs .cmp-tabs');
-  if (!tabsWrapper) return;
+  // Find the tabs container
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Find tab labels
-  const tabList = tabsWrapper.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabLabels = Array.from(tabList.querySelectorAll('li'));
+  // Get tab labels and tab panels
+  const tabLabelEls = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Get the tab panels (order should match tabs)
-  const tabPanels = Array.from(tabsWrapper.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+  // Defensive: only pair up to minimum number of tabs/panels
+  const numTabs = Math.min(tabLabelEls.length, tabPanels.length);
 
-  // Set up the cells array for the block table
-  // Header matches the spec exactly
-  const cells = [['Tabs (tabs31)']];
+  // Header row exactly as required (one column, string)
+  const headerRow = ['Tabs (tabs31)'];
+  const tableRows = [headerRow];
 
-  // For each tab, add a row with the label and content
-  for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i]?.textContent?.trim() || '';
-    let panelContent = null;
-    if (tabPanels[i]) {
-      // Try to get the contentfragment article (which contains all for this tab)
-      const contentFragment = tabPanels[i].querySelector('article');
-      if (contentFragment) {
-        // Reference the existing element in the DOM
-        panelContent = contentFragment;
-      } else {
-        // If missing, fall back to placing the panel itself
-        panelContent = tabPanels[i];
-      }
-    } else {
-      panelContent = '';
-    }
-    cells.push([label, panelContent]);
+  // Each tab is a row: [labelText, tabPanelContent], exactly matching the example structure
+  for (let i = 0; i < numTabs; i++) {
+    // Tab label as plain string
+    const labelText = tabLabelEls[i].textContent.trim();
+    // Tab content: reference the contentfragment/article if present, else the panel itself
+    const content = tabPanels[i].querySelector('article.cmp-contentfragment')
+      || tabPanels[i].querySelector('.contentfragment')
+      || tabPanels[i];
+    tableRows.push([labelText, content]);
   }
 
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace the original element with the new block
-  element.replaceWith(block);
+  // Create and replace
+  const table = WebImporter.DOMUtils.createTable(tableRows, document);
+  element.replaceWith(table);
 }

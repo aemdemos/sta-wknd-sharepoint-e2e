@@ -1,48 +1,51 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Create a table where the first row is a single header cell
-  const cells = [];
-  cells.push(['Cards (cards26)']); // Header row, 1 column
+  // Table header must match exactly
+  const headerRow = ['Cards (cards26)'];
+  const rows = [];
 
-  // Find all card items
-  const list = element.querySelector('ul.cmp-image-list');
-  if (list) {
-    const items = list.querySelectorAll('li.cmp-image-list__item');
-    items.forEach((item) => {
-      // Image cell (first column)
-      let imageCell = null;
-      const imageLink = item.querySelector('.cmp-image-list__item-image-link');
-      if (imageLink) {
-        const img = imageLink.querySelector('img');
-        if (img) {
-          imageCell = img;
-        } else {
-          imageCell = imageLink;
-        }
-      }
-      // Text cell (second column)
-      const textCell = document.createElement('div');
-      const titleLink = item.querySelector('.cmp-image-list__item-title-link');
-      if (titleLink) {
-        const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
-        if (titleSpan) {
-          const strong = document.createElement('strong');
-          strong.textContent = titleSpan.textContent.trim();
-          textCell.appendChild(strong);
-        }
-      }
-      const desc = item.querySelector('.cmp-image-list__item-description');
-      if (desc) {
-        const p = document.createElement('p');
-        p.textContent = desc.textContent.trim();
-        textCell.appendChild(p);
-      }
-      // Add card row (2 columns)
-      cells.push([imageCell, textCell]);
-    });
+  // Defensive: locate the list of cards
+  const ul = element.querySelector('ul.cmp-image-list');
+  if (!ul) {
+    // If no list, replace with just the header
+    const block = WebImporter.DOMUtils.createTable([headerRow], document);
+    element.replaceWith(block);
+    return;
   }
 
-  // Create the table — 1 column for header, 2 columns for subsequent rows
+  const items = ul.querySelectorAll(':scope > li.cmp-image-list__item');
+  items.forEach((item) => {
+    // 1st cell: Image
+    let imageEl = null;
+    const img = item.querySelector('img');
+    if (img) imageEl = img;
+
+    // 2nd cell: Textual content
+    const article = item.querySelector('article.cmp-image-list__item-content');
+    const frag = document.createDocumentFragment();
+    // Title: Try to keep semantic, bold if possible
+    let titleAdded = false;
+    const titleLink = article && article.querySelector('.cmp-image-list__item-title-link');
+    if (titleLink) {
+      const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
+      if (titleSpan) {
+        const title = document.createElement('strong');
+        title.textContent = titleSpan.textContent;
+        frag.appendChild(title);
+        titleAdded = true;
+      }
+    }
+    // Description: as paragraph (separate)
+    const descSpan = article && article.querySelector('.cmp-image-list__item-description');
+    if (descSpan && descSpan.textContent.trim()) {
+      const para = document.createElement('p');
+      para.textContent = descSpan.textContent;
+      frag.appendChild(para);
+    }
+    // Always supply a node in the cell
+    rows.push([imageEl, frag]);
+  });
+  const cells = [headerRow, ...rows];
   const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

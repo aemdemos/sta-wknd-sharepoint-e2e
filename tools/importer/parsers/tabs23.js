@@ -1,52 +1,40 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Find the tabs block (with .cmp-tabs class)
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Find the tabs block
+  const tabsRoot = element.querySelector('.tabs.panelcontainer');
+  if (!tabsRoot) return;
+  const cmpTabs = tabsRoot.querySelector('.cmp-tabs');
+  if (!cmpTabs) return;
 
-  // 2. Find the tab labels (li[role=tab])
-  const tabLabels = Array.from(tabs.querySelectorAll('.cmp-tabs__tablist [role="tab"]'));
-
-  // 3. Find the tab panels (div[role=tabpanel])
-  const tabPanels = Array.from(tabs.querySelectorAll('[role="tabpanel"]'));
-
-  // Guard: if number of panels and labels doesn't match, abort (sanity check)
+  // Get tab labels and corresponding tab panels in order
+  const tabList = cmpTabs.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabLabels = Array.from(tabList.querySelectorAll('[role="tab"]'));
+  const tabPanels = Array.from(cmpTabs.querySelectorAll('[role="tabpanel"]'));
   if (tabLabels.length !== tabPanels.length || tabLabels.length === 0) return;
 
-  // 4. Build the table structure
-  // Header row - block name, as specified
-  const headerRow = ['Tabs (tabs23)'];
+  // Table header (single cell, matching the example)
+  const cells = [["Tabs (tabs23)"]];
 
-  // Tab labels row - use existing text, in <strong> for visual/semantic highlight
-  const tabNamesRow = tabLabels.map(tab => {
-    // Use a <strong> element for the tab label, as visually in the example
-    const strong = document.createElement('strong');
-    strong.textContent = tab.textContent.trim();
-    return strong;
-  });
-
-  // Tab content row - reference the content for each tab
-  const tabContentRow = tabPanels.map(panel => {
-    // Use the most semantically meaningful content inside the tabpanel.
-    // Prefer the .contentfragment > article, else all children
-    const contentFragment = panel.querySelector('.contentfragment');
-    if (contentFragment) {
-      const article = contentFragment.querySelector('article');
-      if (article) return article;
-      return contentFragment;
+  // Each following row: [tab label (bold), tab content]
+  tabLabels.forEach((tab, idx) => {
+    // Tab label in <strong>
+    const label = document.createElement('strong');
+    label.textContent = tab.textContent.trim();
+    // Tab content: entire article/contentfragment block or all content
+    const panel = tabPanels[idx];
+    let tabContent;
+    const article = panel.querySelector('article');
+    if (article) {
+      tabContent = article;
+    } else {
+      tabContent = Array.from(panel.childNodes).filter(
+        node => node.nodeType === 1 || (node.nodeType === 3 && node.textContent.trim())
+      );
     }
-    // If neither found, return all childNodes as an array (to preserve structure)
-    return Array.from(panel.childNodes).filter(n => n.nodeType === 1 || (n.nodeType === 3 && n.textContent.trim()));
+    cells.push([label, tabContent]);
   });
-
-  // 5. Compose table rows: first is header, second is tab names, third is tab content
-  const cells = [
-    headerRow,
-    tabNamesRow,
-    tabContentRow
-  ];
-
+  // Create table and replace original element
   const block = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace the entire tabs block with the table
-  tabs.replaceWith(block);
+  tabsRoot.replaceWith(block);
 }

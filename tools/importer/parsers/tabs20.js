@@ -1,55 +1,50 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block in this element
-  const tabsWrapper = element.querySelector('.cmp-tabs');
-  if (!tabsWrapper) return;
+  // Find the cmp-tabs block within the given element
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Get all tab labels from the tablist
-  const tabList = tabsWrapper.querySelector('.cmp-tabs__tablist');
-  const tabLabels = [];
-  if (tabList) {
-    tabList.querySelectorAll('li[role="tab"]').forEach(li => {
-      tabLabels.push(li.textContent.trim());
-    });
+  // Extract tab labels (in order)
+  const tabLabels = Array.from(
+    tabsBlock.querySelectorAll('.cmp-tabs__tablist > li')
+  ).map(l => l.textContent.trim());
+
+  // Extract tab content panels (order matches the labels)
+  const tabPanels = Array.from(
+    tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]')
+  );
+
+  // Compose the header row: single column, block name
+  const cells = [['Tabs (tabs20)']];
+
+  // Compose the tab labels row: each label in its own cell (single row)
+  cells.push(tabLabels);
+
+  // For each tab, add a new row: [tab label, tab content] (2 columns per row, one row per tab)
+  for (let i = 0; i < tabLabels.length; i++) {
+    let panelContent;
+    const panel = tabPanels[i];
+    if (panel) {
+      // Reference the full tabpanel content (prefer main child if present)
+      if (panel.children.length === 1) {
+        panelContent = panel.children[0];
+      } else if (panel.children.length > 1) {
+        // Use a fragment to collect all children
+        const frag = document.createDocumentFragment();
+        Array.from(panel.childNodes).forEach(child => {
+          if (child.nodeType === 1) frag.appendChild(child);
+        });
+        panelContent = frag;
+      } else {
+        // If there are no element children, use the text content
+        panelContent = panel.textContent;
+      }
+    } else {
+      panelContent = '';
+    }
+    cells.push([tabLabels[i], panelContent]);
   }
 
-  // Get all tabpanels/content for each tab
-  const tabPanels = Array.from(tabsWrapper.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
-  // Ensure the number of labels matches number of panels
-  // If not, fallback gracefully by matching pairs
-  const panelsCount = tabPanels.length;
-  const labelsCount = tabLabels.length;
-  const minCount = Math.min(labelsCount, panelsCount);
-  const validLabels = tabLabels.slice(0, minCount);
-  const validPanels = tabPanels.slice(0, minCount);
-
-  // Header row as per block name
-  const headerRow = ['Tabs (tabs20)'];
-  // Tab label header row
-  const tabHeaderRow = validLabels;
-  // Content row: each cell contains the content for each tab
-  const tabContentRow = validPanels.map(panel => {
-    // Prefer referencing the cmp-contentfragment__elements, else panel itself
-    const contentFragment = panel.querySelector('.cmp-contentfragment__elements');
-    if (contentFragment) {
-      // Some contentfragments have multiple divs - reference the whole .cmp-contentfragment__elements
-      return contentFragment;
-    } else {
-      // Sometimes the tab content is directly inside the panel
-      // Use the panel element (excluding tab metadata attributes)
-      return panel;
-    }
-  });
-
-  // Compose the table
-  const cells = [
-    headerRow,
-    tabHeaderRow,
-    tabContentRow
-  ];
-
-  // Create the block table
   const table = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace the tabs block with the table block
-  tabsWrapper.replaceWith(table);
+  tabsBlock.replaceWith(table);
 }

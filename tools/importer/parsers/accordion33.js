@@ -1,64 +1,70 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // The block header row exactly as required
+  // Accordion block header
   const headerRow = ['Accordion (accordion33)'];
-  const rows = [];
+  const rows = [headerRow];
 
-  // Find the main contentfragment that contains the accordion sections
-  const contentFragment = element.querySelector('article.cmp-contentfragment');
+  // Find the main contentfragment (it holds the surf spots and descriptions)
+  const contentFragment = element.querySelector('.contentfragment');
   if (!contentFragment) return;
+  // Get all direct children inside .cmp-contentfragment__elements
+  const cfElements = contentFragment.querySelector('.cmp-contentfragment__elements');
+  if (!cfElements) return;
 
-  // Find the content fragment elements
-  const elementsContainer = contentFragment.querySelector('.cmp-contentfragment__elements');
-  if (!elementsContainer) return;
+  // We'll build arrays for titles and their content blocks
+  // We want each accordion item to be [title, content], where title is the h2 and content is everything until the next h2
 
-  // We want to process only immediate children under elementsContainer
-  // We'll treat each <h2> as the start of a new accordion item
-  const children = Array.from(elementsContainer.children);
-
+  const children = Array.from(cfElements.childNodes);
   let currentTitle = null;
   let currentContent = [];
+  let hasAccordionItems = false;
 
-  // Helper to push a section into the rows array
-  function pushSection(titleElem, contentElems) {
-    if (!titleElem) return;
-    let contentCell;
-    if (!contentElems || contentElems.length === 0) {
-      contentCell = '';
-    } else if (contentElems.length === 1) {
-      contentCell = contentElems[0];
-    } else {
-      contentCell = contentElems;
+  function addAccordionRow() {
+    if (currentTitle) {
+      // Remove any empty text nodes from currentContent
+      currentContent = currentContent.filter(n => {
+        if (n.nodeType === 3) return n.textContent.trim().length > 0;
+        return true;
+      });
+      // If content is only one element, use that; else array
+      rows.push([
+        currentTitle,
+        currentContent.length === 1 ? currentContent[0] : currentContent
+      ]);
+      hasAccordionItems = true;
     }
-    rows.push([titleElem, contentCell]);
   }
 
-  // Walk through each child, grouping content between <h2>s
-  for (let i = 0; i < children.length; i++) {
-    const el = children[i];
-    if (el.tagName === 'H2') {
-      // If we have a previous section, push it
-      if (currentTitle) {
-        pushSection(currentTitle, currentContent);
-      }
-      // Start new section
-      currentTitle = el;
+  children.forEach((node, idx) => {
+    if (node.nodeType === 1 && node.tagName === 'H2') {
+      // If there's a previous item, push it to rows
+      addAccordionRow();
+      currentTitle = node;
       currentContent = [];
-    } else {
-      // Add content to the current section
-      currentContent.push(el);
+    } else if (currentTitle) {
+      if (node.nodeType === 1) {
+        // If it's a grid, flatten to grab its images
+        if (node.classList.contains('aem-Grid')) {
+          // grab all image blocks within the grid
+          const imgs = node.querySelectorAll('.cmp-image');
+          imgs.forEach(imgBlock => currentContent.push(imgBlock));
+        } else {
+          currentContent.push(node);
+        }
+      } else if (node.nodeType === 3 && node.textContent.trim().length > 0) {
+        // Text nodes
+        const span = document.createElement('span');
+        span.textContent = node.textContent;
+        currentContent.push(span);
+      }
     }
-  }
-  // Push the last section
-  if (currentTitle) {
-    pushSection(currentTitle, currentContent);
-  }
+  });
+  // Add last item, if exists
+  addAccordionRow();
 
-  // If there are no accordion items, do nothing
-  if (rows.length === 0) return;
-
-  // Compose cells: header row followed by all accordion items
-  const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Only replace if we found accordion items
+  if (hasAccordionItems) {
+    const blockTable = WebImporter.DOMUtils.createTable(rows, document);
+    element.replaceWith(blockTable);
+  }
 }

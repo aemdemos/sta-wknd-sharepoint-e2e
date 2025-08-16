@@ -1,49 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
+  // Table header matches exactly as required
   const headerRow = ['Cards (cards21)'];
-  const cards = element.querySelectorAll('.cmp-image-list__item');
-  const rows = [headerRow];
+  const cards = [];
 
-  cards.forEach(card => {
-    // Image cell: find the first <img> inside this card
-    let img = card.querySelector('img');
+  // Select all direct card items
+  const items = element.querySelectorAll('li.cmp-image-list__item');
+  items.forEach((item) => {
+    // Image: reference the original img element
+    const img = item.querySelector('img.cmp-image__image');
 
-    // Text cell: collect title, description, and CTA
-    const textCell = [];
-
-    // Title
-    const titleSpan = card.querySelector('.cmp-image-list__item-title');
-    if (titleSpan) {
-      // Use <strong> for heading style, as per example
-      const strong = document.createElement('strong');
-      strong.textContent = titleSpan.textContent.trim();
-      textCell.push(strong);
+    // Title: use existing span element as strong heading
+    const titleSpan = item.querySelector('.cmp-image-list__item-title');
+    let headingEl = null;
+    if (titleSpan && titleSpan.textContent.trim()) {
+      // Wrap the span content in <strong> as per example
+      headingEl = document.createElement('strong');
+      headingEl.textContent = titleSpan.textContent.trim();
     }
 
-    // Description
-    const descSpan = card.querySelector('.cmp-image-list__item-description');
-    if (descSpan) {
-      // Description goes below title
-      const p = document.createElement('p');
-      p.textContent = descSpan.textContent.trim();
-      textCell.push(p);
+    // Description: use original span element, but as a paragraph for proper HTML semantics
+    const descSpan = item.querySelector('.cmp-image-list__item-description');
+    let descEl = null;
+    if (descSpan && descSpan.textContent.trim()) {
+      descEl = document.createElement('p');
+      descEl.textContent = descSpan.textContent.trim();
     }
 
-    // CTA: If the title is wrapped in a link, append the link as CTA at the bottom IF it's different from the title text
-    const titleLink = card.querySelector('.cmp-image-list__item-title-link');
-    if (
-      titleLink &&
-      titleLink.getAttribute('href') &&
-      titleSpan &&
-      titleLink.textContent.trim() !== titleSpan.textContent.trim()
-    ) {
-      // Use the link as CTA
-      textCell.push(titleLink);
-    }
+    // Compose content cell
+    const cardContent = [];
+    if (headingEl) cardContent.push(headingEl);
+    if (descEl) cardContent.push(descEl);
 
-    rows.push([img, textCell]);
+    // Each row is [image, text]
+    cards.push([img, cardContent]);
   });
 
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+  const tableCells = [headerRow, ...cards];
+  const block = WebImporter.DOMUtils.createTable(tableCells, document);
+  element.replaceWith(block);
 }
