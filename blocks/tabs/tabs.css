@@ -58,139 +58,6 @@
 }
 
 
-.tabs.tabs31 {
-  display: flex;
-  flex-direction: column;
-  max-width: 1120px;
-  margin: 48px auto 0;
-  background: #fff;
-  padding-left: 24px;
-  padding-right: 24px;
-  box-shadow: none;
-  border: none;
-}
-
-.tabs.tabs31 .tabs-list,
-.tabs.tabs31 .tabs-panel > div {
-  padding-left: 0;
-  padding-right: 0;
-  max-width: 100%;
-}
-
-.tabs.tabs31 .tabs-list {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 28px;
-  margin: 0 0 26px;
-  border: none;
-  background: transparent;
-  position: static;
-  width: auto;
-  z-index: auto;
-}
-
-.tabs.tabs31 .tabs-tab {
-  background: none;
-  border: none;
-  color: #222;
-  font-size: 13px;
-  font-family: var(--body-font-family);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 9px 20px 8px;
-  border-radius: 2px;
-  margin: 0;
-  transition: background 0.2s, color 0.2s;
-  cursor: pointer;
-  line-height: 1.1;
-  min-width: 0;
-}
-
-.tabs.tabs31 .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-}
-
-.tabs.tabs31 .tabs-panel {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: none;
-  box-shadow: none;
-  position: static;
-}
-
-.tabs.tabs31 .tabs-panel h3 {
-  font-family: var(--heading-font-family), serif;
-  font-size: 2.1rem;
-  color: #222;
-  font-weight: 400;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-.tabs.tabs31 .tabs-panel h3::after {
-  display: block;
-  width: 58px;
-  height: 2px;
-  background: #FFE580;
-  margin-top: 6px;
-  margin-bottom: 34px;
-  border-radius: 0;
-  content: "";
-}
-
-.tabs.tabs31 .tabs-panel p,
-.tabs.tabs31 .tabs-panel li {
-  color: #222;
-  font-size: 15px;
-  font-family: var(--body-font-family);
-  line-height: 1.65;
-  margin-bottom: 18px;
-}
-
-.tabs.tabs31 .tabs-panel ul {
-  margin-left: 20px;
-  margin-bottom: 24px;
-}
-
-.tabs.tabs31 .tabs-panel img,
-.tabs.tabs31 .tabs-panel picture {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 32px;
-  border-radius: 2px;
-  box-shadow: none;
-  background: none;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs31 {
-    max-width: 100%;
-    margin: 32px 0 0;
-    padding: 0;
-  }
-
-  .tabs.tabs31 .tabs-list,
-  .tabs.tabs31 .tabs-panel > div {
-    padding-left: 0;
-  }
-
-  .tabs.tabs31 .tabs-list {
-    flex-direction: row;
-    gap: 12px;
-    margin-bottom: 20px;
-    width: 100%;
-  }
-}
-
-
 .tabs34.block {
   display: flex;
   flex-direction: row;
@@ -3134,4 +3001,196 @@
 
 .tabs.tabs30 .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs31 {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0 48px;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  background: #fff;
+  padding: 0 40px 40px;
+  box-sizing: border-box;
+}
+
+/* Simulated sidebar if present as first child div (see content/DOM constraints) */
+.tabs.tabs31 > div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 32px 0 0;
+  min-width: 0;
+  border: none;
+  background: none;
+  font-size: 13px;
+  color: #222;
+}
+
+.tabs.tabs31 > div:first-of-type * {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #222;
+  font-family: var(--body-font-family);
+}
+
+/* Main content (tabs + panels) */
+.tabs.tabs31 > div:last-of-type {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Tabs List */
+.tabs.tabs31 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  margin: 0 0 26px;
+  border: none;
+  background: none;
+  padding: 0;
+  position: static;
+  width: auto;
+  z-index: auto;
+}
+
+.tabs.tabs31 .tabs-tab {
+  background: none;
+  border: none;
+  color: #222;
+  font-size: 13px;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 9px 20px 8px;
+  border-radius: 3px;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  line-height: 1.1;
+  min-width: 0;
+}
+
+.tabs.tabs31 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs31 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* Panel Content */
+.tabs.tabs31 .tabs-panel {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  position: static;
+}
+
+.tabs.tabs31 .tabs-panel > div {
+  width: 100%;
+  max-width: 760px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Heading */
+.tabs.tabs31 .tabs-panel h3 {
+  font-family: var(--heading-font-family), serif;
+  font-size: 32px;
+  color: #222;
+  font-weight: 400;
+  margin: 0 0 18px;
+  line-height: 1.18;
+  position: relative;
+}
+
+.tabs.tabs31 .tabs-panel h3::after {
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: #f6e97e;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  border-radius: 0;
+  content: "";
+}
+
+/* Text content */
+.tabs.tabs31 .tabs-panel p,
+.tabs.tabs31 .tabs-panel li {
+  color: #222;
+  font-size: 15px;
+  font-family: var(--body-font-family);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.tabs.tabs31 .tabs-panel ul {
+  margin-left: 20px;
+  margin-bottom: 24px;
+}
+
+/* Images */
+.tabs.tabs31 .tabs-panel picture,
+.tabs.tabs31 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+  border-radius: 2px;
+  box-shadow: none;
+  background: none;
+}
+
+/* Responsive: stack columns on narrow screens */
+@media (width <= 900px) {
+  .tabs.tabs31 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 8px 32px;
+  }
+
+  .tabs.tabs31 > div:first-of-type {
+    padding: 16px 0 0;
+    margin-bottom: 16px;
+    border: none;
+  }
+
+  .tabs.tabs31 > div:last-of-type {
+    padding: 0;
+    background: none;
+  }
+
+  .tabs.tabs31 .tabs-panel > div {
+    max-width: 100%;
+  }
+
+  .tabs.tabs31 .tabs-panel h3 {
+    font-size: 24px;
+  }
+}
+
+/* Hide sidebar if not present (prevents gap) */
+.tabs.tabs31 > div:only-child {
+  grid-column: 1 / -1;
 }
