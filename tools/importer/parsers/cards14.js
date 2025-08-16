@@ -1,56 +1,52 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header matches exact example
+  // Header row exactly as in the example
   const headerRow = ['Cards (cards14)'];
-  const rows = [headerRow];
+  const cells = [headerRow];
 
-  // Find all cards (li.cmp-image-list__item)
-  const ul = element.querySelector('ul.cmp-image-list');
-  if (!ul) return;
-  const items = ul.querySelectorAll('li.cmp-image-list__item');
-
-  items.forEach(item => {
-    // 1st cell: image (reference existing img element)
-    let imageEl = null;
-    const imageLink = item.querySelector('.cmp-image-list__item-image-link');
-    if (imageLink) {
-      imageEl = imageLink.querySelector('img');
+  // Find all card items (li elements)
+  const items = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
+  items.forEach((item) => {
+    // First cell: the image
+    let imageCell = null;
+    const imgContainer = item.querySelector('.cmp-image-list__item-image');
+    if (imgContainer) {
+      // Prefer the <img>, fallback to the container
+      const img = imgContainer.querySelector('img');
+      imageCell = img ? img : imgContainer;
     }
+    // If no image at all, add empty cell
+    if (!imageCell) imageCell = '';
 
-    // 2nd cell: text content
-    const titleLink = item.querySelector('.cmp-image-list__item-title-link');
-    let titleSpan = null;
-    if (titleLink) {
-      titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
-    }
-
-    // Wrap title in <strong> (matches example heading style)
+    // Second cell: text content
+    // Title as heading (strong)
     let titleEl = null;
-    if (titleSpan) {
-      titleEl = document.createElement('strong');
-      titleEl.textContent = titleSpan.textContent;
+    const titleLink = item.querySelector('.cmp-image-list__item-title-link');
+    if (titleLink) {
+      const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
+      if (titleSpan) {
+        titleEl = document.createElement('strong');
+        titleEl.textContent = titleSpan.textContent.trim();
+      }
     }
-
     // Description
-    const descSpan = item.querySelector('.cmp-image-list__item-description');
-    
-    // Compose text cell: Title followed by description (with <br> separator as in example)
-    const textFragments = [];
-    if (titleEl) textFragments.push(titleEl);
-    if (descSpan) {
-      // Insert <br> between title and description only if both exist
-      if (titleEl) textFragments.push(document.createElement('br'));
-      textFragments.push(descSpan);
+    let descEl = null;
+    const desc = item.querySelector('.cmp-image-list__item-description');
+    if (desc && desc.textContent.trim()) {
+      descEl = document.createElement('span');
+      descEl.textContent = desc.textContent.trim();
+    }
+    // Compose text cell, keeping elements referenced from the document when possible
+    const textCell = [];
+    if (titleEl) textCell.push(titleEl);
+    if (descEl) {
+      if (titleEl) textCell.push(document.createElement('br'));
+      textCell.push(descEl);
     }
 
-    // Add row: [image, textFragments]
-    rows.push([
-      imageEl,
-      textFragments
-    ]);
+    cells.push([imageCell, textCell.length ? textCell : '']);
   });
 
-  // Create and replace block table
-  const table = WebImporter.DOMUtils.createTable(rows, document);
+  const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

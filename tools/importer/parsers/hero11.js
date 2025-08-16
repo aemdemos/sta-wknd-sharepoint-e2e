@@ -1,31 +1,49 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the .cmp-teaser block within the element
-  const teaser = element.querySelector('.cmp-teaser');
+  // 1. Table header matches example exactly
+  const headerRow = ['Hero (hero11)'];
 
-  let imgEl = null;
-  let titleEl = null;
-
-  if (teaser) {
-    // Get image (if present)
-    const imgContainer = teaser.querySelector('.cmp-teaser__image');
-    if (imgContainer) {
-      imgEl = imgContainer.querySelector('img');
-    }
-    // Get heading/title (if present)
-    const contentContainer = teaser.querySelector('.cmp-teaser__content');
-    if (contentContainer) {
-      // Include the full heading node (not just innerText)
-      titleEl = contentContainer.querySelector('h1, h2, h3, h4, h5, h6');
+  // 2. Extract the background image from cmp-teaser__image
+  let backgroundImg = null;
+  const cmpTeaserImage = element.querySelector('.cmp-teaser__image');
+  if (cmpTeaserImage) {
+    const img = cmpTeaserImage.querySelector('img');
+    if (img) {
+      backgroundImg = img;
     }
   }
+  // Edge case: fallback to any img inside element
+  if (!backgroundImg) {
+    backgroundImg = element.querySelector('img');
+  }
+  const imageRow = [backgroundImg ? backgroundImg : ''];
 
-  // Compose the table rows according to the example: header, image, content
-  const headerRow = ['Hero (hero11)'];
-  const imageRow = [imgEl ? imgEl : ''];
-  const contentRow = [titleEl ? titleEl : ''];
+  // 3. Extract the title (as heading), subheading, CTA (if available)
+  const contentArr = [];
+  // Title (h2)
+  const title = element.querySelector('.cmp-teaser__title');
+  if (title) {
+    contentArr.push(title);
+  }
+  // Subheading, CTA: not present in provided HTML, but support cmp-teaser__description and links/buttons as optional
+  const description = element.querySelector('.cmp-teaser__description');
+  if (description) {
+    contentArr.push(description);
+  }
+  // CTA: .cmp-teaser__action-link, <a>, <button>
+  const ctas = element.querySelectorAll('.cmp-teaser__action-link, a, button');
+  ctas.forEach(cta => {
+    // Avoid duplicates
+    if (!contentArr.includes(cta)) {
+      contentArr.push(cta);
+    }
+  });
+  const contentRow = [contentArr.length ? contentArr : ''];
 
+  // 4. Compose block table: 1 column, 3 rows, with header in first row
   const cells = [headerRow, imageRow, contentRow];
   const block = WebImporter.DOMUtils.createTable(cells, document);
+
+  // 5. Replace the original element
   element.replaceWith(block);
 }

@@ -1,54 +1,48 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Header row: Block name as required
+  // Table header row: matches the example
   const headerRow = ['Hero (hero39)'];
 
-  // 2. Image row: Find the main hero image
-  let imgCell = '';
-  const teaserImageWrap = element.querySelector('.cmp-teaser__image');
-  if (teaserImageWrap) {
-    const img = teaserImageWrap.querySelector('img');
-    if (img) {
-      imgCell = img;
-    }
+  // Find background image (optional)
+  let imageEl = null;
+  const teaserImageDiv = element.querySelector('.cmp-teaser__image');
+  if (teaserImageDiv) {
+    imageEl = teaserImageDiv.querySelector('img');
   }
 
-  // 3. Content row: Headline, subheading, CTA if present
-  let contentElements = [];
-  const teaserContent = element.querySelector('.cmp-teaser__content');
-  if (teaserContent) {
-    // Get all direct children of .cmp-teaser__content so we don't miss any headings, paragraphs, etc.
-    const directContent = Array.from(teaserContent.children);
-    directContent.forEach((el) => {
-      if (el.tagName === 'H2' || el.tagName === 'H1' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'H5' || el.tagName === 'H6') {
-        contentElements.push(el);
-      } else if (el.classList.contains('cmp-teaser__description')) {
-        // Description may contain paragraphs
-        Array.from(el.childNodes).forEach((descChild) => {
-          if (descChild.nodeType === 1) {
-            contentElements.push(descChild);
-          }
-        });
-      } else {
-        // fallback: add anything else directly
-        contentElements.push(el);
+  // Compose the content row: Title, Description, etc.
+  const contentParts = [];
+  const contentDiv = element.querySelector('.cmp-teaser__content');
+  if (contentDiv) {
+    // Title (should be h2)
+    const title = contentDiv.querySelector('.cmp-teaser__title');
+    if (title) contentParts.push(title);
+    // Description (often a div with <p> inside)
+    const desc = contentDiv.querySelector('.cmp-teaser__description');
+    if (desc) {
+      // Add all children nodes (e.g. <p> or text)
+      desc.childNodes.forEach(node => {
+        if (node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE) {
+          contentParts.push(node);
+        }
+      });
+    }
+    // If there are other elements such as CTA, include them here
+    Array.from(contentDiv.children).forEach(child => {
+      if (!child.classList.contains('cmp-teaser__title') && !child.classList.contains('cmp-teaser__description')) {
+        contentParts.push(child);
       }
     });
   }
 
-  // Edge case: ensure at least an empty cell if nothing found
-  if (contentElements.length === 0) {
-    contentElements = [''];
-  }
-
-  // Build table data
-  const cells = [
+  // Build table structure: 1 column, 3 rows (header, image, content)
+  const tableRows = [
     headerRow,
-    [imgCell],
-    [contentElements]
+    [imageEl].filter(Boolean), // Only add image if present
+    [contentParts]             // Combine all content into one cell
   ];
 
-  // Create table and replace original element
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Create and replace block table
+  const block = WebImporter.DOMUtils.createTable(tableRows, document);
   element.replaceWith(block);
 }

@@ -1,57 +1,48 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row exactly as in the example
+  // Header row matches the example exactly
   const headerRow = ['Carousel (carousel15)'];
 
-  // Select the carousel
-  const carousel = element.querySelector('[class*="cmp-carousel"]');
+  // Find carousel block
+  const carousel = element.querySelector('.cmp-carousel');
   if (!carousel) return;
   const slidesContainer = carousel.querySelector('.cmp-carousel__content');
   if (!slidesContainer) return;
 
-  // Gather all slides
-  const slides = Array.from(slidesContainer.querySelectorAll('.cmp-carousel__item'));
-  const rows = slides.map((slide) => {
-    // 1. Image: find the first <img> in the slide
-    let imageCell = '';
-    const img = slide.querySelector('img');
-    if (img) imageCell = img;
+  // Get all slides
+  const slideElems = Array.from(slidesContainer.children).filter(el => el.classList.contains('cmp-carousel__item'));
 
-    // 2. Text: gather ALL content not inside image containers
-    let textCell = '';
-    // Find all descendants of slide that are NOT within a .image or .cmp-image container
-    const imageContainers = Array.from(slide.querySelectorAll('.image, .cmp-image'));
-    // Use a TreeWalker to collect text-relevant elements outside image containers
-    const walker = document.createTreeWalker(slide, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, {
-      acceptNode: function(node) {
-        // Ignore descendants of image containers
-        if (imageContainers.some(ic => ic.contains(node))) return NodeFilter.FILTER_REJECT;
-        // Ignore the slide root node itself (we want descendants)
-        if (node === slide) return NodeFilter.FILTER_SKIP;
-        // Accept elements and non-empty text nodes only
-        if (node.nodeType === 3 && node.textContent.trim()) return NodeFilter.FILTER_ACCEPT;
-        if (node.nodeType === 1 && node.textContent.trim()) return NodeFilter.FILTER_ACCEPT;
-        return NodeFilter.FILTER_SKIP;
+  const rows = slideElems.map(slide => {
+    // Get the image from each slide
+    const img = slide.querySelector('img');
+    // Collect all possible text content in the slide except for the .image container
+    let textContent = [];
+    const imageContainer = slide.querySelector('.image');
+
+    // Go through all children and descendants except the image container
+    Array.from(slide.childNodes).forEach(child => {
+      // Ignore image container
+      if (child === imageContainer) return;
+      if (child.nodeType === 1) {
+        // For elements, recursively collect headings, paragraphs, lists, and links
+        const tags = ['H1','H2','H3','H4','H5','H6','P','A','UL','OL'];
+        if (tags.includes(child.tagName)) {
+          textContent.push(child);
+        } else {
+          // Search descendants
+          tags.forEach(tag => {
+            child.querySelectorAll && child.querySelectorAll(tag).forEach(el => textContent.push(el));
+          });
+        }
       }
     });
-    const textNodes = [];
-    let currentNode = walker.nextNode();
-    while (currentNode) {
-      if (currentNode.nodeType === 3) {
-        // Text node: wrap in <p> for semantic meaning
-        const p = document.createElement('p');
-        p.textContent = currentNode.textContent.trim();
-        textNodes.push(p);
-      } else {
-        textNodes.push(currentNode);
-      }
-      currentNode = walker.nextNode();
-    }
-    if (textNodes.length > 0) {
-      textCell = textNodes.length === 1 ? textNodes[0] : textNodes;
-    }
 
-    return [imageCell, textCell];
+    // Remove duplicates (in case of overlap)
+    textContent = [...new Set(textContent)];
+
+    // If no text content found, set to empty string to ensure cell structure
+    const textCell = textContent.length ? textContent : '';
+    return [img, textCell];
   });
 
   const cells = [headerRow, ...rows];

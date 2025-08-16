@@ -1,43 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the cmp-tabs block within the supplied element
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Find the tabs block
+  const tabsBlock = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Extract the tab labels (li elements inside the tablist)
-  const tabLabels = Array.from(
-    tabs.querySelectorAll('.cmp-tabs__tablist > li.cmp-tabs__tab')
-  ).map(li => li.textContent.trim());
+  // Get the tab labels and panels
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
+  const tabLabels = tabList ? Array.from(tabList.querySelectorAll('.cmp-tabs__tab')) : [];
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Extract the tab panels (one for each tab)
-  const tabPanels = Array.from(
-    tabs.querySelectorAll('.cmp-tabs__tabpanel')
-  );
+  // Defensive: Only build rows when labels and panels match
+  if (!tabLabels.length || !tabPanels.length || tabLabels.length !== tabPanels.length) return;
 
-  // Build the header row: block name as in the example
+  // Header row: Block name, single cell
   const headerRow = ['Tabs (tabs7)'];
 
-  // The first row after the header contains the tab labels (as plain text, not <strong>)
-  // But in the screenshot, they are bold, so wrap with <strong>.
-  const labelRow = tabLabels.map(label => {
-    const strong = document.createElement('strong');
-    strong.textContent = label;
-    return strong;
+  // Each tab row: [label, content]
+  const tabRows = tabLabels.map((label, idx) => {
+    // Convert <li> or other elements to <span> for clean table display
+    let labelElem = label;
+    if (label.tagName !== 'SPAN') {
+      labelElem = document.createElement('span');
+      labelElem.textContent = label.textContent.trim();
+    }
+    // Tab content: use the main contentfragment/article inside each panel
+    const tabPanel = tabPanels[idx];
+    const content = tabPanel.querySelector('.contentfragment, article, .cmp-contentfragment') || tabPanel;
+    return [labelElem, content];
   });
 
-  // Each tab content cell is the direct content of the corresponding tab panel
-  // We want the relevant article (the .cmp-contentfragment) for each panel
-  const contentRow = tabPanels.map(panel => {
-    // If panel contains an article, use the article; else, use panel
-    const article = panel.querySelector('article');
-    return article || panel;
-  });
+  // Compose block table
+  const cells = [headerRow, ...tabRows];
+  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Build the table: header, then tab label row, then tab content row
-  const tableRows = [headerRow, labelRow, contentRow];
-  
-  // Create table
-  const block = WebImporter.DOMUtils.createTable(tableRows, document);
-  // Replace only the tabs block so as to not remove context outside it
-  tabs.replaceWith(block);
+  // Replace the original tabs block with the new table
+  tabsBlock.parentNode.replaceChild(blockTable, tabsBlock);
 }

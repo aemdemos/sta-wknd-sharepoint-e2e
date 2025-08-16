@@ -1,42 +1,46 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block inside the given element
+  // Find the main tabs block
   const tabsBlock = element.querySelector('.cmp-tabs');
   if (!tabsBlock) return;
 
-  // Get all tab list items (tab labels)
-  const tabLabelNodes = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
-  const tabLabels = tabLabelNodes.map(li => li.textContent.trim());
+  // Get tab labels (li elements in .cmp-tabs__tablist)
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabItems = Array.from(tabList.querySelectorAll('li'));
 
-  // Get all tab panels (tab contents)
+  // Get all tab panels (order in DOM matches order of tabs)
   const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Each data-cmp-hook-tabs="tabpanel" panel may contain a contentfragment (article) which holds the actual content for the tab
-  // We want to reference the entire article element, as per guidelines
-  const tabContents = tabPanels.map(panel => {
-    // Look for the main content fragment inside the panel
-    const contentFrag = panel.querySelector('article.cmp-contentfragment');
-    if (contentFrag) {
-      return contentFrag;
-    } else {
-      // If not found, use the panel itself
-      return panel;
-    }
-  });
-
-  // Table header as per guidelines (block name and variant)
-  const headerRow = ['Tabs (tabs37)'];
-
-  // Build the table: first row is header, second row is labels, third row is contents
+  // Build the header row as per requirements
   const cells = [
-    headerRow,
-    tabLabels,
-    tabContents
+    ['Tabs (tabs37)']
   ];
 
-  // Create the block table using WebImporter.DOMUtils.createTable
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  tabItems.forEach((tabItem, idx) => {
+    // Tab label from li text
+    const label = tabItem.textContent.trim();
+    // Try to find panel by aria-controls
+    let tabPanelId = tabItem.getAttribute('aria-controls');
+    let panel = tabPanelId ? tabsBlock.querySelector('#' + tabPanelId) : tabPanels[idx];
+    if (!panel && tabPanels.length > idx) panel = tabPanels[idx];
+    
+    // For content: Reference the main content, prioritizing direct contentfragment/article
+    let contentNode = null;
+    if (panel) {
+      contentNode = panel.querySelector('article') || panel.querySelector('.contentfragment') || panel.firstElementChild;
+      // If panel is empty, fallback to itself
+      if (!contentNode || (contentNode.childNodes.length === 0 && !contentNode.textContent.trim())) {
+        contentNode = panel;
+      }
+    }
+    // If contentNode is still null, fallback to empty string
+    if (!contentNode) contentNode = '';
+    cells.push([label, contentNode]);
+  });
 
-  // Replace the tabs block with our new block table
-  tabsBlock.replaceWith(block);
+  // Create the table
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace tabs block with the table
+  tabsBlock.replaceWith(table);
 }

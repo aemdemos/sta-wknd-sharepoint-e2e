@@ -1,50 +1,30 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate the main tabs block
+  // Find the tabs block within 'element'
   const tabsBlock = element.querySelector('.tabs .cmp-tabs');
   if (!tabsBlock) return;
 
-  // Get the tab labels in order
+  // Get tab labels
   const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  const tabLabels = Array.from(tabList ? tabList.querySelectorAll('li[role="tab"]') : []);
+  const tabLabelEls = tabList ? Array.from(tabList.querySelectorAll('li[role="tab"]')) : [];
+  // Get tab panels (contents), keeping order
+  const tabPanelEls = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Get all tab panels
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
+  // Start block table with correct header row
+  const rows = [['Tabs (tabs6)']];
 
-  // Header row, exactly as required
-  const headerRow = ['Tabs (tabs6)'];
-  const rows = [];
-
-  // For each tab, extract its label and panel content
-  tabLabels.forEach((labelEl) => {
+  // For each tab, add a row: [label, content]
+  tabLabelEls.forEach((labelEl, idx) => {
     const label = labelEl.textContent.trim();
-    // Find the associated tabpanel by aria-labelledby
-    const panel = tabPanels.find(p => p.getAttribute('aria-labelledby') === labelEl.id);
-
-    let tabContent;
+    const panel = tabPanelEls[idx];
     if (panel) {
-      // Reference the entirety of the tabpanel's content
-      // If article (contentfragment) exists, reference that for conciseness
-      const contentFragment = panel.querySelector('article');
-      if (contentFragment) {
-        tabContent = contentFragment;
-      } else {
-        // Fallback: reference the panel itself (avoiding re-cloning)
-        tabContent = panel;
-      }
-    } else {
-      // Edge case: tab panel missing, fallback to empty text node
-      tabContent = document.createTextNode('');
+      // Use article.cmp-contentfragment if present, else .cmp-contentfragment, else panel
+      let contentElem = panel.querySelector('article.cmp-contentfragment') || panel.querySelector('.cmp-contentfragment') || panel;
+      rows.push([label, contentElem]);
     }
-    rows.push([label, tabContent]);
   });
 
-  // Compose the table rows
-  const cells = [headerRow, ...rows];
-
-  // Create the block table
-  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace the original element with the block table
-  element.replaceWith(blockTable);
+  // Create the block table and replace the tabs block
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  tabsBlock.parentNode.replaceChild(block, tabsBlock);
 }
