@@ -58,155 +58,6 @@
 }
 
 
-.tabs.tabs18 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 1000px;
-  margin-top: 48px;
-  margin-left: 0;
-  margin-right: 0;
-  background: #fff;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-@media (width <= 1100px) {
-  .tabs.tabs18 {
-    max-width: 98vw;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 8px;
-  }
-}
-
-.tabs.tabs18 .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 0;
-  margin: 0 0 32px;
-  padding: 0;
-  border-bottom: none;
-  width: 100%;
-  max-width: 960px;
-  align-items: flex-end;
-  justify-content: flex-start;
-  background: none;
-  height: 48px;
-}
-
-.tabs.tabs18 .tabs-tab {
-  background: transparent;
-  border: none;
-  color: #222;
-  font-family: var(--body-font-family);
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  height: 48px;
-  min-width: 140px;
-  padding: 0 24px;
-  margin: 0;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  transition: background 0.2s, color 0.2s, border-bottom 0.2s;
-  box-sizing: border-box;
-}
-
-.tabs.tabs18 .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  border-bottom: 2px solid #222;
-}
-
-.tabs.tabs18 .tabs-tab p {
-  margin: 0;
-  width: 100%;
-  text-align: left;
-  font-size: 1rem;
-  font-weight: inherit;
-}
-
-.tabs.tabs18 .tabs-panel {
-  padding: 0;
-  border: none;
-  background: transparent;
-  width: 100%;
-  max-width: 960px;
-  box-shadow: none;
-  margin-top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.tabs.tabs18 .tabs-panel > div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 28px;
-  width: 100%;
-  padding: 0;
-}
-
-.tabs.tabs18 .tabs-panel h3 {
-  font-family: var(--heading-font-family);
-  font-size: 2.2rem;
-  font-weight: 400;
-  color: #222;
-  margin: 0 0 24px;
-  letter-spacing: 0.5px;
-  text-align: left;
-  border: none;
-  width: auto;
-  max-width: 100%;
-  position: relative;
-  padding-bottom: 0;
-}
-
-.tabs.tabs18 .tabs-panel h3::after {
-  display: block;
-  width: 48px;
-  height: 3px;
-  background: #f2d675;
-  margin-top: 10px;
-  margin-left: 0;
-  border-radius: 2px;
-  content: '';
-}
-
-.tabs.tabs18 .tabs-panel picture,
-.tabs.tabs18 .tabs-panel img {
-  display: block;
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  margin-bottom: 12px;
-  margin-left: 0;
-  border-radius: 2px;
-  object-fit: cover;
-}
-
-.tabs.tabs18 .tabs-panel p,
-.tabs.tabs18 .tabs-panel ul {
-  font-family: var(--body-font-family);
-  font-size: 1rem;
-  color: #222;
-  line-height: 1.6;
-  margin: 0 0 10px;
-  text-align: left;
-  max-width: 900px;
-}
-
-.tabs.tabs18 .tabs-panel > div > *:last-child {
-  margin-bottom: 32px;
-}
-
-
 .tabs.tabs20 {
   max-width: 900px;
   margin: 56px auto 0;
@@ -3022,7 +2873,6 @@
   align-items: flex-start;
 }
 
-/* Sidebar: vertical tab list */
 .tabs.tabs13 .tabs-list {
   flex: 0 0 220px;
   display: flex;
@@ -3034,7 +2884,6 @@
   padding: 32px 0 0;
 }
 
-/* Main panel: content */
 .tabs.tabs13 .tabs-panel {
   flex: 1 1 0;
   background: #fff;
@@ -3045,12 +2894,10 @@
   overflow: auto;
 }
 
-/* Hide inactive tab panels */
 .tabs.tabs13 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Tabs styling */
 .tabs.tabs13 .tabs-tab {
   background: none;
   border: none;
@@ -3083,7 +2930,6 @@
   letter-spacing: 1px;
 }
 
-/* Main content styles */
 .tabs.tabs13 .tabs-panel h3 {
   font-family: Georgia, serif;
   color: #222;
@@ -3137,3 +2983,119 @@
     border: none;
   }
 }
+
+
+.tabs.tabs18 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  min-height: 100px;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Responsive stacking for small screens */
+@media (width <= 900px) {
+  .tabs.tabs18 {
+    flex-direction: column;
+    max-width: 100vw;
+    padding: 0 8px;
+  }
+}
+
+/* Treat the left column as a horizontal tab bar, centered vertically and inset from the left */
+.tabs.tabs18 > div:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 0 0 0 32px; /* left indent for whitespace */
+  margin: 0;
+  background: #fff;
+  box-sizing: border-box;
+  border-bottom: 2px solid #e6e6e6;
+  border-right: none;
+  min-height: 56px;
+}
+
+/* Tabs: style direct children as tabs */
+.tabs.tabs18 > div:first-child > * {
+  font-family: var(--body-font-family, "Source Sans Pro", Arial, sans-serif);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 700;
+  color: #222;
+  background: transparent;
+  padding: 0 24px;
+  height: 48px;
+  line-height: 48px;
+  border: none;
+  border-right: 1px solid #ededed;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  box-sizing: border-box;
+  min-width: 120px;
+}
+
+/* Simulate an active tab (first tab) for demo purposes */
+.tabs.tabs18 > div:first-child > *:first-child {
+  background: #222;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Remove the right border from the last tab */
+.tabs.tabs18 > div:first-child > *:last-child {
+  border-right: none;
+}
+
+/* Remove default paragraph margins inside tabs */
+.tabs.tabs18 > div:first-child > p {
+  margin: 0;
+}
+
+/* Remove extra vertical space below tabs row */
+.tabs.tabs18 > div:first-child:empty {
+  border-bottom: none;
+  min-height: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hide right column if empty */
+.tabs.tabs18 > div:last-child:empty {
+  display: none;
+}
+
+/* If right column is present, add spacing */
+.tabs.tabs18 > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 40px 40px 0 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs18 > div:last-child {
+    padding: 0;
+  }
+}
+
+/* Remove any outer border from root container */
