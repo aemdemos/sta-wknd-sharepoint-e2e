@@ -57,277 +57,6 @@
   display: none;
 }
 
-.section > .tabs.tabs8,
-main > div > .tabs.tabs8 {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.tabs.tabs8 {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 0;
-  max-width: 1200px;
-  margin: 0 auto 56px;
-  background: #fff;
-  border: none;
-  box-sizing: border-box;
-  padding: 0;
-  align-items: start;
-}
-
-.tabs.tabs8,
-.tabs.tabs8 > div:first-child,
-.tabs.tabs8 > div:nth-child(2) {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.tabs.tabs8 > div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0;
-  background: #fff;
-  border: none;
-  width: 100%;
-  max-width: 140px;
-  min-width: 0;
-  box-sizing: border-box;
-  margin-top: 0;
-}
-
-.tabs.tabs8 > div:first-child::before {
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: #ece1b0;
-  border-radius: 2px;
-  margin-top: 0;
-  margin-bottom: 1.2em;
-}
-
-.tabs.tabs8 > div:first-child .tabs-list {
-  display: none;
-}
-
-.tabs.tabs8 > div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  max-width: none;
-  box-sizing: border-box;
-  background: none;
-  border: none;
-}
-
-.tabs.tabs8 > div:nth-child(2) > * {
-  margin-left: 0;
-  align-self: flex-start;
-}
-
-.tabs.tabs8 > div:nth-child(2) .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 18px;
-  align-items: flex-start;
-  width: auto;
-  margin: 0 0 28px;
-  padding: 0;
-  border: none;
-  background: none;
-}
-
-.tabs.tabs8 .tabs-tab {
-  background: transparent;
-  color: #212121;
-  border: none;
-  border-radius: 4px;
-  font-family: var(--body-font-family);
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 8px 28px;
-  text-align: left;
-  transition: background 0.2s, color 0.2s;
-  outline: none;
-  box-shadow: none;
-  margin: 0;
-  min-width: 0;
-  cursor: pointer;
-}
-
-.tabs.tabs8 .tabs-tab[aria-selected="true"] {
-  background: #111;
-  color: #fff;
-}
-
-.tabs.tabs8 .tabs-tab:focus,
-.tabs.tabs8 .tabs-tab:hover {
-  background: #ece1b0;
-  color: #212121;
-}
-
-.tabs.tabs8 .tabs-tab p {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
-  color: inherit;
-}
-
-.tabs.tabs8 h3 {
-  font-family: var(--heading-font-family);
-  font-size: 2.2rem;
-  font-weight: 400;
-  color: #111;
-  margin: 0 0 6px;
-  line-height: 1.18;
-  padding-bottom: 0;
-  border: none;
-  display: block;
-  position: relative;
-  margin-top: 0;
-}
-
-.tabs.tabs8 h3::after {
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 60px;
-  height: 3px;
-  background: #ece1b0;
-  border-radius: 2px;
-  display: block;
-}
-
-.tabs.tabs8 h2 {
-  font-family: var(--heading-font-family);
-  font-size: 2.4rem;
-  color: #111;
-  font-weight: 700;
-  line-height: 1.22;
-  margin: 24px 0 28px;
-  padding: 0;
-}
-
-.tabs.tabs8 picture,
-.tabs.tabs8 img,
-.tabs.tabs8 p,
-.tabs.tabs8 ul,
-.tabs.tabs8 ol {
-  max-width: 100%;
-}
-
-.tabs.tabs8 picture,
-.tabs.tabs8 img {
-  display: block;
-  width: 100%;
-  margin: 0 0 24px;
-  border-radius: 8px;
-  box-shadow: none;
-  object-fit: cover;
-  height: auto;
-}
-
-.tabs.tabs8 p,
-.tabs.tabs8 ul,
-.tabs.tabs8 ol {
-  font-family: var(--body-font-family);
-  color: #222;
-  font-size: 16px;
-  line-height: 1.7;
-  margin: 0 0 18px;
-  text-align: left;
-}
-
-.tabs.tabs8 ul,
-.tabs.tabs8 ol {
-  padding-left: 24px;
-  margin-bottom: 16px;
-}
-
-.tabs.tabs8 li {
-  margin-bottom: 5px;
-  font-size: 15px;
-  line-height: 1.54;
-}
-
-.tabs.tabs8 .tabs-panel {
-  border: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-  overflow: visible;
-}
-
-.tabs.tabs8 .tabs-panel[aria-hidden='true'] {
-  display: none;
-}
-
-.tabs.tabs8 .tabs-panel > div > h3:first-child {
-  margin-top: 0;
-}
-
-.tabs.tabs8 .tabs-panel > div > *:last-child {
-  margin-bottom: 0;
-}
-
-.tabs.tabs8 > div:first-child > *,
-.tabs.tabs8 > div:nth-child(2) > * {
-  margin-top: 0;
-  align-self: flex-start;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs8 {
-    grid-template-columns: 1fr;
-    gap: 0;
-    max-width: 100vw;
-    margin: 0 0 40px;
-    padding: 0;
-  }
-
-  .tabs.tabs8 > div:first-child {
-    max-width: 100vw;
-    width: 100vw;
-    padding: 0;
-    margin: 0;
-  }
-
-  .tabs.tabs8 > div:first-child::before {
-    margin-left: 0;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    width: 48px;
-  }
-
-  .tabs.tabs8 > div:nth-child(2) {
-    max-width: 100vw;
-    padding: 0;
-  }
-
-  .tabs.tabs8 h3 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-
-  .tabs.tabs8 h2 {
-    font-size: 1.18rem;
-    margin: 16px 0 14px;
-  }
-
-  .tabs.tabs8 picture,
-  .tabs.tabs8 img {
-    max-width: 98vw;
-    margin-bottom: 12px;
-  }
-}
-
 
 .tabs.tabs10 {
   display: flex;
@@ -2863,7 +2592,6 @@ main > div > .tabs.tabs8 {
   }
 }
 
-/* Left column: tabs */
 .tabs.tabs7 > div:first-child {
   grid-column: 1;
   grid-row: 1;
@@ -2884,7 +2612,6 @@ main > div > .tabs.tabs8 {
   }
 }
 
-/* Tabs list: vertical on desktop, horizontal on mobile */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -2904,7 +2631,6 @@ main > div > .tabs.tabs8 {
   }
 }
 
-/* Tab buttons */
 .tabs.tabs7 .tabs-tab {
   background: #fff;
   color: #181818;
@@ -2932,7 +2658,6 @@ main > div > .tabs.tabs8 {
   outline: 2px solid #ebcb2b;
 }
 
-/* Tab text */
 .tabs.tabs7 .tabs-tab p {
   margin: 0;
   text-transform: uppercase;
@@ -2940,7 +2665,6 @@ main > div > .tabs.tabs8 {
   letter-spacing: 0.5px;
 }
 
-/* Main content column */
 .tabs.tabs7 > div:last-child {
   grid-column: 2;
   grid-row: 1;
@@ -2959,7 +2683,6 @@ main > div > .tabs.tabs8 {
   }
 }
 
-/* Hide non-active panels */
 .tabs.tabs7 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
@@ -2975,7 +2698,6 @@ main > div > .tabs.tabs8 {
   overflow: visible;
 }
 
-/* Headings */
 .tabs.tabs7 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2em;
@@ -3006,7 +2728,6 @@ main > div > .tabs.tabs8 {
   text-align: left;
 }
 
-/* Image styles */
 .tabs.tabs7 .tabs-panel picture,
 .tabs.tabs7 .tabs-panel img {
   display: block;
@@ -3018,7 +2739,6 @@ main > div > .tabs.tabs8 {
   box-shadow: none;
 }
 
-/* Paragraphs and lists */
 .tabs.tabs7 .tabs-panel p,
 .tabs.tabs7 .tabs-panel ul {
   font-family: var(--body-font-family);
@@ -3036,7 +2756,6 @@ main > div > .tabs.tabs8 {
   margin-bottom: 0;
 }
 
-/* Responsive grid stacking */
 @media (width <= 900px) {
   .tabs.tabs7 {
     grid-template-columns: 1fr;
@@ -3049,3 +2768,281 @@ main > div > .tabs.tabs8 {
     grid-row: auto;
   }
 }
+
+
+.tabs.tabs8 {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0 48px;
+  max-width: 1200px;
+  margin: 40px auto 56px;
+  background: #fff;
+  box-sizing: border-box;
+  border: none;
+  padding: 0;
+  align-items: flex-start;
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .tabs.tabs8 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100vw;
+    margin: 18px 0 32px;
+    padding: 0;
+  }
+}
+
+/* --- SIDEBAR (LEFT COLUMN) --- */
+.tabs.tabs8 > div:first-child {
+  grid-column: 1 / 2;
+  background: #fff;
+  border-right: 1px solid #eaeaea;
+  min-height: 100%;
+  padding: 36px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 260px;
+  z-index: 1;
+  position: relative;
+  overflow: visible;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs8 > div:first-child {
+    border-right: none;
+    border-bottom: 1px solid #eaeaea;
+    padding: 20px 0 12px;
+    min-height: unset;
+    width: 100%;
+    max-width: 100vw;
+  }
+}
+
+/* Hide tab lists and tab panels in the sidebar by default (except visually moved ones) */
+.tabs.tabs8 > div:first-child .tabs-list,
+.tabs.tabs8 > div:first-child .tabs-panel {
+  display: none;
+}
+
+/* Sidebar accent bar */
+.tabs.tabs8 > div:first-child::before {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #fbe46a;
+  border-radius: 2px;
+  margin-bottom: 28px;
+  content: "";
+}
+
+/* Space out sidebar items */
+.tabs.tabs8 > div:first-child > * {
+  margin-bottom: 24px;
+  align-self: flex-start;
+  max-width: 220px;
+  text-align: left;
+}
+
+/* --- MAIN CONTENT COLUMN (RIGHT) --- */
+.tabs.tabs8 > div:nth-child(2) {
+  grid-column: 2 / 3;
+  width: 100%;
+  max-width: 900px;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+/* Place the sidebar's .tabs-list and .tabs-panel[aria-hidden=false] into the main column using fixed height/width/flexbox */
+.tabs.tabs8 > div:nth-child(2)::before,
+.tabs.tabs8 > div:nth-child(2)::after {
+  display: none;
+}
+
+/* Put the sidebar's .tabs-list and .tabs-panel[aria-hidden=false] visually in the main column */
+.tabs.tabs8 > div:first-child .tabs-list,
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 260px;
+  width: calc(100% - 260px);
+  min-width: 0;
+  max-width: 900px;
+  min-height: 0;
+  box-sizing: border-box;
+  background: #fff;
+  z-index: 3;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.tabs.tabs8 > div:first-child .tabs-list {
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 36px;
+  margin-top: 0;
+  width: auto;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs8 > div:first-child .tabs-list,
+  .tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] {
+    position: static;
+    left: unset;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0;
+  }
+}
+
+/* --- TABS BAR BUTTON STYLE --- */
+.tabs.tabs8 .tabs-tab {
+  background: transparent;
+  color: #212121;
+  border: none;
+  border-radius: 2px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 8px 22px;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.tabs.tabs8 .tabs-tab[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+}
+
+.tabs.tabs8 .tabs-tab:focus,
+.tabs.tabs8 .tabs-tab:hover {
+  background: #fbe46a;
+  color: #000;
+}
+
+/* --- TAB PANEL (ACTIVE) STYLE --- */
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+/* Headings */
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 22px;
+  line-height: 1.2;
+}
+
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.35rem;
+  color: #000;
+  margin: 18px 0 12px;
+  font-weight: 600;
+  line-height: 1.19;
+}
+
+/* Images in tab panel */
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] picture,
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] img {
+  display: block;
+  width: 100%;
+  max-width: 780px;
+  height: auto;
+  margin: 22px 0 24px;
+  border-radius: 2px;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+/* Paragraphs and body text */
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] p,
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] ul,
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] ol {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 16px;
+  text-align: left;
+  max-width: 730px;
+}
+
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] ul,
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] ol {
+  padding-left: 24px;
+}
+
+.tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] li {
+  margin-bottom: 6px;
+}
+
+/* Responsive adjustment for main column content */
+@media (width <= 600px) {
+  .tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] h2 {
+    font-size: 1.18rem;
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] picture,
+  .tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] img {
+    max-width: 98vw;
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] p,
+  .tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] ul,
+  .tabs.tabs8 > div:first-child .tabs-panel[aria-hidden="false"] ol {
+    font-size: 1rem;
+  }
+}
+
+/* Reset padding and max-width for the sidebar on mobile */
+@media (width <= 600px) {
+  .tabs.tabs8 > div:first-child {
+    padding: 10px 0;
+    max-width: 100vw;
+  }
+}
+
+/* Ensure main area overlays above sidebar for tab focus */
