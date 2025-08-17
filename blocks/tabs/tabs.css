@@ -227,30 +227,6 @@
   }
 }
 
-
-.tabs34.block {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 48px;
-}
-
-.tabs34.block > .tabs-list {
-  flex: 0 0 210px;
-  min-width: 180px;
-  max-width: 260px;
-  padding-top: 16px;
-}
-
-.tabs34.block > .tabs-panel {
-  flex: 1 1 auto;
-  max-width: 900px;
-}
-
-.tabs34.block > .tabs-panel[aria-hidden="true"] {
-  display: none !important;
-}
-
 .tabs-list::before {
   content: '';
   display: block;
@@ -339,25 +315,6 @@
   max-width: 850px;
   margin-left: 0;
   margin-right: auto;
-}
-
-@media (width <= 900px) {
-  .tabs34.block {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .tabs34.block > .tabs-list {
-    width: 100%;
-    max-width: none;
-    flex: none;
-    margin-bottom: 24px;
-    padding-top: 12px;
-  }
-
-  .tabs34.block > .tabs-panel {
-    max-width: 100%;
-  }
 }
 
 
@@ -3533,7 +3490,6 @@
   min-width: 0;
 }
 
-/* LEFT COLUMN (SIDEBAR/META, if present in DOM) */
 .tabs.tabs31 > div:first-child {
   display: flex;
   flex-direction: column;
@@ -3569,7 +3525,6 @@
   display: block;
 }
 
-/* RIGHT COLUMN (CONTENT) */
 .tabs.tabs31 > div:last-child {
   display: flex;
   flex-direction: column;
@@ -3719,5 +3674,271 @@
 
   .tabs.tabs31 .tabs-panel h3 {
     font-size: 24px;
+  }
+}
+
+
+.tabs.tabs34 {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 1200px;
+  margin: 48px auto;
+  min-height: 600px;
+  border: none;
+  padding: 0;
+  position: relative;
+}
+
+/* Sidebar: vertical nav (tab list) on the left */
+.tabs.tabs34 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  min-height: 100vh;
+  border-right: 1px solid #eee;
+  padding: 32px 0 0;
+  gap: 0;
+  min-width: 180px;
+  max-width: 260px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Yellow accent line at the top of sidebar */
+.tabs.tabs34 > .tabs-list::before {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #e7d48c;
+  border-radius: 1.5px;
+  margin-bottom: 28px;
+  margin-left: 0;
+}
+
+/* Tab buttons: vertical, sidebar */
+.tabs.tabs34 > .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  min-height: 44px;
+  min-width: 160px;
+  text-align: left;
+  border-radius: 0;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  box-sizing: border-box;
+}
+
+.tabs.tabs34 > .tabs-list .tabs-tab > p {
+  margin: 0;
+  padding: 12px 20px;
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: inherit;
+}
+
+/* Active tab: black bg, white text */
+.tabs.tabs34 > .tabs-list .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  border-radius: 0;
+}
+
+.tabs.tabs34 > .tabs-list .tabs-tab[aria-selected='true'] > p {
+  color: #fff;
+}
+
+/* Inactive tab: transparent */
+.tabs.tabs34 > .tabs-list .tabs-tab[aria-selected='false'],
+.tabs.tabs34 > .tabs-list .tabs-tab[aria-selected='false'] > p {
+  background: transparent;
+  color: #222;
+}
+
+/* Tab hover effect */
+.tabs.tabs34 > .tabs-list .tabs-tab:hover,
+.tabs.tabs34 > .tabs-list .tabs-tab:focus {
+  background: #f8f8f8;
+  color: #222;
+}
+
+/* Main content (tab panel area) */
+.tabs.tabs34 > .tabs-panel {
+  background: #fff;
+  padding: 50px 48px 48px;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: auto;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+/* Hide inactive panels */
+.tabs.tabs34 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Headings */
+.tabs.tabs34 > .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.1;
+  position: relative;
+}
+
+/* Yellow accent bar below h3 */
+.tabs.tabs34 > .tabs-panel h3::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #e7d48c;
+  border-radius: 1.5px;
+  margin: 12px 0 0;
+
+  /* visually separated under h3 */
+}
+
+/* Secondary heading */
+.tabs.tabs34 > .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #222;
+  margin: 32px 0 24px;
+  line-height: 1.2;
+}
+
+.tabs.tabs34 > .tabs-panel h2 strong {
+  font-weight: bold;
+}
+
+/* Paragraphs and lists */
+.tabs.tabs34 > .tabs-panel p,
+.tabs.tabs34 > .tabs-panel ul {
+  color: #222;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.tabs.tabs34 > .tabs-panel ul {
+  margin-left: 32px;
+  margin-bottom: 32px;
+  list-style: disc;
+}
+
+/* Images */
+.tabs.tabs34 > .tabs-panel picture,
+.tabs.tabs34 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  margin: 0 0 32px;
+  box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 1100px) {
+  .tabs.tabs34 {
+    max-width: 100%;
+  }
+
+  .tabs.tabs34 > .tabs-panel {
+    padding: 36px 24px 32px;
+    max-width: 100%;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs34 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: unset;
+  }
+
+  .tabs.tabs34 > .tabs-list {
+    flex-direction: row;
+    align-items: stretch;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    min-width: 0;
+    min-height: unset;
+    padding: 0;
+    margin-bottom: 0;
+    gap: 0;
+  }
+
+  .tabs.tabs34 > .tabs-list::before {
+    width: 0;
+    height: 0;
+    margin-bottom: 0;
+    background: transparent;
+  }
+
+  .tabs.tabs34 > .tabs-list .tabs-tab,
+  .tabs.tabs34 > .tabs-list .tabs-tab > p {
+    min-width: 0;
+    min-height: 44px;
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .tabs.tabs34 > .tabs-list .tabs-tab > p {
+    padding: 12px 10px;
+  }
+
+  .tabs.tabs34 > .tabs-list .tabs-tab {
+    flex: 1 1 0;
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .tabs.tabs34 > .tabs-panel {
+    padding: 28px 4vw;
+  }
+
+  .tabs.tabs34 > .tabs-panel h3::after {
+    width: 38px;
+    margin-top: 8px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs34 > .tabs-panel {
+    padding: 18px 0;
+  }
+
+  .tabs.tabs34 {
+    margin: 16px 0;
   }
 }
