@@ -60,123 +60,6 @@
 }
 
 
-.hero.hero11 {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  overflow: visible;
-  background: none;
-  box-sizing: border-box;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.hero.hero11 > div {
-  display: block;
-  position: relative;
-}
-
-.hero.hero11 > div:first-child {
-  width: 100vw;
-  height: 340px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.hero.hero11 > div:first-child picture,
-.hero.hero11 > div:first-child img {
-  width: 100vw;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.hero.hero11 > div:nth-child(2) {
-  position: absolute;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  width: 58vw;
-  max-width: 820px;
-  min-width: 220px;
-  z-index: 3;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-}
-
-.hero.hero11 > div:nth-child(2) > div {
-  background: #fff;
-  padding: 12px 32px 72px;
-  width: 100%;
-  border-radius: 0;
-  box-shadow: none;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hero.hero11 h2 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.55rem;
-  font-weight: 400;
-  color: #222;
-  line-height: 1.3;
-  text-align: left;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-@media (width <= 900px) {
-  .hero.hero11 > div:first-child {
-    height: 180px;
-  }
-
-  .hero.hero11 > div:nth-child(2) {
-    width: 87vw;
-    max-width: 97vw;
-    bottom: 18px;
-  }
-
-  .hero.hero11 > div:nth-child(2) > div {
-    padding: 10px 4vw 32px;
-  }
-
-  .hero.hero11 h2 {
-    font-size: 1.12rem;
-  }
-}
-
-@media (width <= 600px) {
-  .hero.hero11 > div:first-child {
-    height: 90px;
-  }
-
-  .hero.hero11 > div:nth-child(2) {
-    width: 98vw;
-    max-width: 99vw;
-    bottom: 10px;
-  }
-
-  .hero.hero11 > div:nth-child(2) > div {
-    padding: 6px 2vw 18px;
-  }
-
-  .hero.hero11 h2 {
-    font-size: 0.98rem;
-  }
-}
-
-
 .hero.hero39 {
   position: relative;
   width: 100vw;
@@ -207,7 +90,6 @@
   display: block;
 }
 
-/* Overlay box with inset side margins and max-width to match the original spacing */
 .hero.hero39 > div:nth-child(2) {
   position: absolute;
   left: 0;
@@ -291,5 +173,123 @@
 
   .hero.hero39 > div:nth-child(2) p {
     font-size: 0.95rem;
+  }
+}
+
+
+.hero.hero11 {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: visible;
+  background: none;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Image container */
+.hero.hero11 > div:first-child {
+  width: 100vw;
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: block;
+}
+
+.hero.hero11 > div:first-child picture,
+.hero.hero11 > div:first-child img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Overlay panel: slightly less overlap, slightly less width, more balance */
+.hero.hero11 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 64vw;
+  max-width: 840px;
+  min-width: 220px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* White panel styling: balanced vertical padding */
+.hero.hero11 > div:nth-child(2) > div {
+  background: #fff;
+  padding: 16px 24px;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Headline styling */
+.hero.hero11 h2 {
+  color: #222;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero11 > div:first-child {
+    height: 150px;
+  }
+
+  .hero.hero11 > div:nth-child(2) {
+    width: 88vw;
+    max-width: 98vw;
+    bottom: -4px;
+  }
+
+  .hero.hero11 > div:nth-child(2) > div {
+    padding: 12px 4vw;
+  }
+
+  .hero.hero11 h2 {
+    font-size: 1.09rem;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero11 > div:first-child {
+    height: 65px;
+  }
+
+  .hero.hero11 > div:nth-child(2) {
+    width: 98vw;
+    max-width: 99vw;
+    bottom: -2px;
+  }
+
+  .hero.hero11 > div:nth-child(2) > div {
+    padding: 8px 2vw;
+  }
+
+  .hero.hero11 h2 {
+    font-size: 0.98rem;
   }
 }
