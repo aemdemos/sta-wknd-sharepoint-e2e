@@ -1,58 +1,64 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main carousel element
-  const cmpCarousel = element.querySelector('.cmp-carousel');
-  if (!cmpCarousel) return;
-  const cmpContent = cmpCarousel.querySelector('.cmp-carousel__content');
-  if (!cmpContent) return;
+  const headerRow = ['Carousel (carousel17)'];
 
-  // Create the header row exactly as in the example
-  const cells = [['Carousel (carousel17)']];
+  // Find carousel content
+  const carousel = element.querySelector('.cmp-carousel');
+  if (!carousel) return;
+  const content = carousel.querySelector('.cmp-carousel__content');
+  if (!content) return;
 
-  // Find all slides ('.cmp-carousel__item')
-  const slides = Array.from(cmpContent.querySelectorAll('.cmp-carousel__item'));
-  slides.forEach((slide) => {
-    // First column: the image element (mandatory)
-    let imageCell = '';
-    const img = slide.querySelector('img');
-    if (img) imageCell = img;
+  // Get all slide elements
+  const slideEls = Array.from(content.children).filter(child => child.classList && child.classList.contains('cmp-carousel__item'));
 
-    // Second column: text content (if any)
-    // Look for all direct children that are not the image container
+  const rows = slideEls.map(slide => {
+    // IMAGE CELL: Use cmp-image if present, else first img
+    let imgCell = '';
+    const cmpImage = slide.querySelector('.cmp-image');
+    if (cmpImage) {
+      imgCell = cmpImage;
+    } else {
+      const img = slide.querySelector('img');
+      if (img) imgCell = img;
+    }
+
+    // TEXT CELL: Find overlay text (common for carousels) or any text content not in image
     let textCell = '';
-    // Collect all non-image children content
-    const nonImage = Array.from(slide.children).filter(child => !child.classList.contains('image'));
-    // If there is any non-image content, include all its content as is
-    if (nonImage.length > 0) {
-      // Gather all childNodes (not just elements) to include possible text nodes
-      let contentList = [];
-      nonImage.forEach((child) => {
-        // If the child has children, grab all children
-        if (child.children && child.children.length > 0) {
-          contentList.push(...Array.from(child.children));
-        } else if (child.textContent && child.textContent.trim()) {
-          // If only text content, keep it as a paragraph (for semantic meaning)
-          const p = document.createElement('p');
-          p.textContent = child.textContent.trim();
-          contentList.push(p);
+    const textParts = [];
+    // Common overlay pattern: look for elements with class containing 'overlay', 'caption', or 'text' within slide
+    const overlay = slide.querySelector('[class*="overlay"], [class*="caption"], [class*="text"]');
+    if (overlay && overlay.textContent.trim()) {
+      textParts.push(overlay);
+    } else {
+      // If no overlay/caption, collect all elements in slide except .image/.cmp-image
+      Array.from(slide.children).forEach(child => {
+        if (
+          !child.classList.contains('image') &&
+          !child.classList.contains('cmp-image') &&
+          child.textContent.trim()
+        ) {
+          textParts.push(child);
         }
       });
-      // Use original element(s) if nothing was added above
-      if (contentList.length === 0) {
-        contentList = nonImage;
-      }
-      // If just one element, use it directly
-      textCell = contentList.length === 1 ? contentList[0] : contentList;
-    } else if (img && img.alt && img.alt.trim()) {
-      // If no text content but the image has an alt text, use it as a fallback
-      const p = document.createElement('p');
-      p.textContent = img.alt.trim();
-      textCell = p;
     }
-    // Add row: always two columns (image, text)
-    cells.push([imageCell, textCell]);
+    // If still nothing, look for stray text nodes
+    if (textParts.length === 0) {
+      Array.from(slide.childNodes).forEach(n => {
+        if (n.nodeType === 3 && n.textContent.trim()) {
+          const span = document.createElement('span');
+          span.textContent = n.textContent.trim();
+          textParts.push(span);
+        }
+      });
+    }
+    if (textParts.length > 0) {
+      textCell = textParts;
+    }
+
+    return [imgCell, textCell];
   });
-  // Replace original element with the new block table
+
+  const cells = [headerRow, ...rows];
   const block = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(block);
 }

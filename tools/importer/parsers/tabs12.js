@@ -1,44 +1,43 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block by class
-  const tabsBlock = element.querySelector('.tabs .cmp-tabs');
-  if (!tabsBlock) return;
+  // Find the tabs block within the element
+  const cmpTabs = element.querySelector('.cmp-tabs');
+  if (!cmpTabs) return;
 
-  // Extract tab labels from the immediate children of the tablist
-  const tablist = tabsBlock.querySelector('.cmp-tabs__tablist');
-  const tabLabels = tablist ? Array.from(tablist.children).map(tab => tab.textContent.trim()) : [];
+  // Get the tab labels (li[role=tab]) in order
+  const tabList = cmpTabs.querySelector('.cmp-tabs__tablist');
+  const tabLabelEls = tabList ? Array.from(tabList.querySelectorAll('[role="tab"]')) : [];
 
-  // Extract tab panels in the order they appear in the DOM
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
+  // Get the tab panels (div[data-cmp-hook-tabs=tabpanel]) in order
+  const tabPanelEls = Array.from(
+    cmpTabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]')
+  );
 
-  // Build the rows for the block table
-  const rows = [];
-  // Header row must match block name in example
-  rows.push(['Tabs (tabs12)']);
+  // Edge case: If there are no tabs or panels, do nothing
+  if (tabLabelEls.length === 0 || tabPanelEls.length === 0) return;
 
-  // For each tab, create a row with label and content
-  for (let i = 0; i < tabLabels.length; i++) {
-    const label = tabLabels[i] || '';
-    const panel = tabPanels[i];
-    let contentElem = undefined;
-    if (panel) {
-      // We want all the content of the panel as a single cell.
-      // Use the contentfragment/article if present, else use the panel div directly
-      const contentFragment = panel.querySelector('article.cmp-contentfragment') || panel.querySelector('.contentfragment');
-      if (contentFragment) {
-        contentElem = contentFragment;
-      } else {
-        // fallback: reference the panel element itself, not clone
-        contentElem = panel;
-      }
-    } else {
-      // Edge case: no panel found for this label
-      contentElem = document.createElement('div'); // empty cell
-    }
-    rows.push([label, contentElem]);
+  // Build the header row: always exactly 'Tabs (tabs12)'
+  const rows = [['Tabs (tabs12)']];
+
+  // For each tab, add a row: [tab label, tab content]
+  for (let i = 0; i < tabLabelEls.length; i++) {
+    const tabLabelEl = tabLabelEls[i];
+    const label = tabLabelEl ? tabLabelEl.textContent.trim() : '';
+    // If no panel, skip row
+    if (!tabPanelEls[i]) continue;
+    const panelEl = tabPanelEls[i];
+
+    // For semantic fidelity, reference the entire .contentfragment or article within the panel if it exists, else the panel itself
+    const mainContent = panelEl.querySelector('article') || panelEl.querySelector('.contentfragment') || panelEl;
+    // For label, use a <strong> element for robust direct referencing (not string)
+    const strongLabel = document.createElement('strong');
+    strongLabel.textContent = label;
+    rows.push([strongLabel, mainContent]);
   }
 
-  // Create and replace the table block
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+
+  // Replace the tabs block only (not the root element)
+  cmpTabs.parentNode.replaceChild(block, cmpTabs);
 }

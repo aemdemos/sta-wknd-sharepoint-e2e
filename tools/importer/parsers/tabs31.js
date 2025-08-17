@@ -1,32 +1,41 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs container
-  const tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
+  // Locate the tabs block within the provided element
+  const tabsContainer = element.querySelector('.tabs');
+  if (!tabsContainer) return;
 
-  // Get tab labels and tab panels
-  const tabLabelEls = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tablist > li'));
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
+  const cmpTabs = tabsContainer.querySelector('.cmp-tabs');
+  if (!cmpTabs) return;
 
-  // Defensive: only pair up to minimum number of tabs/panels
-  const numTabs = Math.min(tabLabelEls.length, tabPanels.length);
+  // Get the tab list (labels)
+  const tabList = cmpTabs.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabLabels = Array.from(tabList.querySelectorAll('li')).map(li => li.textContent.trim());
 
-  // Header row exactly as required (one column, string)
+  // Get all tab panels, in order
+  const tabPanels = Array.from(cmpTabs.querySelectorAll('.cmp-tabs__tabpanel'));
+
+  // Compose the table header row
   const headerRow = ['Tabs (tabs31)'];
-  const tableRows = [headerRow];
+  // Compose the tab label row (second row, each label in its cell)
+  const tabsRow = tabLabels;
 
-  // Each tab is a row: [labelText, tabPanelContent], exactly matching the example structure
-  for (let i = 0; i < numTabs; i++) {
-    // Tab label as plain string
-    const labelText = tabLabelEls[i].textContent.trim();
-    // Tab content: reference the contentfragment/article if present, else the panel itself
-    const content = tabPanels[i].querySelector('article.cmp-contentfragment')
-      || tabPanels[i].querySelector('.contentfragment')
-      || tabPanels[i];
-    tableRows.push([labelText, content]);
-  }
+  // Compose one row for each tab, with two cells: label and content
+  // Each row: [tab label as string, tab content as element]
+  const contentRows = tabLabels.map((label, idx) => {
+    const panel = tabPanels[idx];
+    if (!panel) return [label, ''];
+    const article = panel.querySelector('article');
+    const tabContent = article ? article : panel;
+    return [label, tabContent];
+  });
 
-  // Create and replace
-  const table = WebImporter.DOMUtils.createTable(tableRows, document);
-  element.replaceWith(table);
+  // Compose the complete table structure
+  const cells = [headerRow, tabsRow, ...contentRows];
+
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Replace the original tabs block with the generated table
+  tabsContainer.replaceWith(block);
 }

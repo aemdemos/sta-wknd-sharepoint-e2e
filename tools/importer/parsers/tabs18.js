@@ -1,93 +1,55 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the .tabs block within the element
-  const tabsBlock = element.querySelector('.tabs');
-  if (!tabsBlock) return;
-  const cmpTabs = tabsBlock.querySelector('.cmp-tabs');
-  if (!cmpTabs) return;
+  // Find the tabs block root (the one with class 'cmp-tabs')
+  const tabsRoot = element.querySelector('.cmp-tabs');
+  if (!tabsRoot) return;
 
-  // Get tab labels from the <li role="tab"> elements
-  const tabList = cmpTabs.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabLabelEls = Array.from(tabList.querySelectorAll('li[role="tab"]'));
-  if (tabLabelEls.length === 0) return;
-  const tabLabels = tabLabelEls.map(li => li.textContent.trim());
+  // Get the tab labels (li[role=tab]) in order
+  const tabListEl = tabsRoot.querySelector('.cmp-tabs__tablist');
+  if (!tabListEl) return;
+  const tabEls = Array.from(tabListEl.querySelectorAll('li[role="tab"]'));
 
-  // Get tab panels in order
-  const tabPanels = Array.from(cmpTabs.querySelectorAll('[role="tabpanel"][data-cmp-hook-tabs="tabpanel"]'));
+  // Prepare header row as specified
+  const headerRow = ['Tabs (tabs18)'];
+  const cells = [headerRow];
 
-  // Header row is always the block name exactly as specified
-  const rows = [['Tabs (tabs18)']];
-  // Second row: the tab labels
-  rows.push(tabLabels);
-
-  // For each panel, extract the content as a cell (reference the actual elements)
-  tabPanels.forEach(panel => {
-    // Try to find the cmp-contentfragment > .cmp-contentfragment__elements inside the panel for main content
-    // We'll collect the main content (images, paragraphs, lists, headings, etc) as is, in document order
-    let contentElements = [];
-    const cfArticle = panel.querySelector('article.cmp-contentfragment');
-    if (cfArticle) {
-      const cfContent = cfArticle.querySelector('.cmp-contentfragment__elements');
-      if (cfContent) {
-        // Gather all meaningful descendants (skip grid containers that are empty)
-        // Only include elements that are not empty placeholders
-        const flatten = (el) => {
-          let arr = [];
-          el.childNodes.forEach(child => {
-            if (child.nodeType === 1) {
-              // element node
-              // skip empty grid wrappers
-              if (
-                child.classList.contains('aem-Grid') ||
-                child.classList.contains('aem-GridColumn')
-              ) {
-                // may hold content, but if empty, skip
-                if (child.querySelector('img, p, h1, h2, h3, h4, h5, h6, ul, ol')) {
-                  arr = arr.concat(flatten(child));
-                }
-              } else if (
-                child.tagName === 'DIV' ||
-                child.tagName === 'SECTION'
-              ) {
-                // recurse into DIV/SECTION
-                arr = arr.concat(flatten(child));
-              } else if (
-                child.tagName === 'IMG' ||
-                child.tagName === 'P' ||
-                child.tagName.match(/^H[1-6]$/) ||
-                child.tagName === 'UL' ||
-                child.tagName === 'OL' ||
-                child.classList.contains('image')
-              ) {
-                arr.push(child);
-              } else {
-                arr = arr.concat(flatten(child));
-              }
-            }
-          });
-          return arr;
-        };
-        const flattened = flatten(cfContent);
-        // Only push elements that are not empty and not duplicate
-        flattened.forEach((el) => {
-          if (
-            (el.tagName !== 'DIV' || el.querySelector('img, p, h1, h2, h3, h4, h5, h6, ul, ol')) &&
-            !contentElements.includes(el)
-          ) {
-            contentElements.push(el);
-          }
-        });
+  // For each tab, extract label and panel content
+  tabEls.forEach((tabEl) => {
+    const tabLabel = tabEl.textContent.trim();
+    const tabPanelId = tabEl.getAttribute('aria-controls');
+    // Find the corresponding tab panel by id
+    const tabPanel = tabsRoot.querySelector(`#${tabPanelId}`);
+    if (!tabPanel) return; // skip if not found
+    // The SEMANTIC rule: each tab's content is the content inside the tab panel
+    // We want to reference the existing children nodes for robustness
+    // If there is only one significant child, reference it directly
+    // Otherwise, collect all children
+    let tabContent;
+    // Remove hidden aem-Grid containers if present (empty grid fillers)
+    const nodes = Array.from(tabPanel.childNodes).filter(node => {
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        // Keep nodes that are not empty .aem-Grid containers
+        if (node.classList.contains('aem-Grid') && node.childNodes.length === 0) {
+          return false;
+        }
+        return true;
       }
+      // Keep text nodes if not empty
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+        return true;
+      }
+      return false;
+    });
+    // If only one, use it directly, else array
+    if (nodes.length === 1) {
+      tabContent = nodes[0];
+    } else {
+      tabContent = nodes;
     }
-    // Fallback: if nothing, put the whole panel
-    if (contentElements.length === 0) {
-      contentElements = Array.from(panel.childNodes).filter(n => n.nodeType === 1);
-    }
-    rows.push([contentElements]);
+    cells.push([tabLabel, tabContent]);
   });
 
-  // Create the table block and replace tabsBlock
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  tabsBlock.replaceWith(table);
+  // Create the block and replace the original element
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

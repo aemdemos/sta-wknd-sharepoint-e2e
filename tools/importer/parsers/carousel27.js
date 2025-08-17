@@ -1,60 +1,62 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // --- 1. HEADER ROW ---
-  const header = ['Carousel (carousel27)'];
-
-  // --- 2. IMAGE (first column) ---
-  let imgEl = null;
-  const imageWrapper = element.querySelector('.cmp-teaser__image');
-  if (imageWrapper) {
-    imgEl = imageWrapper.querySelector('img');
-  }
-
-  // --- 3. TEXT CONTENT (second column) ---
-  const contentWrapper = element.querySelector('.cmp-teaser__content');
-  const content = [];
-  if (contentWrapper) {
-    // Title: use heading element (keep source tag if h2, else convert to h2)
-    const titleEl = contentWrapper.querySelector('.cmp-teaser__title');
-    if (titleEl) {
-      if (/^h[1-6]$/i.test(titleEl.tagName)) {
-        content.push(titleEl);
-      } else {
-        const h2 = document.createElement('h2');
-        h2.textContent = titleEl.textContent.trim();
-        content.push(h2);
-      }
-    }
-    // Description: keep as paragraph (keep source tag if p/div)
-    const descEl = contentWrapper.querySelector('.cmp-teaser__description');
-    if (descEl) {
-      // If it's already a <p>, reference it, else wrap in <p>
-      if (descEl.tagName.toLowerCase() === 'p') {
-        content.push(descEl);
-      } else {
-        const p = document.createElement('p');
-        p.textContent = descEl.textContent.trim();
-        content.push(p);
-      }
-    }
-    // CTA link: reference existing <a>
-    const ctaEl = contentWrapper.querySelector('.cmp-teaser__action-link');
-    if (ctaEl) {
-      content.push(ctaEl);
-    }
-  }
-
-  // --- 4. BUILD FINAL TABLE ARRAY ---
-  // Cells: header row [block name], then one slide row [image, text content]
-  // Image and text content are each wrapped in their respective cells
+  // Build header row with the exact block name
   const cells = [
-    header,
-    [imgEl, content]
+    ['Carousel (carousel27)']
   ];
 
-  // --- 5. CREATE BLOCK TABLE ---
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Defensive: Only process if we have a .cmp-teaser inside
+  const teaser = element.querySelector('.cmp-teaser');
+  if (teaser) {
+    // --- IMAGE COLUMN ---
+    let imageEl = null;
+    const imageSection = teaser.querySelector('.cmp-teaser__image');
+    if (imageSection) {
+      const img = imageSection.querySelector('img');
+      if (img) {
+        // Always reference the existing element (do not clone)
+        imageEl = img;
+      }
+    }
 
-  // --- 6. REPLACE ORIGINAL ELEMENT ---
-  element.replaceWith(block);
+    // --- TEXT COLUMN ---
+    const textContentArr = [];
+    const contentSection = teaser.querySelector('.cmp-teaser__content');
+    if (contentSection) {
+      // Title (should be heading)
+      const title = contentSection.querySelector('.cmp-teaser__title');
+      if (title) {
+        // Preserve heading level (h2 is typical, fallback to div if not present)
+        if (title.tagName.toLowerCase() === 'h2') {
+          textContentArr.push(title);
+        } else {
+          const h2 = document.createElement('h2');
+          h2.innerHTML = title.innerHTML.trim();
+          textContentArr.push(h2);
+        }
+      }
+      // Description
+      const desc = contentSection.querySelector('.cmp-teaser__description');
+      if (desc) {
+        textContentArr.push(desc);
+      }
+      // CTA link, if present
+      const cta = contentSection.querySelector('.cmp-teaser__action-link');
+      if (cta) {
+        textContentArr.push(cta);
+      }
+    }
+
+    // Add slide row ONLY if we have an image (per block guidelines)
+    if (imageEl) {
+      cells.push([
+        imageEl,
+        textContentArr
+      ]);
+    }
+  }
+
+  // Create table and replace the original element with the new block table
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

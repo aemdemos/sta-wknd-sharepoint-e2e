@@ -1,53 +1,57 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Locate all accordions within the element
-  const accordions = element.querySelectorAll('.cmp-accordion');
-  if (!accordions.length) return;
+  // Find the primary accordion block inside the given element
+  const accordion = element.querySelector('.cmp-accordion');
+  if (!accordion) return;
 
-  accordions.forEach((accordion) => {
-    const rows = [];
-    // Block header row as in example, matching exactly
-    rows.push(['Accordion (accordion3)']);
-    // Process each accordion item
-    const items = accordion.querySelectorAll(':scope > .cmp-accordion__item');
-    items.forEach((item) => {
-      // TITLE CELL: Find the .cmp-accordion__title span, else fallback to button text
-      let titleEl = item.querySelector('.cmp-accordion__title');
-      if (!titleEl) {
-        // fallback: use button text
-        let btn = item.querySelector('button');
-        titleEl = btn ? btn : document.createElement('span');
-      }
+  // Table header row as per spec
+  const headerRow = ['Accordion (accordion3)'];
+  
+  // Accordion items = each .cmp-accordion__item
+  const items = Array.from(accordion.querySelectorAll('.cmp-accordion__item'));
 
-      // CONTENT CELL: Find the panel and use the top-level container (include all children)
-      let contentPanel = item.querySelector('[data-cmp-hook-accordion="panel"]');
-      let contentCell = [];
-      if (contentPanel) {
-        // Usually there's one main container with text blocks
-        let primaryContainer = contentPanel.querySelector(':scope > .container, :scope > .cmp-container');
-        if (primaryContainer) {
-          // If cmp-container, take children
-          if (primaryContainer.classList.contains('cmp-container')) {
-            contentCell = Array.from(primaryContainer.children);
-          } else {
-            contentCell = [primaryContainer];
-          }
-        } else {
-          // fallback: take panel direct children
-          contentCell = Array.from(contentPanel.children);
-          // If none, use panel itself
-          if (contentCell.length === 0) {
-            contentCell = [contentPanel];
-          }
-        }
+  const rows = items.map(item => {
+    // Title cell: get the .cmp-accordion__title element
+    let titleCell = '';
+    const button = item.querySelector('button');
+    if (button) {
+      // Use the .cmp-accordion__title span if available
+      const titleSpan = button.querySelector('.cmp-accordion__title');
+      if (titleSpan) {
+        titleCell = titleSpan;
       } else {
-        contentCell = [''];
+        // fallback: the button's text
+        titleCell = document.createTextNode(button.textContent.trim());
       }
-      rows.push([titleEl, contentCell]);
-    });
-    // Create table with rows
-    const table = WebImporter.DOMUtils.createTable(rows, document);
-    // Replace the original accordion element with the table
-    accordion.replaceWith(table);
+    }
+
+    // Content cell: get panel content
+    let contentCell = '';
+    const panel = item.querySelector('[data-cmp-hook-accordion="panel"]');
+    if (panel) {
+      // If there's a .cmp-container (the main content block), use that
+      const cmpContainer = panel.querySelector('.cmp-container');
+      if (cmpContainer) {
+        contentCell = cmpContainer;
+      } else {
+        // else, all children of panel
+        const children = Array.from(panel.children).filter(n => n.nodeType === Node.ELEMENT_NODE);
+        if (children.length === 1) {
+          contentCell = children[0];
+        } else if (children.length > 1) {
+          contentCell = children;
+        } else {
+          // fallback: the entire panel
+          contentCell = panel;
+        }
+      }
+    }
+
+    return [titleCell, contentCell];
   });
+
+  const cells = [headerRow, ...rows];
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace the original accordion block ONLY
+  accordion.replaceWith(table);
 }

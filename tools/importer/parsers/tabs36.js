@@ -1,32 +1,46 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block inside the given element
+  // Find the tabs block in the given element
   const tabsBlock = element.querySelector('.tabs .cmp-tabs');
   if (!tabsBlock) return;
 
-  // Get the tab labels: li.cmp-tabs__tab inside ol.cmp-tabs__tablist
-  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  const tabLabelEls = tabList ? Array.from(tabList.children) : [];
+  // Get all tab labels in order
+  const tabLabels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tab'));
+  // Get all tab panel elements in order
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('.cmp-tabs__tabpanel'));
 
-  // Get the tab panels: div[role=tabpanel][data-cmp-hook-tabs="tabpanel"]
-  const tabPanels = Array.from(tabsBlock.querySelectorAll('[role="tabpanel"][data-cmp-hook-tabs="tabpanel"]'));
-
-  // Compose the header row for the block table
+  // Build header row: use block name as per instructions
   const headerRow = ['Tabs (tabs36)'];
+  const rows = [headerRow];
 
-  // For each tab, create a row: [tab label, tab content]
-  const tabRows = tabLabelEls.map((tabLabelEl, idx) => {
-    // Reference the label element (keep original, for semantic accuracy)
-    const label = tabLabelEl;
-    // Reference the matching contentfragment (or fallback to panel itself)
-    let content = tabPanels[idx]?.querySelector('.contentfragment') || tabPanels[idx];
-    return [label, content];
-  });
+  // For each tab, extract the label and corresponding panel content
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i].textContent.trim();
+    const panel = tabPanels[i];
+    if (!panel) continue;
 
-  // Compose the final cells array: header row + one row per tab, each with two columns
-  const cells = [headerRow, ...tabRows];
+    // Find the main tab content area (the .contentfragment article)
+    let tabContent;
+    // Often the tabpanel has a single child div.contentfragment, which contains an article
+    if (panel.children.length === 1 && panel.firstElementChild.classList.contains('contentfragment')) {
+      // Contentfragment usually has one article
+      const cf = panel.firstElementChild;
+      if (cf.children.length === 1 && cf.firstElementChild.tagName.toLowerCase() === 'article') {
+        tabContent = cf.firstElementChild;
+      } else {
+        tabContent = cf;
+      }
+    } else {
+      // fallback: all children of panel
+      tabContent = document.createElement('div');
+      Array.from(panel.children).forEach(child => tabContent.appendChild(child));
+    }
+    rows.push([label, tabContent]);
+  }
 
-  // Create the table and replace the tabs block in the DOM
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  tabsBlock.replaceWith(table);
+  // Create tabs block table
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+
+  // Replace tabs block with the new table
+  tabsBlock.parentNode.replaceChild(table, tabsBlock);
 }
