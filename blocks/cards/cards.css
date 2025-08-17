@@ -47,120 +47,6 @@
 }
 
 
-.cards.cards14 {
-  background: #fff;
-  padding: 0;
-  margin: 0;
-}
-
-.cards.cards14 > ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  width: 100%;
-}
-
-@media (width <= 1100px) {
-  .cards.cards14 > ul {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-}
-
-@media (width <= 700px) {
-  .cards.cards14 > ul {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-}
-
-.cards.cards14 > ul > li {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  background: #fff;
-  margin: 0;
-  padding: 0;
-  min-width: 0;
-  border: none;
-  box-shadow: none;
-}
-
-.cards.cards14 .cards-card-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  display: block;
-}
-
-.cards.cards14 .cards-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: #fff;
-  vertical-align: top;
-}
-
-.cards.cards14 .cards-card-body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background: #fff;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.cards.cards14 .cards-card-body p > strong {
-  color: #222;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 1px;
-  line-height: 1.1;
-  letter-spacing: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  font-family: var(--body-font-family);
-}
-
-.cards.cards14 .cards-card-body p {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  font-family: var(--body-font-family);
-  color: #7a7a7a;
-  font-size: 13px;
-  line-height: 1.2;
-  font-weight: 400;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-  padding-top: 0;
-  margin-top: 0;
-}
-
-.cards.cards14 .cards-card-body p br {
-  display: none;
-}
-
-
 .cards.cards21 {
   background: #fff;
 }
@@ -605,8 +491,6 @@
   }
 }
 
-
-/* --- FEATURED ARTICLE (FIRST CARD) --- */
 .cards.cards4 > ul > li:first-child {
   grid-column: 1 / -1;
   display: flex;
@@ -614,14 +498,13 @@
   align-items: stretch;
   background: #fff;
   min-height: 340px;
-  margin: 0 0 14px; /* Even less gap to grid below */
+  margin: 0 0 14px;
   padding: 0;
   border: none;
   box-sizing: border-box;
   gap: 0;
 }
 
-/* Image area: even wider split for image */
 .cards.cards4 > ul > li:first-child .cards-card-image {
   flex: 0 1 70%;
   max-width: 70%;
@@ -645,7 +528,6 @@
   display: block;
 }
 
-/* Body area: even more compact and tighter side padding */
 .cards.cards4 > ul > li:first-child .cards-card-body {
   flex: 0 1 30%;
   max-width: 30%;
@@ -680,29 +562,27 @@
   }
 }
 
-/* --- Featured Typography tweaks --- */
 .cards.cards4 > ul > li:first-child .cards-card-body p {
-  margin: 0 0 2px;   /* Minimal space between elements */
+  margin: 0 0 2px;
   color: #444;
   font-family: var(--body-font-family);
   font-size: 15px;
-  line-height: 1.15;   /* Even tighter */
+  line-height: 1.15;
   font-weight: 400;
   text-transform: none;
 }
 
 .cards.cards4 > ul > li:first-child .cards-card-body p strong {
   display: block;
-  margin: 0 0 3px;  /* Minimal margin under heading */
+  margin: 0 0 3px;
   color: #222;
   font-family: var(--heading-font-family);
   font-size: 2rem;
   font-weight: 700;
-  line-height: 1.04;   /* Maximum compactness */
+  line-height: 1.04;
   text-transform: none;
 }
 
-/* Only the label uses uppercase and has minimal margin */
 .cards.cards4 > ul > li:first-child .cards-card-body p:first-child {
   color: #666;
   font-size: 0.9rem;
@@ -714,12 +594,10 @@
   margin-top: 0;
 }
 
-/* Remove uppercase from description text */
 .cards.cards4 > ul > li:first-child .cards-card-body p:not(:first-child) {
   text-transform: none;
 }
 
-/* Button style - minimal margin above, more compact */
 .cards.cards4 > ul > li:first-child .cards-card-body a {
   display: inline-block;
   background: #ffd600;
@@ -745,7 +623,6 @@
   text-decoration: none;
 }
 
-/* --- GRID CARDS (not first child) --- */
 .cards.cards4 > ul > li:not(:first-child) {
   background: #fff;
   border: 1px solid #dadada;
@@ -811,4 +688,123 @@
 .cards.cards4 > ul,
 .cards.cards4 > ul > li {
   margin-bottom: 0;
+}
+
+
+.cards.cards14 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* 1. Grid layout for cards */
+.cards.cards14 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+/* Responsive: 2 columns <=1100px, 1 column <=700px */
+@media (width <= 1100px) {
+  .cards.cards14 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards14 > ul {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.cards.cards14 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* 3. Image styles */
+.cards.cards14 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  display: block;
+}
+
+.cards.cards14 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #fff;
+  vertical-align: top;
+}
+
+/* 4. Card body padding and layout */
+.cards.cards14 .cards-card-body {
+  padding: 12px 12px 16px;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+}
+
+/* 5. Title styling */
+.cards.cards14 .cards-card-body p > strong {
+  color: #222;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  font-family: var(--body-font-family);
+}
+
+/* 6. Description styling: lighter color, up to 2 lines */
+.cards.cards14 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: var(--body-font-family);
+  color: #888;
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;            /* show up to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;               /* allow wrapping */
+}
+
+/* Hide the <br> to prevent unwanted spacing */
+.cards.cards14 .cards-card-body p br {
+  display: none;
 }
