@@ -47,120 +47,6 @@
 }
 
 
-.cards.cards21 {
-  background: #fff;
-}
-
-.cards.cards21 > ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: #fff;
-  align-items: stretch;
-}
-
-@media (width <= 1024px) {
-  .cards.cards21 > ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (width <= 600px) {
-  .cards.cards21 > ul {
-    grid-template-columns: 1fr;
-  }
-}
-
-.cards.cards21 > ul > li {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-width: 0;
-  min-height: 0;
-  background: #fff;
-  margin: 0;
-  padding: 0;
-}
-
-.cards.cards21 .cards-card-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: #eee;
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-}
-
-.cards.cards21 .cards-card-image img,
-.cards.cards21 .cards-card-image picture {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.cards.cards21 .cards-card-body {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  box-sizing: border-box;
-  text-align: left;
-}
-
-.cards.cards21 .cards-card-body p {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-align: left;
-}
-
-.cards.cards21 .cards-card-body p strong {
-  display: block;
-  font-family: var(--body-font-family);
-  font-size: 15px;
-  font-weight: bold;
-  color: #222;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  margin-bottom: 2px;
-  line-height: 1.2;
-  text-align: left;
-  white-space: normal;
-}
-
-.cards.cards21 .cards-card-body p:last-child {
-  font-size: 12px;
-  color: #888;
-  font-family: var(--body-font-family);
-  font-weight: normal;
-  line-height: 1.4;
-  text-align: left;
-  margin: 0;
-  padding: 0;
-  display: block;
-  max-height: calc(1.4em * 2.5);
-  overflow: hidden;
-  word-wrap: break-word;
-}
-
-.cards.cards21 .cards-card-body p br {
-  display: none;
-}
-
-
 .cards.cards24 {
   max-width: 1080px;
   margin: 0 auto;
@@ -697,7 +583,6 @@
   margin: 0;
 }
 
-/* 1. Grid layout for cards */
 .cards.cards14 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -708,7 +593,6 @@
   width: 100%;
 }
 
-/* Responsive: 2 columns <=1100px, 1 column <=700px */
 @media (width <= 1100px) {
   .cards.cards14 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -735,7 +619,6 @@
   box-shadow: none;
 }
 
-/* 3. Image styles */
 .cards.cards14 .cards-card-image {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -758,7 +641,6 @@
   vertical-align: top;
 }
 
-/* 4. Card body padding and layout */
 .cards.cards14 .cards-card-body {
   padding: 12px 12px 16px;
   margin: 0;
@@ -769,7 +651,6 @@
   background: #fff;
 }
 
-/* 5. Title styling */
 .cards.cards14 .cards-card-body p > strong {
   color: #222;
   font-size: 16px;
@@ -786,7 +667,6 @@
   font-family: var(--body-font-family);
 }
 
-/* 6. Description styling: lighter color, up to 2 lines */
 .cards.cards14 .cards-card-body p {
   margin: 0;
   padding: 0;
@@ -797,14 +677,146 @@
   line-height: 1.3;
   font-weight: 400;
   display: -webkit-box;
-  -webkit-line-clamp: 2;            /* show up to 2 lines */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: normal;               /* allow wrapping */
+  white-space: normal;
 }
 
-/* Hide the <br> to prevent unwanted spacing */
 .cards.cards14 .cards-card-body p br {
   display: none;
+}
+
+
+.cards.cards21 {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: static; /* Remove centering tricks */
+}
+
+/* Grid edge-to-edge, fill available horizontal space */
+.cards.cards21 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive grid columns */
+@media (width <= 1100px) {
+  .cards.cards21 > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards21 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Each card (li), removes inner spacing so grid aligns to edges */
+.cards.cards21 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  min-height: 0;
+  border: none;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* Card image styles */
+.cards.cards21 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  flex-shrink: 0;
+}
+
+.cards.cards21 .cards-card-image img,
+.cards.cards21 .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Card body/text styles with no horizontal padding */
+.cards.cards21 .cards-card-body {
+  width: 100%;
+  background: #fff;
+  padding: 12px 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  text-align: left;
+  min-height: 90px;
+  justify-content: flex-start;
+}
+
+.cards.cards21 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: left;
+  font-family: var(--body-font-family);
+  color: #888;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow-wrap: break-word; /* Retained as it's valid */
+  word-break: break-word; /* Changed to 'break-word' to 'break-word'; */
+}
+
+/* Card title styles */
+.cards.cards21 .cards-card-body p strong {
+  display: block;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  color: #232323;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: normal;
+}
+
+/* Remove all borders from cards */
+
+/* Remove margin/padding from .cards-wrapper and ancestors if applicable */
+.cards-wrapper {
+  margin: 0;
+  padding: 0;
 }
