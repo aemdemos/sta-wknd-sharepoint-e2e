@@ -62,111 +62,128 @@
 
 
 .accordion.accordion3 {
-  /* Visually contain the FAQ column and support left alignment in a two-column grid/flex layout */
-  max-width: 700px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 0;
   width: 100%;
+  max-width: 650px;
+  margin: 0;
   margin-left: 0;
   margin-right: auto;
   padding: 0;
-  background: #fff;
-  border-radius: 0;
-  box-shadow: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  /* Ensure it doesn't float center if parent is flex/grid */
-  place-self: flex-start flex-start;
 }
 
-/* Accordion items: always stacked vertically, full width */
 .accordion.accordion3 > details {
   width: 100%;
   margin: 0;
-  padding: 0;
-  background: #fff;
   border: none;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
   box-sizing: border-box;
+  transition: background 0.2s;
 }
 
-/* Remove margin between items */
-.accordion.accordion3 > details + details {
-  margin-top: 0;
-}
-
-/* Last item: no border at bottom */
 .accordion.accordion3 > details:last-child {
   border-bottom: none;
 }
 
-/* FAQ summary row styling */
 .accordion.accordion3 > details > summary {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  min-height: 56px;
-  padding: 0;
-  background: #fff;
+  min-height: 36px;
+  padding: 8px 36px 8px 0;
   outline: none;
   border: none;
+  background: #fff;
   font-family: var(--body-font-family);
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: bold;
   text-transform: uppercase;
-  color: #222;
-  letter-spacing: 0.01em;
+  color: #232323;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  position: relative;
-  margin: 0;
+  gap: 12px;
   box-shadow: none;
-  transition: background 0.2s;
-
-  /* Visually nudge the summary arrow closer to the edge */
-  gap: 24px;
+  margin: 0;
+  position: relative;
 }
 
-/* Remove default summary marker */
+.accordion.accordion3 > details[open] > summary {
+  background: #fafafa;
+}
+
 .accordion.accordion3 > details > summary::-webkit-details-marker {
   display: none;
 }
 
-.accordion.accordion3 > details > summary::after {
-  /* Visually nudge the marker to the right edge even though we can't change its shape */
-  margin-left: auto;
-}
-
-/* FAQ question text */
 .accordion.accordion3 > details > summary > p {
-  font-size: 1em;
-  font-weight: 700;
-  color: #222;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
   margin: 0;
   padding: 0;
   flex: 1 1 auto;
-  text-align: left;
-  background: none;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #232323;
+  letter-spacing: 0.02em;
   line-height: 1.25;
+  background: none;
+  text-align: left;
 }
 
-/* FAQ answer body */
+/* PLUS/MINUS ICON USING ABSOLUTE BARS */
+.accordion.accordion3 > details > summary::before,
+.accordion.accordion3 > details > summary::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 14px;
+  height: 2px;
+  background: #232323;
+  border-radius: 1px;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  display: block;
+}
+
+.accordion.accordion3 > details > summary::before {
+  /* vertical bar for plus */
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 1;
+}
+
+.accordion.accordion3 > details > summary::after {
+  /* horizontal bar (always shown) */
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.accordion.accordion3 > details[open] > summary::before {
+  opacity: 0; /* hide vertical for minus */
+}
+
 .accordion.accordion3 .accordion-item-body {
-  padding: 16px 0;
-  font-size: 1em;
-  color: #333;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #232323;
   font-family: var(--body-font-family);
   background: #fff;
   border: none;
   line-height: 1.5;
+  margin: 0;
 }
 
-/* Responsive: keep block contained and remove side padding */
 @media (width <= 900px) {
   .accordion.accordion3 {
     max-width: 100%;
     padding: 0 6px;
+  }
+
+  .accordion.accordion3 > details > summary {
+    padding-right: 0;
   }
 }
