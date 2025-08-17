@@ -2884,17 +2884,189 @@
               "differences": [
                 {
                   "change_type": "deletion",
-                  "text": "About Us "
+                  "text": "About"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer"
                 },
                 {
                   "change_type": "equal",
-                  "text": "Our Contributors Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter"
+                  "text": " "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Us"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Facebook"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Our"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Twitter"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Contributors"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Instagram"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Jacob"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Jake"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Wester"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Hammer Influencer"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Skater"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " | Writer Facebook Twitter Instagram "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Ian"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Sofia"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Provo"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Sj\u00f6berg"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " Photographer"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": " | Youtuber"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " Facebook Twitter Instagram "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Jacob"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Justin"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Wester"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Barr"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Skater"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Artist"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " | "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Writer"
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Rock Climber"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " Facebook Twitter Instagram"
+                },
+                {
+                  "change_type": "deletion",
+                  "text": " WKND Guides"
+                },
+                {
+                  "change_type": "equal",
+                  "text": " Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter"
                 }
               ],
-              "dissimilarity_score": 0.01
+              "dissimilarity_score": 0.02
             }
           ],
-          "similarity_score": 0.99
+          "similarity_score": 0.98
         }
       ]
     },
@@ -3559,7 +3731,7 @@
         },
         {
           "change_type": "deletion",
-          "text": "About Us"
+          "text": "About"
         },
         {
           "change_type": "insertion",
@@ -3567,15 +3739,183 @@
         },
         {
           "change_type": "equal",
-          "text": " Our Contributors Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. Stacey Roswells Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram Jacob Wester Skater | Writer Facebook Twitter Instagram WKND Guides Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter Home Magazine Adventures FAQs About Us "
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Us"
         },
         {
           "change_type": "insertion",
-          "text": "Deutsch "
+          "text": "Stacey"
         },
         {
           "change_type": "equal",
-          "text": "Follow Us Facebook Twitter Instagram \u24b8 2019, WKND Site. WKND is a fictitious adventure and travel website created by Adobe to demonstrate how anyone can use Adobe Experience Manager to build a beautiful, feature-rich website over a single weekend. This site is built entirely with Adobe Experience Manager Core Components and Archetype that are available as open source code to the public. The entire site source code is available as open source as well and is accompanied with a detailed tutorial on how to recreate the site. Many of the beautiful images in the WKND site are available for purchase via Adobe Stock"
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Our"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Roswells"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Contributors"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer | Writer Facebook Twitter Instagram Ian Provo Photographer Facebook Twitter Instagram"
+        },
+        {
+          "change_type": "equal",
+          "text": " Meet the outstanding individuals responsible for bringing you the most compelling stories across the globe. "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Stacey"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Jacob"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Roswells"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Wester"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Artist | Photographer | Traveler Facebook Twitter Instagram Jake Hammer Influencer"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Skater"
+        },
+        {
+          "change_type": "equal",
+          "text": " | Writer Facebook Twitter Instagram "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Ian"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Sofia"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Provo"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Sj\u00f6berg"
+        },
+        {
+          "change_type": "equal",
+          "text": " Photographer"
+        },
+        {
+          "change_type": "insertion",
+          "text": " | Youtuber"
+        },
+        {
+          "change_type": "equal",
+          "text": " Facebook Twitter Instagram "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Jacob"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Justin"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Wester"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Barr"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Skater"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Artist"
+        },
+        {
+          "change_type": "equal",
+          "text": " | "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Writer"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Rock Climber"
+        },
+        {
+          "change_type": "equal",
+          "text": " Facebook Twitter Instagram "
+        },
+        {
+          "change_type": "deletion",
+          "text": "WKND Guides "
+        },
+        {
+          "change_type": "equal",
+          "text": "Meet our extraordinary travel guides. When you travel with a certified WKND guide you gain access to attractions and perspectives not found on the pages of a guide book. "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Sofia Sj\u00f6berg Photographer | Youtuber Facebook Twitter Instagram Justin Barr Artist | Rock Climber Facebook Twitter Instagram "
+        },
+        {
+          "change_type": "equal",
+          "text": "Kumar Selveraj Photographer | Surfer Facebook Instagram Twitter Home Magazine Adventures FAQs About Us"
+        },
+        {
+          "change_type": "insertion",
+          "text": " Deutsch"
+        },
+        {
+          "change_type": "equal",
+          "text": " Follow Us Facebook Twitter Instagram \u24b8 2019, WKND Site. WKND is a fictitious adventure and travel website created by Adobe to demonstrate how anyone can use Adobe Experience Manager to build a beautiful, feature-rich website over a single weekend. This site is built entirely with Adobe Experience Manager Core Components and Archetype that are available as open source code to the public. The entire site source code is available as open source as well and is accompanied with a detailed tutorial on how to recreate the site. Many of the beautiful images in the WKND site are available for purchase via Adobe Stock"
         },
         {
           "change_type": "deletion",
@@ -3586,7 +3926,7 @@
           "text": " ."
         }
       ],
-      "similarity_score": 0.9840391252312934
+      "similarity_score": 0.9811248817205098
     }
   ]
 }
