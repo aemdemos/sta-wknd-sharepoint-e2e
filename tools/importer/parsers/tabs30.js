@@ -1,47 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block inside the element
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // 1. Find the tabs block
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Get tab labels (ordered)
-  const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  const tabLabelEls = Array.from(tabList ? tabList.querySelectorAll('.cmp-tabs__tab') : []);
+  // 2. Get tab labels
+  const tabList = tabsBlock.querySelector('ol[role="tablist"]');
+  if (!tabList) return;
+  const tabItems = Array.from(tabList.querySelectorAll('li[role="tab"]'));
+  const tabLabels = tabItems.map(tab => tab.textContent.trim());
 
-  // Get all tabpanel elements in order
-  const tabPanels = Array.from(tabs.querySelectorAll('[role="tabpanel"][data-cmp-hook-tabs="tabpanel"]'));
-
-  // Prepare rows for table block
-  const tableRows = [];
-  // Header row (block name from spec)
-  tableRows.push(['Tabs (tabs30)']);
-
-  // For each tab, collect label and content. Guarantee matching order.
-  for (let i = 0; i < tabLabelEls.length; i++) {
-    // Tab label text
-    const label = tabLabelEls[i] ? tabLabelEls[i].textContent.trim() : '';
-    // Tab content extraction
-    let tabContent = '';
-    // The tab panel for this tab
-    const panel = tabPanels[i];
+  // 3. Get panels for each tab in order
+  // Use aria-controls to pair tab with tabpanel
+  const cells = [['Tabs (tabs30)']]; // header row
+  tabItems.forEach(tab => {
+    const tabLabel = tab.textContent.trim();
+    const panelId = tab.getAttribute('aria-controls');
+    let panel = panelId ? tabsBlock.querySelector(`#${panelId}`) : null;
+    let content = null;
     if (panel) {
-      // Try to reference the main article (contentfragment) inside the panel
-      const cf = panel.querySelector('article.cmp-contentfragment');
-      if (cf) {
-        tabContent = cf;
+      // Always try to find the main contentfragment article inside the panel
+      const contentFragment = panel.querySelector('article.cmp-contentfragment');
+      if (contentFragment) {
+        content = contentFragment;
       } else {
-        // If not found, use all children of the tabpanel
-        // Use an array of its direct children, for robustness
-        const childNodes = Array.from(panel.childNodes).filter(n => n.nodeType === 1 || (n.nodeType === 3 && n.textContent.trim()));
-        tabContent = childNodes.length === 1 ? childNodes[0] : childNodes.length ? childNodes : '';
+        // fallback to all children
+        if (panel.children.length > 0) {
+          content = Array.from(panel.children);
+        } else {
+          // fallback to empty div
+          content = document.createElement('div');
+        }
       }
+    } else {
+      content = document.createElement('div');
     }
-    tableRows.push([label, tabContent]);
-  }
+    cells.push([tabLabel, content]);
+  });
 
-  // Create the block table
-  const blockTable = WebImporter.DOMUtils.createTable(tableRows, document);
-
-  // Replace the original tabs block only (not the whole element)
-  tabs.replaceWith(blockTable);
+  // 4. Replace the tabs block with the table
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  tabsBlock.replaceWith(table);
 }

@@ -1,42 +1,40 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header matches exactly as required
+  // Header row as in the example
   const headerRow = ['Cards (cards21)'];
-  const cards = [];
+  const cells = [headerRow];
 
-  // Select all direct card items
-  const items = element.querySelectorAll('li.cmp-image-list__item');
-  items.forEach((item) => {
-    // Image: reference the original img element
-    const img = item.querySelector('img.cmp-image__image');
+  // Defensive: Find all li.cmp-image-list__item inside the element
+  const items = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
 
-    // Title: use existing span element as strong heading
-    const titleSpan = item.querySelector('.cmp-image-list__item-title');
-    let headingEl = null;
-    if (titleSpan && titleSpan.textContent.trim()) {
-      // Wrap the span content in <strong> as per example
-      headingEl = document.createElement('strong');
-      headingEl.textContent = titleSpan.textContent.trim();
+  items.forEach((li) => {
+    // Get the <img> element (first one in the card)
+    const img = li.querySelector('div.cmp-image-list__item-image img');
+    // Get the title <span>
+    const titleSpan = li.querySelector('span.cmp-image-list__item-title');
+    // Get the description <span>
+    const descSpan = li.querySelector('span.cmp-image-list__item-description');
+
+    // First cell: the image element (referenced, not cloned)
+    const imageCell = img;
+
+    // Second cell: title (bold), then description as text, both in a single cell
+    const textCellElems = [];
+    if (titleSpan) {
+      const strong = document.createElement('strong');
+      strong.textContent = titleSpan.textContent.trim();
+      textCellElems.push(strong);
     }
-
-    // Description: use original span element, but as a paragraph for proper HTML semantics
-    const descSpan = item.querySelector('.cmp-image-list__item-description');
-    let descEl = null;
     if (descSpan && descSpan.textContent.trim()) {
-      descEl = document.createElement('p');
-      descEl.textContent = descSpan.textContent.trim();
+      if (titleSpan) textCellElems.push(document.createElement('br'));
+      textCellElems.push(document.createTextNode(descSpan.textContent.trim()));
     }
 
-    // Compose content cell
-    const cardContent = [];
-    if (headingEl) cardContent.push(headingEl);
-    if (descEl) cardContent.push(descEl);
-
-    // Each row is [image, text]
-    cards.push([img, cardContent]);
+    // Add the row for this card
+    cells.push([imageCell, textCellElems]);
   });
 
-  const tableCells = [headerRow, ...cards];
-  const block = WebImporter.DOMUtils.createTable(tableCells, document);
-  element.replaceWith(block);
+  // Create the table block
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

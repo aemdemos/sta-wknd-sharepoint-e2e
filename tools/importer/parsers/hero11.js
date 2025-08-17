@@ -1,49 +1,63 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Table header matches example exactly
+  // Header row exactly as required
   const headerRow = ['Hero (hero11)'];
 
-  // 2. Extract the background image from cmp-teaser__image
-  let backgroundImg = null;
-  const cmpTeaserImage = element.querySelector('.cmp-teaser__image');
-  if (cmpTeaserImage) {
-    const img = cmpTeaserImage.querySelector('img');
-    if (img) {
-      backgroundImg = img;
+  // Find the block with the hero content (teaser with image and text)
+  // Find top-level .cmp-container children if present
+  let heroContainer = null;
+  const topDivs = Array.from(element.querySelectorAll(':scope > div'));
+  for (const div of topDivs) {
+    // We want the first .cmp-container with a .cmp-teaser--hero child
+    if (div.classList.contains('cmp-container') && div.querySelector('.cmp-teaser--hero')) {
+      heroContainer = div.querySelector('.cmp-teaser--hero');
+      break;
     }
   }
-  // Edge case: fallback to any img inside element
-  if (!backgroundImg) {
-    backgroundImg = element.querySelector('img');
+  // Fallback: search in whole element
+  if (!heroContainer) {
+    heroContainer = element.querySelector('.cmp-teaser--hero');
   }
-  const imageRow = [backgroundImg ? backgroundImg : ''];
 
-  // 3. Extract the title (as heading), subheading, CTA (if available)
-  const contentArr = [];
-  // Title (h2)
-  const title = element.querySelector('.cmp-teaser__title');
-  if (title) {
-    contentArr.push(title);
-  }
-  // Subheading, CTA: not present in provided HTML, but support cmp-teaser__description and links/buttons as optional
-  const description = element.querySelector('.cmp-teaser__description');
-  if (description) {
-    contentArr.push(description);
-  }
-  // CTA: .cmp-teaser__action-link, <a>, <button>
-  const ctas = element.querySelectorAll('.cmp-teaser__action-link, a, button');
-  ctas.forEach(cta => {
-    // Avoid duplicates
-    if (!contentArr.includes(cta)) {
-      contentArr.push(cta);
+  // Extract image (background image for the block, goes in row 2)
+  let imageCell = '';
+  if (heroContainer) {
+    const imageDiv = heroContainer.querySelector('.cmp-teaser__image .cmp-image');
+    if (imageDiv) {
+      const img = imageDiv.querySelector('img');
+      if (img) {
+        imageCell = img;
+      }
     }
-  });
-  const contentRow = [contentArr.length ? contentArr : ''];
+  }
 
-  // 4. Compose block table: 1 column, 3 rows, with header in first row
-  const cells = [headerRow, imageRow, contentRow];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Extract content (headline, optional subheading, cta — goes in row 3)
+  let contentCellContents = [];
+  if (heroContainer) {
+    const contentDiv = heroContainer.querySelector('.cmp-teaser__content');
+    if (contentDiv) {
+      // Title (usually an h2)
+      const title = contentDiv.querySelector('.cmp-teaser__title');
+      if (title) {
+        contentCellContents.push(title);
+      }
+      // If there were a subheading or CTA, we would find and push them here as well.
+    }
+  }
 
-  // 5. Replace the original element
-  element.replaceWith(block);
+  // If there is no content, provide empty string to keep cell structure
+  if (contentCellContents.length === 0) {
+    contentCellContents = [''];
+  }
+
+  // Compose rows for createTable
+  const rows = [
+    headerRow,                // Row 1: block name
+    [imageCell],              // Row 2: background image (may be empty)
+    [contentCellContents.length === 1 ? contentCellContents[0] : contentCellContents] // Row 3: text content
+  ];
+
+  // Create table block and replace element
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(table);
 }

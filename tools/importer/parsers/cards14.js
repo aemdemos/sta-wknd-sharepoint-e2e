@@ -1,52 +1,39 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row exactly as in the example
+  // Block header row
   const headerRow = ['Cards (cards14)'];
-  const cells = [headerRow];
 
-  // Find all card items (li elements)
-  const items = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
-  items.forEach((item) => {
-    // First cell: the image
-    let imageCell = null;
-    const imgContainer = item.querySelector('.cmp-image-list__item-image');
-    if (imgContainer) {
-      // Prefer the <img>, fallback to the container
-      const img = imgContainer.querySelector('img');
-      imageCell = img ? img : imgContainer;
-    }
-    // If no image at all, add empty cell
-    if (!imageCell) imageCell = '';
+  // Find all li elements representing cards
+  const items = Array.from(element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item'));
 
-    // Second cell: text content
-    // Title as heading (strong)
-    let titleEl = null;
-    const titleLink = item.querySelector('.cmp-image-list__item-title-link');
-    if (titleLink) {
-      const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
-      if (titleSpan) {
-        titleEl = document.createElement('strong');
-        titleEl.textContent = titleSpan.textContent.trim();
-      }
+  const rows = items.map(item => {
+    // IMAGE: find the <img> tag (img is always present and first in card)
+    const img = item.querySelector('img');
+
+    // TEXT: Title and Description
+    // Find the title span and its link (some sites may want link, but example doesn't render it as link)
+    const titleSpan = item.querySelector('.cmp-image-list__item-title');
+    // It is always inside a link, but for the cell, we just want bold, not a link
+
+    // Find description
+    const descSpan = item.querySelector('.cmp-image-list__item-description');
+
+    // Compose the text content
+    const textCellFragments = [];
+    if (titleSpan) {
+      const strong = document.createElement('strong');
+      strong.textContent = titleSpan.textContent;
+      textCellFragments.push(strong);
     }
-    // Description
-    let descEl = null;
-    const desc = item.querySelector('.cmp-image-list__item-description');
-    if (desc && desc.textContent.trim()) {
-      descEl = document.createElement('span');
-      descEl.textContent = desc.textContent.trim();
-    }
-    // Compose text cell, keeping elements referenced from the document when possible
-    const textCell = [];
-    if (titleEl) textCell.push(titleEl);
-    if (descEl) {
-      if (titleEl) textCell.push(document.createElement('br'));
-      textCell.push(descEl);
+    if (descSpan && descSpan.textContent.trim()) {
+      textCellFragments.push(document.createElement('br'));
+      textCellFragments.push(document.createTextNode(descSpan.textContent));
     }
 
-    cells.push([imageCell, textCell.length ? textCell : '']);
+    return [img, textCellFragments];
   });
 
+  const cells = [headerRow, ...rows];
   const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

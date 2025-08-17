@@ -1,51 +1,51 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header must match exactly
   const headerRow = ['Cards (cards26)'];
-  const rows = [];
+  const cells = [headerRow];
 
-  // Defensive: locate the list of cards
-  const ul = element.querySelector('ul.cmp-image-list');
-  if (!ul) {
-    // If no list, replace with just the header
-    const block = WebImporter.DOMUtils.createTable([headerRow], document);
-    element.replaceWith(block);
-    return;
-  }
-
-  const items = ul.querySelectorAll(':scope > li.cmp-image-list__item');
+  // Defensive: find all card items
+  const items = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
   items.forEach((item) => {
-    // 1st cell: Image
-    let imageEl = null;
-    const img = item.querySelector('img');
-    if (img) imageEl = img;
-
-    // 2nd cell: Textual content
-    const article = item.querySelector('article.cmp-image-list__item-content');
-    const frag = document.createDocumentFragment();
-    // Title: Try to keep semantic, bold if possible
-    let titleAdded = false;
-    const titleLink = article && article.querySelector('.cmp-image-list__item-title-link');
+    // IMAGE CELL: Find actual img element (reference from doc)
+    let imgEl = null;
+    const imgHolder = item.querySelector('.cmp-image-list__item-image');
+    if (imgHolder) {
+      imgEl = imgHolder.querySelector('img');
+    }
+    // TEXT CELL: Compose heading (h3, not hardcoded), description, link
+    const titleLink = item.querySelector('.cmp-image-list__item-title-link');
+    let heading; // heading is always present
     if (titleLink) {
-      const titleSpan = titleLink.querySelector('.cmp-image-list__item-title');
-      if (titleSpan) {
-        const title = document.createElement('strong');
-        title.textContent = titleSpan.textContent;
-        frag.appendChild(title);
-        titleAdded = true;
+      const span = titleLink.querySelector('.cmp-image-list__item-title');
+      if (span) {
+        // Use h3 for heading as in example structure
+        heading = document.createElement('h3');
+        heading.textContent = span.textContent;
+        // If the heading is wrapped with a link, preserve it
+        if (titleLink.getAttribute('href')) {
+          const a = document.createElement('a');
+          a.href = titleLink.getAttribute('href');
+          a.append(heading);
+          heading = a;
+        }
       }
     }
-    // Description: as paragraph (separate)
-    const descSpan = article && article.querySelector('.cmp-image-list__item-description');
-    if (descSpan && descSpan.textContent.trim()) {
-      const para = document.createElement('p');
-      para.textContent = descSpan.textContent;
-      frag.appendChild(para);
+    // Description (optional)
+    let descP = null;
+    const descEl = item.querySelector('.cmp-image-list__item-description');
+    if (descEl && descEl.textContent.trim()) {
+      descP = document.createElement('p');
+      descP.textContent = descEl.textContent.trim();
     }
-    // Always supply a node in the cell
-    rows.push([imageEl, frag]);
+    // Compose text cell: heading followed by description (only if exists)
+    const textCell = [];
+    if (heading) textCell.push(heading);
+    if (descP) textCell.push(descP);
+    // Add the row only if img and text exist
+    if (imgEl && textCell.length > 0) {
+      cells.push([imgEl, textCell]);
+    }
   });
-  const cells = [headerRow, ...rows];
   const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }
