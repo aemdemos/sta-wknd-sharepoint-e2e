@@ -318,236 +318,6 @@
 }
 
 
-.tabs.tabs23 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  max-width: 1100px;
-  margin: 48px auto 0;
-  background: #fff;
-  box-sizing: border-box;
-  padding: 0 0 32px;
-  gap: 48px;
-}
-
-.tabs.tabs23 > div:first-child {
-  flex: 0 0 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 140px;
-  max-width: 200px;
-  width: 180px;
-  font-size: 14px;
-  color: #868686;
-  padding: 0;
-  margin-top: 8px;
-  gap: 18px;
-  position: relative;
-  border-right: 1px solid #eee;
-}
-
-.tabs.tabs23 > div:first-child .tabs-list,
-.tabs.tabs23 > div:first-child h3,
-.tabs.tabs23 > div:first-child picture,
-.tabs.tabs23 > div:first-child img,
-.tabs.tabs23 > div:first-child ul,
-.tabs.tabs23 > div:first-child p:not(:first-child) {
-  display: none;
-}
-
-.tabs.tabs23 > div:last-child {
-  flex: 1 1 0;
-  min-width: 0;
-  width: 100%;
-  max-width: 780px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.tabs.tabs23 > div:last-child > .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 18px;
-  width: 100%;
-  margin-bottom: 32px;
-  font-size: 16px;
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  order: 0;
-}
-
-.tabs.tabs23 .tabs-tab {
-  background: #fff;
-  color: #222;
-  border: none;
-  font-family: var(--body-font-family);
-  font-size: 15px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 8px 32px;
-  border-radius: 2px;
-  font-weight: 700;
-  transition: background 0.2s, color 0.2s;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 120px;
-  box-sizing: border-box;
-}
-
-.tabs.tabs23 .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-}
-
-.tabs.tabs23 .tabs-tab p {
-  margin: 0;
-  font-size: inherit;
-}
-
-.tabs.tabs23 .tabs-panel {
-  width: 100%;
-  max-width: 700px;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: none;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  order: 1;
-}
-
-.tabs.tabs23 .tabs-panel h2,
-.tabs.tabs23 .tabs-panel h3 {
-  font-family: var(--heading-font-family);
-  font-size: 2.1rem;
-  color: #222;
-  font-weight: 700;
-  margin: 0 0 12px;
-  line-height: 1.18;
-  padding-bottom: 6px;
-  border-bottom: 3px solid #ffe066;
-  display: inline-block;
-}
-
-.tabs.tabs23 .tabs-panel p {
-  font-size: 1.08rem;
-  color: #222;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  font-family: var(--body-font-family);
-  text-align: left;
-}
-
-.tabs.tabs23 .tabs-panel picture,
-.tabs.tabs23 .tabs-panel img {
-  display: block;
-  width: 100%;
-  max-width: 640px;
-  border-radius: 0;
-  margin: 32px 0 10px;
-  object-fit: cover;
-}
-
-.tabs.tabs23 .tabs-panel p:last-child {
-  color: #868686;
-  font-size: 0.99rem;
-  margin-top: 10px;
-  margin-bottom: 0;
-  line-height: 1.5;
-}
-
-.tabs.tabs23 > div:first-child p,
-.tabs.tabs23 > div:first-child span,
-.tabs.tabs23 > div:first-child li {
-  color: #888;
-  text-transform: uppercase;
-  font-size: 13px;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.05em;
-  font-family: var(--body-font-family);
-}
-
-.tabs.tabs23 > div:first-child strong {
-  color: #222;
-  font-size: 17px;
-  font-family: var(--heading-font-family);
-  font-weight: 700;
-  display: block;
-  margin-bottom: 1.2em;
-}
-
-.tabs.tabs23 > div:first-child ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.5em 0 0;
-  font-size: 13px;
-  color: #888;
-}
-
-.tabs.tabs23 > div:first-child > * {
-  margin-top: 0;
-  margin-bottom: 0.7em;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs23 {
-    flex-direction: column;
-    gap: 0;
-    max-width: 98vw;
-    padding: 0;
-  }
-
-  .tabs.tabs23 > div:first-child {
-    display: none;
-  }
-
-  .tabs.tabs23 > div:last-child {
-    width: 100%;
-    max-width: none;
-    padding: 0;
-  }
-
-  .tabs.tabs23 > div:last-child > .tabs-list {
-    margin-bottom: 24px;
-    font-size: 14px;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .tabs.tabs23 .tabs-tab {
-    padding: 8px 10px;
-    min-width: 80px;
-    font-size: 14px;
-  }
-
-  .tabs.tabs23 .tabs-panel h2,
-  .tabs.tabs23 .tabs-panel h3 {
-    font-size: 1.3rem;
-    padding-bottom: 4px;
-    margin-bottom: 10px;
-    border-bottom-width: 2px;
-  }
-
-  .tabs.tabs23 .tabs-panel picture,
-  .tabs.tabs23 .tabs-panel img {
-    max-width: 100vw;
-    margin: 16px 0 8px;
-  }
-
-  .tabs.tabs23 .tabs-panel p {
-    font-size: 0.99rem;
-  }
-}
-
-
 .tabs.tabs28 {
   display: flex;
   flex-direction: row;
@@ -3538,8 +3308,6 @@
   min-height: 0;
 }
 
-/* Only one .tabs-list and one .tabs-panel[aria-hidden="false"] should be shown side by side.
-   The rest of the .tabs-panel elements must stack below in the HTML, so forcibly remove them from layout. */
 .tabs.tabs20 > .tabs-list {
   grid-column: 1;
   grid-row: 1;
@@ -3614,7 +3382,6 @@
   color: #222;
 }
 
-/* Only show the panel that is active */
 .tabs.tabs20 .tabs-panel {
   display: none;
   width: 100%;
@@ -3633,7 +3400,6 @@
   grid-row: 1;
 }
 
-/* Hide inactive panels from layout entirely */
 .tabs.tabs20 .tabs-panel[aria-hidden="true"] {
   display: none;
   width: 0 !important;
@@ -3643,7 +3409,6 @@
   overflow: hidden !important;
 }
 
-/* Main Heading Styles */
 .tabs.tabs20 .tabs-panel > div > h3 {
   font-family: var(--heading-font-family);
   font-size: 2.2rem;
@@ -3663,8 +3428,6 @@
   margin-top: 0;
 }
 
-/* Simulate yellow underline using a block element after h3 (avoiding content property) */
-
 .tabs.tabs20 .tabs-panel > div > h3::after {
   display: block;
   width: 64px;
@@ -3673,12 +3436,9 @@
   border-radius: 1.5px;
   margin-top: 4px;
   margin-bottom: 18px;
-
-  /* No content property, but this pseudo-element will not render unless content is set. So instead, apply a border-bottom to h3: */
   border-bottom: 3px solid #f7e36d;
 }
 
-/* Image Styles */
 .tabs.tabs20 .tabs-panel picture,
 .tabs.tabs20 .tabs-panel img {
   width: 100%;
@@ -3690,7 +3450,6 @@
   display: block;
 }
 
-/* Description text */
 .tabs.tabs20 .tabs-panel p,
 .tabs.tabs20 .tabs-panel ul {
   font-family: var(--heading-font-family);
@@ -3714,7 +3473,6 @@
   margin-bottom: 10px;
 }
 
-/* Responsive: stack tabs above content on small screens */
 @media (width <= 900px) {
   .tabs.tabs20 {
     grid-template-columns: 1fr;
@@ -3752,14 +3510,297 @@
   }
 }
 
-/* Fix: Ensure only one tabs-list is visible (if somehow duplicated by DOM) */
 .tabs.tabs20 > .tabs-list:not(:first-child) {
   display: none !important;
 }
 
-/* Ensure only one content panel is shown, prevent stacking of other panels */
 .tabs.tabs20 .tabs-panel:not([aria-hidden="false"]) {
   display: none !important;
 }
 
-/* Fix: prevent extra vertical space below visible content */
+
+/* --- ROOT GRID LAYOUT --- */
+.tabs.tabs23 {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0 60px;
+  max-width: 1040px;
+  margin: 40px auto 0;
+  padding: 0 0 60px;
+  background: #fff;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* MOBILE: Stack */
+@media (width <= 900px) {
+  .tabs.tabs23 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100vw;
+    padding-bottom: 36px;
+  }
+}
+
+/* --- SIDEBAR (LEFT) --- */
+.tabs.tabs23 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 160px;
+  max-width: 220px;
+  box-sizing: border-box;
+  font-size: 15px;
+  position: relative;
+  padding-top: 18px;
+}
+
+/* Hide tabs-list in sidebar */
+.tabs.tabs23 > div:first-child .tabs-list {
+  display: none;
+}
+
+/* Adventure details styling (if present) */
+.tabs.tabs23 > div:first-child p,
+.tabs.tabs23 > div:first-child span,
+.tabs.tabs23 > div:first-child li {
+  color: #888;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 0.9em;
+  letter-spacing: 0.06em;
+  font-family: var(--body-font-family);
+}
+
+.tabs.tabs23 > div:first-child strong {
+  color: #222;
+  font-size: 17px;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 1.2em;
+}
+
+.tabs.tabs23 > div:first-child ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.7em 0 0;
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 0.03em;
+}
+
+.tabs.tabs23 > div:first-child > * {
+  margin: 0 0 1.1em;
+}
+
+/* Sidebar accent line */
+.tabs.tabs23 > div:first-child::before {
+  display: block;
+  width: 36px;
+  height: 3px;
+  background: #ffe066;
+  border-radius: 2px;
+  margin-bottom: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+
+@media (width <= 900px) {
+  .tabs.tabs23 > div:first-child {
+    display: none;
+  }
+}
+
+/* --- MAIN CONTENT (RIGHT) --- */
+.tabs.tabs23 > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 800px;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin-left: auto;
+  margin-top: 0;
+}
+
+/* --- TABS NAVIGATION (HORIZONTAL ROW) --- */
+.tabs.tabs23 > div:last-child > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  width: 100%;
+  margin: 0 0 36px;
+  font-size: 15px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  order: 0;
+}
+
+/* Only horizontal tabs visible in main content area */
+
+.tabs.tabs23 > div:last-child .tabs-list[role="tablist"] {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* Tab buttons (horizontal style) */
+.tabs.tabs23 .tabs-tab {
+  background: #fff;
+  color: #222;
+  border: none;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 11px 34px;
+  border-radius: 2px;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  cursor: pointer;
+}
+
+.tabs.tabs23 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs23 .tabs-tab p {
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.tabs.tabs23 .tabs-tab[aria-selected="false"]:hover {
+  background: #f6f6f6;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs23 > div:last-child {
+    max-width: none;
+    width: 100%;
+    padding: 0;
+    margin-left: 0;
+  }
+
+  .tabs.tabs23 > div:last-child > .tabs-list {
+    margin-bottom: 16px;
+    gap: 8px;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+
+  .tabs.tabs23 .tabs-tab {
+    padding: 7px 8px;
+    min-width: 80px;
+    font-size: 13px;
+  }
+}
+
+/* --- PANELS: Only show active, hide others --- */
+.tabs.tabs23 .tabs-panel {
+  width: 100%;
+  max-width: 660px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  order: 1;
+}
+
+.tabs.tabs23 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+}
+
+.tabs.tabs23 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* --- PANEL CONTENT STYLING --- */
+.tabs.tabs23 .tabs-panel h2,
+.tabs.tabs23 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.1rem;
+  color: #222;
+  font-weight: 700;
+  margin: 26px 0 15px;
+  line-height: 1.18;
+  padding-bottom: 0;
+  border-bottom: none;
+  display: block;
+  letter-spacing: -0.5px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs23 .tabs-panel h2,
+  .tabs.tabs23 .tabs-panel h3 {
+    font-size: 1.18rem;
+    margin: 14px 0 8px;
+  }
+}
+
+.tabs.tabs23 .tabs-panel p {
+  font-size: 1.10rem;
+  color: #222;
+  font-family: var(--body-font-family);
+  line-height: 1.68;
+  margin: 0 0 1.3em;
+  text-align: left;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs23 .tabs-panel p {
+    font-size: 1rem;
+    margin-bottom: 0.9em;
+  }
+}
+
+.tabs.tabs23 .tabs-panel picture,
+.tabs.tabs23 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 630px;
+  border-radius: 8px;
+  margin: 2.2em 0 1.2em;
+  object-fit: cover;
+  box-shadow: 0 2px 14px 0 rgb(0 0 0 / 9%);
+}
+
+@media (width <= 900px) {
+  .tabs.tabs23 .tabs-panel picture,
+  .tabs.tabs23 .tabs-panel img {
+    max-width: 100vw;
+    margin: 1.1em 0 0.7em;
+    border-radius: 6px;
+  }
+}
+
+.tabs.tabs23 .tabs-panel p:last-child {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 1.2em;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.tabs.tabs23 .tabs-list,
+.tabs.tabs23 .tabs-panel {
+  box-shadow: none;
+  border: none;
+}
