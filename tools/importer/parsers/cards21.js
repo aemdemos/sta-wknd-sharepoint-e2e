@@ -1,40 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row as in the example
+  // Table header matches example exactly
   const headerRow = ['Cards (cards21)'];
-  const cells = [headerRow];
 
-  // Defensive: Find all li.cmp-image-list__item inside the element
-  const items = element.querySelectorAll('ul.cmp-image-list > li.cmp-image-list__item');
+  // Find the UL holding all cards
+  const ul = element.querySelector('ul.cmp-image-list');
+  if (!ul) return;
 
-  items.forEach((li) => {
-    // Get the <img> element (first one in the card)
-    const img = li.querySelector('div.cmp-image-list__item-image img');
-    // Get the title <span>
-    const titleSpan = li.querySelector('span.cmp-image-list__item-title');
-    // Get the description <span>
-    const descSpan = li.querySelector('span.cmp-image-list__item-description');
+  // Find all direct card items (LI)
+  const cards = Array.from(ul.querySelectorAll(':scope > li.cmp-image-list__item'));
+  const rows = cards.map(card => {
+    // Find image element
+    const img = card.querySelector('.cmp-image__image');
+    // Find title
+    const titleSpan = card.querySelector('.cmp-image-list__item-title');
+    // Find description
+    const descSpan = card.querySelector('.cmp-image-list__item-description');
 
-    // First cell: the image element (referenced, not cloned)
-    const imageCell = img;
-
-    // Second cell: title (bold), then description as text, both in a single cell
-    const textCellElems = [];
-    if (titleSpan) {
+    // Compose text cell
+    const textCell = [];
+    if (titleSpan && titleSpan.textContent.trim()) {
       const strong = document.createElement('strong');
       strong.textContent = titleSpan.textContent.trim();
-      textCellElems.push(strong);
+      textCell.push(strong);
     }
     if (descSpan && descSpan.textContent.trim()) {
-      if (titleSpan) textCellElems.push(document.createElement('br'));
-      textCellElems.push(document.createTextNode(descSpan.textContent.trim()));
+      // Separate with line break if both title and description
+      if (titleSpan && titleSpan.textContent.trim()) textCell.push(document.createElement('br'));
+      textCell.push(descSpan);
+    }
+    if (textCell.length === 0) {
+      textCell.push('');
     }
 
-    // Add the row for this card
-    cells.push([imageCell, textCellElems]);
+    return [img, textCell];
   });
 
-  // Create the table block
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  const cells = [headerRow, ...rows];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

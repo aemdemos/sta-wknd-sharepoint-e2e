@@ -1,40 +1,51 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block root
-  const tabsRoot = element.querySelector('.cmp-tabs');
-  if (!tabsRoot) return;
+  // Find the .cmp-tabs block inside the element
+  const tabsBlock = element.querySelector('.cmp-tabs');
+  if (!tabsBlock) return;
 
-  // Extract tab labels and tab ids
-  const tabList = tabsRoot.querySelector('[role="tablist"]');
-  const tabLabels = [];
-  const tabIds = [];
-  if (tabList) {
-    tabList.querySelectorAll('[role="tab"]').forEach(tab => {
-      tabLabels.push(tab.textContent.trim());
-      tabIds.push(tab.getAttribute('aria-controls'));
-    });
+  // Find the tab labels (tab titles)
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
+  if (!tabList) return;
+  const tabLabels = Array.from(tabList.querySelectorAll('.cmp-tabs__tab'));
+
+  // Find all tab panels (tab contents)
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
+
+  // Compose the table: first row is header with proper block name and variant
+  const cells = [];
+  const headerRow = ['Tabs (tabs13)'];
+  cells.push(headerRow);
+
+  // Each tab gets a row: [Tab Label, Tab Content]
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i].textContent.trim();
+    // Find the corresponding tabpanel. Rely on order.
+    const panel = tabPanels[i];
+    let content;
+    if (panel) {
+      // For resilience, reference the direct children of the tabpanel
+      let children = Array.from(panel.childNodes).filter(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          return node.textContent.trim().length > 0;
+        }
+        return true;
+      });
+      // If only one child, reference it directly, else pass the array
+      if (children.length === 1) {
+        content = children[0];
+      } else if (children.length > 1) {
+        content = children;
+      } else {
+        content = '';
+      }
+    } else {
+      content = '';
+    }
+    cells.push([label, content]);
   }
 
-  // Collect content for each tab in order (parallel columns)
-  const tabContents = tabIds.map(id => {
-    const panel = tabsRoot.querySelector(`#${id}`);
-    if (!panel) return '';
-    // Prefer <article> if present, else all children except script/style/noscript
-    const article = panel.querySelector('article');
-    if (article) return article;
-    const nodes = Array.from(panel.children).filter(el => !['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(el.tagName));
-    if (nodes.length === 0) return '';
-    if (nodes.length === 1) return nodes[0];
-    return nodes;
-  });
-
-  // Compose the table: header row, tab labels row, SINGLE content row (parallel columns)
-  const cells = [
-    ['Tabs (tabs13)'],
-    tabLabels,
-    tabContents
-  ];
-
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Create the block table and replace the original element
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

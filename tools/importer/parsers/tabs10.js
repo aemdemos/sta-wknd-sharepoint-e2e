@@ -1,34 +1,56 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block element
-  const tabs = element.querySelector('.cmp-tabs');
-  if (!tabs) return;
+  // Find the tabs container
+  const tabsContainer = element.querySelector('.tabs .cmp-tabs');
+  if (!tabsContainer) return;
 
-  // Get tab labels from tablist
-  const tabLabelElements = Array.from(
-    tabs.querySelectorAll('.cmp-tabs__tablist > li[role="tab"]')
-  );
-  const tabLabels = tabLabelElements.map(tab => tab.textContent.trim());
+  // Get tab labels (li inside the tabs list)
+  const tabLabels = Array.from(tabsContainer.querySelectorAll('ol.cmp-tabs__tablist > li'));
 
-  // Get tab panels (in order)
-  const tabPanels = Array.from(tabs.querySelectorAll('.cmp-tabs__tabpanel'));
+  // Get tab panels (div[role=tabpanel])
+  const tabPanels = Array.from(tabsContainer.querySelectorAll('div[role="tabpanel"]'));
 
-  // Table header row
+  // Header row: single cell with block name
   const headerRow = ['Tabs (tabs10)'];
-  const rows = [headerRow];
 
-  // For each tab, add a row with [Tab Label, Tab Content]
-  for (let i = 0; i < tabLabels.length; i++) {
-    const tabLabel = tabLabels[i];
-    const tabPanel = tabPanels[i];
-    if (!tabPanel) continue;
+  // Tab labels: all labels in a single cell (as siblings)
+  const labelCellElements = tabLabels.map(li => {
+    const span = document.createElement('span');
+    span.textContent = li.textContent.trim();
+    return span;
+  });
+  // The labels row must be a single cell containing all spans (NOT one cell per label)
+  const labelsRow = [labelCellElements];
 
-    // For tab content, use the actual existing top-level tabPanel as reference
-    // This will include all content, including its document structure
-    rows.push([tabLabel, tabPanel]);
-  }
+  // Each tab content as a single cell row (array of one cell)
+  const contentRows = tabPanels.map(panel => {
+    const children = [];
+    panel.childNodes.forEach(node => {
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        if (node.classList && node.classList.contains('aem-Grid')) return;
+        if (node.tagName === 'DIV' && node.innerHTML.trim() === '') return;
+        children.push(node);
+      } else if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+        const span = document.createElement('span');
+        span.textContent = node.textContent;
+        children.push(span);
+      }
+    });
+    let cellContent = children;
+    if (children.length === 0) {
+      const div = document.createElement('div');
+      div.innerHTML = panel.innerHTML;
+      cellContent = [div];
+    }
+    return [cellContent];
+  });
 
-  // Create and replace with the block table
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  tabs.replaceWith(table);
+  // Final table data: header, label row, and a row for each tab content
+  const tableData = [headerRow, labelsRow, ...contentRows];
+
+  // Create the block table
+  const block = WebImporter.DOMUtils.createTable(tableData, document);
+
+  // Replace the original tabs container with the block
+  tabsContainer.replaceWith(block);
 }

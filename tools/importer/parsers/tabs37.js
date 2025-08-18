@@ -1,40 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block within the provided element
-  const tabsBlock = element.querySelector('.cmp-tabs');
-  if (!tabsBlock) return;
-
-  // Tabs header row
-  const rows = [['Tabs (tabs37)']];
-
-  // Get the tab labels (li elements)
-  const tabLabels = Array.from(
-    tabsBlock.querySelectorAll('.cmp-tabs__tablist > li')
-  );
-
-  // Get all tabpanels (content for each tab)
-  const tabPanels = Array.from(
-    tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]')
-  );
-
-  // For each tab, create a row [label, content]
-  for (let i = 0; i < tabLabels.length; i++) {
-    const labelEl = tabLabels[i];
-    const panelEl = tabPanels[i];
-    // Defensive: default content to empty string if not found
-    let panelContent = '';
-    if (panelEl) {
-      // If the tabpanel has only one child, use it. Otherwise use all children.
-      if (panelEl.children.length === 1) {
-        panelContent = panelEl.children[0];
-      } else if (panelEl.children.length > 1) {
-        panelContent = Array.from(panelEl.children);
-      }
-    }
-    rows.push([labelEl, panelContent]);
+  // Find the tabs block's main container
+  let cmpTabs = element.querySelector('.cmp-tabs');
+  if (!cmpTabs) {
+    // Try direct match as fallback
+    cmpTabs = element;
+    if (!cmpTabs.classList.contains('cmp-tabs')) return;
   }
 
-  // Create and replace
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  tabsBlock.replaceWith(table);
+  // Extract tab labels
+  const tabList = cmpTabs.querySelector('.cmp-tabs__tablist');
+  const tabLabelEls = tabList ? Array.from(tabList.querySelectorAll('[role="tab"]')) : [];
+  const tabLabels = tabLabelEls.map(tab => tab.textContent.trim());
+
+  // Extract tab panels (content for each tab)
+  const tabPanels = Array.from(cmpTabs.querySelectorAll('.cmp-tabs__tabpanel'));
+  // Edge case: Ensure same count for labels and panels
+  if (!tabLabels.length || tabPanels.length !== tabLabels.length) return;
+
+  // Build header row (block name matches example exactly)
+  const headerRow = ['Tabs (tabs37)'];
+  // Tabs row: The tab labels in each column
+  const tabsRow = tabLabels;
+  // Content row: Reference existing tab panel elements (not cloning)
+  const contentRow = tabPanels;
+
+  // Final cells array: 3 rows, n columns (n = number of tabs)
+  const cells = [headerRow, tabsRow, contentRow];
+
+  // Create the tabs block table
+  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Replace the original tabs block element
+  cmpTabs.replaceWith(blockTable);
 }

@@ -1,57 +1,64 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const headerRow = ['Cards (cards24)'];
-
-  // Find the main container grid to preserve sibling order
-  const mainGrid = element.querySelector('div.cmp-container > div.aem-Grid');
+  // Find the key nodes for intro sections and cards
+  // We'll treat anything under the main grid as relevant
+  const mainGrid = element.querySelector(':scope > div > div.aem-Grid');
   if (!mainGrid) return;
-  const orderedChildren = Array.from(mainGrid.children);
 
-  // Find all card sections (each card group)
-  const cardSections = orderedChildren.filter(child => child.tagName === 'SECTION' && child.classList.contains('experiencefragment'));
+  const rows = [['Cards (cards24)']];
 
-  // Helper: find the nearest previous .cmp-text sibling (intro text) for a card section
-  function getIntroText(section) {
-    const idx = orderedChildren.indexOf(section);
-    if (idx < 0) return null;
-    for (let i = idx - 1; i >= 0; i--) {
-      const cmpText = orderedChildren[i].querySelector && orderedChildren[i].querySelector('.cmp-text');
-      if (cmpText && cmpText.textContent.trim()) return cmpText;
-    }
-    return null;
+  // Helper to create one card row
+  function makeCardRow(img, texts) {
+    return [img, texts];
   }
 
-  // Compose all card rows
-  const rows = cardSections.map(section => {
-    // Image (first <img> in .image)
-    const img = section.querySelector('.image img');
-    // Intro text (nearest previous .cmp-text, if any)
-    const introText = getIntroText(section);
-    // Card titles (all .cmp-title__text)
-    const titleEls = Array.from(section.querySelectorAll('.cmp-title__text'));
-    // Social buttons (all <a.cmp-button> in .buildingblock)
-    const buttonBlock = section.querySelector('.buildingblock');
-    let socials = null;
-    if (buttonBlock) {
-      const buttons = Array.from(buttonBlock.querySelectorAll('a.cmp-button'));
-      if (buttons.length) {
-        socials = document.createElement('div');
-        buttons.forEach(btn => {
-          socials.appendChild(btn);
-        });
-      }
+  // Collect all top-level children
+  const children = Array.from(mainGrid.children);
+
+  // For grouping, we'll push cards for every contributor/guide section. We'll also group
+  // intro section headers and description text as separate card rows (spanning 2nd cell only, image empty)
+  children.forEach(child => {
+    // Section headers and section descriptions
+    const h2 = child.querySelector(':scope > div.cmp-title > h2.cmp-title__text');
+    if (h2) {
+      // Add as a new row: image cell empty, text cell is h2
+      rows.push(['', [h2]]);
+      return;
     }
-    // Compose text cell: intro, title(s), socials
-    const cellContent = [];
-    if (introText) cellContent.push(introText);
-    if (titleEls.length) cellContent.push(...titleEls);
-    if (socials) cellContent.push(socials);
-    // Only single element if just one
-    const textCell = cellContent.length === 1 ? cellContent[0] : cellContent;
-    return [img, textCell];
+    // Section intro text (just after the section header)
+    const cmpText = child.querySelector(':scope > div.cmp-text');
+    if (cmpText) {
+      rows.push(['', [cmpText]]);
+      return;
+    }
+    // Contributor/Guide card sections
+    if (child.tagName === 'SECTION' && child.classList.contains('cmp-experience-fragment--contributor')) {
+      // Find image
+      const img = child.querySelector('img');
+      // Compose content: name (h3), role (h5), and social links (as a div of buttons)
+      let texts = [];
+      const nameEl = child.querySelector('h3.cmp-title__text');
+      if (nameEl) texts.push(nameEl);
+      const roleEl = child.querySelector('h5.cmp-title__text');
+      if (roleEl) texts.push(roleEl);
+      // Social links: grab all .cmp-button links as is
+      const buttonGrid = child.querySelector('.buildingblock .aem-Grid');
+      if (buttonGrid) {
+        const socialLinks = Array.from(buttonGrid.querySelectorAll('a.cmp-button'));
+        if (socialLinks.length) {
+          const socialDiv = document.createElement('div');
+          socialLinks.forEach(a => socialDiv.appendChild(a));
+          texts.push(socialDiv);
+        }
+      }
+      rows.push(makeCardRow(img, texts));
+    }
+    // Do not include <h1> About Us (not present in cards example)
   });
 
-  const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Only build table if we have more than header row
+  if (rows.length > 1) {
+    const table = WebImporter.DOMUtils.createTable(rows, document);
+    element.replaceWith(table);
+  }
 }

@@ -1,56 +1,65 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper to safely get the first direct child div with a given class
-  function getChildDivByClass(parent, className) {
-    const children = parent.querySelectorAll(':scope > div');
-    for (const div of children) {
-      if (div.classList.contains(className)) {
-        return div;
-      }
+  // Table header matches example
+  const headerRow = ['Hero (hero39)'];
+
+  // Get all immediate children
+  const children = element.querySelectorAll(':scope > div');
+  let teaserDiv = null;
+  children.forEach((div) => {
+    if (div.classList.contains('cmp-teaser')) {
+      teaserDiv = div;
     }
-    return null;
+  });
+
+  // Defensive: If teaserDiv is missing, use element itself
+  if (!teaserDiv) {
+    teaserDiv = element;
   }
 
-  // Get the background image (row 2)
-  let bgImgElem = null;
-  const teaserImageDiv = element.querySelector('.cmp-teaser__image');
-  if (teaserImageDiv) {
-    const img = teaserImageDiv.querySelector('img');
-    if (img) {
-      bgImgElem = img;
-    }
-  }
+  // From teaserDiv, extract content and image blocks
+  let imageCell = '';
+  let textCellContent = [];
 
-  // Get the text content (row 3)
-  // We want the block headline and description, as in the screenshot example
-  let contentFragment = document.createDocumentFragment();
-  const teaserContentDiv = element.querySelector('.cmp-teaser__content');
-  if (teaserContentDiv) {
-    // Get title (h2), description (div), and any other children
-    const title = teaserContentDiv.querySelector('h2, h1, h3, h4, h5, h6');
-    if (title) contentFragment.appendChild(title);
-    const desc = teaserContentDiv.querySelector('.cmp-teaser__description');
-    if (desc) {
-      // Move all children (e.g., paragraph tags)
-      while (desc.firstChild) {
-        contentFragment.appendChild(desc.firstChild);
+  // Find cmp-teaser__image for image
+  const imageDiv = teaserDiv.querySelector(':scope > .cmp-teaser__image');
+  if (imageDiv) {
+    const cmpImage = imageDiv.querySelector('[data-cmp-is="image"]');
+    if (cmpImage) {
+      const img = cmpImage.querySelector('img');
+      if (img) {
+        imageCell = img;
       }
     }
   }
 
-  // Build the table
-  const rows = [];
-  rows.push(['Hero (hero39)']);
-  // 2nd row: background image
-  rows.push([bgImgElem ? bgImgElem : '']);
-  // 3rd row: content
-  // If contentFragment has children, use it, else empty string
-  if (contentFragment.childNodes.length > 0) {
-    rows.push([contentFragment]);
-  } else {
-    rows.push(['']);
+  // Find cmp-teaser__content for text
+  const contentDiv = teaserDiv.querySelector(':scope > .cmp-teaser__content');
+  if (contentDiv) {
+    // Title, description, other content
+    Array.from(contentDiv.children).forEach((child) => {
+      if (child.textContent && child.textContent.trim() !== '') {
+        textCellContent.push(child);
+      }
+    });
   }
 
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(table);
+  // Fallback: if no text, try to pull direct text from teaserDiv
+  if (textCellContent.length === 0) {
+    Array.from(teaserDiv.children).forEach((child) => {
+      if (child.textContent && child.textContent.trim() !== '') {
+        textCellContent.push(child);
+      }
+    });
+  }
+
+  // The table: 3 rows, 1 column
+  const cells = [
+    headerRow,
+    [imageCell],
+    [textCellContent]
+  ];
+
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

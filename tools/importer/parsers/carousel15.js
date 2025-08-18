@@ -1,71 +1,46 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Table header matches example exactly
+  // Header row exactly matching the example
   const headerRow = ['Carousel (carousel15)'];
-  const rows = [];
-
-  // 2. Locate the carousel items
+  // Find the carousel content wrapper
   const carousel = element.querySelector('.cmp-carousel');
   if (!carousel) return;
-  const items = carousel.querySelectorAll('.cmp-carousel__content > .cmp-carousel__item');
-
-  items.forEach((item) => {
-    // 3. Extract image (first column)
-    let imageCell = '';
-    // Use the FIRST <img> from item
-    const img = item.querySelector('img');
-    if (img) imageCell = img;
-
-    // 4. Extract all text content except the image (second column)
+  const content = carousel.querySelector('.cmp-carousel__content');
+  if (!content) return;
+  const items = Array.from(content.querySelectorAll('.cmp-carousel__item'));
+  const rows = items.map((item) => {
+    // IMAGE CELL: find .image > img
+    let imageCell = null;
+    const imageWrap = item.querySelector('.image');
+    if (imageWrap) {
+      const img = imageWrap.querySelector('img');
+      if (img) imageCell = img;
+    }
+    // TEXT CELL: everything in the slide NOT inside .image
     let textCell = '';
-    // Direct child nodes, excluding .image div and <img>
-    const textContentNodes = [];
-    Array.from(item.childNodes).forEach((node) => {
-      if (node.nodeType === 1 && (node.classList.contains('image') || node.tagName === 'IMG')) {
-        // skip image wrappers
-        return;
-      }
-      if (node.nodeType === 1) {
-        // element node, include if not image wrapper
-        if (node.textContent.trim().length > 0) textContentNodes.push(node);
-      } else if (node.nodeType === 3) {
-        // text node, non-empty
-        if (node.textContent.trim().length > 0) {
-          const span = document.createElement('span');
-          span.textContent = node.textContent.trim();
-          textContentNodes.push(span);
-        }
-      }
+    // Collect ALL child nodes of the slide that are not part of the .image container
+    const nodeList = Array.from(item.childNodes).filter(child => {
+      return !(child.nodeType === 1 && child.classList.contains('image'));
     });
-    // If there's no text content, fallback to image alt or title
-    if (textContentNodes.length === 0 && img) {
-      const alt = img.getAttribute('alt');
-      if (alt) {
-        const altSpan = document.createElement('span');
-        altSpan.textContent = alt;
-        textContentNodes.push(altSpan);
-      } else {
-        const title = img.getAttribute('title');
-        if (title) {
-          const titleSpan = document.createElement('span');
-          titleSpan.textContent = title;
-          textContentNodes.push(titleSpan);
-        }
-      }
+    // If there is no direct text, look inside .image siblings for any content
+    // For flexibility, if nothing found try to find any heading, p, a, ul, ol inside the item except inside .image
+    if (nodeList.length === 0) {
+      const extra = Array.from(item.querySelectorAll(':scope > *:not(.image)'));
+      nodeList.push(...extra);
     }
-
-    if (textContentNodes.length === 1) {
-      textCell = textContentNodes[0];
-    } else if (textContentNodes.length > 1) {
-      textCell = textContentNodes;
-    } else {
-      textCell = '';
+    // Remove empty text nodes
+    const relevantNodes = nodeList.filter(node => {
+      if (node.nodeType === 3) return node.textContent.trim().length > 0;
+      if (node.nodeType === 1) return true;
+      return false;
+    });
+    // If there's anything left, use it; else leave empty
+    if (relevantNodes.length > 0) {
+      textCell = relevantNodes;
     }
-    rows.push([imageCell, textCell]);
+    return [imageCell, textCell];
   });
-
-  // 5. Compose and inject block table
   const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

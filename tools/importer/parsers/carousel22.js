@@ -1,63 +1,70 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header as required in the example
+  // Carousel block header
   const headerRow = ['Carousel (carousel22)'];
   const cells = [headerRow];
 
-  // Find the carousel content container
-  const carouselContent = element.querySelector('.cmp-carousel__content');
-  if (!carouselContent) return;
+  // Find the cmp-carousel node
+  const carousel = element.querySelector('.cmp-carousel');
+  if (!carousel) return;
+  // Select only direct children of .cmp-carousel__content that are .cmp-carousel__item (slides)
+  const content = carousel.querySelector('.cmp-carousel__content');
+  if (!content) return;
+  const slides = content.querySelectorAll(':scope > .cmp-carousel__item');
 
-  // Get all slide items (each slide is .cmp-carousel__item)
-  const items = carouselContent.querySelectorAll(':scope > .cmp-carousel__item');
-  items.forEach(item => {
-    // Find image element inside the teaser
-    const teaser = item.querySelector('.cmp-teaser');
-    let imgEl = null;
-    if (teaser) {
-      const imageWrapper = teaser.querySelector('.cmp-teaser__image');
-      if (imageWrapper) {
-        imgEl = imageWrapper.querySelector('img');
-      }
-    }
-    if (!imgEl) return;
+  slides.forEach((slide) => {
+    // Image cell
+    let imageCell = null;
+    // Text content cell
+    let textCell = null;
 
-    // Compose text content for the second cell
-    const textParts = [];
-    if (teaser) {
-      const content = teaser.querySelector('.cmp-teaser__content');
-      if (content) {
-        // Title as heading (keep semantic and reference existing element)
-        const titleEl = content.querySelector('.cmp-teaser__title');
-        if (titleEl) {
-          // Use reference to original h2 element
-          textParts.push(titleEl);
-        }
-        // Description block
-        const descEl = content.querySelector('.cmp-teaser__description');
-        if (descEl) {
-          // If it contains block-level children, use them. Otherwise, wrap as <p>
-          if (descEl.children.length > 0) {
-            Array.from(descEl.children).forEach(child => textParts.push(child));
-          } else {
-            // Use the original descEl, since it's a block, and reference
-            textParts.push(descEl);
-          }
-        }
-        // CTA link
-        const actionEl = content.querySelector('.cmp-teaser__action-container .cmp-teaser__action-link');
-        if (actionEl) {
-          textParts.push(actionEl);
-        }
+    // Find image: inside .cmp-teaser__image, grab the <img>
+    const teaserImageDiv = slide.querySelector('.cmp-teaser__image');
+    if (teaserImageDiv) {
+      const img = teaserImageDiv.querySelector('img');
+      if (img) {
+        imageCell = img;
       }
     }
 
-    cells.push([
-      imgEl,
-      textParts
-    ]);
+    // Text content: inside .cmp-teaser__content
+    const teaserContent = slide.querySelector('.cmp-teaser__content');
+    if (teaserContent) {
+      // We'll collect: Title, Description, and CTA (if present)
+      const textContentFragments = [];
+
+      // Title
+      const titleEl = teaserContent.querySelector('.cmp-teaser__title');
+      if (titleEl) {
+        // Use heading as is for semantic correctness
+        textContentFragments.push(titleEl);
+      }
+      // Description
+      const descEl = teaserContent.querySelector('.cmp-teaser__description');
+      if (descEl) {
+        // If it contains <p>, include those, else include the div itself
+        if (descEl.children.length > 0) {
+          Array.from(descEl.children).forEach(child => {
+            textContentFragments.push(child);
+          });
+        } else {
+          textContentFragments.push(descEl);
+        }
+      }
+      // CTA link
+      const actionLink = teaserContent.querySelector('.cmp-teaser__action-container a');
+      if (actionLink) {
+        textContentFragments.push(actionLink);
+      }
+      if (textContentFragments.length > 0) {
+        textCell = textContentFragments;
+      }
+    }
+
+    // Assemble the row: [imageCell, textCell]
+    cells.push([imageCell, textCell]);
   });
 
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

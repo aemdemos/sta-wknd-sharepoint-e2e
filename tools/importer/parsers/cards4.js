@@ -1,94 +1,78 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper function for safe line breaks
-  function addBr(arr) {
-    if (arr.length > 0 && arr[arr.length - 1].nodeName !== 'BR') {
-      arr.push(document.createElement('br'));
+  // Safely find the 'All Articles' section's image-list (cards)
+  // 1. Find the h2 with text 'All Articles'
+  // 2. Find the next .image-list sibling
+
+  // Step 1: Find the 'All Articles' header
+  const allTitles = element.querySelectorAll('h2.cmp-title__text');
+  let allArticlesTitle = null;
+  for (const t of allTitles) {
+    if (t.textContent.trim() === 'All Articles') {
+      allArticlesTitle = t;
+      break;
     }
   }
-
-  // --- 1. Featured Article Card ---
-  // Find the featured article teaser
-  const featuredTeaser = element.querySelector('.teaser.cmp-teaser--featured .cmp-teaser');
-  let cards = [];
-  if (featuredTeaser) {
-    // Image (keep img reference, not clone)
-    const image = featuredTeaser.querySelector('.cmp-teaser__image img');
-    // Content
-    const textCell = [];
-    const pretitle = featuredTeaser.querySelector('.cmp-teaser__pretitle');
-    const title = featuredTeaser.querySelector('.cmp-teaser__title');
-    const desc = featuredTeaser.querySelector('.cmp-teaser__description');
-    const cta = featuredTeaser.querySelector('.cmp-teaser__action-link');
-    if (pretitle) {
-      // Use a <span> for pretitle
-      const span = document.createElement('span');
-      span.textContent = pretitle.textContent.trim();
-      textCell.push(span);
-      addBr(textCell);
-    }
-    if (title) {
-      // Use <strong> for title as per visual emphasis
-      const strong = document.createElement('strong');
-      strong.textContent = title.textContent.trim();
-      textCell.push(strong);
-      addBr(textCell);
-    }
-    if (desc) {
-      // desc may contain HTML, append all children
-      if (desc.children.length > 0) {
-        Array.from(desc.childNodes).forEach((n) => textCell.push(n));
-      } else {
-        textCell.push(document.createTextNode(desc.textContent.trim()));
-      }
-      addBr(textCell);
-    }
-    if (cta) {
-      textCell.push(cta);
-    }
-    cards.push([image, textCell]);
+  if (!allArticlesTitle) return;
+  // Step 2: Traverse to the image-list after the 'All Articles' header
+  let imageListDiv = allArticlesTitle.closest('.title').nextElementSibling;
+  while (imageListDiv && !imageListDiv.classList.contains('image-list')) {
+    imageListDiv = imageListDiv.nextElementSibling;
   }
+  if (!imageListDiv) return;
 
-  // --- 2. All Articles List Cards ---
-  const imageList = element.querySelector('.image-list .cmp-image-list');
-  if (imageList) {
-    const items = imageList.querySelectorAll('.cmp-image-list__item');
-    items.forEach(item => {
-      // Image
-      let img = item.querySelector('img');
-      // Title (should be bold, use <strong>)
-      const titleLink = item.querySelector('.cmp-image-list__item-title-link');
-      let title = null;
+  // Step 3: Get all li.cmp-image-list__item
+  const ul = imageListDiv.querySelector('ul.cmp-image-list');
+  if (!ul) return;
+  const lis = ul.querySelectorAll('li.cmp-image-list__item');
+
+  // Step 4: Build the block table
+  const rows = [];
+  rows.push(['Cards (cards4)']); // Header row matches example exactly
+
+  lis.forEach(li => {
+    // First cell: the image
+    let imgTag = li.querySelector('img');
+    let imgElem = imgTag || li.querySelector('[data-cmp-is="image"]');
+
+    // Second cell: text content
+    // Title: .cmp-image-list__item-title (used for heading)
+    // Description: .cmp-image-list__item-description
+    // Link: .cmp-image-list__item-title-link (wraps the title)
+    const titleLink = li.querySelector('a.cmp-image-list__item-title-link');
+    const titleSpan = li.querySelector('span.cmp-image-list__item-title');
+    const descriptionSpan = li.querySelector('span.cmp-image-list__item-description');
+
+    // Construct heading (using <strong> for bold as in example)
+    let titleElem = null;
+    if (titleSpan) {
       if (titleLink) {
-        const span = titleLink.querySelector('.cmp-image-list__item-title');
-        if (span) {
-          title = document.createElement('strong');
-          title.textContent = span.textContent.trim();
-        }
+        // If title is a link, use the link but ensure textContent comes from the span
+        const aElem = titleLink;
+        aElem.textContent = titleSpan.textContent.trim();
+        titleElem = document.createElement('strong');
+        titleElem.appendChild(aElem);
+      } else {
+        titleElem = document.createElement('strong');
+        titleElem.textContent = titleSpan.textContent.trim();
       }
-      // Description
-      const desc = item.querySelector('.cmp-image-list__item-description');
-      // Compose text cell
-      const textCell = [];
-      if (title) {
-        textCell.push(title);
-        if (desc && desc.textContent.trim()) textCell.push(document.createElement('br'));
-      }
-      if (desc && desc.textContent.trim()) {
-        textCell.push(document.createTextNode(desc.textContent.trim()));
-      }
-      cards.push([img, textCell]);
-    });
-  }
+    }
 
-  // Defensive: if no cards, do not replace
-  if (cards.length === 0) return;
+    // Compose the cell
+    const textCell = document.createElement('div');
+    if (titleElem) textCell.appendChild(titleElem);
+    if (descriptionSpan) {
+      // Add a <br> if both title and description
+      if (titleElem) textCell.appendChild(document.createElement('br'));
+      textCell.appendChild(descriptionSpan);
+    }
+    rows.push([
+      imgElem,
+      textCell
+    ]);
+  });
 
-  // Compose full table: header + cards
-  const cells = [
-    ['Cards (cards4)'],
-    ...cards
-  ];
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Replace the image list block with the constructed table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  imageListDiv.replaceWith(block);
 }
