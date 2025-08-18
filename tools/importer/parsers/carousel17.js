@@ -1,64 +1,50 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const headerRow = ['Carousel (carousel17)'];
-
-  // Find carousel content
+  // Find carousel block root
   const carousel = element.querySelector('.cmp-carousel');
   if (!carousel) return;
+
+  // Get all carousel slides
   const content = carousel.querySelector('.cmp-carousel__content');
   if (!content) return;
 
-  // Get all slide elements
-  const slideEls = Array.from(content.children).filter(child => child.classList && child.classList.contains('cmp-carousel__item'));
+  const slides = Array.from(content.querySelectorAll('.cmp-carousel__item'));
 
-  const rows = slideEls.map(slide => {
-    // IMAGE CELL: Use cmp-image if present, else first img
-    let imgCell = '';
-    const cmpImage = slide.querySelector('.cmp-image');
-    if (cmpImage) {
-      imgCell = cmpImage;
-    } else {
-      const img = slide.querySelector('img');
-      if (img) imgCell = img;
-    }
+  // Header - must match example precisely
+  const rows = [['Carousel (carousel17)']];
 
-    // TEXT CELL: Find overlay text (common for carousels) or any text content not in image
+  slides.forEach(slide => {
+    // IMAGE CELL: Find the first <img> element (guaranteed to exist per spec)
+    const img = slide.querySelector('img');
+
+    // TEXT CELL: Gather all content that is NOT inside the image block
+    // Sometimes text is in direct child elements, sometimes elsewhere
+    // This approach collects all non-image children
+    const textNodes = [];
+    Array.from(slide.children).forEach(child => {
+      if (!child.classList.contains('image') && child.textContent.trim()) {
+        textNodes.push(child);
+      }
+      // If .image block, also check its siblings for text
+      if (child.classList.contains('image')) {
+        let sib = child.nextElementSibling;
+        while (sib) {
+          if (sib.textContent.trim()) textNodes.push(sib);
+          sib = sib.nextElementSibling;
+        }
+      }
+    });
+    // If no text found, cell is empty string
     let textCell = '';
-    const textParts = [];
-    // Common overlay pattern: look for elements with class containing 'overlay', 'caption', or 'text' within slide
-    const overlay = slide.querySelector('[class*="overlay"], [class*="caption"], [class*="text"]');
-    if (overlay && overlay.textContent.trim()) {
-      textParts.push(overlay);
-    } else {
-      // If no overlay/caption, collect all elements in slide except .image/.cmp-image
-      Array.from(slide.children).forEach(child => {
-        if (
-          !child.classList.contains('image') &&
-          !child.classList.contains('cmp-image') &&
-          child.textContent.trim()
-        ) {
-          textParts.push(child);
-        }
-      });
+    if (textNodes.length === 1) {
+      textCell = textNodes[0];
+    } else if (textNodes.length > 1) {
+      textCell = textNodes;
     }
-    // If still nothing, look for stray text nodes
-    if (textParts.length === 0) {
-      Array.from(slide.childNodes).forEach(n => {
-        if (n.nodeType === 3 && n.textContent.trim()) {
-          const span = document.createElement('span');
-          span.textContent = n.textContent.trim();
-          textParts.push(span);
-        }
-      });
-    }
-    if (textParts.length > 0) {
-      textCell = textParts;
-    }
-
-    return [imgCell, textCell];
+    rows.push([img, textCell]);
   });
 
-  const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Create the table block and replace the original element
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(table);
 }

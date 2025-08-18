@@ -1,45 +1,50 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block within the provided element
+  // Find the .cmp-tabs block
   const tabs = element.querySelector('.cmp-tabs');
   if (!tabs) return;
 
-  // Get the tab labels
-  const tabList = tabs.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabLabels = Array.from(tabList.querySelectorAll('[role="tab"]'));
+  // Extract tab labels
+  const tabLabels = Array.from(
+    tabs.querySelectorAll('.cmp-tabs__tablist > li')
+  );
+  // Extract corresponding tab panels
+  const tabPanels = Array.from(
+    tabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]')
+  );
 
-  // Prepare the header row exactly as in example
+  // Build the rows for the block table
+  // Header row: single cell
   const rows = [['Tabs (tabs20)']];
 
-  // For each tab, grab its label and main content
-  tabLabels.forEach((tab) => {
-    // Tab label (dynamic)
-    const label = tab.textContent.trim();
-    // Find the tab's panel
-    const tabPanelId = tab.getAttribute('aria-controls');
-    let panel = tabPanelId ? tabs.querySelector(`#${tabPanelId}`) : null;
-
-    // Defensive: If panel missing, just add label and empty string
-    if (!panel) {
-      rows.push([label, '']);
-      return;
+  // Subsequent rows: [tab label, tab content]
+  for (let i = 0; i < tabLabels.length; i++) {
+    const label = tabLabels[i]?.textContent?.trim() || '';
+    let panel = tabPanels[i];
+    // Use aria-labelledby for robust panel detection
+    const tabId = tabLabels[i].getAttribute('id');
+    if (tabId) {
+      const ariaPanel = tabs.querySelector(`[aria-labelledby="${tabId}"]`);
+      if (ariaPanel) panel = ariaPanel;
     }
-
-    // The primary tab content is typically the contentfragment/article in the panel
-    // Reference the existing element (not clone)
-    let mainContent = panel.querySelector('article.cmp-contentfragment') || panel.querySelector('.contentfragment');
-    if (!mainContent) {
-      // fallback to first non-empty element (eg. paragraph, image, etc.)
-      mainContent = Array.from(panel.children).find((child) => child.textContent.trim() || child.querySelector('img')) || panel;
+    // Content: find <article.cmp-contentfragment> if present, else first element, else div
+    let contentCell = null;
+    if (panel) {
+      let contentFragment = panel.querySelector('article.cmp-contentfragment');
+      if (!contentFragment) {
+        const firstElement = panel.querySelector(':scope > *');
+        contentCell = firstElement || document.createElement('div');
+      } else {
+        contentCell = contentFragment;
+      }
+    } else {
+      contentCell = document.createElement('div');
     }
+    rows.push([label, contentCell]);
+  }
 
-    rows.push([label, mainContent]);
-  });
-
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-
-  // Replace the tabs block in the DOM
-  tabs.replaceWith(block);
+  // Create the table block
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  // Replace the old tabs block with the new block table
+  tabs.replaceWith(table);
 }

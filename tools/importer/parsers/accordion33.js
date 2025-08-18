@@ -1,57 +1,62 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Block header row as per example
+  // Header row as per the specification
   const headerRow = ['Accordion (accordion33)'];
 
-  // Find the contentfragment article which contains the accordion data
-  const cfArticle = element.querySelector('.contentfragment article.cmp-contentfragment');
-  if (!cfArticle) return;
-  // Find the contentfragment elements container
-  const cfElements = cfArticle.querySelector('.cmp-contentfragment__elements');
+  // Find the content fragment block that contains the accordion content
+  const cfElements = element.querySelector('.cmp-contentfragment__elements');
   if (!cfElements) return;
 
-  // We want to extract all H2s and the content between them for the accordion
-  const accordionRows = [];
-  let currentTitle = null;
-  let currentContent = [];
-  // Go through all children of cmp-contentfragment__elements
-  const nodes = Array.from(cfElements.childNodes);
-  nodes.forEach((node) => {
-    if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'H2') {
-      if (currentTitle) {
-        // Add previous section
-        accordionRows.push([
-          currentTitle,
-          currentContent.length === 1 ? currentContent[0] : currentContent.slice(),
-        ]);
-      }
-      currentTitle = node;
-      currentContent = [];
-    } else if (
-      node.nodeType === Node.ELEMENT_NODE &&
-      (node.tagName === 'P' || node.classList.contains('aem-Grid'))
-    ) {
-      // aem-Grid may contain image only
-      if (node.classList.contains('aem-Grid')) {
-        const image = node.querySelector('.cmp-image');
-        if (image) currentContent.push(image);
-      } else {
-        currentContent.push(node);
-      }
-    }
+  // Convert NodeList to an array for easier processing, keeping both text and element nodes
+  const nodes = Array.from(cfElements.childNodes).filter(node => {
+    if (node.nodeType === Node.TEXT_NODE) return node.textContent.trim().length > 0;
+    if (node.nodeType === Node.ELEMENT_NODE) return true;
+    return false;
   });
-  // Add the last section if present
-  if (currentTitle) {
-    accordionRows.push([
-      currentTitle,
-      currentContent.length === 1 ? currentContent[0] : currentContent.slice(),
-    ]);
+
+  // Find the start of the accordion items (the first H2)
+  let i = nodes.findIndex(node => node.nodeType === Node.ELEMENT_NODE && node.tagName === 'H2');
+  if (i < 0) return;
+
+  const rows = [headerRow];
+
+  while (i < nodes.length) {
+    // The title for each accordion section is always an H2
+    if (nodes[i].nodeType === Node.ELEMENT_NODE && nodes[i].tagName === 'H2') {
+      const titleEl = nodes[i];
+      i++;
+      const contentEls = [];
+      // Collect all nodes until the next H2 (or end of content)
+      while (i < nodes.length && !(nodes[i].nodeType === Node.ELEMENT_NODE && nodes[i].tagName === 'H2')) {
+        if (nodes[i].nodeType === Node.TEXT_NODE && nodes[i].textContent.trim().length > 0) {
+          // Wrap orphaned text nodes in a <p> to preserve formatting
+          const p = document.createElement('p');
+          p.textContent = nodes[i].textContent.trim();
+          contentEls.push(p);
+        } else if (nodes[i].nodeType === Node.ELEMENT_NODE) {
+          contentEls.push(nodes[i]);
+        }
+        i++;
+      }
+      // Remove empty elements
+      const filteredContent = contentEls.filter(el => {
+        if (el.nodeType === Node.TEXT_NODE) return el.textContent.trim().length > 0;
+        if (el.nodeType === Node.ELEMENT_NODE) {
+          // Keep if it has text or images
+          return el.textContent.trim().length > 0 || el.querySelector('img');
+        }
+        return false;
+      });
+      // Accordion row: [title, content (single element or array)]
+      rows.push([
+        titleEl,
+        filteredContent.length === 1 ? filteredContent[0] : filteredContent
+      ]);
+    } else {
+      i++;
+    }
   }
-
-  if (accordionRows.length === 0) return;
-
-  // Compose the table
-  const tableRows = [headerRow, ...accordionRows];
-  const table = WebImporter.DOMUtils.createTable(tableRows, document);
-  element.replaceWith(table);
+  // Create the block table and replace the original element
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(block);
 }

@@ -1,46 +1,69 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block (cmp-tabs)
+  // Locate the cmp-tabs block
   const tabsBlock = element.querySelector('.cmp-tabs');
   if (!tabsBlock) return;
 
-  // Get tab labels (from the tab list)
+  // Get tab labels from tablist
   const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
-  if (!tabList) return;
-  const tabListItems = Array.from(tabList.children);
-  const tabLabels = tabListItems.map(li => li.textContent.trim());
+  const tabLabels = [];
+  if (tabList) {
+    tabList.querySelectorAll('li[role="tab"]').forEach(tab => {
+      tabLabels.push(tab.textContent.trim());
+    });
+  }
 
-  // Get tab panels (in order, by id)
-  // Tab panels have [data-cmp-hook-tabs="tabpanel"]
-  const tabPanels = tabLabels.map((_, i) => {
-    // Tab order should match li order
-    // Each li's aria-controls points to the tabpanel's id
-    const ariaControls = tabListItems[i].getAttribute('aria-controls');
-    return tabsBlock.querySelector('#' + ariaControls);
-  });
-
-  // Defensive: only create rows for found panels
-  const panelRows = tabPanels.map((panel, i) => {
-    if (!panel) return [tabLabels[i], ''];
-    // The tab content is the main contentfragment/article inside panel
-    // Sometimes contentfragment is wrapped in a <div class="contentfragment"> or similar
-    // We'll grab the <article> if present, else all children
-    const article = panel.querySelector('article');
-    if (article) {
-      return [tabLabels[i], article];
+  // Get all tab panels (must match tabLabels order)
+  const tabPanels = tabsBlock.querySelectorAll('.cmp-tabs__tabpanel');
+  const tabContents = [];
+  tabPanels.forEach(panel => {
+    // Look for article.cmp-contentfragment inside this panel
+    const contentFragment = panel.querySelector('article.cmp-contentfragment');
+    if (contentFragment) {
+      // Try to find the main .cmp-contentfragment__elements block
+      const cfElements = contentFragment.querySelector('.cmp-contentfragment__elements');
+      if (cfElements) {
+        // Filter out empty grid wrappers directly under cfElements
+        const meaningful = Array.from(cfElements.children).filter(child => {
+          // Exclude empty grid divs (contain only aem-Grid and whitespace)
+          if (
+            child.matches('div') &&
+            child.querySelector('.aem-Grid') &&
+            child.textContent.trim() === ''
+          ) {
+            return false;
+          }
+          return true;
+        });
+        // If only one meaningful child, use that; else, use the array
+        tabContents.push(meaningful.length === 1 ? meaningful[0] : meaningful);
+      } else {
+        tabContents.push(contentFragment);
+      }
+    } else {
+      // Fallback: use panel children, filtering empty grid wrappers
+      const meaningful = Array.from(panel.children).filter(child => {
+        if (
+          child.matches('div') &&
+          child.querySelector('.aem-Grid') &&
+          child.textContent.trim() === ''
+        ) {
+          return false;
+        }
+        return true;
+      });
+      tabContents.push(meaningful.length === 1 ? meaningful[0] : meaningful);
     }
-    // fallback: put panel's children in an array
-    const contentEls = Array.from(panel.children);
-    return [tabLabels[i], contentEls.length === 1 ? contentEls[0] : contentEls];
   });
 
-  // Compose table rows
-  const cells = [
-    ['Tabs (tabs6)'], // header
-    ...panelRows
-  ];
+  // Build block table: header, then each tab (label, content)
+  const cells = [["Tabs (tabs6)"]];
+  for (let i = 0; i < tabLabels.length; i++) {
+    const content = tabContents[i] !== undefined ? tabContents[i] : '';
+    cells.push([tabLabels[i], content]);
+  }
 
-  // Create table and replace block
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  tabsBlock.replaceWith(block);
+  // Create and replace the block
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  tabsBlock.parentNode.replaceChild(table, tabsBlock);
 }

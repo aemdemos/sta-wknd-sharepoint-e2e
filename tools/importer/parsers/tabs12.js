@@ -1,43 +1,55 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block within the element
-  const cmpTabs = element.querySelector('.cmp-tabs');
-  if (!cmpTabs) return;
+  // Find the tabs block in the element
+  const tabsWrapper = element.querySelector('.tabs');
+  if (!tabsWrapper) return;
+  const tabsEl = tabsWrapper.querySelector('.cmp-tabs');
+  if (!tabsEl) return;
 
-  // Get the tab labels (li[role=tab]) in order
-  const tabList = cmpTabs.querySelector('.cmp-tabs__tablist');
-  const tabLabelEls = tabList ? Array.from(tabList.querySelectorAll('[role="tab"]')) : [];
+  // Extract tab labels and panels
+  const tabLabels = Array.from(tabsEl.querySelectorAll('.cmp-tabs__tablist > li')).map(li => li.textContent.trim());
+  const tabPanels = Array.from(tabsEl.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Get the tab panels (div[data-cmp-hook-tabs=tabpanel]) in order
-  const tabPanelEls = Array.from(
-    cmpTabs.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]')
-  );
+  if (tabLabels.length === 0 || tabPanels.length === 0) return;
 
-  // Edge case: If there are no tabs or panels, do nothing
-  if (tabLabelEls.length === 0 || tabPanelEls.length === 0) return;
-
-  // Build the header row: always exactly 'Tabs (tabs12)'
-  const rows = [['Tabs (tabs12)']];
-
-  // For each tab, add a row: [tab label, tab content]
-  for (let i = 0; i < tabLabelEls.length; i++) {
-    const tabLabelEl = tabLabelEls[i];
-    const label = tabLabelEl ? tabLabelEl.textContent.trim() : '';
-    // If no panel, skip row
-    if (!tabPanelEls[i]) continue;
-    const panelEl = tabPanelEls[i];
-
-    // For semantic fidelity, reference the entire .contentfragment or article within the panel if it exists, else the panel itself
-    const mainContent = panelEl.querySelector('article') || panelEl.querySelector('.contentfragment') || panelEl;
-    // For label, use a <strong> element for robust direct referencing (not string)
-    const strongLabel = document.createElement('strong');
-    strongLabel.textContent = label;
-    rows.push([strongLabel, mainContent]);
+  // Build table: header is a single cell, each tab is its own row with two columns
+  const cells = [];
+  // Header row: ONLY block name, single cell
+  cells.push(['Tabs (tabs12)']);
+  // Each tab row: [label, content]
+  for (let i = 0; i < tabLabels.length; i++) {
+    const panel = tabPanels[i];
+    let content = panel.querySelector('article');
+    if (!content) content = panel;
+    cells.push([tabLabels[i], content]);
   }
 
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
+  // Create table (force header row to have only one cell)
+  const table = document.createElement('table');
+  cells.forEach((row, rowIndex) => {
+    const tr = document.createElement('tr');
+    // For the header row, ensure only one <th> and set colspan for two columns
+    if (rowIndex === 0) {
+      const th = document.createElement('th');
+      th.innerHTML = row[0];
+      th.colSpan = 2;
+      tr.appendChild(th);
+    } else {
+      row.forEach(cell => {
+        const td = document.createElement('td');
+        if (typeof cell === 'string') {
+          td.innerHTML = cell;
+        } else if (Array.isArray(cell)) {
+          td.append(...cell);
+        } else {
+          td.append(cell);
+        }
+        tr.appendChild(td);
+      });
+    }
+    table.appendChild(tr);
+  });
 
-  // Replace the tabs block only (not the root element)
-  cmpTabs.parentNode.replaceChild(block, cmpTabs);
+  // Replace tabs block with new table
+  tabsWrapper.parentNode.replaceChild(table, tabsWrapper);
 }

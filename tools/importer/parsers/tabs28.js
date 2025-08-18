@@ -1,46 +1,58 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the tabs block within this section
+  // Locate the tabs block based on class
   const tabsBlock = element.querySelector('.cmp-tabs');
   if (!tabsBlock) return;
 
-  // Get tab labels
-  const tabList = tabsBlock.querySelector('ol.cmp-tabs__tablist');
+  // Get all tab labels from the tablist
+  const tabList = tabsBlock.querySelector('.cmp-tabs__tablist');
   if (!tabList) return;
-  const tabLabels = Array.from(tabList.querySelectorAll('li'));
+  const tabLabels = Array.from(tabList.querySelectorAll('li')).map(li => li.textContent.trim());
 
-  // Get tab panels (one per tab, in order)
-  const tabPanels = Array.from(
-    tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]')
-  );
+  // Get all tabpanels (always in order, matching tabLabels)
+  const tabPanels = Array.from(tabsBlock.querySelectorAll('[data-cmp-hook-tabs="tabpanel"]'));
 
-  // Defensive: skip if mismatched lengths
-  if (tabLabels.length === 0 || tabPanels.length !== tabLabels.length) return;
-
-  // Header row (block name exactly as requested)
+  // Compose header row (block name only, per spec)
   const headerRow = ['Tabs (tabs28)'];
 
-  // Second row: tab label elements (as <strong> for each tab, per example screenshot)
-  const labelRow = tabLabels.map(tab => {
-    // Use a <strong> as tab label, referencing the li's text
-    const strong = document.createElement('strong');
-    strong.textContent = tab.textContent.trim();
-    return strong;
-  });
+  // Edge case: if labels/panels mismatch, handle gracefully
+  const tabCount = Math.min(tabLabels.length, tabPanels.length);
 
-  // Third row: tab panel DOM nodes (reference tabPanels, not clones or innerHTML)
-  const contentRow = tabPanels.map(panel => panel);
+  // Compose content rows: each [tab label, content] pair
+  const tableRows = [];
+  for (let i = 0; i < tabCount; i++) {
+    const label = tabLabels[i];
+    const panel = tabPanels[i];
+    // Find primary contentfragment for the tab content
+    const contentFragment = panel.querySelector('.contentfragment') || panel;
+    // Find .cmp-contentfragment__elements for main content
+    let contentElements = contentFragment.querySelector('.cmp-contentfragment__elements');
+    let contentArr = [];
+    if (contentElements) {
+      // Select all direct children except empty grids or whitespace
+      contentArr = Array.from(contentElements.childNodes).filter(node => {
+        // Remove empty AEM grids and blank text
+        if (node.nodeType === 1 && node.classList && node.classList.contains('aem-Grid')) return false;
+        if (node.nodeType === 3 && !node.textContent.trim()) return false;
+        return true;
+      });
+    } else {
+      // fallback: use all children of panel except empty grids/whitespace
+      contentArr = Array.from(panel.childNodes).filter(node => {
+        if (node.nodeType === 1 && node.classList && node.classList.contains('aem-Grid')) return false;
+        if (node.nodeType === 3 && !node.textContent.trim()) return false;
+        return true;
+      });
+    }
+    // Remove any unnecessary wrappers, flatten single item
+    const tabContent = contentArr.length === 1 ? contentArr[0] : contentArr;
+    tableRows.push([label, tabContent]);
+  }
 
-  // Build cells array with 3 rows: header, tab labels, tab contents
-  const cells = [
-    headerRow,
-    labelRow,
-    contentRow
-  ];
+  // Compose final cells array: header then each tab row
+  const cells = [headerRow, ...tableRows];
 
-  // Create the table using the helper
+  // Create and replace table
   const table = WebImporter.DOMUtils.createTable(cells, document);
-
-  // Replace the tabs block in the DOM
-  tabsBlock.replaceWith(table);
+  tabsBlock.parentNode.replaceChild(table, tabsBlock);
 }

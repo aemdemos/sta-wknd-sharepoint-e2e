@@ -1,60 +1,86 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Get the main grid containing all columns
-  let grid;
-  const gridCandidates = element.querySelectorAll('.aem-Grid.aem-Grid--12');
-  for (const g of gridCandidates) {
-    const image = g.querySelector('.image');
-    const nav = g.querySelector('.navigation');
-    const title = g.querySelector('.title');
-    const btns = g.querySelector('.buildingblock');
-    const text = g.querySelector('.text');
-    if (image && nav && title && btns && text) {
-      grid = g;
+  // Find the deepest grid container with columns
+  let columnsRoot;
+  const containers = element.querySelectorAll('.cmp-container');
+  for (let i = containers.length - 1; i >= 0; i--) {
+    const grid = containers[i].querySelector('.aem-Grid');
+    if (grid) {
+      columnsRoot = grid;
       break;
     }
   }
-  if (!grid) {
-    grid = gridCandidates[0];
+  if (!columnsRoot) {
+    columnsRoot = element.querySelector('.aem-Grid');
+  }
+  if (!columnsRoot) {
+    // If not found, fallback to whole element
+    columnsRoot = element;
   }
 
-  // Get all direct children (top-level columns)
-  const children = Array.from(grid.children);
-  const logoDiv = children.find(c => c.classList.contains('image'));
-  const navDiv = children.find(c => c.classList.contains('navigation'));
-  const titleDiv = children.find(c => c.classList.contains('title'));
-  const btnsDiv = children.find(c => c.classList.contains('buildingblock'));
-  const textDiv = children.find(c => c.classList.contains('text'));
+  // Get all immediate child grid columns
+  const gridChildren = Array.from(columnsRoot.children);
 
-  // Compose right column (Follow Us + buttons)
-  let rightColContent = [];
-  if (titleDiv) rightColContent.push(titleDiv);
-  if (btnsDiv) rightColContent.push(btnsDiv);
-  // If both missing, push empty string for correct column count
-  if (rightColContent.length === 0) rightColContent = [''];
+  // Extract the logo image column
+  const logoCol = gridChildren.find(e => e.classList.contains('cmp-image--logo'));
+  let logoBlock = null;
+  if (logoCol) {
+    logoBlock = logoCol.querySelector('[data-cmp-is="image"]');
+    // Defensive: If not found, use the logoCol itself
+    if (!logoBlock) logoBlock = logoCol;
+  }
 
-  // Build the columns row, always 3 columns as per example structure
-  // If any column missing, insert empty string
-  const columnsRow = [
-    logoDiv || '',
-    navDiv || '',
-    rightColContent
-  ];
+  // Extract the navigation column
+  const navCol = gridChildren.find(e => e.classList.contains('cmp-navigation--footer'));
+  let navBlock = null;
+  if (navCol) {
+    navBlock = navCol.querySelector('nav');
+    if (!navBlock) navBlock = navCol;
+  }
 
-  // Block header row
+  // Extract the follow us column (title)
+  const followCol = gridChildren.find(e => e.classList.contains('cmp-title--right'));
+  let followBlock = null;
+  if (followCol) {
+    followBlock = followCol.querySelector('.cmp-title');
+    if (!followBlock) followBlock = followCol;
+  }
+
+  // Extract the social buttons column
+  const btnCol = gridChildren.find(e => e.classList.contains('cmp-buildingblock--btn-list'));
+  let btnBlock = null;
+  if (btnCol) {
+    // Use the div that holds all the buttons
+    btnBlock = btnCol.querySelector('.aem-Grid') || btnCol;
+  }
+
+  // Compose the follow column: follow title + buttons
+  const followCell = [];
+  if (followBlock) followCell.push(followBlock);
+  if (btnBlock) followCell.push(btnBlock);
+
+  // Defensive: ensure always three columns in row
+  const firstRow = [logoBlock, navBlock, followCell.length ? followCell : followBlock || btnBlock];
+
+  // Extract the copyright text at bottom
+  const textCol = gridChildren.find(e => e.classList.contains('cmp-text--font-xsmall'));
+  let textBlock = null;
+  if (textCol) {
+    textBlock = textCol.querySelector('.cmp-text') || textCol;
+  }
+
+  // Table header must match the block name
   const headerRow = ['Columns (columns9)'];
 
-  // Copyright/content row: text only, should be single cell spanning all columns
-  const copyrightRow = [textDiv || ''];
+  // Bottom row: single cell (not multiple columns)
+  const bottomRow = [textBlock];
 
-  // Final table structure
-  const cells = [
-    headerRow,
-    columnsRow,
-    copyrightRow
-  ];
+  // Build cells array
+  const cells = [headerRow, firstRow, bottomRow];
 
-  // Create block table and replace element
+  // Create block table
   const table = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Replace original element
   element.replaceWith(table);
 }
