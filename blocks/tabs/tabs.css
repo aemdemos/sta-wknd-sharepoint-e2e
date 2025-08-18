@@ -318,237 +318,6 @@
 }
 
 
-.tabs.tabs20 {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 48px;
-  max-width: 1200px;
-  margin: 48px auto 0;
-  background: #fff;
-  box-sizing: border-box;
-  padding: 0 24px 48px;
-  align-items: flex-start;
-}
-
-.tabs.tabs20 > div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 16px;
-  padding-right: 24px;
-  min-width: 0;
-}
-
-.tabs.tabs20 > div:first-child h3 {
-  font-family: var(--heading-font-family);
-  font-size: 2rem;
-  font-weight: 500;
-  color: #222;
-  margin-bottom: 7px;
-  margin-top: 0;
-  letter-spacing: 0.01em;
-}
-
-.tabs.tabs20 > div:first-child h3 + p {
-  margin: 0;
-  padding: 0;
-}
-
-.tabs.tabs20 > div:first-child h3 + p::after {
-  display: block;
-  width: 64px;
-  height: 4px;
-  background: #ffe066;
-  margin-top: 8px;
-  content: "";
-  border-radius: 1.5px;
-}
-
-.tabs.tabs20 > div:first-child > p,
-.tabs.tabs20 > div:first-child > ul,
-.tabs.tabs20 > div:first-child > dl {
-  color: #888;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-  letter-spacing: 0.04em;
-  line-height: 1.4;
-}
-
-.tabs.tabs20 > div:first-child > p strong {
-  display: block;
-  color: #222;
-  font-size: 17px;
-  font-weight: 700;
-  text-transform: none;
-  margin-bottom: 12px;
-  letter-spacing: 0;
-}
-
-.tabs.tabs20 > div:first-child > ul {
-  padding-left: 0;
-}
-
-.tabs.tabs20 > div:first-child > li,
-.tabs.tabs20 > div:first-child > ul > li {
-  color: #222;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  list-style: none;
-}
-
-.tabs.tabs20 > div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-}
-
-.tabs.tabs20 .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  margin-bottom: 24px;
-  width: 100%;
-  max-width: 700px;
-  align-items: center;
-  background: none;
-  padding: 0;
-  border: none;
-}
-
-.tabs.tabs20 .tabs-tab {
-  background: #fff;
-  color: #222;
-  border: 1px solid #222;
-  padding: 10px 22px;
-  font-family: var(--heading-font-family);
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  line-height: 1.1;
-  height: 42px;
-  cursor: pointer;
-  outline: none;
-  border-radius: 0;
-  transition: background 0.18s, color 0.18s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tabs.tabs20 .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  border: 1px solid #222;
-  box-shadow: 0 2px 0 0 #ffe066;
-}
-
-.tabs.tabs20 .tabs-tab p {
-  margin: 0;
-  padding: 0;
-  font: inherit;
-}
-
-.tabs.tabs20 .tabs-panel {
-  display: none;
-  width: 100%;
-  max-width: 700px;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: none;
-  box-shadow: none;
-  align-self: flex-start;
-}
-
-.tabs.tabs20 .tabs-panel[aria-hidden="false"] {
-  display: block;
-}
-
-.tabs.tabs20 .tabs-panel > div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 700px;
-  width: 100%;
-  padding: 0;
-}
-
-.tabs.tabs20 .tabs-panel h3 {
-  font-family: var(--heading-font-family);
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: #222;
-  margin-top: 0;
-  margin-bottom: 20px;
-  letter-spacing: 0.01em;
-}
-
-.tabs.tabs20 .tabs-panel picture,
-.tabs.tabs20 .tabs-panel img {
-  display: block;
-  width: 100%;
-  max-width: 670px;
-  height: auto;
-  margin-bottom: 24px;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.tabs.tabs20 .tabs-panel p,
-.tabs.tabs20 .tabs-panel ul {
-  color: #333;
-  font-size: 16px;
-  font-family: var(--body-font-family);
-  line-height: 1.6;
-  margin-bottom: 18px;
-  text-align: left;
-}
-
-.tabs.tabs20 .tabs-panel ul {
-  padding-left: 20px;
-}
-
-.tabs.tabs20 .tabs-panel li {
-  margin-bottom: 7px;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs20 {
-    grid-template-columns: 1fr;
-    padding: 0 8px 32px;
-    max-width: 100vw;
-  }
-
-  .tabs.tabs20 > div:first-child {
-    padding-right: 0;
-    margin-bottom: 28px;
-  }
-
-  .tabs.tabs20 > div:nth-child(2) {
-    min-width: 0;
-  }
-
-  .tabs.tabs20 .tabs-list {
-    max-width: 100vw;
-    margin-bottom: 12px;
-  }
-
-  .tabs.tabs20 .tabs-panel,
-  .tabs.tabs20 .tabs-panel > div,
-  .tabs.tabs20 .tabs-panel picture,
-  .tabs.tabs20 .tabs-panel img,
-  .tabs.tabs20 .tabs-panel p,
-  .tabs.tabs20 .tabs-panel ul {
-    max-width: 100vw;
-  }
-}
-
-
 .tabs.tabs23 {
   display: flex;
   flex-direction: row;
@@ -3574,7 +3343,6 @@
 
 
 .tabs.tabs18 {
-  /* Remove all left padding and margin to allow full-bleed alignment with parent */
   padding-left: 0;
   margin-left: 0;
   padding-top: 0;
@@ -3584,7 +3352,6 @@
   background: #fff;
 }
 
-/* If the parent (e.g. .section>div) has horizontal padding, offset this block with negative margin to align flush left */
 @media (width >= 900px) {
   .tabs.tabs18 {
     margin-left: -32px;
@@ -3597,7 +3364,6 @@
   }
 }
 
-/* Tabs navigation row: left-aligned, horizontal row */
 .tabs.tabs18 > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -3615,7 +3381,6 @@
   left: 0;
 }
 
-/* Tab buttons: pill style, left-aligned */
 .tabs.tabs18 > .tabs-list .tabs-tab {
   background: transparent;
   border: none;
@@ -3655,7 +3420,6 @@
   font-size: 15px;
 }
 
-/* Panel area: left-aligned, stretch full width */
 .tabs.tabs18 > .tabs-panel[aria-hidden="false"] {
   background: none;
   border: none;
@@ -3667,7 +3431,6 @@
   margin: 0;
 }
 
-/* Panel inner content: vertical stack, left-aligned, wide */
 .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div {
   display: flex;
   flex-direction: column;
@@ -3679,7 +3442,6 @@
   padding: 0;
 }
 
-/* Heading: left-aligned, underline */
 .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > h3 {
   font-family: var(--heading-font-family);
   font-size: 2.1rem;
@@ -3695,7 +3457,6 @@
   text-align: left;
 }
 
-/* Image: left-aligned, as wide as possible up to 900px */
 .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture {
   margin-bottom: 0;
   display: block;
@@ -3712,7 +3473,6 @@
   object-fit: cover;
 }
 
-/* Body text: left-aligned, wide */
 .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > p {
   font-family: var(--body-font-family);
   font-size: 1.08rem;
@@ -3723,7 +3483,6 @@
   max-width: 900px;
 }
 
-/* Prevent unwanted centering anywhere in block */
 .tabs.tabs18,
 .tabs.tabs18 > .tabs-panel[aria-hidden="false"],
 .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div,
@@ -3736,14 +3495,12 @@
   margin-left: 0;
 }
 
-/* Remove any centering inherited from previous rules on images or paragraphs */
 .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture img,
 .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > p {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* Responsive: stack and use full width on mobile */
 @media (width <= 900px) {
   .tabs.tabs18 {
     margin-left: -16px;
@@ -3766,3 +3523,243 @@
     max-width: 100%;
   }
 }
+
+
+.tabs.tabs20 {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 48px;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  background: #fff;
+  padding: 0 0 48px;
+  align-items: flex-start;
+  position: relative;
+  min-height: 0;
+}
+
+/* Only one .tabs-list and one .tabs-panel[aria-hidden="false"] should be shown side by side.
+   The rest of the .tabs-panel elements must stack below in the HTML, so forcibly remove them from layout. */
+.tabs.tabs20 > .tabs-list {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  gap: 12px;
+  width: 100%;
+  max-width: 220px;
+  min-width: 180px;
+  position: relative;
+}
+
+.tabs.tabs20 > .tabs-list::before {
+  display: block;
+  width: 54px;
+  height: 3px;
+  background: #f7e36d;
+  border-radius: 1.5px;
+  margin-bottom: 28px;
+}
+
+.tabs.tabs20 .tabs-tab {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: 0;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  width: 100%;
+}
+
+.tabs.tabs20 .tabs-tab[aria-selected="false"] {
+  background: #fff;
+  color: #222;
+  border: 1px solid #bdbdbd;
+  font-weight: 600;
+}
+
+.tabs.tabs20 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 0 0 #f7e36d;
+  border: none;
+}
+
+.tabs.tabs20 .tabs-tab > p {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.tabs.tabs20 .tabs-tab[aria-selected="false"]:hover {
+  background: #f7e36d;
+  border-color: #f7e36d;
+  color: #222;
+}
+
+/* Only show the panel that is active */
+.tabs.tabs20 .tabs-panel {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  align-self: flex-start;
+}
+
+.tabs.tabs20 .tabs-panel[aria-hidden="false"] {
+  display: block;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Hide inactive panels from layout entirely */
+.tabs.tabs20 .tabs-panel[aria-hidden="true"] {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Main Heading Styles */
+.tabs.tabs20 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  color: #222;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  border: none;
+  display: block;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.tabs.tabs20 .tabs-panel > div > h3 + * {
+  margin-top: 0;
+}
+
+/* Simulate yellow underline using a block element after h3 (avoiding content property) */
+
+.tabs.tabs20 .tabs-panel > div > h3::after {
+  display: block;
+  width: 64px;
+  height: 4px;
+  background: #f7e36d;
+  border-radius: 1.5px;
+  margin-top: 4px;
+  margin-bottom: 18px;
+
+  /* No content property, but this pseudo-element will not render unless content is set. So instead, apply a border-bottom to h3: */
+  border-bottom: 3px solid #f7e36d;
+}
+
+/* Image Styles */
+.tabs.tabs20 .tabs-panel picture,
+.tabs.tabs20 .tabs-panel img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 28px;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+/* Description text */
+.tabs.tabs20 .tabs-panel p,
+.tabs.tabs20 .tabs-panel ul {
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  text-align: left;
+  margin-top: 0;
+}
+
+.tabs.tabs20 .tabs-panel ul {
+  margin: 20px 0;
+  padding-left: 24px;
+}
+
+.tabs.tabs20 .tabs-panel li {
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+/* Responsive: stack tabs above content on small screens */
+@media (width <= 900px) {
+  .tabs.tabs20 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 0 32px;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs20 > .tabs-list {
+    flex-direction: row;
+    align-items: stretch;
+    max-width: 100vw;
+    width: 100%;
+    margin-bottom: 16px;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    min-width: 0;
+  }
+
+  .tabs.tabs20 .tabs-tab {
+    flex: 1 1 0;
+    min-width: 120px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .tabs.tabs20 > .tabs-list::before {
+    display: none;
+  }
+
+  .tabs.tabs20 .tabs-panel[aria-hidden="false"] {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+/* Fix: Ensure only one tabs-list is visible (if somehow duplicated by DOM) */
+.tabs.tabs20 > .tabs-list:not(:first-child) {
+  display: none !important;
+}
+
+/* Ensure only one content panel is shown, prevent stacking of other panels */
+.tabs.tabs20 .tabs-panel:not([aria-hidden="false"]) {
+  display: none !important;
+}
+
+/* Fix: prevent extra vertical space below visible content */
