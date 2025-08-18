@@ -318,198 +318,6 @@
 }
 
 
-.tabs.tabs18 {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto 1fr;
-  gap: 0 48px;
-  max-width: 1100px;
-  margin: 0 auto;
-  background: #fff;
-  box-sizing: border-box;
-  padding: 48px 0 0;
-}
-
-.tabs.tabs18 > .tabs-list {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: flex-start;
-  padding: 0 0 24px;
-  border: none;
-  background: none;
-  min-height: unset;
-  width: 100%;
-  box-shadow: none;
-}
-
-.tabs.tabs18 > .tabs-list .tabs-tab {
-  background: transparent;
-  border: none;
-  border-radius: 24px;
-  padding: 8px 32px;
-  font-family: var(--body-font-family);
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #222;
-  cursor: pointer;
-  transition: background 0.18s, color 0.18s;
-  margin: 0;
-  min-width: 120px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tabs.tabs18 > .tabs-list .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  font-weight: 700;
-}
-
-.tabs.tabs18 > .tabs-list .tabs-tab[aria-selected="false"]:hover {
-  background: #f4f4f4;
-}
-
-.tabs.tabs18 > .tabs-list .tabs-tab p {
-  margin: 0;
-  padding: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 15px;
-}
-
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  background: none;
-  border: none;
-  padding: 0;
-  min-width: 0;
-  box-shadow: none;
-  display: block;
-}
-
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 0 40px;
-  align-items: start;
-  width: 100%;
-  max-width: 800px;
-  padding: 0;
-  margin: 0;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs18 {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
-    gap: 0;
-    padding: 24px 0 0;
-  }
-
-  .tabs.tabs18 > .tabs-list {
-    grid-column: 1 / 2;
-    padding-bottom: 16px;
-    gap: 6px;
-  }
-
-  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] {
-    grid-column: 1 / 2;
-    padding: 0;
-  }
-
-  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div {
-    grid-template-columns: 1fr;
-    gap: 24px 0;
-  }
-}
-
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > h3 {
-  grid-column: 1 / 2;
-  font-family: var(--heading-font-family);
-  font-size: 2.1rem;
-  font-weight: 400;
-  color: #222;
-  margin: 0 0 16px;
-  padding: 0;
-  line-height: 1.1;
-  align-self: flex-start;
-  position: relative;
-  display: block;
-}
-
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > h3::after {
-  display: block;
-  width: 52px;
-  height: 4px;
-  background: #F4E6B2;
-  margin-top: 14px;
-  border-radius: 3px;
-}
-
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > p,
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture {
-  grid-column: 2 / 3;
-  color: #222;
-}
-
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > p {
-  font-family: var(--body-font-family);
-  font-size: 1.08rem;
-  margin: 0 0 20px;
-  line-height: 1.6;
-}
-
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture {
-  margin-bottom: 16px;
-  display: block;
-  max-width: 100%;
-}
-
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture img {
-  width: 100%;
-  max-width: 550px;
-  height: auto;
-  display: block;
-  border-radius: 0;
-  margin: 0 0 16px;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > h3,
-  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > p,
-  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture {
-    grid-column: 1 / 2;
-  }
-
-  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > h3 {
-    margin-bottom: 12px;
-  }
-}
-
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > ul {
-  grid-column: 2 / 3;
-  margin: 0 0 20px;
-  padding-left: 1.2em;
-  font-size: 1.08rem;
-}
-
-.tabs.tabs18,
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"],
-.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div {
-  border: none;
-  box-shadow: none;
-  background: none;
-}
-
-
 .tabs.tabs20 {
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -3595,7 +3403,6 @@
   min-height: 700px;
 }
 
-/* Sidebar: vertical tabs, light bg & thin right border */
 .tabs.tabs13 > .tabs-list {
   flex: 0 0 215px;
   background: #f8f6ef;
@@ -3609,7 +3416,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs vertical layout */
 .tabs.tabs13 > .tabs-list .tabs-tab {
   width: 180px;
   min-height: 48px;
@@ -3651,7 +3457,6 @@
   font-family: inherit;
 }
 
-/* Main content panel */
 .tabs.tabs13 > .tabs-panel {
   flex: 1 1 0;
   background: #fff;
@@ -3664,12 +3469,10 @@
   max-width: 940px;
 }
 
-/* Only active panel is visible */
 .tabs.tabs13 > .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Title styling */
 .tabs.tabs13 > .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.4rem;
@@ -3682,7 +3485,6 @@
   letter-spacing: -0.01em;
 }
 
-/* Image styling */
 .tabs.tabs13 > .tabs-panel picture,
 .tabs.tabs13 > .tabs-panel img {
   display: block;
@@ -3705,7 +3507,6 @@
   font-family: var(--body-font-family);
 }
 
-/* Paragraphs */
 .tabs.tabs13 > .tabs-panel p {
   color: #222;
   font-size: 1rem;
@@ -3714,7 +3515,6 @@
   font-family: var(--body-font-family);
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs13 {
     flex-direction: column;
@@ -3769,5 +3569,200 @@
     font-size: 1.2rem;
     margin-bottom: 10px;
     padding-bottom: 3px;
+  }
+}
+
+
+.tabs.tabs18 {
+  /* Remove all left padding and margin to allow full-bleed alignment with parent */
+  padding-left: 0;
+  margin-left: 0;
+  padding-top: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+/* If the parent (e.g. .section>div) has horizontal padding, offset this block with negative margin to align flush left */
+@media (width >= 900px) {
+  .tabs.tabs18 {
+    margin-left: -32px;
+  }
+}
+
+@media (width <= 899px) {
+  .tabs.tabs18 {
+    margin-left: -24px;
+  }
+}
+
+/* Tabs navigation row: left-aligned, horizontal row */
+.tabs.tabs18 > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  background: none;
+  min-height: unset;
+  width: 100%;
+  box-shadow: none;
+  margin: 0 0 8px;
+  padding: 0;
+  position: relative;
+  left: 0;
+}
+
+/* Tab buttons: pill style, left-aligned */
+.tabs.tabs18 > .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 32px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #222;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  margin: 0;
+  min-width: 120px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs18 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs18 > .tabs-list .tabs-tab[aria-selected="false"]:hover {
+  background: #f4f4f4;
+}
+
+.tabs.tabs18 > .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 15px;
+}
+
+/* Panel area: left-aligned, stretch full width */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] {
+  background: none;
+  border: none;
+  padding: 0;
+  min-width: 0;
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+/* Panel inner content: vertical stack, left-aligned, wide */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  align-items: flex-start;
+  padding: 0;
+}
+
+/* Heading: left-aligned, underline */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 16px;
+  padding: 0;
+  line-height: 1.1;
+  align-self: flex-start;
+  border-bottom: 4px solid #F4E6B2;
+  padding-bottom: 6px;
+  width: auto;
+  text-align: left;
+}
+
+/* Image: left-aligned, as wide as possible up to 900px */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture {
+  margin-bottom: 0;
+  display: block;
+  max-width: 100%;
+}
+
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin: 0 0 16px;
+  object-fit: cover;
+}
+
+/* Body text: left-aligned, wide */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > p {
+  font-family: var(--body-font-family);
+  font-size: 1.08rem;
+  color: #444;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  text-align: left;
+  max-width: 900px;
+}
+
+/* Prevent unwanted centering anywhere in block */
+.tabs.tabs18,
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"],
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div,
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > h3,
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > p,
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Remove any centering inherited from previous rules on images or paragraphs */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture img,
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Responsive: stack and use full width on mobile */
+@media (width <= 900px) {
+  .tabs.tabs18 {
+    margin-left: -16px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tabs.tabs18 > .tabs-list {
+    gap: 16px;
+    padding-bottom: 12px;
+  }
+
+  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div {
+    max-width: 100%;
+    gap: 20px;
+  }
+
+  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > picture img,
+  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div > p {
+    max-width: 100%;
   }
 }
