@@ -318,226 +318,6 @@
 }
 
 
-.tabs.tabs12 {
-  display: flex;
-  flex-direction: row;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-  box-sizing: border-box;
-  align-items: flex-start;
-  background: #fff;
-  gap: 48px;
-}
-
-.tabs.tabs12 > div:first-child {
-  flex: 0 0 48px;
-  max-width: 48px;
-  min-width: 32px;
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: none;
-  display: block;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs12 {
-    flex-direction: column;
-    gap: 0;
-    padding: 0 8px;
-  }
-
-  .tabs.tabs12 > div:first-child {
-    display: none;
-  }
-}
-
-.tabs.tabs12 > .block {
-  flex: 1 1 0;
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 64px 0 0;
-  background: none;
-  box-shadow: none;
-  margin: 0;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs12 > .block {
-    padding: 32px 0 0;
-    max-width: 100%;
-  }
-}
-
-.tabs.tabs12 > .block > .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  margin-bottom: 32px;
-  padding: 0;
-  width: 100%;
-  align-items: flex-start;
-  justify-content: flex-start;
-  background: none;
-  border: none;
-}
-
-.tabs.tabs12 .tabs-tab {
-  background: transparent;
-  border: none;
-  padding: 8px 32px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #232323;
-  transition: background 0.2s, color 0.2s;
-  cursor: pointer;
-  margin: 0;
-  box-shadow: none;
-  outline: none;
-  line-height: 1.1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 120px;
-}
-
-.tabs.tabs12 .tabs-tab[aria-selected="true"] {
-  background: #232323;
-  color: #fff;
-}
-
-.tabs.tabs12 .tabs-tab:focus-visible {
-  outline: 2px solid #232323;
-}
-
-.tabs.tabs12 .tabs-tab p {
-  margin: 0;
-  padding: 0;
-}
-
-.tabs.tabs12 .tabs-panel h3 {
-  font-size: 2rem;
-  font-family: var(--heading-font-family), serif;
-  font-weight: 400;
-  color: #232323;
-  margin: 0 0 0.5em;
-  padding: 0;
-  border: none;
-  display: inline-block;
-  position: relative;
-  box-shadow: 0 8px 0 -4px #f7dc7c;
-  padding-bottom: 8px;
-  margin-bottom: 24px;
-}
-
-.tabs.tabs12 .tabs-panel h3::after {
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #f7dc7c;
-  margin-top: 8px;
-  border-radius: 2px;
-  position: absolute;
-  left: 0;
-  bottom: -12px;
-  right: auto;
-}
-
-.tabs.tabs12 .tabs-panel > div > p:first-of-type {
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #232323;
-  margin: 0 0 12px;
-  letter-spacing: 0.5px;
-}
-
-.tabs.tabs12 .tabs-panel p:not(:first-of-type) {
-  font-size: 14px;
-  color: #232323;
-  line-height: 1.5;
-  margin: 0 0 16px;
-  font-family: var(--body-font-family);
-}
-
-.tabs.tabs12 .tabs-panel {
-  width: 100%;
-  max-width: 900px;
-  background: none;
-  border: none;
-  box-shadow: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 0;
-  margin: 0;
-}
-
-.tabs.tabs12 .tabs-panel[aria-hidden="true"] {
-  display: none;
-}
-
-.tabs.tabs12 .tabs-panel picture,
-.tabs.tabs12 .tabs-panel img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  margin: 0 0 24px;
-  border-radius: 0;
-  box-shadow: none;
-  object-fit: cover;
-  max-height: 340px;
-}
-
-.tabs.tabs12,
-.tabs.tabs12 * {
-  border: none;
-  background: none;
-  box-shadow: none;
-}
-
-@media (width <= 600px) {
-  .tabs.tabs12 {
-    padding: 0 2vw;
-  }
-
-  .tabs.tabs12 > .block {
-    padding: 16px 0 0;
-  }
-
-  .tabs.tabs12 > .block > .tabs-list {
-    gap: 4px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-
-  .tabs.tabs12 .tabs-tab {
-    padding: 6px 14px;
-    font-size: 10px;
-    min-width: 80px;
-  }
-
-  .tabs.tabs12 .tabs-panel h3 {
-    font-size: 1.2rem;
-    padding-bottom: 4px;
-    margin-bottom: 12px;
-    box-shadow: 0 4px 0 -2px #f7dc7c;
-  }
-
-  .tabs.tabs12 .tabs-panel picture,
-  .tabs.tabs12 .tabs-panel img {
-    max-height: 180px;
-  }
-}
-
-
 .tabs.tabs13 {
   display: flex;
   flex-direction: row;
@@ -3661,7 +3441,6 @@
 
 
 .tabs.tabs10 {
-  /* Create two columns: sidebar (left), content (right) */
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 0 56px;
@@ -3673,7 +3452,6 @@
   min-height: 700px;
 }
 
-/* SIDEBAR: Only tab navigation and meta info (if present), stacked vertically. */
 .tabs.tabs10 > .tabs-list {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -3690,7 +3468,6 @@
   position: relative;
 }
 
-/* Tab navigation horizontal row at top of sidebar */
 .tabs.tabs10 > .tabs-list > [role="tablist"] {
   display: flex;
   flex-direction: row;
@@ -3702,7 +3479,6 @@
   background: none;
 }
 
-/* Tab buttons */
 .tabs.tabs10 > .tabs-list > [role="tablist"] > .tabs-tab {
   background: none;
   border: none;
@@ -3733,7 +3509,6 @@
   background: #f6f6f6;
 }
 
-/* Hide all tab content except selected tab */
 .tabs.tabs10 > .tabs-list > .tabs-tab {
   display: none;
 }
@@ -3758,9 +3533,6 @@
   z-index: 2;
 }
 
-/* Make sure tab content fills the right column */
-
-/* Headings, images, and main content in tab panel */
 .tabs.tabs10 > .tabs-list > .tabs-tab[aria-selected="true"] h2,
 .tabs.tabs10 > .tabs-list > .tabs-tab[aria-selected="true"] h2 strong {
   font-family: var(--heading-font-family);
@@ -3806,7 +3578,6 @@
   text-align: left;
 }
 
-/* Images: wide, spaced, not squashed */
 .tabs.tabs10 > .tabs-list > .tabs-tab[aria-selected="true"] picture,
 .tabs.tabs10 > .tabs-list > .tabs-tab[aria-selected="true"] img {
   display: block;
@@ -3820,7 +3591,6 @@
   object-fit: cover;
 }
 
-/* Responsive: stack on mobile */
 @media (width <= 950px) {
   .tabs.tabs10 {
     grid-template-columns: 1fr;
@@ -3866,11 +3636,189 @@
   }
 }
 
-/* Ensure all headings/text inside tab content are left-aligned */
 .tabs.tabs10 > .tabs-list > .tabs-tab[aria-selected="true"] h2,
 .tabs.tabs10 > .tabs-list > .tabs-tab[aria-selected="true"] h3,
 .tabs.tabs10 > .tabs-list > .tabs-tab[aria-selected="true"] p,
 .tabs.tabs10 > .tabs-list > .tabs-tab[aria-selected="true"] ul,
 .tabs.tabs10 > .tabs-list > .tabs-tab[aria-selected="true"] li {
   text-align: left;
+}
+
+
+.tabs.tabs12 > .block {
+  display: grid;
+  grid-template-areas:
+    "heading"
+    "tabs"
+    "panel";
+  grid-template-rows: auto auto 1fr;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  row-gap: 0;
+}
+
+.tabs.tabs12 h3 {
+  grid-area: heading;
+  font-family: var(--heading-font-family), serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 6px;
+  line-height: 1.2;
+  position: relative;
+  display: block;
+  text-align: left;
+}
+
+.tabs.tabs12 h3::after {
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: #ffe08c;
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+.tabs.tabs12 .tabs-list {
+  grid-area: tabs;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: none;
+  border: none;
+  margin: 12px 0 28px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tabs.tabs12 .tabs-panel {
+  grid-area: panel;
+  width: 100%;
+  max-width: 900px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs.tabs12 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs12 .tabs-tab {
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: transparent;
+  color: #222;
+  border: none;
+  border-radius: 32px;
+  padding: 10px 32px;
+  margin: 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs12 .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs12 .tabs-list::before {
+  display: none;
+}
+
+.tabs.tabs12 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+@media (width <= 700px) {
+  .tabs.tabs12 > .block {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tabs.tabs12 .tabs-list {
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0 14px;
+  }
+
+  .tabs.tabs12 .tabs-tab {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    min-width: 80px;
+  }
+}
+
+.tabs.tabs12 .tabs-panel picture,
+.tabs.tabs12 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.tabs.tabs12 .tabs-panel > div > p:first-of-type {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 14px;
+  letter-spacing: 0.5px;
+}
+
+.tabs.tabs12 .tabs-panel p:not(:first-of-type) {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.6;
+  margin: 0 0 18px;
+  font-family: var(--body-font-family);
+}
+
+.tabs.tabs12 .tabs-panel ul {
+  margin-left: 24px;
+  font-size: 1rem;
+  color: #222;
+  padding-left: 18px;
+}
+
+.tabs.tabs12 .tabs-panel > div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Assign grid-areas based on DOM order: 
+   Assuming .tabs-list is the first child, h3 is second, .tabs-panel is third. 
+   Use nth-child() as necessary if the order is different. */
+.tabs.tabs12 > .block > .tabs-list {
+  grid-area: tabs;
+}
+
+.tabs.tabs12 > .block > h3 {
+  grid-area: heading;
+}
+
+.tabs.tabs12 > .block > .tabs-panel {
+  grid-area: panel;
 }
