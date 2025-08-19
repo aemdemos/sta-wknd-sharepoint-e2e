@@ -903,7 +903,6 @@
 
 
 .tabs.tabs19 {
-  /* Two columns: left sidebar, right main content */
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: 0;
@@ -913,7 +912,6 @@
   box-sizing: border-box;
 }
 
-/* Stack columns vertically on smaller screens */
 @media (width <= 900px) {
   .tabs.tabs19 {
     grid-template-columns: 1fr;
@@ -921,7 +919,6 @@
   }
 }
 
-/* --- Sidebar Styles (tabs-panel:first-of-type) --- */
 .tabs.tabs19 > .tabs-panel:first-of-type {
   grid-column: 1;
   grid-row: 1;
@@ -936,7 +933,6 @@
   background: #fff;
 }
 
-/* Hide any tabs-list in sidebar */
 .tabs.tabs19 > .tabs-panel:first-of-type .tabs-list {
   display: none;
 }
@@ -951,7 +947,6 @@
   }
 }
 
-/* --- Main Content Panel --- */
 .tabs.tabs19 > .tabs-panel:last-of-type {
   grid-column: 2;
   grid-row: 1;
@@ -966,7 +961,6 @@
   justify-content: flex-start;
 }
 
-/* --- Tabs-list: horizontal at top of main content --- */
 .tabs.tabs19 > .tabs-panel:last-of-type .tabs-list {
   display: flex;
   flex-direction: row;
@@ -979,7 +973,6 @@
   padding: 0;
 }
 
-/* Tabs-list on mobile: tighter gap, less margin */
 @media (width <= 900px) {
   .tabs.tabs19 > .tabs-panel:last-of-type {
     padding: 1.2rem 2vw;
@@ -991,7 +984,6 @@
   }
 }
 
-/* Tab buttons: horizontal, uppercase, active/inactive state */
 .tabs.tabs19 > .tabs-panel:last-of-type .tabs-list button {
   background: #fff;
   color: #222;
@@ -1030,15 +1022,12 @@
   margin: 0;
 }
 
-/* --- Main Content Flow: stack image/caption/text below tabs horizontally --- */
-
 .tabs.tabs19 > .tabs-panel:last-of-type > *:not(.tabs-list) {
   width: 100%;
   max-width: 700px;
   margin-left: 0;
 }
 
-/* --- Main Image & Caption --- */
 .tabs.tabs19 > .tabs-panel:last-of-type picture,
 .tabs.tabs19 > .tabs-panel:last-of-type img {
   display: block;
@@ -1050,7 +1039,6 @@
   box-shadow: none;
 }
 
-/* Caption styling: blue, uppercase, below image */
 .tabs.tabs19 > .tabs-panel:last-of-type img + p,
 .tabs.tabs19 > .tabs-panel:last-of-type picture + p {
   font-size: 0.92rem;
@@ -1061,7 +1049,6 @@
   margin-top: -0.5em;
 }
 
-/* --- Headings and paragraph spacing --- */
 .tabs.tabs19 > .tabs-panel:last-of-type h2,
 .tabs.tabs19 > .tabs-panel:last-of-type h3 {
   font-family: var(--heading-font-family);
@@ -1091,14 +1078,12 @@
   margin-bottom: 0.3rem;
 }
 
-/* --- Remove stray background/borders/shadow from images/panels --- */
 .tabs.tabs19 .tabs-panel {
   background: #fff;
   border: none;
   box-shadow: none;
 }
 
-/* Sidebar: tighten width if empty */
 .tabs.tabs19 > .tabs-panel:first-of-type:empty {
   min-width: 24px;
   max-width: 48px;
@@ -1106,7 +1091,6 @@
   border-right: none;
 }
 
-/* --- Responsive: stack columns, full width image on mobile --- */
 @media (width <= 600px) {
   .tabs.tabs19 {
     grid-template-columns: 1fr;
@@ -1126,9 +1110,192 @@
   }
 }
 
-/* --- Remove any stray borders/shadows from images and main panels --- */
 .tabs.tabs19 .tabs-panel img {
   border: none;
   box-shadow: none;
   background: none;
+}
+
+
+.tabs.tabs23 {
+  /* Align block content with main area, no extra padding or borders */
+  max-width: 900px;
+  width: 100%;
+  margin: 0;
+  margin-left: 0;
+  margin-right: auto;
+  margin-top: 48px;
+  box-sizing: border-box;
+  background: none;
+  padding: 0;
+}
+
+/* Tabs row: flush left with main content, no panel padding or border */
+.tabs.tabs23 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 0;
+  margin-bottom: 36px;
+  margin-left: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: left;
+}
+
+/* Tabs: ensure horizontal rhythm, bold, visually grouped */
+.tabs.tabs23 .tabs-tab {
+  border: none;
+  background: transparent;
+  color: #222;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 32px 10px 0;
+  margin-right: 24px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  height: 38px;
+  outline: none;
+  text-align: left;
+}
+
+.tabs.tabs23 .tabs-tab:last-child {
+  margin-right: 0;
+}
+
+.tabs.tabs23 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 3px 3px 0 0;
+  z-index: 1;
+}
+
+.tabs.tabs23 .tabs-tab:not([aria-selected="true"]):hover {
+  background: #f0f0f0;
+}
+
+.tabs.tabs23 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Remove card/panel effect from .tabs-panel */
+.tabs.tabs23 .tabs-panel {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: none;
+  text-align: left;
+  width: 100%;
+}
+
+.tabs.tabs23 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Use grid for edge alignment if possible */
+.tabs.tabs23 .tabs-panel > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  width: 100%;
+}
+
+/* Paragraph: left-aligned, full width, generous vertical spacing */
+.tabs.tabs23 .tabs-panel p {
+  color: #222;
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 100%;
+  margin: 0 0 28px;
+  text-align: left;
+}
+
+/* Image: fill block width, generous spacing above and below */
+.tabs.tabs23 .tabs-panel picture,
+.tabs.tabs23 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  margin: 32px 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  justify-self: start;
+}
+
+/* Last paragraph: extra margin for open rhythm */
+.tabs.tabs23 .tabs-panel p:last-of-type {
+  margin-bottom: 40px;
+}
+
+/* Lists: left-aligned, compact, visually flush with paragraphs */
+.tabs.tabs23 .tabs-panel ul {
+  color: #222;
+  font-size: 16px;
+  margin-left: 22px;
+  margin-bottom: 20px;
+  padding-left: 0;
+  text-align: left;
+}
+
+.tabs.tabs23 .tabs-panel li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Responsive: flush left and no extra side padding on small screens */
+@media (width <= 900px) {
+  .tabs.tabs23 {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tabs.tabs23 .tabs-panel p,
+  .tabs.tabs23 .tabs-panel picture,
+  .tabs.tabs23 .tabs-panel img {
+    max-width: 100%;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs23 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tabs.tabs23 .tabs-list {
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 22px;
+  }
+
+  .tabs.tabs23 .tabs-tab {
+    width: 100%;
+    text-align: left;
+    border-radius: 0;
+    padding: 13px 8px;
+    margin-right: 0;
+    height: auto;
+  }
+
+  .tabs.tabs23 .tabs-panel picture,
+  .tabs.tabs23 .tabs-panel img {
+    margin: 18px 0;
+  }
 }
