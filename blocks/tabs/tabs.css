@@ -383,7 +383,6 @@
 
 
 .tabs.tabs12 .block {
-  /* Remove large left margin, use minimal left padding for visual balance */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -405,7 +404,6 @@
   }
 }
 
-/* Tabs bar: left-aligned, matches main content width, slightly increased gap */
 .tabs.tabs12 .tabs-list {
   width: 800px;
   max-width: 100%;
@@ -420,7 +418,6 @@
   background: none;
 }
 
-/* Tabs as pill buttons, with improved spacing and left alignment */
 .tabs.tabs12 .tabs-list button {
   background: #f8f8f8;
   border: none;
@@ -468,7 +465,6 @@
   border: none;
 }
 
-/* Main content area styling */
 .tabs.tabs12 .tabs-panel {
   width: 800px;
   max-width: 100%;
@@ -534,7 +530,6 @@
   text-align: left;
 }
 
-/* Caption styling: all-caps, small, spaced, left-aligned */
 .tabs.tabs12 .tabs-panel picture + * {
   display: block;
   margin-top: 7px;
@@ -551,7 +546,6 @@
   text-align: left;
 }
 
-/* Remove borders and background everywhere */
 .tabs.tabs12 .tabs-panel,
 .tabs.tabs12 .tabs-list button {
   border: none;
@@ -559,7 +553,6 @@
   background: none;
 }
 
-/* Remove outer border if any */
 .tabs.tabs12 {
   border: none;
   box-shadow: none;
@@ -567,7 +560,6 @@
   padding: 0;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs12 .tabs-list,
   .tabs.tabs12 .tabs-panel {
@@ -590,4 +582,161 @@
   .tabs.tabs12 .tabs-panel picture + * {
     max-width: 100%;
   }
+}
+
+
+.tabs.tabs13 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0;
+  min-height: 480px;
+  height: auto;
+}
+
+/* Sidebar: first direct child */
+.tabs.tabs13 > div:first-child {
+  width: 110px;
+  min-width: 70px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  font-size: 1.02rem;
+  font-family: var(--body-font-family);
+  color: #222;
+  letter-spacing: 0.01em;
+  height: auto;
+}
+
+.tabs.tabs13 > div:first-child p {
+  margin: 0;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+  letter-spacing: 0.01em;
+  padding: 0;
+}
+
+.tabs.tabs13 > div:nth-child(2) {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 700px;
+}
+
+/* For main heading and underline */
+.tabs.tabs13 h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.2em;
+  margin-top: 0;
+  line-height: 1.1;
+  position: relative;
+  display: block;
+  text-align: left;
+  letter-spacing: normal;
+  padding-left: 0;
+}
+
+.tabs.tabs13 h3[id^="cycling-tuscany"] {
+  margin-bottom: 0.4em;
+}
+
+.tabs.tabs13 h3[id^="cycling-tuscany"]::after {
+  display: block;
+  width: 45px;
+  height: 3px;
+  margin-top: 8px;
+  background: #d4af37;
+  border-radius: 2px;
+  margin-left: 0;
+}
+
+/* Paragraph and list alignment */
+.tabs.tabs13 p,
+.tabs.tabs13 ul,
+.tabs.tabs13 ol {
+  font-family: var(--body-font-family);
+  font-size: 1.05rem;
+  color: #222;
+  max-width: 620px;
+  margin-top: 0;
+  margin-bottom: 1.06em;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.tabs.tabs13 ul {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+  margin-top: 0.4em;
+}
+
+.tabs.tabs13 > div:nth-child(2) > div > h3 {
+  margin-bottom: 0.38em;
+}
+
+.tabs.tabs13 > div:nth-child(2) > div > p {
+  margin-top: 0;
+  margin-bottom: 1.08em;
+}
+
+.tabs.tabs13 > div:nth-child(2) > div > ul {
+  margin-top: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 {
+    flex-direction: column;
+    padding: 0;
+    min-height: unset;
+  }
+
+  .tabs.tabs13 > div:first-child,
+  .tabs.tabs13 > div:nth-child(2) {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tabs.tabs13 p,
+  .tabs.tabs13 ul,
+  .tabs.tabs13 ol {
+    max-width: 100%;
+  }
+}
+
+/* Remove background/border from main content panels */
+.tabs.tabs13 .tabs-panel {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.tabs.tabs13 > div:first-child > p:not(:last-child) {
+  margin-bottom: 0;
 }
