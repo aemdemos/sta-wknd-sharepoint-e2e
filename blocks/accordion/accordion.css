@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,137 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion3 {
+  background: #fff;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Item separators and stacking */
+.accordion.accordion3 details {
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+  background: #fff;
+}
+
+.accordion.accordion3 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion3 details + details {
+  margin-top: 0;
+}
+
+/* FAQ row: question left, icon right, alignment */
+.accordion.accordion3 details summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  min-height: 48px;
+  font-family: var(--body-font-family);
+  color: #222;
+  background: #fff;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: none;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* Remove all default markers (suppresses default chevron/arrow in all browsers) */
+.accordion.accordion3 details summary::-webkit-details-marker,
+.accordion.accordion3 details summary::marker {
+  display: none;
+  color: transparent;
+  background: none;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  opacity: 0;
+}
+
+/* Simulated PLUS/MINUS icon using two pseudo-elements (no content/text) */
+
+/* Horizontal bar: always shown */
+.accordion.accordion3 details summary::after {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  width: 18px;
+  height: 3px;
+  background: #888;
+  border-radius: 1.5px;
+  transform: translateY(-50%);
+  display: block;
+}
+
+/* Vertical bar: only show when closed (plus) */
+.accordion.accordion3 details summary::before {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  width: 3px;
+  height: 18px;
+  background: #888;
+  border-radius: 1.5px;
+  transform: translateY(-50%);
+  display: block;
+}
+
+.accordion.accordion3 details[open] summary::before {
+  display: none;
+}
+
+/* FAQ question text styling */
+.accordion.accordion3 details summary p {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  font-size: 1.1em;
+  letter-spacing: 0.01em;
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+/* Remove hover/open background color */
+.accordion.accordion3 details[open] summary,
+.accordion.accordion3 details summary:focus,
+.accordion.accordion3 details summary:hover {
+  background: #fff;
+}
+
+/* FAQ answer body */
+.accordion.accordion3 .accordion-item-body {
+  padding: 16px 22px;
+  font-size: 1em;
+  color: #222;
+}
+
+/* Responsive: keep width & padding clean on mobile */
+@media (width <= 700px) {
+  .accordion.accordion3 {
+    max-width: 100%;
+    padding: 0 0.5em;
+  }
+
+  .accordion.accordion3 details summary,
+  .accordion.accordion3 .accordion-item-body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
