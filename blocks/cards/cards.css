@@ -277,7 +277,6 @@
   min-height: 3.2em;
 }
 
-/* Responsive: 2 columns on tablet, 1 column on mobile */
 @media (width <= 900px) {
   .cards.cards21 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -288,4 +287,214 @@
   .cards.cards21 > ul {
     grid-template-columns: 1fr;
   }
+}
+
+
+.cards.cards24 {
+  /* Ensure block takes full width and has padding */
+  width: 100%;
+  padding: 0 0 40px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Remove grid and let us control layout manually */
+.cards.cards24 > ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Intro text: full width, spacing above profiles */
+.cards.cards24 > ul > li:first-child,
+.cards.cards24 > ul > li:nth-child(6) {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 16px;
+  border: none;
+  background: transparent;
+  padding-bottom: 8px;
+}
+
+.cards.cards24 > ul > li:first-child .cards-card-body p,
+.cards.cards24 > ul > li:nth-child(6) .cards-card-body p {
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-style: italic;
+  color: #444;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+/* Contributors row: 4 columns, side by side, centered */
+
+.cards.cards24 > ul > li:nth-child(n+2):nth-child(-n+5) {
+  display: inline-block;
+  vertical-align: top;
+  width: 23%;
+  margin-right: 2%;
+  margin-bottom: 24px;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+}
+
+.cards.cards24 > ul > li:nth-child(5) {
+  margin-right: 0;
+}
+
+/* WKND Guides row: 3 columns, side by side, centered */
+.cards.cards24 > ul > li:nth-child(n+7):nth-child(-n+9) {
+  display: inline-block;
+  vertical-align: top;
+  width: 31%;
+  margin-right: 3.5%;
+  margin-bottom: 24px;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+}
+
+.cards.cards24 > ul > li:nth-child(9) {
+  margin-right: 0;
+}
+
+/* Responsive stacking for rows */
+@media (width <= 1020px) {
+  .cards.cards24 > ul > li:nth-child(n+2):nth-child(-n+5) {
+    width: 48%;
+    margin-right: 4%;
+  }
+
+  .cards.cards24 > ul > li:nth-child(5) {
+    margin-right: 0;
+  }
+
+  .cards.cards24 > ul > li:nth-child(n+7):nth-child(-n+9) {
+    width: 48%;
+    margin-right: 4%;
+  }
+
+  .cards.cards24 > ul > li:nth-child(9) {
+    margin-right: 0;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards24 > ul > li:nth-child(n+2):nth-child(-n+5),
+  .cards.cards24 > ul > li:nth-child(n+7):nth-child(-n+9) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 18px;
+  }
+}
+
+/* Card design and alignment */
+.cards.cards24 .cards-card-body {
+  margin: 0;
+  text-align: center;
+  padding: 0;
+}
+
+/* Circular profile image, centered */
+.cards.cards24 .cards-card-image img {
+  display: block;
+  margin: 0 auto 8px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+}
+
+/* Name styling */
+.cards.cards24 h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.10rem;
+  font-weight: bold;
+  color: #222;
+  margin-top: 18px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* Role styling */
+.cards.cards24 h5 {
+  font-family: var(--body-font-family);
+  font-size: 0.9rem;
+  color: #666;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 5px 0 14px;
+  text-align: center;
+}
+
+/* Social button row: horizontal flex, icon-only */
+.cards.cards24 .cards-card-body .button-container {
+  display: inline-block;
+  margin: 0 2px;
+  padding: 0;
+}
+
+/* Hide button text, show as icon-like */
+.cards.cards24 .cards-card-body .button {
+  background: #222;
+  color: #fff;
+  border-radius: 3px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0 2px 0 0;
+  font-size: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  min-width: 0;
+  background-clip: padding-box;
+}
+
+.cards.cards24 .cards-card-body .button:last-child {
+  margin-right: 0;
+}
+
+/* Show generic icons using background (replace with your own SVG data URLs or font icons for real icons) */
+.cards.cards24 .cards-card-body .button[title*="Facebook"]::after {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24"><path d="M15.67 3.89H18V0h-3.34C11.34 0 11 3.43 11 6.28V7H8v4h3v13h5V11h3.64l.36-4H16V6.28c0-1.02.25-2.39 1.67-2.39z"/></svg>') no-repeat center/contain;
+  content: "";
+}
+
+.cards.cards24 .cards-card-body .button[title*="Twitter"]::after {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24"><path d="M24 4.56a9.83 9.83 0 0 1-2.83.78A4.92 4.92 0 0 0 23.34 3c-.95.56-2 .97-3.1 1.19a4.92 4.92 0 0 0-8.39 4.48A13.95 13.95 0 0 1 1.67 3.15a4.93 4.93 0 0 0-.67 2.47c0 1.7.86 3.2 2.18 4.08A4.9 4.9 0 0 1 .96 8.1v.06a4.92 4.92 0 0 0 3.95 4.81c-.41.11-.85.17-1.31.17-.32 0-.62-.03-.92-.09a4.92 4.92 0 0 0 4.6 3.42A9.86 9.86 0 0 1 0 20.29a13.94 13.94 0 0 0 7.55 2.21c9.05 0 14-7.5 14-14 0-.22-.01-.43-.02-.65A10.02 10.02 0 0 0 24 4.56z"/></svg>') no-repeat center/contain;
+  content: "";
+}
+
+.cards.cards24 .cards-card-body .button[title*="Instagram"]::after {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.18.056 1.97.24 2.43.42.59.22 1.01.49 1.45.93.43.43.71.86.93 1.45.18.46.36 1.25.41 2.43.06 1.27.07 1.65.07 4.85s-.012 3.58-.07 4.85c-.05 1.18-.23 1.97-.41 2.43-.22.59-.5 1.01-.93 1.45-.44.44-.86.71-1.45.93-.46.18-1.25.36-2.43.41-1.27.06-1.65.07-4.85.07s-3.58-.012-4.85-.07c-1.18-.05-1.97-.23-2.43-.41-.59-.22-1.01-.5-1.45-.93-.43-.43-.71-.86-.93-1.45-.18-.46-.36-1.25-.41-2.43C2.21 15.78 2.2 15.4 2.2 12.2s.012-3.58.07-4.85c.05-1.18.23-1.97.41-2.43.22-.59.5-1.01.93-1.45.44-.44.86-.71 1.45-.93.46-.18 1.25-.36 2.43-.41C8.42 2.21 8.8 2.2 12 2.2zm0-2.2C8.69 0 8.29.012 7.02.07 5.75.13 4.88.32 4.16.59c-.8.31-1.47.74-2.14 1.41-.67.67-1.1 1.34-1.41 2.14-.28.72-.46 1.59-.52 2.87C.01 8.29 0 8.69 0 12s.012 3.71.07 4.98c.06 1.28.24 2.15.52 2.87.31.8.74 1.47 1.41 2.14.67.67 1.34 1.1 2.14 1.41.72.27 1.59.46 2.87.52C8.29 23.99 8.69 24 12 24s3.71-.012 4.98-.07c1.28-.06 2.15-.25 2.87-.52.8-.31 1.47-.74 2.14-1.41.67-.67 1.1-1.34 1.41-2.14.27-.72.46-1.59.52-2.87.06-1.27.07-1.67.07-4.98s-.012-3.71-.07-4.98c-.06-1.28-.25-2.15-.52-2.87-.31-.8-.74-1.47-1.41-2.14-.67-.67-1.34-1.1-2.14-1.41-.72-.27-1.59-.46-2.87-.52C15.71.01 15.31 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.86-10.36a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>') no-repeat center/contain;
+  content: "";
+}
+
+/* Remove default button styles that conflict */
+
+/* Space between sections */
+.cards.cards24 > ul > li:nth-child(6) {
+  margin-top: 48px;
+}
+
+/* Remove extra spacing from card contents */
+.cards.cards24 .cards-card-body p {
+  margin: 0;
+  padding: 0;
 }
