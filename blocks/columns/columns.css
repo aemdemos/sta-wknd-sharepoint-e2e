@@ -1,6 +1,12 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
+  background: #222;
+  color: #e0e0e0;
+  padding: 0;
+  margin: 0;
+  gap: 0;
 }
 
 .columns img {
@@ -9,6 +15,15 @@
 
 .columns > div > div {
   order: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px 40px 20px;
+  box-sizing: border-box;
+  gap: 40px;
+  background: #222;
+  color: #e0e0e0;
 }
 
 .columns > div > .columns-img-col {
@@ -50,14 +65,14 @@
   align-items: center;
   width: 100%;
   min-height: 48px;
-  padding: 0; /* Remove all side padding for flush alignment */
+  padding: 0;
 }
 
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin: 0; /* Ensure no extra margin */
+  margin: 0;
 }
 
 .columns.columns2 .columns-img-col img {
@@ -66,9 +81,9 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  margin-left: 0; /* Remove left margin */
-  margin-right: 0; /* Remove right margin for flush alignment */
-  padding-left: 0; /* Remove left padding */
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
 }
 
 .columns.columns2 > div > div:nth-child(2) {
@@ -85,7 +100,7 @@
   max-width: 180px;
   height: 28px;
   margin-left: auto;
-  margin-right: 0; /* Remove right margin for flush alignment */
+  margin-right: 0;
   box-sizing: border-box;
   padding: 0 16px 0 28px;
   position: relative;
@@ -117,7 +132,6 @@
   content: "";
 }
 
-/* Responsive: stack columns vertically on narrow screens */
 @media (width <= 600px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -140,5 +154,118 @@
     width: 100%;
     max-width: none;
     justify-content: flex-start;
+  }
+}
+
+
+.columns {
+  background: #222;
+  color: #e0e0e0;
+  font-family: var(--body-font-family);
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove unwanted padding/margin from inner wrapper for edge-to-edge look */
+
+/* Main header row: logo, nav, search horizontally and top-aligned */
+
+/* Logo column */
+.columns .columns-img-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.columns .columns-img-col img {
+  max-width: 120px;
+  width: auto;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* makes a black logo image appear white on dark bg */
+}
+
+/* Navigation column: horizontal main nav links */
+.columns > div > div > ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 0;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+/* Nav links horizontal, uppercase and spaced */
+.columns > div > div > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns > div > div > ul > li > ul > li > a {
+  color: #e0e0e0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-bottom 0.2s, color 0.2s;
+  background: none;
+  display: inline-block;
+}
+
+.columns > div > div > ul > li > ul > li > a:hover,
+.columns > div > div > ul > li > ul > li > a:focus {
+  border-bottom: 2px solid #fff;
+  color: #fff;
+}
+
+/* Search column (right aligned and top aligned) */
+.columns > div > div > p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 120px;
+}
+
+/* If there is a second .columns > div > div (like a text block below), style it as a new row */
+.columns > div > div + div {
+  margin-top: 0;
+  padding: 0 40px 24px;
+  width: 100%;
+  color: #e0e0e0;
+  font-size: 14px;
+  line-height: 1.5;
+  background: #222;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns > div > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 16px 8px 12px;
+  }
+
+  .columns .columns-img-col img {
+    max-width: 90px;
+  }
+
+  .columns > div > div + div {
+    padding: 0 8px 16px;
+    font-size: 13px;
   }
 }
