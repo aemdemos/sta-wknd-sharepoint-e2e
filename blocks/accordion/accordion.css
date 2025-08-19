@@ -70,7 +70,6 @@
   border-radius: 0;
 }
 
-/* Item separators and stacking */
 .accordion.accordion3 details {
   border: none;
   border-bottom: 1px solid #eee;
@@ -86,7 +85,6 @@
   margin-top: 0;
 }
 
-/* FAQ row: question left, icon right, alignment */
 .accordion.accordion3 details summary {
   display: flex;
   flex-direction: row;
@@ -107,7 +105,6 @@
   z-index: 1;
 }
 
-/* Remove all default markers (suppresses default chevron/arrow in all browsers) */
 .accordion.accordion3 details summary::-webkit-details-marker,
 .accordion.accordion3 details summary::marker {
   display: none;
@@ -120,9 +117,6 @@
   opacity: 0;
 }
 
-/* Simulated PLUS/MINUS icon using two pseudo-elements (no content/text) */
-
-/* Horizontal bar: always shown */
 .accordion.accordion3 details summary::after {
   position: absolute;
   right: 22px;
@@ -135,7 +129,6 @@
   display: block;
 }
 
-/* Vertical bar: only show when closed (plus) */
 .accordion.accordion3 details summary::before {
   position: absolute;
   right: 30px;
@@ -152,7 +145,6 @@
   display: none;
 }
 
-/* FAQ question text styling */
 .accordion.accordion3 details summary p {
   margin: 0;
   padding: 0;
@@ -165,21 +157,18 @@
   text-align: left;
 }
 
-/* Remove hover/open background color */
 .accordion.accordion3 details[open] summary,
 .accordion.accordion3 details summary:focus,
 .accordion.accordion3 details summary:hover {
   background: #fff;
 }
 
-/* FAQ answer body */
 .accordion.accordion3 .accordion-item-body {
   padding: 16px 22px;
   font-size: 1em;
   color: #222;
 }
 
-/* Responsive: keep width & padding clean on mobile */
 @media (width <= 700px) {
   .accordion.accordion3 {
     max-width: 100%;
@@ -191,4 +180,81 @@
     padding-left: 12px;
     padding-right: 12px;
   }
+}
+
+
+.accordion.accordion8 {
+  /* Match the original block's container: max width, centered, no border */
+  max-width: 1200px;
+  margin: 40px auto;
+  box-sizing: border-box;
+  background: var(--background-color);
+  padding: 0;
+  border: none;
+  min-height: 0;
+}
+
+.accordion.accordion8:empty {
+  /* Only show placeholder styling if truly empty */
+  background: #fafbfc;
+  border: 1px dashed #eaeaea;
+  min-height: 500px;
+  padding: 0;
+}
+
+/* If a single child div is present, let that div act as a "row" for the two columns */
+.accordion.accordion8 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 32px;
+  background: none;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion8 > div {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 10px;
+  }
+}
+
+/* If/when present, lay out the two major columns inside the row */
+.accordion.accordion8 > div > div:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 70%;
+}
+
+.accordion.accordion8 > div > div:last-child {
+  flex: 0 0 320px;
+  max-width: 340px;
+  min-width: 220px;
+  margin-left: auto;
+  padding-left: 32px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion8 > div > div:first-child,
+  .accordion.accordion8 > div > div:last-child {
+    max-width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    min-width: 0;
+  }
+}
+
+/* Remove margin/padding/borders from direct children (for visual alignment) */
+.accordion.accordion8 > div > * {
+  margin: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
 }
