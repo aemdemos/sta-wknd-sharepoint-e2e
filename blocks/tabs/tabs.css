@@ -748,7 +748,6 @@
   display: block;
 }
 
-/* Tabs List */
 .tabs.tabs16 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -759,7 +758,6 @@
   font-size: 1rem;
 }
 
-/* Tab Buttons */
 .tabs.tabs16 .tabs-list button {
   background: #fff;
   color: #232323;
@@ -779,19 +777,16 @@
   margin: 0;
 }
 
-/* Active Tab */
 .tabs.tabs16 .tabs-list button[aria-selected="true"] {
   background: #000;
   color: #fff;
   border: none;
 }
 
-/* Tab Button Inner <p> Remove margin */
 .tabs.tabs16 .tabs-list button p {
   margin: 0;
 }
 
-/* Tab Panels */
 .tabs.tabs16 .tabs-panel {
   display: none;
   background: #fff;
@@ -810,12 +805,10 @@
   margin: 0;
 }
 
-/* Panel Content Area */
 .tabs.tabs16 .tabs-panel > div {
   padding: 0;
 }
 
-/* Main Heading (first h3) */
 .tabs.tabs16 .tabs-panel h3:first-child {
   font-family: var(--heading-font-family);
   font-size: 2.1rem;
@@ -828,7 +821,6 @@
   padding-bottom: 4px;
 }
 
-/* Section Heading */
 .tabs.tabs16 .tabs-panel h3 strong,
 .tabs.tabs16 .tabs-panel h2 {
   font-family: var(--heading-font-family);
@@ -839,7 +831,6 @@
   display: block;
 }
 
-/* Image Styling */
 .tabs.tabs16 .tabs-panel picture,
 .tabs.tabs16 .tabs-panel img {
   display: block;
@@ -850,7 +841,6 @@
   box-shadow: 0 4px 16px rgb(0 0 0 / 4%);
 }
 
-/* Body Text */
 .tabs.tabs16 .tabs-panel p {
   font-family: var(--body-font-family);
   font-size: 1.08rem;
@@ -862,7 +852,6 @@
   padding: 0;
 }
 
-/* Responsive adjustments */
 @media (width <= 800px) {
   .tabs.tabs16 {
     padding: 32px 8px;
@@ -910,4 +899,236 @@
     max-height: 150px;
     margin: 12px auto 8px;
   }
+}
+
+
+.tabs.tabs19 {
+  /* Two columns: left sidebar, right main content */
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0;
+  background: #fff;
+  width: 100%;
+  min-height: 450px;
+  box-sizing: border-box;
+}
+
+/* Stack columns vertically on smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs19 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+
+/* --- Sidebar Styles (tabs-panel:first-of-type) --- */
+.tabs.tabs19 > .tabs-panel:first-of-type {
+  grid-column: 1;
+  grid-row: 1;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-width: 80px;
+  max-width: 160px;
+  padding: 0;
+  background: #fff;
+}
+
+/* Hide any tabs-list in sidebar */
+.tabs.tabs19 > .tabs-panel:first-of-type .tabs-list {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs19 > .tabs-panel:first-of-type {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    align-items: flex-start;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+/* --- Main Content Panel --- */
+.tabs.tabs19 > .tabs-panel:last-of-type {
+  grid-column: 2;
+  grid-row: 1;
+  box-sizing: border-box;
+  padding: 2rem 6vw;
+  min-width: 0;
+  max-width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* --- Tabs-list: horizontal at top of main content --- */
+.tabs.tabs19 > .tabs-panel:last-of-type .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin: 0 0 2rem;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Tabs-list on mobile: tighter gap, less margin */
+@media (width <= 900px) {
+  .tabs.tabs19 > .tabs-panel:last-of-type {
+    padding: 1.2rem 2vw;
+  }
+
+  .tabs.tabs19 > .tabs-panel:last-of-type .tabs-list {
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+/* Tab buttons: horizontal, uppercase, active/inactive state */
+.tabs.tabs19 > .tabs-panel:last-of-type .tabs-list button {
+  background: #fff;
+  color: #222;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 0.7em 2em 0.7em 0;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs19 > .tabs-panel:last-of-type .tabs-list button[aria-selected="true"] {
+  color: #222;
+  border-bottom: 2.5px solid #e6d375;
+  background: #fff;
+  font-weight: 900;
+}
+
+.tabs.tabs19 > .tabs-panel:last-of-type .tabs-list button:not([aria-selected="true"]):hover {
+  color: #0076c0;
+  background: #f8f8f8;
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.tabs.tabs19 > .tabs-panel:last-of-type .tabs-list button p {
+  margin: 0;
+}
+
+/* --- Main Content Flow: stack image/caption/text below tabs horizontally --- */
+
+.tabs.tabs19 > .tabs-panel:last-of-type > *:not(.tabs-list) {
+  width: 100%;
+  max-width: 700px;
+  margin-left: 0;
+}
+
+/* --- Main Image & Caption --- */
+.tabs.tabs19 > .tabs-panel:last-of-type picture,
+.tabs.tabs19 > .tabs-panel:last-of-type img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  background: none;
+  box-shadow: none;
+}
+
+/* Caption styling: blue, uppercase, below image */
+.tabs.tabs19 > .tabs-panel:last-of-type img + p,
+.tabs.tabs19 > .tabs-panel:last-of-type picture + p {
+  font-size: 0.92rem;
+  color: #0076c0;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  margin-top: -0.5em;
+}
+
+/* --- Headings and paragraph spacing --- */
+.tabs.tabs19 > .tabs-panel:last-of-type h2,
+.tabs.tabs19 > .tabs-panel:last-of-type h3 {
+  font-family: var(--heading-font-family);
+  margin-top: 1.4rem;
+  margin-bottom: 0.7rem;
+  color: #222;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.tabs.tabs19 > .tabs-panel:last-of-type h3:first-child,
+.tabs.tabs19 > .tabs-panel:last-of-type h2:first-child {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.tabs.tabs19 > .tabs-panel:last-of-type ul {
+  margin: 0.8rem 0 0.8rem 1.3rem;
+  padding: 0;
+  color: #222;
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+.tabs.tabs19 > .tabs-panel:last-of-type li {
+  margin-bottom: 0.3rem;
+}
+
+/* --- Remove stray background/borders/shadow from images/panels --- */
+.tabs.tabs19 .tabs-panel {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+/* Sidebar: tighten width if empty */
+.tabs.tabs19 > .tabs-panel:first-of-type:empty {
+  min-width: 24px;
+  max-width: 48px;
+  padding: 0;
+  border-right: none;
+}
+
+/* --- Responsive: stack columns, full width image on mobile --- */
+@media (width <= 600px) {
+  .tabs.tabs19 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .tabs.tabs19 > .tabs-panel:first-of-type,
+  .tabs.tabs19 > .tabs-panel:last-of-type {
+    padding: 1rem 2vw;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .tabs.tabs19 > .tabs-panel:last-of-type picture,
+  .tabs.tabs19 > .tabs-panel:last-of-type img {
+    max-width: 100%;
+  }
+}
+
+/* --- Remove any stray borders/shadows from images and main panels --- */
+.tabs.tabs19 .tabs-panel img {
+  border: none;
+  box-shadow: none;
+  background: none;
 }
