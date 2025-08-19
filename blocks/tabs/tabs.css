@@ -60,7 +60,6 @@
 
 
 .tabs.tabs6 {
-  /* Remove all extra spacing and ensure full-width left alignment */
   margin: 0;
   padding: 0;
   width: 100%;
@@ -118,7 +117,6 @@
   padding: 0;
 }
 
-/* Content Area */
 .tabs.tabs6 .tabs-panel {
   background: none;
   border: none;
@@ -141,7 +139,6 @@
   box-sizing: border-box;
 }
 
-/* Heading style: left-aligned, yellow underline, minimal margin */
 .tabs.tabs6 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2rem;
@@ -154,7 +151,6 @@
   text-align: left;
 }
 
-/* Image: left-aligned, full width, no border/radius/margin */
 .tabs.tabs6 .tabs-panel picture,
 .tabs.tabs6 .tabs-panel img {
   display: block;
@@ -168,7 +164,6 @@
   object-fit: cover;
 }
 
-/* Body text and lists: left-aligned, readable, tight vertical spacing */
 .tabs.tabs6 .tabs-panel p,
 .tabs.tabs6 .tabs-panel ul,
 .tabs.tabs6 .tabs-panel li {
@@ -191,7 +186,6 @@
   list-style: disc inside;
 }
 
-/* Responsive: maintain content edge on smaller screens */
 @media (width <= 900px) {
   .tabs.tabs6 .tabs-panel > div {
     max-width: 100vw;
@@ -203,4 +197,197 @@
     padding: 8px;
     font-size: 0.96rem;
   }
+}
+
+
+.tabs.tabs7 {
+  max-width: 900px;
+  margin: 40px 0 0; /* flush left */
+  padding: 0;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Tabs bar styles */
+.tabs.tabs7 .tabs-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 0 6px; /* tighter to heading */
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  overflow-x: auto;
+}
+
+/* Tabs buttons */
+.tabs.tabs7 .tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 12px 36px;
+  border-radius: 2px;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  position: relative;
+  min-width: 120px;
+  text-align: center;
+}
+
+.tabs.tabs7 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs7 .tabs-list .tabs-tab[aria-selected="false"] {
+  background: none;
+  color: #222;
+}
+
+.tabs.tabs7 .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel styles */
+.tabs.tabs7 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background: none;
+  box-sizing: border-box;
+}
+
+/* Heading styling */
+.tabs.tabs7 .tabs-panel > div > h3 {
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+  display: block;
+  position: relative;
+  padding-bottom: 0;
+}
+
+/* Decorative yellow line under heading */
+.tabs.tabs7 .tabs-panel > div > h3::after {
+  display: block;
+  height: 3px;
+  width: 60px;
+  background: #e7ca6a;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px; /* reduce gap before image */
+  margin-left: 0;
+  content: "";
+}
+
+/* Image styles */
+.tabs.tabs7 .tabs-panel picture,
+.tabs.tabs7 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 0 0 18px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Caption styles -- first p after image */
+.tabs.tabs7 .tabs-panel > div > p:first-of-type {
+  font-size: 0.89rem; /* smaller */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 6px; /* less margin below */
+  line-height: 1.4;
+  display: block;
+}
+
+/* Body text */
+.tabs.tabs7 .tabs-panel > div > p {
+  font-size: 1rem;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 22px;
+  line-height: 1.7;
+}
+
+/* List styles inside tabs */
+.tabs.tabs7 .tabs-panel > div ul {
+  margin: 14px 0 0 22px;
+  font-size: 1rem;
+  color: #222;
+  padding: 0;
+}
+
+.tabs.tabs7 .tabs-panel > div ul li {
+  margin-bottom: 8px;
+}
+
+/* Hide unused panels */
+.tabs.tabs7 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Responsive: scale down padding and align left on mobile */
+@media (width <= 900px) {
+  .tabs.tabs7 {
+    max-width: 100%;
+    margin: 24px 0 0;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs7 .tabs-list {
+    gap: 18px;
+    font-size: 0.93rem;
+    max-width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .tabs.tabs7 .tabs-list .tabs-tab {
+    min-width: 90px;
+    padding: 8px 10px;
+    font-size: 0.93rem;
+  }
+
+  .tabs.tabs7 .tabs-panel > div > h3 {
+    font-size: 1.2rem;
+  }
+
+  .tabs.tabs7 .tabs-panel > div > h3::after {
+    width: 36px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+  }
+
+  .tabs.tabs7 .tabs-panel picture,
+  .tabs.tabs7 .tabs-panel img {
+    margin-bottom: 12px;
+  }
+}
+
+.tabs.tabs7,
+.tabs.tabs7 * {
+  box-shadow: none;
+  outline: none;
 }
