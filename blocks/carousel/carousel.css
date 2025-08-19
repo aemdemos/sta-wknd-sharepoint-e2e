@@ -265,3 +265,147 @@
     bottom: 14px;
   }
 }
+
+
+.carousel.carousel17 {
+  padding-top: 24px;
+  padding-bottom: 0;
+  background: var(--background-color);
+  position: relative;
+}
+
+/* Make carousel image short and wide, with margin above and below */
+.carousel.carousel17 .carousel-slide {
+  min-height: 340px;
+  max-height: 380px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Remove any default overlay bar if empty */
+.carousel.carousel17 .carousel-slide-content:empty {
+  display: none;
+}
+
+/* Move navigation buttons below the image */
+.carousel.carousel17 .carousel-navigation-buttons {
+  position: static;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding: 0 28px;
+  z-index: 2;
+}
+
+/* Make navigation buttons smaller and lighter */
+.carousel.carousel17 .carousel-navigation-buttons button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #d1d1d1;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button:hover,
+.carousel.carousel17 .carousel-navigation-buttons button:focus-visible {
+  background: #efefef;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border: none;
+  background: none;
+  transform: translate(-50%, -50%);
+}
+
+/* Custom left/right arrow chevrons, smaller and darker */
+.carousel.carousel17 .carousel-navigation-buttons .slide-prev::after {
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+  border-color: #222;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.carousel.carousel17 .carousel-navigation-buttons .slide-next::after {
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  border-color: #222;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Move page indicators below the image, centered */
+.carousel.carousel17 .carousel-slide-indicators {
+  position: static;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  margin-bottom: 0;
+  background: transparent;
+  padding: 0;
+  z-index: 2;
+}
+
+/* Smaller, tighter dots */
+.carousel.carousel17 .carousel-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d1d1d1;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+/* Active indicator: solid black */
+.carousel.carousel17 .carousel-slide-indicator button:disabled {
+  background: #222;
+}
+
+/* Responsive: keep image short and controls clear */
+@media (width <= 600px) {
+  .carousel.carousel17 {
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+
+  .carousel.carousel17 .carousel-slide {
+    min-height: 220px;
+    max-height: 240px;
+    height: 240px;
+  }
+
+  .carousel.carousel17 .carousel-navigation-buttons {
+    padding: 0 8px;
+  }
+
+  .carousel.carousel17 .carousel-slide-indicators {
+    gap: 6px;
+    margin-top: 10px;
+  }
+}
