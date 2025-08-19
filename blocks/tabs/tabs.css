@@ -598,7 +598,6 @@
   height: auto;
 }
 
-/* Sidebar: first direct child */
 .tabs.tabs13 > div:first-child {
   width: 110px;
   min-width: 70px;
@@ -641,7 +640,6 @@
   max-width: 700px;
 }
 
-/* For main heading and underline */
 .tabs.tabs13 h3 {
   font-family: var(--heading-font-family);
   font-size: 2.4rem;
@@ -671,7 +669,6 @@
   margin-left: 0;
 }
 
-/* Paragraph and list alignment */
 .tabs.tabs13 p,
 .tabs.tabs13 ul,
 .tabs.tabs13 ol {
@@ -727,7 +724,6 @@
   }
 }
 
-/* Remove background/border from main content panels */
 .tabs.tabs13 .tabs-panel {
   background: transparent;
   border: none;
@@ -739,4 +735,179 @@
 
 .tabs.tabs13 > div:first-child > p:not(:last-child) {
   margin-bottom: 0;
+}
+
+
+.tabs.tabs16 {
+  background: #fff;
+  margin: 0 auto;
+  padding: 48px 32px;
+  max-width: 980px;
+  border: none;
+  box-shadow: none;
+  display: block;
+}
+
+/* Tabs List */
+.tabs.tabs16 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  border: none;
+  margin-bottom: 32px;
+  padding: 0;
+  font-size: 1rem;
+}
+
+/* Tab Buttons */
+.tabs.tabs16 .tabs-list button {
+  background: #fff;
+  color: #232323;
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 28px 10px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  margin: 0;
+}
+
+/* Active Tab */
+.tabs.tabs16 .tabs-list button[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+  border: none;
+}
+
+/* Tab Button Inner <p> Remove margin */
+.tabs.tabs16 .tabs-list button p {
+  margin: 0;
+}
+
+/* Tab Panels */
+.tabs.tabs16 .tabs-panel {
+  display: none;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tabs.tabs16 .tabs-panel[aria-hidden="false"] {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+/* Panel Content Area */
+.tabs.tabs16 .tabs-panel > div {
+  padding: 0;
+}
+
+/* Main Heading (first h3) */
+.tabs.tabs16 .tabs-panel h3:first-child {
+  font-family: var(--heading-font-family);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #f7d774;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* Section Heading */
+.tabs.tabs16 .tabs-panel h3 strong,
+.tabs.tabs16 .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* Image Styling */
+.tabs.tabs16 .tabs-panel picture,
+.tabs.tabs16 .tabs-panel img {
+  display: block;
+  margin: 28px auto 22px;
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 4%);
+}
+
+/* Body Text */
+.tabs.tabs16 .tabs-panel p {
+  font-family: var(--body-font-family);
+  font-size: 1.08rem;
+  color: #000;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  margin-top: 0;
+  letter-spacing: 0;
+  padding: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 800px) {
+  .tabs.tabs16 {
+    padding: 32px 8px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs16 .tabs-panel {
+    max-width: 100%;
+  }
+
+  .tabs.tabs16 .tabs-list {
+    gap: 10px;
+    font-size: 0.98rem;
+  }
+
+  .tabs.tabs16 .tabs-list button {
+    padding: 10px 16px;
+    font-size: 0.98rem;
+  }
+
+  .tabs.tabs16 .tabs-panel picture,
+  .tabs.tabs16 .tabs-panel img {
+    max-height: 260px;
+    margin: 18px auto 12px;
+  }
+}
+
+@media (width <= 500px) {
+  .tabs.tabs16 {
+    padding: 16px 2px;
+  }
+
+  .tabs.tabs16 .tabs-list {
+    gap: 4px;
+    font-size: 0.92rem;
+  }
+
+  .tabs.tabs16 .tabs-list button {
+    padding: 7px 8px;
+    font-size: 0.92rem;
+  }
+
+  .tabs.tabs16 .tabs-panel picture,
+  .tabs.tabs16 .tabs-panel img {
+    max-height: 150px;
+    margin: 12px auto 8px;
+  }
 }
