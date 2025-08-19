@@ -365,7 +365,6 @@
   text-decoration: none;
 }
 
-/* Responsive adjustments */
 @media (width <= 950px) {
   .hero.hero20 > div:last-child {
     max-width: 97vw;
@@ -403,5 +402,127 @@
   .hero.hero20 .button-container .button {
     font-size: 0.98rem;
     padding: 9px 18px;
+  }
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  height: 380px;
+  min-height: 380px;
+  overflow: hidden;
+  display: block;
+}
+
+/* Image fills the hero area as a background */
+.hero.hero27 > div:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 380px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero.hero27 > div:first-child picture,
+.hero.hero27 > div:first-child img {
+  width: 100vw;
+  height: 380px;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+}
+
+/* White text box overlays the bottom part of the image, flush with hero bottom */
+.hero.hero27 > div:nth-child(2) {
+  position: absolute;
+  left: 4vw;
+  right: 4vw;
+  bottom: 0;
+  z-index: 2;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 2.5rem 2.5rem 2rem;
+  max-width: 92vw;
+  min-width: 0;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+
+  /* No translate or negative margin - box sits flush with bottom of hero and image */
+}
+
+/* Text styling */
+.hero.hero27 h2 {
+  color: #232323;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 500;
+  margin: 0 0 0.9rem;
+  line-height: 1.15;
+}
+
+.hero.hero27 p {
+  color: #565656;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero27,
+  .hero.hero27 > div:first-child,
+  .hero.hero27 > div:first-child picture,
+  .hero.hero27 > div:first-child img {
+    height: 220px;
+    min-height: 220px;
+    width: 100vw;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    left: 2vw;
+    right: 2vw;
+    max-width: 96vw;
+    padding: 1.2rem 1rem;
+  }
+
+  .hero.hero27 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .hero.hero27 p {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero27,
+  .hero.hero27 > div:first-child,
+  .hero.hero27 > div:first-child picture,
+  .hero.hero27 > div:first-child img {
+    height: 140px;
+    min-height: 140px;
+    width: 100vw;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    left: 1vw;
+    right: 1vw;
+    max-width: 98vw;
+    padding: 0.8rem 0.5rem;
   }
 }
