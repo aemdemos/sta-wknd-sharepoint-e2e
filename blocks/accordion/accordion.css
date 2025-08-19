@@ -260,12 +260,11 @@
   width: 100%;
   max-width: 900px;
   margin: 0;
-  padding: 0 0 0 32px; /* match editorial grid/left align */
+  padding: 0 0 0 32px;
   background: #fff;
   display: block;
 }
 
-/* Remove any extra top margin on the first details */
 .accordion.accordion11 details:first-child {
   margin-top: 0;
 }
@@ -278,7 +277,6 @@
   padding: 0;
 }
 
-/* Accordion summary - always use flex row, left-aligned, tight gap, no border/padding/margin distractions */
 .accordion.accordion11 summary {
   display: flex;
   flex-direction: row;
@@ -298,14 +296,12 @@
   width: 100%;
 }
 
-/* Remove all background highlight on open/hover */
 .accordion.accordion11 details[open] summary,
 .accordion.accordion11 summary:focus,
 .accordion.accordion11 summary:hover {
   background: none;
 }
 
-/* Hide default details marker, arrow remains close */
 .accordion.accordion11 summary::-webkit-details-marker {
   display: none;
 }
@@ -315,7 +311,6 @@
   vertical-align: middle;
 }
 
-/* Accordion Body - main content area, always left-aligned, tight spacing */
 .accordion.accordion11 .accordion-item-body {
   box-sizing: border-box;
   background: none;
@@ -330,7 +325,6 @@
   text-align: left;
 }
 
-/* Headings inside accordion body */
 .accordion.accordion11 .accordion-item-body h2,
 .accordion.accordion11 .accordion-item-body h3 {
   font-family: var(--heading-font-family);
@@ -342,7 +336,6 @@
   text-align: left;
 }
 
-/* Paragraphs */
 .accordion.accordion11 .accordion-item-body p {
   font-size: 1.0625rem;
   color: #222;
@@ -351,7 +344,6 @@
   text-align: left;
 }
 
-/* Blockquotes */
 .accordion.accordion11 .accordion-item-body blockquote {
   background: #f5f5f5;
   border-left: 4px solid #8bc34a;
@@ -363,26 +355,22 @@
   text-align: left;
 }
 
-/* Strong text in blockquotes */
 .accordion.accordion11 .accordion-item-body blockquote strong {
   color: #222;
   font-weight: bold;
   font-size: 1.15rem;
 }
 
-/* Highlighted strong (definition) */
 .accordion.accordion11 .accordion-item-body blockquote strong:last-child {
   color: #8bc34a;
   font-weight: bold;
   font-size: 1.25rem;
 }
 
-/* Underlined noun */
 .accordion.accordion11 .accordion-item-body u {
   text-decoration: underline;
 }
 
-/* Images and picture blocks */
 .accordion.accordion11 .accordion-item-body picture,
 .accordion.accordion11 .accordion-item-body img {
   display: block;
@@ -394,7 +382,6 @@
   object-fit: cover;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .accordion.accordion11 {
     max-width: 100vw;
@@ -420,4 +407,237 @@
     padding: 0.6em 0.8em;
     font-size: 1rem;
   }
+}
+
+
+.accordion.accordion29 .accordion-item-body {
+  /* Fix layout: use flex for columns and ensure content is visible */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 48px 32px;
+  box-sizing: border-box;
+  gap: 56px;
+  min-height: 1px;
+
+  /* Remove any accidental gray overlays */
+  color: var(--text-color);
+}
+
+/* Responsive: stack columns on narrow screens */
+@media (width <= 900px) {
+  .accordion.accordion29 .accordion-item-body {
+    flex-direction: column;
+    gap: 0;
+    padding: 24px 0;
+    max-width: 100%;
+  }
+}
+
+/* Left (main) column: All direct children except h5/ul (sidebar) */
+.accordion.accordion29 .accordion-item-body > *:not(h5, ul) {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Sidebar (h5 and ul) */
+.accordion.accordion29 .accordion-item-body > h5,
+.accordion.accordion29 .accordion-item-body > ul {
+  flex: 0 0 290px;
+  max-width: 290px;
+  margin-left: 0;
+  align-self: flex-start;
+  position: relative;
+  background: none;
+  color: var(--text-color);
+}
+
+.accordion.accordion29 .accordion-item-body > h5 {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.accordion.accordion29 .accordion-item-body > ul {
+  margin-top: 0;
+  border-top: 1px solid #eee;
+  padding-top: 4px;
+  list-style: none;
+}
+
+/* On mobile, stack everything and reset widths */
+@media (width <= 900px) {
+  .accordion.accordion29 .accordion-item-body > h5,
+  .accordion.accordion29 .accordion-item-body > ul,
+  .accordion.accordion29 .accordion-item-body > *:not(h5, ul) {
+    flex: unset;
+    max-width: 100%;
+    margin-left: 0;
+    align-self: auto;
+  }
+}
+
+/* Sidebar tweaks for vertical rhythm */
+
+.accordion.accordion29 .accordion-item-body > ul li {
+  border-bottom: 1px solid #eee;
+  padding: 18px 0 12px;
+  font-size: 1em;
+  color: #222;
+}
+
+.accordion.accordion29 .accordion-item-body > ul li a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.accordion.accordion29 .accordion-item-body > ul li a:hover {
+  color: #db9d3d;
+}
+
+/* Breadcrumbs styling */
+.accordion.accordion29 .accordion-item-body > ol {
+  display: flex;
+  gap: 8px;
+  font-size: 0.95em;
+  color: #aaa;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.accordion.accordion29 .accordion-item-body > ol li a {
+  color: #db9d3d;
+  text-decoration: none;
+}
+
+/* Headings and subheadings */
+.accordion.accordion29 .accordion-item-body h1 {
+  font-size: 2.2em;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 18px;
+  margin-top: 0;
+  line-height: 1.1;
+}
+
+.accordion.accordion29 .accordion-item-body h2,
+.accordion.accordion29 .accordion-item-body h3 {
+  font-size: 1.35em;
+  color: #db9d3d;
+  font-weight: 600;
+  margin-top: 38px;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.accordion.accordion29 .accordion-item-body h4 {
+  font-size: 1em;
+  color: #888;
+  font-weight: 400;
+  margin-bottom: 16px;
+  margin-top: 0;
+  letter-spacing: 0.03em;
+}
+
+/* Paragraphs */
+.accordion.accordion29 .accordion-item-body p {
+  font-size: 1.08em;
+  color: #222;
+  margin: 0 0 22px;
+  line-height: 1.7;
+}
+
+/* Images inside the main column */
+.accordion.accordion29 .accordion-item-body p > picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 36px 0;
+  border-radius: 3px;
+}
+
+/* Blockquote highlight */
+.accordion.accordion29 .accordion-item-body blockquote {
+  background: #f2f2f2;
+  border-left: 6px solid #db9d3d;
+  padding: 24px 30px;
+  margin: 32px 0;
+  font-size: 1.18em;
+  color: #444;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.accordion.accordion29 .accordion-item-body blockquote p {
+  margin: 0;
+}
+
+/* Blockquote attribution */
+.accordion.accordion29 .accordion-item-body p u {
+  color: #222;
+  font-size: 1.06em;
+  font-weight: 400;
+  text-decoration: underline;
+  margin: 0 0 32px;
+  display: block;
+}
+
+/* Author section */
+.accordion.accordion29 .accordion-item-body h2[id="ian-provo"] {
+  font-size: 1em;
+  color: #222;
+  font-weight: bold;
+  margin: 40px 0 6px;
+}
+
+.accordion.accordion29 .accordion-item-body h2[id="ian-provo"] + p {
+  font-size: 0.97em;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+/* Social buttons */
+.accordion.accordion29 .accordion-item-body .button-container {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.accordion.accordion29 .accordion-item-body .button {
+  background: #222;
+  color: #fff;
+  border-radius: 2.4em;
+  font-size: 0.95em;
+  padding: 0.5em 1.2em;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  font-weight: 500;
+  transition: background 0.2s;
+  margin: 0 4px 8px 0;
+}
+
+.accordion.accordion29 .accordion-item-body .button:hover,
+.accordion.accordion29 .accordion-item-body .button:focus {
+  background: #db9d3d;
+  color: #222;
+}
+
+/* Sidebar title */
+.accordion.accordion29 .accordion-item-body h5 {
+  font-size: 1.08em;
+  font-weight: bold;
+  color: #444;
+  letter-spacing: 1px;
+  margin: 0 0 24px;
+  padding: 0;
 }
