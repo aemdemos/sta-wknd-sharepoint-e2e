@@ -141,7 +141,6 @@
   box-sizing: border-box;
 }
 
-/* Left column: stack image, nav, info vertically, all left-aligned */
 .columns > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -152,7 +151,6 @@
   padding: 0;
 }
 
-/* Logo styling */
 .columns .columns-img-col {
   margin: 0 0 6px;
   padding: 0;
@@ -166,7 +164,6 @@
   margin: 0 0 9px;
 }
 
-/* Nav styling: flatten and align horizontally */
 .columns > div > div:first-child > ul,
 .columns > div > div:first-child > ul ul {
   list-style: none;
@@ -220,7 +217,6 @@
   margin: 0;
 }
 
-/* Info/paragraph below nav */
 .columns > div > div:first-child > p,
 .columns > div > div:first-child > div:not(.columns-img-col, :has(ul)) {
   color: #fff;
@@ -230,7 +226,6 @@
   max-width: 600px;
 }
 
-/* Right column (search/info): top right, remove box styling */
 .columns > div > div:last-child {
   flex: 1 1 0;
   color: #fff;
@@ -255,7 +250,6 @@
   margin: 0;
 }
 
-/* Remove default button/box styling for right side */
 .columns > div > div:last-child button,
 .columns > div > div:last-child input,
 .columns > div > div:last-child a.button {
@@ -268,7 +262,6 @@
   margin: 0;
 }
 
-/* Remove unwanted backgrounds, borders for all links */
 .columns a {
   color: #fff;
   background: none;
@@ -280,7 +273,6 @@
   text-decoration: underline;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 900px) {
   .columns > div {
     flex-direction: column;
@@ -300,5 +292,199 @@
   .columns .columns-img-col img {
     width: 88px;
     margin-bottom: 8px;
+  }
+}
+
+
+.columns.columns10 {
+  background: #222221;
+  color: #eee;
+  border-bottom: 1px solid #fff;
+  font-family: var(--body-font-family);
+  padding: 0;
+}
+
+/* Layout: two columns, left and right */
+.columns.columns10 > div {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 40px 40px 32px;
+  box-sizing: border-box;
+  align-items: start;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns.columns10 > div {
+    grid-template-columns: 1fr;
+    padding: 32px 12px 24px;
+    gap: 32px;
+  }
+}
+
+/* --- Left Main Area --- */
+.columns.columns10 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5em;
+  min-width: 0;
+}
+
+.columns.columns10 picture img {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.columns.columns10 ul {
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns10 ul li a {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  opacity: 1;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* --- Main Footer Text (bottom left) --- */
+.columns.columns10 > div > div:last-child {
+  color: #eee;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+.columns.columns10 > div > div:last-child p {
+  color: #eee;
+  margin: 0 0 8px;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.columns.columns10 > div > div:last-child p:first-child {
+  color: #ccc;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  font-style: normal;
+}
+
+.columns.columns10 > div > div:last-child a {
+  color: #fff;
+  text-decoration: underline;
+  opacity: 0.97;
+  transition: color 0.2s;
+}
+
+/* --- Social area (right, top) --- */
+
+/* Arrange heading and all three .button-container horizontally side by side */
+.columns.columns10 > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 0;
+  gap: 8px; /* Tighter gap for more compact grouping */
+  padding-top: 0;
+}
+
+/* "Follow Us" heading: right-aligned, compact */
+.columns.columns10 > div > div:nth-child(2) h4,
+.columns.columns10 > div > div:nth-child(2) h4#follow-us {
+  color: #fff;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  align-self: center;
+  text-align: right;
+}
+
+/* Display each .button-container as block (so the three are siblings in the row) */
+.columns.columns10 > div > div:nth-child(2) .button-container {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Social buttons: more square and compact, with less padding */
+.columns.columns10 > div > div:nth-child(2) .button {
+  background: #fff;
+  color: #222221;
+  border-radius: 8px;
+  min-width: 72px;
+  height: 38px;
+  font-size: 0.97rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 8px;
+}
+
+/* Remove vertical margin between buttons and heading */
+.columns.columns10 > div > div:nth-child(2) .button-container > p {
+  margin: 0;
+  padding: 0;
+}
+
+/* On desktop, keep the whole social area tightly grouped */
+@media (width <= 900px) {
+  .columns.columns10 > div > div:nth-child(2) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .columns.columns10 > div > div:nth-child(2) .button-container {
+    margin-top: 10px;
+  }
+
+  .columns.columns10 > div > div:nth-child(2) .button {
+    min-width: 100px;
+    justify-content: flex-start;
+    padding-left: 12px;
+  }
+}
+
+/* Tweak grid gap for more compact alignment on very large screens */
+@media (width >= 1200px) {
+  .columns.columns10 > div {
+    max-width: 1100px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
