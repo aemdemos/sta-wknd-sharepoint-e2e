@@ -73,7 +73,6 @@
   margin-bottom: 0;
 }
 
-/* Remove border from possible inner panels */
 .tabs.tabs3 .tabs-panel {
   border: none;
   background: transparent;
@@ -82,12 +81,11 @@
   margin-top: 0;
 }
 
-/* Tabs Navigation */
 .tabs.tabs3 .tabs-list {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 14px; /* even tighter horizontal spacing */
+  gap: 14px;
   margin-top: 48px;
   margin-bottom: 28px;
   margin-left: 0;
@@ -96,7 +94,6 @@
   min-height: 36px;
 }
 
-/* Tighter tab spacing and left alignment */
 .tabs.tabs3 .tabs-list button {
   all: unset;
   display: flex;
@@ -131,7 +128,6 @@
   letter-spacing: inherit;
 }
 
-/* Heading (Title) styling and underline */
 .tabs.tabs3 .tabs-panel > div {
   display: flex;
   flex-direction: column;
@@ -154,7 +150,6 @@
   border-bottom: none;
 }
 
-/* Underline matches heading width, is very close below text */
 .tabs.tabs3 .tabs-panel h3::after {
   display: block;
   height: 3px;
@@ -179,12 +174,10 @@
   }
 }
 
-/* Space between heading and image */
 .tabs.tabs3 .tabs-panel > div > h3 + p > picture {
   margin-top: 30px;
 }
 
-/* Image: edge alignment with block */
 .tabs.tabs3 picture {
   display: block;
   width: 100%;
@@ -200,7 +193,6 @@
   border-radius: 2px;
 }
 
-/* Subtitle: lighter font-weight, closer to image */
 .tabs.tabs3 .tabs-panel > div > p:first-of-type {
   font-size: 12px;
   text-transform: uppercase;
@@ -212,7 +204,6 @@
   align-self: flex-start;
 }
 
-/* Paragraph after subtitle: less vertical gap */
 .tabs.tabs3 .tabs-panel > div > p:first-of-type + p {
   margin-top: 4px;
 }
@@ -225,7 +216,6 @@
   font-weight: 400;
 }
 
-/* List styling for "What to Bring" */
 .tabs.tabs3 .tabs-panel ul {
   padding-left: 24px;
   margin: 0 0 12px;
@@ -238,7 +228,6 @@
   line-height: 1.6;
 }
 
-/* Remove any leftover borders */
 .tabs.tabs3 .tabs-list button,
 .tabs.tabs3 .tabs-list button[aria-selected="true"] {
   border: none;
@@ -247,4 +236,169 @@
 
 .tabs.tabs3 .tabs-list button:focus {
   outline: 2px solid #222;
+}
+
+
+.tabs.tabs9 {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 0 32px;
+  background: #fff;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Ensure all internal containers are visible and properly aligned */
+.tabs.tabs9 .tabs-list,
+.tabs.tabs9 .tabs-panel {
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+}
+
+/* Layout tabs in a row, flush left */
+.tabs.tabs9 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 36px;
+  margin-top: 0;
+  margin-bottom: 0;
+  background: none;
+  border: none;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Tabs styling */
+.tabs.tabs9 .tabs-tab {
+  background: transparent;
+  border: none;
+  padding: 12px 32px;
+  font-family: var(--heading-font-family);
+  font-size: 1.13em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  cursor: pointer;
+  border-radius: 0;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  letter-spacing: 0.01em;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs9 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs9 .tabs-tab:not([aria-selected="true"]):hover {
+  background: #f2f2f2;
+}
+
+.tabs.tabs9 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel content layout */
+.tabs.tabs9 .tabs-panel {
+  border: none;
+  margin-top: 0;
+  background: none;
+  overflow: visible;
+  width: 100%;
+}
+
+/* Use grid for main stacking to ensure alignment of heading, image, and text */
+
+/* This ensures all elements (tabs, heading, image, text) line up flush left */
+.tabs.tabs9 .tabs-panel > div {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 0;
+}
+
+/* Heading style and accurate yellow bar underline */
+.tabs.tabs9 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.35em;
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.08;
+  letter-spacing: 0;
+  padding-bottom: 0;
+  position: relative;
+}
+
+.tabs.tabs9 .tabs-panel h3::after {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #E6D583;
+  margin-top: 8px;
+  margin-bottom: 0;
+  border-radius: 1.5px;
+  content: "";
+}
+
+/* Make image fill available width, align with heading/tabs */
+.tabs.tabs9 .tabs-panel picture,
+.tabs.tabs9 .tabs-panel img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 20px;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* Paragraph text styling and spacing */
+.tabs.tabs9 .tabs-panel p {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+
+.tabs.tabs9 .tabs-panel p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments for smaller screens - keep flush alignment */
+@media (width <= 900px) {
+  .tabs.tabs9 {
+    max-width: 100vw;
+    padding: 0 0 16px;
+  }
+
+  .tabs.tabs9 .tabs-tab {
+    padding: 9px 10px;
+    font-size: 1em;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs9 {
+    padding: 0;
+  }
+
+  .tabs.tabs9 .tabs-panel picture,
+  .tabs.tabs9 .tabs-panel img {
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs9 .tabs-panel h3 {
+    font-size: 1.4em;
+  }
 }
