@@ -1,6 +1,15 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  gap: 32px;
+  box-sizing: border-box;
+  min-height: 68px;
 }
 
 .columns img {
@@ -36,7 +45,7 @@
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Vertically center logo and search */
+  align-items: center;
   justify-content: space-between;
   min-height: 90px;
   padding: 0 6vw;
@@ -46,19 +55,16 @@
   gap: 0;
 }
 
-/* Hide language selector */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo column - center vertically */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
   margin-top: 0;
 }
 
-/* Maintain current logo size */
 .columns.columns2 .columns-img-col img {
   display: block;
   max-height: 60px;
@@ -68,7 +74,6 @@
   padding: 0;
 }
 
-/* Search column - center vertically */
 .columns.columns2 > div > div:nth-child(3) {
   display: flex;
   align-items: center;
@@ -77,7 +82,6 @@
   margin-top: 0;
 }
 
-/* Search "Suchen" box styles */
 .columns.columns2 > div > div:nth-child(3) p {
   background: #f5f5f5;
   color: #131313;
@@ -103,7 +107,6 @@
   background-image: url("data:image/svg+xml;utf8,<svg width='10' height='10' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke='%23000' stroke-width='2'><circle cx='4.5' cy='4.5' r='3.5'/><line x1='9' y1='9' x2='6.5' y2='6.5'/></g></svg>");
 }
 
-/* Responsive: stack on small screens */
 @media (width <= 899px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -125,5 +128,177 @@
     background-position: 18px center;
     background-size: 10px 10px;
     padding-left: 36px;
+  }
+}
+
+
+.columns {
+  background: #232323;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 18px 0 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left column: stack image, nav, info vertically, all left-aligned */
+.columns > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 2 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Logo styling */
+.columns .columns-img-col {
+  margin: 0 0 6px;
+  padding: 0;
+  display: block;
+}
+
+.columns .columns-img-col img {
+  width: 106px;
+  height: auto;
+  display: block;
+  margin: 0 0 9px;
+}
+
+/* Nav styling: flatten and align horizontally */
+.columns > div > div:first-child > ul,
+.columns > div > div:first-child > ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div > div:first-child > ul > li {
+  margin-bottom: 0;
+}
+
+.columns > div > div:first-child > ul ul {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  margin: 0 0 2px;
+}
+
+.columns > div > div:first-child > ul > li > a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-bottom: 6px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.columns > div > div:first-child > ul ul li a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  opacity: 0.86;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.columns > div > div:first-child > ul ul li a:hover,
+.columns > div > div:first-child > ul ul li a:focus {
+  color: #bfbfbf;
+  text-decoration: underline;
+}
+
+.columns > div > div:first-child > ul ul ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Info/paragraph below nav */
+.columns > div > div:first-child > p,
+.columns > div > div:first-child > div:not(.columns-img-col, :has(ul)) {
+  color: #fff;
+  font-size: 13px;
+  opacity: 0.78;
+  margin: 6px 0 0;
+  max-width: 600px;
+}
+
+/* Right column (search/info): top right, remove box styling */
+.columns > div > div:last-child {
+  flex: 1 1 0;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0.85;
+  align-self: flex-start;
+  text-align: right;
+  margin-left: 40px;
+  background: none;
+  min-width: 140px;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+.columns > div > div:last-child * {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove default button/box styling for right side */
+.columns > div > div:last-child button,
+.columns > div > div:last-child input,
+.columns > div > div:last-child a.button {
+  background: none;
+  box-shadow: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove unwanted backgrounds, borders for all links */
+.columns a {
+  color: #fff;
+  background: none;
+  border: none;
+}
+
+.columns a:hover, .columns a:focus {
+  color: #bfbfbf;
+  text-decoration: underline;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 10px;
+    gap: 18px;
+    min-height: unset;
+  }
+
+  .columns > div > div:last-child {
+    margin-left: 0;
+    text-align: left;
+    min-width: unset;
+    padding-top: 0;
+  }
+
+  .columns .columns-img-col img {
+    width: 88px;
+    margin-bottom: 8px;
   }
 }
