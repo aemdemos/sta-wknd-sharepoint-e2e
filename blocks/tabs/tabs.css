@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,195 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs3 {
+  border: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Remove border from possible inner panels */
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+/* Tabs Navigation */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px; /* even tighter horizontal spacing */
+  margin-top: 48px;
+  margin-bottom: 28px;
+  margin-left: 0;
+  padding: 0;
+  border: none;
+  min-height: 36px;
+}
+
+/* Tighter tab spacing and left alignment */
+.tabs.tabs3 .tabs-list button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  height: 36px;
+  text-transform: uppercase;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #222;
+  font-size: 15px;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+}
+
+.tabs.tabs3 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs3 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+/* Heading (Title) styling and underline */
+.tabs.tabs3 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.tabs.tabs3 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.2;
+  align-self: flex-start;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Underline matches heading width, is very close below text */
+.tabs.tabs3 .tabs-panel h3::after {
+  display: block;
+  height: 3px;
+  width: 100%;
+  max-width: 100%;
+  background: #F2C94C;
+  margin-top: 2px;
+  margin-left: 0;
+  border-radius: 2px;
+  position: relative;
+  content: "";
+}
+
+@media (width <= 600px) {
+  .tabs.tabs3 .tabs-panel h3 {
+    font-size: 24px;
+  }
+
+  .tabs.tabs3 {
+    padding: 0 6px;
+    max-width: 99vw;
+  }
+}
+
+/* Space between heading and image */
+.tabs.tabs3 .tabs-panel > div > h3 + p > picture {
+  margin-top: 30px;
+}
+
+/* Image: edge alignment with block */
+.tabs.tabs3 picture {
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.tabs.tabs3 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  border-radius: 2px;
+}
+
+/* Subtitle: lighter font-weight, closer to image */
+.tabs.tabs3 .tabs-panel > div > p:first-of-type {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #222;
+  margin: 6px 0 2px;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  align-self: flex-start;
+}
+
+/* Paragraph after subtitle: less vertical gap */
+.tabs.tabs3 .tabs-panel > div > p:first-of-type + p {
+  margin-top: 4px;
+}
+
+.tabs.tabs3 .tabs-panel p {
+  font-size: 15px;
+  color: #222;
+  margin: 0 0 12px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* List styling for "What to Bring" */
+.tabs.tabs3 .tabs-panel ul {
+  padding-left: 24px;
+  margin: 0 0 12px;
+}
+
+.tabs.tabs3 .tabs-panel li {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+/* Remove any leftover borders */
+.tabs.tabs3 .tabs-list button,
+.tabs.tabs3 .tabs-list button[aria-selected="true"] {
+  border: none;
+  box-shadow: none;
+}
+
+.tabs.tabs3 .tabs-list button:focus {
+  outline: 2px solid #222;
 }
