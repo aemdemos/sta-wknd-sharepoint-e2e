@@ -2331,12 +2331,9 @@
   margin: 40px auto;
   background: #fff;
   box-sizing: border-box;
-
-  /* Remove default grid if present from previous attempts */
   gap: 0;
 }
 
-/* SIDEBAR (first column) */
 .tabs.tabs38 > div:first-child {
   flex: 0 0 330px;
   box-sizing: border-box;
@@ -2348,8 +2345,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   background: #fff;
-
-  /* Remove vertical centering and center alignment */
 }
 
 .tabs.tabs38 > div:first-child h3 {
@@ -2360,14 +2355,11 @@
   margin: 0 0 0.5em;
   line-height: 1.1;
   letter-spacing: -.5px;
-
-  /* Add yellow underline via border */
   border-bottom: 3px solid #E7D98D;
   display: inline-block;
   padding-bottom: 8px;
 }
 
-/* Possible utility for meta info if present in future content */
 .tabs.tabs38 > div:first-child p,
 .tabs.tabs38 > div:first-child li,
 .tabs.tabs38 > div:first-child span {
@@ -2403,7 +2395,6 @@
   letter-spacing: 0.5px;
 }
 
-/* MAIN CONTENT COLUMN (.tabs-wrapper) */
 .tabs.tabs38 > .tabs-wrapper {
   flex: 1 1 0;
   min-width: 0;
@@ -2415,7 +2406,6 @@
   box-sizing: border-box;
 }
 
-/* Remove border from panels */
 .tabs.tabs38 .tabs-panel {
   border: none;
   padding: 0;
@@ -2424,7 +2414,6 @@
   overflow: visible;
 }
 
-/* Tabs navigation */
 .tabs.tabs38 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2471,17 +2460,14 @@
   margin: 0;
 }
 
-/* Hide non-active panels */
 .tabs.tabs38 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Main tab panel content */
 .tabs.tabs38 .tabs-panel > div {
   max-width: 760px;
 }
 
-/* Image styles */
 .tabs.tabs38 .tabs-panel picture,
 .tabs.tabs38 .tabs-panel img {
   display: block;
@@ -2492,7 +2478,6 @@
   border-radius: 0;
 }
 
-/* Caption styles */
 .tabs.tabs38 .tabs-panel > div > p:first-of-type {
   font-size: 0.93rem;
   font-weight: bold;
@@ -2502,7 +2487,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Main description styles */
 .tabs.tabs38 .tabs-panel > div > p:not(:first-of-type) {
   color: #444;
   font-size: 1.05rem;
@@ -2525,7 +2509,6 @@
   font-weight: 400;
 }
 
-/* Responsive: stack columns on narrow screens */
 @media (width <= 900px) {
   .tabs.tabs38 {
     flex-direction: column;
@@ -2540,5 +2523,191 @@
 
   .tabs.tabs38 > .tabs-wrapper {
     padding-top: 0;
+  }
+}
+
+
+.tabs.tabs20 {
+  /* Use grid for sidebar + main content */
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) 1fr;
+  gap: 56px;
+  align-items: flex-start;
+  background: #fff;
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs20 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin: 24px 0;
+    max-width: 100%;
+  }
+}
+
+/* Sidebar styles (first direct child div) */
+.tabs.tabs20 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-left: 12px;
+  padding-right: 20px;
+  min-width: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs20 > div:first-child {
+    padding: 0 0 12px;
+    max-width: 100%;
+  }
+}
+
+/* Sidebar section labels and values */
+.tabs.tabs20 > div:first-child *:first-child {
+  text-transform: uppercase;
+  color: #888;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  margin-bottom: 2px;
+}
+
+.tabs.tabs20 > div:first-child *:nth-child(2) {
+  color: #222;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+/* Share section at bottom of sidebar */
+.tabs.tabs20 > div:first-child [class*="share"] {
+  text-transform: uppercase;
+  color: #888;
+  font-size: 12px;
+  margin-top: 40px;
+  letter-spacing: 1.2px;
+}
+
+/* Main content (second column) */
+.tabs.tabs20 > .tabs.block,
+.tabs.tabs20 > .tabs {
+  grid-column: 2;
+  min-width: 0;
+}
+
+/* Tabs navigation */
+.tabs.tabs20 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 36px;
+  margin-top: 0;
+  padding: 0;
+  border: none;
+}
+
+.tabs.tabs20 .tabs-list button {
+  border: 1.5px solid #222;
+  border-radius: 3px;
+  background: transparent;
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 7px 28px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs20 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs20 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove extra panel border/padding */
+.tabs.tabs20 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  background: none;
+  overflow: visible;
+}
+
+/* Main title styling with accent line */
+.tabs.tabs20 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 6px;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+}
+
+.tabs.tabs20 .tabs-panel > div > h3::after {
+  display: block;
+  height: 3px;
+  width: 38px;
+  background: #F2C94C;
+  margin-top: 10px;
+  border-radius: 1.5px;
+  content: "";
+}
+
+/* Image presentation */
+.tabs.tabs20 .tabs-panel picture, .tabs.tabs20 .tabs-panel img {
+  display: block;
+  margin: 24px 0;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Paragraph and list styling for spaciousness */
+.tabs.tabs20 .tabs-panel > div > p,
+.tabs.tabs20 .tabs-panel > div > ul,
+.tabs.tabs20 .tabs-panel > div > ol {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+.tabs.tabs20 .tabs-panel > div > ul {
+  padding-left: 24px;
+}
+
+.tabs.tabs20 .tabs-panel > div > li {
+  margin-bottom: 6px;
+}
+
+/* Responsive improvements: shrink sidebar, fix spacing */
+@media (width <= 1200px) {
+  .tabs.tabs20 > div:first-child {
+    flex-basis: 220px;
+    max-width: 220px;
+    padding-right: 16px;
   }
 }
