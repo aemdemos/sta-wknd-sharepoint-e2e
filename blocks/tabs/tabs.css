@@ -1196,7 +1196,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive for mobile/tablet: stack columns, tabs horizontal */
 @media (width <= 900px) {
   .tabs.tabs28 {
     flex-direction: column;
@@ -1228,5 +1227,209 @@
 
   .tabs.tabs28 .tabs-panel {
     padding: 24px 12px;
+  }
+}
+
+
+.tabs.tabs30 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+  background: #fff;
+  max-width: 1200px;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  margin: 0 auto;
+
+  /* Remove any accidental top margin */
+  position: static;
+}
+
+/* Sidebar: align tabs with main heading and remove extra spacing */
+.tabs.tabs30 .tabs-list {
+  flex: 0 0 145px;
+  min-width: 120px;
+  max-width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  justify-content: flex-start;
+
+  /* Remove any accidental alignment shift */
+  position: static;
+}
+
+/* Tabs: flush left, matching font size and weight */
+.tabs.tabs30 .tabs-list .tabs-tab {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #222;
+  font-size: 15px;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 7px 0;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+  line-height: 1.18;
+}
+
+.tabs.tabs30 .tabs-list .tabs-tab[aria-selected='true'] {
+  background: #111;
+  color: #fff;
+}
+
+.tabs.tabs30 .tabs-list .tabs-tab[aria-selected='false'] {
+  background: transparent;
+  color: #222;
+}
+
+.tabs.tabs30 .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main content: remove left margin, ensure top alignment */
+.tabs.tabs30 .tabs-panel {
+  flex: 1 1 0;
+  max-width: 880px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  position: static;
+  align-self: flex-start;
+}
+
+/* Headings: adjust spacing for tight grouping and better vertical rhythm */
+.tabs.tabs30 .tabs-panel > div > h3:first-child {
+  font-size: 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.17em;
+  border-bottom: 3px solid #E5C97B;
+  padding-bottom: 0.15em;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.12;
+}
+
+.tabs.tabs30 .tabs-panel > div > h3:nth-child(2) {
+  font-size: 1.32rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  margin-top: 0.6em;
+  margin-bottom: 0.5em;
+  line-height: 1.18;
+  width: 100%;
+}
+
+/* Image & caption: reduce gaps for compact composition */
+.tabs.tabs30 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.45em;
+  margin-bottom: 0.15em;
+}
+
+.tabs.tabs30 .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+}
+
+.tabs.tabs30 .tabs-panel > div > p:first-of-type {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #111;
+  letter-spacing: 0.035em;
+  margin: 0.3em 0 0.6em;
+  padding: 0;
+}
+
+/* Paragraphs: minimize bottom margin for tight grouping */
+.tabs.tabs30 .tabs-panel p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 0.9em;
+}
+
+.tabs.tabs30 .tabs-panel ul {
+  padding-left: 1.45rem;
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 1.1em;
+}
+
+/* Responsive: stack columns, adjust gaps and alignment */
+@media (width <= 900px) {
+  .tabs.tabs30 {
+    flex-direction: column;
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs30 .tabs-list {
+    flex-direction: row;
+    gap: 5px;
+    min-width: unset;
+    max-width: 100%;
+    width: 100%;
+    padding-top: 0;
+    justify-content: flex-start;
+  }
+
+  .tabs.tabs30 .tabs-list .tabs-tab {
+    font-size: 13px;
+    padding: 7px 10px;
+    text-align: center;
+    width: auto;
+  }
+
+  .tabs.tabs30 .tabs-panel {
+    max-width: 100%;
+  }
+
+  .tabs.tabs30 .tabs-panel > div > h3:first-child {
+    font-size: 1.3rem;
+  }
+
+  .tabs.tabs30 .tabs-panel > div > h3:nth-child(2) {
+    font-size: 1.07rem;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs30 {
+    gap: 6px;
+  }
+
+  .tabs.tabs30 .tabs-list {
+    gap: 3px;
+    font-size: 12px;
   }
 }
