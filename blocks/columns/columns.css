@@ -304,7 +304,6 @@
   padding: 0;
 }
 
-/* Layout: two columns, left and right */
 .columns.columns10 > div {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -325,7 +324,6 @@
   }
 }
 
-/* --- Left Main Area --- */
 .columns.columns10 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -361,7 +359,6 @@
   margin: 0;
 }
 
-/* --- Main Footer Text (bottom left) --- */
 .columns.columns10 > div > div:last-child {
   color: #eee;
   font-size: 0.93rem;
@@ -395,20 +392,16 @@
   transition: color 0.2s;
 }
 
-/* --- Social area (right, top) --- */
-
-/* Arrange heading and all three .button-container horizontally side by side */
 .columns.columns10 > div > div:nth-child(2) {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-end;
   min-width: 0;
-  gap: 8px; /* Tighter gap for more compact grouping */
+  gap: 8px;
   padding-top: 0;
 }
 
-/* "Follow Us" heading: right-aligned, compact */
 .columns.columns10 > div > div:nth-child(2) h4,
 .columns.columns10 > div > div:nth-child(2) h4#follow-us {
   color: #fff;
@@ -424,14 +417,12 @@
   text-align: right;
 }
 
-/* Display each .button-container as block (so the three are siblings in the row) */
 .columns.columns10 > div > div:nth-child(2) .button-container {
   display: block;
   margin: 0;
   padding: 0;
 }
 
-/* Social buttons: more square and compact, with less padding */
 .columns.columns10 > div > div:nth-child(2) .button {
   background: #fff;
   color: #222221;
@@ -454,13 +445,11 @@
   padding: 0 8px;
 }
 
-/* Remove vertical margin between buttons and heading */
 .columns.columns10 > div > div:nth-child(2) .button-container > p {
   margin: 0;
   padding: 0;
 }
 
-/* On desktop, keep the whole social area tightly grouped */
 @media (width <= 900px) {
   .columns.columns10 > div > div:nth-child(2) {
     flex-direction: column;
@@ -480,11 +469,196 @@
   }
 }
 
-/* Tweak grid gap for more compact alignment on very large screens */
 @media (width >= 1200px) {
   .columns.columns10 > div {
     max-width: 1100px;
     padding-left: 32px;
     padding-right: 32px;
   }
+}
+
+
+.columns.columns40 {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+.columns.columns40 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 1200px;
+  gap: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns40 > div {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+
+/* Left image column */
+.columns.columns40 > div > div:first-child {
+  flex: 0 0 58%;
+  max-width: 58%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  background: none;
+  min-height: 500px;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.columns.columns40 .columns-img-col,
+.columns.columns40 .columns-img-col picture,
+.columns.columns40 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  min-height: 500px;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+@media (width <= 900px) {
+  .columns.columns40 > div > div:first-child {
+    max-width: 100%;
+    min-width: 0;
+    min-height: 180px;
+    height: 180px;
+  }
+
+  .columns.columns40 .columns-img-col,
+  .columns.columns40 .columns-img-col picture,
+  .columns.columns40 .columns-img-col img {
+    min-height: 140px;
+    height: 180px;
+  }
+}
+
+/* Right content column */
+.columns.columns40 > div > div:last-child {
+  flex: 1 1 42%;
+  max-width: 42%;
+  box-sizing: border-box;
+  background: #eee;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 36px 56px 32px;
+  min-height: 500px;
+  margin: 0;
+  text-align: left;
+}
+
+@media (width <= 900px) {
+  .columns.columns40 > div > div:last-child {
+    max-width: 100%;
+    padding: 28px 12px;
+    min-height: unset;
+  }
+}
+
+/* Content max-width for readability */
+.columns.columns40 > div > div:last-child > h2,
+.columns.columns40 > div > div:last-child > p,
+.columns.columns40 > div > div:last-child > .button-container {
+  max-width: 430px;
+}
+
+/* Section label (first <p>) */
+.columns.columns40 > div > div:last-child > p:first-of-type {
+  color: #222;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  opacity: 1;
+}
+
+/* Heading */
+.columns.columns40 > div > div:last-child h2 {
+  font-family: var(--heading-font-family);
+  color: #222;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 24px;
+  letter-spacing: 0;
+}
+
+/* Description paragraph */
+.columns.columns40 > div > div:last-child > p:not(:first-of-type, .button-container) {
+  color: #444;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 32px;
+  font-weight: 400;
+  opacity: 1;
+}
+
+/* Button container */
+.columns.columns40 > div > div:last-child > .button-container {
+  margin-top: 16px;
+  padding: 0;
+  align-self: flex-start;
+}
+
+/* Button styles override */
+.columns.columns40 > div > div:last-child .button-container .button,
+.columns.columns40 > div > div:last-child .button-container a.button {
+  background: #ffe600;
+  color: #000;
+  font-weight: 900;
+  font-size: 18px;
+  border: none;
+  border-radius: 0;
+  padding: 10px 32px;
+  margin: 0;
+  box-shadow: none;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.02em;
+  min-width: 180px;
+  width: 200px;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.columns.columns40 > div > div:last-child .button-container .button:hover,
+.columns.columns40 > div > div:last-child .button-container a.button:hover {
+  background: #ffe600cc;
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Remove inherited link styles from block */
+.columns.columns40 > div > div:last-child a {
+  color: #222;
+  background: none;
+  border: none;
+  box-shadow: none;
+  text-decoration: none;
+  font-weight: inherit;
+  font-size: inherit;
 }
