@@ -45,3 +45,100 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero6 {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+}
+
+/* Background image fills the hero area */
+.hero.hero6 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+.hero.hero6 picture,
+.hero.hero6 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay the card, horizontally centered, slightly above the bottom */
+.hero.hero6 > div:last-child {
+  position: absolute;
+  left: 50%;
+  bottom: 24px; /* Adjust for visual gap from the bottom */
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 900px;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+/* Card styling for text block: use block so text is not centered by flex */
+.hero.hero6 > div:last-child > div {
+  background: #fff;
+  padding: 24px 40px;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  pointer-events: auto;
+  display: block;
+}
+
+/* Headline styling inside the card: ensure left alignment */
+.hero.hero6 h2,
+.hero.hero6 h1,
+.hero.hero6 h3,
+.hero.hero6 h4,
+.hero.hero6 h5,
+.hero.hero6 h6 {
+  color: #222;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  font-weight: normal;
+  font-size: 20px;
+  margin: 0;
+  text-align: left;
+  line-height: 1.3;
+  letter-spacing: normal;
+  width: 100%;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .hero.hero6 > div:last-child {
+    width: 98%;
+    max-width: unset;
+    bottom: 10px;
+  }
+
+  .hero.hero6 > div:last-child > div {
+    padding: 16px 10px;
+  }
+
+  .hero.hero6 h2,
+  .hero.hero6 h1,
+  .hero.hero6 h3,
+  .hero.hero6 h4,
+  .hero.hero6 h5,
+  .hero.hero6 h6 {
+    font-size: 17px;
+  }
+}
