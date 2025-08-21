@@ -270,7 +270,6 @@
   padding: 0;
 }
 
-/* Image container: fill space and allow overlay to sit on top */
 .hero.hero27 > div:first-child {
   flex: 1 1 0;
   order: 1;
@@ -290,7 +289,6 @@
   display: block;
 }
 
-/* Overlay content box: wider and tighter to content for truer match */
 .hero.hero27 > div:last-child {
   position: absolute;
   left: 0;
@@ -309,7 +307,6 @@
   border-radius: 0;
 }
 
-/* Heading and text styles */
 .hero.hero27 h2 {
   font-family: var(--heading-font-family);
   color: #222;
@@ -328,12 +325,10 @@
   max-width: 100%;
 }
 
-/* Button presentation */
 .hero.hero27 .button-container {
   margin-top: 0.85rem;
 }
 
-/* Button override for sharp corners and color/weight */
 .hero.hero27 .button,
 .hero-container > .hero-wrapper > .block.hero .button {
   background: #ffe000;
@@ -357,7 +352,6 @@
   background: #ffd100;
 }
 
-/* Responsive: stack overlay below image on small screens */
 @media (width <= 900px) {
   .hero.hero27 {
     flex-direction: column;
@@ -384,5 +378,107 @@
   .hero-container > .hero-wrapper > .block.hero .button {
     font-size: var(--body-font-size-s);
     padding: 0.4rem 1rem;
+  }
+}
+
+
+.hero.hero39 {
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 350px;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Ensure the hero image fills the block */
+.hero.hero39 > div:first-child,
+.hero.hero39 > div:first-child > div,
+.hero.hero39 picture,
+.hero.hero39 img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Absolutely position the text block at the bottom left, size to content */
+.hero.hero39 > div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(48vw, 560px);
+  background: #fff;
+  padding: 2.3rem 2.5rem 1.4rem;
+  box-sizing: border-box;
+  z-index: 2;
+  box-shadow: 0 2px 16px 0 rgb(0 0 0 / 5%);
+  border: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Remove default margin above/below if any */
+  margin: 0;
+}
+
+/* Tighter inner text block for better vertical alignment */
+.hero.hero39 > div:nth-child(2) > div {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headline styles */
+.hero.hero39 h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 0.75rem;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  padding: 0;
+}
+
+/* Subtext styles */
+.hero.hero39 p {
+  font-family: var(--body-font-family);
+  color: #555;
+  font-size: 1.03rem;
+  margin: 0;
+  line-height: 1.5;
+  padding: 0;
+}
+
+/* Remove margin-bottom from last child to avoid unwanted gap */
+.hero.hero39 > div:nth-child(2) > div > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive: on small screens, let the text panel span the width and adjust paddings/font */
+@media (width <= 750px) {
+  .hero.hero39 > div:nth-child(2) {
+    width: 100vw;
+    left: 0;
+    right: 0;
+    padding: 1.2rem 5vw;
+  }
+
+  .hero.hero39 h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero.hero39 p {
+    font-size: 0.98rem;
+  }
+
+  .hero.hero39 {
+    min-height: 180px;
   }
 }
