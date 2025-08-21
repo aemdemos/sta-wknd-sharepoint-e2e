@@ -25,3 +25,136 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards4 > ul {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: start;
+}
+
+/* Responsive breakpoints for columns and gap */
+@media (width <= 1200px) {
+  .cards.cards4 > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards4 > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards4 > ul {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+/* Card container */
+.cards.cards4 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* Card image with custom aspect ratio */
+.cards.cards4 .cards-card-image {
+  width: 100%;
+  position: relative;
+  background: #eee;
+  overflow: hidden;
+  line-height: 0;
+  aspect-ratio: 2/1;
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body/text block */
+.cards.cards4 .cards-card-body {
+  margin: 8px 0 0;
+  padding: 0 0 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+/* Typography: Title */
+.cards.cards4 .cards-card-body strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  color: #222;
+  line-height: 1.15;
+}
+
+/* Typography: Description */
+.cards.cards4 .cards-card-body p {
+  margin: 0;
+  color: #555;
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.48;
+  max-width: 98%;
+}
+
+@media (width <= 900px) {
+  .cards.cards4 .cards-card-body strong {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .cards.cards4 .cards-card-body p {
+    font-size: 12px;
+  }
+
+  .cards.cards4 .cards-card-body {
+    margin-top: 5px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards4 .cards-card-body strong {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+
+  .cards.cards4 .cards-card-body p {
+    font-size: 11.5px;
+  }
+
+  .cards.cards4 .cards-card-body {
+    margin-top: 3px;
+  }
+
+  .cards.cards4 .cards-card-image {
+    aspect-ratio: 2 / 1;
+  }
+}
