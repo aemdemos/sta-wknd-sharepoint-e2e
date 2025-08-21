@@ -931,3 +931,190 @@
     margin-bottom: 24px;
   }
 }
+
+
+.tabs.tabs18 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1160px;
+  margin: 0 auto 56px;
+  background: none;
+  box-sizing: border-box;
+  gap: 20px; /* Reduced gap for tighter alignment */
+  padding-left: 0;
+}
+
+/* --- Sidebar --- */
+.tabs.tabs18 > div:first-child {
+  width: 172px;
+  min-width: 172px;
+  max-width: 172px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Lower sidebar so top tab aligns with image top */
+  margin-top: 64px;
+  margin-left: 12px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs18 {
+    flex-direction: column;
+    max-width: 100%;
+    gap: 0;
+    margin: 32px 0;
+  }
+
+  .tabs.tabs18 > div:first-child {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+}
+
+/* --- Vertical tabs --- */
+.tabs.tabs18 .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  width: 100%;
+}
+
+.tabs.tabs18 .tabs-panel > div {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.tabs.tabs18 .tabs-panel > div > p {
+  font-size: 13px;
+  font-family: var(--body-font-family);
+  color: #656565;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-weight: 400;
+  background: none;
+  border: none;
+  border-radius: 2px;
+  padding: 10px 0 10px 18px;
+  margin: 0 0 2px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  box-shadow: none;
+}
+
+.tabs.tabs18 .tabs-panel > div:first-child > p {
+  background: #141414;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 2px;
+  padding-left: 18px;
+}
+
+.tabs.tabs18 .tabs-panel > div:empty {
+  display: none;
+}
+
+/* --- Main content area --- */
+.tabs.tabs18 > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 780px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* --- Make sure the image sits flush with the top of the main content --- */
+.tabs.tabs18 > div:nth-child(2) picture {
+  display: block;
+  margin-bottom: 24px;
+  width: 100%;
+  margin-top: 0;
+}
+
+.tabs.tabs18 > div:nth-child(2) img {
+  width: 100%;
+  max-width: 780px;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+/* --- Headings: larger and bolder --- */
+.tabs.tabs18 > div:nth-child(2) h2 {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 700;
+  color: #141414;
+  margin: 32px 0 8px;
+  line-height: 1.18;
+}
+
+/* --- Paragraph text --- */
+.tabs.tabs18 > div:nth-child(2) p {
+  font-size: 16px;
+  color: #141414;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+/* --- Lists --- */
+.tabs.tabs18 > div:nth-child(2) ul {
+  margin: 0 0 16px 18px;
+  padding: 0;
+  font-size: 16px;
+  color: #141414;
+}
+
+.tabs.tabs18 > div:nth-child(2) li {
+  margin-bottom: 6px;
+}
+
+/* --- Remove gap and centering from main column --- */
+
+/* --- Responsive: sidebar stacks on mobile --- */
+@media (width <= 600px) {
+  .tabs.tabs18 {
+    flex-direction: column;
+    gap: 0;
+    margin: 16px 0;
+    padding-left: 0;
+  }
+
+  .tabs.tabs18 > div:first-child {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 16px;
+    margin-top: 0;
+    margin-left: 0;
+    align-items: flex-start;
+  }
+
+  .tabs.tabs18 > div:nth-child(2) {
+    width: 100%;
+    max-width: 100%;
+  }
+}
