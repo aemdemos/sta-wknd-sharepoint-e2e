@@ -155,7 +155,6 @@
   width: 100%;
 }
 
-/* IMAGE COLUMN: slightly less width, strictly no overlap */
 .hero.hero19 > div:first-child {
   flex: 0 1 54%;
   max-width: 54%;
@@ -184,7 +183,6 @@
   align-self: flex-start;
 }
 
-/* TEXT COLUMN: solid background, visually separated from image */
 .hero.hero19 > div:nth-child(2) {
   flex: 1 1 46%;
   max-width: 46%;
@@ -197,10 +195,6 @@
   padding: 32px 32px 32px 40px;
   box-sizing: border-box;
   min-height: 100%;
-
-  /* Optional: subtle box-shadow for definition */
-
-  /* box-shadow: 0 2px 12px rgba(0,0,0,0.04); */
 }
 
 .hero.hero19 h1,
@@ -238,7 +232,6 @@
   text-align: left;
 }
 
-/* Responsive: stack on small screens */
 @media (width <= 900px) {
   .hero.hero19 {
     flex-direction: column;
@@ -262,5 +255,134 @@
   .hero.hero19 p {
     max-width: 100%;
     text-align: left;
+  }
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  background: none;
+  padding: 0;
+}
+
+/* Image container: fill space and allow overlay to sit on top */
+.hero.hero27 > div:first-child {
+  flex: 1 1 0;
+  order: 1;
+  min-width: 0;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+
+.hero.hero27 > div:first-child picture,
+.hero.hero27 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay content box: wider and tighter to content for truer match */
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 81%;
+  max-width: 1200px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 1.15rem 2.5rem 0.6rem;
+  margin: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Heading and text styles */
+.hero.hero27 h2 {
+  font-family: var(--heading-font-family);
+  color: #222;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 500;
+  margin: 0 0 0.45rem;
+  line-height: 1.18;
+}
+
+.hero.hero27 p {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1.07rem;
+  margin: 0 0 0.55rem;
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+/* Button presentation */
+.hero.hero27 .button-container {
+  margin-top: 0.85rem;
+}
+
+/* Button override for sharp corners and color/weight */
+.hero.hero27 .button,
+.hero-container > .hero-wrapper > .block.hero .button {
+  background: #ffe000;
+  color: #222;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.55rem 1.5rem;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--body-font-family);
+  line-height: 1.2;
+  text-align: left;
+}
+
+.hero.hero27 .button:hover,
+.hero.hero27 .button:focus {
+  background: #ffd100;
+}
+
+/* Responsive: stack overlay below image on small screens */
+@media (width <= 900px) {
+  .hero.hero27 {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .hero.hero27 > div:first-child {
+    min-height: 180px;
+    height: 200px;
+  }
+
+  .hero.hero27 > div:last-child {
+    position: static;
+    width: 100%;
+    max-width: none;
+    padding: 1rem 1rem 0.7rem;
+  }
+
+  .hero.hero27 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .hero.hero27 .button,
+  .hero-container > .hero-wrapper > .block.hero .button {
+    font-size: var(--body-font-size-s);
+    padding: 0.4rem 1rem;
   }
 }
