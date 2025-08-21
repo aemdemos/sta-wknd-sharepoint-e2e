@@ -2463,23 +2463,21 @@
   box-sizing: border-box;
 }
 
-/* Sidebar: even tighter for a more original-like layout */
 .tabs.tabs36 > .tabs-list {
   flex: 0 0 156px;
   min-width: 120px;
   max-width: 180px;
-  padding: 14px 0 0 12px; /* less top and left padding */
+  padding: 14px 0 0 12px;
   margin: 0;
   background: #fff;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px; /* very dense */
+  gap: 6px;
   box-sizing: border-box;
   border-right: none;
 }
 
-/* Sidebar tab styling */
 .tabs.tabs36 > .tabs-list .tabs-tab {
   background: none;
   border: none;
@@ -2517,12 +2515,11 @@
   padding-top: 0;
 }
 
-/* Main content: even less left padding for closer sidebar-to-content feel */
 .tabs.tabs36 > .tabs-panel {
   flex: 1 1 0;
   background: #fff;
   margin: 0;
-  padding: 28px 24px 36px 18px;  /* less left padding, less top/bottom */
+  padding: 28px 24px 36px 18px;
   min-width: 0;
   max-width: 100%;
   box-sizing: border-box;
@@ -2531,7 +2528,6 @@
   box-shadow: none;
 }
 
-/* Heading: gold underline, still compact margin */
 .tabs.tabs36 > .tabs-panel h3 {
   font-family: Georgia, serif;
   font-size: 2.10rem;
@@ -2551,7 +2547,6 @@
   display: none;
 }
 
-/* Paragraph: slightly narrower column, less margin below */
 .tabs.tabs36 > .tabs-panel p {
   color: #222;
   font-size: 1.06rem;
@@ -2560,7 +2555,6 @@
   max-width: 48ch;
 }
 
-/* Image: less margin above to match original tightness */
 .tabs.tabs36 > .tabs-panel picture,
 .tabs.tabs36 > .tabs-panel img {
   display: block;
@@ -2573,13 +2567,11 @@
   object-fit: cover;
 }
 
-/* Remove excess paddings from inner elements of .tabs-panel */
 .tabs.tabs36 > .tabs-panel > div {
   padding: 0;
   margin: 0;
 }
 
-/* Remove outline/border/shadow from all children */
 .tabs.tabs36 > .tabs-list,
 .tabs.tabs36 > .tabs-panel,
 .tabs.tabs36 > .tabs-list .tabs-tab {
@@ -2587,7 +2579,6 @@
   box-shadow: none;
 }
 
-/* Responsive adjustments: stack sidebar above content on mobile */
 @media (width <= 900px) {
   .tabs.tabs36 {
     flex-direction: column;
@@ -2625,4 +2616,177 @@
   .tabs.tabs36 > .tabs-panel p {
     max-width: 100%;
   }
+}
+
+
+.tabs.tabs37 {
+  /* Grid: sidebar & main content side-by-side, stack on small screens */
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  background: #fff;
+  padding: 32px 0;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 20px 0;
+  }
+}
+
+/* Sidebar styles (assumes first child div is sidebar) */
+.tabs.tabs37 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 220px;
+  background: #fff;
+  font-size: 15px;
+  color: #232323;
+  font-family: var(--body-font-family);
+  padding-left: 24px;
+  padding-right: 12px;
+  border-right: 1px solid #eee;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 > div:first-child {
+    border-right: none;
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 0;
+  }
+}
+
+/* Main block content (tabs + tab panels) */
+.tabs.tabs37 > div:last-child {
+  padding: 0 32px 0 0;
+  background: #fff;
+  min-width: 0;
+  font-family: var(--body-font-family);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 > div:last-child {
+    padding: 0;
+  }
+}
+
+/* Tabs List: horizontal bar */
+.tabs.tabs37 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  border-bottom: 1px solid #e2e2e2;
+  background: #fff;
+  margin-bottom: 32px;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+/* Tab Button styles */
+.tabs.tabs37 .tabs-tab {
+  background: #fff;
+  border: none;
+  border-right: 1px solid #e2e2e2;
+  color: #232323;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  margin: 0;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs37 .tabs-tab:last-child {
+  border-right: none;
+}
+
+.tabs.tabs37 .tabs-tab[aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+}
+
+.tabs.tabs37 .tabs-tab p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+/* Tab Panels */
+.tabs.tabs37 .tabs-panel {
+  margin-top: 0;
+  padding: 32px 0 0;
+  border: none;
+  background: #fff;
+  font-size: 16px;
+  color: #232323;
+  line-height: 1.7;
+  box-sizing: border-box;
+  display: none;
+}
+
+.tabs.tabs37 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Image styling inside tab panel */
+.tabs.tabs37 .tabs-panel img,
+.tabs.tabs37 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgb(40 40 40 / 6%);
+}
+
+/* Caption styling (first p after image in tab panel) */
+.tabs.tabs37 .tabs-panel p:first-of-type {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #232323;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+/* Regular paragraphs */
+.tabs.tabs37 .tabs-panel p:not(:first-of-type) {
+  font-size: 16px;
+  color: #232323;
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+
+/* Responsive image */
+@media (width <= 600px) {
+  .tabs.tabs37 .tabs-panel img,
+  .tabs.tabs37 .tabs-panel picture {
+    max-width: 100%;
+  }
+}
+
+/* Hide scrollbars for horizontal tabs if overflow */
+
+.tabs.tabs37 .tabs-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
