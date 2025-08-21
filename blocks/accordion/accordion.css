@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,159 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion14 {
+  box-sizing: border-box;
+  max-width: 680px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  color: #222;
+  padding: 0;
+  display: block;
+}
+
+.accordion.accordion14 details {
+  border: none;
+  border-bottom: 1px solid #eaeaea;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  display: block;
+}
+
+.accordion.accordion14 details:last-child {
+  border-bottom: none;
+}
+
+/* FAQ summary row styling */
+.accordion.accordion14 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 52px;
+  padding: 0 0 0 20px;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.18s;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+}
+
+/* Remove default marker */
+.accordion.accordion14 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* FAQ label text: left aligned, fills available space but does not force icon far right */
+.accordion.accordion14 .accordion-item-label {
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.01em;
+  flex: 1 1 auto;
+  display: block;
+  line-height: 1.6;
+}
+
+/* Paragraph inside label: keep aligned with label text */
+.accordion.accordion14 .accordion-item-label p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-transform: inherit;
+  display: inline;
+  white-space: normal;
+}
+
+/* Improved plus/minus icon using before and after for stacked bars */
+.accordion.accordion14 summary::before,
+.accordion.accordion14 summary::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  background: #505050;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* Horizontal bar for both plus and minus */
+.accordion.accordion14 summary::before {
+  width: 22px;
+  height: 3px;
+  transform: translateY(-50%);
+}
+
+/* Vertical bar ONLY for plus (hidden on open) */
+.accordion.accordion14 summary::after {
+  width: 3px;
+  height: 22px;
+  transform: translateY(-50%);
+}
+
+.accordion.accordion14 details[open] summary::after {
+  display: none;
+}
+
+/* FAQ answers */
+.accordion.accordion14 .accordion-item-body {
+  padding: 0 20px 18px;
+  color: #444;
+  font-size: 15px;
+  line-height: 1.7;
+  background: none;
+  border: none;
+  margin: 0;
+}
+
+/* Remove highlight background color on open/hover/focus */
+.accordion.accordion14 details[open] summary,
+.accordion.accordion14 details summary:focus,
+.accordion.accordion14 details summary:hover {
+  background: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .accordion.accordion14 {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .accordion.accordion14 summary,
+  .accordion.accordion14 .accordion-item-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .accordion.accordion14 summary::before,
+  .accordion.accordion14 summary::after {
+    right: 14px;
+    width: 18px;
+    height: 2px;
+  }
 }
