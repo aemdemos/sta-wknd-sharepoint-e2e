@@ -266,7 +266,7 @@
 
 .cards.cards24 {
   max-width: 900px;
-  margin: 48px auto 0; /* Add top margin for vertical centering */
+  margin: 48px auto 0;
   padding: 0;
   background: #fff;
 }
@@ -328,7 +328,6 @@
   display: block;
 }
 
-/* Card body styling: restore visibility and stacking! */
 .cards.cards24 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -339,7 +338,6 @@
   width: 100%;
 }
 
-/* Name */
 .cards.cards24 .cards-card-body h3 {
   font-family: var(--heading-font-family);
   font-size: 1.04rem;
@@ -398,4 +396,102 @@
   color: #fff;
 }
 
-/* Remove vertical margin above/below grid */
+
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 26px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards26 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  width: 155px;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.cards.cards26 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards26 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.cards.cards26 .cards-card-body .button-container {
+  margin: 2px 0 0;
+  padding: 0;
+  width: 100%;
+}
+
+.cards.cards26 .cards-card-body .button-container a.button.primary {
+  all: unset;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.15;
+  text-align: left;
+  margin: 0 0 2px;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cards.cards26 .cards-card-body > p:not(.button-container) {
+  color: #8a8a8a;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  line-height: 1.1;
+  width: 100%;
+}
+
+@media (width <= 700px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cards.cards26 > ul > li {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
