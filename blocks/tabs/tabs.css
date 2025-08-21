@@ -1122,7 +1122,6 @@
   opacity: 1;
 }
 
-/* Tabs Row */
 .tabs.tabs20 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1139,7 +1138,6 @@
   opacity: 1;
 }
 
-/* Tab Buttons */
 .tabs.tabs20 .tabs-tab {
   background: transparent;
   border: none;
@@ -1161,13 +1159,11 @@
   opacity: 1;
 }
 
-/* Active tab style */
 .tabs.tabs20 .tabs-tab[aria-selected="true"] {
   background: #222;
   color: #fff;
 }
 
-/* Tab label text */
 .tabs.tabs20 .tabs-tab p {
   margin: 0;
   font-family: inherit;
@@ -1178,7 +1174,6 @@
   color: inherit;
 }
 
-/* Main Content Block */
 .tabs.tabs20 .tabs-panel {
   width: 100%;
   max-width: 100%;
@@ -1202,7 +1197,6 @@
   opacity: 1;
 }
 
-/* Headings */
 .tabs.tabs20 .tabs-panel h3:first-of-type {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 2.2rem;
@@ -1227,7 +1221,6 @@
   margin-bottom: 0.35em;
 }
 
-/* Subheading */
 .tabs.tabs20 .tabs-panel h3 + h3,
 .tabs.tabs20 .tabs-panel h3 strong {
   font-family: Georgia, 'Times New Roman', serif;
@@ -1242,7 +1235,6 @@
   opacity: 1;
 }
 
-/* Image */
 .tabs.tabs20 .tabs-panel picture,
 .tabs.tabs20 .tabs-panel img {
   display: block;
@@ -1259,7 +1251,6 @@
   opacity: 1;
 }
 
-/* Paragraph */
 .tabs.tabs20 .tabs-panel p {
   font-size: 1rem;
   line-height: 1.65;
@@ -1272,7 +1263,6 @@
   opacity: 1;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs20 {
     padding-left: 0;
@@ -1298,4 +1288,196 @@
   .tabs.tabs20 .tabs-panel p {
     max-width: 100%;
   }
+}
+
+
+.tabs.tabs23 {
+  /* Wider left gutter, narrower column */
+  max-width: 750px;
+  margin-top: 48px;
+  margin-right: auto;
+  margin-left: 0;
+  padding-left: 100px;
+  padding-right: 24px;
+  box-sizing: border-box;
+  background: #fff;
+  display: block;
+}
+
+/* Medium screens: moderate gutter */
+@media (width <= 1100px) {
+  .tabs.tabs23 {
+    padding-left: 42px;
+    padding-right: 12px;
+    max-width: 98vw;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs23 {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100vw;
+  }
+}
+
+/* Tabs bar: even tighter gap, minimal padding */
+.tabs.tabs23 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  align-items: flex-start;
+  border: none;
+  padding: 0;
+  margin: 0 0 10px;
+  background: none;
+  box-shadow: none;
+  max-width: 100%;
+  overflow-x: auto;
+  justify-content: flex-start;
+}
+
+.tabs.tabs23 .tabs-tab {
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  padding: 6px 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  display: inline-block;
+  margin: 0;
+  min-width: 0;
+  text-align: left;
+}
+
+.tabs.tabs23 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs23 .tabs-tab p {
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+}
+
+/* Remove border/background from panel, adjust spacing */
+.tabs.tabs23 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0 0 16px;
+  overflow: visible;
+}
+
+/* All direct children of .tabs-panel > div should be left-aligned */
+.tabs.tabs23 .tabs-panel > div {
+  text-align: left;
+}
+
+/* Title styling and yellow divider, very tight vertical space */
+.tabs.tabs23 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.13rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.13;
+  position: relative;
+  text-align: left;
+}
+
+.tabs.tabs23 .tabs-panel h3::after {
+  display: block;
+  width: 41px;
+  height: 4px;
+  background: #ffeb3b;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+/* Description: left align, tight spacing under heading */
+.tabs.tabs23 .tabs-panel > div > p:first-of-type {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #222;
+  font-size: 1.08rem;
+  line-height: 1.63;
+  text-align: left;
+}
+
+/* Image: left align, fills column, no fixed px max width */
+.tabs.tabs23 .tabs-panel picture img,
+.tabs.tabs23 .tabs-panel img {
+  border-radius: 13px;
+  box-shadow: 0 4px 18px 0 rgb(0 0 0 / 10%);
+  margin-top: 2px;
+  margin-bottom: 10px;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin-left: 0;
+}
+
+.tabs.tabs23 .tabs-panel > div > p picture,
+.tabs.tabs23 .tabs-panel > div > p > img {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Caption/tip: left align, lighter and smaller */
+.tabs.tabs23 .tabs-panel > div > p:last-of-type {
+  color: #A0A0A0;
+  font-size: 0.99rem;
+  margin-top: 8px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs23 .tabs-panel picture img,
+  .tabs.tabs23 .tabs-panel img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Responsive: reduce tab gap, gutter/padding */
+@media (width <= 600px) {
+  .tabs.tabs23 .tabs-list {
+    gap: 5px;
+    margin-bottom: 7px;
+  }
+
+  .tabs.tabs23 .tabs-tab {
+    font-size: 0.95rem;
+    padding: 4px;
+    letter-spacing: 1px;
+  }
+
+  .tabs.tabs23 {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+
+/* Hide inactive panels */
+.tabs.tabs23 .tabs-panel[aria-hidden="true"] {
+  display: none;
 }
