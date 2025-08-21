@@ -615,7 +615,6 @@
 
 
 .tabs.tabs11 {
-  /* Flexbox, two columns, smaller gap, no top margin/padding */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -629,7 +628,6 @@
   gap: 20px;
 }
 
-/* Remove inherited margin/padding above block */
 .tabs.tabs11,
 .tabs.tabs11 > div,
 .tabs.tabs11 > .block.tabs {
@@ -637,7 +635,6 @@
   padding-top: 0 !important;
 }
 
-/* Sidebar (first child): slightly narrower, flush to top, no extra padding */
 .tabs.tabs11 > div:first-child {
   flex: 0 0 170px;
   min-width: 140px;
@@ -653,7 +650,6 @@
   gap: 0;
 }
 
-/* Accent line at top of sidebar, minimal space to tabs */
 .tabs.tabs11 > div:first-child::after {
   display: block;
   width: 60px;
@@ -667,7 +663,6 @@
   content: "";
 }
 
-/* Tabs: vertical, flush; tight margin above */
 .tabs.tabs11 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -682,7 +677,6 @@
   align-items: flex-start;
 }
 
-/* Tabs: consistent width, bolder active tab, less vertical padding */
 .tabs.tabs11 .tabs-tab {
   font-family: var(--body-font-family);
   font-size: 15px;
@@ -711,7 +705,6 @@
   margin: 0;
 }
 
-/* Main content column: flush to sidebar, remove border and excess padding, reduce left padding */
 .tabs.tabs11 > .block.tabs {
   flex: 1 1 0%;
   min-width: 0;
@@ -725,13 +718,11 @@
   margin: 0;
 }
 
-/* Remove extra vertical space above headings */
 .tabs.tabs11 .tabs-panel > div {
   margin-top: 0;
   padding-top: 0;
 }
 
-/* Headings: tighter above, use font sizes for hierarchy */
 .tabs.tabs11 .tabs-panel h2,
 .tabs.tabs11 .tabs-panel h3 {
   font-family: var(--heading-font-family);
@@ -754,7 +745,6 @@
   margin-top: 0;
 }
 
-/* Paragraphs: slightly tighter, max-width for readability */
 .tabs.tabs11 .tabs-panel p {
   font-family: var(--body-font-family);
   font-size: 1rem;
@@ -765,7 +755,6 @@
   max-width: 670px;
 }
 
-/* Images: full width, rounded corners, margin for tight vertical rhythm */
 .tabs.tabs11 .tabs-panel picture img,
 .tabs.tabs11 .tabs-panel img {
   display: block;
@@ -776,7 +765,6 @@
   margin: 14px 0;
 }
 
-/* Lists: tighter */
 .tabs.tabs11 .tabs-panel ul {
   font-size: 1rem;
   color: #222;
@@ -789,7 +777,6 @@
   margin-bottom: 4px;
 }
 
-/* Related trips: tight space above */
 .tabs.tabs11 .tabs-panel p:has(+ ul) {
   margin-bottom: 5px;
   margin-top: 14px;
@@ -797,7 +784,6 @@
   color: #222;
 }
 
-/* Responsive: stack columns and reduce sidebar width on small screens */
 @media (width <= 900px) {
   .tabs.tabs11 {
     flex-direction: column;
@@ -830,7 +816,6 @@
   }
 }
 
-/* Further tighten the gap between sidebar accent and tabs on mobile */
 @media (width <= 600px) {
   .tabs.tabs11 > div:first-child {
     padding: 0 4px;
@@ -838,5 +823,111 @@
 
   .tabs.tabs11 .tabs-list {
     margin-top: 3px;
+  }
+}
+
+
+.tabs13.block {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.tabs-list {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #fff;
+}
+
+.tabs-panel {
+  flex: 1 1 0;
+  background: #fff;
+  padding-bottom: 40px;
+}
+
+.tabs-list .tabs-tab p {
+  color: #888;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.tabs-list .tabs-tab h3, 
+.tabs-list .tabs-tab h2,
+.tabs-list .tabs-tab strong {
+  color: #222;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 10px;
+  box-shadow: none;
+}
+
+.tabs-panel h3 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  color: #222;
+  margin-bottom: 4px;
+  font-weight: 400;
+  position: relative;
+}
+
+.tabs-panel h3::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: #ebcd76;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 6px;
+}
+
+.tabs-panel h2 {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin-bottom: 24px;
+  margin-top: 8px;
+}
+
+.tabs-panel p {
+  color: #222;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+@media (width <= 900px) {
+  .tabs13.block {
+    flex-direction: column;
+  }
+
+  .tabs-list {
+    flex: 1 1 0;
+    width: 100%;
+    margin-bottom: 24px;
   }
 }
