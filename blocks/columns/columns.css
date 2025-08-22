@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,127 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  background: #fff;
+  padding: 0 40px;
+}
+
+/* Left group: stack logo and language link vertically */
+.columns.columns2 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  min-width: 0;
+}
+
+/* Logo block: ensure it takes up only as much width as needed */
+.columns.columns2 .columns-img-col {
+  display: block;
+  width: auto;
+  margin-bottom: 0;
+}
+
+/* Language link block: always displayed underneath logo */
+.columns.columns2 .columns-img-col + div {
+  display: block;
+  margin-top: 2px;
+  width: auto;
+}
+
+.columns.columns2 .columns-img-col + div ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns2 .columns-img-col + div ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns2 .columns-img-col + div ul li a {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+/* Logo sizing */
+.columns.columns2 .columns-img-col img {
+  height: 48px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Right group: align search box to top right */
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 220px;
+  gap: 0;
+  height: 100%;
+}
+
+/* Search box styling */
+.columns.columns2 > div > div:last-child p {
+  background: #f5f5f5;
+  border-radius: 2px;
+  padding: 8px 20px 8px 36px;
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  position: relative;
+  min-width: 120px;
+  box-sizing: border-box;
+  align-self: flex-end;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* Responsive: stack left/right on mobile */
+@media (width <= 700px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 16px;
+    min-height: 80px;
+    gap: 16px;
+  }
+
+  .columns.columns2 > div > div:first-child,
+  .columns.columns2 > div > div:last-child {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .columns.columns2 > div > div:last-child {
+    align-items: flex-start;
+    margin-top: 12px;
+  }
+
+  .columns.columns2 > div > div:last-child p {
+    align-self: flex-start;
   }
 }
