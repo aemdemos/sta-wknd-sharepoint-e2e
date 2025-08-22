@@ -2370,7 +2370,6 @@
 
 
 .tabs.tabs34 {
-  /* Start content higher and allow it to fill more width */
   display: flex;
   flex-direction: column;
   max-width: 1100px;
@@ -2380,7 +2379,6 @@
   padding: 0 18px;
 }
 
-/* Tabs navigation: horizontal, tight above content */
 .tabs.tabs34 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2393,7 +2391,6 @@
   background: none;
 }
 
-/* Individual tab buttons: less horizontal padding for compact look */
 .tabs.tabs34 .tabs-tab {
   background: transparent;
   border: none;
@@ -2428,7 +2425,6 @@
   margin: 0;
 }
 
-/* Content panel styling */
 .tabs.tabs34 .tabs-panel {
   border: none;
   box-shadow: none;
@@ -2439,7 +2435,6 @@
   width: 100%;
 }
 
-/* Main title and divider: flush left */
 .tabs.tabs34 h3 {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-l);
@@ -2453,7 +2448,6 @@
   max-width: none;
 }
 
-/* Section title */
 .tabs.tabs34 h2 {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
@@ -2464,7 +2458,6 @@
   max-width: none;
 }
 
-/* Paragraphs and text: fill content width */
 .tabs.tabs34 .tabs-panel p,
 .tabs.tabs34 .tabs-panel ul,
 .tabs.tabs34 .tabs-panel li {
@@ -2477,7 +2470,6 @@
   max-width: none;
 }
 
-/* Images: wider, flush left, consistent with text edge */
 .tabs.tabs34 .tabs-panel picture,
 .tabs.tabs34 .tabs-panel img {
   display: block;
@@ -2493,7 +2485,6 @@
   margin-bottom: 28px;
 }
 
-/* List appearance */
 .tabs.tabs34 .tabs-panel ul {
   padding-left: 24px;
   margin-bottom: 28px;
@@ -2543,7 +2534,110 @@
   }
 }
 
-/* Remove bottom margin from last child in panel for tighter look */
 .tabs.tabs34 .tabs-panel > *:last-child {
   margin-bottom: 0;
 }
+
+
+.tabs.tabs36 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;  /* space between sidebar (tabs-list) and main content (tabs-panel) */
+}
+
+/* Sidebar: tabs-list as vertical nav */
+.tabs.tabs36 > .tabs-list {
+  flex: 0 0 220px;  /* Fixed width similar to a sidebar */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff; /* White background, if needed */
+  padding-top: 48px; /* Space at the top to vertically align with main content */
+  padding-left: 0;  /* No extra padding */
+  border-right: 1px solid #eee;
+}
+
+/* Tab button styles */
+.tabs.tabs36 > .tabs-list > .tabs-tab {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 24px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #222;
+  cursor: pointer;
+}
+
+/* Active tab styling */
+.tabs.tabs36 > .tabs-list > .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 3px;
+}
+
+/* Main Content Area (Tabs Panel) */
+.tabs.tabs36 > .tabs-panel {
+  display: none;
+  flex: 1 1 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 32px;
+  margin: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs36 > .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Typography and Image Styling in Content Panel */
+.tabs.tabs36 > .tabs-panel h3 {
+  font-family: Merriweather, serif; /* Or another serif font */
+  font-size: 2rem;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.tabs.tabs36 > .tabs-panel p, 
+.tabs.tabs36 > .tabs-panel div > p {
+  font-family: Arial, sans-serif;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.tabs.tabs36 > .tabs-panel picture,
+.tabs.tabs36 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  margin-top: 32px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs36 > .tabs-panel ul,
+.tabs.tabs36 > .tabs-panel ol {
+  margin: 1em 0 1em 1.5em;
+  padding: 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Responsive image: center on narrow screens */
+@media (width <= 900px) {
+  .tabs.tabs36 > .tabs-panel picture,
+  .tabs.tabs36 > .tabs-panel img {
+    margin: 28px auto 0;
+    max-width: 100%;
+  }
+}
+
+/* Remove panel spacing/margin inherited from legacy styles */
