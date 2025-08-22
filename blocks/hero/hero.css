@@ -45,3 +45,100 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero6 {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 560px;
+  overflow: visible;
+  display: block;
+}
+
+/* Image container: keep position relative for absolute child */
+.hero.hero6 > div:first-child {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  z-index: 1;
+}
+
+/* Make image fill container */
+.hero.hero6 picture,
+.hero.hero6 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card overlay - ensure anchored to bottom and overlaps upward */
+.hero.hero6 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) translateY(15%);
+
+  /* 15% overlap upward from bottom edge of image */
+  width: 85%;
+  max-width: 1200px;
+  background: #fff;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
+  padding: 2rem 3rem;
+  z-index: 2;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  overflow: visible;
+}
+
+/* Card inner container: column for heading and divider */
+.hero.hero6 > div:nth-child(2) > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading styling in card */
+.hero.hero6 > div:nth-child(2) h2 {
+  color: #333;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin: 0 0 2rem;
+  text-align: left;
+}
+
+/* Divider styling */
+.hero.hero6 > div:nth-child(2) > div:last-child {
+  border-bottom: 1px solid #e0e0e0;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 900px) {
+  .hero.hero6 > div:first-child {
+    height: 310px;
+  }
+
+  .hero.hero6 > div:nth-child(2) {
+    width: 96%;
+    padding: 1.2rem 1rem;
+    transform: translateX(-50%) translateY(7%);
+    max-width: none;
+  }
+}
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
