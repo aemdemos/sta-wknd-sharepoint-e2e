@@ -617,7 +617,6 @@
 
 
 .tabs.tabs13 {
-  /* Use grid for the main two-column layout */
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 48px;
@@ -634,7 +633,6 @@
   }
 }
 
-/* Left sidebar: .tabs-list */
 .tabs.tabs13 > .tabs-list {
   display: flex;
   flex-direction: column;
@@ -658,7 +656,6 @@
   }
 }
 
-/* Meta information styling (if present as p/strong/ul/li in sidebar) */
 .tabs.tabs13 > .tabs-list p,
 .tabs.tabs13 > .tabs-list ul,
 .tabs.tabs13 > .tabs-list li {
@@ -681,13 +678,10 @@
   letter-spacing: 0.02em;
 }
 
-/* Main content column */
 .tabs.tabs13 > .tabs-panel {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  /* Remove border, add spacing */
   padding: 0;
   border: none;
   background: none;
@@ -704,7 +698,6 @@
   }
 }
 
-/* Tabs navigation bar inside main content */
 .tabs.tabs13 > .tabs-panel > div {
   display: flex;
   flex-direction: row;
@@ -727,7 +720,6 @@
   border: none;
 }
 
-/* If buttons are used for tabs, style them horizontally */
 .tabs.tabs13 > .tabs-panel button {
   background: #fafafa;
   color: #222;
@@ -754,7 +746,6 @@
   margin-right: 0;
 }
 
-/* Title and yellow line decoration */
 .tabs.tabs13 h3 {
   font-size: 32px;
   font-family: var(--heading-font-family);
@@ -768,7 +759,6 @@
   margin-bottom: 22px;
 }
 
-/* Add a yellow line under the main title using a block element (no content property) */
 .tabs.tabs13 h3 + h2 {
   margin-top: 0;
 }
@@ -781,7 +771,6 @@
   margin: 0 0 18px;
 }
 
-/* Image styling */
 .tabs.tabs13 img {
   display: block;
   width: 100%;
@@ -792,7 +781,6 @@
   margin-top: 8px;
 }
 
-/* Body text */
 .tabs.tabs13 p {
   font-size: 15px;
   font-family: var(--body-font-family);
@@ -801,7 +789,230 @@
   margin: 0 0 14px;
 }
 
-/* Hide panels that are inactive (if aria-hidden="true" is present) */
 .tabs.tabs13 > .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs18 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1050px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0;
+  box-sizing: border-box;
+  gap: 12px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs18 {
+    flex-direction: column;
+    gap: 8px;
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* Sidebar (tab list): flush left, very compact, tighter stack */
+.tabs.tabs18 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 90px;
+  width: 100px;
+  max-width: 115px;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+}
+
+.tabs.tabs18 > .tabs-list,
+.tabs.tabs18 > .tabs-list .tabs-tab {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Tab buttons: tight vertical rhythm, compact padding, shorter height */
+.tabs.tabs18 > .tabs-list .tabs-tab {
+  display: block;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 4px 10px;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #232323;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  min-width: 0;
+  width: fit-content;
+  margin: 0;
+  height: 28px;
+  line-height: 28px;
+}
+
+.tabs.tabs18 > .tabs-list .tabs-tab:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+.tabs.tabs18 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+}
+
+.tabs.tabs18 > .tabs-list .tabs-tab[aria-selected="false"] {
+  background: none;
+  color: #232323;
+}
+
+.tabs.tabs18 > .tabs-list .tabs-tab p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  text-transform: inherit;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs18 > .tabs-list {
+    flex-direction: row;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.5ch;
+    margin-bottom: 8px;
+    justify-content: flex-start;
+  }
+
+  .tabs.tabs18 > .tabs-list .tabs-tab {
+    padding: 8px 10px;
+    font-size: 0.95rem;
+    width: auto;
+    height: auto;
+    line-height: normal;
+  }
+}
+
+/* Main content column: tight left, vertical spacing, slightly narrow */
+.tabs.tabs18 > .tabs-panel {
+  flex: 1 1 0;
+  max-width: 680px;
+  padding: 0 0 0 6px;
+  border: none;
+  background: transparent;
+  margin: 0;
+  overflow: visible;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs18 > .tabs-panel {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* Show only active panel */
+.tabs.tabs18 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Heading styling and accent bar: proper width, vertical rhythm */
+.tabs.tabs18 > .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #232323;
+  margin-top: 30px;
+  margin-bottom: 0;
+  line-height: 1.15;
+  padding-left: 0;
+  position: relative;
+  width: fit-content;
+  padding-bottom: 0;
+}
+
+.tabs.tabs18 > .tabs-panel h3::before {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #ED9;
+  margin-top: 10px;
+  margin-bottom: 26px;
+  border-radius: 0;
+  content: "";
+}
+
+.tabs.tabs18 > .tabs-panel h3::after {
+  display: none;
+}
+
+/* Remove left indent on nested wrappers */
+.tabs.tabs18 > .tabs-panel > div,
+.tabs.tabs18 > .tabs-panel > div > p,
+.tabs.tabs18 > .tabs-panel > div > picture {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Image styling: more whitespace below, slightly narrower */
+.tabs.tabs18 > .tabs-panel picture,
+.tabs.tabs18 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 660px;
+  height: auto;
+  margin-bottom: 28px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs18 > .tabs-panel picture,
+  .tabs.tabs18 > .tabs-panel img {
+    max-width: 100%;
+    margin-bottom: 18px;
+  }
+}
+
+/* Paragraphs and text spacing: more whitespace above, tighter below */
+.tabs.tabs18 > .tabs-panel p,
+.tabs.tabs18 > .tabs-panel ul {
+  font-size: 1rem;
+  color: #232323;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  margin-top: 32px;
+  font-family: var(--body-font-family);
+  background: transparent;
+  padding-left: 0;
+}
+
+.tabs.tabs18 > .tabs-panel p:first-of-type {
+  margin-top: 0;
+}
+
+/* Remove inherited border/button style bleed */
+.tabs.tabs18 > .tabs-list .tabs-tab,
+.tabs.tabs18 > .tabs-list .tabs-tab:focus,
+.tabs.tabs18 > .tabs-list .tabs-tab:hover {
+  border: none;
+  outline: none;
 }
