@@ -379,7 +379,6 @@
 
 
 .carousel.carousel22 {
-  /* Reduce outer whitespace for immersive feel */
   margin: 0;
   padding: 0;
 }
@@ -549,4 +548,75 @@
   .carousel.carousel22 .carousel-slide-indicators {
     bottom: 12px;
   }
+}
+
+
+.carousel.carousel27 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel27 .carousel-slide-indicators {
+  display: none;
+}
+
+/* Carousel content overlay styling per screenshot */
+.carousel.carousel27 .carousel-slide .carousel-slide-content {
+  background: #fff;
+  color: #131313;
+  margin: 0;
+  padding: 32px 36px 24px;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  max-width: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.carousel.carousel27 .carousel-slide .carousel-slide-content h2 {
+  color: #131313;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.carousel.carousel27 .carousel-slide .carousel-slide-content p {
+  color: #131313;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.carousel.carousel27 .carousel-slide .carousel-slide-content .button-container {
+  margin-top: 16px;
+}
+
+.carousel.carousel27 .carousel-slide .carousel-slide-content .button {
+  background: #ffd900;
+  color: #131313;
+  border: none;
+  border-radius: 0;
+  padding: 8px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--body-font-family);
+  margin: 0;
+  box-shadow: none;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.carousel.carousel27 .carousel-slide .carousel-slide-content .button:hover,
+.carousel.carousel27 .carousel-slide .carousel-slide-content .button:focus {
+  background: #fc0;
+  color: #131313;
+  text-decoration: underline;
 }
