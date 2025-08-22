@@ -1008,8 +1008,6 @@
   outline: none;
 }
 
-
-/* Main two-column layout for visible .tabs-panel */
 .tabs.tabs19 .tabs-panel {
   display: flex;
   flex-direction: row;
@@ -1032,7 +1030,6 @@
   }
 }
 
-/* SIDEBAR: left column (should only show meta/info, not tab content) */
 .tabs.tabs19 .tabs-panel > div:first-child {
   flex: 0 0 260px;
   max-width: 300px;
@@ -1046,8 +1043,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   min-height: 100%;
-
-  /* visually tuck sidebar at top and left */
 }
 
 @media (width <= 900px) {
@@ -1060,7 +1055,6 @@
   }
 }
 
-/* Sidebar heading styling + underline */
 .tabs.tabs19 .tabs-panel > div:first-child h3 {
   font-family: var(--heading-font-family), serif;
   font-size: 2rem;
@@ -1074,18 +1068,15 @@
   box-sizing: border-box;
 }
 
-/* Hide tabs-list in sidebar if present */
 .tabs.tabs19 .tabs-panel > div:first-child .tabs-list {
   display: none !important;
 }
 
-/* Sidebar meta/info spacing */
 .tabs.tabs19 .tabs-panel > div:first-child > *:not(h3) {
   margin-top: 22px;
   margin-bottom: 0;
 }
 
-/* MAIN CONTENT: right column */
 .tabs.tabs19 .tabs-panel > div:last-child {
   flex: 1 1 0;
   min-width: 0;
@@ -1105,7 +1096,6 @@
   }
 }
 
-/* Tabs row at the top of main content (always visible and horizontal) */
 .tabs.tabs19 .tabs-panel > div:last-child .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1125,7 +1115,6 @@
   }
 }
 
-/* Tab buttons styling */
 .tabs.tabs19 .tabs-panel > div:last-child .tabs-list button {
   background: #222;
   color: #fff;
@@ -1156,7 +1145,6 @@
   margin: 0;
 }
 
-/* Main image and caption */
 .tabs.tabs19 .tabs-panel > div:last-child img,
 .tabs.tabs19 .tabs-panel > div:last-child picture {
   width: 100%;
@@ -1169,7 +1157,6 @@
   height: auto;
 }
 
-/* Caption styling (first strong/p after image) */
 .tabs.tabs19 .tabs-panel > div:last-child img + *,
 .tabs.tabs19 .tabs-panel > div:last-child picture + * {
   color: #3480c6;
@@ -1180,7 +1167,6 @@
   display: block;
 }
 
-/* Main description/content text */
 .tabs.tabs19 .tabs-panel > div:last-child p,
 .tabs.tabs19 .tabs-panel > div:last-child ol,
 .tabs.tabs19 .tabs-panel > div:last-child ul {
@@ -1190,7 +1176,6 @@
   line-height: 1.7;
 }
 
-/* Section headers */
 .tabs.tabs19 .tabs-panel > div:last-child h2,
 .tabs.tabs19 .tabs-panel > div:last-child h3,
 .tabs.tabs19 .tabs-panel > div:last-child h4 {
@@ -1201,7 +1186,6 @@
   line-height: 1.25;
 }
 
-/* Remove borders */
 .tabs.tabs19 .tabs-panel,
 .tabs.tabs19 .tabs-panel > div {
   border: none;
@@ -1209,7 +1193,6 @@
   box-shadow: none;
 }
 
-/* Extra: constrain lists in main area */
 .tabs.tabs19 .tabs-panel > div:last-child ul,
 .tabs.tabs19 .tabs-panel > div:last-child ol {
   margin-left: 1.7em;
@@ -1220,9 +1203,171 @@
   margin-bottom: 0.4em;
 }
 
-/* Hide extra tab panels (if present and not active)
-   - If possible, only show the tab panel where aria-hidden=false.
-   - This is defensive, only works if DOM uses aria-hidden. */
 .tabs.tabs19 .tabs-panel[aria-hidden="true"] {
   display: none;
+}
+
+
+.tabs.tabs20 {
+  /* Bring block closer to top, less vertical gap, slightly less side padding, nearly square corners */
+  max-width: 1120px;
+  margin: 0 auto 40px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 1%);
+  padding: 16px 18px 40px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs20 {
+    max-width: 100%;
+    padding: 6px 2px 20px;
+    margin: 0 0 24px;
+    border-radius: 0;
+  }
+}
+
+/* Tabs bar: horizontal, minimal top margin, compact spacing below */
+.tabs.tabs20 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  border-bottom: none;
+  background: transparent;
+  width: 100%;
+}
+
+/* Tab buttons: horizontal, visually strong active state, crisp look */
+.tabs.tabs20 .tabs-list .tabs-tab {
+  background: #f8f8f8;
+  color: #222;
+  padding: 10px 26px 9px;
+  border: none;
+  border-radius: 3px 3px 0 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  position: relative;
+  letter-spacing: 0.05em;
+  outline: none;
+}
+
+.tabs.tabs20 .tabs-list .tabs-tab[aria-selected='true'] {
+  background: #111;
+  color: #fff;
+  z-index: 2;
+  border-bottom: 3px solid #FFD700;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 2%);
+}
+
+.tabs.tabs20 .tabs-list .tabs-tab:not([aria-selected='true']):hover,
+.tabs.tabs20 .tabs-list .tabs-tab:not([aria-selected='true']):focus {
+  background: #ececec;
+  color: #222;
+}
+
+/* Remove any default inner p margin for tab labels */
+.tabs.tabs20 .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Tab panel: left-aligned, more breathing room between sections */
+.tabs.tabs20 .tabs-panel {
+  padding: 0;
+  background: #fff;
+  border: none;
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  width: 100%;
+  box-shadow: none;
+  display: block;
+}
+
+/* Section headings: stronger size & weight, improved separation */
+.tabs.tabs20 .tabs-panel h1,
+.tabs.tabs20 .tabs-panel h2,
+.tabs.tabs20 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-weight: 800;
+  color: #111;
+  margin-top: 0;
+  margin-bottom: 22px;
+  letter-spacing: 0.015em;
+  line-height: 1.2;
+}
+
+.tabs.tabs20 .tabs-panel h1 {
+  font-size: 2.2rem;
+}
+
+.tabs.tabs20 .tabs-panel h2 {
+  font-size: 1.5rem;
+}
+
+.tabs.tabs20 .tabs-panel h3 {
+  font-size: 1.1rem;
+}
+
+/* Paragraphs and lists: generous rhythm, soft color, extra space below for blocky sections */
+.tabs.tabs20 .tabs-panel p,
+.tabs.tabs20 .tabs-panel ul,
+.tabs.tabs20 .tabs-panel ol {
+  color: #1a1a1a;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* Images: more space below, subtle shadow, crisp rounded corners */
+.tabs.tabs20 .tabs-panel img {
+  display: block;
+  margin: 0 auto 32px;
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 3%);
+}
+
+/* List items: readable and spaced */
+.tabs.tabs20 .tabs-panel ul li,
+.tabs.tabs20 .tabs-panel ol li {
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Visually separate major blocks (headings, lists, images) a bit more */
+.tabs.tabs20 .tabs-panel > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/* Ensure all content is left aligned */
+.tabs.tabs20 .tabs-panel,
+.tabs.tabs20 .tabs-panel > * {
+  text-align: left;
+}
+
+/* Remove sidebar and vertical stacking from previous experiments */
+.tabs.tabs20 > div {
+  padding: 0;
+  margin: 0;
+}
+
+.tabs.tabs20 > div:first-child {
+  border: none;
+  padding: 0;
+  min-width: 0;
+  max-width: 100%;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
 }
