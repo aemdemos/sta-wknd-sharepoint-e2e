@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,190 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards3 {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 24px;
+}
+
+/* Grid for profile cards only */
+.cards.cards3 > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Header/section intro lis: span full width, remove card styles, space out */
+.cards.cards3 > ul > li:first-child,
+.cards.cards3 > ul > li:nth-child(6) {
+  grid-column: 1 / -1;
+  background: none;
+  border: none;
+  display: block;
+  padding: 0 0 24px;
+}
+
+/* Remove card style from all li */
+.cards.cards3 > ul > li {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+/* Section headings: large, bold, left-aligned, underline */
+.cards.cards3 .cards-card-body h1 {
+  font-family: var(--heading-font-family);
+  font-size: 2.1rem;
+  color: #222;
+  font-weight: bold;
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+.cards.cards3 .cards-card-body h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.5rem;
+  color: #222;
+  font-weight: bold;
+  margin: 0 0 10px;
+  text-align: left;
+  border-bottom: 2px solid #c4b24d;
+  width: fit-content;
+  padding-bottom: 4px;
+}
+
+/* Section intro text */
+.cards.cards3 .cards-card-body p em {
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  color: #555;
+  font-style: italic;
+  text-align: left;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Profile card image: circular, centered */
+.cards.cards3 .cards-card-image {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+}
+
+.cards.cards3 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Profile name/title */
+.cards.cards3 .cards-card-body h3 {
+  font-family: var(--heading-font-family);
+  color: #222;
+  font-size: 1.13rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 5px;
+}
+
+.cards.cards3 .cards-card-body h5 {
+  font-family: var(--body-font-family);
+  color: #444;
+  font-size: 0.82rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+/* Social links as horizontal button-like icons */
+.cards.cards3 .cards-card-body p:not(:has(em)) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards3 .cards-card-body p:not(:has(em)) a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  line-height: 32px;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  margin: 0;
+  box-sizing: border-box;
+  transition: background 0.2s, color 0.2s;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.cards.cards3 .cards-card-body p:not(:has(em)) a:hover {
+  background: #c4b24d;
+  color: #222;
+}
+
+/* Remove underline from social links */
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .cards.cards3 {
+    padding: 0 10px;
+  }
+
+  .cards.cards3 > ul {
+    gap: 28px 18px;
+  }
+
+  .cards.cards3 .cards-card-image {
+    width: 92px;
+    height: 92px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards3 > ul {
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+  }
+
+  .cards.cards3 .cards-card-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .cards.cards3 .cards-card-body h1 {
+    font-size: 1.5rem;
+  }
+
+  .cards.cards3 .cards-card-body h2 {
+    font-size: 1.13rem;
+  }
 }
