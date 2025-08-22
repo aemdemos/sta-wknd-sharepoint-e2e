@@ -1,7 +1,14 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
-  display: flex;
+  display: grid;
   flex-direction: column;
+  grid-template-columns: minmax(150px, 240px) 1fr minmax(140px, 220px);
+  place-items: start stretch;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 48px 28px;
+  gap: 56px;
+  box-sizing: border-box;
 }
 
 .columns img {
@@ -14,10 +21,22 @@
 
 .columns > div > .columns-img-col {
   order: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
 }
 
 .columns > div > .columns-img-col img {
   display: block;
+  width: 140px;
+  min-width: 80px;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 @media (width >= 900px) {
@@ -44,7 +63,6 @@
   padding: 0 40px;
 }
 
-/* Left group: stack logo and language link vertically */
 .columns.columns2 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -54,14 +72,12 @@
   min-width: 0;
 }
 
-/* Logo block: ensure it takes up only as much width as needed */
 .columns.columns2 .columns-img-col {
   display: block;
   width: auto;
   margin-bottom: 0;
 }
 
-/* Language link block: always displayed underneath logo */
 .columns.columns2 .columns-img-col + div {
   display: block;
   margin-top: 2px;
@@ -90,7 +106,6 @@
   display: block;
 }
 
-/* Logo sizing */
 .columns.columns2 .columns-img-col img {
   height: 48px;
   width: auto;
@@ -99,7 +114,6 @@
   display: block;
 }
 
-/* Right group: align search box to top right */
 .columns.columns2 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -110,7 +124,6 @@
   height: 100%;
 }
 
-/* Search box styling */
 .columns.columns2 > div > div:last-child p {
   background: #f5f5f5;
   border-radius: 2px;
@@ -129,7 +142,6 @@
   line-height: 1.4;
 }
 
-/* Responsive: stack left/right on mobile */
 @media (width <= 700px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -152,5 +164,172 @@
 
   .columns.columns2 > div > div:last-child p {
     align-self: flex-start;
+  }
+}
+
+
+.columns {
+  background: #232323;
+  color: #fff;
+  border-bottom: 1px solid #444;
+  font-family: var(--body-font-family);
+  margin: 0;
+  padding: 0;
+}
+
+/* Use grid for precise side-by-side alignment and column sizing */
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns > div {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 24px;
+    padding: 18px 8px;
+  }
+}
+
+/* LEFT COLUMN: Logo */
+
+/* Hide any unwanted lists in the logo column */
+.columns > div > .columns-img-col ul,
+.columns > div > .columns-img-col li {
+  display: none;
+}
+
+/* CENTER COLUMN: Navigation */
+.columns > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hide 'Home' link */
+.columns > div > div:nth-child(2) > ul > li > a {
+  display: none;
+}
+
+/* Only show second-level nav links horizontally */
+.columns > div > div:nth-child(2) > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.columns > div > div:nth-child(2) > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 44px;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Style second-level nav links */
+.columns > div > div:nth-child(2) > ul > li > ul > li > a {
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  transition: color 0.15s;
+  padding: 0 2px;
+  background: none;
+  border: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Active/featured nav link: blue */
+.columns > div > div:nth-child(2) > ul > li > ul > li:nth-child(2) > a {
+  color: #b3e5fc;
+}
+
+/* Link hover/focus effect */
+.columns > div > div:nth-child(2) > ul > li > ul > li > a:hover,
+.columns > div > div:nth-child(2) > ul > li > ul > li > a:focus {
+  color: #b3e5fc;
+  text-decoration: underline;
+}
+
+/* Remove bullets in all lists in .columns */
+.columns ul,
+.columns li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* RIGHT COLUMN: Search/Actions */
+.columns > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.columns > div > div:last-child p,
+.columns > div > div:last-child input,
+.columns > div > div:last-child button {
+  color: #fff;
+  background: none;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.columns > div > div:last-child input[type="text"],
+.columns > div > div:last-child input[type="search"] {
+  background: #232323;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 7px 18px;
+  border-radius: 2px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* All links in columns use white by default */
+.columns a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.columns a:hover, .columns a:focus {
+  color: #b3e5fc;
+  text-decoration: underline;
+}
+
+/* Responsive logo size for small screens */
+@media (width <= 600px) {
+  .columns > div {
+    gap: 10px;
+    padding: 10px 2px;
+  }
+
+  .columns > div > .columns-img-col img {
+    width: 80px;
+  }
+
+  .columns > div > div:nth-child(2) > ul > li > ul {
+    gap: 18px;
   }
 }
