@@ -144,7 +144,6 @@
   box-sizing: border-box;
 }
 
-/* 1. Stack hero image above the content, no overlap */
 .hero.hero38 > div {
   display: block;
   width: 100%;
@@ -152,7 +151,6 @@
   padding: 0;
 }
 
-/* Hero image: full width, aspect ratio preserved, never overlapped */
 .hero.hero38 > div:first-child picture,
 .hero.hero38 > div:first-child img {
   display: block;
@@ -165,7 +163,6 @@
   box-shadow: none;
 }
 
-/* 2. Content container: centered, white background, fully below the image */
 .hero.hero38 > div:last-child {
   background: #fff;
   width: 100%;
@@ -181,7 +178,6 @@
   clear: both;
 }
 
-/* 3. Headings */
 .hero.hero38 h1 {
   font-size: 2.3rem;
   font-family: var(--heading-font-family);
@@ -217,7 +213,6 @@
   border-radius: 2px;
 }
 
-/* 4. Byline styling */
 .hero.hero38 h4 {
   font-size: 1rem;
   text-transform: uppercase;
@@ -227,7 +222,6 @@
   letter-spacing: 1px;
 }
 
-/* 5. Paragraphs */
 .hero.hero38 p {
   font-size: 1rem;
   color: #222;
@@ -236,7 +230,6 @@
   max-width: 700px;
 }
 
-/* 6. Blockquote styling */
 .hero.hero38 blockquote {
   background: #f6f6f6;
   border-left: 4px solid #ffe566;
@@ -253,7 +246,6 @@
   margin: 0;
 }
 
-/* 7. Underlined (attribution) line after blockquote */
 .hero.hero38 p u {
   color: #ffe566;
   font-size: 1rem;
@@ -263,7 +255,6 @@
   margin-left: 6px;
 }
 
-/* 8. Inline images within content */
 .hero.hero38 picture:not(:first-child),
 .hero.hero38 img:not(:first-child) {
   display: block;
@@ -275,7 +266,6 @@
   object-fit: cover;
 }
 
-/* 9. Emphasized address lines */
 .hero.hero38 p strong em {
   color: #666;
   font-style: italic;
@@ -284,8 +274,6 @@
   margin-top: -8px;
   margin-bottom: 24px;
 }
-
-/* 10. Section/vertical spacing improvements */
 
 .hero.hero38 p + h2 {
   margin-top: 54px;
@@ -300,7 +288,6 @@
   margin-top: 0;
 }
 
-/* 11. Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero38 > div:last-child {
     padding: 28px 8px 0;
@@ -327,4 +314,134 @@
   }
 }
 
-/* 12. Prevent any overlap or stacking issues */
+
+.hero.hero39 {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Background image coverage */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero.hero39 > div:first-child picture,
+.hero.hero39 > div:first-child img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: none;
+  max-height: none;
+  box-sizing: border-box;
+}
+
+/* Overlay box refinement: closer to bottom, wider, generous side padding */
+.hero.hero39 > div:last-child {
+  position: absolute;
+  left: 56px;
+  bottom: 18px;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 6px 32px 0 rgb(34 34 34 / 12%);
+  padding: 28px 58px 24px;
+  max-width: 730px;
+  width: 47vw;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Headline styles */
+.hero.hero39 > div:last-child h1,
+.hero.hero39 > div:last-child h2,
+.hero.hero39 > div:last-child h3,
+.hero.hero39 > div:last-child h4,
+.hero.hero39 > div:last-child h5,
+.hero.hero39 > div:last-child h6 {
+  font-family: var(--heading-font-family);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 18px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* Paragraph styles */
+.hero.hero39 > div:last-child p {
+  color: #444;
+  font-size: 1.13rem;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 80ch;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 1200px) {
+  .hero.hero39 > div:last-child {
+    max-width: 96vw;
+    width: 83vw;
+    left: 2vw;
+    padding: 18px 5vw;
+    bottom: 10px;
+  }
+}
+
+@media (width <= 800px) {
+  .hero.hero39 {
+    min-height: 260px;
+  }
+
+  .hero.hero39 > div:last-child {
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    max-width: 98vw;
+    width: auto;
+    min-width: 0;
+    padding: 12px 4vw;
+  }
+
+  .hero.hero39 > div:last-child h1,
+  .hero.hero39 > div:last-child h2 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .hero.hero39 > div:last-child p {
+    font-size: 1rem;
+  }
+}
+
+@media (width <= 500px) {
+  .hero.hero39 {
+    min-height: 140px;
+  }
+
+  .hero.hero39 > div:last-child {
+    padding: 7px 2vw 8px;
+    bottom: 4px;
+  }
+
+  .hero.hero39 > div:last-child h1,
+  .hero.hero39 > div:last-child h2 {
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+  }
+}
