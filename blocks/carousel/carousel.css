@@ -157,7 +157,6 @@
   display: none;
 }
 
-/* Ensure indicators are visible, centered below image */
 .carousel.carousel15 .carousel-slides-container {
   position: relative;
   padding-bottom: 44px;
@@ -199,13 +198,11 @@
   padding: 0;
 }
 
-/* Only one dot, so both states are black */
 .carousel.carousel15 .carousel-slide-indicator button:disabled,
 .carousel.carousel15 .carousel-slide-indicator button[aria-current="true"] {
   background: #131313;
 }
 
-/* Navigation arrows: visible, flush bottom right, simple black glyphs, no background */
 .carousel.carousel15 .carousel-navigation-buttons {
   display: flex;
   position: absolute;
@@ -242,12 +239,10 @@
   justify-content: center;
 }
 
-/* Remove any default chevron arrow if present */
 .carousel.carousel15 .carousel-navigation-buttons button::after {
   display: none;
 }
 
-/* Use a visually simple unicode arrow glyph (accessible) */
 .carousel.carousel15 .carousel-navigation-buttons button.slide-prev::before,
 .carousel.carousel15 .carousel-navigation-buttons button.slide-next::before {
   display: block;
@@ -277,3 +272,117 @@
     right: 6px;
   }
 }
+
+
+.carousel.carousel17 {
+  position: relative;
+  margin-top: 0; /* Remove any top margin */
+}
+
+/* Remove white space above image */
+.carousel.carousel17 .carousel-slides-container {
+  padding-top: 0;
+  padding-bottom: 54px;
+  margin-top: 0;
+}
+
+/* Hide empty overlay bar so image remains clean */
+.carousel.carousel17 .carousel-slide-content:empty {
+  display: none;
+}
+
+/* Give more space below image for controls, but keep image flush at top */
+
+/* Navigation arrows: visible at far left/right below image, in white area */
+.carousel.carousel17 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 0 38px;
+  width: 100%;
+  height: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Arrow buttons: minimal, black glyphs, no background/border */
+.carousel.carousel17 .carousel-navigation-buttons button {
+  pointer-events: auto;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons .slide-prev::after,
+.carousel.carousel17 .carousel-navigation-buttons .slide-next::after {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: solid #222;
+  border-width: 0 0 3px 3px;
+  margin: auto;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons .slide-prev::after {
+  transform: rotate(45deg);
+}
+
+.carousel.carousel17 .carousel-navigation-buttons .slide-next::after {
+  transform: rotate(-135deg);
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button:disabled {
+  opacity: 0.4;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button:hover,
+.carousel.carousel17 .carousel-navigation-buttons button:focus {
+  background: none;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Center dots below image, spaced from arrows */
+.carousel.carousel17 .carousel-slide-indicators {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  background: none;
+  padding: 0;
+  z-index: 3;
+  box-shadow: none;
+}
+
+/* Indicator dots: small, round, black for active, gray for inactive */
+.carousel.carousel17 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  background: #d1d1d1;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s;
+  font-size: 0;
+  color: transparent;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button:disabled {
+  background: #222;
+}
+
+/* Hide default dot button text */
