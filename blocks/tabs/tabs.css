@@ -402,7 +402,6 @@
 
 
 .tabs.tabs12 {
-  /* Two-column layout: sidebar (tabs-list) and main content (tabs-panel) */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -424,7 +423,6 @@
   }
 }
 
-/* --- SIDEBAR: .tabs-list --- */
 .tabs.tabs12 > .tabs-list {
   flex: 0 0 330px;
   max-width: 340px;
@@ -440,13 +438,11 @@
   justify-content: flex-start;
 }
 
-/* Only the Overview tab shows in sidebar, hide others */
 .tabs.tabs12 > .tabs-list > .tabs-tab:not([aria-selected="true"]),
 .tabs.tabs12 > .tabs-list button.tabs-tab:not([aria-selected="true"]) {
   display: none;
 }
 
-/* Overview tab styles */
 .tabs.tabs12 > .tabs-list > .tabs-tab,
 .tabs.tabs12 > .tabs-list button.tabs-tab {
   width: 100%;
@@ -501,7 +497,6 @@
   font-weight: 400;
 }
 
-/* --- MAIN COLUMN: .tabs-panel --- */
 .tabs.tabs12 > .tabs-panel {
   flex: 1 1 0;
   min-width: 0;
@@ -517,14 +512,12 @@
   overflow: visible;
 }
 
-/* Make each content section stack vertically with spacing */
 .tabs.tabs12 > .tabs-panel > div {
   margin-bottom: 38px;
   padding: 0;
   background: none;
 }
 
-/* Main header style */
 .tabs.tabs12 > .tabs-panel > div h3 {
   font-family: var(--heading-font-family);
   font-size: 2rem;
@@ -539,12 +532,10 @@
   display: inline-block;
 }
 
-/* Remove repeated headers except the first in main panel (if present) */
 .tabs.tabs12 > .tabs-panel > div:not(:first-of-type) > h3 {
   display: none;
 }
 
-/* List styling and spacing */
 .tabs.tabs12 > .tabs-panel ul {
   margin: 0.7em 0 0.3em 1.2em;
   padding: 0 0 0 1.1em;
@@ -558,7 +549,6 @@
   line-height: 1.5;
 }
 
-/* Paragraphs in main panel */
 .tabs.tabs12 > .tabs-panel p {
   color: #222;
   font-size: 1.08rem;
@@ -566,10 +556,6 @@
   margin: 0.7em 0 0.3em;
   word-wrap: break-word;
 }
-
-/* --- TABS NAVIGATION ROW --- */
-
-/* Style top tab headings as a horizontal navigation bar */
 
 .tabs.tabs12 > .tabs-list > .tabs-tab[aria-selected="true"],
 .tabs.tabs12 > .tabs-list button.tabs-tab[aria-selected="true"] {
@@ -594,12 +580,10 @@
   font-weight: inherit;
 }
 
-/* Only show the tab nav row if it's in HTML */
 .tabs.tabs12 > .tabs-list:empty {
   display: none;
 }
 
-/* --- RESPONSIVE --- */
 @media (width <= 600px) {
   .tabs.tabs12 {
     padding: 0 4px;
@@ -624,12 +608,200 @@
   }
 }
 
-/* Prevent panel overflow */
-
-/* Remove panel/list borders and background if present */
 .tabs.tabs12 > .tabs-panel,
 .tabs.tabs12 > .tabs-list {
   border: none;
   background: none;
   box-shadow: none;
+}
+
+
+.tabs.tabs13 {
+  /* Use grid for the main two-column layout */
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  padding: 40px 0;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 24px 0;
+  }
+}
+
+/* Left sidebar: .tabs-list */
+.tabs.tabs13 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 260px;
+  min-width: 180px;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 > .tabs-list {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+}
+
+/* Meta information styling (if present as p/strong/ul/li in sidebar) */
+.tabs.tabs13 > .tabs-list p,
+.tabs.tabs13 > .tabs-list ul,
+.tabs.tabs13 > .tabs-list li {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.tabs.tabs13 > .tabs-list strong {
+  display: block;
+  font-size: 15px;
+  color: #222;
+  margin-top: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Main content column */
+.tabs.tabs13 > .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Remove border, add spacing */
+  padding: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0;
+  overflow: visible;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 > .tabs-panel {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+/* Tabs navigation bar inside main content */
+.tabs.tabs13 > .tabs-panel > div {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 32px;
+  margin-top: 0;
+  align-items: center;
+}
+
+.tabs.tabs13 > .tabs-panel > div > p,
+.tabs.tabs13 > .tabs-panel > div > button {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #222;
+  background: none;
+  border: none;
+}
+
+/* If buttons are used for tabs, style them horizontally */
+.tabs.tabs13 > .tabs-panel button {
+  background: #fafafa;
+  color: #222;
+  border: 1px solid #bbb;
+  border-radius: 0;
+  padding: 7px 22px;
+  margin-right: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1.3;
+}
+
+.tabs.tabs13 > .tabs-panel button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+  cursor: default;
+}
+
+.tabs.tabs13 > .tabs-panel button:last-child {
+  margin-right: 0;
+}
+
+/* Title and yellow line decoration */
+.tabs.tabs13 h3 {
+  font-size: 32px;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 12px;
+  position: relative;
+  border-bottom: 3px solid #ffe066;
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 22px;
+}
+
+/* Add a yellow line under the main title using a block element (no content property) */
+.tabs.tabs13 h3 + h2 {
+  margin-top: 0;
+}
+
+.tabs.tabs13 h2 {
+  font-size: 24px;
+  font-family: var(--heading-font-family);
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 0 0 18px;
+}
+
+/* Image styling */
+.tabs.tabs13 img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 18px;
+  margin-top: 8px;
+}
+
+/* Body text */
+.tabs.tabs13 p {
+  font-size: 15px;
+  font-family: var(--body-font-family);
+  color: #222;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+
+/* Hide panels that are inactive (if aria-hidden="true" is present) */
+.tabs.tabs13 > .tabs-panel[aria-hidden='true'] {
+  display: none;
 }
