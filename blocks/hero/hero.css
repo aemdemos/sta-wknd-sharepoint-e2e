@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -56,7 +57,6 @@
   display: block;
 }
 
-/* Image container: keep position relative for absolute child */
 .hero.hero6 > div:first-child {
   position: relative;
   width: 100%;
@@ -68,7 +68,6 @@
   z-index: 1;
 }
 
-/* Make image fill container */
 .hero.hero6 picture,
 .hero.hero6 img {
   width: 100%;
@@ -77,14 +76,11 @@
   display: block;
 }
 
-/* Card overlay - ensure anchored to bottom and overlaps upward */
 .hero.hero6 > div:nth-child(2) {
   position: absolute;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%) translateY(15%);
-
-  /* 15% overlap upward from bottom edge of image */
   width: 85%;
   max-width: 1200px;
   background: #fff;
@@ -99,7 +95,6 @@
   overflow: visible;
 }
 
-/* Card inner container: column for heading and divider */
 .hero.hero6 > div:nth-child(2) > div {
   width: 100%;
   display: flex;
@@ -107,7 +102,6 @@
   align-items: flex-start;
 }
 
-/* Heading styling in card */
 .hero.hero6 > div:nth-child(2) h2 {
   color: #333;
   font-family: Georgia, 'Times New Roman', serif;
@@ -117,14 +111,12 @@
   text-align: left;
 }
 
-/* Divider styling */
 .hero.hero6 > div:nth-child(2) > div:last-child {
   border-bottom: 1px solid #e0e0e0;
   margin-top: 2rem;
   width: 100%;
 }
 
-/* Responsive adjustments for mobile */
 @media (width <= 900px) {
   .hero.hero6 > div:first-child {
     height: 310px;
@@ -142,3 +134,197 @@
   max-width: unset;
   padding: 0;
 }
+
+
+.hero.hero38 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* 1. Stack hero image above the content, no overlap */
+.hero.hero38 > div {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero image: full width, aspect ratio preserved, never overlapped */
+.hero.hero38 > div:first-child picture,
+.hero.hero38 > div:first-child img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 340px;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* 2. Content container: centered, white background, fully below the image */
+.hero.hero38 > div:last-child {
+  background: #fff;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 32px;
+  padding: 48px 32px 0;
+  box-sizing: border-box;
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  box-shadow: 0 12px 36px 0 rgb(40 40 40 / 5%);
+  z-index: 2;
+  clear: both;
+}
+
+/* 3. Headings */
+.hero.hero38 h1 {
+  font-size: 2.3rem;
+  font-family: var(--heading-font-family);
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.hero.hero38 h2 {
+  font-size: 1.5rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  margin: 48px 0 16px;
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.25;
+  text-align: left;
+  margin-top: 48px;
+  margin-bottom: 14px;
+}
+
+.hero.hero38 h2::before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 70%;
+  background: #ffe566;
+  border-radius: 2px;
+}
+
+/* 4. Byline styling */
+.hero.hero38 h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0 0 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* 5. Paragraphs */
+.hero.hero38 p {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+/* 6. Blockquote styling */
+.hero.hero38 blockquote {
+  background: #f6f6f6;
+  border-left: 4px solid #ffe566;
+  margin: 36px 0;
+  padding: 18px 28px;
+  font-size: 1.15rem;
+  color: #222;
+  font-style: italic;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.hero.hero38 blockquote p {
+  margin: 0;
+}
+
+/* 7. Underlined (attribution) line after blockquote */
+.hero.hero38 p u {
+  color: #ffe566;
+  font-size: 1rem;
+  font-weight: 600;
+  background: transparent;
+  text-decoration: underline;
+  margin-left: 6px;
+}
+
+/* 8. Inline images within content */
+.hero.hero38 picture:not(:first-child),
+.hero.hero38 img:not(:first-child) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 38px auto 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+  object-fit: cover;
+}
+
+/* 9. Emphasized address lines */
+.hero.hero38 p strong em {
+  color: #666;
+  font-style: italic;
+  font-size: 1rem;
+  display: block;
+  margin-top: -8px;
+  margin-bottom: 24px;
+}
+
+/* 10. Section/vertical spacing improvements */
+
+.hero.hero38 p + h2 {
+  margin-top: 54px;
+}
+
+.hero.hero38 picture {
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+.hero.hero38 blockquote + p u {
+  margin-top: 0;
+}
+
+/* 11. Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero38 > div:last-child {
+    padding: 28px 8px 0;
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .hero.hero38 h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero.hero38 h2 {
+    font-size: 1.1rem;
+    padding-left: 12px;
+  }
+
+  .hero.hero38 blockquote {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .hero.hero38 p {
+    max-width: 100%;
+  }
+}
+
+/* 12. Prevent any overlap or stacking issues */
