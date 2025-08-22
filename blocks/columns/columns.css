@@ -177,9 +177,6 @@
   padding: 0;
 }
 
-/* Use grid for precise side-by-side alignment and column sizing */
-
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 900px) {
   .columns > div {
     grid-template-columns: 1fr;
@@ -189,15 +186,11 @@
   }
 }
 
-/* LEFT COLUMN: Logo */
-
-/* Hide any unwanted lists in the logo column */
 .columns > div > .columns-img-col ul,
 .columns > div > .columns-img-col li {
   display: none;
 }
 
-/* CENTER COLUMN: Navigation */
 .columns > div > div:nth-child(2) {
   display: flex;
   flex-direction: row;
@@ -208,12 +201,10 @@
   margin: 0;
 }
 
-/* Hide 'Home' link */
 .columns > div > div:nth-child(2) > ul > li > a {
   display: none;
 }
 
-/* Only show second-level nav links horizontally */
 .columns > div > div:nth-child(2) > ul {
   padding: 0;
   margin: 0;
@@ -229,7 +220,6 @@
   list-style: none;
 }
 
-/* Style second-level nav links */
 .columns > div > div:nth-child(2) > ul > li > ul > li > a {
   color: #fff;
   font-weight: 700;
@@ -245,19 +235,16 @@
   white-space: nowrap;
 }
 
-/* Active/featured nav link: blue */
 .columns > div > div:nth-child(2) > ul > li > ul > li:nth-child(2) > a {
   color: #b3e5fc;
 }
 
-/* Link hover/focus effect */
 .columns > div > div:nth-child(2) > ul > li > ul > li > a:hover,
 .columns > div > div:nth-child(2) > ul > li > ul > li > a:focus {
   color: #b3e5fc;
   text-decoration: underline;
 }
 
-/* Remove bullets in all lists in .columns */
 .columns ul,
 .columns li {
   list-style: none;
@@ -265,7 +252,6 @@
   padding: 0;
 }
 
-/* RIGHT COLUMN: Search/Actions */
 .columns > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -306,7 +292,6 @@
   box-shadow: none;
 }
 
-/* All links in columns use white by default */
 .columns a {
   color: #fff;
   text-decoration: none;
@@ -318,7 +303,6 @@
   text-decoration: underline;
 }
 
-/* Responsive logo size for small screens */
 @media (width <= 600px) {
   .columns > div {
     gap: 10px;
@@ -331,5 +315,176 @@
 
   .columns > div > div:nth-child(2) > ul > li > ul {
     gap: 18px;
+  }
+}
+
+
+.columns.columns9 {
+  background: #232220;
+  color: #e3e3e3;
+  border-bottom: 2px solid #e3e3e3;
+  font-family: var(--body-font-family);
+  margin: 0;
+  padding: 0;
+}
+
+/* MAIN LAYOUT: Use grid to ensure left for logo/socials, right for paragraphs */
+.columns.columns9 > .columns {
+  display: grid;
+  grid-template-columns: minmax(240px, 330px) minmax(320px, 1fr);
+  gap: 56px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px 64px;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* Responsive: Stack columns on small screens */
+@media (width <= 900px) {
+  .columns.columns9 > .columns {
+    grid-template-columns: 1fr;
+    padding: 24px 12px;
+    gap: 32px;
+  }
+}
+
+/* LEFT COLUMN (logo + socials): */
+.columns.columns9 > .columns > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* Logo styling */
+.columns.columns9 .columns-img-col {
+  margin-bottom: 0;
+}
+
+.columns.columns9 .columns-img-col img {
+  display: block;
+  max-width: 160px;
+  height: auto;
+  margin: 0;
+}
+
+/* Socials block: label + horizontal row of buttons */
+.columns.columns9 > .columns > div:first-child > div:last-child {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.columns.columns9 h4#follow-us {
+  font-size: 15px;
+  color: #e3e3e3;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  letter-spacing: 1px;
+  text-align: right;
+  width: 100%;
+}
+
+/* Horizontal row for socials */
+
+.columns.columns9 > .columns > div:first-child > div:last-child > p.button-container {
+  display: inline-flex;
+  margin-right: 8px;
+  margin-bottom: 0;
+}
+
+.columns.columns9 > .columns > div:first-child > div:last-child > p.button-container:last-child {
+  margin-right: 0;
+}
+
+/* Social button styling: squarish and compact, override base .button for this block */
+.columns.columns9 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  height: 36px;
+  background: #e3e3e3;
+  color: #232220;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  box-sizing: border-box;
+  transition: background 0.2s, color 0.2s;
+  padding: 0 18px;
+  margin: 0;
+}
+
+.columns.columns9 .button:hover,
+.columns.columns9 .button:focus {
+  background: #c3c3c3;
+  color: #232220;
+}
+
+/* RIGHT COLUMN: paragraph text only, wide, left aligned */
+.columns.columns9 > .columns > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.columns.columns9 > .columns > div:last-child p {
+  color: #e3e3e3;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  text-align: left;
+  font-weight: 400;
+  text-transform: none;
+  max-width: 700px;
+  letter-spacing: normal;
+}
+
+.columns.columns9 > .columns > div:last-child a {
+  color: #e3e3e3;
+  text-decoration: underline;
+  transition: color 0.2s;
+  font-weight: 400;
+}
+
+.columns.columns9 > .columns > div:last-child a:hover,
+.columns.columns9 > .columns > div:last-child a:focus {
+  color: #c3c3c3;
+}
+
+/* Remove bullets from any ul/li if present */
+.columns.columns9 ul,
+.columns.columns9 li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Responsive: Stack social buttons vertically if needed */
+@media (width <= 600px) {
+  .columns.columns9 > .columns {
+    padding: 12px 4px;
+    gap: 16px;
+  }
+
+  .columns.columns9 .columns-img-col img {
+    max-width: 80px;
+  }
+
+  .columns.columns9 > .columns > div:first-child > div:last-child > p.button-container {
+    display: block;
+    margin-bottom: 10px;
+    margin-right: 0;
   }
 }
