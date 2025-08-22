@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +149,131 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel.carousel15 .carousel-slide-content {
+  display: none;
+}
+
+/* Ensure indicators are visible, centered below image */
+.carousel.carousel15 .carousel-slides-container {
+  position: relative;
+  padding-bottom: 44px;
+}
+
+.carousel.carousel15 .carousel-slide-indicators {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  z-index: 2;
+  min-height: 0;
+  line-height: 0;
+}
+
+.carousel.carousel15 .carousel-slide-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel.carousel15 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #131313;
+  border: none;
+  margin: 0 3px;
+  box-shadow: none;
+  outline: none;
+  transition: none;
+  padding: 0;
+}
+
+/* Only one dot, so both states are black */
+.carousel.carousel15 .carousel-slide-indicator button:disabled,
+.carousel.carousel15 .carousel-slide-indicator button[aria-current="true"] {
+  background: #131313;
+}
+
+/* Navigation arrows: visible, flush bottom right, simple black glyphs, no background */
+.carousel.carousel15 .carousel-navigation-buttons {
+  display: flex;
+  position: absolute;
+  inset: auto 20px 0 auto;
+  background: none;
+  box-shadow: none;
+  gap: 0;
+  padding: 0;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 2;
+  pointer-events: auto;
+  height: 32px;
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  margin: 0 0 0 8px;
+  box-shadow: none;
+  outline: none;
+  position: relative;
+  color: #131313;
+  font-size: 22px;
+  font-family: inherit;
+  font-weight: normal;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remove any default chevron arrow if present */
+.carousel.carousel15 .carousel-navigation-buttons button::after {
+  display: none;
+}
+
+/* Use a visually simple unicode arrow glyph (accessible) */
+.carousel.carousel15 .carousel-navigation-buttons button.slide-prev::before,
+.carousel.carousel15 .carousel-navigation-buttons button.slide-next::before {
+  display: block;
+  font-size: 22px;
+  font-family: inherit;
+  font-weight: normal;
+  color: #131313;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  pointer-events: none;
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button.slide-prev::before {
+  content: "←";
+}
+
+.carousel.carousel15 .carousel-navigation-buttons button.slide-next::before {
+  content: "→";
+}
+
+@media (width <= 599px) {
+  .carousel.carousel15 .carousel-navigation-buttons {
+    right: 6px;
   }
 }
