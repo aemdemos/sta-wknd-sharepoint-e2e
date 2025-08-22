@@ -1845,7 +1845,6 @@
 
 
 .tabs.tabs28 {
-  /* Root: center block, max width, vertical stack */
   max-width: 1100px;
   margin: 48px auto;
   padding: 0 32px 48px;
@@ -1855,7 +1854,6 @@
   box-sizing: border-box;
 }
 
-/* Layout: row for tabs-list and tabs-panel on desktop */
 .tabs.tabs28 > .tabs-list,
 .tabs.tabs28 > .tabs-panel {
   box-sizing: border-box;
@@ -1869,7 +1867,6 @@
   width: 100%;
 }
 
-/* Insert the "row" layout with JS or via a wrapper if possible, otherwise: */
 @media (width >= 900px) {
   .tabs.tabs28 {
     flex-direction: row;
@@ -1905,7 +1902,6 @@
   }
 }
 
-/* On mobile, stack */
 @media (width <= 899px) {
   .tabs.tabs28 {
     flex-direction: column;
@@ -1933,7 +1929,6 @@
   }
 }
 
-/* Tab navigation: style as horizontal pills on mobile, vertical meta on desktop */
 .tabs.tabs28 > .tabs-list {
   border: none;
   background: none;
@@ -1991,7 +1986,6 @@
   margin: 0;
 }
 
-/* Main content area */
 .tabs.tabs28 > .tabs-panel {
   font-size: 16px;
   color: var(--text-color);
@@ -2047,7 +2041,6 @@
   margin-bottom: 0;
 }
 
-/* Fix list appearance in main panel */
 .tabs.tabs28 > .tabs-panel ul {
   margin: 18px 0 24px 24px;
   padding: 0 0 0 16px;
@@ -2059,8 +2052,160 @@
   line-height: 1.5;
 }
 
-/* Misc: ensure overflow wrap for long text */
 .tabs.tabs28 > .tabs-panel,
 .tabs.tabs28 > .tabs-list {
   overflow-wrap: break-word;
+}
+
+
+.tabs.tabs30 {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  background: #fff;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 48px 32px;
+  border: none;
+  box-shadow: none;
+}
+
+@media (width <= 950px) {
+  .tabs.tabs30 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 28px 8px;
+  }
+}
+
+/* Hide empty left column if sidebar is not present in DOM */
+.tabs.tabs30 > :first-child:not(.tabs-list):empty {
+  display: none;
+}
+
+/* Tab List Styling */
+.tabs.tabs30 .tabs-list {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-family: var(--body-font-family);
+}
+
+.tabs.tabs30 .tabs-list button {
+  border: none;
+  border-radius: 2px;
+  background: transparent;
+  color: #222;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 7px 22px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+  margin: 0;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs30 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs30 .tabs-list button[aria-selected="false"]:hover,
+.tabs.tabs30 .tabs-list button:not([aria-selected="true"]):focus {
+  background: #EEE;
+}
+
+.tabs.tabs30 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel Area Styling */
+.tabs.tabs30 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.tabs.tabs30 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Headings and Accent Line */
+.tabs.tabs30 .tabs-panel > div > h3:first-child {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  color: #222;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.tabs.tabs30 .tabs-panel > div > h3:first-child + h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.35rem;
+  color: #222;
+  font-weight: 400;
+  margin-top: 18px;
+  margin-bottom: 20px;
+}
+
+.tabs.tabs30 .tabs-panel > div > h3:first-child::after {
+  display: block;
+  width: 36px;
+  height: 3px;
+  background: #FFF4D6;
+  content: "";
+  margin-top: 10px;
+}
+
+/* Picture/Image Styling */
+.tabs.tabs30 .tabs-panel picture,
+.tabs.tabs30 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  margin-top: 12px;
+}
+
+/* Image Caption */
+.tabs.tabs30 .tabs-panel > div > p:first-of-type {
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* Main Description Paragraph */
+.tabs.tabs30 .tabs-panel > div > p:not(:first-of-type) {
+  font-size: 1rem;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+  line-height: 1.7;
+}
+
+/* Remove box shadow, border, or extra background from images, panels, and main tabs container */
+.tabs.tabs30 .tabs-panel,
+.tabs.tabs30 .tabs-panel > div,
+.tabs.tabs30 {
+  box-shadow: none;
+  border: none;
+  background: #fff;
 }
