@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,125 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion7 {
+  width: 100%;
+  max-width: 1000px;
+  min-width: 320px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* FAQ items: block-level, fill container, no extra margin */
+.accordion.accordion7 > details {
+  display: block;
+  width: 100%;
+  border: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Subtle divider between FAQ items */
+.accordion.accordion7 > details:not(:last-child) {
+  border-bottom: 1px solid #ededed;
+}
+
+/* FAQ summary row: left-align text, icon flush right, compact height */
+.accordion.accordion7 summary,
+.accordion.accordion7 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+  padding: 0 28px 0 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 1.06em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Remove default marker for summary */
+.accordion.accordion7 summary::-webkit-details-marker,
+.accordion.accordion7 .accordion-item-label::-webkit-details-marker {
+  display: none;
+}
+
+/* Ensure FAQ question (p) fills left, icon flush right */
+.accordion.accordion7 summary p,
+.accordion.accordion7 .accordion-item-label p {
+  margin: 0;
+  flex: 1 1 auto;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  padding-left: 20px;
+}
+
+/* Icon (chevron) alignment: right side, vertically centered */
+.accordion.accordion7 summary > *:not(p):last-child,
+.accordion.accordion7 .accordion-item-label > *:not(p):last-child {
+  margin-left: 16px;
+  align-self: center;
+}
+
+/* Answer body: compact, left-aligned, readable color */
+.accordion.accordion7 .accordion-item-body {
+  padding: 0 28px 14px 40px;
+  font-size: 1em;
+  color: #444;
+  line-height: 1.7;
+  background: transparent;
+  border-top: none;
+  box-sizing: border-box;
+  margin: 0;
+  text-align: left;
+}
+
+/* Paragraph spacing in answers */
+.accordion.accordion7 .accordion-item-body p {
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+  text-align: left;
+}
+
+/* Responsive: fill parent column and maintain left alignment */
+@media (width <= 900px) {
+  .accordion.accordion7 {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .accordion.accordion7 summary,
+  .accordion.accordion7 .accordion-item-label {
+    padding: 0 10px 0 0;
+    font-size: 1em;
+  }
+
+  .accordion.accordion7 summary p,
+  .accordion.accordion7 .accordion-item-label p {
+    padding-left: 8px;
+  }
+
+  .accordion.accordion7 .accordion-item-body {
+    padding: 0 10px 10px 12px;
+    font-size: 0.97em;
+  }
 }
