@@ -2078,12 +2078,10 @@
   }
 }
 
-/* Hide empty left column if sidebar is not present in DOM */
 .tabs.tabs30 > :first-child:not(.tabs-list):empty {
   display: none;
 }
 
-/* Tab List Styling */
 .tabs.tabs30 .tabs-list {
   display: flex;
   gap: 12px;
@@ -2125,7 +2123,6 @@
   padding: 0;
 }
 
-/* Panel Area Styling */
 .tabs.tabs30 .tabs-panel {
   border: none;
   padding: 0;
@@ -2138,7 +2135,6 @@
   display: none;
 }
 
-/* Headings and Accent Line */
 .tabs.tabs30 .tabs-panel > div > h3:first-child {
   font-family: var(--heading-font-family);
   font-size: 2rem;
@@ -2167,7 +2163,6 @@
   margin-top: 10px;
 }
 
-/* Picture/Image Styling */
 .tabs.tabs30 .tabs-panel picture,
 .tabs.tabs30 .tabs-panel img {
   display: block;
@@ -2178,7 +2173,6 @@
   margin-top: 12px;
 }
 
-/* Image Caption */
 .tabs.tabs30 .tabs-panel > div > p:first-of-type {
   font-size: 13px;
   font-weight: 700;
@@ -2190,7 +2184,6 @@
   line-height: 1.5;
 }
 
-/* Main Description Paragraph */
 .tabs.tabs30 .tabs-panel > div > p:not(:first-of-type) {
   font-size: 1rem;
   color: #222;
@@ -2201,11 +2194,186 @@
   line-height: 1.7;
 }
 
-/* Remove box shadow, border, or extra background from images, panels, and main tabs container */
 .tabs.tabs30 .tabs-panel,
 .tabs.tabs30 .tabs-panel > div,
 .tabs.tabs30 {
   box-shadow: none;
   border: none;
   background: #fff;
+}
+
+
+.tabs.tabs31 {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* TAB ROW: Remove extra space, keep flush top/left */
+.tabs.tabs31 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  padding: 0;
+  border: none;
+  font-size: 15px;
+  font-family: var(--body-font-family);
+}
+
+/* Tab buttons */
+.tabs.tabs31 .tabs-list button {
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 9px 22px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.tabs.tabs31 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs31 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default panel borders and paddings */
+.tabs.tabs31 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Remove extra wrapper padding for full-width layout */
+.tabs.tabs31 .tabs-panel > div {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Heading and accent line */
+.tabs.tabs31 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 10px;
+  letter-spacing: 0.01em;
+  position: relative;
+  display: block;
+  padding-bottom: 14px;
+  line-height: 1.18;
+}
+
+.tabs.tabs31 .tabs-panel h3::after {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #EAD965;
+  margin-top: 8px;
+  margin-left: 0;
+  border-radius: 1px;
+}
+
+/* Text block: edge-to-edge to match images */
+.tabs.tabs31 .tabs-panel > div > p,
+.tabs.tabs31 .tabs-panel > div > ul {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #222;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 32px;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* List (ul) spacing */
+.tabs.tabs31 .tabs-panel > div > ul {
+  padding-left: 26px;
+}
+
+/* Large edge-to-edge images, vertical gap */
+.tabs.tabs31 .tabs-panel picture {
+  display: block;
+  margin-bottom: 36px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.tabs.tabs31 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Remove extraneous margins from images inside paragraphs */
+.tabs.tabs31 .tabs-panel p picture,
+.tabs.tabs31 .tabs-panel p img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Responsive: pad on small screens only */
+@media (width <= 900px) {
+  .tabs.tabs31 {
+    max-width: 100vw;
+    padding: 0 8px 24px;
+  }
+
+  .tabs.tabs31 .tabs-list {
+    gap: 10px;
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+
+  .tabs.tabs31 .tabs-panel h3 {
+    font-size: 22px;
+    padding-bottom: 8px;
+  }
+
+  .tabs.tabs31 .tabs-panel h3::after {
+    width: 36px;
+    height: 2px;
+  }
+
+  .tabs.tabs31 .tabs-panel > div > p,
+  .tabs.tabs31 .tabs-panel > div > ul {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .tabs.tabs31 .tabs-panel picture {
+    margin-bottom: 20px;
+  }
 }
