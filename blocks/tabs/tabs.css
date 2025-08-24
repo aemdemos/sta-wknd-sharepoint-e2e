@@ -2311,7 +2311,6 @@
 
 
 .tabs.tabs38 {
-  /* Outermost grid: sidebar left, main content right */
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 48px;
@@ -2322,7 +2321,6 @@
   margin: 0;
 }
 
-/* Responsive: stack vertically on smaller screens */
 @media (width <= 900px) {
   .tabs.tabs38 {
     grid-template-columns: 1fr;
@@ -2330,7 +2328,6 @@
   }
 }
 
-/* Sidebar simulation: first direct child div */
 .tabs.tabs38 > div:first-child {
   padding: 48px 32px 32px;
   background: #fff;
@@ -2343,7 +2340,6 @@
   box-sizing: border-box;
 }
 
-/* Main content: second direct child div */
 .tabs.tabs38 > div:nth-child(2) {
   padding: 40px 0;
   background: #fff;
@@ -2351,7 +2347,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs horizontal */
 .tabs.tabs38 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2366,7 +2361,6 @@
   overflow-x: auto;
 }
 
-/* Tab buttons style */
 .tabs.tabs38 .tabs-tab {
   background: transparent;
   border: none;
@@ -2386,7 +2380,6 @@
   white-space: nowrap;
 }
 
-/* Selected tab */
 .tabs.tabs38 .tabs-tab[aria-selected="true"] {
   background: #222;
   color: #fff;
@@ -2395,18 +2388,15 @@
   border-right: 1px solid #222;
 }
 
-/* Remove last tab's right border */
 .tabs.tabs38 .tabs-tab:last-child {
   border-right: none;
 }
 
-/* Tab label inside button */
 .tabs.tabs38 .tabs-tab p {
   margin: 0;
   padding: 0;
 }
 
-/* Tabs panel styles */
 .tabs.tabs38 .tabs-panel {
   margin-top: 0;
   padding: 0;
@@ -2416,12 +2406,10 @@
   background: #fff;
 }
 
-/* Hide inactive tab panels */
 .tabs.tabs38 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Picture and image styling */
 .tabs.tabs38 .tabs-panel picture,
 .tabs.tabs38 .tabs-panel img {
   display: block;
@@ -2434,7 +2422,6 @@
   box-shadow: none;
 }
 
-/* Caption (if present) */
 .tabs.tabs38 .tabs-panel > div > p:first-of-type {
   font-size: 0.84em;
   font-weight: bold;
@@ -2444,7 +2431,6 @@
   margin-top: 8px;
 }
 
-/* Body text */
 .tabs.tabs38 .tabs-panel > div > p:not(:first-of-type) {
   font-size: 1em;
   color: #444;
@@ -2453,7 +2439,6 @@
   margin-top: 0;
 }
 
-/* Responsive panel padding on mobile */
 @media (width <= 900px) {
   .tabs.tabs38 > div:first-child {
     min-width: 0;
@@ -2472,9 +2457,215 @@
   }
 }
 
-/* Ensure grid children stack vertically on mobile */
 @media (width <= 900px) {
   .tabs.tabs38 {
     grid-template-columns: 1fr;
+  }
+}
+
+
+.tabs.tabs12 {
+  /* Flex row: columns more balanced, minimal gap, align tops */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    flex-direction: column;
+    gap: 0;
+    max-width: 100%;
+  }
+}
+
+/* --- Sidebar (.tabs-list) --- */
+.tabs.tabs12 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 320px;
+  max-width: 340px;
+  width: 28vw;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  box-sizing: border-box;
+  gap: 8px;
+  border: none;
+  box-shadow: none;
+  justify-content: flex-start;
+}
+
+/* Remove all borders from sidebar/card content */
+.tabs.tabs12 .tabs-list,
+.tabs.tabs12 .tabs-list * {
+  border: none;
+  box-shadow: none;
+}
+
+/* Tabs: horizontal, compressed, less visual weight */
+
+.tabs.tabs12 .tabs-list .tabs-tab {
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: 0;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid #222;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+  vertical-align: top;
+}
+
+.tabs.tabs12 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 1px solid #222;
+}
+
+.tabs.tabs12 .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+.tabs.tabs12 .tabs-list .tabs-tab:not([aria-selected="true"]) {
+  background: #fff;
+  color: #222;
+  border: 1px solid #222;
+}
+
+/* Remove sidebar accent bars */
+.tabs.tabs12 .tabs-list::before,
+.tabs.tabs12 .tabs-list::after {
+  display: none;
+}
+
+/* Tighter spacing for sidebar links/buttons */
+.tabs.tabs12 .tabs-list > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* --- Main Content (.tabs-panel) --- */
+.tabs.tabs12 .tabs-panel {
+  flex: 1 1 0;
+  max-width: 800px;
+  width: 100%;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Remove left offset so main content is closer to sidebar */
+@media (width >= 901px) {
+  .tabs.tabs12 .tabs-panel {
+    padding-left: 0;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs12 .tabs-panel {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Main block title top aligned */
+.tabs.tabs12 .tabs-panel h3[id^="cycling-tuscany"] {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  color: #222;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 0;
+  line-height: 1.1;
+  position: relative;
+  padding-top: 0;
+}
+
+/* Accent bar under block title */
+.tabs.tabs12 .tabs-panel h3[id^="cycling-tuscany"]::after {
+  display: block;
+  width: 42px;
+  height: 3px;
+  background: #DFD08D;
+  margin-top: 10px;
+  border-radius: 0;
+}
+
+/* Section headings */
+.tabs.tabs12 .tabs-panel h2,
+.tabs.tabs12 .tabs-panel h2 strong {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  color: #222;
+  font-weight: 700;
+  margin: 22px 0 16px;
+  line-height: 1.2;
+}
+
+/* Images */
+.tabs.tabs12 .tabs-panel picture,
+.tabs.tabs12 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0 24px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Paragraphs */
+.tabs.tabs12 .tabs-panel p {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+/* Remove centering and unwanted whitespace */
+.tabs.tabs12 .tabs-panel,
+.tabs.tabs12 .tabs-list {
+  margin: 0;
+}
+
+.tabs.tabs12 .tabs-panel > div {
+  margin-bottom: 32px;
+}
+
+@media (width <= 600px) {
+  .tabs.tabs12 .tabs-panel,
+  .tabs.tabs12 .tabs-list {
+    padding: 0;
+  }
+
+  .tabs.tabs12 .tabs-panel > div {
+    margin-bottom: 18px;
   }
 }
