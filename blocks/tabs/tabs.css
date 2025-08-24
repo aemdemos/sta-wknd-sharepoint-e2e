@@ -1113,3 +1113,211 @@
     margin-bottom: 0.7rem;
   }
 }
+
+
+.tabs.tabs28 {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs block: align tighter to top, reduce whitespace */
+.tabs.tabs28 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin-top: 0;      /* Remove space above tabs */
+  margin-bottom: 4px; /* Minimize space below tabs before heading */
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 680px;
+  position: relative;
+}
+
+/* Accent line: bring flush to top */
+.tabs.tabs28 .tabs-list::after {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 45px;
+  height: 3px;
+  background: #ffe072;
+  border-radius: 2px;
+  display: block;
+  content: "";
+}
+
+/* Tabs styling */
+.tabs.tabs28 .tabs-tab {
+  border: 1.5px solid #222;
+  background: transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 15px 38px;
+  cursor: pointer;
+  font-size: 1.11rem;
+  transition: background 0.2s, color 0.2s;
+  min-width: 138px;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  letter-spacing: 0.02em;
+  line-height: 1.18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs28 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 1.5px solid #222;
+}
+
+.tabs.tabs28 .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+  border: 1.5px solid #222;
+}
+
+.tabs.tabs28 .tabs-tab p {
+  margin: 0;
+  font-size: 1.01rem;
+  font-weight: 600;
+}
+
+.tabs.tabs28 .tabs-panel {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.7;
+  width: 100%;
+}
+
+/* Prevent unwanted whitespace between tabs and heading */
+.tabs.tabs28 .tabs-panel > div {
+  max-width: 680px;
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading: keep very close to tabs */
+.tabs.tabs28 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.38rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.1em;
+  color: #222;
+  line-height: 1.28;
+  text-align: left;
+}
+
+/* Paragraphs */
+.tabs.tabs28 .tabs-panel p {
+  font-size: 1.09rem;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 1.4em;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Image: keep spacing tight above */
+.tabs.tabs28 .tabs-panel picture {
+  display: block;
+  margin: 1.7em 0 2em;
+  max-width: 100%;
+}
+
+.tabs.tabs28 .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0.5em;
+}
+
+/* Footer text (last paragraph) */
+.tabs.tabs28 .tabs-panel > div > p:last-child {
+  color: #999;
+  font-size: 1.09rem;
+  margin-top: 2em;
+  margin-bottom: 0;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs28 {
+    max-width: 100vw;
+    padding: 0 4vw 32px;
+  }
+
+  .tabs.tabs28 .tabs-list {
+    max-width: 100vw;
+    gap: 12px;
+    margin-top: 0;
+    margin-bottom: 3px;
+    flex-wrap: wrap;
+  }
+
+  .tabs.tabs28 .tabs-panel > div {
+    max-width: 98vw;
+  }
+
+  .tabs.tabs28 .tabs-tab {
+    padding: 11px 18px;
+    font-size: 1rem;
+    min-width: 88px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs28 .tabs-panel > div {
+    max-width: 100vw;
+    padding: 0;
+  }
+
+  .tabs.tabs28 .tabs-list {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 3px;
+    margin-top: 0;
+  }
+
+  .tabs.tabs28 .tabs-tab {
+    padding: 7px 5px;
+    font-size: 0.96rem;
+    min-width: 62px;
+  }
+
+  .tabs.tabs28 .tabs-panel h3 {
+    font-size: 1.13rem;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+}
