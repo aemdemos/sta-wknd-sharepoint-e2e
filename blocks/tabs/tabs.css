@@ -2465,7 +2465,6 @@
 
 
 .tabs.tabs12 {
-  /* Flex row: columns more balanced, minimal gap, align tops */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -2485,7 +2484,6 @@
   }
 }
 
-/* --- Sidebar (.tabs-list) --- */
 .tabs.tabs12 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -2503,14 +2501,11 @@
   justify-content: flex-start;
 }
 
-/* Remove all borders from sidebar/card content */
 .tabs.tabs12 .tabs-list,
 .tabs.tabs12 .tabs-list * {
   border: none;
   box-shadow: none;
 }
-
-/* Tabs: horizontal, compressed, less visual weight */
 
 .tabs.tabs12 .tabs-list .tabs-tab {
   display: inline-block;
@@ -2549,19 +2544,16 @@
   border: 1px solid #222;
 }
 
-/* Remove sidebar accent bars */
 .tabs.tabs12 .tabs-list::before,
 .tabs.tabs12 .tabs-list::after {
   display: none;
 }
 
-/* Tighter spacing for sidebar links/buttons */
 .tabs.tabs12 .tabs-list > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* --- Main Content (.tabs-panel) --- */
 .tabs.tabs12 .tabs-panel {
   flex: 1 1 0;
   max-width: 800px;
@@ -2577,7 +2569,6 @@
   align-items: flex-start;
 }
 
-/* Remove left offset so main content is closer to sidebar */
 @media (width >= 901px) {
   .tabs.tabs12 .tabs-panel {
     padding-left: 0;
@@ -2592,7 +2583,6 @@
   }
 }
 
-/* Main block title top aligned */
 .tabs.tabs12 .tabs-panel h3[id^="cycling-tuscany"] {
   font-family: var(--heading-font-family);
   font-size: 32px;
@@ -2606,7 +2596,6 @@
   padding-top: 0;
 }
 
-/* Accent bar under block title */
 .tabs.tabs12 .tabs-panel h3[id^="cycling-tuscany"]::after {
   display: block;
   width: 42px;
@@ -2616,7 +2605,6 @@
   border-radius: 0;
 }
 
-/* Section headings */
 .tabs.tabs12 .tabs-panel h2,
 .tabs.tabs12 .tabs-panel h2 strong {
   font-family: var(--heading-font-family);
@@ -2627,7 +2615,6 @@
   line-height: 1.2;
 }
 
-/* Images */
 .tabs.tabs12 .tabs-panel picture,
 .tabs.tabs12 .tabs-panel img {
   display: block;
@@ -2639,7 +2626,6 @@
   box-shadow: none;
 }
 
-/* Paragraphs */
 .tabs.tabs12 .tabs-panel p {
   font-family: var(--body-font-family);
   font-size: 15px;
@@ -2649,7 +2635,6 @@
   margin-top: 0;
 }
 
-/* Remove centering and unwanted whitespace */
 .tabs.tabs12 .tabs-panel,
 .tabs.tabs12 .tabs-list {
   margin: 0;
@@ -2667,5 +2652,173 @@
 
   .tabs.tabs12 .tabs-panel > div {
     margin-bottom: 18px;
+  }
+}
+
+
+.tabs.tabs18 {
+  /* Single column, left-aligned block, visually balanced in content area */
+  display: block;
+  max-width: 900px;
+  margin-left: 64px;
+  margin-right: auto;
+  padding: 44px 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs18 {
+    max-width: 100%;
+    margin-left: 0;
+    padding: 20px 0;
+  }
+}
+
+/* Tabs navigation - horizontal row, left-aligned, minimal gap, more space below tabs */
+.tabs.tabs18 .tabs-list[role="tablist"] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  width: auto;
+  margin: 0 0 22px;
+  background: none;
+  border: none;
+  padding: 0;
+  justify-content: flex-start;
+}
+
+/* Remove vertical space above tabs */
+.tabs.tabs18 .tabs-list::before {
+  display: none;
+}
+
+/* Tabs - pill style, uppercase, active tab dark, inactive tab gold underline on hover/focus */
+.tabs.tabs18 .tabs-tab {
+  background: transparent;
+  color: #232323;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 24px 6px;
+  font-family: var(--heading-font-family);
+  font-size: 1.13rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s, border-bottom 0.2s;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+.tabs.tabs18 .tabs-tab[aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+  border-bottom: 2px solid #232323;
+}
+
+.tabs.tabs18 .tabs-tab:not([aria-selected="true"]):hover,
+.tabs.tabs18 .tabs-tab:not([aria-selected="true"]):focus {
+  border-bottom: 2px solid #e5d37c;
+  color: #232323;
+  background: none;
+}
+
+.tabs.tabs18 .tabs-tab p {
+  margin: 0;
+  font-size: inherit;
+}
+
+/* Main content area - left-aligned, with left margin matching tabs */
+.tabs.tabs18 .tabs-panel {
+  width: 100%;
+  max-width: 730px;
+  margin-left: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Heading - large, left aligned, more size and space */
+.tabs.tabs18 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.15rem;
+  font-weight: 400;
+  color: #232323;
+  margin-bottom: 22px;
+  margin-top: 0;
+  line-height: 1.14;
+  text-align: left;
+}
+
+/* Image styling - large, rounded corners, left-aligned, slightly more bottom margin */
+.tabs.tabs18 .tabs-panel picture,
+.tabs.tabs18 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 730px;
+  height: auto;
+  border-radius: 18px;
+  margin-bottom: 28px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Intro paragraph - left-aligned, normal width, larger size, more line height */
+.tabs.tabs18 .tabs-panel > div > p {
+  font-size: 1.13rem;
+  color: #232323;
+  margin-bottom: 17px;
+  line-height: 1.74;
+  text-align: left;
+}
+
+.tabs.tabs18 .tabs-panel > div {
+  margin-bottom: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs18 {
+    max-width: 100%;
+    margin-left: 0;
+    padding: 20px 0;
+  }
+
+  .tabs.tabs18 .tabs-panel {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tabs.tabs18 .tabs-list[role="tablist"] {
+    gap: 7px;
+    font-size: 15px;
+    margin-bottom: 14px;
+    padding: 0 4px;
+  }
+
+  .tabs.tabs18 .tabs-tab {
+    padding: 7px 8px 4px;
+    font-size: 1rem;
+  }
+
+  .tabs.tabs18 .tabs-panel h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs18 .tabs-panel picture,
+  .tabs.tabs18 .tabs-panel img {
+    max-width: 100%;
+    border-radius: 9px;
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs18 .tabs-panel > div > p {
+    font-size: 1rem;
+    margin-bottom: 9px;
   }
 }
