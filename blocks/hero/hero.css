@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -56,7 +57,6 @@
   display: block;
 }
 
-/* Image block as hero background */
 .hero.hero10 > div:first-child {
   width: 100%;
   height: 340px;
@@ -75,25 +75,23 @@
   object-fit: cover;
 }
 
-/* Overlay white box as close as possible to bottom */
 .hero.hero10 > div:nth-child(2) {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 10px; /* closer to bottom for more accurate gap */
+  bottom: 10px;
   width: 80%;
   max-width: 700px;
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 22px 0 rgb(0 0 0 / 8%);
-  padding: 12px 28px 14px; /* tighter vertical padding */
+  padding: 12px 28px 14px;
   z-index: 2;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-/* Heading styles inside the white box */
 .hero.hero10 > div:nth-child(2) h2,
 .hero.hero10 > div:nth-child(2) h1,
 .hero.hero10 > div:nth-child(2) h3,
@@ -109,7 +107,6 @@
   text-align: left;
 }
 
-/* Responsive adjustment for small screens */
 @media (width <= 700px) {
   .hero.hero10 > div:first-child,
   .hero.hero10 > div:first-child picture,
@@ -132,5 +129,131 @@
   .hero.hero10 > div:nth-child(2) h5,
   .hero.hero10 > div:nth-child(2) h6 {
     font-size: 1.05rem;
+  }
+}
+
+
+.hero.hero19 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* Ensures both columns start at the top */
+  width: 100%;
+  min-height: 530px;
+  background: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero19 > div:first-child {
+  flex: 0 0 70%;
+  order: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: none;
+  min-height: 530px;
+  padding: 0;
+  margin: 0;
+}
+
+.hero.hero19 > div:first-child > div {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+}
+
+.hero.hero19 picture,
+.hero.hero19 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+.hero.hero19 > div:last-child {
+  flex: 0 0 30%;
+  order: 2;
+  display: flex;
+  align-items: flex-start; /* Top align content area */
+  justify-content: flex-start;
+  background: #fff;
+  color: #222;
+  min-width: 0;
+  min-height: 530px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.hero.hero19 > div:last-child > div {
+  width: 100%;
+  padding: 4px 32px 10px 60px; /* Minimal top padding to match original */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.hero.hero19 h1 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 2px;
+  line-height: 1.05;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.hero.hero19 h4 {
+  font-family: var(--body-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 800;
+  color: #444;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 6px;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+
+.hero.hero19 p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.65;
+  text-align: left;
+}
+
+@media (width <= 899px) {
+  .hero.hero19 {
+    flex-direction: column;
+    min-height: unset;
+    align-items: stretch;
+  }
+
+  .hero.hero19 > div:first-child,
+  .hero.hero19 > div:last-child {
+    min-height: unset;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero.hero19 > div:last-child > div {
+    padding: 8px 14px 10px;
+  }
+
+  .hero.hero19 h1 {
+    font-size: var(--heading-font-size-xl);
   }
 }
