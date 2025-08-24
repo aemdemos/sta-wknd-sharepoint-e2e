@@ -594,7 +594,6 @@
 
 
 .tabs.tabs8 {
-  /* Outer block uses grid for sidebar + content, adapts responsively */
   display: grid;
   grid-template-columns: 320px 1fr;
   background: #fff;
@@ -612,7 +611,6 @@
   }
 }
 
-/* Sidebar styling: left column */
 .tabs.tabs8 > .tabs-list {
   display: flex;
   flex-direction: column;
@@ -666,7 +664,6 @@
   display: block;
 }
 
-/* Tabs bar: right column, horizontal pills */
 .tabs.tabs8 .tabs-list {
   flex-direction: row;
   gap: 18px;
@@ -705,7 +702,6 @@
   margin: 0;
 }
 
-/* Main content area */
 .tabs.tabs8 > .tabs-panel {
   background: #fff;
   padding: 0;
@@ -777,3 +773,190 @@
     font-size: 15px;
   }
 }
+
+
+.tabs.tabs23 {
+  box-sizing: border-box;
+  background: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* --- TAB BAR: always at the top, horizontal row, visible labels --- */
+.tabs.tabs23 > .tabs-list {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background: none;
+  border: none;
+  margin: 0 0 24px;
+  padding: 0;
+  min-height: 40px;
+  width: 100%;
+  gap: 0;
+}
+
+.tabs.tabs23 .tabs-tab {
+  background: transparent;
+  border: none;
+  color: #222;
+  padding: 10px 28px 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+  margin-right: 2px;
+  letter-spacing: 0.02em;
+  min-width: 120px;
+  text-align: center;
+  outline: none;
+  box-shadow: none;
+  border-bottom: 2px solid transparent;
+  opacity: 1;
+  width: auto;
+  overflow: visible;
+  display: block;
+}
+
+.tabs.tabs23 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 2px 2px 0 0;
+  border-bottom: 2px solid #222;
+  z-index: 1;
+}
+
+.tabs.tabs23 .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+}
+
+/* --- OVERVIEW PANEL (main content) --- */
+.tabs.tabs23 > .tabs-panel[aria-hidden="false"] {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.tabs.tabs23 > .tabs-panel[aria-hidden="false"] > * {
+  margin-bottom: 0;
+}
+
+.tabs.tabs23 > .tabs-panel[aria-hidden="false"] img,
+.tabs.tabs23 > .tabs-panel[aria-hidden="false"] picture {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 0 0 8px;
+  border-radius: 4px;
+}
+
+.tabs.tabs23 > .tabs-panel[aria-hidden="false"] > p:last-child {
+  font-size: 14px;
+  color: #757575;
+  margin: 10px 0 0;
+}
+
+/* --- DETAILS SECTION (Itinerary/What to Bring) --- */
+.tabs.tabs23 > .tabs-panel:not([aria-hidden="false"]) {
+  order: 3;
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs23 > .tabs-panel:not([aria-hidden="false"]) {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .tabs.tabs23 {
+    padding: 24px 4vw;
+  }
+
+  .tabs.tabs23 > .tabs-list {
+    min-height: 36px;
+    margin-bottom: 12px;
+  }
+}
+
+/* --- HEADINGS & TEXT --- */
+.tabs.tabs23 .tabs-panel h3 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 28px;
+  color: #222;
+  font-weight: 700;
+  margin: 0 0 10px;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+.tabs.tabs23 .tabs-panel h2 {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 32px;
+  color: #222;
+  font-weight: 700;
+  margin: 0 0 16px;
+  text-align: left;
+}
+
+.tabs.tabs23 .tabs-panel p {
+  font-size: 16px;
+  color: #404040;
+  margin-bottom: 18px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* --- LISTS --- */
+.tabs.tabs23 .tabs-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  font-size: 15px;
+  color: #222;
+}
+
+.tabs.tabs23 .tabs-panel ul li {
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.tabs.tabs23 .tabs-panel ul li::before {
+  margin-right: 7px;
+  font-size: 15px;
+  color: #232323;
+  vertical-align: middle;
+}
+
+/* --- REMOVE BORDERS & SHADOWS, left align --- */
+.tabs.tabs23,
+.tabs.tabs23 * {
+  border: none;
+  box-shadow: none;
+}
+
+.tabs.tabs23 *,
+.tabs.tabs23 * > * {
+  text-align: left;
+}
+
+/* --- TIGHTEN VERTICAL SPACING BELOW IMAGE/CAPTION --- */
