@@ -305,11 +305,10 @@
   padding: 0;
 }
 
-/* Ensure image is visually balanced and fills horizontal space */
 .carousel.carousel17 .carousel-slides-container {
   position: relative;
   min-height: 300px;
-  padding-bottom: 70px; /* Make space for indicators and arrows */
+  padding-bottom: 70px;
 }
 
 .carousel.carousel17 .carousel-slides {
@@ -342,14 +341,12 @@
   display: block;
 }
 
-/* Hide overlay bar/content, but do not collapse image area */
 .carousel.carousel17 .carousel-slide .carousel-slide-content {
   opacity: 0;
   pointer-events: none;
   position: absolute;
 }
 
-/* Restore and visually balance dots, placed below image and above arrows */
 .carousel.carousel17 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -383,7 +380,6 @@
   box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
 }
 
-/* Make navigation arrows clearer and ensure they do not overlap indicator dots */
 .carousel.carousel17 .carousel-navigation-buttons {
   position: absolute;
   left: 0;
@@ -441,7 +437,6 @@
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 600px) {
   .carousel.carousel17 .carousel-slides-container,
   .carousel.carousel17 .carousel-slide,
@@ -463,5 +458,166 @@
     width: 11px;
     height: 11px;
     margin: 0 2px;
+  }
+}
+
+
+/* Experiment 4: Tighter card placement, yellow CTA, minimal indicators, and visible arrows for .carousel.carousel22 */
+
+/* 1. Card: lower, left-aligned, not floating */
+.carousel.carousel22 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  inset: auto auto 32px 4vw;
+  margin: 0;
+  max-width: 520px;
+  min-width: 340px;
+  width: 36vw;
+  box-sizing: border-box;
+  padding: 38px 38px 32px;
+  background: #fff;
+  color: #222;
+  border-radius: 0;
+  box-shadow: 0 2px 24px 0 rgb(0 0 0 / 9%);
+  z-index: 2;
+  display: block;
+}
+
+/* 2. Button: yellow, rectangular, bold black text */
+.carousel.carousel22 .carousel-slide-content .button {
+  background: #ffe600;
+  color: #222;
+  border-radius: 3px;
+  padding: 0.5em 1.4em;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  margin-top: 18px;
+  margin-bottom: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.carousel.carousel22 .carousel-slide-content .button:hover,
+.carousel.carousel22 .carousel-slide-content .button:focus {
+  background: #fff200;
+  color: #111;
+}
+
+/* 3. Indicators: dots only, no thick white bar, placed close to image bottom */
+.carousel.carousel22 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  gap: 13px;
+  padding: 0;
+  min-height: 0;
+  box-shadow: none;
+  border: none;
+}
+
+/* Make dots pop on image, with subtle shadow */
+.carousel.carousel22 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c7c7c7;
+  border: none;
+  transition: background 0.2s;
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:disabled {
+  background: #505050;
+  width: 13px;
+  height: 13px;
+}
+
+/* 4. Navigation Arrows: visible at bottom right */
+.carousel.carousel22 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 2vw 10px auto;
+  transform: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  z-index: 4;
+  display: flex;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button {
+  background: none;
+  border: 1.5px solid #222;
+  color: #222;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 0;
+  transition: border-color 0.2s, color 0.2s;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-prev::after {
+  display: inline-block;
+  border: solid currentcolor;
+  border-width: 0 0 2.5px 2.5px;
+  width: 13px;
+  height: 13px;
+  transform: rotate(45deg) translateY(1px);
+  margin-right: 2px;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-next::after {
+  display: inline-block;
+  border: solid currentcolor;
+  border-width: 0 2.5px 2.5px 0;
+  width: 13px;
+  height: 13px;
+  transform: rotate(-45deg) translateY(1px);
+  margin-left: 2px;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:hover,
+.carousel.carousel22 .carousel-navigation-buttons button:focus-visible {
+  border-color: #3b63fb;
+  color: #3b63fb;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:disabled,
+.carousel.carousel22 .carousel-navigation-buttons button:disabled:hover {
+  border-color: #dadada;
+  color: #dadada;
+}
+
+/* 5. Responsive: keep overlay effect, avoid crowding */
+@media (width <= 900px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    left: 2vw;
+    right: 2vw;
+    width: 90vw;
+    min-width: 0;
+    max-width: 98vw;
+    padding: 18px 11px;
+    bottom: 16px;
+  }
+
+  .carousel.carousel22 .carousel-slide-indicators {
+    bottom: 5px;
+  }
+
+  .carousel.carousel22 .carousel-navigation-buttons {
+    bottom: 2px;
+    right: 2vw;
   }
 }
