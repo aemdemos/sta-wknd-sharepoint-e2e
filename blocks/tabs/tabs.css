@@ -1896,7 +1896,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 32px; /* reduced gap for less separation */
+  gap: 32px;
   width: 100%;
   max-width: 1200px;
   margin: 56px auto 0;
@@ -1905,7 +1905,6 @@
   box-sizing: border-box;
 }
 
-/* LEFT COLUMN: .tabs-list */
 .tabs.tabs36 > .tabs-list {
   flex: 0 0 360px;
   max-width: 360px;
@@ -1922,7 +1921,6 @@
   box-sizing: border-box;
 }
 
-/* Accent line at the top */
 .tabs.tabs36 > .tabs-list::before {
   display: block;
   width: 40px;
@@ -1933,7 +1931,6 @@
   align-self: flex-start;
 }
 
-/* Tabs navigation: horizontal, left-aligned, at top of left column */
 .tabs.tabs36 .tabs-list[role="tablist"] {
   display: flex;
   flex-flow: row wrap;
@@ -1946,7 +1943,6 @@
   box-sizing: border-box;
 }
 
-/* Tab button styles */
 .tabs.tabs36 .tabs-list[role="tablist"] .tabs-tab {
   border: 1px solid #C5C5C5;
   border-radius: 3px;
@@ -1973,9 +1969,6 @@
   border: none;
 }
 
-/* Hide default button shadow, margin */
-
-/* Summary card styling in left column */
 .tabs.tabs36 .tabs-tab {
   background: #fff;
   border: 1px solid #e3e3e3;
@@ -2034,10 +2027,9 @@
   font-weight: 500;
 }
 
-/* --- RIGHT COLUMN: .tabs-panel --- */
 .tabs.tabs36 > .tabs-panel {
   flex: 1 1 0%;
-  max-width: 600px; /* restrict right column width */
+  max-width: 600px;
   min-width: 320px;
   width: 100%;
   display: flex;
@@ -2051,7 +2043,6 @@
   border-radius: 0;
 }
 
-/* Main headings in right column */
 .tabs.tabs36 .tabs-panel h3 {
   font-family: var(--heading-font-family, Georgia, serif);
   font-size: 2rem;
@@ -2074,7 +2065,6 @@
   text-transform: none;
 }
 
-/* Paragraph and section text in right column */
 .tabs.tabs36 .tabs-panel p,
 .tabs.tabs36 .tabs-panel ul {
   color: #232323;
@@ -2097,7 +2087,6 @@
   display: none;
 }
 
-/* Responsive: stack columns and reduce padding/gap for small screens */
 @media (width <= 900px) {
   .tabs.tabs36 {
     flex-direction: column;
@@ -2125,3 +2114,211 @@
   }
 }
 
+
+
+.tabs.tabs37 {
+  box-sizing: border-box;
+  background: #fff;
+  max-width: 950px;
+  margin: 0;
+  padding: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: none;
+}
+
+/* Remove all top accent lines from the block itself */
+
+/* Tabs navigation bar: horizontal, flush left, minimal vertical spacing */
+.tabs.tabs37 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 12px;
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-top: 8px;
+  padding: 0;
+  background: none;
+  border: none;
+  width: 100%;
+  min-height: 44px;
+  border-top: none;
+}
+
+/* Yellow accent line: only under the title, not above tabs */
+.tabs.tabs37 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+  margin: 10px 0 0;
+  padding: 0 0 5px;
+  border-bottom: 3px solid #f7df6d;
+  display: block;
+  text-align: left;
+  width: fit-content;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+
+/* Compact spacing between tabs and title */
+
+.tabs.tabs37 .tabs-panel:not([id="tabpanel-overview"]) > div > h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: none;
+  margin-top: 6px;
+  margin-bottom: 3px;
+  padding-bottom: 0;
+}
+
+/* Tab styling */
+.tabs.tabs37 .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px 5px;
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #222;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs37 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs37 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Image flush left, minimal gap below title */
+.tabs.tabs37 .tabs-panel > div > p > picture,
+.tabs.tabs37 .tabs-panel > div > p > img {
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Caption styling: uppercase, flush left, tighter gap */
+.tabs.tabs37 .tabs-panel > div > p:first-of-type {
+  font-size: 0.94rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  margin: 2px 0 3px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  width: fit-content;
+}
+
+/* Description paragraph: left aligned, very tight gap */
+.tabs.tabs37 .tabs-panel > div > p:not(:first-of-type) {
+  font-size: 1.06rem;
+  color: #222;
+  line-height: 1.65;
+  margin: 0 0 5px;
+  text-align: left;
+  max-width: 750px;
+}
+
+/* List styling: flush left, compact */
+.tabs.tabs37 .tabs-panel ul {
+  margin: 2px 0 6px 18px;
+  padding: 0;
+  font-size: 1.04rem;
+  color: #222;
+  list-style-type: disc;
+  text-align: left;
+  max-width: 600px;
+}
+
+.tabs.tabs37 .tabs-panel li {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* Ensure all content blocks are left aligned and tightly spaced */
+.tabs.tabs37 .tabs-panel > div,
+.tabs.tabs37 .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
+}
+
+/* Remove extra margin/padding from first-child blocks and top of content */
+.tabs.tabs37 .tabs-panel:first-child,
+.tabs.tabs37 .tabs-panel > div:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Responsive adjustment: stack tabs, maintain left alignment, even tighter gaps */
+@media (width <= 700px) {
+  .tabs.tabs37 {
+    max-width: 100%;
+    padding: 0 0 2px;
+  }
+
+  .tabs.tabs37 .tabs-list {
+    flex-wrap: wrap;
+    gap: 2px;
+    margin-bottom: 0;
+    margin-top: 4px;
+    min-height: 32px;
+  }
+
+  .tabs.tabs37 .tabs-panel > div > h3 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+  }
+
+  .tabs.tabs37 .tabs-panel:not([id="tabpanel-overview"]) > div > h3 {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+
+  .tabs.tabs37 .tabs-panel > div > p:first-of-type,
+  .tabs.tabs37 .tabs-panel > div > p:not(:first-of-type),
+  .tabs.tabs37 .tabs-panel ul {
+    font-size: 0.98rem;
+    margin-bottom: 2px;
+  }
+
+  .tabs.tabs37 .tabs-panel > div > p:not(:first-of-type) {
+    max-width: 100%;
+  }
+
+  .tabs.tabs37 .tabs-panel > div > p > picture,
+  .tabs.tabs37 .tabs-panel > div > p > img {
+    max-width: 100%;
+  }
+}
