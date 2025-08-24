@@ -132,7 +132,6 @@
   padding: 0;
 }
 
-/* Grid: 4 columns, tighter gaps vertically, cards align naturally */
 .cards.cards21 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -143,7 +142,6 @@
   align-items: stretch;
 }
 
-/* Responsive adjustment for smaller screens */
 @media (width <= 1024px) {
   .cards.cards21 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -156,7 +154,6 @@
   }
 }
 
-/* Card: no forced height, flex for stacking image above text */
 .cards.cards21 > ul > li {
   background: #fff;
   border: none;
@@ -169,7 +166,6 @@
   justify-content: flex-start;
 }
 
-/* Image: slightly taller aspect ratio, fills width of card */
 .cards.cards21 .cards-card-image {
   width: 100%;
   aspect-ratio: 1.65 / 1;
@@ -188,7 +184,6 @@
   display: block;
 }
 
-/* Card body: even more compact padding to reduce whitespace */
 .cards.cards21 .cards-card-body {
   padding: 3px 8px 4px;
   display: flex;
@@ -197,7 +192,6 @@
   justify-content: flex-start;
 }
 
-/* Title: uppercase, bold, less margin below for compact block */
 .cards.cards21 .cards-card-body strong {
   display: block;
   color: #333;
@@ -210,7 +204,6 @@
   line-height: 1.2;
 }
 
-/* Description: smaller font, tight grouping */
 .cards.cards21 .cards-card-body p {
   margin: 0;
   color: #888;
@@ -219,4 +212,260 @@
   font-weight: 400;
   line-height: 1.4;
   padding: 0;
+}
+
+
+.cards.cards24 {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+}
+
+/* Remove default display for UL to allow grid override */
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-rows:
+    auto
+    auto
+    auto
+    auto;
+
+  /* Four rows: contributor heading, contributor cards, guide heading, guide cards */
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings/description: span the whole container */
+.cards.cards24 > ul > li:nth-child(1),
+.cards.cards24 > ul > li:nth-child(6) {
+  grid-column: 1 / -1;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  display: block;
+  width: 100%;
+}
+
+.cards.cards24 > ul > li:nth-child(1) h1 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  color: #222;
+  margin-bottom: 0.15em;
+  font-weight: 600;
+  text-align: left;
+}
+
+.cards.cards24 > ul > li:nth-child(1) h2,
+.cards.cards24 > ul > li:nth-child(6) h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.2em;
+  border-bottom: 3px solid #c6b560;
+  padding-bottom: 7px;
+  display: inline-block;
+  text-align: left;
+}
+
+.cards.cards24 > ul > li:nth-child(1) p em,
+.cards.cards24 > ul > li:nth-child(6) p em {
+  font-family: var(--body-font-family);
+  color: #545454;
+  font-size: 1em;
+  font-style: italic;
+  margin-bottom: 0;
+  margin-top: 0.3em;
+  text-align: left;
+  display: block;
+}
+
+/* Contributors row: li 2-5 */
+.cards.cards24 > ul > li:nth-child(2),
+.cards.cards24 > ul > li:nth-child(3),
+.cards.cards24 > ul > li:nth-child(4),
+.cards.cards24 > ul > li:nth-child(5) {
+  grid-row: 2;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Guides row: li 7-9 */
+.cards.cards24 > ul > li:nth-child(7),
+.cards.cards24 > ul > li:nth-child(8),
+.cards.cards24 > ul > li:nth-child(9) {
+  grid-row: 4;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Arrange contributor and guide cards side by side using flex for each group */
+@media (width >= 900px) {
+  /* Contributors row */
+  .cards.cards24 > ul > li:nth-child(2),
+  .cards.cards24 > ul > li:nth-child(3),
+  .cards.cards24 > ul > li:nth-child(4),
+  .cards.cards24 > ul > li:nth-child(5) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    gap: 44px;
+  }
+
+  /* Individually style inner card body so each card is the same width */
+  .cards.cards24 > ul > li:nth-child(2) .cards-card-body,
+  .cards.cards24 > ul > li:nth-child(3) .cards-card-body,
+  .cards.cards24 > ul > li:nth-child(4) .cards-card-body,
+  .cards.cards24 > ul > li:nth-child(5) .cards-card-body {
+    width: 210px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Guides row */
+  .cards.cards24 > ul > li:nth-child(7),
+  .cards.cards24 > ul > li:nth-child(8),
+  .cards.cards24 > ul > li:nth-child(9) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    gap: 44px;
+  }
+
+  .cards.cards24 > ul > li:nth-child(7) .cards-card-body,
+  .cards.cards24 > ul > li:nth-child(8) .cards-card-body,
+  .cards.cards24 > ul > li:nth-child(9) .cards-card-body {
+    width: 210px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* On small screens, stack cards vertically */
+@media (width <= 899px) {
+  .cards.cards24 > ul > li:nth-child(2),
+  .cards.cards24 > ul > li:nth-child(3),
+  .cards.cards24 > ul > li:nth-child(4),
+  .cards.cards24 > ul > li:nth-child(5),
+  .cards.cards24 > ul > li:nth-child(7),
+  .cards.cards24 > ul > li:nth-child(8),
+  .cards.cards24 > ul > li:nth-child(9) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 24px;
+    gap: 0;
+  }
+
+  .cards.cards24 > ul > li .cards-card-body {
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ---------- Profile Card Styles ---------- */
+.cards.cards24 .cards-card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.cards.cards24 .cards-card-image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  margin: 0 auto 16px;
+}
+
+/* Centered text for card title and subtitle */
+.cards.cards24 .cards-card-body h3,
+.cards.cards24 .cards-card-body h5 {
+  text-align: center;
+}
+
+.cards.cards24 .cards-card-body h3 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.cards.cards24 .cards-card-body h5 {
+  font-family: var(--body-font-family);
+  font-size: 0.93em;
+  color: #545454;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+/* Socials: arrange as row of squares */
+.cards.cards24 .cards-card-body p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 0;
+  margin-top: 4px;
+  font-size: 0;
+  padding-bottom: 0;
+}
+
+.cards.cards24 .cards-card-body p a {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+  margin: 0 3px;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.15em;
+  font-family: inherit;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background 0.18s;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cards.cards24 .cards-card-body p a:hover {
+  background: #c6b560;
+  color: #222;
 }
