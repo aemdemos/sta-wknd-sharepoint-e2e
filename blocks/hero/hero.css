@@ -45,3 +45,92 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero10 {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  display: block;
+}
+
+/* Image block as hero background */
+.hero.hero10 > div:first-child {
+  width: 100%;
+  height: 340px;
+  min-height: 240px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero.hero10 > div:first-child picture,
+.hero.hero10 > div:first-child img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+}
+
+/* Overlay white box as close as possible to bottom */
+.hero.hero10 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px; /* closer to bottom for more accurate gap */
+  width: 80%;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 22px 0 rgb(0 0 0 / 8%);
+  padding: 12px 28px 14px; /* tighter vertical padding */
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Heading styles inside the white box */
+.hero.hero10 > div:nth-child(2) h2,
+.hero.hero10 > div:nth-child(2) h1,
+.hero.hero10 > div:nth-child(2) h3,
+.hero.hero10 > div:nth-child(2) h4,
+.hero.hero10 > div:nth-child(2) h5,
+.hero.hero10 > div:nth-child(2) h6 {
+  color: #222;
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: left;
+}
+
+/* Responsive adjustment for small screens */
+@media (width <= 700px) {
+  .hero.hero10 > div:first-child,
+  .hero.hero10 > div:first-child picture,
+  .hero.hero10 > div:first-child img {
+    height: 160px;
+    min-height: 100px;
+  }
+
+  .hero.hero10 > div:nth-child(2) {
+    padding: 7px 4vw 9px;
+    width: 96%;
+    max-width: 99vw;
+    bottom: 6px;
+  }
+
+  .hero.hero10 > div:nth-child(2) h2,
+  .hero.hero10 > div:nth-child(2) h1,
+  .hero.hero10 > div:nth-child(2) h3,
+  .hero.hero10 > div:nth-child(2) h4,
+  .hero.hero10 > div:nth-child(2) h5,
+  .hero.hero10 > div:nth-child(2) h6 {
+    font-size: 1.05rem;
+  }
+}
