@@ -786,7 +786,6 @@
   gap: 0;
 }
 
-/* --- TAB BAR: always at the top, horizontal row, visible labels --- */
 .tabs.tabs23 > .tabs-list {
   order: 1;
   display: flex;
@@ -838,7 +837,6 @@
   color: #222;
 }
 
-/* --- OVERVIEW PANEL (main content) --- */
 .tabs.tabs23 > .tabs-panel[aria-hidden="false"] {
   order: 2;
   display: flex;
@@ -868,7 +866,6 @@
   margin: 10px 0 0;
 }
 
-/* --- DETAILS SECTION (Itinerary/What to Bring) --- */
 .tabs.tabs23 > .tabs-panel:not([aria-hidden="false"]) {
   order: 3;
   display: flex;
@@ -898,7 +895,6 @@
   }
 }
 
-/* --- HEADINGS & TEXT --- */
 .tabs.tabs23 .tabs-panel h3 {
   font-family: var(--heading-font-family), Georgia, serif;
   font-size: 28px;
@@ -926,7 +922,6 @@
   text-align: left;
 }
 
-/* --- LISTS --- */
 .tabs.tabs23 .tabs-panel ul {
   list-style: none;
   padding: 0;
@@ -947,7 +942,6 @@
   vertical-align: middle;
 }
 
-/* --- REMOVE BORDERS & SHADOWS, left align --- */
 .tabs.tabs23,
 .tabs.tabs23 * {
   border: none;
@@ -959,4 +953,163 @@
   text-align: left;
 }
 
-/* --- TIGHTEN VERTICAL SPACING BELOW IMAGE/CAPTION --- */
+
+.tabs.tabs25 {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  align-items: flex-start;
+  background: var(--background-color);
+  padding: 40px 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tabs.tabs25 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  background: none;
+  min-width: 0;
+  border-right: none;
+}
+
+.tabs.tabs25 .tabs-tab {
+  background: #fff;
+  color: #232323;
+  font-family: var(--body-font-family);
+  font-size: 1.07rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #dadada;
+  border-radius: 7px;
+  padding: 14px 20px;
+  margin: 0;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 4%);
+  transition: background 0.2s;
+  cursor: pointer;
+  outline: none;
+  display: block;
+  text-align: left;
+}
+
+.tabs.tabs25 .tabs-tab[aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+  border: 2px solid #ffe066;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 7%);
+}
+
+.tabs.tabs25 .tabs-panel {
+  background: #fff;
+  padding: 0;
+  max-width: 800px;
+  box-sizing: border-box;
+  border: none;
+  margin: 0;
+  overflow: visible;
+  font-size: 1.07rem;
+  color: #333;
+}
+
+.tabs.tabs25 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs25 .tabs-panel > div {
+  padding: 0;
+  margin: 0;
+}
+
+.tabs.tabs25 .tabs-panel h3,
+.tabs.tabs25 .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #232323;
+  margin: 0 0 1.2rem;
+  line-height: 1.15;
+}
+
+.tabs.tabs25 .tabs-panel p {
+  font-size: 1.07rem;
+  color: #333;
+  margin: 0 0 1.2rem;
+  line-height: 1.65;
+  font-family: var(--body-font-family);
+}
+
+.tabs.tabs25 .tabs-panel picture,
+.tabs.tabs25 .tabs-panel img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 0 0 1.5rem;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs25 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 24px 0;
+  }
+
+  .tabs.tabs25 .tabs-list {
+    flex-direction: row;
+    gap: 8px;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .tabs.tabs25 .tabs-tab {
+    border-radius: 7px;
+    padding: 12px 14px;
+    font-size: 1rem;
+    margin: 0;
+    min-width: 120px;
+    text-align: center;
+  }
+
+  .tabs.tabs25 .tabs-panel {
+    padding: 0 8px;
+  }
+
+  .tabs.tabs25 .tabs-panel h3,
+  .tabs.tabs25 .tabs-panel h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .tabs.tabs25 .tabs-panel p {
+    font-size: 0.97rem;
+    margin-bottom: 0.7rem;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs25 {
+    padding: 12px 0;
+  }
+
+  .tabs.tabs25 .tabs-list {
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .tabs.tabs25 .tabs-panel h3,
+  .tabs.tabs25 .tabs-panel h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .tabs.tabs25 .tabs-panel p {
+    font-size: 0.97rem;
+    margin-bottom: 0.7rem;
+  }
+}
