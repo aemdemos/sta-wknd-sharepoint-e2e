@@ -237,7 +237,6 @@
   align-items: start;
 }
 
-/* Left (logo + description) */
 .columns.columns9 > div > div:nth-child(1) {
   grid-row: 1 / span 2;
   grid-column: 1;
@@ -246,9 +245,6 @@
   align-items: flex-start;
 }
 
-/* --- RIGHT SIDE CLUSTER --- */
-
-/* All three right "header" items in a vertical flex stack */
 .columns.columns9 > div > div.right-header-flex,
 .columns.columns9 > div > div:nth-child(3) {
   grid-row: 1;
@@ -259,17 +255,13 @@
   gap: 7px;
   margin: 0;
   padding: 0;
-
-  /* To ensure the cluster sits at the top */
   justify-self: end;
 }
 
 .columns.columns9 > div > div:nth-child(3) {
-  /* This will be the main vertical stack for Follow Us, Deutsch, icons */
   position: relative;
 }
 
-/* Move Deutsch and icon row inside the stack visually using absolute positioning */
 .columns.columns9 > div > div:nth-child(2) {
   position: static;
   order: 2;
@@ -279,8 +271,6 @@
   width: auto;
   text-align: right;
   font-size: 13px;
-
-  /* Place right after the heading in the flex stack */
 }
 
 .columns.columns9 > div > div:nth-child(4) {
@@ -293,7 +283,6 @@
   margin-top: 0;
 }
 
-/* "Follow Us" heading */
 .columns.columns9 h4 {
   color: #fff;
   font-size: 14px;
@@ -306,7 +295,6 @@
   align-self: flex-end;
 }
 
-/* Social icon button style */
 .columns.columns9 .button-container {
   margin: 0;
   padding: 0;
@@ -331,14 +319,12 @@
   transition: background 0.2s, color 0.2s;
 }
 
-/* Hover effect for icons */
 .columns.columns9 > div > div:nth-child(4) .button:hover,
 .columns.columns9 > div > div:nth-child(4) .button:focus {
   background: #E0E0E0;
   color: #232221;
 }
 
-/* Description block spans full width below columns */
 .columns.columns9 > div > div:nth-child(5) {
   grid-row: 2;
   grid-column: 1 / span 2;
@@ -357,7 +343,6 @@
   font-size: 12px;
 }
 
-/* Responsive stacking for small screens */
 @media (width <= 900px) {
   .columns.columns9 {
     padding: 24px 16px;
@@ -400,4 +385,226 @@
     width: 100%;
     padding-right: 0;
   }
+}
+
+
+.columns.columns35 {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 32px 0 0;
+  box-sizing: border-box;
+}
+
+.columns.columns35 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.columns.columns35 > div > div:last-child > *:first-child {
+  margin-top: 0;
+}
+
+.columns.columns35 > div > div:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 740px;
+  width: 100%;
+  padding-right: 18px;
+  box-sizing: border-box;
+}
+
+.columns.columns35 > div > div:last-child {
+  flex: 0 0 246px;
+  max-width: 246px;
+  width: 246px;
+  min-width: 200px;
+  box-sizing: border-box;
+  padding-left: 26px;
+  border-left: 1px solid #ececec;
+  color: #444;
+  background: #fff;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+@media (width <= 900px) {
+  .columns.columns35 {
+    padding: 16px 0 0;
+  }
+
+  .columns.columns35 > div {
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .columns.columns35 > div > div:first-child,
+  .columns.columns35 > div > div:last-child {
+    padding-right: 0;
+    padding-left: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .columns.columns35 > div > div:last-child {
+    border-left: none;
+    margin-top: 0;
+  }
+}
+
+.columns.columns35 h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #181818;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: -0.5px;
+}
+
+.columns.columns35 h4 {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #999;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.columns.columns35 h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #181818;
+  margin-top: 18px;
+  margin-bottom: 2px;
+}
+
+.columns.columns35 h3 {
+  font-size: 1.08rem;
+  color: #444;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.columns.columns35 h5 {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #333;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.columns.columns35 p {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.columns.columns35 em {
+  font-style: italic;
+}
+
+.columns.columns35 picture,
+.columns.columns35 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 18px 0 22px;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.columns.columns35 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.columns.columns35 ul li {
+  margin-bottom: 10px;
+}
+
+.columns.columns35 ul li a {
+  font-size: 1rem;
+  color: #222;
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.5;
+  display: inline-block;
+  overflow-wrap: break-word; /* Replaced deprecated property `word-break` with `overflow-wrap`, which retains functionality */
+}
+
+.columns.columns35 ul li a:hover,
+.columns.columns35 ul li a:focus {
+  color: #111;
+  text-decoration: underline;
+}
+
+.columns.columns35 p.button-container {
+  margin-bottom: 0;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.columns.columns35 .button {
+  background: #222;
+  color: #fff;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 3px;
+  margin-bottom: 0;
+  text-transform: none;
+  box-shadow: none;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  display: inline-block;
+}
+
+.columns.columns35 .button:hover,
+.columns.columns35 .button:focus {
+  background: #555;
+  color: #fff;
+}
+
+@media (width <= 900px) {
+  .columns.columns35 p.button-container {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .columns.columns35 .button {
+    min-width: 120px;
+    width: auto;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
+
+.columns.columns35 picture {
+  display: block;
+  margin: 18px 0 22px;
+}
+
+.columns.columns35 picture img {
+  margin: 0;
 }
