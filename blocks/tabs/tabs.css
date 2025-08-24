@@ -1125,13 +1125,12 @@
   align-items: flex-start;
 }
 
-/* Tabs block: align tighter to top, reduce whitespace */
 .tabs.tabs28 .tabs-list {
   display: flex;
   flex-direction: row;
   gap: 32px;
-  margin-top: 0;      /* Remove space above tabs */
-  margin-bottom: 4px; /* Minimize space below tabs before heading */
+  margin-top: 0;
+  margin-bottom: 4px;
   padding: 0;
   border: none;
   background: none;
@@ -1142,7 +1141,6 @@
   position: relative;
 }
 
-/* Accent line: bring flush to top */
 .tabs.tabs28 .tabs-list::after {
   position: absolute;
   top: -2px;
@@ -1155,7 +1153,6 @@
   content: "";
 }
 
-/* Tabs styling */
 .tabs.tabs28 .tabs-tab {
   border: 1.5px solid #222;
   background: transparent;
@@ -1211,7 +1208,6 @@
   width: 100%;
 }
 
-/* Prevent unwanted whitespace between tabs and heading */
 .tabs.tabs28 .tabs-panel > div {
   max-width: 680px;
   margin-left: 0;
@@ -1223,7 +1219,6 @@
   align-items: flex-start;
 }
 
-/* Heading: keep very close to tabs */
 .tabs.tabs28 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 1.38rem;
@@ -1235,7 +1230,6 @@
   text-align: left;
 }
 
-/* Paragraphs */
 .tabs.tabs28 .tabs-panel p {
   font-size: 1.09rem;
   color: #222;
@@ -1245,7 +1239,6 @@
   text-align: left;
 }
 
-/* Image: keep spacing tight above */
 .tabs.tabs28 .tabs-panel picture {
   display: block;
   margin: 1.7em 0 2em;
@@ -1261,7 +1254,6 @@
   margin-bottom: 0.5em;
 }
 
-/* Footer text (last paragraph) */
 .tabs.tabs28 .tabs-panel > div > p:last-child {
   color: #999;
   font-size: 1.09rem;
@@ -1320,4 +1312,179 @@
     margin-top: 0;
     margin-bottom: 1em;
   }
+}
+
+
+.tabs.tabs31 {
+  /* Root block layout: two columns using CSS Grid for robust alignment */
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 48px auto;
+  background: #fff;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs31 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 32px 0;
+  }
+}
+
+/* Left column styles, assuming first child div is sidebar/meta */
+.tabs.tabs31 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 24px;
+  font-family: var(--body-font-family);
+  color: #757575;
+  font-size: 14px;
+  min-width: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Sidebar sections: stack info blocks with spacing */
+.tabs.tabs31 > div:first-child > * {
+  margin-bottom: 32px;
+}
+
+.tabs.tabs31 > div:first-child strong,
+.tabs.tabs31 > div:first-child b {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #212121;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Right column: main content */
+.tabs.tabs31 > div:nth-child(2) {
+  min-width: 0;
+  padding: 0;
+  background: #fff;
+}
+
+/* Tab navigation styling */
+.tabs.tabs31 .tabs-list {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding: 0;
+  border: none;
+  font-size: 15px;
+  background: none;
+  box-shadow: none;
+  overflow-x: auto;
+}
+
+.tabs.tabs31 .tabs-tab {
+  background: none;
+  border: none;
+  border-radius: 2em;
+  padding: 8px 18px;
+  color: #212121;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+}
+
+.tabs.tabs31 .tabs-tab[aria-selected="true"] {
+  background: #212121;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs31 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Title styles (e.g., "Ski Touring Mont Blanc") */
+.tabs.tabs31 h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #212121;
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #F7D659;
+  display: inline-block;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+
+/* Description text */
+.tabs.tabs31 p {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #212121;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.tabs.tabs31 ul {
+  margin-left: 18px;
+  font-size: 15px;
+  color: #212121;
+  padding: 0;
+}
+
+.tabs.tabs31 li {
+  margin-bottom: 10px;
+}
+
+/* Remove box border from main panel */
+.tabs.tabs31 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+  background: none;
+  overflow: visible;
+}
+
+/* Image styling */
+.tabs.tabs31 picture {
+  display: block;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.tabs.tabs31 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+/* Responsive stack for sidebar/main content */
+@media (width <= 900px) {
+  .tabs.tabs31 > div:first-child {
+    padding-top: 0;
+    margin-bottom: 32px;
+    min-width: 0;
+  }
+
+  .tabs.tabs31 > div:nth-child(2) {
+    padding: 0;
+  }
+}
+
+/* Make sure only visible tab panel is displayed */
+.tabs.tabs31 .tabs-panel[aria-hidden="true"] {
+  display: none;
 }
