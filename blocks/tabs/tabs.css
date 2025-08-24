@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,208 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs3 {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 54px 0 40px;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* === 1. TABS ROW === */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0 0 36px; /* space below tab row */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabs.tabs3 .tabs-list > button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 24px 0 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  min-width: 135px;
+  min-height: 48px;
+  position: relative;
+  cursor: pointer;
+}
+
+.tabs.tabs3 .tabs-list > button:last-child {
+  margin-right: 0;
+}
+
+/* Pills appearance for tab buttons */
+.tabs.tabs3 .tabs-list > button > p {
+  display: block;
+  min-width: 100px;
+  padding: 10px 34px;
+  border-radius: 20px;
+  background: #fff;
+  color: #222;
+  font-size: 1.08rem;
+  border: 1.3px solid #222;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+}
+
+.tabs.tabs3 .tabs-list > button[aria-selected='true'] > p {
+  background: #222;
+  color: #fff;
+  border: 1.3px solid #222;
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* === 2. PANELS LAYOUT === */
+
+/* Show only the active panel */
+.tabs.tabs3 .tabs-panel {
+  display: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+/* Panel inner content: vertical stack and centered */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] > div {
+  max-width: 770px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* If multiple divs in the panel (for tabs), put space between them */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] > div + div {
+  margin-top: 36px;
+}
+
+/* === 3. TYPOGRAPHY & SPACING === */
+
+/* Title (h3) styling */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 10px;
+  line-height: 1.1;
+  display: block;
+  position: relative;
+}
+
+/* Accent line under title */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] h3::after {
+  display: block;
+  height: 4px;
+  width: 60px;
+  background: #ffe066;
+  border-radius: 2px;
+  margin: 14px 0 28px;
+  content: '';
+}
+
+/* Description paragraph */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] p {
+  font-size: 1.17rem;
+  color: #222;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 0 32px;
+  max-width: 700px;
+}
+
+/* Remove extra space if p is last in block before image */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] p:last-child {
+  margin-bottom: 0;
+}
+
+/* Images */
+.tabs.tabs3 .tabs-panel[aria-hidden='false'] img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  margin: 0;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+/* === 4. RESPONSIVE === */
+@media (width <= 900px) {
+  .tabs.tabs3 {
+    padding: 24px 0;
+  }
+
+  .tabs.tabs3 .tabs-list {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 18px;
+  }
+
+  .tabs.tabs3 .tabs-list > button {
+    margin: 0 0 12px;
+    min-width: 110px;
+    min-height: 38px;
+  }
+
+  .tabs.tabs3 .tabs-list > button > p {
+    width: 100%;
+    padding: 10px 18px;
+    font-size: 1rem;
+  }
+
+  .tabs.tabs3 .tabs-panel[aria-hidden='false'] > div {
+    padding: 0 16px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs3 .tabs-panel[aria-hidden='false'] h3 {
+    font-size: 1.45rem;
+    margin-bottom: 7px;
+  }
+
+  .tabs.tabs3 .tabs-panel[aria-hidden='false'] h3::after {
+    width: 40px;
+    margin: 10px 0 18px;
+    height: 3px;
+  }
+
+  .tabs.tabs3 .tabs-panel[aria-hidden='false'] p {
+    font-size: 1rem;
+    margin-bottom: 18px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs3 .tabs-panel[aria-hidden='false'] img {
+    max-width: 100%;
+    border-radius: 9px;
+  }
 }
