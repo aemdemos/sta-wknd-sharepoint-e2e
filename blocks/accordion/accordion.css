@@ -76,16 +76,14 @@
   flex-shrink: 0;
 }
 
-/* Simulate more realistic two-column spacing on large screens */
 @media (width >= 1200px) {
   .accordion.accordion13 {
     margin-left: 72px;
-    margin-right: 240px; /* Reduced margin for a more natural balance */
+    margin-right: 240px;
     max-width: 540px;
   }
 }
 
-/* Make spacing less isolated on medium screens */
 @media (width <= 1199px) {
   .accordion.accordion13 {
     margin-left: 24px;
@@ -102,7 +100,6 @@
   }
 }
 
-/* Accordion items: vertically stacked, compact */
 .accordion.accordion13 details {
   border: none;
   border-bottom: 1px solid #eee;
@@ -117,7 +114,6 @@
   border-bottom: none;
 }
 
-/* FAQ question row: left align, bold/uppercase, compact padding */
 .accordion.accordion13 summary {
   display: flex;
   align-items: center;
@@ -136,12 +132,10 @@
   text-align: left;
 }
 
-/* Remove default marker from summary */
 .accordion.accordion13 summary::-webkit-details-marker {
   display: none;
 }
 
-/* FAQ answer body: compact and visually distinct */
 .accordion.accordion13 .accordion-item-body {
   padding: 16px 0;
   font-size: 15px;
@@ -154,9 +148,156 @@
   text-align: left;
 }
 
-/* Remove extra vertical gaps between accordion items */
 .accordion.accordion13 details + details {
   margin-top: 0;
 }
 
-/* Prevent block shrinking in flex/grid parent */
+
+.accordion.accordion15 {
+  box-sizing: border-box;
+  background: #fff;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Responsive adjustment for mobile */
+@media (width <= 900px) {
+  .accordion.accordion15 {
+    max-width: 100vw;
+    padding: 0 2vw 32px;
+  }
+}
+
+/* Details: full width, vertical stacking, center content */
+.accordion.accordion15 > details {
+  width: 100%;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0 0 48px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Remove accordion styles from summary */
+.accordion.accordion15 details summary {
+  position: static;
+  padding: 0;
+  cursor: default;
+  background: none;
+  border: none;
+  box-shadow: none;
+  list-style: none;
+  transition: none;
+  overflow: visible;
+  outline: none;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.accordion.accordion15 details summary::-webkit-details-marker,
+.accordion.accordion15 details summary::after {
+  display: none;
+}
+
+/* Headings: left-aligned, visual hierarchy, more separation */
+.accordion.accordion15 h2,
+.accordion.accordion15 h3 {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #202020;
+  margin-top: 60px;
+  margin-bottom: 26px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  width: 100%;
+  max-width: 960px;
+  text-align: left;
+}
+
+.accordion.accordion15 h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.accordion.accordion15 h3 {
+  font-size: var(--heading-font-size-l);
+}
+
+/* Paragraphs: wider, relaxed line length, left aligned */
+.accordion.accordion15 p {
+  color: #404040;
+  font-family: var(--body-font-family);
+  font-size: 1.15em;
+  line-height: 1.8;
+  margin: 0 0 22px;
+  width: 100%;
+  max-width: 960px;
+  text-align: left;
+}
+
+/* Images: maximize width, strong shadow/rounding, tight to caption */
+.accordion.accordion15 picture {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0;
+  background: none;
+}
+
+.accordion.accordion15 picture img {
+  display: block;
+  width: 100%;
+  max-width: 1040px;
+  height: auto;
+  border-radius: 26px;
+  box-shadow: 0 6px 32px rgb(0 0 0 / 10%);
+  margin: 36px 0 6px;
+  background: none;
+}
+
+/* Captions: tight to image, extra gap below, lighter and italic */
+.accordion.accordion15 picture + p,
+.accordion.accordion15 p:has(> picture) {
+  color: #909090;
+  font-size: 1em;
+  font-style: italic;
+  margin-top: 4px;
+  margin-bottom: 38px;
+  max-width: 960px;
+  width: 100%;
+  text-align: left;
+}
+
+/* Remove any unwanted backgrounds or heights on picture/img */
+.accordion.accordion15 picture,
+.accordion.accordion15 picture img {
+  background: none;
+  min-height: 0;
+}
+
+/* Remove any border, shadow, or background from details and body */
+.accordion.accordion15 details,
+.accordion.accordion15 .accordion-item-body {
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding: 0;
+}
+
+/* For all blocks: center main containers, but left-align actual content */
+.accordion.accordion15 > details,
+.accordion.accordion15 details summary,
+.accordion.accordion15 picture {
+  align-self: center;
+}
