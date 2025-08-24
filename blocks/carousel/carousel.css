@@ -461,10 +461,6 @@
   }
 }
 
-
-/* Experiment 4: Tighter card placement, yellow CTA, minimal indicators, and visible arrows for .carousel.carousel22 */
-
-/* 1. Card: lower, left-aligned, not floating */
 .carousel.carousel22 .carousel-slide .carousel-slide-content {
   position: absolute;
   inset: auto auto 32px 4vw;
@@ -482,7 +478,6 @@
   display: block;
 }
 
-/* 2. Button: yellow, rectangular, bold black text */
 .carousel.carousel22 .carousel-slide-content .button {
   background: #ffe600;
   color: #222;
@@ -503,7 +498,6 @@
   color: #111;
 }
 
-/* 3. Indicators: dots only, no thick white bar, placed close to image bottom */
 .carousel.carousel22 .carousel-slide-indicators {
   position: absolute;
   left: 0;
@@ -522,7 +516,6 @@
   border: none;
 }
 
-/* Make dots pop on image, with subtle shadow */
 .carousel.carousel22 .carousel-slide-indicator button {
   width: 10px;
   height: 10px;
@@ -540,7 +533,6 @@
   height: 13px;
 }
 
-/* 4. Navigation Arrows: visible at bottom right */
 .carousel.carousel22 .carousel-navigation-buttons {
   position: absolute;
   inset: auto 2vw 10px auto;
@@ -600,7 +592,6 @@
   color: #dadada;
 }
 
-/* 5. Responsive: keep overlay effect, avoid crowding */
 @media (width <= 900px) {
   .carousel.carousel22 .carousel-slide .carousel-slide-content {
     left: 2vw;
@@ -620,4 +611,143 @@
     bottom: 2px;
     right: 2vw;
   }
+}
+
+
+.carousel.carousel40 .carousel-slide {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-height: 420px;
+  height: 500px;
+  background: transparent;
+  position: relative;
+}
+
+.carousel.carousel40 .carousel-slide .carousel-slide-image {
+  width: 50%;
+  height: 100%;
+  min-width: 320px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+
+.carousel.carousel40 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel40 .carousel-slide .carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel.carousel40 .carousel-slide .carousel-slide-content {
+  margin: 0;
+  padding: 36px 40px 28px 44px;
+  background: #f4f4f4;
+  color: #131313;
+  width: 50%;
+  max-width: none;
+  min-width: 280px;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.carousel.carousel40 .carousel-slide-content p:first-child {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 12px;
+  margin-top: 0;
+  letter-spacing: 0.01em;
+}
+
+.carousel.carousel40 .carousel-slide-content h2 {
+  font-family: var(--heading-font-family);
+  font-size: 27px;
+  font-weight: 600;
+  color: #131313;
+  margin-bottom: 12px;
+  margin-top: 0;
+  line-height: 1.15;
+}
+
+.carousel.carousel40 .carousel-slide-content p:not(:first-child, .button-container) {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #131313;
+  margin-top: 0;
+  margin-bottom: 14px;
+  max-width: 430px;
+}
+
+.carousel.carousel40 .carousel-slide-content .button-container {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.carousel.carousel40 .carousel-slide-content a.button {
+  margin: 0;
+  background-color: #ffe100;
+  color: #131313;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: none;
+  padding: 0.55em 1.2em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+  min-width: 130px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel.carousel40 .carousel-slide-content a.button:hover,
+.carousel.carousel40 .carousel-slide-content a.button:focus {
+  background-color: #ffd700;
+  color: #131313;
+  text-decoration: underline;
+}
+
+@media (width <= 900px) {
+  .carousel.carousel40 .carousel-slide {
+    flex-direction: column;
+    min-height: 340px;
+    height: auto;
+  }
+
+  .carousel.carousel40 .carousel-slide .carousel-slide-image,
+  .carousel.carousel40 .carousel-slide-content {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding-left: 14px;
+    padding-right: 14px;
+    height: auto;
+  }
+
+  .carousel.carousel40 .carousel-slide-content {
+    padding-top: 24px;
+    padding-bottom: 16px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.carousel.carousel40 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel40 .carousel-slide-indicators {
+  display: none;
 }
