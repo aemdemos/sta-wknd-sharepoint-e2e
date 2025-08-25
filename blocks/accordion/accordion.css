@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,112 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion17 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 56px auto 40px;
+  background: #fff;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+/* Left column (main content), make wider and anchor left */
+.accordion.accordion17 > details {
+  flex: 2.8 1 0;
+  min-width: 0;
+  border: none;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Right column (sidebar), make narrower and add more padding */
+.accordion.accordion17 > details + details {
+  flex: 1.1 1 0;
+  border-left: 1px solid #eaeaea;
+  background: #fff;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-left: 48px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Headings, left align and maximize readable width */
+.accordion.accordion17 details summary {
+  font-family: var(--heading-font-family);
+  font-size: 2em;
+  font-weight: 700;
+  color: #232323;
+  background: none;
+  padding: 0 0 18px;
+  border-bottom: 2px solid #eaeaea;
+  outline: none;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.accordion.accordion17 details summary:focus,
+.accordion.accordion17 details summary:hover {
+  background: #f5f5f7;
+}
+
+.accordion.accordion17 details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion17 details summary > p {
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.accordion.accordion17 details .accordion-item-body {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: #232323;
+  padding: 18px 0 0;
+  background: transparent;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .accordion.accordion17 {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 32px 0 24px;
+  }
+
+  .accordion.accordion17 > details,
+  .accordion.accordion17 > details + details {
+    flex: none;
+    border-left: none;
+    padding-left: 0;
+    min-width: 0;
+    width: 100%;
+    margin: 0 0 24px;
+  }
+
+  .accordion.accordion17 details summary {
+    font-size: 1.3em;
+    padding: 0 0 12px;
+  }
 }
