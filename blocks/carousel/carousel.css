@@ -382,7 +382,6 @@
 
 
 .carousel.carousel9 {
-  /* Slightly more white space top/bottom for stronger letterbox effect */
   padding-top: 48px;
   padding-bottom: 62px;
   background: #fff;
@@ -390,7 +389,6 @@
   position: relative;
 }
 
-/* Slightly reduce image container height to emphasize white space */
 .carousel.carousel9 .carousel-slide {
   height: 210px;
   max-height: 210px;
@@ -400,7 +398,6 @@
   align-items: stretch;
 }
 
-/* Ensure image fills and is not clipped */
 .carousel.carousel9 .carousel-slide .carousel-slide-image picture,
 .carousel.carousel9 .carousel-slide .carousel-slide-image img {
   position: absolute;
@@ -410,12 +407,10 @@
   object-fit: cover;
 }
 
-/* Hide overlay if empty */
 .carousel.carousel9 .carousel-slide-content:empty {
   display: none;
 }
 
-/* Move navigation buttons further outwards for more margin */
 .carousel.carousel9 .carousel-navigation-buttons {
   position: absolute;
   left: 0;
@@ -457,7 +452,6 @@
   cursor: not-allowed;
 }
 
-/* Arrow icons: lighter and thinner */
 .carousel.carousel9 .carousel-navigation-buttons button::after {
   border-width: 1.25px;
   border-color: #888;
@@ -473,7 +467,6 @@
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-/* Raise indicators closer to image */
 .carousel.carousel9 .carousel-slide-indicators {
   position: absolute;
   left: 0; right: 0;
@@ -488,7 +481,6 @@
   line-height: 1;
 }
 
-/* Dots: small, spaced */
 .carousel.carousel9 .carousel-slide-indicator button {
   width: 8px;
   height: 8px;
@@ -509,7 +501,6 @@
   background: #3b63fb;
 }
 
-/* Responsive: adapt heights and spacing for small screens */
 @media (width <= 600px) {
   .carousel.carousel9 {
     padding-top: 18px;
@@ -535,4 +526,198 @@
     bottom: 22px;
     gap: 10px;
   }
+}
+
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  left: 1vw;
+  bottom: 1vw;
+  margin: 0;
+  width: 29vw;
+  min-width: 260px;
+  max-width: 420px;
+  padding: 1.2em 1.6em 0.7em 1.2em;
+  background: #fff;
+  color: #232323;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
+  border-radius: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+@media (width <= 800px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    left: 2vw;
+    right: 2vw;
+    bottom: 2vw;
+    width: auto;
+    max-width: 98vw;
+    padding: 0.8em 0.8em 0.4em;
+  }
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content h2 {
+  font-family: var(--heading-font-family);
+  color: #131313;
+  font-size: 1.18rem;
+  font-weight: 400;
+  margin-bottom: 0.43em;
+  line-height: 1.12;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content p {
+  color: #232323;
+  font-size: 0.95rem;
+  margin-bottom: 0.8em;
+  margin-top: 0;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container {
+  margin: 0.4em 0 0.15em;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button {
+  background: #ffe700;
+  color: #1a1a1a;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 0.38em 2.2em 0.34em;
+  min-width: 110px;
+  border-radius: 16px;
+  border: none;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  box-shadow: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  transition: background 0.12s, color 0.12s;
+  display: inline-block;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button:hover,
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button:focus {
+  background: #fff200;
+  color: #000;
+  text-decoration: none;
+}
+
+/* --- Place indicator dots inside card, below button --- */
+.carousel.carousel22 .carousel-slide .carousel-slide-indicators {
+  position: static;
+  margin: 0.55em 0 0;
+  padding: 0;
+  background: none;
+  display: flex;
+  flex-direction: row;
+  gap: 0 6px;
+  align-items: center;
+  box-shadow: none;
+  justify-content: flex-start;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content > .carousel-slide-indicators {
+  /* ensure correct stacking if nested */
+  position: static;
+}
+
+.carousel.carousel22 .carousel-slide-indicator {
+  margin: 0;
+  padding: 0;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: none;
+  margin: 0 1px;
+  box-shadow: none;
+  transition: background 0.14s;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:disabled,
+.carousel.carousel22 .carousel-slide-indicator button[disabled] {
+  background: #555;
+  cursor: default;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:hover,
+.carousel.carousel22 .carousel-slide-indicator button:focus-visible {
+  background: #bcbcbc;
+}
+
+/* --- Responsive image behind content --- */
+.carousel.carousel22 .carousel-slide .carousel-slide-image picture > img {
+  min-height: 420px;
+  object-fit: cover;
+}
+
+/* --- Navigation Buttons --- */
+.carousel.carousel22 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 1vw 2vw auto;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  z-index: 4;
+  pointer-events: none;
+  background: none;
+  padding: 0;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button {
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  transition: background 0.12s, box-shadow 0.12s;
+  position: relative;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:hover,
+.carousel.carousel22 .carousel-navigation-buttons button:focus-visible {
+  background: #f4f4f4;
+  border-color: #ccc;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 10%);
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:disabled,
+.carousel.carousel22 .carousel-navigation-buttons button:disabled:hover {
+  opacity: 0.27;
+  background: #f6f6f6;
+  border-color: #ededed;
+  cursor: default;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: solid #222;
+  border-width: 0 0 1.7px 1.7px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: none;
+  box-sizing: border-box;
+  transform: translate(-50%,-50%) rotate(45deg); /* left arrow default */
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%,-50%) rotate(-135deg); /* right arrow */
 }
