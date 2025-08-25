@@ -1,7 +1,14 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+  min-height: 160px;
+  box-sizing: border-box;
 }
 
 .columns img {
@@ -10,6 +17,8 @@
 
 .columns > div > div {
   order: 1;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .columns > div > .columns-img-col {
@@ -135,7 +144,6 @@
   box-sizing: border-box;
 }
 
-/* Main columns: flex row, align top, tighter gap */
 .columns.columns5 > .columns {
   display: flex;
   flex-direction: row;
@@ -145,7 +153,6 @@
   width: 100%;
 }
 
-/* Responsive stacking for smaller screens */
 @media (width <= 900px) {
   .columns.columns5 > .columns {
     flex-direction: column;
@@ -155,7 +162,6 @@
   }
 }
 
-/* Left column: logo + text stacked vertically */
 .columns.columns5 > .columns > div:first-child {
   display: flex;
   flex-direction: column;
@@ -165,7 +171,6 @@
   gap: 18px;
 }
 
-/* Logo sizing and top margin */
 .columns.columns5 picture img {
   display: block;
   max-width: 180px;
@@ -175,12 +180,10 @@
   margin-bottom: 12px;
 }
 
-/* Hide language selector in left column */
 .columns.columns5 ul {
   display: none;
 }
 
-/* Right column: tightly grouped Follow Us + socials at top right */
 .columns.columns5 > .columns > div:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -192,16 +195,14 @@
   padding-top: 0;
 }
 
-/* Inner group for Follow Us + socials, stacked vertically */
 .columns.columns5 > .columns > div:nth-child(2) > div {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8px; /* smaller vertical gap for tighter grouping */
+  gap: 8px;
   margin-top: 0;
 }
 
-/* "Follow Us" header styling */
 .columns.columns5 #follow-us {
   color: #fff;
   text-transform: uppercase;
@@ -214,7 +215,6 @@
   padding-right: 2px;
 }
 
-/* Social links: horizontal row, tightly spaced and compact, right aligned under heading */
 .columns.columns5 .button-container {
   display: inline-block;
   margin-right: 8px;
@@ -225,7 +225,6 @@
   margin-right: 0;
 }
 
-/* Social buttons: compact square icon-like buttons */
 .columns.columns5 .button {
   display: inline-flex;
   align-items: center;
@@ -257,14 +256,12 @@
   text-align: center;
 }
 
-/* Hover states for buttons */
 .columns.columns5 .button:hover,
 .columns.columns5 .button:focus {
   background: #e0e0e0;
   color: #111;
 }
 
-/* Left column: body text styling */
 .columns.columns5 > .columns > div:last-child,
 .columns.columns5 > .columns > div:first-child > div:last-child {
   color: #e0e0e0;
@@ -283,14 +280,12 @@
   font-family: Montserrat, Arial, sans-serif;
 }
 
-/* Left column: copyright text smaller */
 .columns.columns5 > .columns > div:last-child p:first-child {
   font-size: 13px;
   opacity: 0.8;
   margin-bottom: 10px;
 }
 
-/* Style links in text block */
 .columns.columns5 > .columns > div:last-child a {
   color: #fff;
   text-decoration: underline;
@@ -302,7 +297,6 @@
   color: #b0b0b0;
 }
 
-/* Responsive: left column full width if stacked */
 @media (width <= 900px) {
   .columns.columns5 > .columns > div {
     min-width: 0;
@@ -314,3 +308,147 @@
     padding: 32px 13px 16px;
   }
 }
+
+
+.columns {
+  background: #232222;
+  color: #fff;
+  padding: 40px 0;
+}
+
+/* Layout the top-level columns side-by-side using Flexbox */
+
+/* Logo column: ensure it's left-aligned and sized appropriately */
+.columns .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 32px;
+  min-width: 180px;
+}
+
+.columns .columns-img-col img {
+  max-height: 72px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  display: block;
+}
+
+/* All three columns: ensure horizontal balance even if content is missing */
+
+/* Center column: always take up horizontal space, even if empty */
+.columns > div > div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 40px;
+}
+
+/* Navigation: flatten any ul or ol inside center column to a horizontal row */
+.columns > div > div:nth-child(2) ul,
+.columns > div > div:nth-child(2) ol {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Also flatten any nested lists inside navigation */
+.columns > div > div:nth-child(2) ul ul,
+.columns > div > div:nth-child(2) ol ol {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation list items: align items horizontally */
+.columns > div > div:nth-child(2) li {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Navigation links: white, uppercase, evenly spaced */
+.columns > div > div:nth-child(2) a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 2px 0;
+  display: inline-block;
+}
+
+.columns > div > div:nth-child(2) a:hover,
+.columns > div > div:nth-child(2) a:focus {
+  color: #bdbdbd;
+  text-decoration: underline;
+}
+
+/* Remove bullets and extra space from all navigation lists */
+.columns > div > div:nth-child(2) ul,
+.columns > div > div:nth-child(2) ul ul,
+.columns > div > div:nth-child(2) ol,
+.columns > div > div:nth-child(2) ol ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Right column (search or other): right-aligned */
+.columns > div > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 120px;
+  margin-left: 32px;
+}
+
+/* Search styling */
+.columns > div > div:last-child input,
+.columns > div > div:last-child p {
+  background: #2d2c2c;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  font-size: 15px;
+  padding: 8px 20px;
+  margin: 0;
+  outline: none;
+  letter-spacing: 1px;
+}
+
+/* Responsive: stack columns vertically, align left on mobile */
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 16px;
+    min-height: unset;
+    gap: 24px;
+  }
+
+  .columns .columns-img-col,
+  .columns > div > div:nth-child(2),
+  .columns > div > div:last-child {
+    margin: 0 0 24px;
+    justify-content: flex-start;
+  }
+
+  .columns > div > div:nth-child(2),
+  .columns > div > div:last-child {
+    min-width: 0;
+    margin-left: 0;
+  }
+}
+
+/* Prevent navigation collapsing if empty */
