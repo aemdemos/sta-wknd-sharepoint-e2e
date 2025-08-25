@@ -466,7 +466,6 @@
   background: #fff;
 }
 
-/* Center both tabs-list and content panel to always be visually unified */
 .tabs.tabs11 .tabs-list,
 .tabs.tabs11 .tabs-panel > div {
   max-width: 900px;
@@ -476,7 +475,6 @@
   box-sizing: border-box;
 }
 
-/* Add more vertical space below the tabs bar for correct rhythm */
 .tabs.tabs11 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -490,7 +488,6 @@
   align-items: flex-start;
 }
 
-/* Make sure the tabs visually align with the heading/content */
 .tabs.tabs11 .tabs-tab {
   background: transparent;
   border: none;
@@ -520,7 +517,6 @@
   padding: 0;
 }
 
-/* Main content area centered, consistent width with tabs */
 .tabs.tabs11 .tabs-panel {
   border: none;
   box-shadow: none;
@@ -531,7 +527,6 @@
   display: block;
 }
 
-/* Heading: add space below for better breathing room above image */
 .tabs.tabs11 .tabs-panel h2 {
   font-family: var(--heading-font-family);
   font-size: 2.2rem;
@@ -543,7 +538,6 @@
   width: 100%;
 }
 
-/* Paragraph: readable, tighter grouping */
 .tabs.tabs11 .tabs-panel p {
   font-size: 17px;
   color: #222;
@@ -553,13 +547,11 @@
   text-align: left;
 }
 
-/* Reduce margin above first paragraph after an image for tighter grouping */
 .tabs.tabs11 .tabs-panel picture + p,
 .tabs.tabs11 .tabs-panel img + p {
   margin-top: 12px;
 }
 
-/* Related trips heading: more vertical spacing */
 .tabs.tabs11 .tabs-panel p:last-of-type {
   margin-top: 32px;
   font-size: 15px;
@@ -568,7 +560,6 @@
   text-align: left;
 }
 
-/* List styling for related trips */
 .tabs.tabs11 .tabs-panel ul {
   margin: 12px 0 0;
   padding-left: 0;
@@ -584,7 +575,6 @@
   text-align: left;
 }
 
-/* Images: large, flush left, full width of content, improved vertical rhythm */
 .tabs.tabs11 .tabs-panel picture,
 .tabs.tabs11 .tabs-panel img {
   display: block;
@@ -597,7 +587,6 @@
   object-fit: cover;
 }
 
-/* Responsive adjustments */
 @media (width <= 1000px) {
   .tabs.tabs11 .tabs-list,
   .tabs.tabs11 .tabs-panel > div,
@@ -620,7 +609,279 @@
   }
 }
 
-/* Hide inactive tab panels */
 .tabs.tabs11 .tabs-panel[aria-hidden="true"] {
   display: none;
+}
+
+
+.tabs.tabs13 {
+  /* Two-column layout for desktop */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  background: #fff;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs13 {
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px 8px;
+  }
+}
+
+/* SIDEBAR COLUMN */
+.tabs.tabs13 .tabs-list {
+  flex: 0 0 220px;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+  padding-top: 6px;
+  min-width: 120px;
+  align-self: flex-start;
+}
+
+/* Sidebar info blocks */
+.tabs.tabs13 .tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0 0 16px;
+  margin: 0;
+  text-align: left;
+  cursor: default;
+  width: 100%;
+  display: block;
+}
+
+/* Info labels */
+.tabs.tabs13 .tabs-list .tabs-tab p {
+  font-size: 12px;
+  color: #787878;
+  text-transform: uppercase;
+  margin: 0 0 2px;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  line-height: 1.3;
+  font-family: var(--body-font-family);
+}
+
+/* Info values/titles */
+.tabs.tabs13 .tabs-list .tabs-tab h3 {
+  font-size: 14px;
+  color: #222;
+  font-weight: 600;
+  margin: 0 0 4px;
+  font-family: var(--heading-font-family);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+/* Share this adventure last block */
+.tabs.tabs13 .tabs-list .tabs-tab:last-child {
+  margin-top: 36px;
+  font-size: 12px;
+  color: #787878;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding-bottom: 0;
+}
+
+/* MAIN COLUMN */
+.tabs.tabs13 .tabs-panel {
+  flex: 1 1 0%;
+  min-width: 320px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border: none;
+  margin: 0;
+  background: none;
+  overflow: visible;
+}
+
+/* Tabs navigation: horizontal pill layout above content */
+.tabs.tabs13 .tabs-panel .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 32px;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  order: -1;
+}
+
+/* Tabs as pills */
+.tabs.tabs13 .tabs-panel .tabs-list .tabs-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 22px;
+  padding: 8px 28px;
+  font-size: 14px;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 90px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  margin: 0;
+  box-shadow: none;
+  font-family: var(--body-font-family);
+}
+
+/* Active tab styling */
+.tabs.tabs13 .tabs-panel .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+/* Adventure image in main column: large and dominant */
+.tabs.tabs13 .tabs-panel picture,
+.tabs.tabs13 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin-bottom: 14px;
+  border-radius: 2px;
+  object-fit: cover;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+/* Caption/subtitle directly under image */
+.tabs.tabs13 .tabs-panel h3 + p {
+  font-size: 12px;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+/* Main description style */
+.tabs.tabs13 .tabs-panel p {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 18px;
+  line-height: 1.7;
+  font-weight: 400;
+  max-width: 700px;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.tabs.tabs13 .tabs-panel p:last-child {
+  margin-bottom: 0;
+}
+
+/* Headings & yellow underline */
+.tabs.tabs13 h3[id^="yosemite-backpacking"] {
+  font-size: 32px;
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  margin: 0 0 16px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+  vertical-align: top;
+}
+
+.tabs.tabs13 h3[id^="yosemite-backpacking"]::after {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #f7c873;
+  margin-top: 7px;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+}
+
+/* Itinerary and What to Bring panels: left-align content and add spacing */
+.tabs.tabs13 .tabs-panel > div {
+  margin-bottom: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+  margin-left: 0;
+  margin-top: 40px;
+}
+
+.tabs.tabs13 .tabs-panel > div:first-child {
+  margin-top: 0;
+}
+
+/* Responsive adjustments for main content */
+@media (width <= 700px) {
+  .tabs.tabs13 {
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 16px;
+  }
+
+  .tabs.tabs13 .tabs-list {
+    flex-direction: row;
+    gap: 18px;
+    max-width: 100%;
+    width: 100%;
+    padding-top: 0;
+    min-width: 0;
+  }
+
+  .tabs.tabs13 .tabs-list .tabs-tab {
+    min-width: 120px;
+    padding-bottom: 0;
+  }
+
+  .tabs.tabs13 .tabs-panel {
+    min-width: 0;
+    gap: 0;
+  }
+}
+
+/* Remove base button styles from sidebar tabs */
+.tabs.tabs13 .tabs-list .tabs-tab,
+.tabs.tabs13 .tabs-list button,
+.tabs.tabs13 .tabs-panel button {
+  border: none;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+}
+
+.tabs.tabs13 .tabs-list .tabs-tab:focus,
+.tabs.tabs13 .tabs-panel button:focus {
+  outline: 2px solid #222;
+  outline-offset: 2px;
+}
+
+/* Tighter layout - remove unwanted gaps */
+
+.tabs.tabs13 .tabs-panel > *:not(.tabs-list) {
+  margin-left: 0;
 }
