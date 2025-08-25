@@ -276,7 +276,6 @@
 
 
 .tabs.tabs7 {
-  /* Two-column grid: sidebar gap (empty) + main content */
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 0 32px;
@@ -296,13 +295,11 @@
   }
 }
 
-/* Hide sidebar content if present, but keep gap for layout */
 .tabs.tabs7 > *:first-child {
   grid-column: 1;
   display: none;
 }
 
-/* Main content column */
 .tabs.tabs7 > *:nth-child(n + 2) {
   grid-column: 2;
   max-width: 700px;
@@ -313,7 +310,6 @@
   width: 100%;
 }
 
-/* Tabs horizontal row above content */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -331,7 +327,6 @@
   height: auto;
 }
 
-/* Tab pill style */
 .tabs.tabs7 .tabs-tab {
   background: transparent;
   border: none;
@@ -362,9 +357,6 @@
   color: #222;
 }
 
-/* Remove any vertical centering from previous experiments */
-
-/* Remove borders on tabs and panels */
 .tabs.tabs7 .tabs-list button,
 .tabs.tabs7 .tabs-panel {
   border: none;
@@ -375,7 +367,6 @@
   outline-offset: 2px;
 }
 
-/* Panel content alignment and spacing */
 .tabs.tabs7 .tabs-panel {
   margin: 0;
   padding: 0;
@@ -388,7 +379,6 @@
   align-self: flex-start;
 }
 
-/* Title and yellow accent */
 .tabs.tabs7 .tabs-panel h3[id^="beervana-in-portland"] {
   font-family: var(--heading-font-family);
   font-size: 27px;
@@ -411,7 +401,6 @@
   content: '';
 }
 
-/* Section headers */
 .tabs.tabs7 .tabs-panel h3:not([id^="beervana-in-portland"]) {
   font-family: var(--heading-font-family);
   font-size: 16px;
@@ -421,7 +410,6 @@
   margin-bottom: 8px;
 }
 
-/* Body text */
 .tabs.tabs7 .tabs-panel p,
 .tabs.tabs7 .tabs-panel ul li {
   font-family: var(--heading-font-family);
@@ -432,7 +420,6 @@
   margin-bottom: 18px;
 }
 
-/* Images */
 .tabs.tabs7 .tabs-panel picture,
 .tabs.tabs7 .tabs-panel img {
   width: 100%;
@@ -444,7 +431,6 @@
   box-shadow: none;
 }
 
-/* Footer note: last p in panel */
 .tabs.tabs7 .tabs-panel p:last-of-type {
   font-size: 13px;
   color: #888;
@@ -452,7 +438,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive tweaks for small screens */
 @media (width <= 900px) {
   .tabs.tabs7 > *:nth-child(n + 2) {
     grid-column: 1;
@@ -470,7 +455,172 @@
   }
 }
 
-/* Only show active tab panel, hide others */
 .tabs.tabs7 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+
+.tabs.tabs11 {
+  width: 100%;
+  padding: 0;
+  background: #fff;
+}
+
+/* Center both tabs-list and content panel to always be visually unified */
+.tabs.tabs11 .tabs-list,
+.tabs.tabs11 .tabs-panel > div {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Add more vertical space below the tabs bar for correct rhythm */
+.tabs.tabs11 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin-top: 0;
+  margin-bottom: 22px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Make sure the tabs visually align with the heading/content */
+.tabs.tabs11 .tabs-tab {
+  background: transparent;
+  border: none;
+  color: #222;
+  font-size: 15px;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 10px 28px 10px 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  box-shadow: none;
+  line-height: 1.1;
+  outline: none;
+}
+
+.tabs.tabs11 .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0;
+}
+
+.tabs.tabs11 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main content area centered, consistent width with tabs */
+.tabs.tabs11 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  width: 100%;
+  display: block;
+}
+
+/* Heading: add space below for better breathing room above image */
+.tabs.tabs11 .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  color: #222;
+  margin: 0 0 32px;
+  font-weight: 700;
+  line-height: 1.18;
+  text-align: left;
+  width: 100%;
+}
+
+/* Paragraph: readable, tighter grouping */
+.tabs.tabs11 .tabs-panel p {
+  font-size: 17px;
+  color: #222;
+  line-height: 1.65;
+  margin: 16px 0 0;
+  width: 100%;
+  text-align: left;
+}
+
+/* Reduce margin above first paragraph after an image for tighter grouping */
+.tabs.tabs11 .tabs-panel picture + p,
+.tabs.tabs11 .tabs-panel img + p {
+  margin-top: 12px;
+}
+
+/* Related trips heading: more vertical spacing */
+.tabs.tabs11 .tabs-panel p:last-of-type {
+  margin-top: 32px;
+  font-size: 15px;
+  color: #222;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* List styling for related trips */
+.tabs.tabs11 .tabs-panel ul {
+  margin: 12px 0 0;
+  padding-left: 0;
+  list-style: disc inside;
+  width: 100%;
+}
+
+.tabs.tabs11 .tabs-panel ul li {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 7px;
+  padding-left: 0;
+  text-align: left;
+}
+
+/* Images: large, flush left, full width of content, improved vertical rhythm */
+.tabs.tabs11 .tabs-panel picture,
+.tabs.tabs11 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (width <= 1000px) {
+  .tabs.tabs11 .tabs-list,
+  .tabs.tabs11 .tabs-panel > div,
+  .tabs.tabs11 .tabs-panel picture,
+  .tabs.tabs11 .tabs-panel img {
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs11 .tabs-list,
+  .tabs.tabs11 .tabs-panel > div,
+  .tabs.tabs11 .tabs-panel picture,
+  .tabs.tabs11 .tabs-panel img {
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Hide inactive tab panels */
+.tabs.tabs11 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
