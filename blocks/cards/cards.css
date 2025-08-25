@@ -347,13 +347,12 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
-  gap: 28px; /* tighter vertical and horizontal gap */
-  place-items: stretch center; /* stretch all cards to equal height */
+  gap: 28px;
+  place-items: stretch center;
   padding: 0;
   margin: 0;
 }
 
-/* Center second row of three cards under the first row of four */
 .cards.cards24 > ul > li:nth-child(5) {
   grid-column-start: 2;
 }
@@ -366,7 +365,6 @@
   grid-column-start: 4;
 }
 
-/* Cards: ensure all cards in a row have equal heights */
 .cards.cards24 > ul > li {
   background: none;
   border: none;
@@ -381,10 +379,9 @@
   margin: 0;
   padding: 0;
   position: relative;
-  height: 100%; /* force grid cells to stretch evenly */
+  height: 100%;
 }
 
-/* Portrait image styling */
 .cards.cards24 .cards-card-image {
   width: 120px;
   height: 120px;
@@ -406,7 +403,6 @@
   display: block;
 }
 
-/* Main card body: vertical column flex, push icons to bottom */
 .cards.cards24 .cards-card-body {
   margin: 0;
   padding: 0;
@@ -420,7 +416,6 @@
   height: 100%;
 }
 
-/* Card headings */
 .cards.cards24 .cards-card-body h3 {
   font-family: var(--heading-font-family);
   color: #222;
@@ -442,7 +437,6 @@
   text-align: center;
 }
 
-/* Description text */
 .cards.cards24 .cards-card-body p em {
   display: block;
   font-style: italic;
@@ -452,7 +446,6 @@
   text-align: center;
 }
 
-/* Social icons row: always visually aligned at card bottom */
 .cards.cards24 .cards-card-body p:last-child {
   display: flex;
   flex-direction: row;
@@ -465,7 +458,6 @@
   min-height: 32px;
 }
 
-/* Social link as icon block: large square button look */
 .cards.cards24 .cards-card-body p:last-child a {
   display: inline-flex;
   align-items: center;
@@ -483,27 +475,18 @@
   position: relative;
 }
 
-/* Show actual icons inside square buttons (mask-image) */
 .cards.cards24 .cards-card-body p:last-child a[title*="Facebook"] {
   mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg');
-  mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg');
-  mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   mask-position: center;
-  mask-position: center;
-  mask-size: 18px 18px;
   mask-size: 18px 18px;
   background-color: #222;
 }
 
 .cards.cards24 .cards-card-body p:last-child a[title*="Twitter"] {
   mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/twitter.svg');
-  mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/twitter.svg');
-  mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   mask-position: center;
-  mask-position: center;
-  mask-size: 18px 18px;
   mask-size: 18px 18px;
   background-color: #222;
 }
@@ -511,12 +494,8 @@
 .cards.cards24 .cards-card-body p:last-child a[title*="Instagram"],
 .cards.cards24 .cards-card-body p:last-child a[title*="Insta"] {
   mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg');
-  mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg');
-  mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   mask-position: center;
-  mask-position: center;
-  mask-size: 18px 18px;
   mask-size: 18px 18px;
   background-color: #222;
 }
@@ -527,7 +506,6 @@
   background-color: #bfa640;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .cards.cards24 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -564,10 +542,124 @@
   }
 }
 
-/* Remove default ul/li spacing */
 .cards.cards24 ul,
 .cards.cards24 li {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+
+.cards.cards26 {
+  background: #fff;
+  padding: 0;
+}
+
+/* FLEX layout for horizontal cards, visible and left-aligned */
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* very tight gap matching original */
+  justify-content: flex-start;
+  align-items: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Card structure: visible, proportional */
+.cards.cards26 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 208px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Image container: correct size and margin below */
+.cards.cards26 .cards-card-image {
+  width: 208px;
+  height: 153px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  background: #fff;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Image: fill container, correct aspect */
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body: vertical stack */
+.cards.cards26 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Title: bold, uppercase, left-aligned */
+.cards.cards26 .cards-card-body p:first-child {
+  margin: 0 0 2px;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.cards.cards26 .cards-card-body p:first-child strong {
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  display: block;
+}
+
+/* Description: small, gray, truncated, left-aligned */
+.cards.cards26 .cards-card-body p:not(:first-child) {
+  color: #888;
+  font-size: 13px;
+  line-height: 1.3;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* Responsive: stack vertically on mobile */
+@media (width <= 600px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cards.cards26 > ul > li,
+  .cards.cards26 .cards-card-image {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .cards.cards26 .cards-card-image {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
 }
