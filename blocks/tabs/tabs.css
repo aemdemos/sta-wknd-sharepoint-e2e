@@ -2364,7 +2364,6 @@ to {
   box-shadow: none;
 }
 
-/* Sidebar: vertical tab list */
 .tabs.tabs37 > .tabs-list {
   flex: 0 0 110px;
   display: flex;
@@ -2380,7 +2379,6 @@ to {
   height: auto;
 }
 
-/* Sidebar tabs */
 .tabs.tabs37 .tabs-list button {
   display: block;
   width: 100%;
@@ -2415,7 +2413,6 @@ to {
   text-transform: inherit;
 }
 
-/* Main content panel */
 .tabs.tabs37 > .tabs-panel {
   flex: 1 1 0%;
   min-width: 0;
@@ -2433,7 +2430,6 @@ to {
   display: none;
 }
 
-/* Heading alignment */
 .tabs.tabs37 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.3rem;
@@ -2445,7 +2441,6 @@ to {
   line-height: 1.1;
 }
 
-/* Image and caption */
 .tabs.tabs37 .tabs-panel picture,
 .tabs.tabs37 .tabs-panel img {
   display: block;
@@ -2457,7 +2452,6 @@ to {
   margin: 0 0 6px;
 }
 
-/* Caption below image */
 .tabs.tabs37 .tabs-panel p:first-of-type {
   font-size: 15px;
   font-weight: 900;
@@ -2467,7 +2461,6 @@ to {
   letter-spacing: 0.04em;
 }
 
-/* Main description text */
 .tabs.tabs37 .tabs-panel p:not(:first-of-type) {
   font-size: 16px;
   font-weight: 400;
@@ -2477,7 +2470,6 @@ to {
   margin-bottom: 0;
 }
 
-/* Responsive stacking */
 @media (width <= 900px) {
   .tabs.tabs37 {
     flex-direction: column;
@@ -2518,4 +2510,167 @@ to {
     padding: 0;
     margin: 0;
   }
+}
+
+
+.tabs.tabs38 {
+  /* Reduce left padding for tighter alignment, add some right padding, minimal top padding */
+  padding: 10px 24px 0 20px;
+  margin: 0;
+  max-width: 950px;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs List */
+.tabs.tabs38 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding: 0;
+  background: none;
+  border: none;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Tabs Buttons */
+.tabs.tabs38 .tabs-list button {
+  background: #222;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: var(--body-font-family);
+  border: none;
+  border-radius: 2px 2px 0 0;
+  padding: 10px 28px;
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  box-shadow: none;
+  outline: none;
+  text-align: center;
+}
+
+.tabs.tabs38 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #ffe985;
+  cursor: default;
+}
+
+.tabs.tabs38 .tabs-list button p {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  text-transform: inherit;
+}
+
+/* Panel Container */
+.tabs.tabs38 .tabs-panel {
+  background: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  overflow: visible;
+  width: 100%;
+}
+
+/* Inner content area */
+.tabs.tabs38 .tabs-panel > div {
+  max-width: 800px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading Styling */
+.tabs.tabs38 .tabs-panel > div > h3 {
+  font-size: 2.08rem;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 0.01em;
+  line-height: 1.12;
+  text-align: left;
+  border-bottom: 2px solid #ffe985;
+  width: fit-content;
+  padding-bottom: 2px;
+}
+
+/* Image Styling */
+.tabs.tabs38 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin-top: 8px;
+  margin-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+}
+
+/* Image Caption Styling */
+.tabs.tabs38 .tabs-panel > div > p:first-of-type {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #005dab;
+  text-transform: uppercase;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: left;
+  width: 100%;
+  line-height: 1.3;
+  display: block;
+}
+
+/* Remove margin between picture and caption */
+.tabs.tabs38 .tabs-panel > div > p:first-of-type picture {
+  display: block;
+  margin-bottom: 0;
+  float: none;
+}
+
+/* Body Text Styling */
+.tabs.tabs38 .tabs-panel > div > p:not(:first-of-type) {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 8px;
+  text-align: left;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs38 {
+    max-width: 100vw;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .tabs.tabs38 .tabs-panel > div,
+  .tabs.tabs38 .tabs-panel picture img {
+    max-width: 100vw;
+  }
+}
+
+/* Remove default focus border from tab buttons, subtle yellow shadow instead */
+.tabs.tabs38 .tabs-list button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffe985;
 }
