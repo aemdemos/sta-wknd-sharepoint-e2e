@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +149,247 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel.carousel8 .carousel-slides-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+}
+
+/* Ensure image fills available space */
+.carousel.carousel8 .carousel-slide {
+  align-items: stretch;
+}
+
+.carousel.carousel8 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel8 .carousel-slide .carousel-slide-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: static;
+  inset: unset;
+  display: block;
+}
+
+/* Remove overlay if no content */
+.carousel.carousel8 .carousel-slide-content:empty {
+  display: none;
+}
+
+/* --- Controls bar below image --- */
+.carousel.carousel8 .carousel-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  padding: 0 24px;
+  background: #fff;
+  min-height: 44px;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #eee;
+  margin-top: 0;
+}
+
+/* Place controls bar in DOM after slides */
+.carousel.carousel8 .carousel-slides-container > .carousel-controls-bar {
+  order: 2;
+}
+
+/* Layout controls: indicator centered, nav right */
+
+.carousel.carousel8 .carousel-controls-bar .carousel-slide-indicators {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  background: none;
+  padding: 0;
+}
+
+.carousel.carousel8 .carousel-controls-bar .carousel-navigation-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+  background: none;
+  padding: 0;
+  height: 44px;
+}
+
+/* Indicator dots */
+.carousel.carousel8 .carousel-controls-bar .carousel-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #222;
+  margin: 0 4px;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+.carousel.carousel8 .carousel-controls-bar .carousel-slide-indicator button:disabled,
+.carousel.carousel8 .carousel-controls-bar .carousel-slide-indicator button[aria-current="true"],
+.carousel.carousel8 .carousel-controls-bar .carousel-slide-indicator button.active {
+  background: #000;
+}
+
+/* Navigation arrow buttons */
+.carousel.carousel8 .carousel-controls-bar .carousel-navigation-buttons button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: none;
+  border: 1.5px solid #222;
+  color: #222;
+  margin: 0 2px;
+  box-shadow: none;
+  transition: border-color 0.2s;
+  padding: 0;
+  position: relative;
+}
+
+.carousel.carousel8 .carousel-controls-bar .carousel-navigation-buttons button:hover,
+.carousel.carousel8 .carousel-controls-bar .carousel-navigation-buttons button:focus-visible {
+  border-color: #000;
+}
+
+.carousel.carousel8 .carousel-controls-bar .carousel-navigation-buttons button:disabled {
+  opacity: 0.4;
+  cursor: default;
+  border-color: #dadada;
+}
+
+/* Arrow icons */
+.carousel.carousel8 .carousel-controls-bar .carousel-navigation-buttons button::after {
+  border: solid #222;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: none;
+  content: '';
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel.carousel8 .carousel-controls-bar .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* --- Fallback: If .carousel-controls-bar does not exist, style native indicators/buttons --- */
+.carousel.carousel8 .carousel-slide-indicators,
+.carousel.carousel8 .carousel-navigation-buttons {
+  width: 100%;
+  background: #fff;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-top: 1px solid #eee;
+  margin-top: 0;
+}
+
+/* Arrange indicators centered and nav right within native layout */
+.carousel.carousel8 .carousel-slide-indicators {
+  justify-content: center;
+  flex: 1 1 auto;
+  order: 1;
+  gap: 0;
+}
+
+.carousel.carousel8 .carousel-navigation-buttons {
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  order: 2;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Indicator dot style (fallback) */
+.carousel.carousel8 .carousel-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #222;
+  margin: 0 4px;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+.carousel.carousel8 .carousel-slide-indicator button:disabled,
+.carousel.carousel8 .carousel-slide-indicator button[aria-current="true"],
+.carousel.carousel8 .carousel-slide-indicator button.active {
+  background: #000;
+}
+
+/* Navigation arrow button styles (fallback) */
+.carousel.carousel8 .carousel-navigation-buttons button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: none;
+  border: 1.5px solid #222;
+  color: #222;
+  margin: 0 2px;
+  box-shadow: none;
+  transition: border-color 0.2s;
+  padding: 0;
+  position: relative;
+}
+
+.carousel.carousel8 .carousel-navigation-buttons button:hover,
+.carousel.carousel8 .carousel-navigation-buttons button:focus-visible {
+  border-color: #000;
+}
+
+.carousel.carousel8 .carousel-navigation-buttons button:disabled {
+  opacity: 0.4;
+  cursor: default;
+  border-color: #dadada;
+}
+
+.carousel.carousel8 .carousel-navigation-buttons button::after {
+  border: solid #222;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: none;
+  content: '';
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel.carousel8 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Responsive adjustments */
+@media (width <= 600px) {
+  .carousel.carousel8 .carousel-controls-bar,
+  .carousel.carousel8 .carousel-slide-indicators,
+  .carousel.carousel8 .carousel-navigation-buttons {
+    min-height: 36px;
+    padding: 0 8px;
+  }
+
+  .carousel.carousel8 .carousel-navigation-buttons button,
+  .carousel.carousel8 .carousel-slide-indicator button {
+    width: 20px;
+    height: 20px;
   }
 }
