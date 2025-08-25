@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
@@ -73,7 +74,6 @@
   box-sizing: border-box;
 }
 
-/* Left column (main content), make wider and anchor left */
 .accordion.accordion17 > details {
   flex: 2.8 1 0;
   min-width: 0;
@@ -87,7 +87,6 @@
   align-items: flex-start;
 }
 
-/* Right column (sidebar), make narrower and add more padding */
 .accordion.accordion17 > details + details {
   flex: 1.1 1 0;
   border-left: 1px solid #eaeaea;
@@ -101,7 +100,6 @@
   align-items: flex-start;
 }
 
-/* Headings, left align and maximize readable width */
 .accordion.accordion17 details summary {
   font-family: var(--heading-font-family);
   font-size: 2em;
@@ -143,7 +141,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .accordion.accordion17 {
     flex-direction: column;
@@ -165,4 +162,153 @@
     font-size: 1.3em;
     padding: 0 0 12px;
   }
+}
+
+
+.accordion.accordion28 {
+  margin-left: 32px;
+  margin-right: auto;
+  max-width: 650px;
+  width: 100%;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion28 {
+    margin-left: 0;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* FAQ Items Borders and Spacing */
+.accordion.accordion28 details {
+  border: none;
+  margin: 0;
+  background: #fff;
+  padding: 0;
+  border-radius: 0;
+  border-top: 1.5px solid #e0e0e0;
+}
+
+.accordion.accordion28 details:last-of-type {
+  border-bottom: 1.5px solid #e0e0e0;
+}
+
+.accordion.accordion28 details + details {
+  margin-top: 0;
+}
+
+/* FAQ Row Layout */
+.accordion.accordion28 summary,
+.accordion.accordion28 .accordion-item-label {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #222;
+  background: #fff;
+  padding: 16px 36px 16px 28px;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  line-height: 1.2;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  gap: 0;
+  transition: background 0.15s;
+}
+
+/* Remove default marker */
+.accordion.accordion28 summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion28 summary::marker {
+  display: none;
+}
+
+/* Remove margin on inner <p> (question text) */
+.accordion.accordion28 summary p,
+.accordion.accordion28 .accordion-item-label p {
+  margin: 0;
+  font-size: inherit;
+  flex: 1 1 0%;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+/* Plus/Minus icon using borders */
+.accordion.accordion28 summary::after {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  display: block;
+  content: "";
+  pointer-events: none;
+  border-top: 3px solid #888;
+  border-radius: 2px;
+  transform: translateY(-50%);
+  background: none;
+  transition: border-top-color 0.2s;
+}
+
+.accordion.accordion28 summary::before {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  width: 3px;
+  height: 18px;
+  background: #888;
+  border-radius: 2px;
+  display: block;
+  content: "";
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: background 0.2s;
+}
+
+/* When open: only show minus, color minus blue */
+.accordion.accordion28 details[open] summary::before {
+  display: none;
+}
+
+.accordion.accordion28 details[open] summary::after {
+  border-top: 3px solid #1976D2;
+}
+
+/* Hover/focus row highlight */
+.accordion.accordion28 summary:hover,
+.accordion.accordion28 summary:focus,
+.accordion.accordion28 details[open] summary {
+  background: #f9f9f9;
+}
+
+/* FAQ Answer/Body */
+.accordion.accordion28 .accordion-item-body {
+  background: #fafbfc;
+  padding: 16px 28px 13px;
+  font-size: 15px;
+  color: #333;
+  font-family: var(--body-font-family);
+  border-top: 1px solid #e0e0e0;
+  line-height: 1.5;
+}
+
+/* Hide border-top on .accordion-item-body if it's the first answer */
+.accordion.accordion28 details:first-of-type .accordion-item-body {
+  border-top: none;
 }
