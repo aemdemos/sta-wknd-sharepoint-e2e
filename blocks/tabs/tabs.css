@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,236 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs3 {
+  /* Use grid for sidebar/main layout ONLY; do not split panel content */
+  display: grid;
+  grid-template-columns: minmax(270px, 340px) 1fr;
+  gap: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--background-color);
+}
+
+@media (width <= 900px) {
+  .tabs.tabs3 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+
+/* Sidebar (tabs-list) */
+.tabs.tabs3 > .tabs-list {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 64px 0 64px 48px;
+  border-right: 1px solid #e7e7e7;
+  background: var(--background-color);
+  max-width: 340px;
+  min-width: 270px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs3 > .tabs-list {
+    grid-column: 1;
+    grid-row: 1;
+    border-right: none;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 32px 24px 0;
+    max-width: none;
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+/* Main Content Panel: stack children vertically, never in columns! */
+.tabs.tabs3 > .tabs-panel {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 64px;
+  box-sizing: border-box;
+  background: var(--background-color);
+  width: 100%;
+  min-width: 0;
+  display: block;
+}
+
+/* Remove flex/grid from direct children of .tabs-panel (critical fix!) */
+.tabs.tabs3 > .tabs-panel > div {
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+
+  /* Do not use grid or flex here. */
+}
+
+/* If the first child is a tab-row, make it horizontal, otherwise stack vertically */
+.tabs.tabs3 > .tabs-panel > div.tab-row,
+.tabs.tabs3 > .tabs-panel > div:first-child:only-child {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding-left: 0;
+  padding-top: 0;
+}
+
+/* Tab row items */
+.tabs.tabs3 > .tabs-panel > div.tab-row > p,
+.tabs.tabs3 > .tabs-panel > div:first-child:only-child > p {
+  font-size: 1rem;
+  color: #222;
+  font-weight: bold;
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.18s;
+}
+
+.tabs.tabs3 > .tabs-panel > div.tab-row > p:hover,
+.tabs.tabs3 > .tabs-panel > div:first-child:only-child > p:hover {
+  color: #3b63fb;
+  text-decoration: underline;
+}
+
+/* Sidebar headings, subheadings, description refinement */
+.tabs.tabs3 > .tabs-list h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #f8d97d;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.tabs.tabs3 > .tabs-list h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.17rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 18px;
+  line-height: 1.14;
+}
+
+.tabs.tabs3 > .tabs-list p {
+  font-size: 0.91rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b0b0b0;
+  font-weight: 700;
+  margin: 0 0 24px;
+  line-height: 1.52;
+}
+
+.tabs.tabs3 > .tabs-list button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: none;
+}
+
+.tabs.tabs3 > .tabs-list button[aria-selected="true"] {
+  cursor: default;
+  background: none;
+}
+
+/* Sidebar: spacing between elements */
+.tabs.tabs3 > .tabs-list h3 + h2,
+.tabs.tabs3 > .tabs-list h2 + p,
+.tabs.tabs3 > .tabs-list p + p {
+  margin-top: 0;
+}
+
+.tabs.tabs3 > .tabs-list *:not(:last-child) {
+  margin-bottom: 0.4em;
+}
+
+/* Main headings */
+.tabs.tabs3 > .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin: 32px 0 18px;
+  line-height: 1.15;
+}
+
+.tabs.tabs3 > .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #222;
+  margin: 16px 0 8px;
+}
+
+/* Main images */
+.tabs.tabs3 > .tabs-panel picture,
+.tabs.tabs3 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin-bottom: 28px;
+  border-radius: 0;
+}
+
+@media (width <= 700px) {
+  .tabs.tabs3 > .tabs-panel picture,
+  .tabs.tabs3 > .tabs-panel img {
+    max-width: 100%;
+    margin-bottom: 18px;
+  }
+}
+
+/* Body text in main content */
+.tabs.tabs3 > .tabs-panel p,
+.tabs.tabs3 > .tabs-panel ul,
+.tabs.tabs3 > .tabs-panel li {
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+/* Remove excess margin between lists and paragraphs */
+.tabs.tabs3 > .tabs-panel p + ul {
+  margin-top: -6px;
+}
+
+/* List styling for packing list */
+.tabs.tabs3 > .tabs-panel ul {
+  padding-left: 24px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+.tabs.tabs3 > .tabs-panel li {
+  margin-bottom: 8px;
+}
+
+/* Ensure last child does not add extra margin */
+.tabs.tabs3 > .tabs-panel > *:last-child {
+  margin-bottom: 0;
+}
+
+.tabs.tabs3 > .tabs-list *:last-child {
+  margin-bottom: 0;
 }
