@@ -163,7 +163,6 @@
   background: none;
 }
 
-/* Image column: left side, dominant */
 .hero.hero18 > div:first-child {
   flex: 0 1 64%;
   order: 1;
@@ -186,7 +185,6 @@
   max-width: 100%;
 }
 
-/* Text column: right side, set narrow and push right */
 .hero.hero18 > div:last-child {
   flex: 0 1 36%;
   order: 2;
@@ -197,7 +195,7 @@
 
 .hero.hero18 > div:last-child > div {
   width: 100%;
-  padding: 48px 0 0 96px; /* Large left padding for clear separation */
+  padding: 48px 0 0 96px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -205,7 +203,6 @@
   justify-content: flex-start;
 }
 
-/* Headline styles with generous spacing */
 .hero.hero18 h1 {
   font-size: 2.5em;
   color: #222;
@@ -217,7 +214,6 @@
   line-height: 1.1;
 }
 
-/* Author: uppercase, spaced below headline */
 .hero.hero18 h4 {
   font-size: 1em;
   color: #9c9c9c;
@@ -228,7 +224,6 @@
   text-align: left;
 }
 
-/* Paragraph spacing and color */
 .hero.hero18 p {
   color: #222;
   font-size: 1em;
@@ -238,20 +233,17 @@
   text-align: left;
 }
 
-/* Emphasized text: italic and dark */
 .hero.hero18 em {
   font-style: italic;
   color: #222;
 }
 
-/* Remove text-shadow for sharp look */
 .hero.hero18 h1,
 .hero.hero18 h4,
 .hero.hero18 p {
   text-shadow: none;
 }
 
-/* Responsive stacking for mobile/tablet */
 @media (width <= 900px) {
   .hero.hero18 {
     flex-direction: column;
@@ -268,5 +260,121 @@
 
   .hero.hero18 > div:last-child > div {
     padding: 32px 12px 0;
+  }
+}
+
+
+.hero.hero19 {
+  position: relative;
+  width: 100vw;
+  min-height: 460px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Make the image fill the hero from edge to edge, top to bottom */
+.hero.hero19 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero19 picture,
+.hero.hero19 picture img {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  min-height: 460px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* White overlay panel: flush with bottom, wider and less padding */
+.hero.hero19 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+  min-width: 280px;
+  background: #fff;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 7%);
+  z-index: 2;
+  padding: 24px 32px 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* Remove any margin/padding from wrapping divs */
+.hero.hero19 > div,
+.hero.hero19 > div > div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Heading: slightly larger and bolder */
+.hero.hero19 > div:nth-child(2) h2 {
+  margin: 0 0 13px;
+  padding: 0;
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-size: 2.7rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+/* Paragraph: slightly larger for increased readability */
+.hero.hero19 > div:nth-child(2) p {
+  margin: 0;
+  padding: 0;
+  color: #555;
+  font-family: var(--body-font-family);
+  font-size: 1.18rem;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero19,
+  .hero.hero19 > div:first-child,
+  .hero.hero19 picture,
+  .hero.hero19 picture img {
+    min-height: 210px;
+    height: 210px;
+    width: 100vw;
+  }
+
+  .hero.hero19 > div:nth-child(2) {
+    width: 99%;
+    max-width: none;
+    padding: 14px 5vw 10px;
+  }
+
+  .hero.hero19 > div:nth-child(2) h2 {
+    font-size: 1.25rem;
+  }
+
+  .hero.hero19 > div:nth-child(2) p {
+    font-size: 1rem;
   }
 }
