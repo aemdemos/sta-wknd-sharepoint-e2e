@@ -433,7 +433,6 @@
 
 
 .tabs.tabs12 {
-  /* Panel content max-width and centering for larger screens */
   display: block;
 }
 
@@ -472,7 +471,6 @@
   outline-offset: 1px;
 }
 
-/* Remove border and padding from panel, center content */
 .tabs.tabs12 .tabs-panel {
   border: none;
   background: none;
@@ -481,14 +479,12 @@
   overflow: visible;
 }
 
-/* Center and constrain content area */
 .tabs.tabs12 .tabs-panel > div {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 24px; /* for small screens */
+  padding: 0 24px;
 }
 
-/* Responsive: stack and full width on small screens */
 @media (width <= 900px) {
   .tabs.tabs12 .tabs-panel > div {
     max-width: 100%;
@@ -496,7 +492,6 @@
   }
 }
 
-/* Typography for headings */
 .tabs.tabs12 .tabs-panel h2,
 .tabs.tabs12 .tabs-panel h2 strong {
   font-family: var(--heading-font-family);
@@ -508,7 +503,6 @@
   line-height: 1.2;
 }
 
-/* Paragraph styling */
 .tabs.tabs12 .tabs-panel p {
   font-family: var(--body-font-family);
   font-size: 15px;
@@ -518,7 +512,6 @@
   margin-bottom: 18px;
 }
 
-/* Images styling */
 .tabs.tabs12 .tabs-panel picture,
 .tabs.tabs12 .tabs-panel img {
   display: block;
@@ -531,7 +524,6 @@
   box-shadow: none;
 }
 
-/* List styling */
 .tabs.tabs12 .tabs-panel ul {
   margin-top: 0;
   margin-bottom: 32px;
@@ -550,4 +542,207 @@
   margin-bottom: 8px;
 }
 
-/* Prevent unwanted overflow clipping */
+
+.tabs.tabs14 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 0 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Sidebar (Vertical Tabs) */
+.tabs.tabs14 > .tabs-list {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 32px 0 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  position: relative;
+}
+
+/* Vertical tab styles */
+.tabs.tabs14 > .tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 18px;
+  padding: 0 0 6px;
+  border-radius: 0;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s, background 0.2s;
+  cursor: pointer;
+  outline: none;
+  min-width: 0;
+  min-height: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.tabs.tabs14 > .tabs-list .tabs-tab[aria-selected="true"] {
+  border-bottom: 3px solid #f4e285;
+  color: #222;
+  background: none;
+  cursor: default;
+  font-weight: 700;
+}
+
+.tabs.tabs14 > .tabs-list .tabs-tab[aria-selected="false"] {
+  color: #888;
+  background: none;
+}
+
+.tabs.tabs14 > .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Main content panel */
+.tabs.tabs14 > .tabs-panel {
+  flex: 1 1 0;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading */
+.tabs.tabs14 > .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.3rem;
+  color: #222;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.15;
+  padding-bottom: 0;
+  position: relative;
+}
+
+/* Main image */
+.tabs.tabs14 > .tabs-panel picture,
+.tabs.tabs14 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 0 24px;
+  border-radius: 0;
+  box-shadow: none;
+  height: auto;
+}
+
+/* Caption styling */
+.tabs.tabs14 > .tabs-panel p strong {
+  display: block;
+  font-size: 13px;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  margin-top: 0;
+  letter-spacing: 0.03em;
+}
+
+/* Paragraph text: all caps and gray to match original sidebar style */
+.tabs.tabs14 > .tabs-panel p {
+  font-size: 16px;
+  color: #888;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+}
+
+/* Yellow divider below last tab in sidebar */
+
+.tabs.tabs14 > .tabs-list::after {
+  display: block;
+  width: 90%;
+  height: 3px;
+  background: #f4e285;
+  margin-top: 8px;
+  content: "";
+}
+
+/* List styling for gear/itinerary */
+.tabs.tabs14 > .tabs-panel ul {
+  margin: 16px 0;
+  padding-left: 22px;
+}
+
+.tabs.tabs14 > .tabs-panel li {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222;
+}
+
+/* Hide all non-active tab panels */
+.tabs.tabs14 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 1000px) {
+  .tabs.tabs14 {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px 0 0;
+  }
+
+  .tabs.tabs14 > .tabs-list {
+    flex-direction: row;
+    margin: 0 0 16px;
+    border-bottom: 2px solid #f4e285;
+  }
+
+  .tabs.tabs14 > .tabs-list .tabs-tab {
+    margin: 0 24px 0 0;
+    padding: 10px 2px 8px;
+    border-bottom: 3px solid transparent;
+    width: auto;
+    text-align: center;
+  }
+
+  .tabs.tabs14 > .tabs-list .tabs-tab:last-child {
+    margin-right: 0;
+  }
+
+  .tabs.tabs14 > .tabs-list::after {
+    width: 0;
+    height: 0;
+    background: none;
+    content: none;
+  }
+
+  .tabs.tabs14 > .tabs-panel {
+    padding: 0 12px;
+    max-width: 100%;
+  }
+}
+
+@media (width <= 700px) {
+  .tabs.tabs14 > .tabs-panel {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
