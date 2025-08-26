@@ -142,8 +142,6 @@
   }
 }
 
-
-/* Ensure dark background and padding regardless of wrapper structure */
 .columns, .columns-wrapper {
   background: #232221;
   color: #fff;
@@ -151,7 +149,6 @@
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* Layout main row of 3 columns side by side */
 .columns .columns2 > div,
 .columns-wrapper .columns2 > div {
   display: flex;
@@ -162,7 +159,6 @@
   width: 100%;
 }
 
-/* Responsive: stack vertically on smaller screens */
 @media (width <= 900px) {
   .columns .columns2 > div,
   .columns-wrapper .columns2 > div {
@@ -172,7 +168,6 @@
   }
 }
 
-/* Logo column */
 .columns .columns2 > div > .columns-img-col,
 .columns-wrapper .columns2 > div > .columns-img-col {
   flex: 0 0 auto;
@@ -189,7 +184,6 @@
   margin-top: 0;
 }
 
-/* Navigation column (center) */
 .columns .columns2 > div > div:nth-child(2),
 .columns-wrapper .columns2 > div > div:nth-child(2) {
   flex: 1 1 0;
@@ -201,7 +195,6 @@
   padding-top: 8px;
 }
 
-/* Remove default list styles and spacing */
 .columns .columns2 > div > div:nth-child(2) ul,
 .columns .columns2 > div > div:nth-child(2) li,
 .columns-wrapper .columns2 > div > div:nth-child(2) ul,
@@ -211,7 +204,6 @@
   padding: 0;
 }
 
-/* Make the navigation menu horizontal: match deeply nested nav structure */
 .columns .columns2 > div > div:nth-child(2) ul ul,
 .columns-wrapper .columns2 > div > div:nth-child(2) ul ul {
   display: flex;
@@ -223,7 +215,6 @@
   width: 100%;
 }
 
-/* Nav links */
 .columns .columns2 > div > div:nth-child(2) ul ul li a,
 .columns-wrapper .columns2 > div > div:nth-child(2) ul ul li a {
   color: #fff;
@@ -238,21 +229,18 @@
   line-height: 1.6;
 }
 
-/* Highlight one nav link for demo (2nd child, e.g. Adventures) */
 .columns .columns2 > div > div:nth-child(2) ul ul li:nth-child(2) a,
 .columns-wrapper .columns2 > div > div:nth-child(2) ul ul li:nth-child(2) a {
   color: #bababa;
   text-decoration: underline;
 }
 
-/* Nav link hover */
 .columns .columns2 > div > div:nth-child(2) ul ul li a:hover,
 .columns-wrapper .columns2 > div > div:nth-child(2) ul ul li a:hover {
   color: #bababa;
   text-decoration: underline;
 }
 
-/* Right column */
 .columns .columns2 > div > div:nth-child(3),
 .columns-wrapper .columns2 > div > div:nth-child(3) {
   flex: 0 0 auto;
@@ -277,7 +265,6 @@
   text-align: right;
 }
 
-/* Responsive: right/center columns align left when stacking */
 @media (width <= 900px) {
   .columns .columns2 > div > div:nth-child(3),
   .columns-wrapper .columns2 > div > div:nth-child(3),
@@ -289,7 +276,6 @@
   }
 }
 
-/* Remove unwanted default styles from links inside block */
 .columns a,
 .columns-wrapper a {
   color: #fff;
@@ -302,7 +288,6 @@
   text-decoration: underline;
 }
 
-/* Remove extra margins from block elements */
 .columns p,
 .columns ul,
 .columns li,
@@ -314,7 +299,6 @@
   color: inherit;
 }
 
-/* Ensure block fills available width and is visually consistent */
 .columns .columns2.block,
 .columns-wrapper .columns2.block {
   background: transparent;
@@ -322,8 +306,206 @@
   padding: 0;
 }
 
-/* Fine tune main container for spacing and appearance */
 .columns .columns2,
 .columns-wrapper .columns2 {
   width: 100%;
+}
+
+
+.columns.columns11 {
+  background: #232220;
+  color: #e5e5e5;
+  border-bottom: 1px solid #fff;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  padding: 0;
+}
+
+/* --- Two columns: left = logo+lang (vertical stack), right = socials+text --- */
+.columns.columns11 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 40px 64px 32px;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns11 > div {
+    flex-direction: column;
+    padding: 24px 12px;
+  }
+}
+
+/* --- LEFT COLUMN: logo + lang stack --- */
+.columns.columns11 .columns-img-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0;
+}
+
+.columns.columns11 .columns-img-col img {
+  width: 180px;
+  max-width: none;
+  height: auto;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.columns.columns11 > div > div:nth-child(2) {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 0 auto;
+  margin-right: 44px;
+  min-width: 80px;
+}
+
+.columns.columns11 > div > div:nth-child(2) ul {
+  margin: 0;
+  padding-left: 22px;
+  font-size: var(--body-font-size-s);
+  list-style-position: inside;
+}
+
+/* Group left column tightly */
+.columns.columns11 > div > div:first-child {
+  flex: 0 0 auto;
+  margin-right: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns11 > div > div:nth-child(2) {
+    margin-right: 0;
+    margin-top: 0;
+    min-width: 0;
+  }
+}
+
+/* --- RIGHT COLUMN: socials+heading+text --- */
+.columns.columns11 > div > div:nth-child(3) {
+  flex: 1 1 360px;
+  max-width: 600px;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-left: 0;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns11 > div > div:nth-child(3) {
+    max-width: 100%;
+    min-width: 0;
+    align-items: flex-start;
+    margin-top: 32px;
+  }
+}
+
+/* --- SOCIALS ROW: arrange heading + buttons in a row --- */
+
+/* Hack: Use flexbox and adjacent siblings for the first four children in .columns11 > div > div:nth-child(3) */
+.columns.columns11 > div > div:nth-child(3) .socials-row-hack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+/* Target: h4#follow-us + first 3 button-container siblings as a row */
+.columns.columns11 > div > div:nth-child(3) > h4#follow-us,
+.columns.columns11 > div > div:nth-child(3) > .button-container,
+.columns.columns11 > div > div:nth-child(3) > .button-container + .button-container,
+.columns.columns11 > div > div:nth-child(3) > .button-container + .button-container + .button-container {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-bottom: 0;
+  margin-right: 10px;
+  align-items: center;
+}
+
+.columns.columns11 > div > div:nth-child(3) > .button-container:last-of-type {
+  margin-right: 0;
+}
+
+.columns.columns11 > div > div:nth-child(3) > h4#follow-us {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 20px 0 0;
+  padding: 0;
+  min-width: 100px;
+  text-align: right;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* On mobile, preserve flex row and allow wrap (do not stack vertical unless absolutely necessary) */
+@media (width <= 900px) {
+  .columns.columns11 > div > div:nth-child(3) > h4#follow-us,
+  .columns.columns11 > div > div:nth-child(3) > .button-container,
+  .columns.columns11 > div > div:nth-child(3) > .button-container + .button-container,
+  .columns.columns11 > div > div:nth-child(3) > .button-container + .button-container + .button-container {
+    display: inline-flex;
+    margin-bottom: 0;
+    margin-right: 8px;
+    align-items: center;
+  }
+}
+
+/* --- TEXT --- */
+.columns.columns11 > div > div:nth-child(3) p {
+  color: #e5e5e5;
+  font-size: 14px;
+  margin: 14px 0 0;
+  line-height: 1.6;
+  text-align: left;
+  width: 100%;
+}
+
+/* --- SOCIAL BUTTONS --- */
+.columns.columns11 > div > div:nth-child(3) .button {
+  background: #fff;
+  color: #232220;
+  border-radius: 6px;
+  padding: 8px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  min-width: 40px;
+  min-height: 36px;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+
+.columns.columns11 > div > div:nth-child(3) .button:hover,
+.columns.columns11 > div > div:nth-child(3) .button:focus {
+  background: #e5e5e5;
+  color: #232220;
+}
+
+/* --- LINKS in TEXT --- */
+.columns.columns11 > div > div:nth-child(3) a:not(.button) {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.columns.columns11 > div > div:nth-child(3) a:not(.button):hover {
+  color: #bababa;
 }
