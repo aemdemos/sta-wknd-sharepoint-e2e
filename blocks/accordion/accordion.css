@@ -62,7 +62,6 @@
 
 
 .accordion.accordion7 {
-  /* Match the main content column width as closely as possible */
   max-width: 660px;
   width: 100%;
   margin: 0;
@@ -71,7 +70,6 @@
   box-sizing: border-box;
 }
 
-/* Compact, clean, and aligned accordion items */
 .accordion.accordion7 details {
   border: none;
   background: #fff;
@@ -89,7 +87,6 @@
   margin-top: 0;
 }
 
-/* Row: horizontally align question and marker, tighter vertical padding */
 .accordion.accordion7 .accordion-item-label {
   display: flex;
   flex-direction: row;
@@ -127,7 +124,6 @@
   overflow-wrap: break-word;
 }
 
-/* Marker: visually distinct, well separated, and vertically aligned */
 .accordion.accordion7 details summary::-webkit-details-marker {
   color: #757575;
   font-size: 22px;
@@ -135,14 +131,12 @@
   vertical-align: middle;
 }
 
-/* For Firefox: spacing only, marker type is browser default */
 .accordion.accordion7 details summary {
   list-style-position: inside;
   list-style-type: disclosure-closed;
   padding-right: 0;
 }
 
-/* Body: match horizontal padding and improve vertical rhythm */
 .accordion.accordion7 .accordion-item-body {
   padding: 14px 20px;
   font-size: 14px;
@@ -154,7 +148,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: full width and reduced padding on smaller screens */
 @media (width <= 900px) {
   .accordion.accordion7 {
     max-width: 100%;
@@ -164,5 +157,67 @@
   .accordion.accordion7 .accordion-item-body {
     padding-left: 4vw;
     padding-right: 4vw;
+  }
+}
+
+
+.accordion.accordion13 {
+  box-sizing: border-box;
+  max-width: 940px;
+  margin: 48px auto 56px;
+  padding: 0 48px 64px;
+  background: #fff;
+
+  /* More subtle, taller box-shadow for "card" effect seen in the original */
+  box-shadow:
+    0 0 64px 0 rgb(32 32 32 / 7%),
+    0 4px 32px 0 rgb(32 32 32 / 9%);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 1024px;
+  transition: box-shadow 0.2s, max-width 0.2s, min-height 0.2s, padding 0.2s;
+
+  /* Remove any external border for sharper block edge */
+  border: none;
+}
+
+/* Responsive: slightly less horizontal padding, less min-height */
+@media (width <= 1100px) {
+  .accordion.accordion13 {
+    max-width: 99vw;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (width <= 899px) {
+  .accordion.accordion13 {
+    max-width: 100vw;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    min-height: 440px;
+    box-shadow: none;
+  }
+}
+
+/* Ensure any future direct child divs use row layout, for side-by-side alignment */
+.accordion.accordion13 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  gap: 64px;
+  box-sizing: border-box;
+}
+
+@media (width <= 899px) {
+  .accordion.accordion13 > div {
+    flex-direction: column;
+    gap: 0;
   }
 }
