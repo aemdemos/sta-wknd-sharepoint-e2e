@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -139,4 +140,190 @@
     margin-left: 0;
     justify-content: flex-start;
   }
+}
+
+
+/* Ensure dark background and padding regardless of wrapper structure */
+.columns, .columns-wrapper {
+  background: #232221;
+  color: #fff;
+  padding: 32px 64px;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Layout main row of 3 columns side by side */
+.columns .columns2 > div,
+.columns-wrapper .columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+  width: 100%;
+}
+
+/* Responsive: stack vertically on smaller screens */
+@media (width <= 900px) {
+  .columns .columns2 > div,
+  .columns-wrapper .columns2 > div {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 16px;
+  }
+}
+
+/* Logo column */
+.columns .columns2 > div > .columns-img-col,
+.columns-wrapper .columns2 > div > .columns-img-col {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  min-width: 100px;
+}
+
+.columns .columns-img-col img,
+.columns-wrapper .columns-img-col img {
+  max-width: 110px;
+  height: auto;
+  display: block;
+  margin-top: 0;
+}
+
+/* Navigation column (center) */
+.columns .columns2 > div > div:nth-child(2),
+.columns-wrapper .columns2 > div > div:nth-child(2) {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 180px;
+  padding-top: 8px;
+}
+
+/* Remove default list styles and spacing */
+.columns .columns2 > div > div:nth-child(2) ul,
+.columns .columns2 > div > div:nth-child(2) li,
+.columns-wrapper .columns2 > div > div:nth-child(2) ul,
+.columns-wrapper .columns2 > div > div:nth-child(2) li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make the navigation menu horizontal: match deeply nested nav structure */
+.columns .columns2 > div > div:nth-child(2) ul ul,
+.columns-wrapper .columns2 > div > div:nth-child(2) ul ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Nav links */
+.columns .columns2 > div > div:nth-child(2) ul ul li a,
+.columns-wrapper .columns2 > div > div:nth-child(2) ul ul li a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-block;
+  padding: 0 3px;
+  line-height: 1.6;
+}
+
+/* Highlight one nav link for demo (2nd child, e.g. Adventures) */
+.columns .columns2 > div > div:nth-child(2) ul ul li:nth-child(2) a,
+.columns-wrapper .columns2 > div > div:nth-child(2) ul ul li:nth-child(2) a {
+  color: #bababa;
+  text-decoration: underline;
+}
+
+/* Nav link hover */
+.columns .columns2 > div > div:nth-child(2) ul ul li a:hover,
+.columns-wrapper .columns2 > div > div:nth-child(2) ul ul li a:hover {
+  color: #bababa;
+  text-decoration: underline;
+}
+
+/* Right column */
+.columns .columns2 > div > div:nth-child(3),
+.columns-wrapper .columns2 > div > div:nth-child(3) {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-width: 120px;
+  padding-top: 8px;
+}
+
+.columns .columns2 > div > div:nth-child(3) p,
+.columns-wrapper .columns2 > div > div:nth-child(3) p {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: none;
+  padding: 0;
+  text-align: right;
+}
+
+/* Responsive: right/center columns align left when stacking */
+@media (width <= 900px) {
+  .columns .columns2 > div > div:nth-child(3),
+  .columns-wrapper .columns2 > div > div:nth-child(3),
+  .columns .columns2 > div > div:nth-child(2),
+  .columns-wrapper .columns2 > div > div:nth-child(2) {
+    align-items: flex-start;
+    margin-left: 0;
+    padding-top: 0;
+  }
+}
+
+/* Remove unwanted default styles from links inside block */
+.columns a,
+.columns-wrapper a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.columns a:hover,
+.columns-wrapper a:hover {
+  color: #bababa;
+  text-decoration: underline;
+}
+
+/* Remove extra margins from block elements */
+.columns p,
+.columns ul,
+.columns li,
+.columns-wrapper p,
+.columns-wrapper ul,
+.columns-wrapper li {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+/* Ensure block fills available width and is visually consistent */
+.columns .columns2.block,
+.columns-wrapper .columns2.block {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fine tune main container for spacing and appearance */
+.columns .columns2,
+.columns-wrapper .columns2 {
+  width: 100%;
 }
