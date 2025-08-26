@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,180 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3.2rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 0 40px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Only show the active tab panel */
+.tabs.tabs3 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Sidebar tabs styling */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 155px;
+  min-width: 110px;
+  margin: 0;
+  padding: 0;
+  gap: 1.1em;
+  box-sizing: border-box;
+  overflow: visible;
+  max-width: none;
+  box-shadow: none;
+  border: none;
+  background: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs3 {
+    flex-direction: column;
+    gap: 0;
+    max-width: 100%;
+    padding: 16px 0 20px;
+  }
+
+  .tabs.tabs3 .tabs-list {
+    flex-direction: row;
+    width: 100%;
+    gap: 0.5em;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+}
+
+/* Tab button styling */
+.tabs.tabs3 .tabs-list button {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 10px 0 10px 6px;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  text-align: left;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  margin: 0;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+  line-height: 1.18;
+  display: block;
+}
+
+.tabs.tabs3 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs3 .tabs-list button:focus {
+  outline: 2px solid #FFC857;
+  outline-offset: 2px;
+}
+
+.tabs.tabs3 .tabs-list button p {
+  margin: 0;
+}
+
+/* Main content column */
+.tabs.tabs3 .tabs-panel {
+  flex: 1 1 0%;
+  max-width: 640px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading with gold underline */
+.tabs.tabs3 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+  line-height: 1.13;
+  position: relative;
+}
+
+.tabs.tabs3 .tabs-panel h3::after {
+  display: block;
+  width: 36px;
+  height: 3px;
+  background: #FFC857;
+  border-radius: 1.5px;
+  margin-top: 3px;
+}
+
+/* Paragraph/body text */
+.tabs.tabs3 .tabs-panel p {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  margin-top: 0.6em;
+  margin-bottom: 1.2em;
+  max-width: 480px;
+}
+
+.tabs.tabs3 .tabs-panel p:first-of-type {
+  margin-top: 0.35em;
+}
+
+.tabs.tabs3 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 1.1em auto 0.25em;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Caption: assume last <p> in panel is the caption */
+.tabs.tabs3 .tabs-panel p:last-child {
+  font-size: 0.93rem;
+  color: #111;
+  text-transform: uppercase;
+  margin-top: 0.02em;
+  margin-bottom: 1em;
+  letter-spacing: 0.045em;
+  line-height: 1.32;
+  max-width: 480px;
+}
+
+/* Remove extra horizontal scrolling/overflow for sidebar tabs */
+
+.tabs.tabs3 .tabs-panel,
+.tabs.tabs3 .tabs-list {
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding-left: 0;
+  padding-right: 0;
 }
