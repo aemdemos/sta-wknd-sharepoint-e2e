@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,111 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion7 {
+  /* Match the main content column width as closely as possible */
+  max-width: 660px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Compact, clean, and aligned accordion items */
+.accordion.accordion7 details {
+  border: none;
+  background: #fff;
+  margin: 0;
+  border-bottom: 1px solid #E0E0E0;
+  font-family: var(--body-font-family);
+  box-sizing: border-box;
+}
+
+.accordion.accordion7 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion7 details + details {
+  margin-top: 0;
+}
+
+/* Row: horizontally align question and marker, tighter vertical padding */
+.accordion.accordion7 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #212121;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 15px;
+  min-height: 40px;
+  letter-spacing: 0.01em;
+  box-sizing: border-box;
+}
+
+.accordion.accordion7 .accordion-item-label:focus,
+.accordion.accordion7 .accordion-item-label:hover,
+.accordion.accordion7 details[open] .accordion-item-label {
+  background: #fff;
+}
+
+.accordion.accordion7 .accordion-item-label p {
+  margin: 0;
+  padding: 0;
+  font-weight: inherit;
+  text-transform: inherit;
+  color: inherit;
+  font-size: inherit;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+/* Marker: visually distinct, well separated, and vertically aligned */
+.accordion.accordion7 details summary::-webkit-details-marker {
+  color: #757575;
+  font-size: 22px;
+  margin-left: 32px;
+  vertical-align: middle;
+}
+
+/* For Firefox: spacing only, marker type is browser default */
+.accordion.accordion7 details summary {
+  list-style-position: inside;
+  list-style-type: disclosure-closed;
+  padding-right: 0;
+}
+
+/* Body: match horizontal padding and improve vertical rhythm */
+.accordion.accordion7 .accordion-item-body {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #212121;
+  background: #fff;
+  line-height: 1.7;
+  font-family: var(--body-font-family);
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Responsive: full width and reduced padding on smaller screens */
+@media (width <= 900px) {
+  .accordion.accordion7 {
+    max-width: 100%;
+  }
+
+  .accordion.accordion7 .accordion-item-label,
+  .accordion.accordion7 .accordion-item-body {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
 }
