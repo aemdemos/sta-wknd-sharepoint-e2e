@@ -311,7 +311,6 @@
   margin-bottom: 27px;
 }
 
-/* Responsive stacking for mobile/tablet */
 @media (width <= 900px) {
   .hero.hero10 {
     flex-direction: column;
@@ -346,4 +345,136 @@
   z-index: auto;
   box-shadow: none;
   background: none;
+}
+
+
+.hero.hero27 {
+  width: 100vw;
+  max-width: unset;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 340px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Image fills the hero */
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero27 > div:first-child picture,
+.hero.hero27 > div:first-child img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay: ultra compact, nearly full-bleed, minimal vertical and horizontal padding */
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: #fff;
+  padding: 14px 20px 12px;
+  margin: 0;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgb(32 32 32 / 4%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100vw;
+  border-radius: 0;
+  min-height: 0;
+  height: auto;
+}
+
+/* Tighten gaps between heading, paragraph, and button */
+.hero.hero27 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.hero.hero27 h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  color: #222;
+  font-weight: 500;
+  margin: 0 0 2px;
+  line-height: 1.15;
+}
+
+.hero.hero27 p {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #222;
+  margin: 0 0 8px;
+  line-height: 1.5;
+  max-width: 750px;
+}
+
+/* Remove extra margin below the button */
+.hero.hero27 .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Button: left-aligned, visually tight */
+.hero.hero27 .button-container .button {
+  background: #FFD600;
+  color: #222;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 10px 32px;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  min-width: 120px;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
+  display: inline-block;
+  text-align: left;
+}
+
+.hero.hero27 .button-container .button:hover,
+.hero.hero27 .button-container .button:focus {
+  background: #e2c200;
+  color: #222;
+  text-decoration: none;
+}
+
+@media (width <= 900px) {
+  .hero.hero27 > div:last-child {
+    padding: 9px 4px 7px;
+    max-width: 100vw;
+  }
+
+  .hero.hero27 h2 {
+    font-size: var(--heading-font-size-m);
+  }
+
+  .hero.hero27 p {
+    font-size: 15px;
+  }
+
+  .hero.hero27 .button-container .button {
+    font-size: 14px;
+    padding: 8px 14px;
+    min-width: 100px;
+  }
 }
