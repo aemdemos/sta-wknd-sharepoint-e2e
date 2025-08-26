@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -98,7 +99,6 @@
   max-width: 100%;
 }
 
-/* Divider line below headline */
 .hero.hero6 > div:last-child hr,
 .hero.hero6 > div:last-child > div:only-child {
   width: 100%;
@@ -131,4 +131,219 @@
   .hero.hero6 > div:last-child > div:only-child {
     margin-top: 16px;
   }
+}
+
+
+.hero.hero10 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0;
+}
+
+.hero.hero10 > div:first-child {
+  flex: 0 1 39%;
+  max-width: 39%;
+  min-width: 280px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero10 > div:first-child picture,
+.hero.hero10 > div:first-child img {
+  width: 100%;
+  height: 530px;
+  min-height: 480px;
+  max-height: 560px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  margin: 0;
+}
+
+.hero.hero10 > div:last-child {
+  flex: 0 1 61%;
+  max-width: 61%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 0 0 6px;
+}
+
+.hero.hero10 h1 {
+  font-family: var(--heading-font-family);
+  font-size: 2.52rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 18px;
+  margin-top: 0;
+  line-height: 1.15;
+}
+
+.hero.hero10 h4 {
+  text-transform: uppercase;
+  color: #555;
+  font-size: 1.13rem;
+  margin-bottom: 17px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.hero.hero10 .button-container {
+  margin-bottom: 32px;
+}
+
+.hero.hero10 .button-container .button,
+.hero.hero10 .button-container a.button {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 7px 25px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  box-shadow: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  display: inline-block;
+}
+
+.hero.hero10 .button-container .button:hover,
+.hero.hero10 .button-container a.button:hover {
+  background: #ffd600;
+  color: #222;
+}
+
+.hero.hero10 h2,
+.hero.hero10 h3 {
+  color: #222;
+  font-weight: 800;
+  margin-top: 54px;
+  margin-bottom: 8px;
+  line-height: 1.22;
+}
+
+.hero.hero10 h2 {
+  font-size: 1.45rem;
+  display: inline-block;
+  border-bottom: 2px solid #ffd600;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  min-width: 220px;
+  letter-spacing: 0.01em;
+}
+
+.hero.hero10 h3 {
+  font-size: 1.12rem;
+  border-bottom: none;
+}
+
+.hero.hero10 p {
+  color: #222;
+  font-size: 1.09rem;
+  margin-bottom: 13px;
+  line-height: 1.71;
+}
+
+.hero.hero10 strong em,
+.hero.hero10 > div:last-child p > em {
+  color: #888;
+  font-style: italic;
+  font-size: 1.03rem;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 30px;
+}
+
+.hero.hero10 blockquote {
+  background: #f5f5f5;
+  border-left: 4px solid #eee;
+  margin: 36px 0 30px;
+  padding: 28px 36px;
+  font-size: 1.21rem;
+  font-style: italic;
+  color: #444;
+  border-radius: 0 6px 6px 0;
+}
+
+.hero.hero10 blockquote p {
+  margin: 0;
+}
+
+.hero.hero10 a {
+  color: #3b63fb;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.hero.hero10 > div:last-child picture,
+.hero.hero10 > div:last-child img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 38px 0 11px;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.hero.hero10 > div:last-child p strong em {
+  color: #888;
+  font-size: 0.99rem;
+  font-style: italic;
+  display: block;
+  margin-top: 2px;
+  margin-bottom: 30px;
+}
+
+.hero.hero10 > div:last-child > *:not(:last-child) {
+  margin-bottom: 27px;
+}
+
+/* Responsive stacking for mobile/tablet */
+@media (width <= 900px) {
+  .hero.hero10 {
+    flex-direction: column;
+    max-width: 100vw;
+    padding: 0;
+  }
+
+  .hero.hero10 > div:first-child,
+  .hero.hero10 > div:last-child {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .hero.hero10 > div:last-child {
+    padding: 17px 0 0;
+  }
+
+  .hero.hero10 > div:first-child picture,
+  .hero.hero10 > div:first-child img {
+    height: 200px;
+    min-height: 140px;
+    max-height: 270px;
+  }
+}
+
+.hero.hero10 picture,
+.hero.hero10 img {
+  position: static;
+  z-index: auto;
+  box-shadow: none;
+  background: none;
 }
