@@ -73,12 +73,10 @@
   box-sizing: border-box;
 }
 
-/* Only show the active tab panel */
 .tabs.tabs3 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Sidebar tabs styling */
 .tabs.tabs3 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -114,7 +112,6 @@
   }
 }
 
-/* Tab button styling */
 .tabs.tabs3 .tabs-list button {
   background: none;
   border: none;
@@ -151,7 +148,6 @@
   margin: 0;
 }
 
-/* Main content column */
 .tabs.tabs3 .tabs-panel {
   flex: 1 1 0%;
   max-width: 640px;
@@ -166,7 +162,6 @@
   align-items: flex-start;
 }
 
-/* Heading with gold underline */
 .tabs.tabs3 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.1rem;
@@ -187,7 +182,6 @@
   margin-top: 3px;
 }
 
-/* Paragraph/body text */
 .tabs.tabs3 .tabs-panel p {
   font-family: var(--body-font-family);
   color: #222;
@@ -211,7 +205,6 @@
   box-shadow: none;
 }
 
-/* Caption: assume last <p> in panel is the caption */
 .tabs.tabs3 .tabs-panel p:last-child {
   font-size: 0.93rem;
   color: #111;
@@ -223,8 +216,6 @@
   max-width: 480px;
 }
 
-/* Remove extra horizontal scrolling/overflow for sidebar tabs */
-
 .tabs.tabs3 .tabs-panel,
 .tabs.tabs3 .tabs-list {
   border: none;
@@ -232,4 +223,221 @@
   background: none;
   padding-left: 0;
   padding-right: 0;
+}
+
+
+.tabs.tabs8 {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  border: 1px solid #ececec;
+  padding: 0;
+}
+
+/* --- Use Flex Layout for Top Level: Sidebar & Main --- */
+.tabs.tabs8 .tabs-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* --- Sidebar: Narrow Column --- */
+.tabs.tabs8 .tabs-panel > div:first-child {
+  flex: 0 0 290px;
+  max-width: 320px;
+  min-width: 220px;
+  border-right: 1px solid #ececec;
+  padding: 32px 36px 32px 32px;
+  margin-right: 0;
+  box-sizing: border-box;
+  background: #fff;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* --- Main Content Column: Everything Stacked --- */
+.tabs.tabs8 .tabs-panel > div:nth-child(2) {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 900px;
+  box-sizing: border-box;
+  padding: 32px 32px 32px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+/* --- Tabs Navigation: Horizontally above main column only --- */
+.tabs.tabs8 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 40px;
+  padding: 0;
+  background: none;
+  border: none;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* Only full width on mobile; otherwise, match main content */
+  margin-left: 320px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs8 .tabs-panel {
+    flex-direction: column;
+  }
+
+  .tabs.tabs8 .tabs-panel > div:first-child {
+    border-right: none;
+    padding: 0 0 32px;
+    margin-bottom: 40px;
+    max-width: 100%;
+    min-width: 0;
+    gap: 24px;
+    display: block;
+  }
+
+  .tabs.tabs8 .tabs-panel > div:nth-child(2) {
+    padding: 0 0 32px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs8 .tabs-list {
+    margin-left: 0;
+    margin-bottom: 32px;
+  }
+}
+
+/* --- Main Headings and Hero Image: Stacked Vertically --- */
+.tabs.tabs8 .tabs-panel > div:nth-child(2) > * {
+  width: 100%;
+  max-width: 720px;
+  margin-left: 0;
+}
+
+.tabs.tabs8 .tabs-panel > div:nth-child(2) h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-align: left;
+  border-bottom: 3px solid #ffe272;
+  padding-bottom: 8px;
+  max-width: 700px;
+}
+
+.tabs.tabs8 .tabs-panel > div:nth-child(2) h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.6rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 22px;
+  margin-top: 0;
+  letter-spacing: 0;
+  text-align: left;
+  max-width: 700px;
+}
+
+.tabs.tabs8 .tabs-panel > div:nth-child(2) picture,
+.tabs.tabs8 .tabs-panel > div:nth-child(2) img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  margin-bottom: 18px;
+  margin-top: 8px;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+  align-self: flex-start;
+}
+
+.tabs.tabs8 .tabs-panel > div:nth-child(2) p {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 20px;
+  margin-top: 0;
+  line-height: 1.68;
+  text-align: left;
+  max-width: 700px;
+}
+
+/* --- Tabs Buttons: Pill Style --- */
+.tabs.tabs8 .tabs-list button {
+  background: none;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 28px;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  margin: 0;
+  line-height: 1.25;
+  box-shadow: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs8 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+/* --- General List/Section Styling --- */
+.tabs.tabs8 ul,
+.tabs.tabs8 ol {
+  padding-left: 24px;
+  margin-bottom: 24px;
+}
+
+.tabs.tabs8 .tabs-panel > div:first-child > * {
+  margin-bottom: 0;
+}
+
+.tabs.tabs8 .tabs-panel > div:first-child h3,
+.tabs.tabs8 .tabs-panel > div:first-child h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.tabs.tabs8 .tabs-panel > div:first-child ul,
+.tabs.tabs8 .tabs-panel > div:first-child ol {
+  margin-left: 0;
+  padding-left: 18px;
+}
+
+/* --- Ensure Main Content vertical rhythm --- */
+.tabs.tabs8 .tabs-panel > div:nth-child(2) > * + * {
+  margin-top: 22px;
+}
+
+/* --- Remove unwanted box/border from earlier styles --- */
+.tabs.tabs8 .tabs-panel,
+.tabs.tabs8 .tabs-list,
+.tabs.tabs8 .tabs-list button {
+  border: none;
+  background: none;
+  box-shadow: none;
 }
