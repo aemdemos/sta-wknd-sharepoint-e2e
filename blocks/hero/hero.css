@@ -359,7 +359,6 @@
   overflow: hidden;
 }
 
-/* Image fills the hero */
 .hero.hero27 > div:first-child {
   position: absolute;
   inset: 0;
@@ -378,7 +377,6 @@
   display: block;
 }
 
-/* Overlay: ultra compact, nearly full-bleed, minimal vertical and horizontal padding */
 .hero.hero27 > div:last-child {
   position: absolute;
   left: 0;
@@ -399,7 +397,6 @@
   height: auto;
 }
 
-/* Tighten gaps between heading, paragraph, and button */
 .hero.hero27 > div:last-child > div {
   display: flex;
   flex-direction: column;
@@ -426,13 +423,11 @@
   max-width: 750px;
 }
 
-/* Remove extra margin below the button */
 .hero.hero27 .button-container {
   margin: 0;
   padding: 0;
 }
 
-/* Button: left-aligned, visually tight */
 .hero.hero27 .button-container .button {
   background: #FFD600;
   color: #222;
@@ -477,4 +472,128 @@
     padding: 8px 14px;
     min-width: 100px;
   }
+}
+
+
+.hero.hero39 {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  min-height: 660px; /* Increased for a more immersive image */
+  background: none;
+  overflow: visible;
+  display: block;
+}
+
+/* Let the image fill the top and allow for more visible image area */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 480px; /* Taller for greater overlap and more sky */
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.hero.hero39 > div:first-child > div,
+.hero.hero39 > div:first-child picture,
+.hero.hero39 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Overlapping white box floats higher over the image */
+.hero.hero39 > div:last-child {
+  position: absolute;
+  left: 50%;
+  bottom: 60px; /* Raises the box up so it overlaps more of the image */
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 1200px;
+  background: #fff;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 9%);
+  padding: 2.5rem 3rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+/* Heading and paragraph styling */
+.hero.hero39 > div:last-child h1,
+.hero.hero39 > div:last-child h2,
+.hero.hero39 > div:last-child h3,
+.hero.hero39 > div:last-child h4,
+.hero.hero39 > div:last-child h5,
+.hero.hero39 > div:last-child h6 {
+  color: #222;
+  font-family: var(--heading-font-family, Georgia, serif);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.hero.hero39 > div:last-child p {
+  color: #555;
+  font-family: var(--body-font-family, Arial, sans-serif);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.hero.hero39 > div:last-child > div {
+  margin: 0;
+}
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero39 {
+    min-height: 380px;
+  }
+
+  .hero.hero39 > div:first-child {
+    height: 210px;
+  }
+
+  .hero.hero39 > div:last-child {
+    width: 96%;
+    bottom: 32px;
+    padding: 1.2rem 1rem 1.4rem;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero39 {
+    min-height: 180px;
+  }
+
+  .hero.hero39 > div:first-child {
+    height: 100px;
+  }
+
+  .hero.hero39 > div:last-child {
+    width: 99%;
+    bottom: 10px;
+    padding: 0.7rem 0.3rem 1rem;
+  }
+
+  .hero.hero39 > div:last-child h1,
+  .hero.hero39 > div:last-child h2 {
+    font-size: 1.1rem;
+  }
+}
+
+.hero.hero39 > div {
+  margin: 0;
+  padding: 0;
 }
