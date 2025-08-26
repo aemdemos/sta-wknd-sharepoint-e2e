@@ -1646,7 +1646,6 @@
 
 
 .tabs.tabs28 {
-  /* Further reduce the left margin for near-flush alignment with the page/section */
   max-width: 700px;
   margin: 48px 0 0 8px;
   padding: 0;
@@ -1657,7 +1656,6 @@
   align-items: flex-start;
 }
 
-/* Tabs Bar: make gap even tighter, and ensure alignment with content */
 .tabs.tabs28 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1672,7 +1670,6 @@
   justify-content: flex-start;
 }
 
-/* Individual Tab: slightly less horizontal padding, so they align better with headings */
 .tabs.tabs28 .tabs-list button {
   background: transparent;
   border: none;
@@ -1707,7 +1704,6 @@
   padding: 0;
 }
 
-/* Tab panel content: ensure full width and no extra padding */
 .tabs.tabs28 .tabs-panel {
   margin-top: 0;
   padding: 0;
@@ -1718,7 +1714,6 @@
   overflow: visible;
 }
 
-/* Content container within panel: align perfectly left, tighten max-width */
 .tabs.tabs28 .tabs-panel > div {
   max-width: 600px;
   margin: 0;
@@ -1729,7 +1724,6 @@
   align-items: flex-start;
 }
 
-/* Headings: even tighter margin between main and subhead, and above paragraph */
 .tabs.tabs28 .tabs-panel h3 {
   margin: 0 0 2px;
   font-weight: 600;
@@ -1740,7 +1734,6 @@
   width: 100%;
 }
 
-/* Main heading styling */
 .tabs.tabs28 .tabs-panel h3:first-child {
   font-size: 2rem;
   font-weight: bold;
@@ -1764,7 +1757,6 @@
   margin-top: 0;
 }
 
-/* Subheading: minimal margin below, no margin top */
 .tabs.tabs28 .tabs-panel h3 + h3 {
   margin-top: 0;
   margin-bottom: 6px;
@@ -1772,12 +1764,10 @@
   font-weight: 700;
 }
 
-/* Paragraphs: first paragraph after headings, minimal margin-top */
 .tabs.tabs28 .tabs-panel > div > h3 + h3 + p {
   margin-top: 3px;
 }
 
-/* General text */
 .tabs.tabs28 .tabs-panel p,
 .tabs.tabs28 .tabs-panel ul {
   color: #222;
@@ -1793,7 +1783,6 @@
   margin-bottom: 13px;
 }
 
-/* Image: left-aligned, edge-to-edge, minimal top margin */
 .tabs.tabs28 .tabs-panel picture,
 .tabs.tabs28 .tabs-panel img {
   width: 100%;
@@ -1806,7 +1795,6 @@
   object-fit: cover;
 }
 
-/* Footer note: minimal gap above, left-aligned, small and gray */
 .tabs.tabs28 .tabs-panel p:last-child {
   color: #666;
   font-size: 0.98rem;
@@ -1815,7 +1803,6 @@
   text-align: left;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs28 {
     max-width: 100%;
@@ -1851,4 +1838,223 @@
     padding: 0 6px;
     height: 32px;
   }
+}
+
+
+.tabs.tabs30 {
+  display: flex;
+  flex-direction: row;
+  max-width: 1100px;
+  margin: 48px auto 0;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  gap: 24px; /* tighter gap for more unity */
+  align-items: flex-start;
+}
+
+/* Main content (left) column: take ~73% */
+.tabs.tabs30 > .tabs-list {
+  flex: 0 1 73%;
+  padding: 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  margin: 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Right column (itinerary): take ~27% and less gap */
+.tabs.tabs30 > .tabs-panel {
+  flex: 0 1 27%;
+  padding: 24px 0 0;
+  background: #fff;
+  align-self: flex-start;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Remove vertical divider between columns */
+.tabs.tabs30::before,
+.tabs.tabs30::after {
+  display: none;
+}
+
+/* TAB BAR - horizontal tab look (hidden if not needed) */
+.tabs.tabs30 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1.5px solid #ece8df;
+  margin-bottom: 30px;
+  background: transparent;
+  padding: 0;
+  gap: 0;
+  overflow: visible;
+  width: 100%;
+  align-items: flex-end;
+}
+
+/* Tab styling */
+.tabs.tabs30 .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0 28px 14px 0;
+  margin: 0 18px 0 0;
+  cursor: pointer;
+  position: relative;
+  min-width: 100px;
+  text-align: left;
+  transition: color 0.2s, border-bottom 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
+  box-shadow: none;
+}
+
+.tabs.tabs30 .tabs-list .tabs-tab:last-child {
+  margin-right: 0;
+}
+
+.tabs.tabs30 .tabs-list .tabs-tab[aria-selected="true"] {
+  border-bottom: 3px solid #E0C167;
+  color: #222;
+  background: transparent;
+  font-weight: 700;
+  z-index: 1;
+}
+
+/* HEADINGS & ACCENT LINE */
+.tabs.tabs30 .tabs-list .tabs-tab > h3:first-of-type {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  margin: 0 0 8px;
+  border-bottom: 3px solid #E0C167;
+  padding-bottom: 8px;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.tabs.tabs30 .tabs-list .tabs-tab > h3 + h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.2;
+  margin: 0 0 18px;
+}
+
+.tabs.tabs30 .tabs-list .tabs-tab > p:first-child {
+  margin-top: 0;
+}
+
+/* IMAGE */
+.tabs.tabs30 .tabs-list .tabs-tab picture,
+.tabs.tabs30 .tabs-list .tabs-tab img {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  margin: 0 0 10px;
+  border-radius: 13px;
+  box-shadow: none;
+}
+
+/* SUBHEADING (CAPTION UNDER IMAGE) */
+.tabs.tabs30 .tabs-list .tabs-tab > p {
+  font-family: var(--heading-font-family);
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  margin: 0 0 4px;
+  line-height: 1.3;
+  display: block;
+}
+
+/* BODY COPY */
+.tabs.tabs30 .tabs-list .tabs-tab > p + p {
+  font-family: var(--heading-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  color: #222;
+  margin: 0;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+.tabs.tabs30 .tabs-list .tabs-tab > *:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
+/* Bottom accent line for main column description (subtle, not full width) */
+.tabs.tabs30 > .tabs-list::after {
+  content: "";
+  display: block;
+  width: 98%;
+  max-width: 540px;
+  height: 3px;
+  background: #E0C167;
+  margin: 18px 0 0;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* Remove unneeded background/border from containers */
+.tabs.tabs30,
+.tabs.tabs30 > .tabs-list,
+.tabs.tabs30 .tabs-list .tabs-tab,
+.tabs.tabs30 > .tabs-panel {
+  background-color: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+/* Responsive: stack columns on small screens, adjust spacing */
+@media (width <= 900px) {
+  .tabs.tabs30 {
+    flex-direction: column;
+    max-width: 98vw;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 0;
+  }
+
+  .tabs.tabs30 > .tabs-list,
+  .tabs.tabs30 > .tabs-panel {
+    flex: unset;
+    width: 100%;
+    padding: 20px 6px 10px;
+    margin: 0;
+  }
+
+  .tabs.tabs30 > .tabs-list::after {
+    max-width: 98vw;
+  }
+
+  .tabs.tabs30 .tabs-list .tabs-tab > h3:first-of-type {
+    font-size: 1.3rem;
+  }
+
+  .tabs.tabs30 .tabs-list .tabs-tab > h3 + h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Remove outline or focus-ring from active/inactive tab buttons for visual polish */
+.tabs.tabs30 .tabs-list .tabs-tab:focus {
+  outline: none;
 }
