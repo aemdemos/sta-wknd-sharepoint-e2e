@@ -235,7 +235,6 @@
   padding: 0;
 }
 
-/* --- Use Flex Layout for Top Level: Sidebar & Main --- */
 .tabs.tabs8 .tabs-panel {
   display: flex;
   flex-direction: row;
@@ -248,7 +247,6 @@
   overflow: visible;
 }
 
-/* --- Sidebar: Narrow Column --- */
 .tabs.tabs8 .tabs-panel > div:first-child {
   flex: 0 0 290px;
   max-width: 320px;
@@ -264,7 +262,6 @@
   gap: 36px;
 }
 
-/* --- Main Content Column: Everything Stacked --- */
 .tabs.tabs8 .tabs-panel > div:nth-child(2) {
   flex: 1 1 0;
   min-width: 0;
@@ -277,7 +274,6 @@
   gap: 32px;
 }
 
-/* --- Tabs Navigation: Horizontally above main column only --- */
 .tabs.tabs8 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -288,8 +284,6 @@
   border: none;
   justify-content: flex-start;
   align-items: center;
-
-  /* Only full width on mobile; otherwise, match main content */
   margin-left: 320px;
 }
 
@@ -319,7 +313,6 @@
   }
 }
 
-/* --- Main Headings and Hero Image: Stacked Vertically --- */
 .tabs.tabs8 .tabs-panel > div:nth-child(2) > * {
   width: 100%;
   max-width: 720px;
@@ -377,7 +370,6 @@
   max-width: 700px;
 }
 
-/* --- Tabs Buttons: Pill Style --- */
 .tabs.tabs8 .tabs-list button {
   background: none;
   border: none;
@@ -404,7 +396,6 @@
   color: #fff;
 }
 
-/* --- General List/Section Styling --- */
 .tabs.tabs8 ul,
 .tabs.tabs8 ol {
   padding-left: 24px;
@@ -428,12 +419,10 @@
   padding-left: 18px;
 }
 
-/* --- Ensure Main Content vertical rhythm --- */
 .tabs.tabs8 .tabs-panel > div:nth-child(2) > * + * {
   margin-top: 22px;
 }
 
-/* --- Remove unwanted box/border from earlier styles --- */
 .tabs.tabs8 .tabs-panel,
 .tabs.tabs8 .tabs-list,
 .tabs.tabs8 .tabs-list button {
@@ -441,3 +430,124 @@
   background: none;
   box-shadow: none;
 }
+
+
+.tabs.tabs12 {
+  /* Panel content max-width and centering for larger screens */
+  display: block;
+}
+
+.tabs.tabs12 .tabs-list {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-left: 0;
+  border: none;
+  overflow-x: auto;
+}
+
+.tabs.tabs12 .tabs-list button {
+  background: transparent;
+  border: none;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  padding: 8px 32px;
+  box-shadow: none;
+  transition: background 0.2s;
+  margin: 0;
+  cursor: pointer;
+}
+
+.tabs.tabs12 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs12 .tabs-list button:focus {
+  outline: 2px solid #e7c042;
+  outline-offset: 1px;
+}
+
+/* Remove border and padding from panel, center content */
+.tabs.tabs12 .tabs-panel {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  overflow: visible;
+}
+
+/* Center and constrain content area */
+.tabs.tabs12 .tabs-panel > div {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px; /* for small screens */
+}
+
+/* Responsive: stack and full width on small screens */
+@media (width <= 900px) {
+  .tabs.tabs12 .tabs-panel > div {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+}
+
+/* Typography for headings */
+.tabs.tabs12 .tabs-panel h2,
+.tabs.tabs12 .tabs-panel h2 strong {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+/* Paragraph styling */
+.tabs.tabs12 .tabs-panel p {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #222;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+/* Images styling */
+.tabs.tabs12 .tabs-panel picture,
+.tabs.tabs12 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 24px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* List styling */
+.tabs.tabs12 .tabs-panel ul {
+  margin-top: 0;
+  margin-bottom: 32px;
+  padding-left: 24px;
+}
+
+.tabs.tabs12 .tabs-panel ul li {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  color: #222;
+  margin-bottom: 8px;
+  list-style-type: disc;
+}
+
+.tabs.tabs12 .tabs-panel p:last-of-type {
+  margin-bottom: 8px;
+}
+
+/* Prevent unwanted overflow clipping */
