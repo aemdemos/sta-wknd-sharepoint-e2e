@@ -2530,7 +2530,6 @@
   flex-direction: row;
 }
 
-/* --- TAB NAVIGATION BAR (side-by-side, vertical sidebar) --- */
 .tabs.tabs37 .tabs-list {
   flex: 0 0 150px;
   display: flex;
@@ -2546,7 +2545,6 @@
   z-index: 2;
 }
 
-/* --- Tab Buttons --- */
 .tabs.tabs37 .tabs-list button {
   background: none;
   border: none;
@@ -2583,7 +2581,6 @@
   margin: 0;
 }
 
-/* --- MAIN CONTENT WRAPPER --- */
 .tabs.tabs37 .tabs-list + * {
   flex: 1 1 0;
   display: flex;
@@ -2595,7 +2592,6 @@
   margin-top: 0;
 }
 
-/* --- ALL CONTENT INSIDE ACTIVE TAB PANEL OR BUTTON: VERTICAL STACK --- */
 .tabs.tabs37 .tabs-list button,
 .tabs.tabs37 .tabs-panel > div {
   width: 100%;
@@ -2654,12 +2650,11 @@
   margin: 0.8rem 0 0;
   font-weight: 400;
   text-align: left;
-  word-break: break-word;
+  word-wrap: break-word;
   align-self: flex-start;
   max-width: 600px;
 }
 
-/* --- TAB PANEL CONTENT: vertical stack --- */
 .tabs.tabs37 .tabs-panel {
   border: none;
   background: transparent;
@@ -2699,7 +2694,6 @@
   margin-bottom: 0.4rem;
 }
 
-/* --- Responsive Adjustments --- */
 @media (width <= 900px) {
   .tabs.tabs37 {
     flex-direction: column;
@@ -2764,7 +2758,6 @@
   }
 }
 
-/* --- Ensure vertical stacking and wrapping --- */
 .tabs.tabs37 .tabs-list button > h3,
 .tabs.tabs37 .tabs-list button > picture,
 .tabs.tabs37 .tabs-list button img,
@@ -2775,4 +2768,141 @@
 .tabs.tabs37 .tabs-panel > div > p {
   max-width: 100%;
   align-self: flex-start;
+}
+
+
+.tabs.tabs38 {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  width: 100%;
+  min-height: unset;
+  box-sizing: border-box;
+  padding: 0;
+  grid-template-columns: unset;
+  gap: unset;
+}
+
+/* Ensure .tabs-list and .tabs-panel always fill width */
+.tabs.tabs38 > .tabs-list,
+.tabs.tabs38 > .tabs-panel {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* If both columns have significant content, switch to row layout at desktop sizes */
+@media (width >= 900px) {
+  .tabs.tabs38:not(:only-child, :empty) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .tabs.tabs38 > .tabs-list,
+  .tabs.tabs38 > .tabs-panel {
+    width: 50%;
+    min-width: 0;
+    padding: 48px 32px 48px 56px;
+  }
+
+  .tabs.tabs38 > .tabs-panel {
+    padding-left: 0;
+  }
+}
+
+/* Hide sidebar if empty to avoid empty column */
+.tabs.tabs38 > .tabs-list:empty,
+.tabs.tabs38 > .tabs-list:only-child {
+  display: none;
+}
+
+/* Always left-align text in main panel */
+.tabs.tabs38 > .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 48px 16px;
+  margin: 0;
+  border: none;
+  background: #fff;
+  box-shadow: none;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* TABS NAVIGATION BAR (horizontal row at top of main area) */
+.tabs.tabs38 .tabs-list[role="tablist"] {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  margin: 0 0 32px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  overflow-x: auto;
+  gap: 0;
+}
+
+/* Tab buttons: always horizontal, styled as tabs */
+.tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab {
+  min-width: 120px;
+  padding: 12px 28px 10px;
+  border-bottom: 2px solid #ccc;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  background: #fff;
+  color: #222;
+  margin: 0;
+  border-radius: 0;
+  transition: background 0.16s, color 0.16s;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline: none;
+  white-space: nowrap;
+}
+
+.tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #222;
+  cursor: default;
+}
+
+.tabs.tabs38 .tabs-list[role="tablist"] .tabs-tab p {
+  margin: 0;
+  display: inline;
+}
+
+/* Collapse empty sidebar space at all sizes */
+.tabs.tabs38 > .tabs-list:empty {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs38 > .tabs-list,
+  .tabs.tabs38 > .tabs-panel {
+    padding: 24px 8px;
+    max-width: 100%;
+  }
+}
+
+/* Remove any centering from inner panels/lists */
+.tabs.tabs38 > .tabs-panel,
+.tabs.tabs38 > .tabs-list {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Remove default grid/layout styles from previous attempts */
+
+/* Prevent main content from being centered horizontally when sidebar is hidden */
+
+.tabs.tabs38 .tabs-panel[aria-hidden='true'] {
+  display: none;
 }
