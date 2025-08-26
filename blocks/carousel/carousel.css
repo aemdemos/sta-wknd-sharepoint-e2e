@@ -157,12 +157,10 @@
   display: none;
 }
 
-/* More generous bottom padding for image area */
 .carousel.carousel9 .carousel-slides-container {
   padding-bottom: 72px;
 }
 
-/* Navigation buttons: move further inward and lower for more breathing room */
 .carousel.carousel9 .carousel-navigation-buttons {
   inset: auto 0 36px;
   padding-left: 80px;
@@ -171,14 +169,12 @@
   z-index: 10;
 }
 
-/* Slightly enlarge arrows for visibility */
 .carousel.carousel9 .carousel-navigation-buttons button {
   width: 36px;
   height: 36px;
   font-size: 36px;
 }
 
-/* Indicators: lower even further for separation */
 .carousel.carousel9 .carousel-slide-indicators {
   bottom: 20px;
   gap: 0 16px;
@@ -188,4 +184,149 @@
   width: 12px;
   height: 12px;
   margin: 0 6px;
+}
+
+
+.carousel.carousel17 {
+  position: relative;
+  background: #fff;
+}
+
+/* Hide any slide caption overlay */
+.carousel.carousel17 .carousel-slide .carousel-slide-content {
+  display: none;
+}
+
+/* Ensure image fills horizontally, no extra margins */
+.carousel.carousel17 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel17 .carousel-slide .carousel-slide-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Space at bottom for control bar */
+.carousel.carousel17 .carousel-slides-container {
+  margin-bottom: 56px;
+}
+
+/* Control bar background */
+.carousel.carousel17::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 -2px 8px rgb(0 0 0 / 4%);
+}
+
+/* --- FORCE CONTROLS TO SHOW ABOVE BAR --- */
+
+/* Make sure indicators and navigation are visible and above control bar */
+.carousel.carousel17 .carousel-slide-indicators,
+.carousel.carousel17 .carousel-navigation-buttons {
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Position indicators in center of control bar */
+.carousel.carousel17 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  padding: 0;
+  pointer-events: auto;
+}
+
+/* Style the indicator dot(s) */
+.carousel.carousel17 .carousel-slide-indicator {
+  margin: 0 8px;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #222;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  transition: background 0.2s;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button:disabled,
+.carousel.carousel17 .carousel-slide-indicator button[aria-current="true"] {
+  background: #000;
+}
+
+/* Place navigation buttons inside control bar, right aligned */
+.carousel.carousel17 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 32px 12px auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: none;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+
+/* Style navigation buttons to match the original */
+.carousel.carousel17 .carousel-navigation-buttons button {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: #fff;
+  border: 2px solid #bbb;
+  color: #222;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  transition: background 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add subtle hover effect */
+.carousel.carousel17 .carousel-navigation-buttons button:hover,
+.carousel.carousel17 .carousel-navigation-buttons button:focus-visible {
+  background: #f4f4f4;
+  border-color: #888;
+}
+
+/* Responsive tweak for smaller screens */
+@media (width <= 600px) {
+  .carousel.carousel17 .carousel-navigation-buttons {
+    right: 8px;
+    bottom: 8px;
+    gap: 6px;
+  }
+
+  .carousel.carousel17 .carousel-slide-indicators {
+    bottom: 6px;
+  }
+
+  .carousel.carousel17::after {
+    height: 40px;
+  }
+
+  .carousel.carousel17 .carousel-slides-container {
+    margin-bottom: 40px;
+  }
 }
