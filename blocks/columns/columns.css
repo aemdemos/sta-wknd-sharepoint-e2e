@@ -31,3 +31,97 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 {
+  background: #fff;
+}
+
+/* Main row: full-width, vertical centering, generous height */
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 128px;
+  height: 128px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Hide language switcher column */
+.columns.columns2 > div > div:nth-child(2) {
+  display: none;
+}
+
+/* Logo column: slightly more left padding for visual match */
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 140px;
+  min-width: 0;
+}
+
+/* Logo image: slightly larger for closer match */
+.columns.columns2 .columns-img-col img {
+  height: 80px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* Search column: slightly more right padding for visual match */
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 140px;
+  min-width: 0;
+}
+
+/* Search "box" styling: tweak radius, size, and padding for pixel accuracy */
+.columns.columns2 > div > div:last-child p {
+  background: #f5f5f5;
+  color: #888;
+  font-size: 15px;
+  font-family: var(--body-font-family);
+  border-radius: 3px;
+  padding: 13px 26px 13px 36px;
+  margin: 0;
+  min-width: 115px;
+  min-height: 38px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="%23888" stroke-width="2" fill="none"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="%23888" stroke-width="2" stroke-linecap="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 11px center;
+  background-size: 14px 14px;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 600px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    min-height: unset;
+    padding: 0;
+  }
+
+  .columns.columns2 .columns-img-col {
+    justify-content: center;
+    padding-left: 0;
+    padding-top: 12px;
+    padding-bottom: 8px;
+  }
+
+  .columns.columns2 > div > div:last-child {
+    justify-content: center;
+    padding-right: 0;
+    padding-bottom: 12px;
+  }
+}
