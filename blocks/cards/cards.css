@@ -25,3 +25,95 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards4 > ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+@media (width <= 1200px) {
+  .cards.cards4 > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards4 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards4 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card container fills grid cell, vertical stack, extra space below content */
+.cards.cards4 > ul > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+  border: none;
+  min-width: 0;
+  box-shadow: none;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Card image at very top */
+.cards.cards4 .cards-card-image {
+  line-height: 0;
+  margin-bottom: 0;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+/* Card body: tight below image, fill space above card bottom */
+.cards.cards4 .cards-card-body {
+  padding: 10px 14px 18px;
+  margin: 0;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card heading and description */
+.cards.cards4 .cards-card-body p strong {
+  display: block;
+  font-family: var(--heading-font-family);
+  font-size: 0.91rem;
+  font-weight: 700;
+  color: #232323;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: 5px;
+  margin-top: 0;
+  line-height: 1.18;
+}
+
+.cards.cards4 .cards-card-body > p:not(:first-child) {
+  color: #444;
+  font-size: 0.93rem;
+  margin: 0;
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+/* Ensures card body doesn't get pushed to bottom, always sits under image */
+.cards.cards4 > ul > li > .cards-card-body {
+  margin-bottom: auto;
+}
