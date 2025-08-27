@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -37,7 +38,6 @@
   background: #fff;
 }
 
-/* Main row: full-width, vertical centering, generous height */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
@@ -50,12 +50,10 @@
   padding: 0;
 }
 
-/* Hide language switcher column */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo column: slightly more left padding for visual match */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -64,7 +62,6 @@
   min-width: 0;
 }
 
-/* Logo image: slightly larger for closer match */
 .columns.columns2 .columns-img-col img {
   height: 80px;
   width: auto;
@@ -72,7 +69,6 @@
   display: block;
 }
 
-/* Search column: slightly more right padding for visual match */
 .columns.columns2 > div > div:last-child {
   display: flex;
   align-items: center;
@@ -81,7 +77,6 @@
   min-width: 0;
 }
 
-/* Search "box" styling: tweak radius, size, and padding for pixel accuracy */
 .columns.columns2 > div > div:last-child p {
   background: #f5f5f5;
   color: #888;
@@ -102,7 +97,6 @@
   background-size: 14px 14px;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 600px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -123,5 +117,162 @@
     justify-content: center;
     padding-right: 0;
     padding-bottom: 12px;
+  }
+}
+
+
+/* Stronger selector for block background & text color */
+.columns.columns2.block.columns-3-cols {
+  background: #232222;
+  color: #f4f4f4;
+  font-family: var(--body-font-family);
+  padding: 48px 0 40px;
+}
+
+/* Main flex row for columns */
+.columns.columns2.block.columns-3-cols > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 56px;
+  width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack columns for mobile */
+@media (width <= 900px) {
+  .columns.columns2.block.columns-3-cols > div {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 16px;
+  }
+
+  .columns.columns2.block.columns-3-cols {
+    padding: 24px 0;
+  }
+}
+
+/* --- Left column: logo and nav --- */
+.columns.columns2.block.columns-3-cols > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 0;
+  min-width: 0;
+  margin-top: 0;
+}
+
+/* Logo: ensure white-on-dark, and visible */
+.columns.columns2.block.columns-3-cols .columns-img-col img {
+  display: block;
+  width: 180px;
+  max-width: 90vw;
+  height: auto;
+  margin-bottom: 28px;
+  filter: brightness(0) invert(1); /* Invert black PNG to white for dark background */
+}
+
+/* --- Navigation: horizontal below logo --- */
+.columns.columns2.block.columns-3-cols > div > div:first-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns2.block.columns-3-cols > div > div:first-child ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  margin-top: 0;
+}
+
+.columns.columns2.block.columns-3-cols > div > div:first-child ul > li > ul > li > a {
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.13rem;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+  padding: 0 4px;
+}
+
+.columns.columns2.block.columns-3-cols > div > div:first-child ul > li > ul > li > a:hover,
+.columns.columns2.block.columns-3-cols > div > div:first-child ul > li > ul > li > a:focus {
+  color: #b2b2b2;
+  text-decoration: underline;
+}
+
+/* Remove bullets and extra space everywhere in this block */
+.columns.columns2.block.columns-3-cols ul, 
+.columns.columns2.block.columns-3-cols ul ul, 
+.columns.columns2.block.columns-3-cols li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Right column: search area, top aligned, right justified --- */
+.columns.columns2.block.columns-3-cols > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 0 1 250px;
+  min-width: 130px;
+  margin-top: 0;
+}
+
+/* Style search box in right column */
+.columns.columns2.block.columns-3-cols > div > div:last-child p,
+.columns.columns2.block.columns-3-cols > div > div:last-child input[type="search"] {
+  background: #232222;
+  color: #ececec;
+  border: 1px solid #555;
+  border-radius: 7px;
+  padding: 10px 30px;
+  font-size: 1rem;
+  margin: 0;
+  min-width: 130px;
+  text-align: right;
+  box-shadow: none;
+  width: auto;
+  max-width: 230px;
+}
+
+/* All links in columns block are white by default */
+.columns.columns2.block.columns-3-cols a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.columns.columns2.block.columns-3-cols a:hover, 
+.columns.columns2.block.columns-3-cols a:focus {
+  color: #b2b2b2;
+  text-decoration: underline;
+}
+
+/* Tighter spacing for vertical rhythm in left column */
+.columns.columns2.block.columns-3-cols > div > div:first-child > * + * {
+  margin-top: 14px;
+}
+
+/* Responsive: reduce left/right padding and logo size for small screens */
+@media (width <= 600px) {
+  .columns.columns2.block.columns-3-cols > div {
+    padding: 0 3vw;
+    gap: 16px;
+  }
+
+  .columns.columns2.block.columns-3-cols {
+    padding: 12px 0;
+  }
+
+  .columns.columns2.block.columns-3-cols .columns-img-col img {
+    width: 120px;
+    margin-bottom: 14px;
   }
 }
