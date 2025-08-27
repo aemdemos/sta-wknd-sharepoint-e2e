@@ -162,7 +162,6 @@
   overflow: hidden;
 }
 
-/* Ensure image fills hero area */
 .hero.hero20 > div:first-child {
   position: relative;
   width: 100%;
@@ -183,7 +182,6 @@
   display: block;
 }
 
-/* Overlay white box higher up, narrower, and more compact */
 .hero.hero20 > div:last-child {
   position: absolute;
   left: 0;
@@ -231,7 +229,6 @@
   }
 }
 
-/* Typography and button */
 .hero.hero20 h1,
 .hero.hero20 h2,
 .hero.hero20 h3,
@@ -278,4 +275,104 @@
 .hero-container > .hero-wrapper > .block.hero .button:hover,
 .hero.hero20 .button:hover {
   background: #ffd600;
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100%;
+  min-height: 440px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Background image covers entire block */
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+.hero.hero27 picture,
+.hero.hero27 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay text block anchored tight bottom left */
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* White rectangle, now with tighter external margin and wider width */
+.hero.hero27 > div:last-child > div {
+  background: #fff;
+  padding: 32px 48px 28px 40px;
+  margin: 0 0 12px 12px; /* tighter to bottom/left */
+  max-width: 980px;      /* slightly wider for text */
+  min-width: 320px;
+  box-sizing: border-box;
+  pointer-events: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+}
+
+.hero.hero27 h2 {
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 14px;
+  line-height: 1.13;
+  letter-spacing: 0.01em;
+}
+
+.hero.hero27 p {
+  color: #555;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 97%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 900px) {
+  .hero.hero27 {
+    min-height: 240px;
+  }
+
+  .hero.hero27 > div:last-child > div {
+    padding: 14px 7vw 12px 5vw;
+    margin: 0 0 6px 6px;
+    max-width: 99vw;
+    min-width: 0;
+  }
+
+  .hero.hero27 h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .hero.hero27 p {
+    font-size: 0.96rem;
+  }
 }
