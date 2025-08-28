@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,117 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel17 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Hide caption overlay */
+.carousel.carousel17 .carousel-slide-content {
+  display: none;
+}
+
+/* Reserve space for controls bar below image */
+.carousel.carousel17 .carousel-slides-container {
+  padding-bottom: 56px; /* Reserve space for controls */
+  position: relative;
+  background: transparent;
+}
+
+/* Controls bar for navigation and indicators */
+.carousel.carousel17 .carousel-controls-bar,
+.carousel.carousel17 .carousel-controls-background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: #fff;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Place navigation buttons inside the white bar, at far left/right */
+.carousel.carousel17 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 5;
+  background: none;
+  pointer-events: none;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #bbb;
+  color: #222;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 0;
+  pointer-events: all;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button:hover,
+.carousel.carousel17 .carousel-navigation-buttons button:focus-visible {
+  background: #eee;
+  border-color: #888;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button::after {
+  border-color: #222;
+  height: 12px;
+  width: 12px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Style and center page indicators in the bar, under the image */
+.carousel.carousel17 .carousel-slide-indicators {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  background: transparent;
+  padding: 0;
+  z-index: 6;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #222;
+  opacity: 0.22;
+  border: none;
+  transition: background-color 0.2s, opacity 0.2s;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button:disabled {
+  background: #222;
+  opacity: 1;
 }
