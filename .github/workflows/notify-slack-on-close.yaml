@@ -35,4 +35,72 @@ jobs:
               "thread_ts": "${{ steps.get_thread_ts.outputs.thread_ts }}"
             }
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }} 
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Get information on the parent message
+        if: steps.get_thread_ts.outputs.thread_ts != ''
+        id: get_parent_message_reactions
+        run: |
+          response=$(curl -X GET "https://slack.com/api/reactions.get" \
+            -H "Authorization: Bearer ${{ secrets.SLACK_BOT_TOKEN }}" \
+            -H "Accept: application/json" \
+            -H "Content-Type: application/json" \
+            -G \
+            --data-urlencode "channel=${{ secrets.SLACK_CHANNEL_ID }}" \
+            --data-urlencode "timestamp=${{ steps.get_thread_ts.outputs.thread_ts }}")
+
+          # Compact JSON into a single line to avoid stray newlines/control chars
+          response=$(echo "$response" | jq -c .)
+            
+          # Use multiline output to safely handle JSON
+          echo "response<<EOF" >> $GITHUB_OUTPUT
+          echo "$response" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      - name: Determine reaction to add
+        if: steps.get_thread_ts.outputs.thread_ts != ''
+        id: determine_reaction
+        uses: actions/github-script@v7
+        env:
+          SLACK_RESPONSE: ${{ steps.get_parent_message_reactions.outputs.response }}
+        with:
+          script: |
+            // Only add 'passed' reaction if there is no 'x' reaction
+            let reaction = '';
+            let response = {};
+
+            // Use environment variable to safely pass the JSON response
+            const rawResponse = process.env.SLACK_RESPONSE;
+            try {
+              response = JSON.parse(rawResponse);
+            } catch (err) {
+              core.warning(`Failed to parse Slack API response: ${err.message}`);
+              core.warning(`Raw response: ${rawResponse}`);
+              reaction = 'question'; // fallback when parsing fails
+            }
+            if (reaction === '') {
+              if (!response.ok) {
+                const errorMsg = response.error || 'unknown error';
+                core.warning(`Slack API call failed: ${errorMsg}`);
+                core.warning(`Full error response: ${JSON.stringify(response)}`);
+                reaction = 'question'; 
+              } else if (response.message && Array.isArray(response.message.reactions)) {
+                const hasXReaction = response.message.reactions.some(r => r.name === 'x');
+                if (!hasXReaction) {
+                  reaction = 'passed';
+                }
+              } else if (response.message) {
+                // API succeeded but no reactions on message
+                reaction = 'passed';
+              }
+            }
+            core.setOutput('reaction', reaction);
+      - name: Add emoji reaction to parent message
+        if: steps.determine_reaction.outputs.reaction != ''
+        run: |
+          curl -X POST "https://slack.com/api/reactions.add" \
+            -H "Authorization: Bearer ${{ secrets.SLACK_BOT_TOKEN }}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
+              "name": "${{ steps.determine_reaction.outputs.reaction }}",
+              "timestamp": "${{ steps.get_thread_ts.outputs.thread_ts }}"
+            }'

@@ -58,3 +58,14 @@ jobs:
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }} 
+      - name: Add failed emoji reaction to parent message
+        if: steps.find_parent.outputs.parent_thread_ts != ''
+        run: |
+          curl -X POST "https://slack.com/api/reactions.add" \
+            -H "Authorization: Bearer ${{ secrets.SLACK_BOT_TOKEN }}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
+              "name": "x",
+              "timestamp": "${{ steps.find_parent.outputs.parent_thread_ts }}"
+            }'

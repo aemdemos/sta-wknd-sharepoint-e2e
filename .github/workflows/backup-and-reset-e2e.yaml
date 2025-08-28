@@ -26,6 +26,15 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'github-actions@github.com'
 
+      - name: Validate E2E_WORKFLOW_COMMIT variable
+        run: |
+          if [ -z "${{ vars.E2E_WORKFLOW_COMMIT }}" ]; then
+            echo "❌ ERROR: vars.E2E_WORKFLOW_COMMIT is not set or is empty!"
+            echo "Please set the E2E_WORKFLOW_COMMIT variable in repository settings (not as a secret!)."
+            exit 1
+          fi
+          echo "✅ E2E_WORKFLOW_COMMIT variable is set: ${{ vars.E2E_WORKFLOW_COMMIT }}"
+
       - name: Create backup branch
         id: backup
         run: |
@@ -41,7 +50,7 @@ jobs:
       - name: Reset main to specified commit
         run: |
           git checkout main
-          git reset --hard ${{ secrets.E2E_WORKFLOW_COMMIT }}
+          git reset --hard ${{ vars.E2E_WORKFLOW_COMMIT }}
           git push origin main --force
 
       - name: Get latest E2E issue
@@ -98,7 +107,7 @@ jobs:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           payload: |
             {
-              "text": "*Backup and Reset Completed* :white_check_mark:\n• Created backup branch: `${{ steps.backup.outputs.branch_name }}`\n• Reset main branch to commit: `${{ secrets.E2E_WORKFLOW_COMMIT }}`",
+              "text": "*Backup and Reset Completed* :white_check_mark:\n• Created backup branch: `${{ steps.backup.outputs.branch_name }}`\n• Reset main branch to commit: `${{ vars.E2E_WORKFLOW_COMMIT }}`",
               "thread_ts": "${{ steps.get_issue.outputs.thread_ts }}"
             }
         env:
