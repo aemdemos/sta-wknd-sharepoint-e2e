@@ -77,7 +77,6 @@
   }
 }
 
-/* Tabs row alignment and layout */
 .tabs.tabs3 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -129,7 +128,6 @@
   font: inherit;
 }
 
-/* Panel container: vertical stacking, left aligned */
 .tabs.tabs3 .tabs-panel {
   border: none;
   background: #fff;
@@ -147,7 +145,6 @@
   width: 100%;
 }
 
-/* Title and accent bar */
 .tabs.tabs3 .tabs-panel h3:first-of-type {
   font-family: var(--heading-font-family), serif;
   font-size: 2rem;
@@ -160,7 +157,6 @@
   position: relative;
 }
 
-/* Accent line under title */
 .tabs.tabs3 .tabs-panel h3:first-of-type::after {
   display: block;
   width: 54px;
@@ -172,7 +168,6 @@
   content: "";
 }
 
-/* Subheading: tighter space above and below */
 .tabs.tabs3 .tabs-panel h3:not(:first-of-type) {
   font-family: var(--heading-font-family), serif;
   font-size: 1.22rem;
@@ -183,7 +178,6 @@
   line-height: 1.25;
 }
 
-/* Paragraph and list styles: tighter vertical rhythm */
 .tabs.tabs3 .tabs-panel p,
 .tabs.tabs3 .tabs-panel ul {
   font-family: var(--body-font-family), sans-serif;
@@ -205,7 +199,6 @@
   margin-bottom: 7px;
 }
 
-/* Image area: moderate whitespace above and below, large image */
 .tabs.tabs3 .tabs-panel picture,
 .tabs.tabs3 .tabs-panel img {
   display: block;
@@ -223,7 +216,6 @@
   margin: 0 auto;
 }
 
-/* Caption/footer: slightly more visible, moderate bottom margin */
 .tabs.tabs3 .tabs-panel p:last-of-type {
   color: #c2c2c2;
   font-size: 12px;
@@ -232,7 +224,6 @@
   letter-spacing: 0.1px;
 }
 
-/* Responsive tweaks for images and spacing */
 @media (width <= 900px) {
   .tabs.tabs3 {
     padding: 18px 0 0;
@@ -267,9 +258,192 @@
   }
 }
 
-/* Remove default border/background from tabs block if inherited */
 .tabs.tabs3.block {
   border: none;
   background: #fff;
   box-shadow: none;
+}
+
+
+.tabs.tabs7 {
+  /* Root container uses grid for two columns: sidebar and main panel */
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs7 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sidebar column */
+.tabs.tabs7 > .tabs-list {
+  background: #fff;
+  border-right: 1px solid #eee;
+  padding: 32px 24px 24px 32px;
+  box-sizing: border-box;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs7 > .tabs-list {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding: 20px 12px;
+  }
+}
+
+/* Main panel column */
+.tabs.tabs7 > .tabs-panel {
+  background: #fff;
+  padding: 48px;
+  min-width: 0;
+  box-sizing: border-box;
+  border: none;
+  margin: 0;
+  overflow: visible;
+  display: block;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs7 > .tabs-panel {
+    padding: 20px 12px 28px;
+  }
+}
+
+/* --- Heading styles --- */
+.tabs.tabs7 h3 {
+  font-family: var(--heading-font-family), serif;
+  font-size: var(--heading-font-size-l);
+  color: #222;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.tabs.tabs7 > .tabs-list h3 {
+  margin-bottom: 18px;
+
+  /* Underline for main heading */
+  border-bottom: 3px solid #ffe270;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.tabs.tabs7 h2 {
+  font-family: var(--heading-font-family), serif;
+  font-size: var(--heading-font-size-xl);
+  color: #222;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+/* --- Tabs row at top of main panel --- */
+.tabs.tabs7 .tabs-list {
+  /* The tab buttons row is within the sidebar (for this structure) */
+}
+
+.tabs.tabs7 .tabs-list .tabs-tab {
+  /* Horizontal tab row within sidebar */
+  display: block;
+  width: 100%;
+  margin-bottom: 18px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  box-shadow: none;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+}
+
+.tabs.tabs7 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 3px;
+  padding: 8px 16px;
+  margin-bottom: 18px;
+}
+
+.tabs.tabs7 .tabs-list .tabs-tab[aria-selected="false"] {
+  background: #fff;
+  color: #222;
+  border-radius: 3px;
+  padding: 8px 16px;
+}
+
+.tabs.tabs7 .tabs-list .tabs-tab p {
+  margin: 0;
+  font-family: inherit;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* --- Main content styles --- */
+.tabs.tabs7 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 24px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs7 p,
+.tabs.tabs7 ul,
+.tabs.tabs7 ol {
+  font-family: var(--heading-font-family), serif;
+  font-size: 1.08rem;
+  color: #222;
+  margin: 0 0 20px;
+  line-height: 1.7;
+  max-width: 850px;
+}
+
+.tabs.tabs7 ul,
+.tabs.tabs7 ol {
+  margin-left: 20px;
+}
+
+/* --- Responsive tweaks for overall spacing --- */
+@media (width <= 600px) {
+  .tabs.tabs7 > .tabs-list,
+  .tabs.tabs7 > .tabs-panel {
+    padding: 12px 4vw;
+  }
+
+  .tabs.tabs7 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .tabs.tabs7 h3 {
+    font-size: var(--heading-font-size-m);
+  }
+}
+
+/* --- Remove default panel border for main panel --- */
+
+/* --- Hide inactive panels if needed --- */
+.tabs.tabs7 .tabs-panel[aria-hidden="true"] {
+  display: none;
 }
