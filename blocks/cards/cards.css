@@ -337,3 +337,121 @@
     font-size: 0.95rem;
   }
 }
+
+
+.cards.cards21 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 20px 8px 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding-left: 0;
+}
+
+/* Responsive: 2 columns on tablet, 1 column on mobile */
+@media (width <= 1024px) {
+  .cards.cards21 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 14px 4px 0;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards21 > ul {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 6px 2px 0;
+  }
+}
+
+/* Card: proportion and alignment */
+.cards.cards21 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden;
+  min-width: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 390px;
+  list-style: none;
+}
+
+/* Card Image: aspect ratio and fit */
+.cards.cards21 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cards.cards21 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card Body: padding and vertical rhythm */
+.cards.cards21 .cards-card-body {
+  padding: 16px 12px 14px;
+  margin: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Title: weight, size, spacing */
+.cards.cards21 .cards-card-body .button-container {
+  margin: 0 0 5px;
+  padding: 0;
+}
+
+.cards.cards21 .cards-card-body .button-container a.button.primary {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  color: #222;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  display: inline;
+  cursor: pointer;
+}
+
+.cards.cards21 .cards-card-body strong {
+  font-weight: 700;
+}
+
+/* Description: readable, wraps to 3.5 lines, trimmed */
+.cards.cards21 .cards-card-body p:not(.button-container) {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.45;
+  overflow: hidden;
+  display: block;
+  max-height: calc(1.45em * 3.5);
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+/* Remove default list padding and margin */
+
+/* Remove bullet from list items */
