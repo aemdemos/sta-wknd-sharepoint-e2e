@@ -2518,7 +2518,6 @@
   box-sizing: border-box;
 }
 
-/* Align sidebar so first tab aligns with heading */
 .tabs.tabs37 .tabs-list {
   flex: 0 0 160px;
   min-width: 120px;
@@ -2529,13 +2528,12 @@
   justify-content: flex-start;
   gap: 4px;
   margin-top: 0;
-  padding-top: 0.1em; /* subtle offset for alignment */
+  padding-top: 0.1em;
   border: none;
   background: none;
   box-sizing: border-box;
 }
 
-/* Tab Button Styling for compact look */
 .tabs.tabs37 .tabs-list .tabs-tab {
   background: none;
   border: none;
@@ -2576,7 +2574,6 @@
   text-transform: inherit;
 }
 
-/* Main panel tight alignment */
 .tabs.tabs37 .tabs-panel {
   flex: 1 1 0%;
   max-width: 710px;
@@ -2591,7 +2588,6 @@
   box-shadow: none;
 }
 
-/* Title/Heading: remove top margin, thinner accent line, closer accent */
 .tabs.tabs37 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.1rem;
@@ -2620,7 +2616,6 @@
   margin-top: 0;
 }
 
-/* IMAGE: less margin below */
 .tabs.tabs37 .tabs-panel picture,
 .tabs.tabs37 .tabs-panel img {
   display: block;
@@ -2633,7 +2628,6 @@
   box-sizing: border-box;
 }
 
-/* Caption (first <p> after image): tighter above/below */
 .tabs.tabs37 .tabs-panel p {
   margin-top: 0;
   margin-bottom: 7px;
@@ -2647,7 +2641,6 @@
   padding: 0;
 }
 
-/* Description (second <p> in panel) */
 .tabs.tabs37 .tabs-panel p + p {
   color: #444;
   font-size: 16px;
@@ -2660,9 +2653,6 @@
   padding: 0;
 }
 
-/* Remove default border radius and box shadow from panel, if inherited */
-
-/* Responsive: Stack on small screens, less gap/padding */
 @media (width <= 950px) {
   .tabs.tabs37 {
     flex-direction: column;
@@ -2717,10 +2707,199 @@
   }
 }
 
-/* Main panel direct child div aligns content tightly */
 .tabs.tabs37 .tabs-panel > div {
   width: 100%;
   max-width: 640px;
   margin: 0;
   box-sizing: border-box;
+}
+
+
+.tabs.tabs38 {
+  /* Two columns: sidebar and main content */
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 60px;
+  align-items: flex-start;
+  padding: 48px 36px;
+  max-width: 1200px;
+  margin: 0 auto 36px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Sidebar: vertical stack, moderate gap, always visible */
+.tabs.tabs38 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  max-width: 220px;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  justify-content: flex-start;
+}
+
+/* All tabs: clear font, never faded out */
+.tabs.tabs38 .tabs-list button {
+  all: unset;
+  display: block;
+  width: 100%;
+  font-family: var(--body-font-family);
+  font-size: 1.05rem;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.42;
+  letter-spacing: 0.01em;
+  text-align: left;
+  padding: 0.12em 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  cursor: default;
+  opacity: 1;
+  border-left: 3px solid transparent;
+  background: none;
+}
+
+/* Active tab: bold, black, left accent, gentle highlight */
+.tabs.tabs38 .tabs-list button[aria-selected="true"] {
+  font-weight: 700;
+  color: #181818;
+  background: #faf7eb;
+  border-left: 3px solid #FFD700;
+  margin-bottom: 0.6em;
+  margin-top: 0.2em;
+  box-sizing: border-box;
+  letter-spacing: 0.03em;
+}
+
+/* Inactive tabs: solid medium gray, regular weight */
+.tabs.tabs38 .tabs-list button:not([aria-selected="true"]) {
+  font-weight: 400;
+  color: #888;
+  background: none;
+  border-left: 3px solid transparent;
+  margin: 0;
+}
+
+/* Label text tweaks */
+.tabs.tabs38 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Remove focus/hover styles in sidebar */
+.tabs.tabs38 .tabs-list button:focus,
+.tabs.tabs38 .tabs-list button:hover {
+  outline: none;
+  background: #f6f3e9;
+  color: #181818;
+}
+
+/* Main content column */
+.tabs.tabs38 .tabs-panel {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  max-width: 750px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Headline: large, serif, gold underline, extra spacing */
+.tabs.tabs38 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #131313;
+  margin-top: 0.2em;
+  margin-bottom: 0.7em;
+  line-height: 1.1;
+  border-bottom: 4px solid #FFD700;
+  padding-bottom: 0.22em;
+  display: inline-block;
+}
+
+/* Paragraphs: readable */
+.tabs.tabs38 .tabs-panel p {
+  font-size: 1.13rem;
+  color: #222;
+  margin-top: 0.8em;
+  margin-bottom: 1.3em;
+  line-height: 1.75;
+}
+
+/* Image styling: prominent, spaced */
+.tabs.tabs38 .tabs-panel picture {
+  display: block;
+  margin: 2.7rem 0 0.25rem;
+}
+
+.tabs.tabs38 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 690px;
+  height: auto;
+  border-radius: 0.19em;
+  margin-bottom: 0;
+  box-shadow: 0 2px 18px rgb(40 40 40 / 9%);
+}
+
+/* Caption styling: small, uppercase, muted */
+.tabs.tabs38 .tabs-panel picture + * {
+  display: block;
+  font-size: 0.88rem;
+  color: #8e8e8e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.4em;
+  margin-bottom: 1.6em;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Responsive: stack columns, sidebar horizontal on small screens */
+@media (width <= 900px) {
+  .tabs.tabs38 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 18px 5px;
+  }
+
+  .tabs.tabs38 .tabs-list {
+    flex-direction: row;
+    gap: 1.3rem;
+    max-width: 100%;
+    margin-bottom: 24px;
+    justify-content: flex-start;
+  }
+
+  .tabs.tabs38 .tabs-panel {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tabs.tabs38 .tabs-list button[aria-selected="true"] {
+    margin-bottom: 0;
+    margin-top: 0;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid #FFD700;
+    background: #faf7eb;
+  }
+}
+
+/* Hide tab panel if not active */
+.tabs.tabs38 .tabs-panel[aria-hidden="true"] {
+  display: none;
 }
