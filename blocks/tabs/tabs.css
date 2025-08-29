@@ -977,7 +977,6 @@
   align-items: flex-start;
 }
 
-/* Tabs: compact left-aligned row, less bottom margin for tighter layout */
 .tabs.tabs14 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -992,7 +991,6 @@
   border: none;
 }
 
-/* Tab buttons: compact, uppercase, visually distinct active */
 .tabs.tabs14 .tabs-list button {
   background: transparent;
   color: #222;
@@ -1032,7 +1030,6 @@
   padding: 0;
 }
 
-/* Tabs panel: left-align and restrict width */
 .tabs.tabs14 .tabs-panel {
   box-shadow: none;
   border: none;
@@ -1063,7 +1060,6 @@
   align-items: flex-start;
 }
 
-/* Title: large serif, short yellow accent bar below, pulled closer to title */
 .tabs.tabs14 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.13rem;
@@ -1081,7 +1077,6 @@
   width: auto;
 }
 
-/* Accent bar: closer to title and image below */
 .tabs.tabs14 .tabs-panel h3::after {
   display: block;
   background: #F5E086;
@@ -1093,7 +1088,6 @@
   content: "";
 }
 
-/* Hero image: block, left-aligned, ensure vertical rhythm */
 .tabs.tabs14 .tabs-panel picture,
 .tabs.tabs14 .tabs-panel img {
   display: block;
@@ -1105,7 +1099,6 @@
   margin-left: 0;
 }
 
-/* Subtitle/caption: slightly larger, more space below */
 .tabs.tabs14 .tabs-panel > div > p:first-of-type {
   font-size: 1.15rem;
   font-family: var(--body-font-family);
@@ -1119,7 +1112,6 @@
   text-align: left;
 }
 
-/* Body paragraphs: left-aligned, airier spacing for rhythm */
 .tabs.tabs14 .tabs-panel p {
   font-family: var(--body-font-family);
   font-size: 1.07rem;
@@ -1131,7 +1123,6 @@
   text-align: left;
 }
 
-/* Lists in panel */
 .tabs.tabs14 .tabs-panel ul,
 .tabs.tabs14 .tabs-panel ol {
   margin-left: 1.25em;
@@ -1142,7 +1133,6 @@
   text-align: left;
 }
 
-/* Responsive: stack content and reduce padding/margins for narrow screens */
 @media (width <= 700px) {
   .tabs.tabs14 {
     padding: 1rem 0.5rem;
@@ -1171,7 +1161,6 @@
   }
 }
 
-/* Ensure full left alignment for all relevant elements */
 .tabs.tabs14 .tabs-panel,
 .tabs.tabs14 .tabs-panel > div,
 .tabs.tabs14 .tabs-panel h3,
@@ -1180,4 +1169,168 @@
 .tabs.tabs14 .tabs-panel ol {
   align-items: flex-start;
   text-align: left;
+}
+
+
+.tabs.tabs19 {
+  background: #fff;
+  padding: 0;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* Remove default border/padding from panel */
+.tabs.tabs19 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.tabs.tabs19 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Two-column layout: sidebar and main content */
+.tabs.tabs19 .tabs-panel > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 36px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  min-height: 600px;
+}
+
+/* Sidebar: left column */
+.tabs.tabs19 .tabs-panel > div > h3 {
+  flex: 0 0 200px;
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  line-height: 1.2;
+}
+
+/* Decorative underline for sidebar title */
+.tabs.tabs19 .tabs-panel > div > h3::after {
+  display: block;
+  margin-top: 10px;
+  width: 40px;
+  height: 3px;
+  background: #f7eab9;
+  border-radius: 2px;
+  content: "";
+}
+
+/* Main column: force vertical stack for image+text in main area */
+.tabs.tabs19 .tabs-panel > div > h3 + p,
+.tabs.tabs19 .tabs-panel > div > h3 + p + p {
+  flex: 1 1 0;
+  width: 100%;
+  max-width: 950px;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs19 .tabs-panel > div > h3 + p {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+/* If the main area is present, make it a flex column for stacking */
+
+.tabs.tabs19 .tabs-panel > div > h3 + p picture,
+.tabs.tabs19 .tabs-panel > div > h3 + p img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+/* Description below image: spacing */
+.tabs.tabs19 .tabs-panel > div > h3 + p + p {
+  margin-top: 24px;
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Tabs navigation: flush left with the main column */
+.tabs.tabs19 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: flex-start;
+  margin-left: 200px;
+  margin-bottom: 32px;
+  border: none;
+  font-size: 1rem;
+  background: transparent;
+  padding: 0;
+}
+
+/* Tab button appearance */
+.tabs.tabs19 .tabs-list button {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  padding: 10px 32px 10px 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+
+.tabs.tabs19 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs19 .tabs-list button:not([aria-selected='true']):hover,
+.tabs.tabs19 .tabs-list button:not([aria-selected='true']):focus {
+  background: #f7eab9;
+  color: #222;
+}
+
+.tabs.tabs19 .tabs-list button p {
+  margin: 0;
+}
+
+/* Responsive: stack columns vertically on mobile, tabs aligned left */
+@media (width <= 900px) {
+  .tabs.tabs19 .tabs-panel > div {
+    flex-direction: column;
+    gap: 24px;
+    min-height: unset;
+    padding: 0;
+  }
+
+  .tabs.tabs19 .tabs-panel > div > h3 {
+    flex: none;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .tabs.tabs19 .tabs-list {
+    margin-left: 0;
+    gap: 20px;
+  }
+
+  .tabs.tabs19 .tabs-panel > div > h3 + p,
+  .tabs.tabs19 .tabs-panel > div > h3 + p + p {
+    max-width: 100%;
+  }
 }
