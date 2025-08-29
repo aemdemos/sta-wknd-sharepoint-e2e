@@ -685,7 +685,6 @@
   display: block;
 }
 
-/* Ensure card body reserves enough vertical space and aligns description to the bottom */
 .cards.cards26 .cards-card-body {
   margin: 0;
   padding: 0;
@@ -693,7 +692,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 54px; /* Adjust for pixel-perfect alignment if needed */
+  min-height: 54px;
   height: 54px;
   box-sizing: border-box;
 }
@@ -718,7 +717,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Responsive: stack cards vertically on small screens */
 @media (width <= 520px) {
   .cards.cards26 > ul {
     flex-direction: column;
@@ -745,4 +743,112 @@
     min-height: 0;
     height: auto;
   }
+}
+
+
+.cards.cards31 ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  gap: 0;
+}
+
+.cards.cards31 ul > li {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width <= 1000px) {
+  .cards.cards31 ul {
+    flex-wrap: wrap;
+  }
+
+  .cards.cards31 ul > li {
+    flex: 1 1 50%;
+    max-width: 50%;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards31 ul > li {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.cards.cards31 .cards-card-image {
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards31 .cards-card-image picture,
+.cards.cards31 .cards-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards31 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slightly reduce space between image and title compared to previous */
+.cards.cards31 .cards-card-body .button-container {
+  margin-top: 5px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.cards.cards31 .cards-card-body .button-container strong {
+  font-weight: 700;
+}
+
+/* Larger, bolder title with less space below */
+.cards.cards31 .cards-card-body .button-container .button.primary {
+  background: none;
+  border: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.18rem;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin: 0;
+  text-align: left;
+  display: inline;
+  line-height: 1.22;
+  max-width: 100%;
+  overflow: visible;
+  white-space: normal;
+  margin-bottom: 3px;
+}
+
+/* Description: lighter color, small upper margin for separation */
+.cards.cards31 .cards-card-body > p:not(.button-container) {
+  font-size: 0.93rem;
+  color: #555;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 3px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
 }
