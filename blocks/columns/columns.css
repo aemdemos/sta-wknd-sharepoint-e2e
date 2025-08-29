@@ -50,9 +50,6 @@
   padding: 32px 0 24px;
 }
 
-/* Use grid for perfect centering of the nav between logo and search */
-
-/* Responsive: Stack vertically on mobile */
 @media (width <= 900px) {
   .columns > div {
     display: flex;
@@ -63,7 +60,6 @@
   }
 }
 
-/* Logo column */
 .columns .columns-img-col {
   display: flex;
   align-items: flex-start;
@@ -79,7 +75,6 @@
   filter: invert(1) brightness(1.2);
 }
 
-/* NAVIGATION COLUMN (centered within its grid cell) */
 .columns > div > div:nth-child(2) {
   display: flex;
   justify-content: center;
@@ -90,7 +85,6 @@
   min-width: 0;
 }
 
-/* Flatten sub-list: make HOME and its children look like siblings in a single row */
 .columns > div > div:nth-child(2) > ul {
   display: flex;
   flex-flow: row nowrap;
@@ -109,14 +103,12 @@
   padding: 0;
 }
 
-/* Top-level nav item */
 .columns > div > div:nth-child(2) > ul > li > a {
   margin-right: 24px;
   white-space: nowrap;
   display: inline-block;
 }
 
-/* Sub-list as horizontal nav */
 .columns > div > div:nth-child(2) > ul > li > ul {
   display: flex;
   flex-direction: row;
@@ -143,7 +135,6 @@
   margin-right: 0;
 }
 
-/* Remove bullets and padding everywhere in nav */
 .columns > div > div:nth-child(2) ul,
 .columns > div > div:nth-child(2) li {
   list-style: none;
@@ -151,7 +142,6 @@
   padding: 0;
 }
 
-/* Nav item styling */
 .columns > div > div:nth-child(2) a {
   text-transform: uppercase;
   color: #EFEFEF;
@@ -170,7 +160,6 @@
   color: #FFF;
 }
 
-/* SEARCH COLUMN */
 .columns > div > div:nth-child(3) {
   display: flex;
   align-items: center;
@@ -188,7 +177,6 @@
   margin: 0;
 }
 
-/* Responsive: Stack navigation vertically on mobile */
 @media (width <= 900px) {
   .columns > div > div:nth-child(2) > ul,
   .columns > div > div:nth-child(2) > ul > li > ul {
@@ -205,5 +193,119 @@
 
   .columns > div > div:nth-child(2) > ul > li > ul {
     margin-left: 0;
+  }
+}
+
+
+.columns.columns5 {
+  background: #fff;
+  color: #000;
+  font-family: var(--body-font-family);
+  padding-top: 13px;
+  padding-bottom: 9px;
+  margin: 0;
+}
+
+/* Main row: flex, center items vertically */
+.columns.columns5 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+  min-height: 48px;
+  gap: 0;
+}
+
+/* Hide the middle column */
+.columns.columns5 > div > div:nth-child(2) {
+  display: none;
+}
+
+/* Left: Logo area, prevent stretching */
+.columns.columns5 .columns-img-col {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Logo image */
+.columns.columns5 .columns-img-col img {
+  display: block;
+  max-height: 48px;
+  width: auto;
+  filter: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Right: Search box */
+.columns.columns5 > div > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 350px;
+  max-width: 90vw;
+  background: #f5f5f5;
+  border-radius: 2px;
+  position: relative;
+  height: 32px;
+  margin: 0;
+  padding-left: 32px;
+  padding-right: 12px;
+  box-sizing: border-box;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="black" stroke-width="1.8" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="black" stroke-width="2" /><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="black" stroke-width="2" stroke-linecap="round"/></svg>');
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+}
+
+/* Search text */
+.columns.columns5 > div > div:last-child p {
+  margin: 0;
+  color: #bdbdbd;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: inherit;
+  letter-spacing: 0.2px;
+  text-align: left;
+  line-height: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Search icon as background */
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 700px) {
+  .columns.columns5 {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+
+  .columns.columns5 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    min-height: 0;
+  }
+
+  .columns.columns5 .columns-img-col {
+    margin-bottom: 8px;
+  }
+
+  .columns.columns5 > div > div:last-child {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
   }
 }
