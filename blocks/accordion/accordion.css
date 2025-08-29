@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,122 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion29 {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 720px;
+  margin-left: 0;
+  margin-right: 0; /* Prevent unnecessary centering */
+  padding-top: 40px;
+  padding-bottom: 16px;
+  background: #fff;
+  font-family: var(--body-font-family);
+  color: #222;
+  display: flex;
+  flex-direction: column;
+
+  /* Simulate left-column integration for visual grouping */
+}
+
+/* FAQ items: visually joined, zero extra margin */
+.accordion.accordion29 details {
+  border: none;
+  margin: 0;
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 0;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.accordion.accordion29 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion29 details + details {
+  margin-top: 0;
+}
+
+/* FAQ row: flex, compact, tightly grouped label and icon */
+.accordion.accordion29 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #222;
+  font-family: var(--body-font-family);
+  letter-spacing: 0;
+  padding: 8px 10px 8px 24px; /* minimal right padding, clear left indent */
+  min-height: 32px;
+  cursor: pointer;
+  background: #fff;
+  border: none;
+  outline: none;
+  transition: background 0.2s;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Remove default marker */
+.accordion.accordion29 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Icon: keep tightly grouped with label, minimal right margin */
+.accordion.accordion29 summary::after {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  color: #666;
+  margin-left: 16px;
+  margin-right: 0;
+}
+
+/* Hover/focus effect on row */
+.accordion.accordion29 summary:focus,
+.accordion.accordion29 summary:hover {
+  background: #f9f9f9;
+}
+
+/* Accordion body styling */
+.accordion.accordion29 .accordion-item-body {
+  box-sizing: border-box;
+  padding: 12px 24px;
+  background: #f7f7f7;
+  font-size: 13px;
+  color: #222;
+  line-height: 1.6;
+  font-family: var(--body-font-family);
+}
+
+/* Responsive: adapt for mobile, keep FAQ full width */
+@media (width <= 900px) {
+  .accordion.accordion29 {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 24px;
+  }
+
+  .accordion.accordion29 details,
+  .accordion.accordion29 summary,
+  .accordion.accordion29 .accordion-item-body {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .accordion.accordion29 summary {
+    padding: 8px;
+  }
+
+  .accordion.accordion29 summary::after {
+    margin-left: 10px;
+    margin-right: 0;
+  }
 }
