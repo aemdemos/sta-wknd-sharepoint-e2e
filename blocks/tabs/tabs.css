@@ -826,7 +826,6 @@
 
 
 .tabs.tabs13 {
-  /* Overall container styling: centering, max width, padding */
   max-width: 1200px;
   margin: 0 auto;
   background: #fff;
@@ -834,7 +833,6 @@
   box-sizing: border-box;
 }
 
-/* --- Tabs navigation styling --- */
 .tabs.tabs13 .tabs-list {
   display: flex;
   gap: 0;
@@ -876,12 +874,10 @@
   margin: 0;
 }
 
-/* --- Main panels: only show active panel --- */
 .tabs.tabs13 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* --- Two-column layout for active panel content on desktop --- */
 .tabs.tabs13 .tabs-panel[aria-hidden="false"] > div {
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -889,7 +885,6 @@
   align-items: flex-start;
 }
 
-/* Responsive: stack columns vertically on mobile */
 @media (width <= 900px) {
   .tabs.tabs13 .tabs-panel[aria-hidden="false"] > div {
     grid-template-columns: 1fr;
@@ -897,7 +892,6 @@
   }
 }
 
-/* --- Left "sidebar" column styling --- */
 .tabs.tabs13 .tabs-panel[aria-hidden="false"] > div > h3 {
   font-family: var(--heading-font-family);
   font-size: 2.2rem;
@@ -921,7 +915,6 @@
   letter-spacing: 0.5px;
 }
 
-/* --- Right main content column styling --- */
 .tabs.tabs13 .tabs-panel[aria-hidden="false"] img {
   display: block;
   width: 100%;
@@ -949,9 +942,6 @@
   line-height: 1.5;
 }
 
-/* --- Caption style under image --- */
-
-/* --- List styling in panel --- */
 .tabs.tabs13 .tabs-panel[aria-hidden="false"] ul {
   margin-left: 24px;
   padding-left: 0;
@@ -964,7 +954,6 @@
   margin-bottom: 8px;
 }
 
-/* --- Panel background and border --- */
 .tabs.tabs13 .tabs-panel {
   background: #fff;
   border: none;
@@ -972,4 +961,223 @@
   margin-top: 0;
   padding: 0;
   overflow: visible;
+}
+
+
+.tabs.tabs14 {
+  box-shadow: 0 1px 12px rgb(36 40 42 / 3%);
+  background: #fff;
+  max-width: 900px;
+  margin: 40px auto;
+  border-radius: 0;
+  border: none;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs: compact left-aligned row, less bottom margin for tighter layout */
+.tabs.tabs14 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  margin-top: 0.2rem;
+  margin-bottom: 1.07rem;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Tab buttons: compact, uppercase, visually distinct active */
+.tabs.tabs14 .tabs-list button {
+  background: transparent;
+  color: #222;
+  border: none;
+  border-radius: 0;
+  padding: 0.22em 0.95em;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background 0.18s, color 0.18s;
+  outline: none;
+  min-width: 78px;
+  cursor: pointer;
+  box-shadow: none;
+  margin: 0;
+  line-height: 1.35;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs14 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs14 .tabs-list button[aria-selected='false'] {
+  background: transparent;
+  color: #222;
+}
+
+.tabs.tabs14 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Tabs panel: left-align and restrict width */
+.tabs.tabs14 .tabs-panel {
+  box-shadow: none;
+  border: none;
+  background: none;
+  margin-top: 0;
+  padding: 0;
+  max-width: 900px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs14 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs14 .tabs-panel > div {
+  max-width: 900px;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Title: large serif, short yellow accent bar below, pulled closer to title */
+.tabs.tabs14 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.13rem;
+  color: #222;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.08em;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  border: none;
+  position: relative;
+  display: block;
+  text-align: left;
+  padding-bottom: 0;
+  width: auto;
+}
+
+/* Accent bar: closer to title and image below */
+.tabs.tabs14 .tabs-panel h3::after {
+  display: block;
+  background: #F5E086;
+  width: 42px;
+  height: 3px;
+  border-radius: 1.5px;
+  margin-top: 0.08em;
+  margin-bottom: 0.92em;
+  content: "";
+}
+
+/* Hero image: block, left-aligned, ensure vertical rhythm */
+.tabs.tabs14 .tabs-panel picture,
+.tabs.tabs14 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 0.02em;
+  margin-bottom: 0.8em;
+  border-radius: 0;
+  margin-left: 0;
+}
+
+/* Subtitle/caption: slightly larger, more space below */
+.tabs.tabs14 .tabs-panel > div > p:first-of-type {
+  font-size: 1.15rem;
+  font-family: var(--body-font-family);
+  font-weight: bold;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.01em;
+  margin-bottom: 1.52em;
+  line-height: 1.25;
+  text-align: left;
+}
+
+/* Body paragraphs: left-aligned, airier spacing for rhythm */
+.tabs.tabs14 .tabs-panel p {
+  font-family: var(--body-font-family);
+  font-size: 1.07rem;
+  color: #222;
+  margin-bottom: 1.32em;
+  margin-top: 0;
+  line-height: 1.7;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Lists in panel */
+.tabs.tabs14 .tabs-panel ul,
+.tabs.tabs14 .tabs-panel ol {
+  margin-left: 1.25em;
+  margin-bottom: 1.5em;
+  font-size: 1.07rem;
+  color: #222;
+  font-family: var(--body-font-family);
+  text-align: left;
+}
+
+/* Responsive: stack content and reduce padding/margins for narrow screens */
+@media (width <= 700px) {
+  .tabs.tabs14 {
+    padding: 1rem 0.5rem;
+    max-width: 100%;
+  }
+
+  .tabs.tabs14 .tabs-panel,
+  .tabs.tabs14 .tabs-panel > div,
+  .tabs.tabs14 .tabs-panel picture,
+  .tabs.tabs14 .tabs-panel img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .tabs.tabs14 .tabs-list {
+    gap: 0.32rem;
+    font-size: 0.95rem;
+  }
+
+  .tabs.tabs14 .tabs-panel h3 {
+    font-size: 1.42rem;
+  }
+
+  .tabs.tabs14 .tabs-panel h3::after {
+    margin-bottom: 0.78em;
+  }
+}
+
+/* Ensure full left alignment for all relevant elements */
+.tabs.tabs14 .tabs-panel,
+.tabs.tabs14 .tabs-panel > div,
+.tabs.tabs14 .tabs-panel h3,
+.tabs.tabs14 .tabs-panel p,
+.tabs.tabs14 .tabs-panel ul,
+.tabs.tabs14 .tabs-panel ol {
+  align-items: flex-start;
+  text-align: left;
 }
