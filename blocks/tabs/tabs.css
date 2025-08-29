@@ -2007,7 +2007,6 @@
   }
 }
 
-/* Sidebar styles */
 .tabs.tabs33 .tabs-list {
   flex: 0 0 104px;
   min-width: 104px;
@@ -2037,7 +2036,6 @@
   }
 }
 
-/* Tabs (buttons) styles */
 .tabs.tabs33 .tabs-list .tabs-tab {
   background: none;
   border: none;
@@ -2086,7 +2084,6 @@
   padding: 0;
 }
 
-/* Main content area */
 .tabs.tabs33 .tabs-panel {
   flex: 1 1 0%;
   max-width: 980px;
@@ -2101,12 +2098,10 @@
   display: block;
 }
 
-/* Top-align main content with sidebar tabs */
 .tabs.tabs33 .tabs-panel > div {
   margin-top: 0;
 }
 
-/* Responsive padding for main area */
 @media (width <= 900px) {
   .tabs.tabs33 .tabs-panel {
     max-width: 100%;
@@ -2114,7 +2109,6 @@
   }
 }
 
-/* Headings */
 .tabs.tabs33 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.2rem;
@@ -2148,7 +2142,6 @@
   line-height: 1.2;
 }
 
-/* Paragraphs */
 .tabs.tabs33 .tabs-panel > div > p {
   font-family: var(--body-font-family);
   font-size: 15px;
@@ -2157,7 +2150,6 @@
   line-height: 1.7;
 }
 
-/* Images */
 .tabs.tabs33 .tabs-panel picture,
 .tabs.tabs33 .tabs-panel img {
   display: block;
@@ -2170,13 +2162,11 @@
   box-shadow: none;
 }
 
-/* Hide panel when not active */
 .tabs.tabs33 .tabs-panel[aria-hidden='true'] {
   display: none;
   border: none;
 }
 
-/* Remove any outer border/padding from tabs33.block */
 .tabs.tabs33.block {
   border: none;
   background: #fff;
@@ -2184,8 +2174,181 @@
   padding: 0;
 }
 
-/* Alignment fix for sidebar and main content */
 .tabs.tabs33 .tabs-list,
 .tabs.tabs33 .tabs-panel {
   align-self: flex-start;
+}
+
+
+.tabs.tabs34 {
+  margin-top: 2rem;
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs Navigation - left-aligned, compact but with subtle breathing room */
+.tabs.tabs34 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.6rem;
+  border: none;
+  margin: 0 0 1.15rem;
+  padding-left: 0;
+  padding-right: 0;
+  background: none;
+  font-size: 0.97rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Compact tab buttons */
+.tabs.tabs34 .tabs-list button {
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 2px;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.97rem;
+  padding: 0.22em 0.58em;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Active tab */
+.tabs.tabs34 .tabs-list button[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+  border-radius: 2px;
+  box-shadow: none;
+  cursor: default;
+}
+
+.tabs.tabs34 .tabs-list button p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+/* Panel styling */
+.tabs.tabs34 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabs.tabs34 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Headings - improved breathing room */
+.tabs.tabs34 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.01rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0.1rem;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.5px;
+  line-height: 1.16;
+}
+
+.tabs.tabs34 .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #111;
+  margin-top: 0.47rem;
+  margin-bottom: 1.35rem;
+  line-height: 1.22;
+}
+
+/* Main image - flush with content */
+.tabs.tabs34 .tabs-panel picture,
+.tabs.tabs34 .tabs-panel img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.25rem;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+/* Body text below image - slightly lighter, more readable */
+.tabs.tabs34 .tabs-panel p:not(:first-child) {
+  font-family: var(--body-font-family);
+  font-size: 1.05rem;
+  color: #666;
+  margin-top: 1.25rem;
+  margin-bottom: 1.05rem;
+  line-height: 1.65;
+}
+
+/* Remove extra margin from image paragraph */
+.tabs.tabs34 .tabs-panel p:first-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 800px) {
+  .tabs.tabs34 {
+    max-width: 100vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .tabs.tabs34 .tabs-list {
+    gap: 0.4rem;
+    font-size: 0.94rem;
+  }
+
+  .tabs.tabs34 .tabs-panel h3 {
+    font-size: 1.22rem;
+  }
+
+  .tabs.tabs34 .tabs-panel h2 {
+    font-size: 0.98rem;
+  }
+
+  .tabs.tabs34 .tabs-panel p:not(:first-child) {
+    font-size: 0.97rem;
+  }
+
+  .tabs.tabs34 .tabs-panel picture,
+  .tabs.tabs34 .tabs-panel img {
+    margin-bottom: 0.7rem;
+  }
+}
+
+@media (width <= 500px) {
+  .tabs.tabs34 {
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+  }
+
+  .tabs.tabs34 .tabs-list {
+    font-size: 0.91rem;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
 }
