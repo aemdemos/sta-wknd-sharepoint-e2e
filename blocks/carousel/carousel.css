@@ -187,7 +187,6 @@
   box-sizing: border-box;
 }
 
-/* Fill container width, panoramic aspect ratio */
 .carousel.carousel16 .carousel-slide .carousel-slide-image {
   width: 100vw;
   min-width: 100vw;
@@ -195,7 +194,7 @@
   margin: 0;
   padding: 0;
   height: 0;
-  padding-bottom: 33vw; /* panoramic aspect ratio tweak */
+  padding-bottom: 33vw;
   position: relative;
   overflow: hidden;
 }
@@ -211,12 +210,10 @@
   margin: 0;
 }
 
-/* Remove overlay if no content */
 .carousel.carousel16 .carousel-slide-content:empty {
   display: none;
 }
 
-/* Controls bar: full-width, flush below image, white background */
 .carousel.carousel16 .carousel-controls-bar {
   position: absolute;
   left: 0;
@@ -233,9 +230,6 @@
   gap: 0;
 }
 
-/* Make sure carousel container doesn't have extra bottom space */
-
-/* Center slide indicators in controls bar */
 .carousel.carousel16 .carousel-slide-indicators {
   position: absolute;
   left: 0;
@@ -250,7 +244,6 @@
   pointer-events: auto;
 }
 
-/* Dot styles */
 .carousel.carousel16 .carousel-slide-indicator button {
   width: 8px;
   height: 8px;
@@ -270,7 +263,6 @@
   background: #222;
 }
 
-/* Navigation buttons: right side of controls bar, vertically centered */
 .carousel.carousel16 .carousel-navigation-buttons {
   position: absolute;
   right: 20px;
@@ -305,7 +297,6 @@
   background: rgb(0 0 0 / 7%);
 }
 
-/* Minimal arrow using a border */
 .carousel.carousel16 .carousel-navigation-buttons button::after {
   display: none;
 }
@@ -330,7 +321,6 @@
   transform: rotate(-45deg) scale(1.1);
 }
 
-/* Responsive: controls bar stays fixed below image */
 @media (width <= 800px) {
   .carousel.carousel16 .carousel-controls-bar,
   .carousel.carousel16 .carousel-slide-indicators,
@@ -347,4 +337,70 @@
   .carousel.carousel16 .carousel-slide .carousel-slide-image {
     padding-bottom: 45vw;
   }
+}
+
+
+.carousel.carousel18 .carousel-slide .carousel-slide-content {
+  display: none;
+}
+
+.carousel.carousel18 .carousel-slides-container {
+  padding: 0;
+  margin: 0;
+  background: #fff;
+}
+
+/* Make image flush to the top, fill width */
+.carousel.carousel18 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel18 .carousel-slide .carousel-slide-image picture > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 70vh;
+  margin: 0 auto 0 0;
+  object-fit: cover;
+}
+
+/* Show and center indicators directly below image */
+.carousel.carousel18 .carousel-slide-indicators {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75em;
+  background: none;
+  box-shadow: none;
+  padding: 12px 0 0;
+  margin: 0;
+  z-index: 2;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: #333;
+  opacity: 0.3;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button:disabled {
+  background-color: #111;
+  opacity: 1;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button:hover,
+.carousel.carousel18 .carousel-slide-indicator button:focus-visible {
+  opacity: 0.7;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons {
+  display: none;
 }
