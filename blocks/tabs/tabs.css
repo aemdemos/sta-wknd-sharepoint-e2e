@@ -1336,7 +1336,6 @@
   box-shadow: none;
 }
 
-/* Consistent left alignment for all content */
 .tabs.tabs20 .tabs-list,
 .tabs.tabs20 .tabs-panel {
   padding-left: 28px;
@@ -1360,7 +1359,6 @@
   }
 }
 
-/* Tabs Bar: left-aligned, more compact spacing */
 .tabs.tabs20 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1377,7 +1375,6 @@
   max-width: 100%;
 }
 
-/* Tabs: compact vertical and horizontal spacing */
 .tabs.tabs20 .tabs-list button {
   font-family: var(--heading-font-family);
   font-size: 15px;
@@ -1411,7 +1408,6 @@
   padding: 0;
 }
 
-/* Panel Styling: flush with tabs, less vertical space */
 .tabs.tabs20 .tabs-panel {
   border: none;
   padding-top: 0;
@@ -1423,7 +1419,6 @@
   max-width: 100%;
 }
 
-/* Headings and Text: more compact vertical rhythm */
 .tabs.tabs20 .tabs-panel h1,
 .tabs.tabs20 .tabs-panel h2,
 .tabs.tabs20 .tabs-panel h3 {
@@ -1455,7 +1450,6 @@
   text-align: left;
 }
 
-/* Image Styling: fill width, nearly square corners, snug margin */
 .tabs.tabs20 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -1466,7 +1460,202 @@
   object-fit: cover;
 }
 
-/* Panel visibility (for hiding inactive tabs) */
 .tabs.tabs20 .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs23 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: 48px 0 48px 48px;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 320px;
+}
+
+/* Responsive stacking */
+@media (width <= 900px) {
+  .tabs.tabs23 {
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px 2vw;
+  }
+}
+
+/* Left column: keep as narrow as possible */
+.tabs.tabs23 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 110px;
+  max-width: 130px;
+  flex: 0 0 110px;
+  gap: 20px;
+  padding: 0;
+}
+
+/* Style faded tab labels and meta info as muted text */
+.tabs.tabs23 > div:first-child p,
+.tabs.tabs23 > div:first-child li {
+  color: #b2b2b2;
+  text-transform: uppercase;
+  font-size: 0.97rem;
+  letter-spacing: 0.04em;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  margin: 0 0 10px;
+  padding: 0;
+  opacity: 0.8;
+}
+
+/* Remove list bullet if meta info is in <ul> or <ol> */
+.tabs.tabs23 > div:first-child ul,
+.tabs.tabs23 > div:first-child ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Right column: take all available space, flush left */
+.tabs.tabs23 > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Main title styling */
+.tabs.tabs23 h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 18px;
+  line-height: 1.14;
+  border-bottom: 2px solid #FFD900;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  letter-spacing: -0.01em;
+  white-space: normal;
+}
+
+/* List and content always left-aligned */
+.tabs.tabs23 > div:nth-child(2) > * {
+  text-align: left;
+  align-self: flex-start;
+}
+
+/* List under title */
+.tabs.tabs23 > div:nth-child(2) ul,
+.tabs.tabs23 > div:nth-child(2) ol {
+  margin: 0;
+  padding-left: 24px;
+  font-size: 1rem;
+  color: #222;
+}
+
+.tabs.tabs23 > div:nth-child(2) li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Tabs Navigation: always at top of right column if present */
+.tabs.tabs23 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 0;
+  border: none;
+  font-size: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.tabs.tabs23 .tabs-list button {
+  background: transparent;
+  color: #222;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 6px 22px;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  line-height: 1.1;
+  transition: background-color 0.2s, color 0.2s;
+  margin: 0;
+}
+
+.tabs.tabs23 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  font-weight: bold;
+}
+
+.tabs.tabs23 .tabs-list button:focus {
+  outline: 2px solid #FFD900;
+}
+
+/* Remove panel border/padding */
+.tabs.tabs23 .tabs-panel {
+  border: none;
+  margin-top: 0;
+  padding: 0;
+  overflow: visible;
+  background: none;
+}
+
+/* If image present, style appropriately */
+.tabs.tabs23 img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 24px 0 12px;
+  border: none;
+  box-shadow: none;
+}
+
+/* Caption/note under image */
+.tabs.tabs23 small,
+.tabs.tabs23 p:last-child {
+  font-size: 0.97rem;
+  color: #222;
+  margin-top: 8px;
+  font-family: var(--body-font-family);
+}
+
+/* Prevent excessive horizontal scroll on small screens */
+@media (width <= 600px) {
+  .tabs.tabs23 {
+    padding: 12px 2vw;
+    gap: 8px;
+  }
+
+  .tabs.tabs23 > div:first-child,
+  .tabs.tabs23 > div:nth-child(2) {
+    min-width: 100%;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+/* Remove any unwanted margins for grid/flex alignment */
+.tabs.tabs23 > div {
+  margin: 0;
 }
