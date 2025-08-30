@@ -130,7 +130,6 @@
   background: #fff;
 }
 
-/* Remove all list item borders and backgrounds for a flat look */
 .cards.cards12 > ul > li {
   border: none;
   background: none;
@@ -139,7 +138,6 @@
   padding: 0;
 }
 
-/* --- Section Heading & Intro --- */
 .cards.cards12 > ul > li:nth-child(1) .cards-card-body,
 .cards.cards12 > ul > li:nth-child(6) .cards-card-body {
   text-align: left;
@@ -173,9 +171,6 @@
   line-height: 1.5;
 }
 
-/* --- Card Row Wrapping (Contributors & Guides) --- */
-
-/* Use grid for contributors and guides row; keep headers block display */
 .cards.cards12 > ul {
   display: grid;
   grid-template-rows: auto auto auto auto;
@@ -183,7 +178,6 @@
   row-gap: 0;
 }
 
-/* Contributors Row: li 2-5 */
 @media (width >= 900px) {
   .cards.cards12 > ul > li:nth-child(2),
   .cards.cards12 > ul > li:nth-child(3),
@@ -205,7 +199,6 @@
   }
 }
 
-/* Guides Row: li 7-9 */
 @media (width >= 900px) {
   .cards.cards12 > ul > li:nth-child(7),
   .cards.cards12 > ul > li:nth-child(8),
@@ -225,23 +218,16 @@
     grid-template-rows: auto auto auto auto;
     grid-template-columns: repeat(4, 1fr);
   }
-
-  /* Guides row: 3 columns, center them with auto margins */
-
-  /* Center guides row cards for 3 items */
   .cards.cards12 > ul > li:nth-child(7) { grid-column: 2; }
   .cards.cards12 > ul > li:nth-child(8) { grid-column: 3; }
   .cards.cards12 > ul > li:nth-child(9) { grid-column: 4; }
 }
 
-/* Ensure headers span across all columns */
 .cards.cards12 > ul > li:nth-child(1),
 .cards.cards12 > ul > li:nth-child(6) {
   grid-column: 1 / -1;
   margin-bottom: 0;
 }
-
-/* --- Card Content (Image, Name, Role, Socials) --- */
 
 .cards.cards12 .cards-card-image {
   width: 120px;
@@ -272,7 +258,6 @@
   padding: 0;
 }
 
-/* Name */
 .cards.cards12 .cards-card-body h3 {
   margin: 4px 0 0;
   font-size: 1rem;
@@ -283,7 +268,6 @@
   margin-bottom: 2px;
 }
 
-/* Role/Subtitle */
 .cards.cards12 .cards-card-body h5 {
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -294,7 +278,6 @@
   margin-bottom: 4px;
 }
 
-/* --- Social Icons Row --- */
 .cards.cards12 .cards-card-body .button-container {
   display: inline-block;
   margin: 0 3px;
@@ -306,8 +289,6 @@
 .cards.cards12 .cards-card-body .button-container:not(:last-child) {
   margin-right: 6px;
 }
-
-/* Row of buttons horizontally, reduce spacing */
 
 .cards.cards12 .cards-card-body .button {
   display: inline-flex;
@@ -331,7 +312,6 @@
   margin-bottom: 0;
 }
 
-/* Remove pill-shape from default .button style, force square */
 .cards.cards12 .cards-card-body .button,
 .cards.cards12 .cards-card-body .button.secondary {
   border-radius: 2px;
@@ -342,7 +322,6 @@
   padding: 0;
 }
 
-/* Hover effect */
 .cards.cards12 .cards-card-body .button:hover,
 .cards.cards12 .cards-card-body .button:focus {
   background: #c6b700;
@@ -350,7 +329,6 @@
   text-decoration: none;
 }
 
-/* --- Responsive Adjustments --- */
 @media (width <= 1100px) {
   .cards.cards12 {
     padding: 0 8px 40px;
@@ -384,7 +362,6 @@
   }
 }
 
-/* --- Reduce vertical gap between header/intro and card rows --- */
 .cards.cards12 > ul > li:nth-child(1) {
   margin-bottom: 6px;
 }
@@ -394,4 +371,97 @@
   margin-bottom: 6px;
 }
 
-/* Reduce gap between name, subtitle, and social buttons */
+
+.cards.cards15 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@media (width <= 1200px) {
+  .cards.cards15 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards15 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.cards.cards15 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  padding: 0;
+}
+
+.cards.cards15 .cards-card-image {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+}
+
+.cards.cards15 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards15 .cards-card-body {
+  padding: 0 2px 4px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.cards.cards15 .cards-card-body .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards15 .cards-card-body .button-container a.button.primary {
+  background: none;
+  border: none;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: var(--body-font-family);
+  letter-spacing: 0.5px;
+  display: block;
+  text-align: left;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 2px 0 0;
+  padding: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cards.cards15 .cards-card-body p:not(.button-container) {
+  color: #8C8C8C;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
