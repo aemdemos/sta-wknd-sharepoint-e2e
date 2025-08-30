@@ -45,3 +45,99 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero6 {
+  position: relative;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  min-height: 400px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+/* Make the image container fill the hero area */
+.hero.hero6 > div:nth-child(1) {
+  position: relative;
+  width: 100vw;
+  height: 400px;
+  min-height: 220px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Image fills container */
+.hero.hero6 > div:nth-child(1) picture,
+.hero.hero6 > div:nth-child(1) img {
+  display: block;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+/* Overlay the card as absolute inside the hero, not inside the image column, so it overlaps */
+.hero.hero6 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  width: 96vw;
+  max-width: 1200px;
+  background: #fff;
+  padding: 1.25rem 2.5rem;
+  box-sizing: border-box;
+  z-index: 3;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Heading text left-aligned in card */
+.hero.hero6 > div:nth-child(2) h2 {
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  color: #222;
+  margin: 0;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Divider below the hero block as usual */
+.hero.hero6::after {
+  display: block;
+  width: 96vw;
+  max-width: 1200px;
+  height: 1px;
+  background: #eee;
+  margin: 8px auto 0;
+  box-sizing: border-box;
+  content: "";
+}
+
+/* Responsive adjustments for larger screens */
+@media (width >= 900px) {
+  .hero.hero6 > div:nth-child(1) {
+    height: 480px;
+    min-height: 300px;
+  }
+
+  .hero.hero6 > div:nth-child(2) {
+    width: 92vw;
+    max-width: 1200px;
+    padding: 1.5rem 3rem;
+    bottom: 36px;
+  }
+
+  .hero.hero6::after {
+    width: 92vw;
+    max-width: 1200px;
+    margin-top: 12px;
+  }
+}
