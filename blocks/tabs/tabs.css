@@ -1705,7 +1705,6 @@
 
 
 .tabs.tabs24 {
-  /* Remove all left padding for flush alignment, reduce max-width for more compact block */
   max-width: 700px;
   width: 100%;
   margin: 0;
@@ -1714,12 +1713,11 @@
   background: #fff;
 }
 
-/* Tabs Navigation */
 .tabs.tabs24 .tabs-list {
   display: flex;
   flex-direction: row;
   gap: 0;
-  margin-bottom: 2px; /* Minimal gap underneath tabs */
+  margin-bottom: 2px;
   padding-left: 0;
   align-items: flex-start;
 }
@@ -1746,7 +1744,7 @@
 }
 
 .tabs.tabs24 .tabs-list .tabs-tab + .tabs-tab {
-  margin-left: -1px; /* visually touch borders for button group effect */
+  margin-left: -1px;
 }
 
 .tabs.tabs24 .tabs-list .tabs-tab[aria-selected="true"] {
@@ -1760,7 +1758,6 @@
   padding: 0;
 }
 
-/* Panel styles: left-align all content, no centering */
 .tabs.tabs24 .tabs-panel {
   border: none;
   background: #fff;
@@ -1770,14 +1767,12 @@
   width: 100%;
 }
 
-/* Content block width and left alignment */
 .tabs.tabs24 .tabs-panel > div {
   max-width: 700px;
   margin: 0;
   padding: 0;
 }
 
-/* Heading and Underline */
 .tabs.tabs24 .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2rem;
@@ -1795,7 +1790,7 @@
 .tabs.tabs24 .tabs-panel h3::after {
   display: block;
   margin-top: 0;
-  width: 20px; /* Very short underline */
+  width: 20px;
   height: 3px;
   background: #f1c94a;
   border-radius: 1.5px;
@@ -1804,7 +1799,6 @@
   content: "";
 }
 
-/* Image styling: flush left, strong visual impact, minimum vertical gap */
 .tabs.tabs24 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -1818,7 +1812,6 @@
   box-shadow: none;
 }
 
-/* Text styling: match image/content block width, compact vertical rhythm */
 .tabs.tabs24 .tabs-panel p,
 .tabs.tabs24 .tabs-panel ul {
   font-family: var(--body-font-family);
@@ -1832,15 +1825,13 @@
 }
 
 .tabs.tabs24 .tabs-panel > div > p:first-of-type {
-  margin-top: 5px; /* Minimal space above first paragraph after image */
+  margin-top: 5px;
 }
 
-/* List style tweaks */
 .tabs.tabs24 .tabs-panel ul {
   padding-left: 18px;
 }
 
-/* Responsive: keep left alignment on small screens */
 @media (width <= 750px) {
   .tabs.tabs24 {
     max-width: 98vw;
@@ -1864,3 +1855,215 @@
     padding-bottom: 0;
   }
 }
+
+
+.tabs.tabs28 {
+  /* Two-column flex row layout, sidebar left, content right */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 0 0;
+  background: #fff;
+  box-sizing: border-box;
+  gap: 32px;
+}
+
+/* Sidebar (tabs-list) */
+.tabs.tabs28 > .tabs-list {
+  flex: 0 0 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 120px;
+  padding-left: 32px;
+  padding-top: 32px;
+  padding-bottom: 0;
+  background: none;
+  border: none;
+}
+
+/* Tab buttons vertical and compact */
+.tabs.tabs28 .tabs-list button {
+  background: none;
+  border: none;
+  padding: 8px 0;
+  margin: 0;
+  min-width: 120px;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  text-align: left;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Selected tab: black background, white text */
+.tabs.tabs28 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+/* Tab label paragraph: no extra margin */
+.tabs.tabs28 .tabs-list button p {
+  margin: 0;
+  color: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  padding-left: 18px;
+}
+
+/* Remove borders and default background */
+.tabs.tabs28 .tabs-list button,
+.tabs.tabs28 .tabs-list button[aria-selected="true"] {
+  border: none;
+  background-clip: padding-box;
+}
+
+/* Main content area */
+.tabs.tabs28 > .tabs-panel {
+  flex: 1 1 0%;
+  min-width: 0;
+  padding: 0 32px 0 0; /* aligns content with sidebar tabs top */
+  background: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+.tabs.tabs28 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* more space between blocks */
+}
+
+/* Title at top: Cycling Tuscany (h3) */
+.tabs.tabs28 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 6px;
+  padding: 0;
+  border: none;
+  position: relative;
+  width: fit-content;
+}
+
+/* Thin golden underline for h3, only as wide as text */
+.tabs.tabs28 .tabs-panel h3::after {
+  display: block;
+  content: "";
+  height: 2px;
+  background: #eed764;
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 1px;
+}
+
+/* Main heading */
+.tabs.tabs28 .tabs-panel h2,
+.tabs.tabs28 .tabs-panel h2 strong {
+  font-family: var(--heading-font-family);
+  font-size: 36px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0;
+  margin: 18px 0 28px;
+  line-height: 1.1;
+  padding: 0;
+}
+
+/* Main image: increase size and margin */
+.tabs.tabs28 .tabs-panel picture,
+.tabs.tabs28 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  margin: 0 0 32px;
+  border: none;
+  box-shadow: none;
+}
+
+/* Paragraph spacing and line length */
+.tabs.tabs28 .tabs-panel p {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #222;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 760px;
+  padding: 0;
+}
+
+/* Add space above paragraph after image */
+.tabs.tabs28 .tabs-panel img + p {
+  margin-top: 32px;
+}
+
+/* Remove borders from default panel style */
+.tabs.tabs28 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Hide any possible navigation chevrons/icons in this block */
+.tabs.tabs28 .icon,
+.tabs.tabs28 [class^="icon-"],
+.tabs.tabs28 [class*=" icon-"] {
+  display: none;
+}
+
+/* Responsive: Stack columns on small screens */
+@media (width <= 900px) {
+  .tabs.tabs28 {
+    flex-direction: column;
+    gap: 0;
+    padding: 18px 0 0;
+  }
+
+  .tabs.tabs28 > .tabs-list {
+    flex-direction: row;
+    gap: 0.5ch;
+    min-width: 0;
+    padding: 0 8px 16px;
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .tabs.tabs28 .tabs-list button {
+    min-width: 0;
+    font-size: 12px;
+    padding: 8px 12px;
+    text-align: center;
+  }
+
+  .tabs.tabs28 > .tabs-panel {
+    padding: 0 16px;
+  }
+
+  .tabs.tabs28 .tabs-panel picture,
+  .tabs.tabs28 .tabs-panel img,
+  .tabs.tabs28 .tabs-panel p {
+    max-width: 100%;
+  }
+
+  .tabs.tabs28 .tabs-panel h2,
+  .tabs.tabs28 .tabs-panel h2 strong {
+    font-size: 26px;
+    margin: 12px 0 22px;
+  }
+
+  .tabs.tabs28 .tabs-panel h3 {
+    font-size: 17px;
+  }
+}
+
+/* Prevent unwanted scrollbars and overflow */
