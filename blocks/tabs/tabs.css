@@ -871,15 +871,13 @@
 
 
 .tabs.tabs14 {
-  /* Wider block to match visual proportions */
   max-width: 1120px;
-  margin: 0; /* Remove excessive top margin */
+  margin: 0;
   padding-left: 32px;
   padding-right: 32px;
   box-sizing: border-box;
 }
 
-/* Tabs row - horizontal, flush left, spacing */
 .tabs.tabs14 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -895,7 +893,6 @@
   padding: 0;
 }
 
-/* Tab buttons: slightly larger, more padding for click targets */
 .tabs.tabs14 .tabs-list .tabs-tab {
   border: none;
   background: transparent;
@@ -928,7 +925,6 @@
   color: inherit;
 }
 
-/* Panel and content: ensure left alignment, no horizontal centering */
 .tabs.tabs14 .tabs-panel,
 .tabs.tabs14 .tabs-panel > div {
   text-align: left;
@@ -942,12 +938,10 @@
   width: 100%;
 }
 
-/* Hide inactive panels */
 .tabs.tabs14 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Title and underline: left-aligned, short underline under text */
 .tabs.tabs14 .tabs-panel h3:first-of-type {
   display: block;
   width: fit-content;
@@ -973,7 +967,6 @@
   border-radius: 2px;
 }
 
-/* Subheading styling */
 .tabs.tabs14 .tabs-panel h3:not(:first-of-type) {
   font-size: 1.35rem;
   font-weight: 700;
@@ -983,7 +976,6 @@
   margin-left: 0;
 }
 
-/* Body text: slightly larger for better line length */
 .tabs.tabs14 .tabs-panel > div > p {
   font-size: 16px;
   line-height: 1.7;
@@ -992,7 +984,6 @@
   text-align: left;
 }
 
-/* Last paragraph (footer note): slight spacing tweak */
 .tabs.tabs14 .tabs-panel > div > p:last-of-type {
   font-size: 14px;
   color: #444;
@@ -1000,7 +991,6 @@
   margin-bottom: 0;
 }
 
-/* Image styling: flush left, fill container width, increase vertical spacing */
 .tabs.tabs14 .tabs-panel picture,
 .tabs.tabs14 .tabs-panel img {
   display: block;
@@ -1013,7 +1003,6 @@
   text-align: left;
 }
 
-/* Responsive: shrink padding and font at smaller sizes */
 @media (width <= 900px) {
   .tabs.tabs14 {
     max-width: 100%;
@@ -1039,5 +1028,149 @@
   .tabs.tabs14 .tabs-panel > div > p {
     font-size: 15px;
     margin-bottom: 14px;
+  }
+}
+
+
+.tabs.tabs18 {
+  /* Reduce top margin so block starts close to the top */
+  margin: 8px 0 0 40px;
+  padding: 0;
+  max-width: 750px;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Ensure all content is left-aligned */
+.tabs.tabs18,
+.tabs.tabs18 .tabs-list,
+.tabs.tabs18 .tabs-panel,
+.tabs.tabs18 .tabs-panel > div,
+.tabs.tabs18 .tabs-panel p {
+  text-align: left;
+}
+
+/* Tabs row: left-aligned, spaced, not centered */
+.tabs.tabs18 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  margin-bottom: 28px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 15px;
+  overflow-x: auto;
+}
+
+/* Tab buttons: style & alignment */
+.tabs.tabs18 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #212121;
+  font-weight: 500;
+  padding: 0 20px;
+  min-width: 0;
+  height: 32px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: none;
+  text-align: left;
+}
+
+.tabs.tabs18 .tabs-list button[aria-selected="true"] {
+  background: #212121;
+  color: #fff;
+  cursor: default;
+}
+
+.tabs.tabs18 .tabs-list button p {
+  margin: 0;
+}
+
+/* Panel content column */
+.tabs.tabs18 .tabs-panel {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+  overflow: visible;
+  font-size: 16px;
+  color: #212121;
+  line-height: 1.5;
+  width: 100%;
+  display: block;
+}
+
+.tabs.tabs18 .tabs-panel > div {
+  max-width: 650px;
+  margin: 0;
+}
+
+/* Paragraph spacing */
+.tabs.tabs18 .tabs-panel p {
+  margin: 0 0 22px;
+}
+
+/* Image styling and alignment: left-aligned, not centered */
+.tabs.tabs18 .tabs-panel picture,
+.tabs.tabs18 .tabs-panel img {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+  width: 100%;
+  max-width: 650px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs18 {
+    margin-left: 0;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs18 .tabs-panel > div {
+    max-width: 100%;
+  }
+
+  .tabs.tabs18 .tabs-panel picture,
+  .tabs.tabs18 .tabs-panel img {
+    width: 100%;
+    max-width: 100%;
+    margin: 18px 0 0;
+  }
+
+  .tabs.tabs18 .tabs-list {
+    font-size: 13px;
+    gap: 16px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs18 {
+    padding: 0;
+    max-width: 100vw;
+    margin: 0;
+  }
+
+  .tabs.tabs18 .tabs-list {
+    gap: 8px;
+    font-size: 12px;
   }
 }
