@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -117,6 +118,280 @@
   line-height: 1.4;
   color: #444;
   margin: 0;
-  word-break: normal; /* Replaced deprecated "break-word" with "normal" */
-  overflow-wrap: break-word; /* Added valid modern property for similar functionality */
+  word-break: normal;
+  overflow-wrap: break-word;
 }
+
+
+.cards.cards12 {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 32px 48px;
+  background: #fff;
+}
+
+/* Remove all list item borders and backgrounds for a flat look */
+.cards.cards12 > ul > li {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Section Heading & Intro --- */
+.cards.cards12 > ul > li:nth-child(1) .cards-card-body,
+.cards.cards12 > ul > li:nth-child(6) .cards-card-body {
+  text-align: left;
+  padding: 0;
+  margin-bottom: 0;
+  max-width: 720px;
+}
+
+.cards.cards12 > ul > li:nth-child(1) h2,
+.cards.cards12 > ul > li:nth-child(6) h2 {
+  display: inline-block;
+  font-size: 2.2rem;
+  font-family: var(--heading-font-family);
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-bottom: 0.2em;
+  border-bottom: 1.5px solid #c6b700;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.cards.cards12 > ul > li:nth-child(1) p,
+.cards.cards12 > ul > li:nth-child(6) p {
+  font-size: 1rem;
+  color: #444;
+  font-style: italic;
+  font-weight: 400;
+  margin: 3px 0 12px;
+  max-width: 80ch;
+  line-height: 1.5;
+}
+
+/* --- Card Row Wrapping (Contributors & Guides) --- */
+
+/* Use grid for contributors and guides row; keep headers block display */
+.cards.cards12 > ul {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: 1fr;
+  row-gap: 0;
+}
+
+/* Contributors Row: li 2-5 */
+@media (width >= 900px) {
+  .cards.cards12 > ul > li:nth-child(2),
+  .cards.cards12 > ul > li:nth-child(3),
+  .cards.cards12 > ul > li:nth-child(4),
+  .cards.cards12 > ul > li:nth-child(5) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    grid-row: 2;
+  }
+
+  .cards.cards12 > ul {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 32px;
+  }
+}
+
+/* Guides Row: li 7-9 */
+@media (width >= 900px) {
+  .cards.cards12 > ul > li:nth-child(7),
+  .cards.cards12 > ul > li:nth-child(8),
+  .cards.cards12 > ul > li:nth-child(9) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    grid-row: 4;
+  }
+
+  .cards.cards12 > ul {
+    row-gap: 0;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Guides row: 3 columns, center them with auto margins */
+
+  /* Center guides row cards for 3 items */
+  .cards.cards12 > ul > li:nth-child(7) { grid-column: 2; }
+  .cards.cards12 > ul > li:nth-child(8) { grid-column: 3; }
+  .cards.cards12 > ul > li:nth-child(9) { grid-column: 4; }
+}
+
+/* Ensure headers span across all columns */
+.cards.cards12 > ul > li:nth-child(1),
+.cards.cards12 > ul > li:nth-child(6) {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+/* --- Card Content (Image, Name, Role, Socials) --- */
+
+.cards.cards12 .cards-card-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  box-shadow: 0 2px 8px rgb(60 60 60 / 5%);
+}
+
+.cards.cards12 .cards-card-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #eaeaea;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+.cards.cards12 .cards-card-body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Name */
+.cards.cards12 .cards-card-body h3 {
+  margin: 4px 0 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+  font-family: var(--heading-font-family);
+  letter-spacing: 0;
+  margin-bottom: 2px;
+}
+
+/* Role/Subtitle */
+.cards.cards12 .cards-card-body h5 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #444;
+  font-weight: normal;
+  margin: 3px 0 6px;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+/* --- Social Icons Row --- */
+.cards.cards12 .cards-card-body .button-container {
+  display: inline-block;
+  margin: 0 3px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cards.cards12 .cards-card-body .button-container:not(:last-child) {
+  margin-right: 6px;
+}
+
+/* Row of buttons horizontally, reduce spacing */
+
+.cards.cards12 .cards-card-body .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #222;
+  color: #fff;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  margin: 0 2px;
+  transition: background 0.2s;
+  font-family: inherit;
+  padding: 0;
+  min-width: 0;
+  max-width: none;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* Remove pill-shape from default .button style, force square */
+.cards.cards12 .cards-card-body .button,
+.cards.cards12 .cards-card-body .button.secondary {
+  border-radius: 2px;
+  border: none;
+  background: #222;
+  color: #fff;
+  font-family: inherit;
+  padding: 0;
+}
+
+/* Hover effect */
+.cards.cards12 .cards-card-body .button:hover,
+.cards.cards12 .cards-card-body .button:focus {
+  background: #c6b700;
+  color: #222;
+  text-decoration: none;
+}
+
+/* --- Responsive Adjustments --- */
+@media (width <= 1100px) {
+  .cards.cards12 {
+    padding: 0 8px 40px;
+    max-width: 100%;
+  }
+
+  .cards.cards12 > ul {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+  }
+
+  .cards.cards12 > ul > li {
+    margin-bottom: 24px;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards12 > ul {
+    display: block;
+  }
+
+  .cards.cards12 > ul > li {
+    margin-bottom: 28px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .cards.cards12 {
+    padding: 0 4px 32px;
+  }
+}
+
+/* --- Reduce vertical gap between header/intro and card rows --- */
+.cards.cards12 > ul > li:nth-child(1) {
+  margin-bottom: 6px;
+}
+
+.cards.cards12 > ul > li:nth-child(6) {
+  margin-top: 48px;
+  margin-bottom: 6px;
+}
+
+/* Reduce gap between name, subtitle, and social buttons */
