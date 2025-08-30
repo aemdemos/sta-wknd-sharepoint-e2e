@@ -2390,7 +2390,6 @@
 
 
 .tabs.tabs34 {
-  /* Remove left and right padding for fully flush alignment */
   max-width: none;
   margin: 0;
   padding: 0 0 40px;
@@ -2400,7 +2399,6 @@
   grid-template-columns: 1fr;
 }
 
-/* Responsive: add minimal side padding on small screens */
 @media (width <= 900px) {
   .tabs.tabs34 {
     padding-left: 2vw;
@@ -2417,7 +2415,6 @@
   }
 }
 
-/* Tabs List - fully flush left */
 .tabs.tabs34 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2433,7 +2430,6 @@
   overflow-x: auto;
 }
 
-/* Tab Buttons */
 .tabs.tabs34 .tabs-list button {
   background: transparent;
   color: #222;
@@ -2455,7 +2451,6 @@
   text-align: center;
 }
 
-/* Active/inactive states */
 .tabs.tabs34 .tabs-list button[aria-selected='true'] {
   background: #222;
   color: #fff;
@@ -2467,7 +2462,6 @@
   color: #222;
 }
 
-/* Tabs Panel - remove max-width, flush with grid */
 .tabs.tabs34 .tabs-panel {
   border: none;
   background: transparent;
@@ -2478,19 +2472,16 @@
   margin-left: 0;
 }
 
-/* Hide non-active panels */
 .tabs.tabs34 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Main Content Area */
 .tabs.tabs34 .tabs-panel > div {
   padding: 0;
   margin: 0;
   max-width: none;
 }
 
-/* Heading inside panel */
 .tabs.tabs34 .tabs-panel h2 {
   font-family: var(--heading-font-family);
   font-size: 2.45rem;
@@ -2502,7 +2493,6 @@
   text-align: left;
 }
 
-/* Image presentation */
 .tabs.tabs34 .tabs-panel picture {
   display: block;
   margin-bottom: 10px;
@@ -2521,7 +2511,6 @@
   text-align: left;
 }
 
-/* Paragraph text - wider, left aligned, compact */
 .tabs.tabs34 .tabs-panel p {
   font-size: 1.07rem;
   color: #222;
@@ -2533,7 +2522,6 @@
   padding-top: 12px;
 }
 
-/* Responsive: restrict content width, reduce gaps */
 @media (width <= 1200px) {
   .tabs.tabs34 .tabs-panel picture,
   .tabs.tabs34 .tabs-panel img,
@@ -2562,5 +2550,177 @@
 
   .tabs.tabs34 .tabs-panel p {
     padding-top: 8px;
+  }
+}
+
+
+.tabs.tabs36 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Each tab panel should be a grid column */
+.tabs.tabs36 .tabs-panel {
+  display: contents;
+}
+
+/* Panel content: column content */
+.tabs.tabs36 .tabs-panel > div {
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Titles: left, bold, gold underline */
+.tabs.tabs36 .tabs-panel > div > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  color: #222;
+  font-weight: 800;
+  margin: 0 0 7px;
+  padding-bottom: 0;
+  text-align: left;
+  border-bottom: 3px solid #ecd97c;
+  width: fit-content;
+  display: block;
+  line-height: 1.1;
+}
+
+/* Image */
+.tabs.tabs36 .tabs-panel picture {
+  margin: 0 0 12px;
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+
+.tabs.tabs36 .tabs-panel picture img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  object-fit: cover;
+  margin-left: 0;
+}
+
+/* Caption */
+.tabs.tabs36 .tabs-panel p:first-of-type {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  letter-spacing: 0.07em;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+/* Paragraphs */
+.tabs.tabs36 .tabs-panel p:not(:first-of-type) {
+  font-size: 1rem;
+  color: #222;
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: left;
+  padding: 0;
+  width: 100%;
+}
+
+/* List */
+.tabs.tabs36 .tabs-panel ul {
+  list-style: disc inside;
+  font-size: 1rem;
+  color: #222;
+  padding-left: 18px;
+  margin: 0;
+  text-align: left;
+}
+
+.tabs.tabs36 .tabs-panel li {
+  margin-bottom: 6px;
+}
+
+/* Tabs row (across top) */
+.tabs.tabs36 .tabs-list {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-bottom: 32px;
+  padding-left: 0;
+  border: none;
+  font-size: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+/* Tabs: inactive gray, active black/white */
+.tabs.tabs36 .tabs-list button {
+  background: transparent;
+  border: none;
+  color: #888;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 7px 16px 6px;
+  font-weight: 400;
+  border-radius: 2px;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: none;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.tabs.tabs36 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs36 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive adjustment */
+@media (width <= 900px) {
+  .tabs.tabs36 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .tabs.tabs36 .tabs-panel > div {
+    gap: 10px;
+  }
+
+  .tabs.tabs36 .tabs-list {
+    font-size: 0.96rem;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .tabs.tabs36 .tabs-panel > div > h3 {
+    font-size: 1.3rem;
+    border-bottom-width: 2px;
   }
 }
