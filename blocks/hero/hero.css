@@ -151,7 +151,6 @@
   padding: 0;
 }
 
-/* IMAGE COLUMN */
 .hero.hero27 > div:first-child {
   flex: 2 1 0;
   min-width: 0;
@@ -170,7 +169,6 @@
   display: block;
 }
 
-/* CARD COLUMN */
 .hero.hero27 > div:last-child {
   flex: 3 1 0;
   display: flex;
@@ -183,7 +181,6 @@
   z-index: 2;
 }
 
-/* THE CARD - flush with bottom, overlaps image with negative margin */
 .hero.hero27 > div:last-child > div {
   background: #fff;
   box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
@@ -200,7 +197,6 @@
   align-self: flex-end;
 }
 
-/* HEADLINE */
 .hero.hero27 > div:last-child h2 {
   color: #2d2d2d;
   font-family: var(--heading-font-family);
@@ -210,7 +206,6 @@
   font-weight: 600;
 }
 
-/* BODY TEXT */
 .hero.hero27 > div:last-child p:not(.button-container) {
   color: #222;
   font-family: var(--body-font-family);
@@ -219,14 +214,12 @@
   margin: 0 0 1.2em;
 }
 
-/* BUTTON CONTAINER - left align */
 .hero.hero27 > div:last-child .button-container {
   margin-top: 0.5em;
   margin-bottom: 0;
   text-align: left;
 }
 
-/* BUTTON STYLE OVERRIDE */
 .hero-container > .hero-wrapper > .block.hero .button {
   box-sizing: border-box;
   display: inline-block;
@@ -252,7 +245,6 @@
   text-decoration: none;
 }
 
-/* Responsive: stack vertically, no overlap on mobile */
 @media (width <= 900px) {
   .hero.hero27 {
     flex-direction: column;
@@ -289,8 +281,111 @@
   }
 }
 
-/* Hero should span full width */
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
+}
+
+
+.hero.hero39 {
+  position: relative;
+  width: 100vw;
+  min-height: 340px;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+}
+
+/* Background image container and fill */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero.hero39 > div:first-child > div,
+.hero.hero39 picture,
+.hero.hero39 img {
+  width: 100vw;
+  height: 100%;
+  display: block;
+}
+
+.hero.hero39 picture {
+  width: 100vw;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero.hero39 img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay text block: positioned bottom left, with a modest margin above bottom edge for perfect alignment */
+.hero.hero39 > div:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 4%);
+  padding: 32px 40px 24px;
+  margin: 0 0 14px; /* reduced for more accurate gap */
+  max-width: 520px;
+  width: 39%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  transform: none;
+}
+
+/* Heading and text styles for best match */
+.hero.hero39 h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  color: #222;
+  margin: 0 0 8px;
+  font-weight: 600;
+  line-height: 1.16;
+  text-align: left;
+}
+
+.hero.hero39 p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: #555;
+  margin: 0;
+  font-weight: 400;
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* Ensure hero section spans full width of the page */
+
+/* Responsive: stack overlay, reduce width and padding on small screens */
+@media (width <= 900px) {
+  .hero.hero39 {
+    min-height: 180px;
+  }
+
+  .hero.hero39 > div:last-child {
+    padding: 16px 10px 12px;
+    width: 96vw;
+    max-width: 100vw;
+    margin-bottom: 6px;
+    transform: none;
+  }
+
+  .hero.hero39 h2 {
+    font-size: var(--heading-font-size-l);
+  }
 }
