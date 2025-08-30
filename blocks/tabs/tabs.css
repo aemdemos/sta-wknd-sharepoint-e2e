@@ -486,7 +486,6 @@
   background: #fff;
 }
 
-/* Tabs navigation: horizontally aligned, bold, spaced, and now near the top */
 .tabs.tabs11 .tabs-list {
   width: 100%;
   display: flex;
@@ -530,7 +529,6 @@
   margin: 0;
 }
 
-/* Panel styling */
 .tabs.tabs11 .tabs-panel {
   display: none;
   background: #fff;
@@ -545,7 +543,6 @@
   display: block;
 }
 
-/* Headings */
 .tabs.tabs11 .tabs-panel h3 {
   font-size: 2.1rem;
   font-family: var(--heading-font-family);
@@ -570,7 +567,6 @@
   content: "";
 }
 
-/* h2 main heading */
 .tabs.tabs11 .tabs-panel h2 {
   font-size: 2.3rem;
   font-family: var(--heading-font-family);
@@ -580,13 +576,11 @@
   margin-bottom: 32px;
 }
 
-/* Content spacing, images, text */
 .tabs.tabs11 .tabs-panel > div {
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Images: more whitespace above/below, never overflow */
 .tabs.tabs11 .tabs-panel picture,
 .tabs.tabs11 .tabs-panel img {
   display: block;
@@ -601,7 +595,6 @@
   margin-top: 0;
 }
 
-/* Paragraphs */
 .tabs.tabs11 .tabs-panel p {
   font-size: 1.17rem;
   color: #333;
@@ -610,7 +603,6 @@
   margin-bottom: 28px;
 }
 
-/* Related trips section spacing */
 .tabs.tabs11 .tabs-panel ul {
   margin-top: 12px;
   margin-bottom: 32px;
@@ -627,7 +619,6 @@
   font-family: var(--body-font-family);
 }
 
-/* Triangle bullet for list items - Unicode black right-pointing small triangle */
 .tabs.tabs11 .tabs-panel ul li::before {
   display: inline-block;
   vertical-align: middle;
@@ -638,7 +629,6 @@
   content: "\25B8";
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs11 {
     max-width: 100%;
@@ -679,4 +669,215 @@
     margin-top: 8px;
     margin-bottom: 18px;
   }
+}
+
+
+.tabs.tabs13 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Sidebar: first child */
+.tabs.tabs13 > div:first-child {
+  flex: 0 0 192px;
+  min-width: 160px;
+  max-width: 250px;
+  padding: 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-start;
+  border: none;
+  box-sizing: border-box;
+
+  /* Show sidebar by default */
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Only show the active tabs panel; hide inactive */
+.tabs.tabs13 > div[aria-hidden="true"] {
+  display: none;
+}
+
+/* Main content column: active panel only */
+.tabs.tabs13 > div[aria-hidden="false"] {
+  flex: 1 1 0%;
+  min-width: 0;
+  position: relative;
+  padding: 40px 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Tabs row: horizontal bar above content, not in sidebar */
+.tabs.tabs13 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 32px;
+  margin-top: 0;
+  padding-left: 0;
+  border-bottom: none;
+  font-size: 15px;
+  background: none;
+  width: 100%;
+}
+
+.tabs.tabs13 .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 10px 24px;
+  box-shadow: none;
+  outline: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tabs.tabs13 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs13 .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #555;
+}
+
+/* Remove border and margin from default panel/card */
+.tabs.tabs13 .tabs-panel {
+  border: none;
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Title and accent line */
+.tabs.tabs13 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.3rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.15;
+  display: block;
+  position: relative;
+  width: fit-content;
+  border-bottom: 3px solid #FD5;
+  padding-bottom: 10px;
+}
+
+/* Image: full width, constrained */
+.tabs.tabs13 .tabs-panel picture img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  margin-bottom: 18px;
+  border: none;
+  box-shadow: none;
+}
+
+/* Section header below image */
+.tabs.tabs13 .tabs-panel > div > p:first-of-type {
+  margin-top: 0;
+  font-size: 12px;
+  color: #555;
+  font-family: var(--body-font-family);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 7px;
+}
+
+/* Description text */
+.tabs.tabs13 .tabs-panel > div > p:not(:first-of-type) {
+  font-size: 15px;
+  color: #222;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.tabs.tabs13 .tabs-panel > div {
+  margin-top: 0;
+}
+
+.tabs.tabs13 .tabs-panel > div > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive image sizing and stacking */
+@media (width <= 900px) {
+  .tabs.tabs13 {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .tabs.tabs13 > div:first-child,
+  .tabs.tabs13 > div[aria-hidden="false"] {
+    padding: 24px 8px 0;
+    max-width: 100%;
+  }
+
+  .tabs.tabs13 .tabs-panel picture img {
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs13 .tabs-panel h3 {
+    font-size: 1.6rem;
+    border-bottom-width: 2px;
+    padding-bottom: 6px;
+  }
+}
+
+/* Sidebar label styling */
+.tabs.tabs13 > div:first-child p,
+.tabs.tabs13 > div:first-child li,
+.tabs.tabs13 > div:first-child span,
+.tabs.tabs13 > div:first-child strong {
+  font-size: 15px;
+  color: #222;
+  font-weight: 500;
+  margin: 0 0 6px;
+  letter-spacing: 0;
+}
+
+.tabs.tabs13 > div:first-child .section-header,
+.tabs.tabs13 > div:first-child small,
+.tabs.tabs13 > div:first-child em {
+  color: #888;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+.tabs.tabs13 > div:first-child .share,
+.tabs.tabs13 > div:first-child [data-share] {
+  margin-top: 32px;
+  color: #888;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
