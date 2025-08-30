@@ -372,3 +372,86 @@
 .carousel.carousel22 .carousel-navigation-buttons .slide-prev::after {
   transform: translate(-60%, -50%) rotate(135deg);
 }
+
+
+.carousel.carousel25 .carousel-slide-content {
+  position: static;
+  background: none;
+  color: var(--text-color);
+  margin: 16px 0 0;
+  padding: 0;
+  width: 100%;
+  box-shadow: none;
+  z-index: auto;
+  text-align: left;
+  display: block;
+}
+
+.carousel.carousel25 .carousel-slide-content h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 8px;
+  padding: 0;
+  text-shadow: none;
+}
+
+/* Remove overlay effect from previous styles */
+.carousel.carousel25 .carousel-slide .carousel-slide-content {
+  background: none;
+  position: static;
+  left: unset;
+  top: unset;
+  bottom: unset;
+  right: unset;
+}
+
+.carousel.carousel25 .carousel-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: unset;
+  padding: 0;
+}
+
+.carousel.carousel25 .carousel-slide .carousel-slide-image {
+  position: static;
+  width: 100%;
+  margin: 0;
+}
+
+.carousel.carousel25 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel25 .carousel-slide .carousel-slide-image picture > img {
+  position: static;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.carousel.carousel25 {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.carousel.carousel25,
+.carousel.carousel25 .carousel-slide:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.carousel.carousel25 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel25 .carousel-slide-indicators {
+  display: none;
+}
