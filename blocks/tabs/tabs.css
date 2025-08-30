@@ -2225,7 +2225,6 @@
 
 
 .tabs.tabs31 {
-  /* Switch to flexbox for better control of column gap/padding */
   display: flex;
   flex-direction: row;
   max-width: 1200px;
@@ -2233,12 +2232,9 @@
   background: #fff;
   min-height: 80vh;
   box-sizing: border-box;
-
-  /* Reduce the gap between columns and allow main content to be wider */
   gap: 0;
 }
 
-/* Sidebar: reduce width further and center tabs vertically */
 .tabs.tabs31 > .tabs-list {
   flex: 0 0 85px;
   width: 85px;
@@ -2254,7 +2250,6 @@
   padding: 0;
 }
 
-/* Tabs: vertical, right-aligned, pill-style for active, keep compact */
 .tabs.tabs31 > .tabs-list .tabs-tab {
   width: 78px;
   padding: 10px 0;
@@ -2283,7 +2278,6 @@
   padding: 0;
 }
 
-/* Main content column: increase left padding, expand width, align content */
 .tabs.tabs31 > .tabs-panel {
   flex: 1 1 0;
   min-width: 0;
@@ -2301,7 +2295,6 @@
   display: none;
 }
 
-/* Title styling */
 .tabs.tabs31 > .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-size: 2.2rem;
@@ -2323,7 +2316,6 @@
   content: "";
 }
 
-/* Paragraph, lists, etc. */
 .tabs.tabs31 > .tabs-panel p,
 .tabs.tabs31 > .tabs-panel ul,
 .tabs.tabs31 > .tabs-panel li {
@@ -2341,7 +2333,6 @@
   margin-bottom: 8px;
 }
 
-/* Image styling: increase horizontal margin for containment */
 .tabs.tabs31 > .tabs-panel picture,
 .tabs.tabs31 > .tabs-panel img {
   display: block;
@@ -2352,7 +2343,6 @@
   height: auto;
 }
 
-/* Responsive: stack columns, tabs horizontal at top */
 @media (width <= 900px) {
   .tabs.tabs31 {
     flex-direction: column;
@@ -2395,5 +2385,182 @@
     margin: 24px 0;
     width: 100%;
     max-width: 100%;
+  }
+}
+
+
+.tabs.tabs34 {
+  /* Remove left and right padding for fully flush alignment */
+  max-width: none;
+  margin: 0;
+  padding: 0 0 40px;
+  background: #fff;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Responsive: add minimal side padding on small screens */
+@media (width <= 900px) {
+  .tabs.tabs34 {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 24px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs34 {
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 16px;
+  }
+}
+
+/* Tabs List - fully flush left */
+.tabs.tabs34 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 44px;
+  margin: 0 0 26px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+}
+
+/* Tab Buttons */
+.tabs.tabs34 .tabs-list button {
+  background: transparent;
+  color: #222;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  padding: 12px 24px;
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  margin: 0;
+  white-space: nowrap;
+  outline: none;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Active/inactive states */
+.tabs.tabs34 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  cursor: default;
+}
+
+.tabs.tabs34 .tabs-list button[aria-selected='false'] {
+  background: transparent;
+  color: #222;
+}
+
+/* Tabs Panel - remove max-width, flush with grid */
+.tabs.tabs34 .tabs-panel {
+  border: none;
+  background: transparent;
+  margin-top: 0;
+  padding: 0;
+  box-shadow: none;
+  max-width: none;
+  margin-left: 0;
+}
+
+/* Hide non-active panels */
+.tabs.tabs34 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Main Content Area */
+.tabs.tabs34 .tabs-panel > div {
+  padding: 0;
+  margin: 0;
+  max-width: none;
+}
+
+/* Heading inside panel */
+.tabs.tabs34 .tabs-panel h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.45rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.10;
+  text-align: left;
+}
+
+/* Image presentation */
+.tabs.tabs34 .tabs-panel picture {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: none;
+}
+
+.tabs.tabs34 .tabs-panel img {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  margin-bottom: 0;
+  box-shadow: none;
+  text-align: left;
+}
+
+/* Paragraph text - wider, left aligned, compact */
+.tabs.tabs34 .tabs-panel p {
+  font-size: 1.07rem;
+  color: #222;
+  line-height: 1.52;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: left;
+  max-width: 98vw;
+  padding-top: 12px;
+}
+
+/* Responsive: restrict content width, reduce gaps */
+@media (width <= 1200px) {
+  .tabs.tabs34 .tabs-panel picture,
+  .tabs.tabs34 .tabs-panel img,
+  .tabs.tabs34 .tabs-panel p {
+    max-width: 100%;
+  }
+
+  .tabs.tabs34 .tabs-list {
+    gap: 16px;
+  }
+
+  .tabs.tabs34 .tabs-list button {
+    min-width: 88px;
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .tabs.tabs34 .tabs-panel h2 {
+    font-size: 2rem;
+    margin-bottom: 6px;
+  }
+
+  .tabs.tabs34 .tabs-panel picture {
+    margin-bottom: 8px;
+  }
+
+  .tabs.tabs34 .tabs-panel p {
+    padding-top: 8px;
   }
 }
