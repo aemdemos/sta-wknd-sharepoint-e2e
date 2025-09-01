@@ -2169,19 +2169,15 @@
   background: none;
   border: none;
   box-shadow: none;
-
-  /* Remove any default top margin/padding */
   margin-top: 0;
   padding-top: 0;
 }
 
-/* Remove excess margin/padding from children */
 .tabs.tabs34 > div {
   margin-top: 0;
   padding-top: 0;
 }
 
-/* Sidebar: narrow, grouped, top-aligned */
 .tabs.tabs34 > div:first-child {
   flex: 0 0 180px;
   max-width: 180px;
@@ -2203,7 +2199,6 @@
   line-height: 1.25;
 }
 
-/* Main content: vertical stack of sections */
 .tabs.tabs34 > div:not(:first-child) {
   display: flex;
   flex-direction: column;
@@ -2215,7 +2210,6 @@
   justify-content: flex-start;
 }
 
-/* Headings: bold, large, accent bar tight below */
 .tabs.tabs34 > div:not(:first-child) h2 {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
@@ -2243,12 +2237,10 @@
   display: none;
 }
 
-/* Paragraphs: grouped with headings, no extra space */
 .tabs.tabs34 > div:not(:first-child) h2 + p {
   margin-top: 0;
 }
 
-/* Main content paragraphs */
 .tabs.tabs34 > div:not(:first-child) p {
   color: #222;
   font-size: 16px;
@@ -2258,7 +2250,6 @@
   font-weight: 400;
 }
 
-/* Bullet lists: tight grouping beneath content */
 .tabs.tabs34 > div:not(:first-child) ul,
 .tabs.tabs34 > div:not(:first-child) ol {
   margin-top: 0;
@@ -2276,7 +2267,6 @@
   color: #222;
 }
 
-/* Remove panel borders and extra padding */
 .tabs.tabs34 .tabs-panel {
   border: none;
   padding: 0;
@@ -2285,7 +2275,6 @@
   box-shadow: none;
 }
 
-/* Responsive stacking for mobile/tablet */
 @media (width <= 900px) {
   .tabs.tabs34 {
     flex-direction: column;
@@ -2299,4 +2288,218 @@
     width: 100%;
     margin-bottom: 12px;
   }
+}
+
+
+.tabs.tabs35 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Sidebar: make extra narrow, no top padding, tabs only on mobile */
+.tabs.tabs35 > div:first-child {
+  flex: 0 0 76px;
+  max-width: 76px;
+  min-width: 60px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hide sidebar tabs on desktop, show only on mobile/small screens */
+@media (width >= 700px) {
+  .tabs.tabs35 > div:first-child .tabs-list {
+    display: none;
+  }
+}
+
+/* Main content: stack content vertically, align left */
+.tabs.tabs35 > div:not(:first-child) {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0;
+}
+
+/* Move and show tabs horizontally under the title in the main column */
+.tabs.tabs35 > div:not(:first-child) .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin: 0 0 10px;
+  width: 100%;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Hide main column tabs list on mobile to show sidebar version instead */
+@media (width <= 699px) {
+  .tabs.tabs35 > div:not(:first-child) .tabs-list {
+    display: none;
+  }
+
+  .tabs.tabs35 > div:first-child .tabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 0 24px;
+    width: 100%;
+  }
+}
+
+/* Tab button styling */
+.tabs.tabs35 .tabs-list .tabs-tab {
+  background: #f5f5f5;
+  color: #222;
+  border: none;
+  padding: 12px 34px;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 0;
+  letter-spacing: 1px;
+  cursor: pointer;
+  min-width: 112px;
+  box-shadow: none;
+  outline: none;
+  margin: 0;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+/* Active tab */
+.tabs.tabs35 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+/* Remove default p margins in tab text */
+.tabs.tabs35 .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+}
+
+/* Only show the active tab panel */
+.tabs.tabs35 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs35 .tabs-panel[aria-hidden="false"] {
+  display: block;
+  width: 100%;
+}
+
+/* Title: left-aligned, serif, big, with yellow underline */
+.tabs.tabs35 .tabs-panel h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.35rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 7px;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: left;
+  position: relative;
+}
+
+/* Yellow underline accent for title */
+.tabs.tabs35 .tabs-panel h3::after {
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-top: 12px;
+  margin-left: 0;
+  border-radius: 0;
+  background: #f6c544;
+  content: "";
+}
+
+/* Image: left-aligned, generous size, flush under tabs/title */
+.tabs.tabs35 .tabs-panel picture img {
+  display: block;
+  max-width: 680px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 18px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Caption: bold, uppercase, spaced below image */
+.tabs.tabs35 .tabs-panel > div > p:first-of-type {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 21px;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+}
+
+/* Body paragraph spacing */
+.tabs.tabs35 .tabs-panel > div > p:not(:first-of-type) {
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 18px;
+  line-height: 1.7;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Ul styling for "What to Bring" */
+.tabs.tabs35 .tabs-panel ul {
+  margin: 20px 0 0 24px;
+  padding: 0;
+  font-size: 16px;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Remove border/background from all panels and block */
+.tabs.tabs35,
+.tabs.tabs35 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+/* Remove default margin/padding from all children */
+.tabs.tabs35 > div,
+.tabs.tabs35 .tabs-panel > div {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure everything aligns left for visual consistency */
+.tabs.tabs35 .tabs-panel,
+.tabs.tabs35 .tabs-panel > div,
+.tabs.tabs35 .tabs-panel > div > * {
+  text-align: left;
 }
