@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -79,7 +80,6 @@
   height: auto;
 }
 
-/* Card body: minimize vertical gap */
 .cards.cards4 .cards-card-body {
   flex: 1 1 auto;
   display: flex;
@@ -102,11 +102,115 @@
   line-height: 1.18;
 }
 
-/* Description should sit directly under title */
 .cards.cards4 .cards-card-body p {
   margin: 0;
   font-size: 1rem;
   color: #222;
   line-height: 1.6;
   max-width: 100%;
+}
+
+
+.cards.cards14 {
+  background: #fff;
+}
+
+/* Main grid layout with 4 columns, responsive */
+.cards.cards14 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 1000px) {
+  .cards.cards14 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards14 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card: no forced height, let content define it, vertical stack */
+.cards.cards14 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #fff;
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Image at the top, fixed aspect */
+.cards.cards14 .cards-card-image {
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards14 .cards-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 0;
+  vertical-align: top;
+}
+
+/* Card body: minimal horizontal padding, tight vertical margins */
+.cards.cards14 .cards-card-body {
+  padding: 0 10px;
+  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Title: uppercase, bold, just below image */
+.cards.cards14 .cards-card-body p:first-child strong {
+  display: block;
+  font-size: 1.13rem;
+  font-weight: 700;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0 0 7px;
+  font-family: var(--body-font-family);
+  line-height: 1.22;
+}
+
+/* Description: smaller, lighter, single line, tight to bottom */
+.cards.cards14 .cards-card-body p:not(:first-child) {
+  font-size: 0.87rem;
+  color: #bababa;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove all extra space below content */
+.cards.cards14 .cards-card-body,
+.cards.cards14 .cards-card-body p,
+.cards.cards14 .cards-card-body p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Cleanup ul */
+.cards.cards14 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
