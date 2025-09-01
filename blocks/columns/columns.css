@@ -1,7 +1,10 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
 }
 
 .columns img {
@@ -45,7 +48,6 @@
   width: 100%;
 }
 
-/* Top-level: two columns using flex row, align items to flex-start */
 .columns.columns5 > div {
   display: flex;
   flex-direction: row;
@@ -54,7 +56,6 @@
   gap: 0;
 }
 
-/* Responsive: Stack columns on smaller screens */
 @media (width <= 900px) {
   .columns.columns5 {
     padding: 24px 12px 16px;
@@ -66,7 +67,6 @@
   }
 }
 
-/* Left column: wider, all vertical content (logo, copyright, body, language selector) */
 .columns.columns5 > div > div:first-child {
   flex: 0 0 610px;
   min-width: 0;
@@ -75,8 +75,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-
-  /* Make sure the left column is visually dominant */
 }
 
 .columns.columns5 .columns-img-col {
@@ -90,7 +88,6 @@
   display: block;
 }
 
-/* Copyright line with spacing below */
 .columns.columns5 > div > div:first-child > p:first-of-type {
   margin: 0 0 20px;
   color: #e0e0e0;
@@ -98,7 +95,6 @@
   opacity: 0.95;
 }
 
-/* Main block text spacing */
 .columns.columns5 > div > div:first-child > div,
 .columns.columns5 > div > div:first-child > p:not(:first-of-type) {
   margin-top: 0;
@@ -108,7 +104,6 @@
   line-height: 1.6;
 }
 
-/* Language selector: keep with left column, push to top right of left content */
 .columns.columns5 > div > div:first-child > ul {
   align-self: flex-end;
   margin-top: -34px;
@@ -127,7 +122,6 @@
   font-size: 14px;
 }
 
-/* Right column: only social row, keep compact and right-aligned */
 .columns.columns5 > div > div:nth-child(2) {
   flex: 0 1 340px;
   max-width: 340px;
@@ -136,12 +130,9 @@
   justify-content: flex-end;
   align-items: flex-start;
   min-width: 0;
-
-  /* Move content slightly down to align with logo (not absolute top) */
   padding-top: 26px;
 }
 
-/* Social row: align label and buttons in a row */
 .columns.columns5 > div > div:nth-child(2) > div,
 .columns.columns5 > div > div:nth-child(2) > h4#follow-us {
   display: flex;
@@ -170,7 +161,6 @@
   display: inline-block;
 }
 
-/* Social buttons: small, square, icon-like appearance */
 .columns.columns5 .button {
   background: #fff;
   color: #232220;
@@ -208,7 +198,6 @@
   color: #232220;
 }
 
-/* Block links: light gray and underline */
 .columns.columns5 a {
   color: #e0e0e0;
   text-decoration: underline;
@@ -220,12 +209,10 @@
   text-decoration: underline;
 }
 
-/* Remove default paragraph margins for tighter block spacing */
 .columns.columns5 p {
   margin: 0 0 8px;
 }
 
-/* Ensure correct stacking for mobile */
 @media (width <= 600px) {
   .columns.columns5 > div > div:first-child,
   .columns.columns5 > div > div:nth-child(2) {
@@ -243,9 +230,174 @@
   }
 }
 
-/* Ensure right column (social) stays at top on desktop */
 @media (width >= 901px) {
   .columns.columns5 > div > div:nth-child(2) {
     align-items: flex-start;
+  }
+}
+
+
+.columns {
+  background: #222;
+  color: #ccc;
+  font-family: var(--body-font-family);
+  padding: 40px 60px;
+}
+
+/* Main layout: flex row, top-aligned */
+
+/* Logo column: top-aligned, slightly larger */
+.columns .columns-img-col {
+  display: flex;
+  align-items: flex-start;
+  min-width: 130px;
+  margin-right: 4px;
+}
+
+.columns .columns-img-col img {
+  width: 130px;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation column */
+.columns > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 2 1 0;
+  min-width: 0;
+  margin-top: 4px; /* nudge nav baseline closer to logo baseline */
+}
+
+.columns > div > div:nth-child(2) ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.columns > div > div:nth-child(2) ul > li {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Main nav link (e.g., HOME) style */
+.columns > div > div:nth-child(2) ul > li > a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  line-height: 1.2;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  transition: color 0.2s;
+  position: relative;
+  top: 2px; /* visually nudge down for baseline match */
+}
+
+/* Sub-navigation links: lighter, smaller, horizontally aligned with HOME */
+.columns > div > div:nth-child(2) ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-left: -8px;  /* pull subnav closer to HOME */
+  margin-top: -2px;   /* visually tuck subnav closer to HOME */
+}
+
+.columns > div > div:nth-child(2) ul ul li a {
+  color: #b0b0b0;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-decoration: none;
+  opacity: 0.85;
+  line-height: 1.2;
+  transition: color 0.2s, opacity 0.2s;
+  position: relative;
+  top: 2px; /* visually align with HOME baseline */
+  padding: 0;
+  margin: 0;
+}
+
+.columns > div > div:nth-child(2) ul ul li a:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+/* Right (search/social) column, top-aligned */
+.columns > div > div:nth-child(3) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex: 1 1 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 2px; /* slight nudge for baseline alignment */
+}
+
+/* Links in columns should be white unless overridden above */
+.columns a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.columns a:hover, 
+.columns a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .columns {
+    padding: 24px 16px;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .columns .columns-img-col,
+  .columns > div > div:nth-child(2),
+  .columns > div > div:nth-child(3) {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .columns > div > div:nth-child(2) ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .columns > div > div:nth-child(2) ul ul {
+    flex-direction: column;
+    gap: 6px;
+    margin-left: 0;
+    margin-top: 2px;
+  }
+
+  .columns > div > div:nth-child(3) {
+    justify-content: flex-start;
+    margin-top: 12px;
   }
 }
