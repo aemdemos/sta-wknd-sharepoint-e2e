@@ -1236,3 +1236,196 @@
     font-size: 11px;
   }
 }
+
+
+.tabs.tabs26 {
+  /* Block flush left with page content, not centered */
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  box-sizing: border-box;
+  background: #fff;
+  align-self: flex-start;
+}
+
+/* Tabs row: left-aligned, pill-like row flex */
+.tabs.tabs26 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-top: 32px;
+  margin-bottom: 36px;
+  padding: 0;
+  border: none;
+  background: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  margin-left: 0;
+}
+
+/* Tab button styling for prominent pills */
+.tabs.tabs26 .tabs-list button {
+  background: transparent;
+  border: none;
+  color: #222;
+  text-transform: uppercase;
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  padding: 14px 40px;
+  border-radius: 24px;
+  transition: background .2s, color .2s;
+  cursor: pointer;
+  margin: 0;
+  min-width: 0;
+  white-space: nowrap;
+  box-shadow: none;
+  text-align: left;
+  outline: none;
+  line-height: 1.4;
+}
+
+/* Selected tab: bold pill */
+.tabs.tabs26 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* Remove default margin on <p> inside buttons */
+.tabs.tabs26 .tabs-list button p {
+  margin: 0;
+}
+
+/* Panel: remove border and padding, flush left */
+.tabs.tabs26 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  overflow: visible;
+}
+
+/* Heading: left-aligned, yellow underline */
+.tabs.tabs26 .tabs-panel > div > h3:first-child {
+  font-family: var(--heading-font-family), Georgia, serif;
+  font-size: 2rem;
+  color: #222;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.3em;
+  line-height: 1.15;
+  display: block;
+  padding-bottom: 0.12em;
+  border-bottom: 3px solid #FCF6C6;
+  width: fit-content;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* Subheading: slightly larger and more space below */
+.tabs.tabs26 .tabs-panel > div > h3:not(:first-child) {
+  font-weight: bold;
+  font-size: 1.35rem;
+  color: #222;
+  margin-top: 36px;
+  margin-bottom: 26px;
+  font-family: var(--heading-font-family), Georgia, serif;
+  line-height: 1.35;
+  text-align: left;
+}
+
+/* Paragraphs and lists: more breathing room */
+.tabs.tabs26 .tabs-panel p,
+.tabs.tabs26 .tabs-panel ul {
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-size: 16px;
+  color: #222;
+  line-height: 1.85;
+  margin-top: 0;
+  margin-bottom: 22px;
+  padding: 0;
+  text-align: left;
+}
+
+.tabs.tabs26 .tabs-panel ul {
+  padding-left: 22px;
+}
+
+.tabs.tabs26 .tabs-panel > div > h3:not(:first-child) + p {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+.tabs.tabs26 .tabs-panel picture,
+.tabs.tabs26 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 40px 0 20px;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.tabs.tabs26 .tabs-panel > div > p:last-child {
+  font-size: 14px;
+  color: #666;
+  margin-top: 24px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* Responsive: use only minimal horizontal page padding on small screens */
+@media (width <= 900px) {
+  .tabs.tabs26 {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 12px;
+  }
+
+  .tabs.tabs26 .tabs-list {
+    gap: 18px;
+  }
+
+  .tabs.tabs26 .tabs-list button {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+
+  .tabs.tabs26 .tabs-panel picture,
+  .tabs.tabs26 .tabs-panel img {
+    margin: 24px 0 12px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs26 {
+    padding: 0 2vw;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs26 .tabs-list {
+    gap: 10px;
+    font-size: 13px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .tabs.tabs26 .tabs-list button {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .tabs.tabs26 .tabs-panel picture,
+  .tabs.tabs26 .tabs-panel img {
+    margin: 18px 0 8px;
+  }
+}
