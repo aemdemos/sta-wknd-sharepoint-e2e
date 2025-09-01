@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,140 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div {
+  display: flex;
+  flex-direction: column;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+  align-items: flex-start;
+}
+
+/* Tabs at the top, left aligned */
+.tabs.tabs3 .tabs-list {
+  width: 100%;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+/* Tab buttons */
+.tabs.tabs3 .tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #212121;
+  cursor: pointer;
+  border-radius: 2px;
+  border-bottom: 2px solid transparent;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.tabs.tabs3 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #212121;
+  color: #fff;
+  border-bottom: 2px solid #212121;
+}
+
+.tabs.tabs3 .tabs-list .tabs-tab[aria-selected="false"] {
+  background: #f5f5f5;
+  color: #212121;
+}
+
+/* Remove panel border/padding */
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  background: none;
+  overflow: visible;
+}
+
+/* Title: left-aligned, yellow underline, space below */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0 0 22px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #FC0;
+  color: #212121;
+  line-height: 1.15;
+  width: 100%;
+}
+
+/* Main text (description) */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > p:not(:last-child) {
+  color: #212121;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  margin: 0 0 26px;
+  width: 100%;
+}
+
+/* Main image and caption */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > p:last-child {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.89rem;
+  color: #757575;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-top: 7px;
+  margin-bottom: 0;
+}
+
+/* Image styling */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > p:last-child picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  margin-bottom: 7px;
+}
+
+/* Caption styling */
+
+/* Utility: Remove default p margin if any */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Responsive: content max width and image scaling */
+@media (width <= 1000px) {
+  .tabs.tabs3 .tabs-panel[aria-hidden="false"] > div {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+}
+
+@media (width <= 700px) {
+  .tabs.tabs3 .tabs-panel[aria-hidden="false"] > div {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > p,
+  .tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > h3 {
+    width: 100%;
+    max-width: 100%;
+  }
 }
