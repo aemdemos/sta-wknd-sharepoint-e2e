@@ -115,7 +115,6 @@
   background: #fff;
 }
 
-/* Main grid layout with 4 columns, responsive */
 .cards.cards14 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -138,7 +137,6 @@
   }
 }
 
-/* Card: no forced height, let content define it, vertical stack */
 .cards.cards14 > ul > li {
   display: flex;
   flex-direction: column;
@@ -150,7 +148,6 @@
   min-width: 0;
 }
 
-/* Image at the top, fixed aspect */
 .cards.cards14 .cards-card-image {
   line-height: 0;
   margin: 0;
@@ -166,7 +163,6 @@
   vertical-align: top;
 }
 
-/* Card body: minimal horizontal padding, tight vertical margins */
 .cards.cards14 .cards-card-body {
   padding: 0 10px;
   margin: 10px 0 0;
@@ -175,7 +171,6 @@
   justify-content: flex-start;
 }
 
-/* Title: uppercase, bold, just below image */
 .cards.cards14 .cards-card-body p:first-child strong {
   display: block;
   font-size: 1.13rem;
@@ -188,7 +183,6 @@
   line-height: 1.22;
 }
 
-/* Description: smaller, lighter, single line, tight to bottom */
 .cards.cards14 .cards-card-body p:not(:first-child) {
   font-size: 0.87rem;
   color: #bababa;
@@ -200,7 +194,6 @@
   padding: 0;
 }
 
-/* Remove all extra space below content */
 .cards.cards14 .cards-card-body,
 .cards.cards14 .cards-card-body p,
 .cards.cards14 .cards-card-body p:last-child {
@@ -208,9 +201,211 @@
   padding-bottom: 0;
 }
 
-/* Cleanup ul */
 .cards.cards14 ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+
+.cards.cards17 {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding-left: 80px;
+  padding-right: 80px;
+  background: #fff;
+}
+
+/* Layout for the card list */
+.cards.cards17 > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Card row */
+.cards.cards17 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: transparent;
+  border: none;
+  padding: 112px 0 100px;
+  border-bottom: 1px solid #f4f4f4;
+  min-height: 480px;
+  box-sizing: border-box;
+}
+
+/* Remove border from last card */
+.cards.cards17 > ul > li:last-child {
+  border-bottom: none;
+}
+
+/* Image column: visually dominant and top-aligned */
+.cards.cards17 .cards-card-image {
+  flex: 0 0 500px;
+  max-width: 500px;
+  min-width: 340px;
+  margin-right: 96px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+/* The image itself: taller, fills container, top-aligned */
+.cards.cards17 .cards-card-image img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  background: #f6f6f6;
+  margin-top: 0;
+}
+
+/* Text area: roomier, editorial look, bigger fonts */
+.cards.cards17 .cards-card-body {
+  flex: 1 1 0;
+  max-width: 800px;
+  color: #222;
+  font-family: Georgia, Asar, serif;
+  font-size: 1.23em;
+  line-height: 1.85;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* General paragraph spacing */
+.cards.cards17 .cards-card-body p {
+  margin: 0 0 1.5em;
+  padding: 0;
+}
+
+/* Heading: bigger, bolder, more spacing (editorial feel) */
+.cards.cards17 .cards-card-body p:first-child {
+  font-size: 2.4em;
+  font-family: Georgia, Asar, serif;
+  font-weight: bold;
+  line-height: 1.08;
+  color: #181818;
+  margin-bottom: 36px;
+  margin-top: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Address/attribution: lighter, more whitespace below, slightly larger */
+.cards.cards17 .cards-card-body p:last-child {
+  font-style: italic;
+  color: #6c6c6c;
+  font-size: 1.16em;
+  margin-top: 36px;
+  margin-bottom: 0;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+
+.cards.cards17 .cards-card-body strong em {
+  font-style: italic;
+  font-weight: normal;
+  color: #6c6c6c;
+}
+
+/* Text-only cards: vertical stacking, extra whitespace before heading */
+.cards.cards17 > ul > li:not(:has(.cards-card-image)) {
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: unset;
+  padding: 120px 0 100px;
+}
+
+.cards.cards17 > ul > li:not(:has(.cards-card-image)) .cards-card-body {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards17 > ul > li:not(:has(.cards-card-image)) .cards-card-body p:first-child {
+  margin-top: 28px;
+  font-size: 2.4em;
+}
+
+/* Hide card bodies that only contain 'null' text (supported browsers) */
+.cards.cards17 .cards-card-body:has(p:only-child) {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 1400px) {
+  .cards.cards17 {
+    padding-left: 28px;
+    padding-right: 28px;
+    max-width: 100vw;
+  }
+
+  .cards.cards17 .cards-card-image {
+    max-width: 320px;
+    min-width: 180px;
+    margin-right: 32px;
+  }
+
+  .cards.cards17 > ul > li {
+    min-height: 180px;
+    padding: 48px 0 32px;
+  }
+
+  .cards.cards17 .cards-card-image img {
+    height: 170px;
+    margin-top: 0;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards17 {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .cards.cards17 > ul > li,
+  .cards.cards17 > ul > li:not(:has(.cards-card-image)) {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: unset;
+    padding: 28px 0 20px;
+  }
+
+  .cards.cards17 .cards-card-image {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 18px;
+    justify-content: center;
+  }
+
+  .cards.cards17 .cards-card-image img {
+    width: 100%;
+    height: 110px;
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .cards.cards17 .cards-card-body,
+  .cards.cards17 > ul > li:not(:has(.cards-card-image)) .cards-card-body {
+    max-width: 100%;
+    font-size: 1em;
+  }
+
+  .cards.cards17 .cards-card-body p:first-child {
+    font-size: 1.15em;
+  }
 }
