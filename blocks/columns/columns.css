@@ -31,3 +31,95 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  min-height: 92px; /* More vertical space for header */
+  padding: 8px 36px; /* Top/bottom padding and horizontal space */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.columns.columns2 > div > div:nth-child(2) {
+  display: none;
+}
+
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.columns.columns2 .columns-img-col img {
+  height: 44px;
+  width: auto;
+  display: block;
+  margin: 0;
+}
+
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 220px;
+  height: 100%;
+}
+
+/* Improved search box styling for vertical centering and spacing */
+.columns.columns2 > div > div:last-child p {
+  background: #f5f5f5;
+  color: #b3b3b3;
+  font-size: 13px;
+  font-family: var(--body-font-family), Arial, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 24px 12px 48px;
+  border: none;
+  border-radius: 2px;
+  margin: 0;
+  min-width: 120px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+
+  /* overflow: visible; Needed for pseudo-element visibility in some engines */
+  overflow: visible;
+}
+
+.columns.columns2 > div > div:last-child p::before {
+  display: inline-block;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='7' cy='7' r='6' stroke='black' stroke-width='2' fill='none'/%3E%3Cline x1='12' y1='12' x2='15' y2='15' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+@media (width <= 900px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 72px;
+    padding: 12px 16px;
+  }
+
+  .columns.columns2 > div > div:last-child {
+    justify-content: flex-start;
+    margin-top: 12px;
+    min-width: 0;
+    width: 100%;
+  }
+}
