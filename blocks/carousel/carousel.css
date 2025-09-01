@@ -320,7 +320,6 @@
   overflow: visible;
 }
 
-/* Ensure image fills the width and overlays can be placed on top */
 .carousel.carousel20 .carousel-slides-container,
 .carousel.carousel20 .carousel-slides,
 .carousel.carousel20 .carousel-slide {
@@ -343,7 +342,6 @@
   border-radius: 0;
 }
 
-/* Restore full card with all content, overlaid at bottom */
 .carousel.carousel20 .carousel-slide .carousel-slide-content {
   position: absolute;
   left: 0;
@@ -422,7 +420,6 @@
   color: #131313;
 }
 
-/* Page indicators overlay bottom of image, centered, above nav buttons */
 .carousel.carousel20 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -456,7 +453,6 @@
   background: #131313;
 }
 
-/* Navigation arrows overlay bottom right of image, above content */
 .carousel.carousel20 .carousel-navigation-buttons {
   position: absolute;
   inset: auto 34px 30px auto;
@@ -515,4 +511,115 @@
   width: 9px;
   height: 9px;
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+.carousel.carousel39 .carousel-slides-container {
+  overflow: visible;
+  padding-bottom: 40px; /* ensure space for controls below the image */
+}
+
+.carousel.carousel39 .carousel-slide-indicators {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px; /* place just below the image */
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+  pointer-events: auto;
+  opacity: 1;
+  line-height: 0;
+}
+
+.carousel.carousel39 .carousel-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  margin: 0 6px;
+  border-radius: 50%;
+  background: #888;
+  border: none;
+  transition: background-color 0.2s;
+  box-shadow: 0 0 0 1px #ddd;
+}
+
+.carousel.carousel39 .carousel-slide-indicator button:disabled,
+.carousel.carousel39 .carousel-slide-indicator button[aria-current="true"] {
+  background: #222;
+  box-shadow: 0 0 2px 1px #222;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 24px 6px auto; /* place just below the image, right-aligned */
+  transform: none;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background: transparent;
+  z-index: 10;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons button {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 4%);
+  margin: 0 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons button:hover,
+.carousel.carousel39 .carousel-navigation-buttons button:focus-visible {
+  background: #f4f4f4;
+  border-color: #888;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons button::after {
+  border: solid #444;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  position: static;
+  transform: rotate(-135deg);
+  background: none;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons button.slide-next::after {
+  transform: rotate(45deg);
+}
+
+.carousel.carousel39 .carousel-slide .carousel-slide-content:empty {
+  display: none;
+}
+
+.carousel.carousel39 .carousel-slide {
+  min-height: 170px;
+  max-height: 230px;
+  height: 24vw;
+  box-sizing: border-box;
+}
+
+@media (width <= 700px) {
+  .carousel.carousel39 .carousel-slide {
+    min-height: 110px;
+    max-height: 150px;
+    height: 34vw;
+  }
 }
