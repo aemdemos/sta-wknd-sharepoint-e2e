@@ -204,7 +204,6 @@
   }
 }
 
-/* Sidebar (vertical tabs) */
 .tabs.tabs10 > .tabs-list {
   display: flex;
   flex-direction: column;
@@ -234,7 +233,6 @@
   }
 }
 
-/* Tab buttons: compact, left-aligned, lighter */
 .tabs.tabs10 > .tabs-list .tabs-tab {
   background: transparent;
   border: none;
@@ -271,7 +269,6 @@
   text-align: left;
 }
 
-/* Main content column */
 .tabs.tabs10 > .tabs-panel {
   flex: 1 1 0;
   padding: 40px 0 40px 16px;
@@ -289,7 +286,6 @@
   }
 }
 
-/* Headings: match contrast and spacing */
 .tabs.tabs10 > .tabs-panel h3 {
   font-family: var(--heading-font-family);
   font-weight: 400;
@@ -310,7 +306,6 @@
   letter-spacing: -0.01em;
 }
 
-/* Accent bar below h3 (if present in HTML) */
 .tabs.tabs10 > .tabs-panel .accent-bar {
   display: block;
   background: #e4d869;
@@ -320,7 +315,6 @@
   border-radius: 2px;
 }
 
-/* Body text and related links */
 .tabs.tabs10 > .tabs-panel p,
 .tabs.tabs10 > .tabs-panel ul,
 .tabs.tabs10 > .tabs-panel li {
@@ -341,7 +335,6 @@
   margin-bottom: 5px;
 }
 
-/* Images: centered, max width, compact margin below */
 .tabs.tabs10 > .tabs-panel picture,
 .tabs.tabs10 > .tabs-panel img {
   display: block;
@@ -361,7 +354,222 @@
   }
 }
 
-/* Tighter margins for vertical rhythm */
 .tabs.tabs10 > .tabs-panel > *:not(:last-child) {
   margin-bottom: 8px;
+}
+
+
+.tabs.tabs12 {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto;
+  gap: 40px;
+  padding: 40px 32px;
+  background: var(--background-color);
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 24px 0;
+  }
+}
+
+/* Left column: tabs-list */
+.tabs.tabs12 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+  font-size: 13px;
+  color: #222;
+  padding-top: 12px;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  min-width: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs12 > .tabs-list {
+    flex-direction: row;
+    gap: 16px;
+    padding-top: 0;
+    padding-bottom: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    width: 100%;
+  }
+}
+
+/* Style for the tab buttons on the left (look like info items if possible) */
+.tabs.tabs12 > .tabs-list button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-family: inherit;
+  color: #222;
+  text-align: left;
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.tabs.tabs12 > .tabs-list button[aria-selected="true"] {
+  font-weight: 700;
+  color: #222;
+  background: none;
+  border: none;
+}
+
+/* Tab text styles */
+.tabs.tabs12 > .tabs-list button p {
+  margin: 0;
+}
+
+/* Right column: tabs-panel */
+.tabs.tabs12 > .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.tabs.tabs12 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Tabs navigation inside the right column (horizontal) */
+.tabs.tabs12 > .tabs-panel > div:first-child {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+/* Style tab buttons in right column (make them pill-shaped) */
+.tabs.tabs12 > .tabs-panel > div:first-child p {
+  margin: 0;
+}
+
+.tabs.tabs12 > .tabs-panel > div:first-child p strong {
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 7px 22px;
+  border-radius: 19px;
+  background: #222;
+  color: #fff;
+  border: none;
+}
+
+.tabs.tabs12 > .tabs-panel > div:first-child p:not(:first-child) strong {
+  background: none;
+  color: #888;
+  border: none;
+  font-weight: 400;
+}
+
+/* Heading styles */
+.tabs.tabs12 h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 21px;
+  font-family: var(--heading-font-family);
+  color: #222;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Image styles */
+.tabs.tabs12 picture,
+.tabs.tabs12 img {
+  display: block;
+  max-width: 740px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  margin-top: 4px;
+
+  /* optional: box-shadow for subtle depth */
+}
+
+/* Description and paragraph text */
+.tabs.tabs12 p,
+.tabs.tabs12 ul {
+  font-size: 15px;
+  color: #444;
+  font-family: var(--heading-font-family);
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+
+.tabs.tabs12 ul {
+  padding-left: 22px;
+}
+
+.tabs.tabs12 li {
+  margin-bottom: 5px;
+}
+
+/* Remove borders and background from all nested block elements */
+.tabs.tabs12 .tabs-panel,
+.tabs.tabs12 .tabs-list,
+.tabs.tabs12 .tabs-panel > div,
+.tabs.tabs12 .tabs-list > button {
+  border: none;
+  background: none;
+}
+
+/* Add more space below the image before description */
+.tabs.tabs12 picture + p,
+.tabs.tabs12 img + p {
+  margin-top: 10px;
+}
+
+@media (width <= 600px) {
+  .tabs.tabs12 {
+    padding: 12px 0;
+  }
+
+  .tabs.tabs12 h3 {
+    font-size: 22px;
+  }
+
+  .tabs.tabs12 > .tabs-panel > div:first-child {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tabs.tabs12 picture,
+  .tabs.tabs12 img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+}
+
+/* Responsive fix for grid columns stacking */
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
