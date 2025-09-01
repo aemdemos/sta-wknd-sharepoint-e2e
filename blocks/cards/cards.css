@@ -216,7 +216,6 @@
   background: #fff;
 }
 
-/* Layout for the card list */
 .cards.cards17 > ul {
   list-style: none;
   margin: 0;
@@ -226,7 +225,6 @@
   gap: 0;
 }
 
-/* Card row */
 .cards.cards17 > ul > li {
   display: flex;
   flex-direction: row;
@@ -239,12 +237,10 @@
   box-sizing: border-box;
 }
 
-/* Remove border from last card */
 .cards.cards17 > ul > li:last-child {
   border-bottom: none;
 }
 
-/* Image column: visually dominant and top-aligned */
 .cards.cards17 .cards-card-image {
   flex: 0 0 500px;
   max-width: 500px;
@@ -256,7 +252,6 @@
   box-sizing: border-box;
 }
 
-/* The image itself: taller, fills container, top-aligned */
 .cards.cards17 .cards-card-image img {
   width: 100%;
   height: 460px;
@@ -268,7 +263,6 @@
   margin-top: 0;
 }
 
-/* Text area: roomier, editorial look, bigger fonts */
 .cards.cards17 .cards-card-body {
   flex: 1 1 0;
   max-width: 800px;
@@ -285,13 +279,11 @@
   justify-content: flex-start;
 }
 
-/* General paragraph spacing */
 .cards.cards17 .cards-card-body p {
   margin: 0 0 1.5em;
   padding: 0;
 }
 
-/* Heading: bigger, bolder, more spacing (editorial feel) */
 .cards.cards17 .cards-card-body p:first-child {
   font-size: 2.4em;
   font-family: Georgia, Asar, serif;
@@ -303,7 +295,6 @@
   letter-spacing: -0.01em;
 }
 
-/* Address/attribution: lighter, more whitespace below, slightly larger */
 .cards.cards17 .cards-card-body p:last-child {
   font-style: italic;
   color: #6c6c6c;
@@ -320,7 +311,6 @@
   color: #6c6c6c;
 }
 
-/* Text-only cards: vertical stacking, extra whitespace before heading */
 .cards.cards17 > ul > li:not(:has(.cards-card-image)) {
   flex-direction: column;
   align-items: flex-start;
@@ -339,12 +329,10 @@
   font-size: 2.4em;
 }
 
-/* Hide card bodies that only contain 'null' text (supported browsers) */
 .cards.cards17 .cards-card-body:has(p:only-child) {
   display: none;
 }
 
-/* Responsive adjustments */
 @media (width <= 1400px) {
   .cards.cards17 {
     padding-left: 28px;
@@ -408,4 +396,89 @@
   .cards.cards17 .cards-card-body p:first-child {
     font-size: 1.15em;
   }
+}
+
+
+.cards.cards19 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: stretch; /* Ensures all cards in a row are equal height */
+}
+
+@media (width <= 1024px) {
+  .cards.cards19 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards19 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards.cards19 > ul > li {
+  background: #fff;
+  box-sizing: border-box;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  overflow: hidden;
+  height: 100%; /* Each card fills grid row height for alignment */
+}
+
+.cards.cards19 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.cards.cards19 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+.cards.cards19 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  padding: 18px 14px 32px;
+  background: #fff;
+  gap: 6px;
+}
+
+.cards.cards19 .cards-card-body p:first-child strong {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  font-family: var(--body-font-family);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.cards.cards19 .cards-card-body p:not(:first-child) {
+  font-size: 13px;
+  color: #888;
+  font-family: var(--body-font-family);
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
