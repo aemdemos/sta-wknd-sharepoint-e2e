@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -33,93 +34,218 @@
 }
 
 
-.columns.columns2 > div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  min-height: 92px; /* More vertical space for header */
-  padding: 8px 36px; /* Top/bottom padding and horizontal space */
+.columns.columns5 {
+  background: #232220;
+  color: #e0e0e0;
+  font-family: Oswald, 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
+  border-bottom: 1px solid #fff;
+  padding: 40px 40px 24px;
   box-sizing: border-box;
   width: 100%;
 }
 
-.columns.columns2 > div > div:nth-child(2) {
-  display: none;
-}
-
-.columns.columns2 .columns-img-col {
+/* Top-level: two columns using flex row, align items to flex-start */
+.columns.columns5 > div {
   display: flex;
-  align-items: center;
-  height: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0;
 }
 
-.columns.columns2 .columns-img-col img {
-  height: 44px;
-  width: auto;
-  display: block;
-  margin: 0;
-}
-
-.columns.columns2 > div > div:last-child {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-width: 220px;
-  height: 100%;
-}
-
-/* Improved search box styling for vertical centering and spacing */
-.columns.columns2 > div > div:last-child p {
-  background: #f5f5f5;
-  color: #b3b3b3;
-  font-size: 13px;
-  font-family: var(--body-font-family), Arial, sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 12px 24px 12px 48px;
-  border: none;
-  border-radius: 2px;
-  margin: 0;
-  min-width: 120px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  box-sizing: border-box;
-
-  /* overflow: visible; Needed for pseudo-element visibility in some engines */
-  overflow: visible;
-}
-
-.columns.columns2 > div > div:last-child p::before {
-  display: inline-block;
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  transform: translateY(-50%);
-  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='7' cy='7' r='6' stroke='black' stroke-width='2' fill='none'/%3E%3Cline x1='12' y1='12' x2='15' y2='15' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
+/* Responsive: Stack columns on smaller screens */
 @media (width <= 900px) {
-  .columns.columns2 > div {
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 72px;
-    padding: 12px 16px;
+  .columns.columns5 {
+    padding: 24px 12px 16px;
   }
 
-  .columns.columns2 > div > div:last-child {
+  .columns.columns5 > div {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* Left column: wider, all vertical content (logo, copyright, body, language selector) */
+.columns.columns5 > div > div:first-child {
+  flex: 0 0 610px;
+  min-width: 0;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+
+  /* Make sure the left column is visually dominant */
+}
+
+.columns.columns5 .columns-img-col {
+  margin-bottom: 12px;
+}
+
+.columns.columns5 .columns-img-col img {
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Copyright line with spacing below */
+.columns.columns5 > div > div:first-child > p:first-of-type {
+  margin: 0 0 20px;
+  color: #e0e0e0;
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+/* Main block text spacing */
+.columns.columns5 > div > div:first-child > div,
+.columns.columns5 > div > div:first-child > p:not(:first-of-type) {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #e0e0e0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Language selector: keep with left column, push to top right of left content */
+.columns.columns5 > div > div:first-child > ul {
+  align-self: flex-end;
+  margin-top: -34px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.columns.columns5 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns5 ul li {
+  margin: 0 0 0 4px;
+  font-size: 14px;
+}
+
+/* Right column: only social row, keep compact and right-aligned */
+.columns.columns5 > div > div:nth-child(2) {
+  flex: 0 1 340px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 0;
+
+  /* Move content slightly down to align with logo (not absolute top) */
+  padding-top: 26px;
+}
+
+/* Social row: align label and buttons in a row */
+.columns.columns5 > div > div:nth-child(2) > div,
+.columns.columns5 > div > div:nth-child(2) > h4#follow-us {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.columns.columns5 #follow-us,
+.columns.columns5 h4#follow-us {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-family: Oswald, 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 16px 0 0;
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.columns.columns5 .button-container {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+/* Social buttons: small, square, icon-like appearance */
+.columns.columns5 .button {
+  background: #fff;
+  color: #232220;
+  border-radius: 4px;
+  min-width: 32px;
+  min-height: 32px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 0;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  text-decoration: none;
+  box-shadow: none;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.columns.columns5 .button::first-letter {
+  font-size: 18px;
+  color: #232220;
+  font-family: Oswald, 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.columns.columns5 .button:hover,
+.columns.columns5 .button:focus {
+  background: #e0e0e0;
+  color: #232220;
+}
+
+/* Block links: light gray and underline */
+.columns.columns5 a {
+  color: #e0e0e0;
+  text-decoration: underline;
+}
+
+.columns.columns5 a:hover,
+.columns.columns5 a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Remove default paragraph margins for tighter block spacing */
+.columns.columns5 p {
+  margin: 0 0 8px;
+}
+
+/* Ensure correct stacking for mobile */
+@media (width <= 600px) {
+  .columns.columns5 > div > div:first-child,
+  .columns.columns5 > div > div:nth-child(2) {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .columns.columns5 {
+    padding: 16px 4vw 12px;
+  }
+
+  .columns.columns5 > div > div:nth-child(2) {
     justify-content: flex-start;
-    margin-top: 12px;
-    min-width: 0;
-    width: 100%;
+    padding-top: 0;
+  }
+}
+
+/* Ensure right column (social) stays at top on desktop */
+@media (width >= 901px) {
+  .columns.columns5 > div > div:nth-child(2) {
+    align-items: flex-start;
   }
 }
