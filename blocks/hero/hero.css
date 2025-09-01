@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -56,7 +57,6 @@
   box-sizing: border-box;
 }
 
-/* Image wrapper */
 .hero.hero6 > div:first-child {
   position: relative;
   width: 100%;
@@ -74,7 +74,6 @@
   display: block;
 }
 
-/* White caption box floats closer to the bottom edge, maximizing overlap */
 .hero.hero6 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -94,7 +93,6 @@
   align-items: flex-start;
 }
 
-/* Text styling */
 .hero.hero6 h2 {
   margin: 0 0 24px;
   color: #222;
@@ -105,7 +103,6 @@
   text-align: left;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero6 > div:first-child {
     height: 180px;
@@ -120,4 +117,132 @@
   .hero.hero6 h2 {
     font-size: 18px;
   }
+}
+
+
+.hero.hero25 {
+  position: relative;
+  padding: 0;
+  min-height: 380px;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Ensure image fills the hero area */
+.hero.hero25 > div:first-child {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  z-index: 1;
+}
+
+.hero.hero25 picture,
+.hero.hero25 img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (width <= 800px) {
+  .hero.hero25 > div:first-child,
+  .hero.hero25 picture,
+  .hero.hero25 img {
+    height: 220px;
+  }
+}
+
+/* Overlay content panel flush at the bottom */
+.hero.hero25 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Card styles - reduced vertical padding for compact look, no bottom margin */
+.hero.hero25 > div:nth-child(2) > div {
+  background: #fff;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 10%);
+  max-width: 900px;
+  width: 86vw;
+  padding: 22px 40px 18px;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+  margin-bottom: 0; /* Remove gap to bottom */
+}
+
+@media (width <= 900px) {
+  .hero.hero25 > div:nth-child(2) > div {
+    padding: 12px 12px 10px;
+    width: 98vw;
+  }
+}
+
+/* Heading styles */
+.hero.hero25 h1,
+.hero.hero25 h2,
+.hero.hero25 h3,
+.hero.hero25 h4,
+.hero.hero25 h5,
+.hero.hero25 h6 {
+  color: #222;
+  font-family: var(--heading-font-family), serif;
+  font-size: 2.1rem;
+  font-weight: 500;
+  margin: 0 0 11px;
+  line-height: 1.15;
+}
+
+/* Description text */
+.hero.hero25 p {
+  color: #222;
+  font-family: var(--body-font-family), sans-serif;
+  font-size: 1.05rem;
+  margin: 0 0 22px;
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+/* Button left-aligned, not centered */
+.hero.hero25 .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+/* Button override for hero */
+.hero-container > .hero-wrapper > .block.hero .button,
+.hero.hero25 .button {
+  background: #ffe600;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3px;
+  padding: 13px 35px;
+  margin: 0;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+  text-align: left;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button:hover,
+.hero.hero25 .button:hover {
+  background: #ffe600;
+  color: #000;
+  text-decoration: underline;
 }
