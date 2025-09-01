@@ -1966,7 +1966,6 @@
   display: contents;
 }
 
-/* Sidebar (first button) */
 .tabs.tabs32 .tabs-list > .tabs-tab:first-child {
   grid-column: 1;
   grid-row: 1 / span 3;
@@ -2009,7 +2008,6 @@
   margin-bottom: 18px;
 }
 
-/* Tabs navigation panel: always at the top of the main column */
 .tabs.tabs32 .tabs-panel {
   grid-column: 2;
   grid-row: 1;
@@ -2073,7 +2071,6 @@
   border-color: #000;
 }
 
-/* Main Content Area (second button in tabs-list) - ensure overview content comes first visually */
 .tabs.tabs32 .tabs-list > .tabs-tab:last-child {
   grid-column: 2;
   grid-row: 2;
@@ -2103,9 +2100,6 @@
   }
 }
 
-/* Try to visually reorder .tabs-panel and .tabs-tab:last-child if needed (in grid layout) */
-
-/* Headings and image styling in main content */
 .tabs.tabs32 .tabs-list > .tabs-tab:last-child h3 {
   font-family: var(--heading-font-family);
   font-size: 2.35rem;
@@ -2143,7 +2137,6 @@
   margin: 0 0 16px;
 }
 
-/* Add spacing between stacked blocks on small screens */
 @media (width <= 700px) {
   .tabs.tabs32 .tabs-list > .tabs-tab:first-child {
     margin-bottom: 20px;
@@ -2154,7 +2147,6 @@
   }
 }
 
-/* Responsive heading sizes */
 @media (width <= 600px) {
   .tabs.tabs32 .tabs-list > .tabs-tab:last-child h2 {
     font-size: 1.35rem;
@@ -2162,5 +2154,149 @@
 
   .tabs.tabs32 .tabs-list > .tabs-tab:last-child h3 {
     font-size: 1.12rem;
+  }
+}
+
+
+.tabs.tabs34 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+
+  /* Remove any default top margin/padding */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Remove excess margin/padding from children */
+.tabs.tabs34 > div {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Sidebar: narrow, grouped, top-aligned */
+.tabs.tabs34 > div:first-child {
+  flex: 0 0 180px;
+  max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.tabs.tabs34 > div:first-child p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 2px;
+  line-height: 1.25;
+}
+
+/* Main content: vertical stack of sections */
+.tabs.tabs34 > div:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Headings: bold, large, accent bar tight below */
+.tabs.tabs34 > div:not(:first-child) h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  color: #222;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 2px;
+  line-height: 1.15;
+  position: relative;
+}
+
+.tabs.tabs34 > div:not(:first-child) h2:not(:last-of-type)::after {
+  display: block;
+  width: 44px;
+  height: 4px;
+  background: #ffe066;
+  border-radius: 2px;
+  margin-top: 4px;
+  content: "";
+  position: relative;
+  left: 0;
+}
+
+.tabs.tabs34 > div:not(:first-child) h2:last-of-type::after {
+  display: none;
+}
+
+/* Paragraphs: grouped with headings, no extra space */
+.tabs.tabs34 > div:not(:first-child) h2 + p {
+  margin-top: 0;
+}
+
+/* Main content paragraphs */
+.tabs.tabs34 > div:not(:first-child) p {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+}
+
+/* Bullet lists: tight grouping beneath content */
+.tabs.tabs34 > div:not(:first-child) ul,
+.tabs.tabs34 > div:not(:first-child) ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 16px;
+  padding-left: 0;
+  font-size: 16px;
+  color: #222;
+}
+
+.tabs.tabs34 > div:not(:first-child) ul li,
+.tabs.tabs34 > div:not(:first-child) ol li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #222;
+}
+
+/* Remove panel borders and extra padding */
+.tabs.tabs34 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+}
+
+/* Responsive stacking for mobile/tablet */
+@media (width <= 900px) {
+  .tabs.tabs34 {
+    flex-direction: column;
+    gap: 32px;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs34 > div:first-child {
+    max-width: none;
+    width: 100%;
+    margin-bottom: 12px;
   }
 }
