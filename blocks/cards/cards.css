@@ -406,7 +406,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  align-items: stretch; /* Ensures all cards in a row are equal height */
+  align-items: stretch;
 }
 
 @media (width <= 1024px) {
@@ -429,7 +429,7 @@
   flex-direction: column;
   border-radius: 0;
   overflow: hidden;
-  height: 100%; /* Each card fills grid row height for alignment */
+  height: 100%;
 }
 
 .cards.cards19 .cards-card-image {
@@ -481,4 +481,264 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+.cards.cards22 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  color: #222;
+  background: transparent;
+  font-family: var(--body-font-family);
+}
+
+/* Remove default ul styling and spacing */
+.cards.cards22 > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: cards22-row;
+}
+
+/* --------- SECTION HEADERS --------- */
+.cards.cards22 > ul > li:nth-child(1),
+.cards.cards22 > ul > li:nth-child(5) {
+  width: 100%;
+  margin-bottom: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0 0 18px;
+  display: block;
+
+  /* Visually separate heading from row below */
+}
+
+.cards.cards22 > ul > li:nth-child(1) .cards-card-body,
+.cards.cards22 > ul > li:nth-child(5) .cards-card-body {
+  margin: 0 0 14px;
+  padding: 0;
+  text-align: left;
+}
+
+.cards.cards22 .cards-card-body h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.1;
+  margin-bottom: 0.3em;
+  text-align: left;
+  border-bottom: 3px solid #dabd57;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.cards.cards22 > ul > li:nth-child(1) .cards-card-body > p em,
+.cards.cards22 > ul > li:nth-child(5) .cards-card-body > p em {
+  display: block;
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-bottom: 18px;
+  font-style: italic;
+  font-family: var(--body-font-family);
+  letter-spacing: 0.01em;
+  text-align: left;
+  max-width: 90%;
+}
+
+/* --------- PROFILE ROWS: FLEX GROUPINGS --------- */
+
+/* Group contributors: li 1-4 (section header + 3 profile cards) */
+
+/* Wrap li 2-4 in a flex row, directly after the header */
+
+.cards.cards22 > ul > li:nth-child(2),
+.cards.cards22 > ul > li:nth-child(3),
+.cards.cards22 > ul > li:nth-child(4) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 23%;
+  min-width: 180px;
+  box-sizing: border-box;
+  margin: 0 2% 44px 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  float: left;
+}
+.cards.cards22 > ul > li:nth-child(4) { margin-right: 0; }
+
+.cards.cards22 > ul > li:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 23%;
+  min-width: 180px;
+  box-sizing: border-box;
+  margin: 0 2% 44px 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  float: left;
+
+  /* Align section header content to left, profile content center */
+}
+
+.cards.cards22 > ul > li:nth-child(1) .cards-card-body {
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+/* Clear floats after the contributors row */
+.cards.cards22 > ul > li:nth-child(4)::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+/* Space between contributor and guide blocks */
+.cards.cards22 > ul > li:nth-child(5) {
+  clear: both;
+  margin-top: 48px;
+}
+
+/* Group guides: li 5-7 (section header + 2 profile cards) */
+.cards.cards22 > ul > li:nth-child(5),
+.cards.cards22 > ul > li:nth-child(6),
+.cards.cards22 > ul > li:nth-child(7) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 31%;
+  min-width: 180px;
+  box-sizing: border-box;
+  margin: 0 2% 44px 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  float: left;
+}
+.cards.cards22 > ul > li:nth-child(7) { margin-right: 0; }
+.cards.cards22 > ul > li:nth-child(8) { display: none; }
+
+.cards.cards22 > ul > li:nth-child(7)::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+/* --------- PROFILE CARD STYLES --------- */
+.cards.cards22 .cards-card-image picture,
+.cards.cards22 .cards-card-image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eee;
+  margin: 0 auto 18px;
+  display: block;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+}
+
+.cards.cards22 > ul > li .cards-card-body {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.cards.cards22 > ul > li .cards-card-body h3 {
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #222;
+  margin: 12px 0 2px;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.cards.cards22 > ul > li .cards-card-body h5 {
+  font-size: 0.88rem;
+  color: #4a4a4a;
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+/* Social icons row: horizontal alignment */
+.cards.cards22 > ul > li .cards-card-body .button-container {
+  display: inline-block;
+  margin: 0 3px 0 0;
+}
+
+/* Social icons: only icons, dark squares, horizontal */
+.cards.cards22 .cards-card-body .button {
+  width: 38px;
+  height: 38px;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 38px;
+  margin: 0 2px;
+  font-family: var(--body-font-family);
+  vertical-align: middle;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+  text-indent: -9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Restore visible text for accessibility on :focus */
+.cards.cards22 .cards-card-body .button:focus {
+  text-indent: 0;
+}
+
+/* --------- RESPONSIVE --------- */
+@media (width <= 900px) {
+  .cards.cards22 > ul > li:nth-child(1),
+  .cards.cards22 > ul > li:nth-child(2),
+  .cards.cards22 > ul > li:nth-child(3),
+  .cards.cards22 > ul > li:nth-child(4),
+  .cards.cards22 > ul > li:nth-child(5),
+  .cards.cards22 > ul > li:nth-child(6),
+  .cards.cards22 > ul > li:nth-child(7) {
+    width: 48%;
+    min-width: 150px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards22 > ul > li {
+    width: 100%;
+    min-width: 0;
+    max-width: 420px;
+    margin: 0 auto 28px;
+    float: none;
+  }
+
+  .cards.cards22 .cards-card-body {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .cards.cards22 .cards-card-body h2 {
+    text-align: center;
+    width: 100%;
+    border-bottom: 3px solid #dabd57;
+    padding-bottom: 10px;
+  }
 }
