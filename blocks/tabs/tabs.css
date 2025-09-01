@@ -1610,7 +1610,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs navigation row */
 .tabs.tabs29 .tabs-list {
   display: flex;
   flex-flow: row wrap;
@@ -1623,7 +1622,6 @@
   justify-content: flex-start;
 }
 
-/* Tab buttons */
 .tabs.tabs29 .tabs-list .tabs-tab {
   background: none;
   border: none;
@@ -1658,7 +1656,6 @@
   font: inherit;
 }
 
-/* Tab panel styles */
 .tabs.tabs29 .tabs-panel {
   padding: 0;
   border: none;
@@ -1668,12 +1665,10 @@
   display: block;
 }
 
-/* Hide inactive panels */
 .tabs.tabs29 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Heading styles */
 .tabs.tabs29 .tabs-panel h3 {
   font-family: var(--heading-font-family), serif;
   color: #222;
@@ -1702,7 +1697,6 @@
   content: "";
 }
 
-/* Body text */
 .tabs.tabs29 .tabs-panel p,
 .tabs.tabs29 .tabs-panel li {
   color: #222;
@@ -1715,7 +1709,6 @@
   max-width: 720px;
 }
 
-/* Image styling */
 .tabs.tabs29 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -1728,7 +1721,6 @@
   object-fit: cover;
 }
 
-/* List styles */
 .tabs.tabs29 .tabs-panel ul {
   padding-left: 1.4em;
   margin-bottom: 1.1em;
@@ -1738,7 +1730,6 @@
   margin-bottom: 0.45em;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs29 {
     padding: 22px 4px 26px;
@@ -1768,7 +1759,6 @@
   }
 }
 
-/* Stack tabs vertically on narrow screens if needed */
 @media (width <= 600px) {
   .tabs.tabs29 .tabs-list {
     flex-direction: column;
@@ -1776,4 +1766,177 @@
     align-items: flex-start;
     margin-bottom: 8px;
   }
+}
+
+
+.tabs.tabs31 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--background-color);
+  padding: 70px 0 0;
+  box-sizing: border-box;
+  min-height: 90vh;
+}
+
+/* Sidebar: Tabs List */
+.tabs.tabs31 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 130px;
+  max-width: 140px;
+  width: 11vw;
+  padding: 0;
+  gap: 22px;
+  background: transparent;
+  border: none;
+  height: 100%;
+  margin-top: 0;
+}
+
+.tabs.tabs31 .tabs-tab {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 13.5px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0;
+  border: none;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  text-align: left;
+  line-height: 1.7;
+}
+
+.tabs.tabs31 .tabs-tab[aria-selected='true'] {
+  background: #444;
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.tabs.tabs31 .tabs-tab:focus {
+  outline: 2px solid #e9d87f;
+}
+
+/* Remove default <p> margin in tab buttons */
+.tabs.tabs31 .tabs-tab p {
+  margin: 0;
+}
+
+/* Main Content */
+.tabs.tabs31 .tabs-panel {
+  flex: 1 1 0%;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 0 0 36px;
+  margin: 0 auto 0 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs31 {
+    flex-direction: column;
+    padding: 24px 0 0;
+    min-height: unset;
+  }
+
+  .tabs.tabs31 .tabs-list {
+    flex-direction: row;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 0 24px;
+    height: auto;
+  }
+
+  .tabs.tabs31 .tabs-panel {
+    max-width: 100%;
+    padding: 0 6px;
+  }
+}
+
+/* Headings */
+.tabs.tabs31 h3 {
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 12px;
+  display: inline-block;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #e9d87f;
+  width: max-content;
+}
+
+.tabs.tabs31 h2 {
+  font-family: var(--heading-font-family);
+  font-size: 17px;
+  font-weight: 700;
+  color: #222;
+  margin-top: 18px;
+  margin-bottom: 13px;
+}
+
+/* Paragraph Text */
+.tabs.tabs31 p {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #222;
+  line-height: 1.7;
+  margin-top: 26px;
+  margin-bottom: 26px;
+}
+
+/* Images */
+.tabs.tabs31 picture img {
+  display: block;
+  width: 100%;
+  max-width: 590px;
+  height: auto;
+  margin-bottom: 38px;
+  border-radius: 2px;
+  margin-top: 0;
+}
+
+/* List Styling (for What to Bring tab) */
+.tabs.tabs31 ul {
+  margin: 24px 0 24px 24px;
+  font-size: 15px;
+  color: #222;
+}
+
+.tabs.tabs31 li {
+  margin-bottom: 12px;
+}
+
+/* Hide inactive panels */
+.tabs.tabs31 .tabs-panel[aria-hidden='true'] {
+  display: none;
+  border: none;
 }
