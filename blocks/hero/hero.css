@@ -130,7 +130,6 @@
   background: transparent;
 }
 
-/* Ensure image fills the hero area */
 .hero.hero25 > div:first-child {
   position: relative;
   width: 100%;
@@ -154,7 +153,6 @@
   }
 }
 
-/* Overlay content panel flush at the bottom */
 .hero.hero25 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -167,7 +165,6 @@
   z-index: 2;
 }
 
-/* Card styles - reduced vertical padding for compact look, no bottom margin */
 .hero.hero25 > div:nth-child(2) > div {
   background: #fff;
   box-shadow: 0 2px 16px rgb(0 0 0 / 10%);
@@ -179,7 +176,7 @@
   flex-direction: column;
   align-items: flex-start;
   pointer-events: auto;
-  margin-bottom: 0; /* Remove gap to bottom */
+  margin-bottom: 0;
 }
 
 @media (width <= 900px) {
@@ -189,7 +186,6 @@
   }
 }
 
-/* Heading styles */
 .hero.hero25 h1,
 .hero.hero25 h2,
 .hero.hero25 h3,
@@ -204,7 +200,6 @@
   line-height: 1.15;
 }
 
-/* Description text */
 .hero.hero25 p {
   color: #222;
   font-family: var(--body-font-family), sans-serif;
@@ -214,7 +209,6 @@
   max-width: 100%;
 }
 
-/* Button left-aligned, not centered */
 .hero.hero25 .button-container {
   width: 100%;
   display: flex;
@@ -222,7 +216,6 @@
   margin: 0;
 }
 
-/* Button override for hero */
 .hero-container > .hero-wrapper > .block.hero .button,
 .hero.hero25 .button {
   background: #ffe600;
@@ -245,4 +238,130 @@
   background: #ffe600;
   color: #000;
   text-decoration: underline;
+}
+
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero38 {
+  position: relative;
+  width: 100vw;
+  min-height: 440px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Position the image absolutely as a background, behind the panel */
+.hero.hero38 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero.hero38 > div:first-child picture,
+.hero.hero38 > div:first-child img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay panel at bottom, flush with image, with max-width for content alignment */
+.hero.hero38 > div:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  z-index: 2;
+  box-sizing: border-box;
+  width: 100vw;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 2.5%); /* subtle shadow for depth */
+}
+
+/* Inner content container for max-width, padding, and left alignment */
+.hero.hero38 > div:last-child > div {
+  width: 96vw;
+  max-width: 1200px;
+  padding: 2.5rem 2.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Typography and style */
+.hero.hero38 h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.hero.hero38 p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.hero.hero38 h2,
+.hero.hero38 p {
+  color: inherit;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero38 {
+    min-height: 300px;
+  }
+
+  .hero.hero38 > div:last-child > div {
+    width: 98vw;
+    max-width: 98vw;
+    padding: 1.75rem 1.25rem 1.25rem;
+  }
+
+  .hero.hero38 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero38 {
+    min-height: 200px;
+  }
+
+  .hero.hero38 > div:last-child > div {
+    width: 99vw;
+    max-width: 99vw;
+    padding: 1rem 0.5rem 0.75rem;
+  }
+
+  .hero.hero38 h2 {
+    font-size: var(--heading-font-size-m);
+  }
+
+  .hero.hero38 p {
+    font-size: var(--body-font-size-s);
+  }
 }
