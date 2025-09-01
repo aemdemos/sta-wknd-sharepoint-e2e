@@ -2498,7 +2498,6 @@
   min-height: 600px;
 }
 
-/* SIDEBAR: Only Tab Navigation */
 .tabs.tabs36 > .tabs-list {
   flex: 0 0 210px;
   display: flex;
@@ -2513,7 +2512,6 @@
   gap: 0;
 }
 
-/* Style the tab navigation as section heading */
 .tabs.tabs36 > .tabs-list .tabs-tab {
   display: block;
   width: 100%;
@@ -2534,12 +2532,10 @@
   cursor: pointer;
 }
 
-/* Hide everything except the tab(s) in the sidebar */
 .tabs.tabs36 > .tabs-list > *:not(.tabs-tab) {
   display: none;
 }
 
-/* MAIN CONTENT COLUMN */
 .tabs.tabs36 > .tabs-panel {
   flex: 1 1 0%;
   min-width: 0;
@@ -2553,12 +2549,10 @@
   justify-content: flex-start;
 }
 
-/* Move any image/caption/intro out of the sidebar visually and style them correctly in the panel */
 .tabs.tabs36 > .tabs-panel > .tabs-tab {
   display: none;
 }
 
-/* FIRST IMAGE + CAPTION + SUMMARY IN PANEL (if present) */
 .tabs.tabs36 > .tabs-panel picture:first-child {
   display: block;
   margin: 0 0 16px;
@@ -2576,7 +2570,6 @@
   object-fit: cover;
 }
 
-/* Caption just beneath the image (first p after picture) */
 .tabs.tabs36 > .tabs-panel picture + p {
   font-size: 0.96rem;
   font-weight: 700;
@@ -2587,7 +2580,6 @@
   line-height: 1.2;
 }
 
-/* Main description text (first p after caption) */
 .tabs.tabs36 > .tabs-panel picture + p + p {
   font-size: 1.08rem;
   color: #222;
@@ -2598,7 +2590,6 @@
   font-weight: 400;
 }
 
-/* Resort headings in panel for hierarchy */
 .tabs.tabs36 > .tabs-panel h2,
 .tabs.tabs36 > .tabs-panel h3 {
   font-family: var(--heading-font-family);
@@ -2610,7 +2601,6 @@
   line-height: 1.22;
 }
 
-/* Bullet/ul tweaks for packing */
 .tabs.tabs36 > .tabs-panel ul {
   margin: 16px 0 24px 18px;
   padding-left: 1.1em;
@@ -2623,12 +2613,10 @@
   line-height: 1.5;
 }
 
-/* Remove bottom margin from the last child */
 .tabs.tabs36 > .tabs-panel > *:last-child {
   margin-bottom: 0;
 }
 
-/* Responsive: stack columns vertically */
 @media (width <= 900px) {
   .tabs.tabs36 {
     flex-direction: column;
@@ -2665,7 +2653,6 @@
   }
 }
 
-/* Extra small screens: tighter stack and padding */
 @media (width <= 600px) {
   .tabs.tabs36 > .tabs-list {
     padding: 10px 4px 0;
@@ -2675,5 +2662,132 @@
 
   .tabs.tabs36 > .tabs-panel {
     padding: 14px 4px 22px;
+  }
+}
+
+
+/* Tighter grid for main block: narrower sidebar, better content proportions */
+.tabs.tabs37 .tabs-panel#tabpanel-overview > div {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: start;
+  gap: 0 36px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Title in sidebar */
+.tabs.tabs37 .tabs-panel#tabpanel-overview > div > h3 {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--heading-font-family);
+  font-size: 2.2em;
+  font-weight: 400;
+  color: #222;
+  border-bottom: 4px solid #F7C873;
+  padding-bottom: 8px;
+  margin-bottom: 0;
+  align-self: start;
+}
+
+/* Image and description stacked in right column */
+.tabs.tabs37 .tabs-panel#tabpanel-overview > div > p:nth-child(2),
+.tabs.tabs37 .tabs-panel#tabpanel-overview > div > p:nth-child(3) {
+  grid-column: 2;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.tabs.tabs37 .tabs-panel#tabpanel-overview > div > p:nth-child(2) {
+  margin-top: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Make image fill right column, flush left */
+.tabs.tabs37 .tabs-panel#tabpanel-overview > div > p:nth-child(2) picture,
+.tabs.tabs37 .tabs-panel#tabpanel-overview > div > p:nth-child(2) img {
+  width: 100%;
+  max-width: 740px;
+  min-width: 0;
+  display: block;
+  height: auto;
+  margin-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+  align-self: flex-start;
+}
+
+/* Description paragraph: restrict max-width for readability and align left */
+.tabs.tabs37 .tabs-panel#tabpanel-overview > div > p:nth-child(3) {
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 740px;
+  color: #222;
+  font-size: 1.1em;
+  line-height: 1.6;
+  align-self: flex-start;
+}
+
+/* Tabs container: restrict to block width and align with grid */
+.tabs.tabs37 .tabs-list {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-left: 0;
+  border: none;
+  background: transparent;
+  font-size: var(--body-font-size-m);
+  overflow-x: auto;
+  justify-content: flex-start;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tab appearance for visual consistency */
+.tabs.tabs37 .tabs-list button {
+  background: transparent;
+  color: #222;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  padding: 10px 32px 8px;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1em;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.tabs.tabs37 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .tabs.tabs37 .tabs-panel#tabpanel-overview > div,
+  .tabs.tabs37 .tabs-list {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 0;
+  }
+
+  .tabs.tabs37 .tabs-panel#tabpanel-overview > div > h3,
+  .tabs.tabs37 .tabs-panel#tabpanel-overview > div > p:nth-child(2),
+  .tabs.tabs37 .tabs-panel#tabpanel-overview > div > p:nth-child(3) {
+    grid-column: 1;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .tabs.tabs37 .tabs-panel#tabpanel-overview > div > p:nth-child(2) {
+    margin-bottom: 16px;
   }
 }
