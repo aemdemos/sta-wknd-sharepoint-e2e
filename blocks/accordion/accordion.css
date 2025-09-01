@@ -88,7 +88,6 @@
   border-bottom: none;
 }
 
-/* FAQ row: flex, ultra-compact, icon tightly grouped */
 .accordion.accordion7 summary,
 .accordion.accordion7 .accordion-item-label {
   display: flex;
@@ -113,8 +112,6 @@
   padding-right: 6px;
 }
 
-/* Remove extra right space for icon, keep icon close to label */
-
 .accordion.accordion7 summary::-webkit-details-marker,
 .accordion.accordion7 summary::marker {
   display: none;
@@ -130,7 +127,6 @@
   min-width: 0;
 }
 
-/* Icon: ultra-thin, minimal, as close as possible */
 .accordion.accordion7 summary::after,
 .accordion.accordion7 .accordion-item-label::after {
   display: inline-block;
@@ -148,7 +144,6 @@
   pointer-events: none;
 }
 
-/* Horizontal line for minus (always shown) */
 .accordion.accordion7 summary::before,
 .accordion.accordion7 .accordion-item-label::before {
   content: "";
@@ -163,7 +158,6 @@
   pointer-events: none;
 }
 
-/* Vertical line for plus (hidden when open) */
 .accordion.accordion7 details:not([open]) summary::after,
 .accordion.accordion7 details:not([open]) .accordion-item-label::after {
   content: "";
@@ -178,13 +172,11 @@
   pointer-events: none;
 }
 
-/* Hide vertical line for minus when open */
 .accordion.accordion7 details[open] summary::after,
 .accordion.accordion7 details[open] .accordion-item-label::after {
   display: none;
 }
 
-/* FAQ answer body: smaller, even more compact */
 .accordion.accordion7 .accordion-item-body {
   font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   font-size: 11px;
@@ -196,7 +188,6 @@
   margin: 0;
 }
 
-/* Remove extra box and border when open */
 .accordion.accordion7 details[open] .accordion-item-body {
   background: none;
   border: none;
@@ -206,11 +197,146 @@
   outline: none;
 }
 
-/* Responsive: left-aligned and max-width on small screens */
 @media (width <= 900px) {
   .accordion.accordion7 {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+  }
+}
+
+
+.accordion.accordion30 {
+  max-width: 900px;
+  margin: 100px auto 0;
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0 12px 48px 0 rgb(20 30 40 / 9%);
+  border: none;
+  padding: 0;
+  display: block;
+}
+
+/* Remove borders and box-shadow on details */
+.accordion.accordion30 details {
+  border: none;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+}
+
+/* Divider between items */
+.accordion.accordion30 details:not(:last-of-type) {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+/* Use CSS Grid to perfectly align header/content and arrow */
+.accordion.accordion30 details summary {
+  display: grid;
+  grid-template-columns: auto min-content;
+  align-items: center;
+  min-height: 200px;
+  padding: 0 64px;
+  background: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: 400;
+  position: relative;
+  transition: background 0.2s;
+  gap: 48px;
+}
+
+/* Remove highlight on open */
+.accordion.accordion30 details[open] summary {
+  background: none;
+}
+
+.accordion.accordion30 details summary h2 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--heading-font-family);
+  font-size: 2.9rem;
+  color: #bfa04a;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  place-self: center start;
+}
+
+/* Arrow: even lighter, smaller, visually aligned with header */
+.accordion.accordion30 details summary::after {
+  display: inline-block;
+  border: solid #bfa04a;
+  border-width: 0 2px 2px 0;
+  width: 18px;
+  height: 18px;
+  margin-left: 0;
+  margin-right: 0;
+  vertical-align: middle;
+  place-self: center end;
+  transform: rotate(45deg) scale(0.75);
+  transition: transform 0.2s;
+  background: none;
+}
+
+.accordion.accordion30 details[open] summary::after {
+  transform: rotate(-135deg) scale(0.75);
+}
+
+/* Hide default marker */
+.accordion.accordion30 details summary::-webkit-details-marker,
+.accordion.accordion30 details summary::marker {
+  display: none;
+}
+
+/* Accordion body/content area */
+.accordion.accordion30 details .accordion-item-body {
+  padding: 0 64px 48px;
+  background: none;
+  border: none;
+  color: #222;
+  font-family: var(--body-font-family), serif;
+  font-size: 1.18rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsive: reduce padding and font size on small screens */
+@media (width <= 900px) {
+  .accordion.accordion30 {
+    max-width: 100vw;
+    border-radius: 16px;
+    margin-top: 32px;
+  }
+
+  .accordion.accordion30 details summary,
+  .accordion.accordion30 details .accordion-item-body {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .accordion.accordion30 details summary {
+    min-height: 80px;
+    padding-left: 14px;
+    padding-right: 14px;
+    gap: 16px;
+  }
+
+  .accordion.accordion30 details summary h2 {
+    font-size: 1.35rem;
+  }
+
+  .accordion.accordion30 details .accordion-item-body {
+    padding-bottom: 20px;
+  }
+
+  .accordion.accordion30 details summary::after {
+    width: 14px;
+    height: 14px;
   }
 }
