@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,159 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion7 {
+  max-width: 400px;
+  margin-left: 0;
+  margin-right: auto;
+  background: #fff;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.accordion.accordion7 .accordion7.block {
+  width: 100%;
+}
+
+.accordion.accordion7 details,
+.accordion.accordion7 .accordion-item {
+  border: none;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  border-bottom: 1px solid #eee;
+}
+
+.accordion.accordion7 details:last-of-type,
+.accordion.accordion7 .accordion-item:last-of-type {
+  border-bottom: none;
+}
+
+/* FAQ row: flex, ultra-compact, icon tightly grouped */
+.accordion.accordion7 summary,
+.accordion.accordion7 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #222;
+  padding: 2px 0;
+  cursor: pointer;
+  border: none;
+  background: none;
+  position: relative;
+  min-height: 22px;
+  outline: none;
+  gap: 2px;
+  box-sizing: border-box;
+  letter-spacing: 0.02em;
+  padding-right: 6px;
+}
+
+/* Remove extra right space for icon, keep icon close to label */
+
+.accordion.accordion7 summary::-webkit-details-marker,
+.accordion.accordion7 summary::marker {
+  display: none;
+}
+
+.accordion.accordion7 .accordion-item-label p,
+.accordion.accordion7 summary p {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Icon: ultra-thin, minimal, as close as possible */
+.accordion.accordion7 summary::after,
+.accordion.accordion7 .accordion-item-label::after {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  margin-left: 2px;
+  background: none;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+/* Horizontal line for minus (always shown) */
+.accordion.accordion7 summary::before,
+.accordion.accordion7 .accordion-item-label::before {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  width: 8px;
+  height: 0.5px;
+  background: #888;
+  border-radius: 1px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Vertical line for plus (hidden when open) */
+.accordion.accordion7 details:not([open]) summary::after,
+.accordion.accordion7 details:not([open]) .accordion-item-label::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  width: 0.5px;
+  height: 8px;
+  background: #888;
+  border-radius: 1px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Hide vertical line for minus when open */
+.accordion.accordion7 details[open] summary::after,
+.accordion.accordion7 details[open] .accordion-item-label::after {
+  display: none;
+}
+
+/* FAQ answer body: smaller, even more compact */
+.accordion.accordion7 .accordion-item-body {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  color: #222;
+  line-height: 1.45;
+  padding: 3px 0 4px;
+  background: none;
+  border: none;
+  margin: 0;
+}
+
+/* Remove extra box and border when open */
+.accordion.accordion7 details[open] .accordion-item-body {
+  background: none;
+  border: none;
+}
+
+.accordion.accordion7 summary:focus {
+  outline: none;
+}
+
+/* Responsive: left-aligned and max-width on small screens */
+@media (width <= 900px) {
+  .accordion.accordion7 {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
