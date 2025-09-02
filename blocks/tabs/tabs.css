@@ -1995,7 +1995,6 @@
   padding: 0;
 }
 
-/* Sidebar: perfectly align first tab with title */
 .tabs.tabs36 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -2008,7 +2007,6 @@
   justify-content: flex-start;
 }
 
-/* Tab buttons: slightly more horizontal padding */
 .tabs.tabs36 .tabs-list .tabs-tab {
   border: none;
   background: transparent;
@@ -2050,7 +2048,6 @@
   text-transform: inherit;
 }
 
-/* Main content area */
 .tabs.tabs36 .tabs-panel {
   padding: 0;
   border: none;
@@ -2073,7 +2070,6 @@
   padding: 0;
 }
 
-/* Title styling and accent bar */
 .tabs.tabs36 .tabs-panel > div > h3 {
   font-size: 2em;
   font-weight: 400;
@@ -2095,7 +2091,6 @@
   content: "";
 }
 
-/* Paragraph width and spacing */
 .tabs.tabs36 .tabs-panel > div > p {
   font-size: 1em;
   color: #222;
@@ -2105,7 +2100,6 @@
   max-width: 510px;
 }
 
-/* Image: left-aligned and fills content area */
 .tabs.tabs36 .tabs-panel img {
   display: block;
   width: 100%;
@@ -2119,7 +2113,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack tabs above content on small screens */
 @media (width <= 900px) {
   .tabs.tabs36 {
     grid-template-columns: 1fr;
@@ -2161,4 +2154,127 @@
   .tabs.tabs36 .tabs-panel > div > h3::after {
     margin-bottom: 14px;
   }
+}
+
+
+/* EXPERIMENT 5: Use CSS Grid for true two-column layout under the heading */
+
+/* Make the main panel content grid-based */
+.tabs.tabs37 .tabs-panel[aria-hidden="false"] > div {
+  display: grid;
+  grid-template: "title title" auto "image description" 1fr / 58% 42%;
+  gap: 0 40px;
+  align-items: start;
+}
+
+/* Heading spans both columns */
+.tabs.tabs37 .tabs-panel[aria-hidden="false"] > div > h3 {
+  grid-area: title;
+  font-size: 32px;
+  color: #222;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 24px;
+  position: relative;
+  line-height: 1.2;
+}
+
+/* Heading underline */
+.tabs.tabs37 .tabs-panel[aria-hidden="false"] > div > h3::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #F5C84C;
+  margin-top: 8px;
+  border-radius: 2px;
+  content: "";
+}
+
+/* Image/caption column */
+.tabs.tabs37 .tabs-panel[aria-hidden="false"] > div > p:first-of-type {
+  grid-area: image;
+  font-size: 12px;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1.4;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs37 .tabs-panel[aria-hidden="false"] > div > p:first-of-type picture img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+/* Description column */
+.tabs.tabs37 .tabs-panel[aria-hidden="false"] > div > p:nth-of-type(2) {
+  grid-area: description;
+  font-size: 14px;
+  color: #222;
+  line-height: 1.7;
+  font-weight: normal;
+  margin: 0;
+  align-self: start;
+  max-width: 520px;
+}
+
+/* Responsive stacking on mobile/tablet */
+@media (width <= 899px) {
+  .tabs.tabs37 .tabs-panel[aria-hidden="false"] > div {
+    display: block;
+  }
+
+  .tabs.tabs37 .tabs-panel[aria-hidden="false"] > div > h3,
+  .tabs.tabs37 .tabs-panel[aria-hidden="false"] > div > p:first-of-type,
+  .tabs.tabs37 .tabs-panel[aria-hidden="false"] > div > p:nth-of-type(2) {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .tabs.tabs37 .tabs-panel[aria-hidden="false"] > div > p:nth-of-type(2) {
+    margin-bottom: 0;
+  }
+}
+
+/* Tabs styles remain the same */
+.tabs.tabs37 .tabs-list {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  border: none;
+  font-size: var(--body-font-size-s);
+  background: transparent;
+  padding: 0;
+}
+
+.tabs.tabs37 .tabs-list button {
+  padding: 12px 32px;
+  border: 1px solid #222;
+  border-radius: 8px 8px 0 0;
+  background: #fff;
+  color: #222;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  border-bottom: none;
+}
+
+.tabs.tabs37 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  border-bottom: none;
 }
