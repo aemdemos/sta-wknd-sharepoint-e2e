@@ -377,12 +377,10 @@
   margin-right: auto;
 }
 
-/* Ensure direct children are grid items */
 .tabs.tabs8 > div {
   min-width: 0;
 }
 
-/* Sidebar (first column) */
 .tabs.tabs8 > div:first-child {
   grid-column: 1;
   grid-row: 1;
@@ -397,7 +395,6 @@
   justify-self: start;
 }
 
-/* Main content (second column) */
 .tabs.tabs8 > div:last-child {
   grid-column: 2;
   grid-row: 1;
@@ -408,7 +405,6 @@
   width: 100%;
 }
 
-/* Tabs row at the top of main content */
 .tabs.tabs8 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -422,7 +418,6 @@
   width: 100%;
 }
 
-/* Tab button styling */
 .tabs.tabs8 .tabs-list button {
   border: none;
   border-radius: 3px;
@@ -453,7 +448,6 @@
   padding: 0;
 }
 
-/* Sidebar info styles (if any) */
 .tabs.tabs8 > div:first-child span,
 .tabs.tabs8 > div:first-child strong {
   display: block;
@@ -483,7 +477,6 @@
   margin-top: 40px;
 }
 
-/* Main content panel */
 .tabs.tabs8 .tabs-panel {
   margin-top: 0;
   padding: 0;
@@ -496,12 +489,10 @@
   width: 100%;
 }
 
-/* Hide inactive tab panels */
 .tabs.tabs8 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Heading styles */
 .tabs.tabs8 .tabs-panel h3 {
   font-size: 30px;
   font-weight: 400;
@@ -522,7 +513,6 @@
   content: "";
 }
 
-/* Paragraphs and lists */
 .tabs.tabs8 .tabs-panel > p {
   font-size: 15px;
   color: #222;
@@ -541,7 +531,6 @@
   margin-bottom: 8px;
 }
 
-/* Images in main content */
 .tabs.tabs8 .tabs-panel picture {
   display: block;
   margin: 32px auto 0;
@@ -558,12 +547,10 @@
   box-shadow: none;
 }
 
-/* Vertical spacing between stacked images */
 .tabs.tabs8 .tabs-panel picture + picture {
   margin-top: 28px;
 }
 
-/* Responsive: stack sidebar and main on smaller screens */
 @media (width <= 900px) {
   .tabs.tabs8 {
     grid-template-columns: 1fr;
@@ -587,5 +574,173 @@
   .tabs.tabs8 .tabs-panel picture {
     max-width: 100%;
     margin-top: 24px;
+  }
+}
+
+
+.tabs.tabs20 {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: start;
+  max-width: 950px;
+  margin-left: 60px;
+  margin-right: auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tabs row: always left-aligned, not full-width */
+.tabs.tabs20 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 48px;
+  margin-bottom: 36px;
+  padding: 0;
+  width: auto;
+  max-width: 720px;
+}
+
+/* Tab button styles */
+.tabs.tabs20 .tabs-list button {
+  background: #fff;
+  color: #222;
+  border: 1.5px solid #222;
+  border-radius: 3px;
+  padding: 11px 36px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-align: center;
+  min-width: 140px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+.tabs.tabs20 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 1.5px solid #222;
+  font-weight: 700;
+}
+
+.tabs.tabs20 .tabs-list button p {
+  margin: 0;
+}
+
+/* Main content alignment and spacing */
+.tabs.tabs20 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 800px;
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Heading with underline accent */
+.tabs.tabs20 .tabs-panel h3,
+.tabs.tabs20 .tabs-panel h2,
+.tabs.tabs20 .tabs-panel h1 {
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+  border-bottom: 0.23rem solid #f5d76e;
+  display: inline-block;
+  padding-bottom: 7px;
+}
+
+/* Image styling */
+.tabs.tabs20 .tabs-panel picture,
+.tabs.tabs20 .tabs-panel img {
+  display: block;
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-top: 0;
+  margin-bottom: 36px;
+  background: none;
+  box-shadow: none;
+}
+
+.tabs.tabs20 .tabs-panel img {
+  border-radius: 16px;
+}
+
+/* Paragraph and list styling */
+.tabs.tabs20 .tabs-panel p,
+.tabs.tabs20 .tabs-panel ul,
+.tabs.tabs20 .tabs-panel ol {
+  color: #222;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 28px;
+  max-width: 800px;
+  padding: 0;
+  text-align: left;
+  font-weight: 400;
+}
+
+.tabs.tabs20 .tabs-panel ul,
+.tabs.tabs20 .tabs-panel ol {
+  padding-left: 28px;
+}
+
+.tabs.tabs20 .tabs-panel li {
+  font-size: 17px;
+  color: #222;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Remove any border or box shadow from the panel */
+.tabs.tabs20 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Responsive: allow full width and reduce left margin on small screens */
+@media (width <= 900px) {
+  .tabs.tabs20 {
+    max-width: 100%;
+    margin-left: 0;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs20 .tabs-list {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs20 .tabs-list button {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .tabs.tabs20 .tabs-panel picture,
+  .tabs.tabs20 .tabs-panel img,
+  .tabs.tabs20 .tabs-panel p,
+  .tabs.tabs20 .tabs-panel ul,
+  .tabs.tabs20 .tabs-panel ol,
+  .tabs.tabs20 .tabs-panel > div {
+    max-width: 100%;
   }
 }
