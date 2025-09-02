@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
@@ -61,7 +62,6 @@
 
 
 .accordion.accordion15 {
-  /* Center within content column, not the full viewport */
   max-width: 700px;
   width: 100%;
   margin-left: auto;
@@ -72,7 +72,6 @@
   background: transparent;
 }
 
-/* Accordion items: consistently separated with light bottom border */
 .accordion.accordion15 details {
   border: none;
   margin: 0;
@@ -83,12 +82,10 @@
   display: block;
 }
 
-/* Remove border from last item */
 .accordion.accordion15 details:last-of-type {
   border-bottom: none;
 }
 
-/* FAQ summary row: strong padding, flex for marker, improved vertical rhythm and darker color */
 .accordion.accordion15 details summary {
   font-weight: 600;
   text-transform: uppercase;
@@ -110,20 +107,17 @@
   box-sizing: border-box;
 }
 
-/* Remove highlight on hover/focus/open for summary */
 .accordion.accordion15 details summary:focus,
 .accordion.accordion15 details summary:hover,
 .accordion.accordion15 details[open] summary {
   background: none;
 }
 
-/* Hide default marker for all browsers */
 .accordion.accordion15 details summary::-webkit-details-marker,
 .accordion.accordion15 details summary::marker {
   display: none;
 }
 
-/* FAQ question text: left aligned, with right space for icon */
 .accordion.accordion15 details summary > p {
   margin: 0;
   flex: 1 1 auto;
@@ -137,7 +131,6 @@
   padding-right: 24px;
 }
 
-/* Marker: larger, heavier, with extra gap */
 .accordion.accordion15 details summary *:last-child {
   margin-left: auto;
   font-size: 2em;
@@ -148,7 +141,6 @@
   align-items: center;
 }
 
-/* FAQ answer/body: generous padding, flush with questions */
 .accordion.accordion15 details .accordion-item-body {
   box-sizing: border-box;
   padding: 22px 44px 26px 32px;
@@ -159,7 +151,6 @@
   border-top: none;
 }
 
-/* Responsive: maintain padding, but reduce for small screens */
 @media (width <= 900px) {
   .accordion.accordion15 {
     max-width: 100%;
@@ -180,4 +171,118 @@
     padding-right: 8px;
     min-height: 48px;
   }
+}
+
+
+.accordion.accordion17 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 980px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  gap: 56px;
+}
+
+/* Responsive: stack columns on mobile */
+@media (width <= 900px) {
+  .accordion.accordion17 {
+    flex-direction: column;
+    gap: 0;
+    padding: 24px 8px;
+  }
+}
+
+/* Make sure all details are visible and participating in flex */
+.accordion.accordion17 > details.accordion-item {
+  display: block;
+  min-width: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Main content: all but last child fill available space */
+.accordion.accordion17 > details.accordion-item:not(:last-child) {
+  flex: 1 1 0;
+  margin-bottom: 40px;
+}
+
+/* Sidebar: last child fixed width and separated visually */
+.accordion.accordion17 > details.accordion-item:last-child {
+  flex: 0 0 320px;
+  max-width: 320px;
+  min-width: 220px;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-left: 32px;
+  border-left: 1px solid #e0e0e0;
+  color: #b2b2b2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 200px;
+  background: none;
+}
+
+/* Responsive: sidebar below main content */
+@media (width <= 900px) {
+  .accordion.accordion17 > details.accordion-item:last-child {
+    flex: 1 1 0;
+    max-width: none;
+    min-width: 0;
+    padding-left: 0;
+    border-left: none;
+    margin-top: 32px;
+    min-height: 0;
+  }
+}
+
+/* Hide summary elements but keep details body visible */
+.accordion.accordion17 details > summary {
+  display: none;
+}
+
+/* Spacing and structure for main content blocks */
+.accordion.accordion17 .accordion-item-body {
+  padding: 0;
+  margin: 0;
+  color: #212121;
+  font-size: 1rem;
+  line-height: 1.7;
+  word-break: break-all;
+  background: transparent;
+}
+
+/* Spacing between main content sections */
+.accordion.accordion17 > details.accordion-item:not(:last-child) .accordion-item-body {
+  margin-bottom: 24px;
+}
+
+/* Sidebar content styling */
+.accordion.accordion17 > details.accordion-item:last-child .accordion-item-body {
+  color: #b2b2b2;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  background: transparent;
+}
+
+/* Remove margin between adjacent details to avoid double spacing */
+.accordion.accordion17 > details.accordion-item + details.accordion-item {
+  margin-top: 0;
+}
+
+/* Images in content: full width and vertical spacing */
+.accordion.accordion17 .accordion-item-body img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 32px 0;
+  border-radius: 2px;
+  height: auto;
 }
