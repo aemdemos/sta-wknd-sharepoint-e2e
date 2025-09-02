@@ -1386,7 +1386,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack on mobile */
 @media (width <= 900px) {
   .tabs.tabs30 {
     flex-direction: column;
@@ -1394,7 +1393,6 @@
   }
 }
 
-/* --- SIDEBAR --- */
 .tabs.tabs30 > div:first-child {
   flex: 0 0 180px;
   max-width: 180px;
@@ -1407,7 +1405,6 @@
   gap: 22px;
 }
 
-/* Sidebar items as simple text, not pills */
 .tabs.tabs30 > div:first-child > * {
   width: 100%;
   color: #222;
@@ -1423,7 +1420,6 @@
   text-align: left;
 }
 
-/* Remove tab-like styling from sidebar nav elements */
 .tabs.tabs30 > div:first-child > *[aria-selected],
 .tabs.tabs30 > div:first-child > *:not([aria-selected]) {
   background: transparent;
@@ -1436,7 +1432,6 @@
   opacity: 1;
 }
 
-/* --- MAIN CONTENT --- */
 .tabs.tabs30 > div:last-child {
   flex: 1 1 0;
   min-width: 0;
@@ -1450,7 +1445,6 @@
   padding-top: 32px;
 }
 
-/* --- TABS LIST: horizontal row above main content --- */
 .tabs.tabs30 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1464,7 +1458,6 @@
   justify-content: flex-start;
 }
 
-/* Tab Buttons: pill look, uppercase, bold, active state */
 .tabs.tabs30 .tabs-list button {
   padding: 10px 26px;
   background: transparent;
@@ -1499,13 +1492,11 @@
   background: #f5f5f5;
 }
 
-/* Remove borders from legacy tabs styles */
 .tabs.tabs30 .tabs-list button,
 .tabs.tabs30 .tabs-list button[aria-selected='true'] {
   border: none;
 }
 
-/* --- Remove unwanted bullets from extraneous lists --- */
 .tabs.tabs30 .tabs-panel ul:empty,
 .tabs.tabs30 .tabs-panel ul:not([data-keep]) {
   list-style: none;
@@ -1513,7 +1504,6 @@
   padding-left: 0;
 }
 
-/* --- TABS PANEL CONTENT --- */
 .tabs.tabs30 .tabs-panel {
   border: none;
   padding: 0;
@@ -1531,7 +1521,6 @@
   gap: 0;
 }
 
-/* --- Heading: tight to tabs, left-aligned --- */
 .tabs.tabs30 .tabs-panel h3 {
   font-size: 32px;
   font-weight: 700;
@@ -1543,7 +1532,6 @@
   text-align: left;
 }
 
-/* --- Image section --- */
 .tabs.tabs30 .tabs-panel picture {
   display: block;
   width: 100%;
@@ -1558,7 +1546,6 @@
   margin: 0;
 }
 
-/* --- Caption styling --- */
 .tabs.tabs30 .tabs-panel > div > p:first-of-type {
   font-size: 15px;
   font-weight: 700;
@@ -1571,7 +1558,6 @@
   text-align: left;
 }
 
-/* --- Body text --- */
 .tabs.tabs30 .tabs-panel > div > p:last-of-type {
   font-size: 16px;
   color: #444;
@@ -1581,7 +1567,6 @@
   text-align: left;
 }
 
-/* --- List styling for "What to Bring" tab only --- */
 .tabs.tabs30 .tabs-panel ul {
   margin: 0 0 0 18px;
   padding-left: 16px;
@@ -1592,7 +1577,6 @@
   list-style: disc;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs30 > div:first-child {
     max-width: 100%;
@@ -1623,11 +1607,185 @@
   }
 }
 
-/* Utility: remove unwanted margin from first/last children in main content */
 .tabs.tabs30 .tabs-panel > div > *:first-child {
   margin-top: 0;
 }
 
 .tabs.tabs30 .tabs-panel > div > *:last-child {
   margin-bottom: 0;
+}
+
+
+.tabs.tabs33 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto; /* Remove top margin to anchor block at page top */
+  background: var(--background-color);
+  border: none;
+  padding: 48px 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Sidebar: .tabs-list */
+.tabs.tabs33 > .tabs-list {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px; /* Tight grouping */
+  padding-top: 0;
+  margin-top: 0; /* Align to top */
+  min-width: 0;
+  border: none;
+  box-sizing: border-box;
+  margin-right: 48px;
+}
+
+/* Tabs: Vertical, visually sidebar items */
+.tabs.tabs33 > .tabs-list .tabs-tab {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: none;
+  background: none;
+  text-align: left;
+  padding: 0;
+}
+
+.tabs.tabs33 > .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 10px 16px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #232323;
+  background: none;
+  border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tabs.tabs33 > .tabs-list .tabs-tab[aria-selected='true'] p {
+  background: #232323;
+  color: #fff;
+}
+
+.tabs.tabs33 > .tabs-list .tabs-tab[aria-selected='false'] p {
+  background: none;
+  color: #232323;
+}
+
+/* Main content area */
+.tabs.tabs33 > .tabs-panel {
+  flex: 1 1 0%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+  min-width: 0;
+}
+
+/* Hide tab panels by default, only show active */
+.tabs.tabs33 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Heading alignment */
+.tabs.tabs33 > .tabs-panel > div > h3 {
+  display: inline-block;
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  color: #232323;
+  line-height: 1.2;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0 0 10px;
+  border-bottom: 5px solid #eacd56;
+  width: auto;
+  max-width: 100%;
+  background: transparent;
+}
+
+/* More separation below accent line */
+.tabs.tabs33 > .tabs-panel > div > h3 + h2 {
+  margin-top: 32px;
+}
+
+/* Main headline (h2) */
+.tabs.tabs33 > .tabs-panel > div > h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: #232323;
+  line-height: 1.25;
+  display: block;
+}
+
+/* Images */
+.tabs.tabs33 > .tabs-panel picture,
+.tabs.tabs33 > .tabs-panel img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 28px;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 10%);
+}
+
+/* Body text */
+.tabs.tabs33 > .tabs-panel > div > p {
+  font-size: var(--body-font-size-m);
+  color: #232323;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs33 {
+    flex-direction: column;
+    margin: 0;
+    max-width: 100%;
+    padding: 24px 8px 32px;
+  }
+
+  .tabs.tabs33 > .tabs-list {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0 0 24px;
+    padding-top: 0;
+    min-width: unset;
+    width: 100%;
+  }
+
+  .tabs.tabs33 > .tabs-panel {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .tabs.tabs33 > .tabs-panel > div > h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    display: block;
+  }
+
+  .tabs.tabs33 > .tabs-panel > div > h3 + h2 {
+    margin-top: 24px;
+  }
+}
+
+/* Remove any border or background from nested elements for a clean look */
+.tabs.tabs33 * {
+  box-shadow: none;
+  border: none;
+  background: none;
 }
