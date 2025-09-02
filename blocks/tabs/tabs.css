@@ -1077,13 +1077,6 @@
   }
 }
 
-
-/* 
- * Improved layout for .tabs.tabs25: 
- * Uses CSS Grid on .tabs-list to split sidebar (first button) and main content (second button) into correct columns.
- * Main content (second button) uses Flexbox to arrange tabs row and vertical content.
- */
-
 .tabs.tabs25 {
   display: flex;
   flex-direction: row;
@@ -1094,7 +1087,6 @@
   padding: 0;
 }
 
-/* Sidebar and main content columns (using grid in .tabs-list) */
 .tabs.tabs25 > .tabs-list {
   display: grid;
   grid-template-columns: 180px 1fr;
@@ -1106,7 +1098,6 @@
   background: var(--background-color);
 }
 
-/* On mobile, stack sidebar above content */
 @media (width <= 900px) {
   .tabs.tabs25 > .tabs-list {
     display: block;
@@ -1115,7 +1106,6 @@
   }
 }
 
-/* SIDEBAR: First button in .tabs-list gets its own column */
 .tabs.tabs25 > .tabs-list > .tabs-tab:first-child {
   grid-column: 1;
   grid-row: 1;
@@ -1131,7 +1121,6 @@
   z-index: 1;
 }
 
-/* Sidebar title styling and yellow underline */
 .tabs.tabs25 > .tabs-list > .tabs-tab:first-child h3 {
   font-size: var(--heading-font-size-l);
   font-weight: 600;
@@ -1143,7 +1132,6 @@
   display: inline-block;
 }
 
-/* MAIN CONTENT: Second button in .tabs-list gets its own column */
 .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) {
   grid-column: 2;
   grid-row: 1;
@@ -1159,7 +1147,6 @@
   z-index: 2;
 }
 
-/* On mobile, stack main content vertically */
 @media (width <= 900px) {
   .tabs.tabs25 > .tabs-list > .tabs-tab:first-child,
   .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) {
@@ -1170,7 +1157,6 @@
   }
 }
 
-/* GROUP TABS ROW: In main content, group tab navigation horizontally above headline */
 .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) > p {
   display: flex;
   flex-direction: row;
@@ -1185,7 +1171,6 @@
   justify-content: flex-start;
 }
 
-/* On mobile, stack tab navigation vertically */
 @media (width <= 600px) {
   .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) > p {
     flex-direction: column;
@@ -1194,7 +1179,6 @@
   }
 }
 
-/* Headline styling in main content */
 .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) h2 {
   font-size: var(--heading-font-size-xl);
   font-weight: 700;
@@ -1205,7 +1189,6 @@
   width: 100%;
 }
 
-/* Main image: full width in main content column */
 .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) picture,
 .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) img {
   display: block;
@@ -1217,7 +1200,6 @@
   box-shadow: none;
 }
 
-/* Paragraphs in main content: readable width */
 .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) p {
   font-size: var(--body-font-size-m);
   color: #222;
@@ -1228,11 +1210,180 @@
   max-width: 700px;
 }
 
-/* Remove borders and box-shadows from everything */
 .tabs.tabs25,
 .tabs.tabs25 > .tabs-list,
 .tabs.tabs25 > .tabs-list > .tabs-tab,
 .tabs.tabs25 > .tabs-list > .tabs-tab button {
   border: none;
   box-shadow: none;
+}
+
+
+.tabs.tabs29 {
+  /* Center block and give it max-width */
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 48px;
+  padding-bottom: 40px;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+/* --- Content Area Layout: Center and Constrain --- */
+.tabs.tabs29 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Title & Accent Line --- */
+.tabs.tabs29 .tabs-panel > div > h3:first-of-type {
+  font-size: 28px;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #f7d85e;
+  width: 100%;
+}
+
+/* --- Tabs Bar: left-aligned, ample margin below --- */
+.tabs.tabs29 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  margin: 0 0 36px;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  width: 700px;
+  max-width: 100%;
+  position: static;
+  left: 0;
+  transform: none;
+}
+
+/* --- Tab Buttons --- */
+.tabs.tabs29 .tabs-list button {
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  padding: 10px 28px;
+  color: #222;
+  font-weight: 500;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+
+.tabs.tabs29 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs29 .tabs-list button[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+}
+
+.tabs.tabs29 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Subtitle (Second Heading): more spacing above --- */
+.tabs.tabs29 .tabs-panel > div > h3:nth-of-type(2) {
+  font-size: 20px;
+  font-weight: 600;
+  color: #222;
+  margin: 36px 0 14px;
+  width: 100%;
+}
+
+/* --- Paragraphs --- */
+.tabs.tabs29 .tabs-panel > div > p {
+  color: #222;
+  font-size: 16px;
+  margin: 0 0 22px;
+  line-height: 1.55;
+  width: 100%;
+}
+
+/* --- Images --- */
+.tabs.tabs29 .tabs-panel picture,
+.tabs.tabs29 .tabs-panel img {
+  display: block;
+  margin: 32px 0 24px;
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* --- Footer Text --- */
+.tabs.tabs29 .tabs-panel > div > p:last-of-type {
+  color: #444;
+  font-size: 13px;
+  margin-top: 32px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+/* --- Remove default border/padding around panel --- */
+.tabs.tabs29 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+/* --- Responsive: Stack and shrink for mobile --- */
+@media (width <= 900px) {
+  .tabs.tabs29 {
+    max-width: 99vw;
+    padding-top: 32px;
+    padding-bottom: 24px;
+  }
+
+  .tabs.tabs29 .tabs-panel > div,
+  .tabs.tabs29 .tabs-list {
+    max-width: 98vw;
+    width: 100%;
+  }
+
+  .tabs.tabs29 .tabs-panel picture,
+  .tabs.tabs29 .tabs-panel img {
+    max-width: 98vw;
+    margin: 18px 0 14px;
+  }
+
+  .tabs.tabs29 .tabs-list {
+    gap: 18px;
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .tabs.tabs29 .tabs-panel > div > h3:nth-of-type(2) {
+    margin-top: 24px;
+  }
+}
+
+/* --- Ensure everything aligns left, but content block is centered on page --- */
+.tabs.tabs29 .tabs-panel > div,
+.tabs.tabs29 .tabs-list {
+  align-items: flex-start;
+  justify-content: flex-start;
 }
