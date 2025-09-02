@@ -409,3 +409,97 @@
   box-shadow: none;
   color: inherit;
 }
+
+
+.carousel.carousel21 {
+  /* Remove any carousel container padding to ensure flush edge */
+  padding-right: 0;
+}
+
+.carousel.carousel21 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 32%;
+  min-width: 240px;
+  max-width: 400px;
+  height: 100%;
+  background: #f5f5f5;
+  color: #131313;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  padding: 22px 20px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  box-sizing: border-box;
+
+  /* Ensure flush right edge */
+  border-right: 0 solid transparent;
+}
+
+@media (width <= 900px) {
+  .carousel.carousel21 .carousel-slide .carousel-slide-content {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    padding: 14px 8px 14px 12px;
+  }
+}
+
+.carousel.carousel21 .carousel-slide-content p:first-child {
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #222;
+}
+
+.carousel.carousel21 .carousel-slide-content h2 {
+  font-size: 1.38rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  line-height: 1.13;
+  color: #131313;
+}
+
+.carousel.carousel21 .carousel-slide-content p:not(:first-child, .button-container) {
+  font-size: 0.95rem;
+  color: #222;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.32;
+}
+
+.carousel.carousel21 .carousel-slide-content .button-container {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.carousel.carousel21 .carousel-slide-content .button {
+  background: #ffe500;
+  color: #131313;
+  border-radius: 0;
+  border: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  padding: 0.38em 1em;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  min-width: 0;
+}
+
+.carousel.carousel21 .carousel-slide-content .button:hover,
+.carousel.carousel21 .carousel-slide-content .button:focus {
+  background: #fff800;
+  color: #131313;
+  text-decoration: underline;
+}
