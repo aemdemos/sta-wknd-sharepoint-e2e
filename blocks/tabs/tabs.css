@@ -739,14 +739,11 @@
 
 
 .tabs.tabs23 {
-  /* Reduce top margin so block is not so low on the page */
   margin-top: 0;
   margin-bottom: 0;
   max-width: 900px;
   padding: 0;
   box-sizing: border-box;
-
-  /* Use grid for layout, visually place title above tabs */
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -891,5 +888,198 @@
   .tabs.tabs23 .tabs-panel > div > p {
     font-size: 0.92rem;
     margin-bottom: 8px;
+  }
+}
+
+
+.tabs.tabs24 {
+  max-width: 1020px;
+  margin: 24px auto 40px;
+  padding: 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Tabs Bar: left align, minimal gap and minimal margin below */
+.tabs.tabs24 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tabs: slightly reduced padding, uppercase */
+.tabs.tabs24 .tabs-tab {
+  background: transparent;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  padding: 7px 10px 7px 0;
+  border-radius: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  margin: 0;
+  min-width: 0;
+  outline: none;
+  text-align: left;
+}
+
+.tabs.tabs24 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs24 .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+}
+
+.tabs.tabs24 .tabs-tab p {
+  margin: 0;
+}
+
+/* Panels: left-align, restrict width */
+.tabs.tabs24 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+  padding: 0;
+  max-width: 900px;
+  width: 100%;
+  background: transparent;
+  display: block;
+}
+
+/* Headings and accent underline */
+.tabs.tabs24 h3:first-of-type {
+  font-size: 2.1rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0.05em;
+  border-bottom: 1.5px solid #F7CF56;
+  display: inline-block;
+  padding-bottom: 1.5px;
+  line-height: 1.08;
+  width: auto;
+}
+
+.tabs.tabs24 h3 {
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-bottom: 0.65em;
+  margin-top: 0.75em;
+  line-height: 1.21;
+}
+
+.tabs.tabs24 h2 {
+  font-size: 1.29rem;
+  font-weight: 700;
+  margin-bottom: 0.7em;
+  margin-top: 1em;
+  line-height: 1.17;
+}
+
+/* Paragraphs and lists: wider, denser, less vertical margin */
+.tabs.tabs24 p,
+.tabs.tabs24 ul,
+.tabs.tabs24 li {
+  font-size: 1.09rem;
+  color: var(--text-color);
+  line-height: 1.66;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: auto;
+  word-break: break-word;
+  margin-bottom: 0.7em;
+}
+
+.tabs.tabs24 ul {
+  padding-left: 22px;
+  margin-bottom: 12px;
+}
+
+.tabs.tabs24 li {
+  margin-bottom: 3px;
+}
+
+/* Images: left align, wider, slightly less margin above/below */
+.tabs.tabs24 picture,
+.tabs.tabs24 img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 32px 0;
+  object-fit: cover;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* More margin above the first image under headings for airiness */
+.tabs.tabs24 .tabs-panel > div > p:first-of-type picture,
+.tabs.tabs24 .tabs-panel > div > p:first-of-type img {
+  margin-top: 32px;
+}
+
+/* Responsive: stack and pad for smaller screens */
+@media (width <= 700px) {
+  .tabs.tabs24 {
+    max-width: 100vw;
+    margin: 12px 0 18px;
+    padding: 0 2vw;
+    align-items: stretch;
+  }
+
+  .tabs.tabs24 .tabs-panel {
+    max-width: 100vw;
+    padding: 0;
+  }
+
+  .tabs.tabs24 .tabs-list {
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+  .tabs.tabs24 .tabs-tab {
+    padding: 6px 4px 6px 0;
+    font-size: 0.97rem;
+  }
+
+  .tabs.tabs24 picture,
+  .tabs.tabs24 img {
+    max-width: 100vw;
+    margin: 14px 0 18px;
+  }
+
+  .tabs.tabs24 h3:first-of-type {
+    font-size: 1.13rem;
+    padding-bottom: 1px;
+  }
+
+  .tabs.tabs24 h3 {
+    font-size: 0.97rem;
+  }
+
+  .tabs.tabs24 h2 {
+    font-size: 0.99rem;
+  }
+
+  .tabs.tabs24 p,
+  .tabs.tabs24 ul,
+  .tabs.tabs24 li {
+    font-size: 0.98rem;
+    max-width: 97vw;
+    margin-bottom: 0.6em;
   }
 }
