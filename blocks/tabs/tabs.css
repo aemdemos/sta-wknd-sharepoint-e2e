@@ -1220,7 +1220,6 @@
 
 
 .tabs.tabs29 {
-  /* Center block and give it max-width */
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -1231,7 +1230,6 @@
   box-shadow: none;
 }
 
-/* --- Content Area Layout: Center and Constrain --- */
 .tabs.tabs29 .tabs-panel > div {
   display: flex;
   flex-direction: column;
@@ -1242,7 +1240,6 @@
   box-sizing: border-box;
 }
 
-/* --- Title & Accent Line --- */
 .tabs.tabs29 .tabs-panel > div > h3:first-of-type {
   font-size: 28px;
   font-weight: 400;
@@ -1253,7 +1250,6 @@
   width: 100%;
 }
 
-/* --- Tabs Bar: left-aligned, ample margin below --- */
 .tabs.tabs29 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1273,7 +1269,6 @@
   transform: none;
 }
 
-/* --- Tab Buttons --- */
 .tabs.tabs29 .tabs-list button {
   border: none;
   background: transparent;
@@ -1302,7 +1297,6 @@
   padding: 0;
 }
 
-/* --- Subtitle (Second Heading): more spacing above --- */
 .tabs.tabs29 .tabs-panel > div > h3:nth-of-type(2) {
   font-size: 20px;
   font-weight: 600;
@@ -1311,7 +1305,6 @@
   width: 100%;
 }
 
-/* --- Paragraphs --- */
 .tabs.tabs29 .tabs-panel > div > p {
   color: #222;
   font-size: 16px;
@@ -1320,7 +1313,6 @@
   width: 100%;
 }
 
-/* --- Images --- */
 .tabs.tabs29 .tabs-panel picture,
 .tabs.tabs29 .tabs-panel img {
   display: block;
@@ -1332,7 +1324,6 @@
   box-sizing: border-box;
 }
 
-/* --- Footer Text --- */
 .tabs.tabs29 .tabs-panel > div > p:last-of-type {
   color: #444;
   font-size: 13px;
@@ -1341,7 +1332,6 @@
   width: 100%;
 }
 
-/* --- Remove default border/padding around panel --- */
 .tabs.tabs29 .tabs-panel {
   border: none;
   padding: 0;
@@ -1350,7 +1340,6 @@
   overflow: visible;
 }
 
-/* --- Responsive: Stack and shrink for mobile --- */
 @media (width <= 900px) {
   .tabs.tabs29 {
     max-width: 99vw;
@@ -1381,9 +1370,264 @@
   }
 }
 
-/* --- Ensure everything aligns left, but content block is centered on page --- */
 .tabs.tabs29 .tabs-panel > div,
 .tabs.tabs29 .tabs-list {
   align-items: flex-start;
   justify-content: flex-start;
+}
+
+
+.tabs.tabs30 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack on mobile */
+@media (width <= 900px) {
+  .tabs.tabs30 {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+/* --- SIDEBAR --- */
+.tabs.tabs30 > div:first-child {
+  flex: 0 0 180px;
+  max-width: 180px;
+  min-width: 140px;
+  box-sizing: border-box;
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+/* Sidebar items as simple text, not pills */
+.tabs.tabs30 > div:first-child > * {
+  width: 100%;
+  color: #222;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  margin: 0 0 18px;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  text-align: left;
+}
+
+/* Remove tab-like styling from sidebar nav elements */
+.tabs.tabs30 > div:first-child > *[aria-selected],
+.tabs.tabs30 > div:first-child > *:not([aria-selected]) {
+  background: transparent;
+  color: #222;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 18px;
+  box-shadow: none;
+  font-weight: 700;
+  opacity: 1;
+}
+
+/* --- MAIN CONTENT --- */
+.tabs.tabs30 > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding-top: 32px;
+}
+
+/* --- TABS LIST: horizontal row above main content --- */
+.tabs.tabs30 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 12px;
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: transparent;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Tab Buttons: pill look, uppercase, bold, active state */
+.tabs.tabs30 .tabs-list button {
+  padding: 10px 26px;
+  background: transparent;
+  color: #222;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 18px;
+  margin: 0;
+  letter-spacing: 1.1px;
+  position: relative;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+  min-width: 120px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs30 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.tabs.tabs30 .tabs-list button:not([aria-selected='true']):hover {
+  background: #f5f5f5;
+}
+
+/* Remove borders from legacy tabs styles */
+.tabs.tabs30 .tabs-list button,
+.tabs.tabs30 .tabs-list button[aria-selected='true'] {
+  border: none;
+}
+
+/* --- Remove unwanted bullets from extraneous lists --- */
+.tabs.tabs30 .tabs-panel ul:empty,
+.tabs.tabs30 .tabs-panel ul:not([data-keep]) {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* --- TABS PANEL CONTENT --- */
+.tabs.tabs30 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  background: transparent;
+  width: 100%;
+  overflow: visible;
+}
+
+.tabs.tabs30 .tabs-panel > div {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* --- Heading: tight to tabs, left-aligned --- */
+.tabs.tabs30 .tabs-panel h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 14px;
+  margin-top: 0;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+/* --- Image section --- */
+.tabs.tabs30 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.tabs.tabs30 .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  margin: 0;
+}
+
+/* --- Caption styling --- */
+.tabs.tabs30 .tabs-panel > div > p:first-of-type {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  margin: 2px 0 12px;
+  letter-spacing: 1.1px;
+  line-height: 1.2;
+  display: block;
+  text-align: left;
+}
+
+/* --- Body text --- */
+.tabs.tabs30 .tabs-panel > div > p:last-of-type {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+  margin: 10px 0 0;
+  max-width: 650px;
+  text-align: left;
+}
+
+/* --- List styling for "What to Bring" tab only --- */
+.tabs.tabs30 .tabs-panel ul {
+  margin: 0 0 0 18px;
+  padding-left: 16px;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.7;
+  text-align: left;
+  list-style: disc;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs30 > div:first-child {
+    max-width: 100%;
+    flex: none;
+    align-items: stretch;
+    margin-bottom: 16px;
+    gap: 15px;
+    padding-top: 12px;
+  }
+
+  .tabs.tabs30 > div:last-child {
+    max-width: 100%;
+    padding-top: 12px;
+  }
+
+  .tabs.tabs30 .tabs-panel > div {
+    max-width: 100%;
+  }
+
+  .tabs.tabs30 .tabs-list {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .tabs.tabs30 .tabs-panel h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+}
+
+/* Utility: remove unwanted margin from first/last children in main content */
+.tabs.tabs30 .tabs-panel > div > *:first-child {
+  margin-top: 0;
+}
+
+.tabs.tabs30 .tabs-panel > div > *:last-child {
+  margin-bottom: 0;
 }
