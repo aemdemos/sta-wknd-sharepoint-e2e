@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,127 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion15 {
+  /* Center within content column, not the full viewport */
+  max-width: 700px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  display: block;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* Accordion items: consistently separated with light bottom border */
+.accordion.accordion15 details {
+  border: none;
+  margin: 0;
+  border-bottom: 1px solid #eaeaea;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Remove border from last item */
+.accordion.accordion15 details:last-of-type {
+  border-bottom: none;
+}
+
+/* FAQ summary row: strong padding, flex for marker, improved vertical rhythm and darker color */
+.accordion.accordion15 details summary {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  font-size: 1.06em;
+  letter-spacing: 0.015em;
+  background: none;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-height: 64px;
+  padding: 24px 44px 24px 32px;
+  box-sizing: border-box;
+}
+
+/* Remove highlight on hover/focus/open for summary */
+.accordion.accordion15 details summary:focus,
+.accordion.accordion15 details summary:hover,
+.accordion.accordion15 details[open] summary {
+  background: none;
+}
+
+/* Hide default marker for all browsers */
+.accordion.accordion15 details summary::-webkit-details-marker,
+.accordion.accordion15 details summary::marker {
+  display: none;
+}
+
+/* FAQ question text: left aligned, with right space for icon */
+.accordion.accordion15 details summary > p {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: inherit;
+  color: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  padding-right: 24px;
+}
+
+/* Marker: larger, heavier, with extra gap */
+.accordion.accordion15 details summary *:last-child {
+  margin-left: auto;
+  font-size: 2em;
+  padding-left: 18px;
+  color: #888;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* FAQ answer/body: generous padding, flush with questions */
+.accordion.accordion15 details .accordion-item-body {
+  box-sizing: border-box;
+  padding: 22px 44px 26px 32px;
+  color: #222;
+  font-size: 1em;
+  margin: 0;
+  background: none;
+  border-top: none;
+}
+
+/* Responsive: maintain padding, but reduce for small screens */
+@media (width <= 900px) {
+  .accordion.accordion15 {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .accordion.accordion15 details summary,
+  .accordion.accordion15 details .accordion-item-body {
+    padding-left: 14px;
+    padding-right: 18px;
+  }
+}
+
+@media (width <= 600px) {
+  .accordion.accordion15 details summary,
+  .accordion.accordion15 details .accordion-item-body {
+    padding-left: 8px;
+    padding-right: 8px;
+    min-height: 48px;
+  }
 }
