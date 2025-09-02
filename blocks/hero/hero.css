@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,132 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero10 {
+  position: relative;
+  width: 100vw;
+  height: 430px;
+  min-height: 430px;
+  overflow: hidden;
+  background: #eee;
+  display: block;
+}
+
+.hero.hero10 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero10 > div:first-child > div,
+.hero.hero10 > div:first-child picture,
+.hero.hero10 > div:first-child img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero10 > div:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 57vw;
+  max-width: 720px;
+  background: #fff;
+  padding: 38px 40px 32px;
+  box-sizing: border-box;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 200px;
+}
+
+.hero.hero10 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.hero.hero10 h2 {
+  color: #222;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 0 0 14px;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.hero.hero10 p {
+  color: #222;
+  font-size: var(--body-font-size-m);
+  margin: 0 0 15px;
+  line-height: 1.5;
+  text-align: left;
+  max-width: 97%;
+}
+
+.hero-container > .hero-wrapper > .hero.hero10 .button-container .button,
+.hero-container > .hero-wrapper > .hero.hero10 .button {
+  background: #ffe000;
+  color: #222;
+  border-radius: 0;
+  border: none;
+  font-size: 1.09rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  letter-spacing: 0.045em;
+  margin: 0;
+  box-shadow: none;
+  display: inline-block;
+}
+
+@media (width <= 900px) {
+  .hero.hero10 {
+    min-height: 230px;
+    height: 230px;
+  }
+
+  .hero.hero10 > div:first-child,
+  .hero.hero10 > div:first-child > div,
+  .hero.hero10 > div:first-child picture,
+  .hero.hero10 > div:first-child img {
+    height: 230px;
+  }
+
+  .hero.hero10 > div:last-child {
+    width: 96vw;
+    max-width: none;
+    padding: 16px 10px;
+    min-height: 80px;
+  }
+
+  .hero.hero10 h2 {
+    font-size: 1.21rem;
+    margin-bottom: 8px;
+  }
+
+  .hero.hero10 p {
+    font-size: 0.94rem;
+    margin-bottom: 6px;
+  }
+
+  .hero-container > .hero-wrapper > .hero.hero10 .button-container .button,
+  .hero-container > .hero-wrapper > .hero.hero10 .button {
+    font-size: 0.94rem;
+    padding: 8px 16px;
   }
 }
