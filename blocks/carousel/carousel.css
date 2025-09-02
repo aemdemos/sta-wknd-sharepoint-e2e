@@ -412,7 +412,6 @@
 
 
 .carousel.carousel21 {
-  /* Remove any carousel container padding to ensure flush edge */
   padding-right: 0;
 }
 
@@ -436,8 +435,6 @@
   justify-content: center;
   z-index: 2;
   box-sizing: border-box;
-
-  /* Ensure flush right edge */
   border-right: 0 solid transparent;
 }
 
@@ -502,4 +499,19 @@
   background: #fff800;
   color: #131313;
   text-decoration: underline;
+}
+
+
+.carousel.carousel27 .carousel-slide-content:empty {
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  pointer-events: none;
+  box-shadow: none;
+  visibility: hidden;
+  opacity: 0;
 }
