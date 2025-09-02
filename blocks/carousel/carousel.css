@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +149,167 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel.carousel12 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  left: 50%;
+  top: 49%;
+  transform: translate(-50%, -50%);
+  max-width: 480px;
+  width: 54vw;
+  padding: 11px 18px 13px;
+  margin: 0;
+  background: #fff;
+  color: #131313;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 11%);
+  border-radius: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.carousel.carousel12 .carousel-slide .carousel-slide-content h2 {
+  font-size: 1.18rem;
+  margin-top: 0;
+  margin-bottom: 1px;
+  font-weight: 600;
+  color: #131313;
+  line-height: 1.13;
+}
+
+.carousel.carousel12 .carousel-slide .carousel-slide-content p {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #222;
+  font-size: 0.93rem;
+  line-height: 1.33;
+}
+
+.carousel.carousel12 .carousel-slide .carousel-slide-content .button-container {
+  margin-top: 5px;
+}
+
+.carousel.carousel12 .carousel-slide .carousel-slide-content .button {
+  background: #ffe600;
+  color: #131313;
+  border: none;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 3px 11px;
+  font-size: 0.93rem;
+  margin: 0;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 6%);
+  transition: background 0.2s;
+}
+
+.carousel.carousel12 .carousel-slide .carousel-slide-content .button:hover,
+.carousel.carousel12 .carousel-slide .carousel-slide-content .button:focus {
+  background: #ffd700;
+}
+
+/* Indicators: even closer to card, slightly smaller gap */
+.carousel.carousel12 .carousel-slide-indicators {
+  position: absolute;
+  left: 50%;
+  top: calc(49% + 58px);
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  z-index: 2;
+  padding: 0;
+  min-width: 58px;
+}
+
+/* Indicators style: slightly smaller */
+.carousel.carousel12 .carousel-slide-indicator button {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #dadada;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+.carousel.carousel12 .carousel-slide-indicator button:disabled,
+.carousel.carousel12 .carousel-slide-indicator button.active {
+  background: #131313;
+}
+
+/* Navigation arrows: slightly lower and closer to right */
+.carousel.carousel12 .carousel-navigation-buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 18px;
+  left: unset;
+  top: unset;
+  transform: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  background: none;
+  padding: 0;
+}
+
+.carousel.carousel12 .carousel-navigation-buttons button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #dadada;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+  color: #131313;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.carousel.carousel12 .carousel-navigation-buttons button:hover,
+.carousel.carousel12 .carousel-navigation-buttons button:focus-visible {
+  background: #f7f7f7;
+  border-color: #3b63fb;
+}
+
+.carousel.carousel12 .carousel-navigation-buttons button::after {
+  border-color: #131313;
+  height: 11px;
+  width: 11px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel.carousel12 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Responsive: card width, padding and indicator position */
+@media (width <= 900px) {
+  .carousel.carousel12 .carousel-slide .carousel-slide-content {
+    max-width: 96vw;
+    padding: 7px 3vw 9px;
+    top: 47%;
+  }
+
+  .carousel.carousel12 .carousel-navigation-buttons {
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .carousel.carousel12 .carousel-slide-indicators {
+    top: calc(47% + 38px);
+    gap: 6px;
   }
 }
