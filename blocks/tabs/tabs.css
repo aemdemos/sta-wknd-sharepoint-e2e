@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,153 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs6 {
+  background: #fff;
+  border: 1px solid #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 0.5px 2px rgb(34 34 34 / 1%);
+  max-width: 860px;
+  margin: 48px auto;
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Tabs Row: more top space, compact below, correct flex */
+.tabs.tabs6 .tabs-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2px;
+  border-bottom: none;
+  margin: 0 0 18px;
+  padding: 0;
+  background: none;
+}
+
+/* Tab Buttons */
+.tabs.tabs6 .tabs-list button {
+  padding: 0.7em 1.6em;
+  border: 1px solid #888;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  background: #fff;
+  color: #444;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  margin: 0;
+  transition: background 0.15s, color 0.15s;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  z-index: 1;
+  min-width: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs6 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-color: #222 #222 #fff;
+  z-index: 2;
+}
+
+.tabs.tabs6 .tabs-list button[aria-selected="false"] {
+  background: #fff;
+  color: #444;
+  border-color: #888 #888 #fff;
+  z-index: 1;
+}
+
+.tabs.tabs6 .tabs-list button p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  display: flex;
+  align-items: center;
+}
+
+/* Panel: no border or background, merged into card, vertical spacing only */
+.tabs.tabs6 .tabs-panel {
+  border: none;
+  border-radius: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  overflow: visible;
+  max-width: 100%;
+}
+
+/* Headings: more space above, slightly less below */
+.tabs.tabs6 .tabs-panel h3 {
+  font-size: 2rem;
+  color: #222;
+  font-weight: bold;
+  margin: 18px 0 16px;
+  padding: 0;
+  line-height: 1.1;
+  text-align: left;
+}
+
+/* Image: full width, rounded, margin below only */
+.tabs.tabs6 .tabs-panel picture img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 0 12px;
+  box-shadow: none;
+}
+
+/* Caption under image: blue, uppercase, bold, tight spacing, align left */
+.tabs.tabs6 .tabs-panel > div > p:first-of-type {
+  color: #3a70b2;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.98em;
+  margin: 0 0 14px;
+  letter-spacing: 1px;
+  padding: 0;
+  text-align: left;
+}
+
+/* Paragraphs: max width, left-aligned, card padding */
+.tabs.tabs6 .tabs-panel p {
+  color: #222;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin: 0 0 18px;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* Responsiveness: tighter padding and radius on small screens */
+@media (width <= 700px) {
+  .tabs.tabs6 {
+    padding: 0 4px 16px;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .tabs.tabs6 .tabs-list {
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs6 .tabs-panel h3 {
+    margin-top: 10px;
+  }
+
+  .tabs.tabs6 .tabs-panel picture img {
+    border-radius: 6px;
+  }
 }
