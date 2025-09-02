@@ -25,3 +25,118 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards4 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: center;
+  align-items: stretch;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (width <= 1200px) {
+  .cards.cards4 > ul {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards4 > ul {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards4 > ul {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+/* Card grid item: vertical centering of image+body block */
+.cards.cards4 > ul > li {
+  background: #fff;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center; /* CENTER image+body as a block */
+  min-width: 220px;
+  max-width: 250px;
+  min-height: 420px;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Stack image and card body as a block for vertical centering */
+.cards.cards4 .cards-card-image,
+.cards.cards4 .cards-card-body {
+  width: 100%;
+}
+
+/* This wrapper lets us center the image+body block inside the card */
+.cards.cards4 > ul > li > * {
+  /* No extra styles needed for wrapper since image and body are siblings */
+}
+
+/* Image styles */
+.cards.cards4 .cards-card-image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: 16px;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 16 / 9;
+}
+
+/* Card body styles */
+.cards.cards4 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 160px;
+  padding: 0 20px;
+  gap: 12px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Headline styles */
+.cards.cards4 .cards-card-body p:first-child strong {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #111;
+  margin-bottom: 8px;
+  display: block;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+/* Description styles */
+.cards.cards4 .cards-card-body p:not(:first-child) {
+  font-size: 13px;
+  color: #444;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
