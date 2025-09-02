@@ -589,7 +589,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs row: always left-aligned, not full-width */
 .tabs.tabs20 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -603,7 +602,6 @@
   max-width: 720px;
 }
 
-/* Tab button styles */
 .tabs.tabs20 .tabs-list button {
   background: #fff;
   color: #222;
@@ -633,7 +631,6 @@
   margin: 0;
 }
 
-/* Main content alignment and spacing */
 .tabs.tabs20 .tabs-panel > div {
   display: flex;
   flex-direction: column;
@@ -643,7 +640,6 @@
   width: 100%;
 }
 
-/* Heading with underline accent */
 .tabs.tabs20 .tabs-panel h3,
 .tabs.tabs20 .tabs-panel h2,
 .tabs.tabs20 .tabs-panel h1 {
@@ -659,7 +655,6 @@
   padding-bottom: 7px;
 }
 
-/* Image styling */
 .tabs.tabs20 .tabs-panel picture,
 .tabs.tabs20 .tabs-panel img {
   display: block;
@@ -677,7 +672,6 @@
   border-radius: 16px;
 }
 
-/* Paragraph and list styling */
 .tabs.tabs20 .tabs-panel p,
 .tabs.tabs20 .tabs-panel ul,
 .tabs.tabs20 .tabs-panel ol {
@@ -704,7 +698,6 @@
   margin-bottom: 10px;
 }
 
-/* Remove any border or box shadow from the panel */
 .tabs.tabs20 .tabs-panel {
   border: none;
   box-shadow: none;
@@ -714,7 +707,6 @@
   overflow: visible;
 }
 
-/* Responsive: allow full width and reduce left margin on small screens */
 @media (width <= 900px) {
   .tabs.tabs20 {
     max-width: 100%;
@@ -742,5 +734,162 @@
   .tabs.tabs20 .tabs-panel ol,
   .tabs.tabs20 .tabs-panel > div {
     max-width: 100%;
+  }
+}
+
+
+.tabs.tabs23 {
+  /* Reduce top margin so block is not so low on the page */
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 900px;
+  padding: 0;
+  box-sizing: border-box;
+
+  /* Use grid for layout, visually place title above tabs */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "tabs"
+    "content";
+}
+
+.tabs.tabs23 h3 {
+  grid-area: title;
+  font-size: 2.1rem;
+  color: #222;
+  font-weight: 400;
+  margin: 0;
+  position: relative;
+  letter-spacing: 0.01em;
+  padding-bottom: 14px;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.tabs.tabs23 h3::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #f9e16a;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.tabs.tabs23 .tabs-list {
+  grid-area: tabs;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 0 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.tabs.tabs23 .tabs-tab {
+  border: none;
+  border-radius: 16px;
+  padding: 4px 14px 4px 10px;
+  background: transparent;
+  color: #222;
+  font-size: 0.97rem;
+  font-weight: 500;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  min-width: 0;
+  box-sizing: border-box;
+  line-height: 1.1;
+}
+
+.tabs.tabs23 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs23 .tabs-tab p {
+  margin: 0;
+  text-align: left;
+}
+
+.tabs.tabs23 .tabs-panel {
+  grid-area: content;
+  border: none;
+  padding: 0;
+  background: transparent;
+  margin: 0;
+  box-shadow: none;
+  width: 100%;
+}
+
+.tabs.tabs23 .tabs-panel > div > p {
+  color: #222;
+  font-size: 1.05rem;
+  margin: 0 0 14px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.tabs.tabs23 .tabs-panel picture,
+.tabs.tabs23 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 16px 0 6px;
+  box-sizing: border-box;
+}
+
+.tabs.tabs23 .tabs-panel > div > p:last-of-type {
+  color: #888;
+  font-size: 0.93rem;
+  margin-top: 7px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+@media (width <= 700px) {
+  .tabs.tabs23 {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tabs.tabs23 h3 {
+    font-size: 1.18rem;
+    padding-bottom: 8px;
+  }
+
+  .tabs.tabs23 h3::after {
+    width: 28px;
+    height: 2px;
+  }
+
+  .tabs.tabs23 .tabs-list {
+    gap: 4px;
+    margin: 0 0 5px;
+  }
+
+  .tabs.tabs23 .tabs-tab {
+    padding: 4px 7px 4px 5px;
+    font-size: 0.92rem;
+  }
+
+  .tabs.tabs23 .tabs-panel picture,
+  .tabs.tabs23 .tabs-panel img {
+    border-radius: 7px;
+    margin: 8px 0 4px;
+  }
+
+  .tabs.tabs23 .tabs-panel > div > p {
+    font-size: 0.92rem;
+    margin-bottom: 8px;
   }
 }
