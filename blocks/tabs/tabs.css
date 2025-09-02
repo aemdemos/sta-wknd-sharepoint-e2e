@@ -902,7 +902,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs Bar: left align, minimal gap and minimal margin below */
 .tabs.tabs24 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -916,7 +915,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs: slightly reduced padding, uppercase */
 .tabs.tabs24 .tabs-tab {
   background: transparent;
   color: var(--text-color);
@@ -949,7 +947,6 @@
   margin: 0;
 }
 
-/* Panels: left-align, restrict width */
 .tabs.tabs24 .tabs-panel {
   border: none;
   box-shadow: none;
@@ -961,7 +958,6 @@
   display: block;
 }
 
-/* Headings and accent underline */
 .tabs.tabs24 h3:first-of-type {
   font-size: 2.1rem;
   font-weight: 400;
@@ -990,7 +986,6 @@
   line-height: 1.17;
 }
 
-/* Paragraphs and lists: wider, denser, less vertical margin */
 .tabs.tabs24 p,
 .tabs.tabs24 ul,
 .tabs.tabs24 li {
@@ -1000,7 +995,8 @@
   max-width: 900px;
   margin-left: 0;
   margin-right: auto;
-  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   margin-bottom: 0.7em;
 }
 
@@ -1013,7 +1009,6 @@
   margin-bottom: 3px;
 }
 
-/* Images: left align, wider, slightly less margin above/below */
 .tabs.tabs24 picture,
 .tabs.tabs24 img {
   display: block;
@@ -1025,13 +1020,11 @@
   margin-right: auto;
 }
 
-/* More margin above the first image under headings for airiness */
 .tabs.tabs24 .tabs-panel > div > p:first-of-type picture,
 .tabs.tabs24 .tabs-panel > div > p:first-of-type img {
   margin-top: 32px;
 }
 
-/* Responsive: stack and pad for smaller screens */
 @media (width <= 700px) {
   .tabs.tabs24 {
     max-width: 100vw;
@@ -1082,4 +1075,164 @@
     max-width: 97vw;
     margin-bottom: 0.6em;
   }
+}
+
+
+/* 
+ * Improved layout for .tabs.tabs25: 
+ * Uses CSS Grid on .tabs-list to split sidebar (first button) and main content (second button) into correct columns.
+ * Main content (second button) uses Flexbox to arrange tabs row and vertical content.
+ */
+
+.tabs.tabs25 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  background: var(--background-color);
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Sidebar and main content columns (using grid in .tabs-list) */
+.tabs.tabs25 > .tabs-list {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  background: var(--background-color);
+}
+
+/* On mobile, stack sidebar above content */
+@media (width <= 900px) {
+  .tabs.tabs25 > .tabs-list {
+    display: block;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+/* SIDEBAR: First button in .tabs-list gets its own column */
+.tabs.tabs25 > .tabs-list > .tabs-tab:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 140px;
+  max-width: 200px;
+  padding: 40px 0 40px 40px;
+  border: none;
+  z-index: 1;
+}
+
+/* Sidebar title styling and yellow underline */
+.tabs.tabs25 > .tabs-list > .tabs-tab:first-child h3 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 8px;
+  margin-top: 0.5em;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #e8e5c2;
+  display: inline-block;
+}
+
+/* MAIN CONTENT: Second button in .tabs-list gets its own column */
+.tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 48px 40px 40px;
+  border: none;
+  max-width: 900px;
+  width: 100%;
+  z-index: 2;
+}
+
+/* On mobile, stack main content vertically */
+@media (width <= 900px) {
+  .tabs.tabs25 > .tabs-list > .tabs-tab:first-child,
+  .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    padding: 24px 16px;
+  }
+}
+
+/* GROUP TABS ROW: In main content, group tab navigation horizontally above headline */
+.tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) > p {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  margin-bottom: 32px;
+  font-size: var(--body-font-size-m);
+  color: #222;
+  padding: 0;
+  background: none;
+  border: none;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* On mobile, stack tab navigation vertically */
+@media (width <= 600px) {
+  .tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) > p {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Headline styling in main content */
+.tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: #222;
+  margin: 10px 0 24px;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  width: 100%;
+}
+
+/* Main image: full width in main content column */
+.tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) picture,
+.tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 32px;
+  border: none;
+  box-shadow: none;
+}
+
+/* Paragraphs in main content: readable width */
+.tabs.tabs25 > .tabs-list > .tabs-tab:nth-child(2) p {
+  font-size: var(--body-font-size-m);
+  color: #222;
+  margin: 0 0 18px;
+  line-height: 1.6;
+  font-weight: 400;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Remove borders and box-shadows from everything */
+.tabs.tabs25,
+.tabs.tabs25 > .tabs-list,
+.tabs.tabs25 > .tabs-list > .tabs-tab,
+.tabs.tabs25 > .tabs-list > .tabs-tab button {
+  border: none;
+  box-shadow: none;
 }
