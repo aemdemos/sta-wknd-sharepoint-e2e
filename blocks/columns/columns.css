@@ -31,3 +31,104 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 88px;
+  padding: 0 24px;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.columns.columns2 > div > .columns-img-col {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns2 > div > .columns-img-col img {
+  height: 52px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0;
+  display: block;
+}
+
+/* Hide the middle column */
+.columns.columns2 > div > div:nth-child(2) {
+  display: none;
+}
+
+.columns.columns2 > div > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: #f5f5f5;
+  border-radius: 2px;
+  width: 160px;
+  min-width: 120px;
+  max-width: 180px;
+  min-height: 36px;
+  padding: 6px 14px 6px 32px;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+  flex: none;
+}
+
+.columns.columns2 > div > div:nth-child(3) p {
+  color: #494949;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: block;
+}
+
+.columns.columns2 > div > div:nth-child(3)::before {
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: center;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l4.25 4.25c.41.41 1.09.41 1.5 0s.41-1.09 0-1.5L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>');
+  content: "";
+}
+
+/* Responsive: stack elements vertically on small screens */
+@media (width <= 700px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 56px;
+    padding: 0 12px;
+    gap: 12px;
+  }
+
+  .columns.columns2 > div > .columns-img-col,
+  .columns.columns2 > div > div:nth-child(3) {
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+
+  .columns.columns2 > div > div:nth-child(3) {
+    width: 100%;
+    margin-top: 8px;
+  }
+}
