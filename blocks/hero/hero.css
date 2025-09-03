@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -53,7 +54,6 @@
   overflow: hidden;
 }
 
-/* Background image covers the hero */
 .hero.hero6 > div:first-child {
   position: absolute;
   inset: 0;
@@ -71,7 +71,6 @@
   object-fit: cover;
 }
 
-/* Overlay card - carefully aligned and sized */
 .hero.hero6 > div:nth-child(2) {
   position: absolute;
   left: 1.9vw;
@@ -90,7 +89,6 @@
   box-shadow: none;
 }
 
-/* Heading style inside the card */
 .hero.hero6 h2 {
   margin: 0 0 8px;
   font-size: 20px;
@@ -100,7 +98,6 @@
   line-height: 1.3;
 }
 
-/* Divider under the heading inside the card */
 .hero.hero6 > div:nth-child(2) > div {
   width: 100%;
   border-bottom: 1px solid #eee;
@@ -108,7 +105,6 @@
   margin-bottom: 4px;
 }
 
-/* Responsive adjustments for mid-size screens */
 @media (width <= 1000px) {
   .hero.hero6 > div:nth-child(2) {
     left: 1vw;
@@ -123,7 +119,6 @@
   }
 }
 
-/* Responsive adjustments for small screens */
 @media (width <= 600px) {
   .hero.hero6 > div:nth-child(2) {
     left: 2vw;
@@ -134,5 +129,157 @@
 
   .hero.hero6 h2 {
     font-size: 14px;
+  }
+}
+
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero27 {
+  position: relative;
+  width: 100vw;
+  min-height: 440px;
+  overflow: hidden;
+  background: none;
+  display: block;
+}
+
+/* Make first child (image container) fill the hero, behave as background layer */
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  display: flex;
+}
+
+/* Image fills area (not just a strip at the top) */
+.hero.hero27 picture,
+.hero.hero27 img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  pointer-events: none;
+}
+
+/* Overlay card is absolutely positioned at the bottom, flush left/right */
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100vw;
+  pointer-events: none;
+}
+
+/* Card content: left-aligned, no exterior margins, max-width, padding */
+.hero.hero27 > div:last-child > div {
+  background: #fff;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 7%);
+  padding: 32px 32px 24px;
+  margin: 0;
+  max-width: 900px;
+  min-width: 320px;
+  border-radius: 0;
+  pointer-events: auto;
+  display: block;
+}
+
+/* Text & button style */
+.hero.hero27 h2,
+.hero.hero27 p {
+  color: #222;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.hero.hero27 h2 {
+  font-size: var(--heading-font-size-xl);
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.hero.hero27 p {
+  font-size: var(--body-font-size-m);
+  margin-bottom: 1em;
+  margin-top: 0;
+  line-height: 1.5;
+}
+
+.hero.hero27 .button-container {
+  margin-top: 1.4em;
+}
+
+.hero-container > .hero-wrapper > .hero.hero27 .button {
+  background: #ffe000;
+  color: #222;
+  border-radius: 0;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: none;
+  padding: 10px 28px;
+  border: none;
+  text-transform: uppercase;
+  margin: 0;
+  transition: background 0.2s;
+  display: inline-block;
+  min-width: 120px;
+}
+
+.hero-container > .hero-wrapper > .hero.hero27 .button:hover,
+.hero-container > .hero-wrapper > .hero.hero27 .button:focus {
+  background: #ffd600;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero27 {
+    min-height: 220px;
+    width: 100vw;
+  }
+
+  .hero.hero27 > div:first-child,
+  .hero.hero27 picture,
+  .hero.hero27 img {
+    height: 220px;
+    min-height: 180px;
+    max-height: 40vh;
+  }
+
+  .hero.hero27 > div:last-child {
+    width: 100vw;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  .hero.hero27 > div:last-child > div {
+    margin: 0;
+    max-width: 100vw;
+    padding: 18px 10px 16px 12px;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
