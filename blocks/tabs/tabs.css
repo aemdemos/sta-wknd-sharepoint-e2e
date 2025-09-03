@@ -209,9 +209,6 @@
   grid-template-columns: 1fr;
 }
 
-/* Use a CSS grid for internal layout so all children align flush left */
-
-/* Remove margin-left/right on all direct children for true flush alignment */
 .tabs.tabs7 > * {
   margin-left: 0;
   margin-right: 0;
@@ -219,7 +216,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs row: flush left alignment, tighter above/below spacing */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -233,7 +229,6 @@
   background: none;
 }
 
-/* Tab button: bold, larger, pill style, flush left */
 .tabs.tabs7 .tabs-list button {
   background: #F6F6F6;
   color: #222;
@@ -254,18 +249,15 @@
   justify-content: center;
 }
 
-/* Selected tab style */
 .tabs.tabs7 .tabs-list button[aria-selected='true'] {
   background: #222;
   color: #fff;
 }
 
-/* Remove default p margin inside tab buttons */
 .tabs.tabs7 .tabs-list button p {
   margin: 0;
 }
 
-/* Tab panel: remove background, border, and extra spacing */
 .tabs.tabs7 .tabs-panel {
   background: #fff;
   border: none;
@@ -276,12 +268,10 @@
   width: 100%;
 }
 
-/* Hide inactive panels */
 .tabs.tabs7 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Heading and underline: left-aligned, yellow underline, reduce gap to next block */
 .tabs.tabs7 .tabs-panel h3 {
   font-size: 2rem;
   color: #222;
@@ -295,7 +285,6 @@
   text-align: left;
 }
 
-/* Paragraph styling: tighter, flush left, compact with heading */
 .tabs.tabs7 .tabs-panel > div > p {
   font-size: 1.07rem;
   color: #222;
@@ -307,7 +296,6 @@
   padding: 0;
 }
 
-/* Section headings: left-aligned, flush with content */
 .tabs.tabs7 .tabs-panel > div > h2 {
   margin-top: 2em;
   margin-bottom: 0.45em;
@@ -317,7 +305,6 @@
   text-align: left;
 }
 
-/* Image: left-aligned, wide, flush with paragraph */
 .tabs.tabs7 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -330,7 +317,6 @@
   box-sizing: border-box;
 }
 
-/* Caption: left-aligned, small, uppercase, tight under image */
 .tabs.tabs7 .tabs-panel > div > p:last-child {
   font-size: 0.92rem;
   color: #888;
@@ -342,7 +328,6 @@
   max-width: 920px;
 }
 
-/* List styling in 'What to Bring' tab: left-aligned */
 .tabs.tabs7 .tabs-panel ul {
   margin-top: 12px;
   margin-bottom: 0;
@@ -354,7 +339,6 @@
   max-width: 920px;
 }
 
-/* Responsive: full width and less padding on small screens */
 @media (width <= 1100px) {
   .tabs.tabs7 {
     max-width: 100vw;
@@ -386,5 +370,179 @@
   .tabs.tabs7 .tabs-panel > div > p:last-child,
   .tabs.tabs7 .tabs-panel ul {
     max-width: 100vw;
+  }
+}
+
+
+.tabs.tabs10 {
+  box-sizing: border-box;
+  background: #fff;
+  max-width: 900px;
+  margin: 0 auto 40px; /* Remove top margin to anchor block near top */
+  padding: 24px 20px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs10 {
+    max-width: 100vw;
+    padding: 10px 1vw 12px;
+    margin: 0 0 18px;
+  }
+}
+
+/* Tabs bar layout and styling */
+.tabs.tabs10 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0;
+  margin-bottom: 2px;
+  border-bottom: none;
+  position: relative;
+}
+
+/* Tab buttons: compact, tight grouping, visual alignment */
+.tabs.tabs10 .tabs-tab {
+  padding: 7px 14px 5px;
+  min-width: 86px;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  background: #fff;
+  color: #222;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  border-radius: 0;
+  outline: none;
+  white-space: nowrap;
+  text-align: center;
+  margin-right: 2px;
+  margin-bottom: 0;
+  box-shadow: none;
+  position: relative;
+  z-index: 0;
+}
+
+.tabs.tabs10 .tabs-tab:last-child {
+  margin-right: 0;
+}
+
+.tabs.tabs10 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #222;
+  z-index: 2;
+  cursor: default;
+}
+
+.tabs.tabs10 .tabs-tab p {
+  margin: 0;
+  text-align: center;
+}
+
+/* Remove extraneous underline background effect */
+.tabs.tabs10 .tabs-list::after {
+  display: none;
+}
+
+/* Tab panel spacing and alignment */
+.tabs.tabs10 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Only show the active tab panel */
+.tabs.tabs10 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Headings */
+.tabs.tabs10 h2 {
+  font-size: 1.7rem;
+  margin-top: 0.6rem;
+  margin-bottom: 1.35rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.22;
+}
+
+.tabs.tabs10 h3 {
+  font-size: 1.12rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.18;
+}
+
+/* Images styling */
+.tabs.tabs10 picture,
+.tabs.tabs10 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+}
+
+/* Paragraphs and copy */
+.tabs.tabs10 p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+.tabs.tabs10 ul {
+  margin-top: 0;
+  margin-bottom: 0.7em;
+  padding-left: 1.3em;
+  font-size: 15px;
+  color: #444;
+}
+
+.tabs.tabs10 li {
+  margin-bottom: 0.2em;
+}
+
+/* Related trips paragraph spacing */
+.tabs.tabs10 p + ul {
+  margin-top: 0;
+}
+
+.tabs.tabs10 p:last-of-type {
+  margin-bottom: 5px;
+}
+
+/* Responsive: stack tabs vertically on very small screens */
+@media (width <= 600px) {
+  .tabs.tabs10 {
+    padding: 6px 0.5vw 8px;
+  }
+
+  .tabs.tabs10 .tabs-list {
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .tabs.tabs10 .tabs-tab {
+    width: 100%;
+    min-width: unset;
+    margin-right: 0;
+    margin-bottom: 6px;
+    padding: 8px 0;
+  }
+
+  .tabs.tabs10 .tabs-tab:last-child {
+    margin-bottom: 0;
   }
 }
