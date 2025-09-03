@@ -321,7 +321,6 @@
   margin: 0;
 }
 
-/* Edge-to-edge image */
 .carousel.carousel17 .carousel-slide .carousel-slide-image picture,
 .carousel.carousel17 .carousel-slide .carousel-slide-image img {
   display: block;
@@ -331,7 +330,6 @@
   object-fit: cover;
 }
 
-/* --- Unified Controls Bar --- */
 .carousel.carousel17 .carousel-controls-bar,
 .carousel.carousel17 .carousel-controls-bar-fake {
   display: flex;
@@ -347,7 +345,6 @@
   gap: 0;
 }
 
-/* Overlay controls bar "hack" by overlaying nav and indicators on one line */
 .carousel.carousel17 .carousel-navigation-buttons,
 .carousel.carousel17 .carousel-slide-indicators {
   position: static;
@@ -360,7 +357,6 @@
   height: 28px;
 }
 
-/* Use absolute positioning for controls bar assembly */
 .carousel.carousel17 .carousel-slides-container > .carousel-controls-bar-fake {
   pointer-events: none;
 }
@@ -383,7 +379,6 @@
   padding: 0;
 }
 
-/* Arrows: minimalist chevrons, no background */
 .carousel.carousel17 .carousel-navigation-buttons button {
   width: 28px;
   height: 28px;
@@ -419,7 +414,6 @@
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-/* Page Indicators: centered, between arrows */
 .carousel.carousel17 .carousel-slide-indicators {
   justify-content: center;
   flex: 1 1 auto;
@@ -463,7 +457,6 @@
   background: #848484;
 }
 
-/* Responsive: tighter on small screens */
 @media (width <= 700px) {
   .carousel.carousel17 .carousel-navigation-buttons button {
     width: 22px;
@@ -484,5 +477,191 @@
   .carousel.carousel17 .carousel-slides-container > .carousel-slide-indicators {
     bottom: 4px;
     height: 22px;
+  }
+}
+
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  left: 50%;
+  bottom: 88px;
+  transform: translateX(-50%);
+  width: 60vw;
+  max-width: 680px;
+  min-width: 220px;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 5%);
+  padding: 14px 20px 10px;
+  border-radius: 0;
+  margin: 0;
+  z-index: 3;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content p {
+  margin: 0 0 5px;
+  color: #222;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container {
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button {
+  background: #ffe600;
+  color: #222;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2em;
+  padding: 5px 15px;
+  font-size: 0.88rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 3%);
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button:hover,
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button:focus {
+  background: #fde800;
+  color: #222;
+  text-decoration: underline;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 18px 20px auto;
+  width: auto;
+  justify-content: flex-end;
+  align-items: flex-end;
+  z-index: 4;
+  background: none;
+  box-shadow: none;
+  pointer-events: none;
+  display: flex;
+  gap: 6px;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  margin: 0;
+  background: rgb(255 255 255 / 92%);
+  border: none;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 6%);
+  pointer-events: auto;
+  transition: background 0.2s, border 0.2s;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:hover,
+.carousel.carousel22 .carousel-navigation-buttons button:focus-visible {
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 11%);
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button::after {
+  border: none;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  background: none;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-prev::after {
+  border-width: 4px 7px 4px 0;
+  border-color: transparent #222 transparent transparent;
+  margin-left: -8px;
+  margin-top: -4px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  content: "";
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-next::after {
+  border-width: 4px 0 4px 7px;
+  border-color: transparent transparent transparent #222;
+  margin-left: 0;
+  margin-top: -4px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  content: "";
+}
+
+.carousel.carousel22 .carousel-slides-container {
+  position: relative;
+  padding-bottom: 100px;
+}
+
+.carousel.carousel22 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 54px;
+  background: none;
+  padding: 0;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 0 5px;
+  z-index: 3;
+  line-height: 0;
+  display: flex;
+}
+
+.carousel.carousel22 .carousel-slide-indicator {
+  display: inline-block;
+  margin: 0;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: 0 1px;
+  background: #d3d3d3;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:disabled {
+  background: #222;
+  border: none;
+}
+
+@media (width <= 900px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    left: 50%;
+    bottom: 18px;
+    width: 88vw;
+    max-width: 96vw;
+    padding: 8px 4vw 7px;
+  }
+
+  .carousel.carousel22 .carousel-navigation-buttons {
+    bottom: 7px;
+    right: 6px;
+  }
+
+  .carousel.carousel22 .carousel-slide-indicators {
+    bottom: 18px;
   }
 }
