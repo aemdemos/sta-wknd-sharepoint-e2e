@@ -147,7 +147,6 @@
   justify-content: flex-start;
 }
 
-/* Desktop: strict 2-column, side-by-side, top-aligned layout */
 @media (width >= 900px) {
   .columns.columns9 {
     max-width: 1200px;
@@ -168,7 +167,6 @@
   margin: 0;
 }
 
-/* Left: main content column, takes all available width */
 .columns.columns9 > div:first-child {
   flex: 1 1 0;
   align-items: flex-start;
@@ -178,7 +176,6 @@
   justify-content: flex-start;
 }
 
-/* Right: social area, fixed width, top and right aligned */
 .columns.columns9 > div:last-child {
   flex: 0 0 240px;
   max-width: 260px;
@@ -191,7 +188,6 @@
   width: 100%;
 }
 
-/* On mobile, stack and left-align right column */
 @media (width <= 899px) {
   .columns.columns9 > div:last-child {
     align-items: flex-start;
@@ -199,7 +195,6 @@
   }
 }
 
-/* Headings in left column */
 .columns.columns9 > div:first-child h1,
 .columns.columns9 > div:first-child h2 {
   color: #fff;
@@ -211,7 +206,6 @@
   letter-spacing: 1px;
 }
 
-/* Paragraph/body text */
 .columns.columns9 > div:first-child p,
 .columns.columns9 > div:first-child span,
 .columns.columns9 > div:first-child li {
@@ -221,14 +215,12 @@
   margin: 0 0 8px;
 }
 
-/* Underlined white links in left content */
 .columns.columns9 > div:first-child a {
   color: #fff;
   text-decoration: underline;
   transition: color 0.2s;
 }
 
-/* Social area label styling (right column) */
 .columns.columns9 > div:last-child .follow-label,
 .columns.columns9 > div:last-child strong {
   color: #fff;
@@ -240,7 +232,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Social icons row */
 .columns.columns9 > div:last-child .social-icons,
 .columns.columns9 > div:last-child ul.social,
 .columns.columns9 > div:last-child .social {
@@ -252,7 +243,6 @@
   list-style: none;
 }
 
-/* Each social icon */
 .columns.columns9 > div:last-child .social-icons a,
 .columns.columns9 > div:last-child ul.social li a,
 .columns.columns9 > div:last-child .social a {
@@ -272,10 +262,217 @@
   box-sizing: border-box;
 }
 
-/* Social icon hover */
 .columns.columns9 > div:last-child .social-icons a:hover,
 .columns.columns9 > div:last-child ul.social li a:hover,
 .columns.columns9 > div:last-child .social a:hover {
   background: #444;
   color: #fff;
+}
+
+
+/* Columns layout: increase gap for visual separation, tweak proportions */
+.columns.columns14 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 4.5rem;
+  width: 100%;
+  margin-top: 0;
+}
+
+/* Sidebar: slightly narrower for balance */
+.columns.columns14 > div > div:first-child {
+  flex: 0 0 220px;
+  max-width: 240px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0;
+}
+
+/* Sidebar heading underline accent */
+.columns.columns14 > div > div:first-child h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.3em;
+  position: relative;
+  padding-bottom: 0.2em;
+}
+
+.columns.columns14 > div > div:first-child h3::after {
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: #e9c46a;
+  margin-top: 0.4em;
+  margin-bottom: 1.35em;
+  content: "";
+}
+
+/* Sidebar details spacing */
+.columns.columns14 > div > div:first-child ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5em;
+  width: 100%;
+  font-size: 1em;
+  letter-spacing: 0.02em;
+}
+
+.columns.columns14 > div > div:first-child ul li {
+  margin-bottom: 0.1em;
+  color: #7d7d7d;
+  text-transform: uppercase;
+  font-size: 1em;
+  line-height: 1.45;
+}
+
+.columns.columns14 > div > div:first-child ul li:nth-child(even) {
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 1.3em;
+  letter-spacing: 0.03em;
+}
+
+/* Sidebar footer */
+.columns.columns14 > div > div:first-child h5 {
+  margin-top: 2.8em;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Main content column: slightly wider, left-aligned */
+.columns.columns14 > div > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 740px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Tab navigation: adjust gap, more margin below */
+.columns.columns14 > div > div:last-child > ol {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.3em;
+  width: 100%;
+}
+
+.columns.columns14 > div > div:last-child > ol > li {
+  padding: 0.55em 1.2em;
+  border-radius: 3px;
+  background: transparent;
+  color: #222;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.columns.columns14 > div > div:last-child > ol > li:first-child {
+  background: #000;
+  color: #fff;
+}
+
+/* Heading and text */
+.columns.columns14 > div > div:last-child h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0.2em;
+  margin-bottom: 1.1em;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.columns.columns14 > div > div:last-child p {
+  color: #222;
+  font-size: 1.08em;
+  line-height: 1.8;
+  margin-bottom: 2em;
+  margin-top: 0;
+  max-width: 740px;
+}
+
+/* Image styling: consistent margin below */
+.columns.columns14 > div > div:last-child p > picture {
+  display: block;
+  margin-bottom: 0.65em;
+}
+
+.columns.columns14 > div > div:last-child p > picture img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  margin-bottom: 0.3em;
+  box-shadow: none;
+}
+
+/* Caption for first image/text description */
+.columns.columns14 > div > div:last-child p:first-of-type {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1em;
+  margin-top: 1.2em;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.1em;
+}
+
+/* Caption styling for non-first occurrences */
+.columns.columns14 > div > div:last-child p + p {
+  font-weight: 400;
+  text-transform: none;
+  font-size: 1.05em;
+  margin-bottom: 2em;
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 900px) {
+  .columns.columns14 > div {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 0;
+  }
+
+  .columns.columns14 > div > div:first-child,
+  .columns.columns14 > div > div:last-child {
+    max-width: unset;
+    width: 100%;
+  }
+
+  .columns.columns14 > div > div:first-child {
+    margin-bottom: 2.5em;
+  }
+
+  .columns.columns14 > div > div:last-child {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns14 > div {
+    gap: 1.2em;
+  }
+
+  .columns.columns14 > div > div:first-child h3 {
+    font-size: 1.2rem;
+  }
+
+  .columns.columns14 > div > div:last-child {
+    max-width: 100%;
+  }
 }
