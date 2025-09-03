@@ -378,7 +378,7 @@
   box-sizing: border-box;
   background: #fff;
   max-width: 900px;
-  margin: 0 auto 40px; /* Remove top margin to anchor block near top */
+  margin: 0 auto 40px;
   padding: 24px 20px;
 }
 
@@ -390,7 +390,6 @@
   }
 }
 
-/* Tabs bar layout and styling */
 .tabs.tabs10 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -401,7 +400,6 @@
   position: relative;
 }
 
-/* Tab buttons: compact, tight grouping, visual alignment */
 .tabs.tabs10 .tabs-tab {
   padding: 7px 14px 5px;
   min-width: 86px;
@@ -443,12 +441,10 @@
   text-align: center;
 }
 
-/* Remove extraneous underline background effect */
 .tabs.tabs10 .tabs-list::after {
   display: none;
 }
 
-/* Tab panel spacing and alignment */
 .tabs.tabs10 .tabs-panel {
   border: none;
   background: transparent;
@@ -457,12 +453,10 @@
   margin: 0;
 }
 
-/* Only show the active tab panel */
 .tabs.tabs10 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Headings */
 .tabs.tabs10 h2 {
   font-size: 1.7rem;
   margin-top: 0.6rem;
@@ -480,7 +474,6 @@
   line-height: 1.18;
 }
 
-/* Images styling */
 .tabs.tabs10 picture,
 .tabs.tabs10 img {
   display: block;
@@ -492,7 +485,6 @@
   box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
 }
 
-/* Paragraphs and copy */
 .tabs.tabs10 p {
   font-size: 16px;
   color: #444;
@@ -513,7 +505,6 @@
   margin-bottom: 0.2em;
 }
 
-/* Related trips paragraph spacing */
 .tabs.tabs10 p + ul {
   margin-top: 0;
 }
@@ -522,7 +513,6 @@
   margin-bottom: 5px;
 }
 
-/* Responsive: stack tabs vertically on very small screens */
 @media (width <= 600px) {
   .tabs.tabs10 {
     padding: 6px 0.5vw 8px;
@@ -544,5 +534,172 @@
 
   .tabs.tabs10 .tabs-tab:last-child {
     margin-bottom: 0;
+  }
+}
+
+
+.tabs.tabs19 {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0;
+  background: var(--background-color);
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Tabs: left-align tabs above content */
+.tabs.tabs19 .tabs-list {
+  justify-content: flex-start;
+  margin-bottom: 2.5rem;
+  padding-left: 0;
+  background: none;
+  border: none;
+  max-width: 700px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Tabs styling */
+.tabs.tabs19 .tabs-list button {
+  background: none;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  padding: 0.7em 2.1em 0.7em 1.4em;
+  color: var(--text-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.08rem;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  margin-right: 6px;
+  outline: none;
+}
+
+.tabs.tabs19 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 6px 6px 0 0;
+  z-index: 2;
+  font-weight: 700;
+}
+
+.tabs.tabs19 .tabs-list button p {
+  margin: 0;
+}
+
+.tabs.tabs19 .tabs-panel {
+  border: none;
+  background: none;
+  margin-top: 0;
+  padding: 0;
+  max-width: 100%;
+  box-shadow: none;
+  overflow: visible;
+  display: block;
+}
+
+.tabs.tabs19 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Main layout: heading left, right column contains image and text stacked vertically */
+.tabs.tabs19 .tabs-panel > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+  gap: 3.5rem;
+}
+
+/* Responsive: stack everything vertically on small screens */
+@media (width <= 899px) {
+  .tabs.tabs19 .tabs-panel > div {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* Heading column */
+.tabs.tabs19 .tabs-panel > div > h3 {
+  margin: 0 0 2.5rem;
+  padding-bottom: 1.3rem;
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.18;
+  border-bottom: 5px solid #F1E3B3;
+  width: 290px;
+  min-width: 180px;
+  max-width: 320px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+/* Responsive heading */
+@media (width <= 899px) {
+  .tabs.tabs19 .tabs-panel > div > h3 {
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    border-bottom-width: 4px;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Right column: stack image and text vertically (creative use of :not selector) */
+.tabs.tabs19 .tabs-panel > div > h3 ~ p {
+  width: 100%;
+  max-width: 700px;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* Use a wrapper flex column for right column using first p after h3 */
+.tabs.tabs19 .tabs-panel > div > h3 + p {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  max-width: 700px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* Move next p (the paragraph) into right column stack */
+.tabs.tabs19 .tabs-panel > div > h3 + p + p {
+  width: 100%;
+  max-width: 700px;
+  margin: 0;
+  padding: 0;
+  align-self: flex-start;
+}
+
+/* Style image */
+.tabs.tabs19 .tabs-panel picture img {
+  display: block;
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgb(32 32 32 / 6%);
+}
+
+/* Responsive tweaks */
+@media (width <= 899px) {
+  .tabs.tabs19 .tabs-panel > div > h3 + p {
+    max-width: 100%;
+    width: 100%;
+    gap: 1.3rem;
+  }
+
+  .tabs.tabs19 .tabs-panel > div > h3 + p + p {
+    max-width: 100%;
+  }
+
+  .tabs.tabs19 .tabs-list {
+    margin-bottom: 1.3rem;
   }
 }
