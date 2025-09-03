@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,139 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion13 {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure all FAQ items stack vertically */
+.accordion.accordion13 .accordion-item {
+  display: block;
+}
+
+/* FAQ rows */
+.accordion.accordion13 details {
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #f7f7f7;
+  margin: 0;
+  box-sizing: border-box;
+  transition: background 0.2s;
+}
+
+.accordion.accordion13 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion13 details + details {
+  margin-top: 0;
+}
+
+/* FAQ header row: flex for horizontal alignment */
+.accordion.accordion13 summary {
+  min-height: 44px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 18px 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #222;
+  text-transform: uppercase;
+  background-color: #f7f7f7;
+  border: none;
+  outline: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  justify-content: space-between;
+}
+
+/* State styling */
+.accordion.accordion13 details[open] summary,
+.accordion.accordion13 summary:focus,
+.accordion.accordion13 summary:hover {
+  background-color: #f5f1e6;
+}
+
+/* Remove default marker */
+.accordion.accordion13 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Remove margin in summary paragraph */
+.accordion.accordion13 summary p {
+  margin: 0;
+  font-weight: 700;
+  font-size: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+/* Custom plus/minus icon using two centered gradients */
+.accordion.accordion13 summary::after {
+  display: inline-block;
+  margin-left: 18px;
+  width: 21px;
+  height: 21px;
+  position: relative;
+  align-self: center;
+  background: 
+    linear-gradient(to bottom, #888 0 100%, transparent 100% 100%) center/2px 14px no-repeat, /* vertical line */
+    linear-gradient(to right, #888 0 100%, transparent 100% 100%) center/14px 2px no-repeat; /* horizontal line */
+
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+/* Minus on open: only horizontal line */
+.accordion.accordion13 details[open] summary::after {
+  background: 
+    linear-gradient(to right, #888 0 100%, transparent 100% 100%) center/14px 2px no-repeat;
+}
+
+@media (width <= 600px) {
+  .accordion.accordion13 {
+    max-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .accordion.accordion13 summary {
+    font-size: 14px;
+    padding-left: 8px;
+    padding-right: 10px;
+  }
+
+  .accordion.accordion13 summary::after {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+    background:
+      linear-gradient(to bottom, #888 0 100%, transparent 100% 100%) center/2px 12px no-repeat,
+      linear-gradient(to right, #888 0 100%, transparent 100% 100%) center/12px 2px no-repeat;
+  }
+
+  .accordion.accordion13 details[open] summary::after {
+    background:
+      linear-gradient(to right, #888 0 100%, transparent 100% 100%) center/12px 2px no-repeat;
+  }
+}
+
+/* Accordion body styling (expanded FAQ answers) */
+.accordion.accordion13 .accordion-item-body {
+  padding: 16px 16px 16px 32px;
+  font-size: 15px;
+  color: #222;
+  background-color: #fff;
+  line-height: 1.6;
+  margin: 0;
+  border-top: none;
 }
