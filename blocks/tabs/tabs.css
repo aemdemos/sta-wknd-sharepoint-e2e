@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,155 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs3 {
+  background-color: var(--background-color);
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* --- LAYOUT: Two columns using flex --- */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px; /* Slightly reduced for closer column relation */
+  padding: 0;
+  width: 100%;
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 900px) {
+  .tabs.tabs3 .tabs-panel[aria-hidden="false"] > div {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+}
+
+/* --- SIDEBAR (LEFT COLUMN): Heading + Underline --- */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > h3 {
+  margin-top: 0;
+  margin-bottom: 48px; /* More space below title/underline */
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  color: #222;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  border-bottom: 3px solid #F6C948;
+  padding-bottom: 8px;
+  width: 180px; /* Underline slightly longer than heading text */
+  min-width: 145px;
+  max-width: 210px;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+/* --- MAIN COLUMN: Tabs + Content --- */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > div {
+  flex: 1 1 0;
+  min-width: 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- TABS BAR --- */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 6px; /* Even more compact tabs */
+  margin-bottom: 36px; /* More space below tabs */
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  background: none;
+}
+
+@media (width >= 900px) {
+  /* Visually align tabs with the main column, not the sidebar */
+  .tabs.tabs3 .tabs-list {
+    margin-left: 180px;
+  }
+}
+
+/* Tab Buttons */
+.tabs.tabs3 .tabs-list button {
+  border: none;
+  border-bottom: 4px solid transparent;
+  background: none;
+  color: #222;
+  font-weight: 700;
+  padding: 12px 24px 10px;
+  text-transform: uppercase;
+  border-radius: 10px 10px 0 0;
+  transition: background 0.2s, color 0.2s;
+  font-size: var(--body-font-size-s);
+  cursor: pointer;
+  min-width: 80px;
+  max-width: 140px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Active tab styling */
+.tabs.tabs3 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-bottom: 4px solid #F6C948;
+  z-index: 2;
+}
+
+/* --- Main Description --- */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > div > p {
+  color: #333;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 26px;
+  line-height: 1.7;
+  text-transform: none;
+  max-width: 640px;
+  text-align: left;
+}
+
+/* --- Section Heading in Main Column (if present) --- */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > div > h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0.02em;
+  border: none;
+  padding-bottom: 0;
+}
+
+/* --- If image is present below tabs/content --- */
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > div > img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  object-fit: cover;
+}
+
+/* --- Panel cleanup --- */
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > div,
+.tabs.tabs3 .tabs-panel[aria-hidden="false"] > div > h3 {
+  box-sizing: border-box;
 }
