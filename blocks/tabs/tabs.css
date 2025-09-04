@@ -731,7 +731,7 @@
   width: 100%;
   max-width: 1100px;
   margin: 48px 0 0;
-  padding: 0 24px 0 48px; /* Add left padding to match block's "flush" start */
+  padding: 0 24px 0 48px;
   background: var(--background-color);
   box-sizing: border-box;
 }
@@ -855,7 +855,6 @@
   margin-bottom: 0.3em;
 }
 
-/* Prevent double vertical margins between h3 and image */
 .tabs.tabs19 .tabs-panel h3 + p > picture {
   margin-top: 0;
 }
@@ -863,4 +862,161 @@
 .tabs.tabs19 .tabs-panel img {
   max-width: 100%;
   height: auto;
+}
+
+
+.tabs.tabs22 {
+  box-sizing: border-box;
+  margin: 0 auto 40px;
+  max-width: 1040px;
+  padding: 0 40px 44px;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (width <= 1120px) {
+  .tabs.tabs22 {
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs22 {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 16px;
+  }
+}
+
+/* Tabs row: minimal top/bottom spacing, flush alignment */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: transparent;
+  border: none;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* Tab buttons: compact vertical padding for active */
+.tabs.tabs22 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #232323;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  min-width: 0;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+.tabs.tabs22 .tabs-list button[aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+  padding: 5px 16px;
+  box-shadow: none;
+}
+
+.tabs.tabs22 .tabs-list button[aria-selected="false"]:hover {
+  color: #F7D560;
+}
+
+.tabs.tabs22 .tabs-list button p {
+  margin: 0;
+}
+
+/* Remove borders/padding from the panel */
+.tabs.tabs22 .tabs-panel {
+  border: none;
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+  overflow: visible;
+  max-width: 100%;
+}
+
+/* Heading: slightly smaller spacing below */
+.tabs.tabs22 .tabs-panel h2,
+.tabs.tabs22 .tabs-panel h2 strong {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #232323;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.18;
+}
+
+/* Body text: slightly tighter spacing */
+.tabs.tabs22 .tabs-panel p {
+  color: #232323;
+  font-size: 1rem;
+  line-height: 1.64;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+/* Reduce margin after images, and after images to next paragraph */
+.tabs.tabs22 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  margin: 10px 0;
+  box-shadow: none;
+}
+
+.tabs.tabs22 .tabs-panel picture + p {
+  margin-top: 6px;
+}
+
+/* Related Trips: minimal top margin before ul, minimal li spacing */
+.tabs.tabs22 .tabs-panel p + ul {
+  margin-top: 0;
+}
+
+.tabs.tabs22 .tabs-panel ul {
+  margin-bottom: 4px;
+  margin-top: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tabs.tabs22 .tabs-panel ul li {
+  color: #232323;
+  font-size: 1rem;
+  margin-bottom: 1px;
+  padding-left: 0;
+  text-indent: 0;
+}
+
+.tabs.tabs22 .tabs-panel ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Overall: tighten vertical rhythm between stacked elements */
+.tabs.tabs22 .tabs-panel > * + * {
+  margin-top: 7px;
+}
+
+/* Remove additional margin if a picture is followed by a p or ul */
+.tabs.tabs22 .tabs-panel picture + p,
+.tabs.tabs22 .tabs-panel picture + ul {
+  margin-top: 3px;
 }
