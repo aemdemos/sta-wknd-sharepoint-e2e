@@ -1958,7 +1958,6 @@
   }
 }
 
-/* Sidebar: vertical tabs, even narrower and tighter */
 .tabs.tabs36 > .tabs-list {
   flex: 0 0 124px;
   display: flex;
@@ -1987,7 +1986,6 @@
   }
 }
 
-/* Tab buttons: very tight vertical/horizontal padding */
 .tabs.tabs36 > .tabs-list .tabs-tab {
   width: 100%;
   margin: 0;
@@ -2040,7 +2038,6 @@
   }
 }
 
-/* Main content panel: tighter gap to sidebar */
 .tabs.tabs36 > .tabs-panel {
   flex: 1 1 0;
   padding: 52px 0 0 12px;
@@ -2057,12 +2054,10 @@
   }
 }
 
-/* Hide inactive panels */
 .tabs.tabs36 > .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Heading and underline: longer and more spaced */
 .tabs.tabs36 .tabs-panel h3 {
   font-size: 2.1rem;
   font-weight: 500;
@@ -2087,7 +2082,6 @@
   margin-left: 0;
 }
 
-/* Image styling */
 .tabs.tabs36 .tabs-panel picture {
   display: block;
   margin-top: 5px;
@@ -2103,7 +2097,6 @@
   box-shadow: none;
 }
 
-/* Caption: tight, uppercase, bold, smallest font */
 .tabs.tabs36 .tabs-panel p:first-of-type {
   font-size: 0.82em;
   font-weight: 700;
@@ -2114,7 +2107,6 @@
   line-height: 1.2;
 }
 
-/* Body: smaller, lighter, improved spacing */
 .tabs.tabs36 .tabs-panel p:not(:first-of-type) {
   color: #333;
   font-size: 14.5px;
@@ -2124,11 +2116,191 @@
   margin-bottom: 1em;
 }
 
-/* Remove all borders/box-shadows for a flat look */
 .tabs.tabs36, 
 .tabs.tabs36 > .tabs-list, 
 .tabs.tabs36 > .tabs-panel, 
 .tabs.tabs36 > .tabs-list .tabs-tab {
   border: none;
   box-shadow: none;
+}
+
+
+.tabs.tabs37 {
+  margin-left: 0;
+  margin-right: auto;
+  max-width: 900px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  display: block;
+}
+
+/* Tabs row: flush left, no underline below full row */
+.tabs.tabs37 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 0;
+  margin-top: 0;
+  margin-bottom: 6px;
+  margin-left: 0;
+  padding: 0;
+  border-bottom: none;
+  box-shadow: none;
+  width: auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Tabs themselves: reduced horizontal padding for tighter fit */
+.tabs.tabs37 .tabs-list button {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 8px 14px 8px 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: 1.2;
+  min-width: 0;
+  outline: none;
+  flex: 0 0 auto;
+  box-shadow: none;
+  border-bottom: 2px solid transparent;
+  transition: background 0.2s, color 0.2s, border-bottom 0.2s;
+}
+
+/* Remove focus ring for a cleaner look if needed */
+.tabs.tabs37 .tabs-list button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Space between tabs */
+.tabs.tabs37 .tabs-list button + button {
+  margin-left: 2px;
+}
+
+/* Selected tab: black bg, white text, black underline */
+.tabs.tabs37 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #222;
+  cursor: default;
+}
+
+/* Inactive tab: light gray underline */
+.tabs.tabs37 .tabs-list button:not([aria-selected="true"]) {
+  border-bottom: 2px solid #eee;
+}
+
+/* Remove any extra underline from the list itself */
+.tabs.tabs37 .tabs-list::after,
+.tabs.tabs37 .tabs-list::before {
+  display: none;
+  content: none;
+}
+
+/* Remove browser autofill background (for demonstration completeness) */
+.tabs.tabs37 input:-webkit-autofill {
+  box-shadow: 0 0 0 30px white inset;
+}
+
+/* Panel styling: left-align all content, minimal spacing */
+.tabs.tabs37 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+  background: none;
+}
+
+/* Image flush left, grouped tightly with caption */
+.tabs.tabs37 .tabs-panel picture,
+.tabs.tabs37 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 4px;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Caption: bold, uppercase, minimal vertical gap, left-aligned */
+.tabs.tabs37 .tabs-panel > div > p:first-child {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.045em;
+  line-height: 1.3;
+  text-align: left;
+  display: block;
+}
+
+/* Description/body text: left-align, minimal margin, serif from heading-font-family */
+.tabs.tabs37 .tabs-panel > div > p:not(:first-child) {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 14px;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+/* Headings in itinerary/other tabs */
+.tabs.tabs37 .tabs-panel h2 {
+  color: #222;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 22px 0 6px;
+  text-transform: none;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+/* List styling for What to Bring */
+.tabs.tabs37 .tabs-panel ul {
+  margin: 0 0 14px 18px;
+  padding: 0 0 0 18px;
+}
+
+.tabs.tabs37 .tabs-panel li {
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Responsive: fill parent on small screens, keep left-aligned */
+@media (width <= 900px) {
+  .tabs.tabs37 {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs37 .tabs-list button {
+    font-size: 0.98rem;
+    padding-right: 8px;
+    padding-left: 0;
+  }
+
+  .tabs.tabs37 .tabs-panel > div > p:first-child {
+    font-size: 0.82rem;
+  }
+
+  .tabs.tabs37 .tabs-panel > div > p:not(:first-child) {
+    font-size: 0.98rem;
+  }
 }
