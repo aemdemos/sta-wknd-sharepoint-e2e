@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,164 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel6 {
+  position: relative;
+}
+
+.carousel.carousel6 .carousel-slide {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  bottom: 70px;
+  margin: 0;
+  width: auto;
+  min-width: 340px;
+  max-width: none;
+  padding: 28px 44px 20px;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+  border-radius: 0;
+  z-index: 3;
+  display: block;
+  opacity: 1;
+}
+
+.carousel.carousel6 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 34px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  background: none;
+  padding: 0;
+  z-index: 4;
+  pointer-events: auto;
+}
+
+.carousel.carousel6 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 34px 10px auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  z-index: 4;
+  height: 44px;
+  pointer-events: auto;
+  background: none;
+}
+
+.carousel.carousel6 .carousel-navigation-buttons button {
+  background-color: #fff;
+  border: 2px solid #dadada;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 7%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, border-color 0.2s;
+  margin: 0 1px;
+}
+
+.carousel.carousel6 .carousel-navigation-buttons button:hover,
+.carousel.carousel6 .carousel-navigation-buttons button:focus-visible {
+  background-color: #f3f3f3;
+  border-color: #999;
+}
+
+.carousel.carousel6 .carousel-navigation-buttons button::after {
+  position: absolute;
+  border: solid #222;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 7px;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.carousel.carousel6 .carousel-navigation-buttons .slide-prev::after {
+  transform: translate(-50%,-50%) rotate(135deg);
+}
+
+.carousel.carousel6 .carousel-navigation-buttons .slide-next::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content h2 {
+  font-size: 2.2rem;
+  color: #181818;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.16;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content p {
+  margin: 0 0 12px;
+  font-size: 1.08rem;
+  color: #222;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content .button-container {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content .button {
+  background: #ffe000;
+  color: #222;
+  font-weight: 600;
+  border-radius: 1.2em;
+  border: none;
+  padding: 0.42em 1.22em;
+  font-size: 1rem;
+  margin: 0;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 3%);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: background 0.18s;
+}
+
+.carousel.carousel6 .carousel-slide .carousel-slide-content .button:hover,
+.carousel.carousel6 .carousel-slide .carousel-slide-content .button:focus {
+  background: #fff200;
+  color: #222;
+  text-decoration: underline;
+}
+
+.carousel.carousel6 .carousel-slide-indicator button {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: none;
+  background-color: #dadada;
+  box-shadow: none;
+  margin: 0 2px;
+  transition: background-color 0.2s;
+  padding: 0;
+}
+
+.carousel.carousel6 .carousel-slide-indicator button:disabled,
+.carousel.carousel6 .carousel-slide-indicator button[disabled] {
+  background-color: #888;
 }
