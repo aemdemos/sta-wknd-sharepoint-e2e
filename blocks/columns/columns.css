@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +31,210 @@
     flex: 1;
     order: unset;
   }
+}
+
+
+.columns {
+  background: #232323;
+  color: #ccc;
+  font-size: 13px;
+  padding: 32px 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Main grid: two columns top, info row below --- */
+.columns > .columns-3-cols {
+  display: grid;
+  grid-template-columns: minmax(220px, 400px) 1fr;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+  gap: 0;
+}
+
+@media (width <= 900px) {
+  .columns {
+    padding: 18px 0 16px;
+  }
+
+  .columns > .columns-3-cols {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 18px 0;
+  }
+}
+
+/* --- LEFT TOP: logo + lang, stacked vertically, align to top --- */
+.columns > .columns-3-cols > div:first-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 32px;
+  min-width: 0;
+  gap: 6px;
+}
+
+/* Logo bigger and visually dominant */
+.columns .columns-img-col {
+  margin-bottom: 0;
+}
+
+.columns .columns-img-col img {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 0;
+  display: block;
+  vertical-align: top;
+}
+
+/* Language selector under logo, no bullet, minimal margin */
+.columns > .columns-3-cols > div:first-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.columns > .columns-3-cols > div:first-child ul li {
+  display: inline;
+  margin: 0 0 0 8px;
+  padding: 0;
+}
+
+.columns > .columns-3-cols > div:first-child ul li a {
+  color: #ccc;
+  font-size: 13px;
+  text-decoration: none;
+  padding: 0 6px;
+}
+
+/* --- RIGHT TOP: social section inline with label, align to top/right --- */
+.columns > .columns-3-cols > div:last-child {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-right: 32px;
+  min-width: 0;
+}
+
+/* Social box: label + icons in a single row */
+.columns > .columns-3-cols > div:last-child > div {
+  display: block;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  width: 100%;
+}
+
+/* "Follow Us" label */
+.columns #follow-us {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  line-height: 32px;
+  align-self: center;
+}
+
+/* Social button styling: square, no truncation, minimal margin */
+.columns .button-container {
+  margin: 0;
+  display: inline-block;
+}
+
+.columns .button-container .button {
+  display: inline-block;
+  width: 40px;
+  height: 32px;
+  padding: 0;
+  background: #e0e0e0;
+  color: #232323;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 32px;
+  border: none;
+  box-shadow: none;
+  margin-right: 5px;
+  transition: background 0.2s, color 0.2s;
+  overflow: visible;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.columns .button-container .button:last-child {
+  margin-right: 0;
+}
+
+.columns .button-container .button:hover,
+.columns .button-container .button:focus {
+  background: #fff;
+  color: #232323;
+  text-decoration: none;
+}
+
+/* --- INFO/LEGAL: spans both columns --- */
+
+.columns > .columns-3-cols > div p,
+.columns > .columns-3-cols > div:last-child > div p {
+  color: #ccc;
+  font-size: 13px;
+  margin: 0 0 10px;
+  line-height: 1.6;
+  width: 100%;
+}
+
+/* Links in legal copy */
+.columns > .columns-3-cols > div a,
+.columns > .columns-3-cols > div:last-child > div a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.columns > .columns-3-cols > div a:hover,
+.columns > .columns-3-cols > div a:focus,
+.columns > .columns-3-cols > div:last-child > div a:hover,
+.columns > .columns-3-cols > div:last-child > div a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* On mobile, columns stack and padding reduces */
+@media (width <= 900px) {
+  .columns > .columns-3-cols > div:first-child,
+  .columns > .columns-3-cols > div:last-child {
+    padding: 0 18px;
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+
+  .columns > .columns-3-cols > div:last-child > div {
+    margin-top: 18px;
+    padding-right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .columns #follow-us {
+    margin-bottom: 10px;
+  }
+
+  /* Stack social label and icons vertically with gap */
 }
