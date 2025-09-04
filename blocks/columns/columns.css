@@ -235,7 +235,6 @@
   box-sizing: border-box;
 }
 
-/* --- MAIN GRID: align to top, but nudge right col down to match logo/title --- */
 .columns.columns9 > .columns-3-cols {
   display: grid;
   grid-template-columns: minmax(340px, 430px) 1fr;
@@ -257,7 +256,6 @@
   }
 }
 
-/* --- LEFT COLUMN --- */
 .columns.columns9 > .columns-3-cols > div:first-child {
   grid-column: 1 / 2;
   display: flex;
@@ -275,7 +273,6 @@
   }
 }
 
-/* --- LOGO/TITLE --- */
 .columns.columns9 .columns-img-col img {
   max-width: 220px;
   min-width: 120px;
@@ -285,7 +282,6 @@
   margin-bottom: 0;
 }
 
-/* --- LANGUAGE LIST: remove bullet, flatten spacing --- */
 .columns.columns9 > .columns-3-cols > div:first-child ul {
   list-style-type: none;
   margin: 0;
@@ -320,7 +316,6 @@
   color: #e0e0e0;
 }
 
-/* --- HEADINGS --- */
 .columns.columns9 > .columns-3-cols > div:first-child h1,
 .columns.columns9 > .columns-3-cols > div:first-child h2,
 .columns.columns9 > .columns-3-cols > div:first-child h3,
@@ -335,7 +330,6 @@
   letter-spacing: 2px;
 }
 
-/* --- TIGHT LEFT COLUMN STACKING --- */
 .columns.columns9 > .columns-3-cols > div:first-child > * {
   margin-bottom: 0;
 }
@@ -344,7 +338,6 @@
   margin-bottom: 2px;
 }
 
-/* --- RIGHT COLUMN: nudge down so "Follow Us" aligns with logo/title, not whole left column --- */
 .columns.columns9 > .columns-3-cols > div:last-child {
   grid-column: 2 / 3;
   display: flex;
@@ -352,7 +345,7 @@
   align-items: flex-end;
   padding-right: 32px;
   min-width: 0;
-  margin-top: 24px; /* key: nudge social block down to visually align with logo/title */
+  margin-top: 24px;
   justify-content: flex-start;
 }
 
@@ -364,7 +357,6 @@
   }
 }
 
-/* --- SOCIAL SECTION: align column, reduce vertical gap --- */
 .columns.columns9 > .columns-3-cols > div:last-child > div {
   display: flex;
   flex-direction: column;
@@ -382,7 +374,6 @@
   }
 }
 
-/* --- "FOLLOW US" LABEL --- */
 .columns.columns9 #follow-us {
   color: #fff;
   font-size: 16px;
@@ -395,7 +386,6 @@
   align-self: flex-end;
 }
 
-/* --- SOCIAL BUTTONS --- */
 .columns.columns9 .button-container {
   display: inline-block;
   margin: 0;
@@ -435,7 +425,6 @@
   text-decoration: none;
 }
 
-/* --- BODY/TEXT --- */
 .columns.columns9 > .columns-3-cols > div:last-child p,
 .columns.columns9 > .columns-3-cols > div:last-child > div p {
   color: #fff;
@@ -451,7 +440,6 @@
   margin-bottom: 6px;
 }
 
-/* --- FORCE ALL LINKS TO WHITE/UNDERLINED IN BOTH COLUMNS --- */
 .columns.columns9 a {
   color: #fff;
   text-decoration: underline;
@@ -464,7 +452,6 @@
   color: #e0e0e0;
 }
 
-/* --- RESPONSIVE COLUMN PADDING --- */
 @media (width <= 700px) {
   .columns.columns9 {
     padding: 18px 0 16px;
@@ -480,4 +467,168 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+
+.columns.columns20 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Remove unwanted margin/padding from direct child rows */
+.columns.columns20 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  width: 100%;
+  height: 520px;
+  min-height: 520px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove any left space and ensure image is flush with the left edge */
+.columns.columns20 .columns-img-col {
+  flex: 2 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* The image fills the left column completely, flush left/top/bottom */
+.columns.columns20 .columns-img-col picture,
+.columns.columns20 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  max-width: unset;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* Text column: match height, fill right side, gray background, good padding */
+.columns.columns20 > div > div:not(.columns-img-col) {
+  flex: 1 1 0;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 56px 48px 48px;
+  box-sizing: border-box;
+  text-align: left;
+  margin: 0;
+}
+
+/* Responsive stacking and height adjustments */
+@media (width <= 900px) {
+  .columns.columns20 > div {
+    flex-direction: column;
+    height: auto;
+    min-height: unset;
+  }
+
+  .columns.columns20 .columns-img-col {
+    flex: unset;
+    height: 220px;
+    max-height: 320px;
+  }
+
+  .columns.columns20 > div > div:not(.columns-img-col) {
+    padding: 28px 18px 24px;
+    height: auto;
+  }
+
+  .columns.columns20 .columns-img-col picture,
+  .columns.columns20 .columns-img-col img {
+    height: 100%;
+    min-height: 180px;
+  }
+}
+
+/* "Featured Article" Text */
+.columns.columns20 > div > div:not(.columns-img-col) > p:first-child {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  margin: 0 0 16px;
+}
+
+/* Headline */
+.columns.columns20 > div > div:not(.columns-img-col) > h2 {
+  font-size: 32px;
+  color: #222;
+  font-weight: bold;
+  margin: 0 0 20px;
+  line-height: 1.15;
+}
+
+/* Body Text: all paragraphs except first (label) and button */
+.columns.columns20 > div > div:not(.columns-img-col) > p:not(:first-child, .button-container) {
+  font-size: 16px;
+  color: #555;
+  margin: 0 0 28px;
+  line-height: 1.6;
+}
+
+/* Button container */
+.columns.columns20 .button-container {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Button styling: yellow, bold, uppercase, black text, rounded */
+.columns.columns20 .button-container .button {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #ffe400;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  line-height: 1.2;
+  transition: background 0.2s;
+  box-shadow: none;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.columns.columns20 .button-container .button:hover,
+.columns.columns20 .button-container .button:focus {
+  background: #ffd600;
+  color: #222;
+  text-decoration: none;
+}
+
+/* Remove any unwanted horizontal margin/padding in text content */
+.columns.columns20 > div > div:not(.columns-img-col) > * {
+  margin-left: 0;
+  margin-right: 0;
 }
