@@ -157,7 +157,6 @@
 
 
 .accordion.accordion15 {
-  /* Flexbox for two-column layout; root block centered and constrained */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -170,16 +169,11 @@
   padding: 0 24px;
   background: var(--background-color);
   border-radius: 0;
-
-  /* Subtle border and shadow for card effect */
   border: 1px solid #ededed;
   box-shadow: 0 2px 24px 0 rgb(60 60 60 / 6%);
-
-  /* Prevent overflow clipping on wide screens */
   overflow: visible;
 }
 
-/* Responsive: columns stack on small screens */
 @media (width <= 900px) {
   .accordion.accordion15 {
     flex-direction: column;
@@ -200,7 +194,6 @@
   }
 }
 
-/* Main column: first child (wide, left-aligned) */
 .accordion.accordion15 > div:first-child {
   flex: 3 1 0;
   min-width: 0;
@@ -210,7 +203,6 @@
   justify-content: flex-start;
 }
 
-/* Sidebar: second child (narrow, right-aligned) */
 .accordion.accordion15 > div:nth-child(2) {
   flex: 1 1 0;
   min-width: 220px;
@@ -223,7 +215,6 @@
   background: none;
 }
 
-/* Remove sidebar border on mobile */
 @media (width <= 900px) {
   .accordion.accordion15 > div:nth-child(2) {
     border-left: none;
@@ -231,7 +222,6 @@
   }
 }
 
-/* Images: full width in column, spaced above and below */
 .accordion.accordion15 img {
   display: block;
   width: 100%;
@@ -242,7 +232,6 @@
   box-shadow: none;
 }
 
-/* Headings: margin and weight adjustments for visual clarity */
 .accordion.accordion15 h1,
 .accordion.accordion15 h2,
 .accordion.accordion15 h3 {
@@ -257,7 +246,6 @@
 .accordion.accordion15 h2 { font-size: var(--heading-font-size-l);}
 .accordion.accordion15 h3 { font-size: var(--heading-font-size-m);}
 
-/* Paragraphs: clear vertical rhythm, readable */
 .accordion.accordion15 p {
   color: #444;
   font-size: var(--body-font-size-m);
@@ -266,7 +254,6 @@
   line-height: 1.7;
 }
 
-/* Caption & meta tweaks */
 .accordion.accordion15 em,
 .accordion.accordion15 i,
 .accordion.accordion15 small {
@@ -274,7 +261,6 @@
   font-size: var(--body-font-size-s);
 }
 
-/* Breadcrumbs: subtle, small, uppercase */
 .accordion.accordion15 nav,
 .accordion.accordion15 .breadcrumbs {
   font-size: var(--body-font-size-s);
@@ -295,7 +281,6 @@
   text-decoration: underline;
 }
 
-/* Sidebar headings: muted, uppercase */
 .accordion.accordion15 > div:nth-child(2) h2,
 .accordion.accordion15 > div:nth-child(2) h3,
 .accordion.accordion15 > div:nth-child(2) h4 {
@@ -308,7 +293,6 @@
   letter-spacing: 0.06em;
 }
 
-/* Sidebar lists: spacing, no bullets */
 .accordion.accordion15 > div:nth-child(2) ul,
 .accordion.accordion15 > div:nth-child(2) ol {
   list-style: none;
@@ -326,7 +310,6 @@
   border-bottom: none;
 }
 
-/* Sidebar link appearance */
 .accordion.accordion15 > div:nth-child(2) a {
   display: block;
   color: #222;
@@ -342,7 +325,6 @@
   text-decoration: underline;
 }
 
-/* Sidebar meta info */
 .accordion.accordion15 > div:nth-child(2) time,
 .accordion.accordion15 > div:nth-child(2) .meta {
   display: block;
@@ -351,7 +333,6 @@
   margin-top: 0;
 }
 
-/* Author block: horizontal layout */
 .accordion.accordion15 .author-block,
 .accordion.accordion15 .author,
 .accordion.accordion15 .author-bio {
@@ -409,4 +390,138 @@
 .accordion.accordion15 .author-block .social a:hover,
 .accordion.accordion15 .author .social a:hover {
   opacity: 1;
+}
+
+
+.accordion.accordion31 {
+  box-sizing: border-box;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+}
+
+/* Remove flex and centering from direct children (if previously set) */
+.accordion.accordion31 > * {
+  display: block;
+  align-items: unset;
+}
+
+/* Force left alignment of the heading inside summary */
+.accordion.accordion31 details > summary,
+.accordion.accordion31 details > summary > h2 {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: auto;
+  display: block;
+  justify-content: flex-start;
+}
+
+/* Force the summary itself not to center its text */
+.accordion.accordion31 details summary {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: auto;
+  display: block;
+  justify-content: flex-start;
+}
+
+/* Heading styling for strong editorial edge */
+.accordion.accordion31 h2 {
+  color: #756046;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 48px 0 18px;
+  line-height: 1.15;
+  text-align: left;
+}
+
+/* Remove border and background from details for seamless stacked look */
+.accordion.accordion31 details {
+  border: none;
+  padding: 0;
+  margin-bottom: 40px;
+  background: transparent;
+  box-shadow: none;
+  width: 100%;
+}
+
+/* Remove summary arrow and interactivity */
+.accordion.accordion31 details summary::after,
+.accordion.accordion31 details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Accordion body spacing and left alignment */
+.accordion.accordion31 .accordion-item-body {
+  padding: 0;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+/* Paragraph styling for readability and left margin */
+.accordion.accordion31 p {
+  margin: 0 0 24px;
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Image styling, spacing and left alignment */
+.accordion.accordion31 picture,
+.accordion.accordion31 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 24px 0;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+/* Blockquote styling for editorial appearance */
+.accordion.accordion31 blockquote {
+  border-left: 4px solid #f5d77c;
+  background: #fcf7e9;
+  margin: 36px 0;
+  padding: 14px 24px;
+  color: #756046;
+  font-size: 1.13em;
+  font-style: italic;
+  box-sizing: border-box;
+  text-align: left;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion31 {
+    max-width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .accordion.accordion31 h2 {
+    margin-top: 30px;
+    margin-bottom: 12px;
+    font-size: var(--heading-font-size-l);
+  }
+
+  .accordion.accordion31 p {
+    margin-bottom: 14px;
+  }
+
+  .accordion.accordion31 blockquote {
+    margin: 18px 0;
+    padding: 10px 16px;
+  }
 }
