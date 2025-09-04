@@ -1806,7 +1806,6 @@
   align-items: flex-start;
 }
 
-/* Accent underline ONLY on first h3 in the first panel */
 .tabs.tabs35 .tabs-panel:first-of-type > div > h3:first-child {
   position: relative;
   margin-top: 10px;
@@ -1826,12 +1825,10 @@
   content: "";
 }
 
-/* Remove underline from other h3s */
 .tabs.tabs35 .tabs-panel > div > h3:not(:first-child)::after {
   display: none;
 }
 
-/* Main heading styles */
 .tabs.tabs35 .tabs-panel h3 {
   font-size: 2.2rem;
   color: #222;
@@ -1868,7 +1865,6 @@
   text-align: left;
 }
 
-/* Section headings and spacing */
 .tabs.tabs35 .tabs-panel h2 {
   font-size: 1.5rem;
   color: #222;
@@ -1889,7 +1885,6 @@
   padding-left: 24px;
 }
 
-/* Accent bullet for lists - optional, matches yellow */
 .tabs.tabs35 .tabs-panel ul li::marker {
   color: #f9d365;
 }
@@ -1943,4 +1938,197 @@
     height: 3px;
     bottom: -7px;
   }
+}
+
+
+.tabs.tabs36 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  gap: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs36 {
+    flex-direction: column;
+  }
+}
+
+/* Sidebar: vertical tabs, even narrower and tighter */
+.tabs.tabs36 > .tabs-list {
+  flex: 0 0 124px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #fff;
+  border-right: 1px solid #e5e5e5;
+  min-height: 0;
+  padding-top: 52px;
+  padding-bottom: 0;
+  margin: 0;
+  gap: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs36 > .tabs-list {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding-top: 0;
+    min-height: unset;
+    width: 100%;
+  }
+}
+
+/* Tab buttons: very tight vertical/horizontal padding */
+.tabs.tabs36 > .tabs-list .tabs-tab {
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #222;
+  font-weight: 700;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  text-align: left;
+  line-height: 1.1;
+  padding: 5px 10px 5px 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  box-shadow: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs36 > .tabs-list .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs36 > .tabs-list .tabs-tab:not([aria-selected='true']):hover {
+  background: transparent;
+  color: #222;
+}
+
+.tabs.tabs36 > .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs36 > .tabs-list .tabs-tab {
+    text-align: center;
+    padding: 6px;
+    font-size: 11.5px;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: none;
+    flex: 1 1 0;
+    justify-content: center;
+  }
+
+  .tabs.tabs36 > .tabs-list .tabs-tab:last-child {
+    border-right: none;
+  }
+}
+
+/* Main content panel: tighter gap to sidebar */
+.tabs.tabs36 > .tabs-panel {
+  flex: 1 1 0;
+  padding: 52px 0 0 12px;
+  background: #fff;
+  border: none;
+  min-width: 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs36 > .tabs-panel {
+    padding: 32px 10px 0;
+  }
+}
+
+/* Hide inactive panels */
+.tabs.tabs36 > .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Heading and underline: longer and more spaced */
+.tabs.tabs36 .tabs-panel h3 {
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 3px;
+  letter-spacing: 0.01em;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  background: transparent;
+  padding-bottom: 2px;
+}
+
+.tabs.tabs36 .tabs-panel h3::after {
+  display: block;
+  height: 3px;
+  width: 130px;
+  background: #fada5e;
+  border-radius: 1.5px;
+  margin-top: 18px;
+  margin-left: 0;
+}
+
+/* Image styling */
+.tabs.tabs36 .tabs-panel picture {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 6px;
+}
+
+.tabs.tabs36 .tabs-panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Caption: tight, uppercase, bold, smallest font */
+.tabs.tabs36 .tabs-panel p:first-of-type {
+  font-size: 0.82em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  margin: 4px 0 6px;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+/* Body: smaller, lighter, improved spacing */
+.tabs.tabs36 .tabs-panel p:not(:first-of-type) {
+  color: #333;
+  font-size: 14.5px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: 0.12em;
+  margin-bottom: 1em;
+}
+
+/* Remove all borders/box-shadows for a flat look */
+.tabs.tabs36, 
+.tabs.tabs36 > .tabs-list, 
+.tabs.tabs36 > .tabs-panel, 
+.tabs.tabs36 > .tabs-list .tabs-tab {
+  border: none;
+  box-shadow: none;
 }
