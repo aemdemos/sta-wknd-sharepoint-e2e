@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,107 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion13 {
+  max-width: 800px;
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion13 {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+/* FAQ rows */
+.accordion.accordion13 details {
+  border: none;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+}
+
+/* Remove spacing between rows */
+.accordion.accordion13 details + details {
+  margin-top: 0;
+}
+
+/* Question row styling and layout */
+.accordion.accordion13 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #232323;
+  font-size: 1.12rem;
+  padding: 20px 22px;
+  border-bottom: 1px solid #eaeaea;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  min-height: 56px;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+/* Remove highlight on open/hover/focus */
+.accordion.accordion13 details[open] summary,
+.accordion.accordion13 summary:focus,
+.accordion.accordion13 summary:hover {
+  background: none;
+}
+
+/* Plus/minus icon: subtle, correct sizing and spacing */
+.accordion.accordion13 summary::before,
+.accordion.accordion13 summary::after {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 16px;
+  height: 2px;
+  background: #232323;
+  border-radius: 1px;
+  pointer-events: none;
+  transition: opacity 0.15s;
+  content: '';
+}
+
+/* Vertical bar (for plus): hide when open */
+.accordion.accordion13 summary::before {
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 1;
+}
+
+.accordion.accordion13 details[open] summary::before {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Horizontal bar (stays for both plus/minus) */
+.accordion.accordion13 summary::after {
+  transform: translateY(-50%) rotate(0deg);
+  opacity: 1;
+}
+
+/* FAQ answer body styling */
+.accordion.accordion13 .accordion-item-body {
+  background: #fafafa;
+  color: #232323;
+  font-size: 1.04rem;
+  padding: 20px 22px;
+  border: none;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+.accordion.accordion13 details[open] .accordion-item-body {
+  border-top: none;
+  background: #fafafa;
 }
