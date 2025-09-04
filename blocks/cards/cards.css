@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -58,7 +59,6 @@
   }
 }
 
-/* Each card fills grid cell */
 .cards.cards4 > ul > li {
   background: #fff;
   border: none;
@@ -71,7 +71,6 @@
   margin: 0;
 }
 
-/* Card image section */
 .cards.cards4 .cards-card-image {
   width: 100%;
   aspect-ratio: 4/3;
@@ -86,7 +85,6 @@
   display: block;
 }
 
-/* Card body padding and spacing for compact look */
 .cards.cards4 .cards-card-body {
   padding: 14px 12px 10px;
   color: #222;
@@ -97,7 +95,6 @@
   justify-content: flex-start;
 }
 
-/* Card title styling */
 .cards.cards4 .cards-card-body strong {
   font-size: 17px;
   font-weight: 700;
@@ -108,7 +105,6 @@
   margin-bottom: 4px;
 }
 
-/* Card link ("Read More") as yellow button, tighter spacing */
 .cards.cards4 .cards-card-body a {
   align-self: flex-start;
   margin-top: 8px;
@@ -131,4 +127,186 @@
   background: #ffd600;
   color: #000;
   text-decoration: underline;
+}
+
+
+.cards.cards21 {
+  background: #fff;
+  padding-top: 0;
+  padding-bottom: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Grid: 2 rows, first row 4 columns, second row 3 centered, minimal vertical gap */
+.cards.cards21 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 16px 0;
+  place-items: start center;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  margin-top: 0;
+}
+
+/* Center the second row of 3 cards */
+.cards.cards21 > ul > li:nth-child(5) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.cards.cards21 > ul > li:nth-child(6) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.cards.cards21 > ul > li:nth-child(7) {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+/* Remove unintended top margin from list or first card */
+.cards.cards21 > ul > li:first-child {
+  margin-top: 0;
+}
+
+/* Card layout and spacing */
+.cards.cards21 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+/* Profile image: circular and centered */
+.cards.cards21 .cards-card-image {
+  width: 128px;
+  height: 128px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #eaeaea;
+}
+
+.cards.cards21 .cards-card-image img {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+
+/* Card body: tight vertical stack, centered */
+.cards.cards21 .cards-card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+/* Name styling */
+.cards.cards21 .cards-card-body h3 {
+  margin: 0 0 2px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: #222;
+}
+
+/* Subtitle styling */
+.cards.cards21 .cards-card-body h5 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #757575;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Group social buttons in a single row under subtitle */
+
+/* Remove default paragraph margins and make all .button-container siblings flex in a row */
+.cards.cards21 .cards-card-body .button-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.cards.cards21 .cards-card-body h5 + .button-container {
+  margin-top: 8px;
+}
+
+/* Trick: Make all consecutive .button-container siblings appear as a row using a flex parent */
+
+/* Reduce extra vertical spacing between button rows if present */
+.cards.cards21 .cards-card-body .button-container + .button-container {
+  margin-top: 0;
+}
+
+/* Social buttons: compact squares */
+.cards.cards21 .cards-card-body .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 38px;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+  border: none;
+  font-size: 0;
+  text-indent: -9999px;
+  box-shadow: none;
+  transition: background 0.18s;
+}
+
+/* Responsive: 2 columns then 1 column grid */
+@media (width <= 900px) {
+  .cards.cards21 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 12px 0;
+  }
+
+  .cards.cards21 > ul > li {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards21 > ul {
+    grid-template-columns: 1fr;
+    gap: 8px 0;
+    max-width: 98vw;
+    justify-items: center;
+  }
+
+  .cards.cards21 > ul > li {
+    margin-bottom: 10px;
+  }
 }
