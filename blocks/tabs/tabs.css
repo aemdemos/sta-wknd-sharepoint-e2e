@@ -588,8 +588,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   background: #fff;
-
-  /* Remove horizontal centering and reduce padding */
   padding: 40px 0 0;
   box-sizing: border-box;
   max-width: none;
@@ -597,7 +595,6 @@
   border: none;
 }
 
-/* Tabs as horizontal row, left-aligned */
 .tabs.tabs17 > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -646,12 +643,10 @@
   display: block;
 }
 
-/* Hide inactive panels, only show the active one */
 .tabs.tabs17 > .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Main content area: only show the visible panel, make it wide and left aligned */
 .tabs.tabs17 > .tabs-panel[aria-hidden="false"] {
   display: flex;
   flex-direction: column;
@@ -665,7 +660,6 @@
   box-shadow: none;
 }
 
-/* Title with accent underline */
 .tabs.tabs17 > .tabs-panel[aria-hidden="false"] h3 {
   font-size: 32px;
   color: #222;
@@ -680,7 +674,6 @@
   margin-bottom: 32px;
 }
 
-/* Image styling */
 .tabs.tabs17 > .tabs-panel[aria-hidden="false"] picture img {
   display: block;
   width: 100%;
@@ -691,7 +684,6 @@
   box-shadow: none;
 }
 
-/* Description and paragraph styling */
 .tabs.tabs17 > .tabs-panel[aria-hidden="false"] > div > p:not(:first-child) {
   font-size: 16px;
   line-height: 1.7;
@@ -701,9 +693,6 @@
   text-align: left;
 }
 
-/* Remove any default panel borders */
-
-/* Responsive: stack tabs and adjust content for smaller screens */
 @media (width <= 900px) {
   .tabs.tabs17 {
     padding: 16px 0 0;
@@ -732,4 +721,146 @@
   .tabs.tabs17 > .tabs-list .tabs-tab:last-child {
     margin-right: 0;
   }
+}
+
+
+.tabs.tabs19 {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1100px;
+  margin: 48px 0 0;
+  padding: 0 24px 0 48px; /* Add left padding to match block's "flush" start */
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs19 {
+    max-width: 100vw;
+    padding: 0 8px;
+    margin: 24px 0 0;
+  }
+}
+
+.tabs.tabs19 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  margin: 0 0 26px;
+  background: none;
+  border: none;
+}
+
+.tabs.tabs19 .tabs-list button {
+  min-width: 128px;
+  background: #222;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0;
+  padding: 13px 18px 12px;
+  margin: 0;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, border-bottom 0.2s;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.tabs.tabs19 .tabs-list button[aria-selected='true'] {
+  background: #111;
+  border-bottom: 3px solid #ebd96b;
+}
+
+.tabs.tabs19 .tabs-list button:not([aria-selected='true']) {
+  border-bottom: none;
+}
+
+.tabs.tabs19 .tabs-list button p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+}
+
+.tabs.tabs19 .tabs-panel {
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+  background: none;
+  overflow: visible;
+}
+
+.tabs.tabs19 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs.tabs19 .tabs-panel > div {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tabs.tabs19 .tabs-panel h3 {
+  font-size: 2.1em;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.tabs.tabs19 .tabs-panel picture,
+.tabs.tabs19 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 28px;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.tabs.tabs19 .tabs-panel p,
+.tabs.tabs19 .tabs-panel ul,
+.tabs.tabs19 .tabs-panel li {
+  color: #222;
+  font-size: 1.06rem;
+  line-height: 1.7;
+  margin-bottom: 1.25em;
+  margin-top: 0;
+}
+
+.tabs.tabs19 .tabs-panel ul {
+  padding-left: 24px;
+  margin-bottom: 18px;
+}
+
+.tabs.tabs19 .tabs-panel li {
+  margin-bottom: 0.3em;
+}
+
+/* Prevent double vertical margins between h3 and image */
+.tabs.tabs19 .tabs-panel h3 + p > picture {
+  margin-top: 0;
+}
+
+.tabs.tabs19 .tabs-panel img {
+  max-width: 100%;
+  height: auto;
 }
