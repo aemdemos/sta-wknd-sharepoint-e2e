@@ -314,7 +314,6 @@
 
 
 .carousel.carousel8 {
-  /* Remove any internal margins/paddings for true edge-to-edge effect */
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -368,7 +367,6 @@
   inset: 0;
 }
 
-/* Restore carousel navigation buttons and indicators with minimalist design */
 .carousel.carousel8 .carousel-navigation-buttons {
   display: flex;
   position: absolute;
@@ -417,7 +415,6 @@
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-/* Style and position page indicator/dot */
 .carousel.carousel8 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -455,7 +452,112 @@
   background: #000;
 }
 
-/* Always hide slide content overlay for a clean look */
 .carousel.carousel8 .carousel-slide .carousel-slide-content {
   display: none;
+}
+
+
+.carousel.carousel39 .carousel-slides-container {
+  position: relative;
+  padding-bottom: 56px; /* extra space for indicators and arrows grouping */
+  background: none;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  inset: auto 0 18px;
+  width: 100%;
+  margin: 0;
+  z-index: 3;
+  pointer-events: none;
+  height: 40px;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons button {
+  width: 36px;
+  height: 36px;
+  margin: 0 12px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  position: relative;
+  top: 8px;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons button:hover,
+.carousel.carousel39 .carousel-navigation-buttons button:focus-visible {
+  background-color: #f5f5f5;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons button::after {
+  display: block;
+  width: 22px;
+  height: 22px;
+  font-size: 28px;
+  color: #232323;
+  background: none;
+  line-height: 1;
+}
+
+.carousel.carousel39 .carousel-navigation-buttons .slide-prev::after {
+  content: "\2190";
+}
+
+.carousel.carousel39 .carousel-navigation-buttons .slide-next::after {
+  content: "\2192";
+}
+
+.carousel.carousel39 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  margin: 0 auto;
+  background: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  z-index: 4;
+  height: 20px;
+  pointer-events: none;
+}
+
+.carousel.carousel39 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #d5d5d5;
+  border: none;
+  margin: 0;
+  box-shadow: none;
+  padding: 0;
+  transition: background-color 0.2s;
+  pointer-events: auto;
+}
+
+.carousel.carousel39 .carousel-slide-indicator button:disabled,
+.carousel.carousel39 .carousel-slide-indicator button[disabled] {
+  background-color: #222;
+  cursor: default;
+}
+
+.carousel.carousel39 .carousel-slide-content {
+  display: none;
+}
+
+.carousel.carousel39 {
+  background: none;
+  margin: 0;
+  padding: 0;
 }
