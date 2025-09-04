@@ -139,7 +139,6 @@
   padding: 0;
 }
 
-/* HERO ROOT */
 .hero.hero18 {
   max-width: 100vw;
   margin: 0;
@@ -149,7 +148,6 @@
   flex-direction: column;
 }
 
-/* HERO IMAGE: Full-bleed edge-to-edge with main grid alignment for text */
 .hero.hero18 > div:first-child {
   width: 100vw;
   margin: 0;
@@ -161,7 +159,7 @@
   margin-right: -50vw;
   overflow: hidden;
   background: var(--background-color);
-  margin-bottom: 28px; /* Slightly more breathing room to match the original */
+  margin-bottom: 28px;
 }
 
 .hero.hero18 > div:first-child picture,
@@ -185,7 +183,6 @@
   inset: unset;
 }
 
-/* HERO CONTENT: Wide as site grid, no artificial max-width on inner text */
 .hero.hero18 > div:last-child {
   width: 100%;
   max-width: 1200px;
@@ -198,7 +195,6 @@
   box-sizing: border-box;
 }
 
-/* HEADINGS & BYLINE: Remove max-width, match grid, polish spacing */
 .hero.hero18 h1 {
   margin-top: 0;
   margin-bottom: 10px;
@@ -222,7 +218,6 @@
   text-align: left;
 }
 
-/* Remove any inner width constraints from previous versions */
 .hero.hero18 h1,
 .hero.hero18 h4,
 .hero.hero18 p {
@@ -230,7 +225,6 @@
   width: auto;
 }
 
-/* PARAGRAPH */
 .hero.hero18 p {
   color: var(--text-color);
   font-size: 1.13rem;
@@ -244,7 +238,6 @@
   color: var(--dark-color);
 }
 
-/* Responsive Tweaks */
 @media (width <= 900px) {
   .hero.hero18 > div:last-child {
     max-width: 100vw;
@@ -269,7 +262,6 @@
   }
 }
 
-/* Prevent horizontal scrollbars due to negative margins */
 @media (width <= 1200px) {
   .hero.hero18 > div:first-child,
   .hero.hero18 > div:first-child picture,
@@ -284,8 +276,129 @@
   }
 }
 
-/* Remove borders/shadows from image */
 .hero.hero18 img {
   border: none;
   box-shadow: none;
+}
+
+.hero.hero26 {
+  position: relative;
+  min-height: 320px;
+  width: 100vw;
+  max-width: 100vw;
+  padding: 0;
+  background: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+}
+
+/* Image as background layer */
+.hero.hero26 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: block;
+  z-index: 1;
+}
+
+.hero.hero26 picture,
+.hero.hero26 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content box: wider, with more balanced padding */
+.hero.hero26 > div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 75vw;
+  max-width: 800px;
+  background: #fff;
+  z-index: 2;
+  padding: 1.35rem 2.2rem 1rem;
+  box-sizing: border-box;
+  margin: 0;
+  box-shadow: 0 2px 20px rgb(0 0 0 / 8%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.32rem;
+}
+
+/* Heading styling and spacing */
+.hero.hero26 h1,
+.hero.hero26 h2,
+.hero.hero26 h3,
+.hero.hero26 h4,
+.hero.hero26 h5,
+.hero.hero26 h6 {
+  color: #222;
+  margin: 0 0 0.14em;
+  text-align: left;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.hero.hero26 h2 {
+  font-size: 2.15rem;
+}
+
+/* Paragraph: compact and closely grouped */
+.hero.hero26 p {
+  color: #222;
+  font-size: 1.05rem;
+  margin: 0 0 0.13em;
+  text-align: left;
+  max-width: 100%;
+  line-height: 1.38;
+}
+
+/* Button container: no margin/padding, flush with text above */
+.hero.hero26 .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Button: tight margin, compact and left-aligned */
+.hero-container > .hero-wrapper > .block.hero.hero26 .button,
+.hero.hero26 .button {
+  background: #fd0;
+  color: #222;
+  border-radius: 0;
+  font-weight: 700;
+  font-size: 1.06rem;
+  padding: 0.23em 1.05em;
+  box-shadow: none;
+  border: none;
+  text-align: left;
+  margin: 0.05em 0 0;
+  transition: background 0.18s;
+  display: inline-block;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero26 .button:hover,
+.hero.hero26 .button:hover {
+  background: #e6c800;
+}
+
+/* Responsive adjustments */
+@media (width <= 700px) {
+  .hero.hero26 > div:nth-child(2) {
+    width: 100vw;
+    max-width: 100vw;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.7rem;
+  }
+
+  .hero.hero26 h2 {
+    font-size: 1.2rem;
+  }
 }
