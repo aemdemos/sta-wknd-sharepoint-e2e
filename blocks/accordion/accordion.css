@@ -76,7 +76,6 @@
   }
 }
 
-/* FAQ rows */
 .accordion.accordion13 details {
   border: none;
   margin: 0;
@@ -84,12 +83,10 @@
   box-shadow: none;
 }
 
-/* Remove spacing between rows */
 .accordion.accordion13 details + details {
   margin-top: 0;
 }
 
-/* Question row styling and layout */
 .accordion.accordion13 summary {
   display: flex;
   flex-direction: row;
@@ -108,14 +105,12 @@
   position: relative;
 }
 
-/* Remove highlight on open/hover/focus */
 .accordion.accordion13 details[open] summary,
 .accordion.accordion13 summary:focus,
 .accordion.accordion13 summary:hover {
   background: none;
 }
 
-/* Plus/minus icon: subtle, correct sizing and spacing */
 .accordion.accordion13 summary::before,
 .accordion.accordion13 summary::after {
   position: absolute;
@@ -130,7 +125,6 @@
   content: '';
 }
 
-/* Vertical bar (for plus): hide when open */
 .accordion.accordion13 summary::before {
   transform: translateY(-50%) rotate(90deg);
   opacity: 1;
@@ -141,13 +135,11 @@
   visibility: hidden;
 }
 
-/* Horizontal bar (stays for both plus/minus) */
 .accordion.accordion13 summary::after {
   transform: translateY(-50%) rotate(0deg);
   opacity: 1;
 }
 
-/* FAQ answer body styling */
 .accordion.accordion13 .accordion-item-body {
   background: #fafafa;
   color: #232323;
@@ -161,4 +153,260 @@
 .accordion.accordion13 details[open] .accordion-item-body {
   border-top: none;
   background: #fafafa;
+}
+
+
+.accordion.accordion15 {
+  /* Flexbox for two-column layout; root block centered and constrained */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 320px;
+  margin: 48px auto;
+  padding: 0 24px;
+  background: var(--background-color);
+  border-radius: 0;
+
+  /* Subtle border and shadow for card effect */
+  border: 1px solid #ededed;
+  box-shadow: 0 2px 24px 0 rgb(60 60 60 / 6%);
+
+  /* Prevent overflow clipping on wide screens */
+  overflow: visible;
+}
+
+/* Responsive: columns stack on small screens */
+@media (width <= 900px) {
+  .accordion.accordion15 {
+    flex-direction: column;
+    max-width: 100%;
+    min-height: 200px;
+    border-radius: 0;
+    padding: 0 8px;
+    box-shadow: none;
+    border: none;
+  }
+
+  .accordion.accordion15 > div:nth-child(2) {
+    margin-top: 32px;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+/* Main column: first child (wide, left-aligned) */
+.accordion.accordion15 > div:first-child {
+  flex: 3 1 0;
+  min-width: 0;
+  padding-right: 40px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Sidebar: second child (narrow, right-aligned) */
+.accordion.accordion15 > div:nth-child(2) {
+  flex: 1 1 0;
+  min-width: 220px;
+  max-width: 340px;
+  padding-left: 32px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-left: 1px solid #f4f4f4;
+  background: none;
+}
+
+/* Remove sidebar border on mobile */
+@media (width <= 900px) {
+  .accordion.accordion15 > div:nth-child(2) {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+/* Images: full width in column, spaced above and below */
+.accordion.accordion15 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 32px 0 24px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Headings: margin and weight adjustments for visual clarity */
+.accordion.accordion15 h1,
+.accordion.accordion15 h2,
+.accordion.accordion15 h3 {
+  color: #222;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+}
+.accordion.accordion15 h1 { font-size: var(--heading-font-size-xl);}
+.accordion.accordion15 h2 { font-size: var(--heading-font-size-l);}
+.accordion.accordion15 h3 { font-size: var(--heading-font-size-m);}
+
+/* Paragraphs: clear vertical rhythm, readable */
+.accordion.accordion15 p {
+  color: #444;
+  font-size: var(--body-font-size-m);
+  margin-bottom: 1.25em;
+  margin-top: 0.5em;
+  line-height: 1.7;
+}
+
+/* Caption & meta tweaks */
+.accordion.accordion15 em,
+.accordion.accordion15 i,
+.accordion.accordion15 small {
+  color: #6b6b6b;
+  font-size: var(--body-font-size-s);
+}
+
+/* Breadcrumbs: subtle, small, uppercase */
+.accordion.accordion15 nav,
+.accordion.accordion15 .breadcrumbs {
+  font-size: var(--body-font-size-s);
+  color: #9b9b9b;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+
+.accordion.accordion15 nav a,
+.accordion.accordion15 .breadcrumbs a {
+  color: #e2a84d;
+  text-decoration: none;
+}
+
+.accordion.accordion15 nav a:hover,
+.accordion.accordion15 .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar headings: muted, uppercase */
+.accordion.accordion15 > div:nth-child(2) h2,
+.accordion.accordion15 > div:nth-child(2) h3,
+.accordion.accordion15 > div:nth-child(2) h4 {
+  text-transform: uppercase;
+  font-size: var(--body-font-size-s);
+  color: #888;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: 0.06em;
+}
+
+/* Sidebar lists: spacing, no bullets */
+.accordion.accordion15 > div:nth-child(2) ul,
+.accordion.accordion15 > div:nth-child(2) ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion.accordion15 > div:nth-child(2) li {
+  margin-bottom: 30px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #efefef;
+}
+
+.accordion.accordion15 > div:nth-child(2) li:last-child {
+  border-bottom: none;
+}
+
+/* Sidebar link appearance */
+.accordion.accordion15 > div:nth-child(2) a {
+  display: block;
+  color: #222;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.accordion.accordion15 > div:nth-child(2) a:hover,
+.accordion.accordion15 > div:nth-child(2) a:focus {
+  color: #e2a84d;
+  text-decoration: underline;
+}
+
+/* Sidebar meta info */
+.accordion.accordion15 > div:nth-child(2) time,
+.accordion.accordion15 > div:nth-child(2) .meta {
+  display: block;
+  font-size: var(--body-font-size-xs);
+  color: #9b9b9b;
+  margin-top: 0;
+}
+
+/* Author block: horizontal layout */
+.accordion.accordion15 .author-block,
+.accordion.accordion15 .author,
+.accordion.accordion15 .author-bio {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.accordion.accordion15 .author-block img,
+.accordion.accordion15 .author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.accordion.accordion15 .author-block .author-info,
+.accordion.accordion15 .author .author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.accordion.accordion15 .author-block .author-name,
+.accordion.accordion15 .author .author-name {
+  font-weight: 600;
+  color: #222;
+  font-size: var(--body-font-size-m);
+}
+
+.accordion.accordion15 .author-block .author-desc,
+.accordion.accordion15 .author .author-desc {
+  color: #6b6b6b;
+  font-size: var(--body-font-size-s);
+}
+
+.accordion.accordion15 .author-block .social,
+.accordion.accordion15 .author .social {
+  display: flex;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+.accordion.accordion15 .author-block .social a,
+.accordion.accordion15 .author .social a {
+  color: #222;
+  opacity: 0.8;
+  font-size: 1.2em;
+  transition: opacity 0.2s;
+}
+
+.accordion.accordion15 .author-block .social a:hover,
+.accordion.accordion15 .author .social a:hover {
+  opacity: 1;
 }
