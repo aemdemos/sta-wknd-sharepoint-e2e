@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -55,7 +56,6 @@
   display: block;
 }
 
-/* Image container: relative for absolutely positioned card */
 .hero.hero10 > div:first-child {
   position: relative;
   width: 100vw;
@@ -64,7 +64,6 @@
   overflow: hidden;
 }
 
-/* Responsive image */
 .hero.hero10 picture,
 .hero.hero10 img {
   width: 100%;
@@ -73,13 +72,10 @@
   display: block;
 }
 
-/* Lower the card so it overlaps just the lower part of the image */
 .hero.hero10 > div:nth-child(2) {
   position: absolute;
   left: 50%;
   bottom: 0;
-
-  /* Move card further down for less overlap, closer to the original */
   transform: translateX(-50%) translateY(34%);
   width: 72vw;
   max-width: 760px;
@@ -91,7 +87,6 @@
   pointer-events: none;
 }
 
-/* Card styling: generous paddings, left alignment */
 .hero.hero10 > div:nth-child(2) > div {
   background: #fff;
   width: 100%;
@@ -108,7 +103,6 @@
   min-height: 90px;
 }
 
-/* Headline/text: left aligned and at the top of the card */
 .hero.hero10 h2,
 .hero.hero10 h1,
 .hero.hero10 h3,
@@ -126,7 +120,6 @@
   padding: 0;
 }
 
-/* Divider below the hero block */
 .hero.hero10::after {
   display: block;
   width: 100%;
@@ -136,7 +129,6 @@
   content: "";
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero10 > div:first-child {
     height: 210px;
@@ -152,5 +144,100 @@
   .hero.hero10 > div:nth-child(2) > div {
     padding: 20px 10px 32px;
     min-height: 70px;
+  }
+}
+
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero19 {
+  position: relative;
+  display: block;
+  width: 100vw;
+  min-height: 350px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero.hero19 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero19 picture,
+.hero.hero19 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero19 > div:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.hero.hero19 > div:last-child > div {
+  background: #fff;
+  padding: 20px 32px 20px 16px;
+  margin-left: 8px;
+  margin-bottom: 0;
+  max-width: 580px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 9%);
+  border-radius: 2px;
+}
+
+.hero.hero19 h2 {
+  color: #222;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin-top: 0.8em;
+  margin-bottom: 0.5em;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.hero.hero19 p {
+  color: #444;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  margin-top: 0.8em;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+@media (width <= 900px) {
+  .hero.hero19 {
+    min-height: 220px;
+    width: 100vw;
+  }
+
+  .hero.hero19 > div:last-child > div {
+    padding: 12px 6vw 12px 6px;
+    margin-left: 4px;
+    max-width: 98vw;
+  }
+
+  .hero.hero19 h2 {
+    font-size: 1.1rem;
+  }
+
+  .hero.hero19 p {
+    font-size: 0.95rem;
   }
 }
