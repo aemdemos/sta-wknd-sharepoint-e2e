@@ -241,3 +241,145 @@
     font-size: 0.95rem;
   }
 }
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100vw;
+  min-height: 320px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+  background: none;
+}
+
+/* Image container spans full hero */
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  display: block;
+}
+
+/* Image fills hero */
+.hero.hero27 picture,
+.hero.hero27 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay content panel flush to bottom, horizontally centered, wide panel */
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Inner panel: wide, compact, flush to bottom, no margin below */
+.hero.hero27 > div:last-child > div {
+  background: #fff;
+  padding: 16px 56px;
+  margin: 0;
+  min-width: 320px;
+  max-width: 1180px;
+  width: 100%;
+  box-sizing: border-box;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Heading: left-aligned, compact spacing */
+.hero.hero27 h2 {
+  color: #232323;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 0 0 8px;
+  line-height: 1.08;
+  text-align: left;
+}
+
+/* Paragraph: left-aligned, compact spacing */
+.hero.hero27 p {
+  color: #232323;
+  font-size: var(--body-font-size-m);
+  margin: 0 0 10px;
+  line-height: 1.35;
+  text-align: left;
+}
+
+/* Button: yellow, sharp corners, left aligned, no extra margin */
+.hero.hero27 .button-container .button {
+  background: #ffe500;
+  color: #232323;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  padding: 10px 34px;
+  box-shadow: none;
+  display: inline-block;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin: 0;
+  text-align: left;
+}
+
+.hero.hero27 .button-container .button:hover,
+.hero.hero27 .button-container .button:focus {
+  background: #ffd600;
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 900px) {
+  .hero.hero27 > div:last-child > div {
+    max-width: 98vw;
+    padding: 12px 8vw;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero27 {
+    min-height: 180px;
+  }
+
+  .hero.hero27 > div:first-child {
+    min-height: 180px;
+  }
+
+  .hero.hero27 > div:last-child {
+    position: static;
+    display: block;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  .hero.hero27 > div:last-child > div {
+    margin: 0;
+    max-width: 100%;
+    padding: 10px 2vw;
+  }
+}
