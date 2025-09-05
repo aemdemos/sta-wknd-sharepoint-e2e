@@ -2415,22 +2415,20 @@
   display: block;
 }
 
-/* Tabs Navigation Row */
 .tabs.tabs38 .tabs-list {
   display: flex;
   flex-direction: row;
   gap: 0;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 0;             /* Keep tabs flush with top of block */
-  margin-bottom: 14px;       /* Tighten gap to heading */
+  margin-top: 0;
+  margin-bottom: 14px;
   padding: 0;
   background: none;
   border: none;
   width: 100%;
 }
 
-/* Tab Button Styles */
 .tabs.tabs38 .tabs-list button {
   border: none;
   background: #fff;
@@ -2460,20 +2458,17 @@
   border-radius: 0;
 }
 
-/* Active Tab */
 .tabs.tabs38 .tabs-list button[aria-selected="true"] {
   background: #222;
   color: #fff;
   cursor: default;
 }
 
-/* Inactive Tab */
 .tabs.tabs38 .tabs-list button[aria-selected="false"] {
   background: #fff;
   color: #222;
 }
 
-/* Panel Styling */
 .tabs.tabs38 .tabs-panel {
   border: none;
   padding: 0;
@@ -2483,7 +2478,6 @@
   width: 100%;
 }
 
-/* Center and constrain content inside panel */
 .tabs.tabs38 .tabs-panel > div {
   max-width: 750px;
   margin-left: 0;
@@ -2492,7 +2486,6 @@
   box-sizing: border-box;
 }
 
-/* Heading Styling */
 .tabs.tabs38 .tabs-panel h3 {
   font-size: 2em;
   color: #222;
@@ -2508,17 +2501,15 @@
   margin-left: 0;
 }
 
-/* Image styling */
 .tabs.tabs38 .tabs-panel img {
   display: block;
   width: 100%;
   height: auto;
-  margin-bottom: 0.08em; /* very tight to caption */
+  margin-bottom: 0.08em;
   border-radius: 0;
   box-shadow: none;
 }
 
-/* Caption and Paragraph spacing */
 .tabs.tabs38 .tabs-panel p {
   color: #444;
   font-size: 15px;
@@ -2532,18 +2523,15 @@
   margin-bottom: 0.08em;
 }
 
-/* Remove extra spacing on picture tag */
 .tabs.tabs38 .tabs-panel picture {
   display: block;
   margin-bottom: 0.08em;
 }
 
-/* Tabpanel visibility */
 .tabs.tabs38 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 700px) {
   .tabs.tabs38 {
     max-width: 100vw;
@@ -2564,5 +2552,153 @@
   .tabs.tabs38 .tabs-panel h3 {
     min-width: 0;
     font-size: 1.2em;
+  }
+}
+
+
+.tabs.tabs39 {
+  max-width: 950px;
+  margin: 16px auto 0; /* Reduced top margin for closer alignment to original */
+  padding: 0 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs row: flex row, left aligned, tighter gap to heading */
+.tabs.tabs39 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 20px; /* Much less space below tabs for close grouping with heading */
+  margin-top: 0;
+  align-items: flex-start;
+}
+
+/* Tabs: flat, uppercase, active styling */
+.tabs.tabs39 .tabs-list button {
+  background: transparent;
+  border: none;
+  color: #222;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 12px 32px 12px 0;
+  border-bottom: 2px solid transparent;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  box-shadow: none;
+  line-height: 1.25;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: left;
+}
+
+.tabs.tabs39 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #222;
+  cursor: default;
+}
+
+.tabs.tabs39 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Block content: stack vertically */
+.tabs.tabs39 .tabs-panel {
+  border: none;
+  padding: 0;
+  background: none;
+  margin-top: 0;
+  overflow: visible;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs39 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Heading styling & yellow underline */
+.tabs.tabs39 .tabs-panel > div > h3 {
+  font-size: 2rem;
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-top: 0;
+  position: relative;
+  display: inline-block;
+  line-height: 1.1;
+  padding-bottom: 8px;
+}
+
+/* Use ::before for underline bar, since no content allowed */
+.tabs.tabs39 .tabs-panel > div > h3::before {
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: #f2d86c;
+  margin-bottom: 8px;
+  border-radius: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+}
+
+/* Image styling */
+.tabs.tabs39 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  margin-bottom: 36px;
+  border: none;
+  box-shadow: none;
+  background: none;
+  margin-left: 0;
+}
+
+/* Paragraph and list styling */
+.tabs.tabs39 .tabs-panel p,
+.tabs.tabs39 .tabs-panel ul,
+.tabs.tabs39 .tabs-panel li {
+  color: #222;
+  font-size: 1.08rem;
+  margin-top: 0;
+  margin-bottom: 1.2em;
+  line-height: 1.5;
+  background: none;
+  max-width: 850px;
+}
+
+/* Make sure everything adapts well on smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs39 {
+    max-width: 100vw;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs39 .tabs-list {
+    gap: 16px;
+    padding-right: 8px;
+    margin-bottom: 16px;
+  }
+
+  .tabs.tabs39 .tabs-panel picture img,
+  .tabs.tabs39 .tabs-panel p,
+  .tabs.tabs39 .tabs-panel ul,
+  .tabs.tabs39 .tabs-panel li {
+    max-width: 100%;
   }
 }
