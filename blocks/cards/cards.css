@@ -426,7 +426,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0 12px;
-  margin: 16px 0 0; /* more margin-top for space below image */
+  margin: 16px 0 0;
 }
 
 .cards.cards31 .cards-card-body .button-container {
@@ -492,4 +492,113 @@
   .cards.cards31 > ul {
     grid-template-columns: 1fr;
   }
+}
+
+
+.cards.cards21 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Grid Layout: 4 columns, slightly more relaxed gap, responsive */
+.cards.cards21 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+@media (width <= 1024px) {
+  .cards.cards21 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards21 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card: stacked vertically; sharp corners and no border */
+.cards.cards21 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-width: 0;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* Card image flush to card edges */
+.cards.cards21 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  min-width: 0;
+}
+
+.cards.cards21 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card body: balanced left/right and bottom padding for comfort */
+.cards.cards21 .cards-card-body {
+  padding: 0 10px 12px;
+  margin: 0;
+  min-width: 0;
+}
+
+/* Remove default margin from paragraphs */
+.cards.cards21 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Title: bold, uppercase, close to image, visually balanced spacing */
+.cards.cards21 .cards-card-body p:first-child strong {
+  display: block;
+  text-transform: uppercase;
+  color: #222;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  margin: 8px 0 0;
+  line-height: 1.08;
+  min-width: 0;
+}
+
+/* Description: slightly larger and lighter, more open line-height for truncation effect */
+.cards.cards21 .cards-card-body p:nth-child(2) {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.5;
+  height: 3em;
+  margin: 0 0 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  min-width: 0;
+}
+
+/* Hide button container */
+.cards.cards21 .cards-card-body .button-container {
+  display: none;
 }
