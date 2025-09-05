@@ -31,3 +31,109 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 {
+  background: #fff;
+}
+
+/* Main layout: horizontal, baseline alignment, minimal vertical padding */
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  background: #fff;
+  padding: 8px 72px 4px; /* Reduced top/bottom padding for a tighter block */
+  box-sizing: border-box;
+}
+
+/* Hide the middle column (language list) */
+.columns.columns2 > div > div:nth-child(2) {
+  display: none;
+}
+
+/* Logo alignment and sizing */
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0;
+}
+
+.columns.columns2 .columns-img-col img {
+  max-height: 54px;
+  height: 54px;
+  width: auto;
+  display: block;
+}
+
+/* Search box: baseline align and min width */
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  min-width: 85px;
+  margin-bottom: 2px; /* Nudge search up for perfect baseline with logo */
+}
+
+/* Compact search appearance, very minimal vertical padding */
+.columns.columns2 > div > div:last-child p {
+  background: #f5f5f5;
+  color: #a2a2a2;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0 10px 0 21px; /* Nearly no vertical padding for a compact look */
+  border-radius: 2px;
+  border: none;
+  position: relative;
+  letter-spacing: 0.06em;
+  min-width: 46px;
+  box-sizing: border-box;
+  line-height: 16px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Search icon: tiny, lighter, precisely aligned */
+.columns.columns2 > div > div:last-child p::before {
+  display: block;
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-49%);
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg fill='rgba(160,160,160,0.7)' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M14.293 13.293l4.853 4.854-1.414 1.414-4.854-4.853A7.978 7.978 0 018 16a8 8 0 118-8c0 1.61-.488 3.1-1.394 4.293zM8 14a6 6 0 100-12 6 6 0 000 12z'/%3E%3C/svg%3E");
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  content: "";
+  opacity: 0.7;
+}
+
+/* Responsive: stack items and reduce padding on small screens */
+@media (width <= 899px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .columns.columns2 > div > div:last-child {
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+}
+
+/* Remove list bullets and margin just in case */
+.columns.columns2 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
