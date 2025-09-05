@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,155 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs3 {
+  /* Make block a touch wider and reduce padding for slight edge-to-edge feel */
+  max-width: 1100px;
+  padding-left: 36px;
+  padding-right: 36px;
+  margin: 28px auto 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Tabs row: slightly more gap, keep left alignment, add bit more bottom margin */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 50px;
+  font-size: 1.08rem;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+}
+
+/* Tab buttons: pill style, big clickable area, left-aligned text */
+.tabs.tabs3 .tabs-tab {
+  border: none;
+  border-radius: 22px;
+  background: var(--background-color);
+  color: #222;
+  padding: 13px 50px;
+  font-size: 1.09rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs3 .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs3 .tabs-tab p {
+  margin: 0;
+}
+
+/* Content area: left-aligned, tight vertical flow */
+.tabs.tabs3 .tabs-panel {
+  padding: 0;
+  margin-top: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+  display: block;
+}
+
+.tabs.tabs3 .tabs-panel > div,
+.tabs.tabs3 .tabs-panel h3,
+.tabs.tabs3 .tabs-panel p,
+.tabs.tabs3 .tabs-panel ul,
+.tabs.tabs3 .tabs-panel strong {
+  text-align: left;
+}
+
+/* Headings: strong visual prominence, very tight vertical rhythm */
+.tabs.tabs3 h3 {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #222;
+  margin-top: 0.02em;
+  margin-bottom: 0.04em;
+  line-height: 1.17;
+}
+
+/* Main description text: tight margin for rhythm */
+.tabs.tabs3 .tabs-panel p {
+  font-size: 1.09rem;
+  color: #222;
+  line-height: 1.5;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+/* Caption: smaller, lighter, very tight spacing */
+.tabs.tabs3 .tabs-panel p:last-of-type {
+  font-size: 0.96rem;
+  color: #757575;
+  margin-top: 2px;
+  margin-bottom: 1px;
+}
+
+/* Image: left-align, visually edge-to-edge fill */
+.tabs.tabs3 picture,
+.tabs.tabs3 img {
+  display: block;
+  width: calc(100% + 32px);
+  max-width: none;
+  margin: 8px -16px 0;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+/* Responsive: adjust block width & padding for smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs3 {
+    max-width: 100%;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: 14px;
+  }
+
+  .tabs.tabs3 .tabs-list {
+    gap: 16px;
+    font-size: var(--body-font-size-s);
+    margin-bottom: 26px;
+  }
+
+  .tabs.tabs3 .tabs-tab {
+    padding: 7px 12px;
+    font-size: 0.97rem;
+  }
+
+  .tabs.tabs3 h3 {
+    font-size: 1.28rem;
+    margin-bottom: 0.06em;
+  }
+
+  .tabs.tabs3 .tabs-panel p {
+    font-size: 0.97rem;
+    margin-bottom: 2px;
+  }
+
+  .tabs.tabs3 picture,
+  .tabs.tabs3 img {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 4px -6px 0;
+  }
 }
