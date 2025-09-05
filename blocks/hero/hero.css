@@ -45,3 +45,112 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero10 {
+  position: relative;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  display: block;
+}
+
+/* Image container: relative for absolutely positioned card */
+.hero.hero10 > div:first-child {
+  position: relative;
+  width: 100vw;
+  height: 430px;
+  min-height: 260px;
+  overflow: hidden;
+}
+
+/* Responsive image */
+.hero.hero10 picture,
+.hero.hero10 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Lower the card so it overlaps just the lower part of the image */
+.hero.hero10 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  /* Move card further down for less overlap, closer to the original */
+  transform: translateX(-50%) translateY(34%);
+  width: 72vw;
+  max-width: 760px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+/* Card styling: generous paddings, left alignment */
+.hero.hero10 > div:nth-child(2) > div {
+  background: #fff;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+  padding: 40px 32px 72px 48px;
+  text-align: left;
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 90px;
+}
+
+/* Headline/text: left aligned and at the top of the card */
+.hero.hero10 h2,
+.hero.hero10 h1,
+.hero.hero10 h3,
+.hero.hero10 h4,
+.hero.hero10 h5,
+.hero.hero10 h6 {
+  color: #222;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: left;
+  width: 100%;
+  align-self: flex-start;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* Divider below the hero block */
+.hero.hero10::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #ececec;
+  margin-top: 52px;
+  content: "";
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero10 > div:first-child {
+    height: 210px;
+    min-height: 140px;
+  }
+
+  .hero.hero10 > div:nth-child(2) {
+    width: 96vw;
+    max-width: 98vw;
+    transform: translateX(-50%) translateY(10%);
+  }
+
+  .hero.hero10 > div:nth-child(2) > div {
+    padding: 20px 10px 32px;
+    min-height: 70px;
+  }
+}
