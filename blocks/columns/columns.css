@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -37,7 +38,6 @@
   background: #fff;
 }
 
-/* Main layout: horizontal, baseline alignment, minimal vertical padding */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
@@ -45,16 +45,14 @@
   justify-content: space-between;
   width: 100%;
   background: #fff;
-  padding: 8px 72px 4px; /* Reduced top/bottom padding for a tighter block */
+  padding: 8px 72px 4px;
   box-sizing: border-box;
 }
 
-/* Hide the middle column (language list) */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo alignment and sizing */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: baseline;
@@ -68,16 +66,14 @@
   display: block;
 }
 
-/* Search box: baseline align and min width */
 .columns.columns2 > div > div:last-child {
   display: flex;
   align-items: baseline;
   justify-content: flex-end;
   min-width: 85px;
-  margin-bottom: 2px; /* Nudge search up for perfect baseline with logo */
+  margin-bottom: 2px;
 }
 
-/* Compact search appearance, very minimal vertical padding */
 .columns.columns2 > div > div:last-child p {
   background: #f5f5f5;
   color: #a2a2a2;
@@ -85,7 +81,7 @@
   font-weight: 400;
   text-transform: uppercase;
   margin: 0;
-  padding: 0 10px 0 21px; /* Nearly no vertical padding for a compact look */
+  padding: 0 10px 0 21px;
   border-radius: 2px;
   border: none;
   position: relative;
@@ -98,7 +94,6 @@
   align-items: center;
 }
 
-/* Search icon: tiny, lighter, precisely aligned */
 .columns.columns2 > div > div:last-child p::before {
   display: block;
   position: absolute;
@@ -114,7 +109,6 @@
   opacity: 0.7;
 }
 
-/* Responsive: stack items and reduce padding on small screens */
 @media (width <= 899px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -131,9 +125,80 @@
   }
 }
 
-/* Remove list bullets and margin just in case */
 .columns.columns2 ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+
+.columns.columns9 {
+  background: #232221;
+  border-bottom: 1px solid #fff;
+  color: #e0e0e0;
+  padding: 40px 32px 32px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Main row: lays out children side-by-side */
+.columns.columns9 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 64px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 120px;
+}
+
+/* Left column */
+.columns.columns9 > div > div:first-child {
+  flex: 2 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Right column */
+.columns.columns9 > div > div:nth-child(2) {
+  flex: 0 0 240px;
+  max-width: 240px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  text-align: right;
+  gap: 18px;
+}
+
+/* If there's a 3rd column, hide or collapse it (since the original shows only two columns) */
+.columns.columns9 > div > div:nth-child(n+3) {
+  display: none;
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 900px) {
+  .columns.columns9 {
+    padding: 24px 10px 18px;
+  }
+
+  .columns.columns9 > div {
+    flex-direction: column;
+    gap: 36px;
+    min-height: 0;
+  }
+
+  .columns.columns9 > div > div {
+    max-width: 100%;
+    min-width: 0;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
 }
