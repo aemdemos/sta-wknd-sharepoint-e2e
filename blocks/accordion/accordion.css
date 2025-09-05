@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,131 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion7 {
+  max-width: 610px;
+  margin: 56px auto 0;
+  background: var(--background-color);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  display: block;
+}
+
+/* FAQ item divider and stacking */
+.accordion.accordion7 details {
+  border: none;
+  border-bottom: 1px solid #eaeaea;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.accordion.accordion7 details:last-child {
+  border-bottom: none;
+}
+
+/* FAQ summary row: flex, left/right padding, vertically centered, even spacing */
+.accordion.accordion7 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 56px 0 36px;
+  min-height: 46px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #111;
+  background: none;
+  border: none;
+  margin: 0;
+  user-select: none;
+  position: relative;
+  letter-spacing: 0.01em;
+}
+
+/* Expand <p> fully and center vertically */
+.accordion.accordion7 .accordion-item-label > p {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+}
+
+/* Hide default marker */
+.accordion.accordion7 details summary::-webkit-details-marker,
+.accordion.accordion7 details summary::marker {
+  display: none;
+}
+
+/* Custom plus/minus: visually unified bars, lighter color, thinner, centered, more padding from right edge */
+.accordion.accordion7 details summary {
+  position: relative;
+  outline: none;
+}
+
+/* Icon: two unified bars, both same color, thinner, subtle shadow for separation */
+.accordion.accordion7 details summary::before,
+.accordion.accordion7 details summary::after {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 18px;
+  height: 2px;
+  background: #cacaca;
+  border-radius: 1px;
+  box-shadow: 0 0 0.5px #aaa;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  content: "";
+}
+
+.accordion.accordion7 details summary::before {
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 1;
+}
+
+.accordion.accordion7 details summary::after {
+  transform: translateY(-50%) rotate(0deg);
+  opacity: 1;
+}
+
+.accordion.accordion7 details[open] summary::before {
+  opacity: 0;
+}
+
+.accordion.accordion7 details[open] summary::after {
+  opacity: 1;
+}
+
+/* FAQ answer body: match horizontal padding */
+.accordion.accordion7 .accordion-item-body {
+  font-size: 0.97rem;
+  color: #333;
+  line-height: 1.5;
+  padding: 0 56px 16px 36px;
+  background: none;
+  border: none;
+  margin: 0;
+}
+
+/* Responsive: readable on smaller screens */
+@media (width <= 900px) {
+  .accordion.accordion7 {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .accordion.accordion7 .accordion-item-label,
+  .accordion.accordion7 .accordion-item-body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
