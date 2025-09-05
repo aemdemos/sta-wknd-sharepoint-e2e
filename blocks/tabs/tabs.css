@@ -387,8 +387,6 @@
 .tabs.tabs8 .tabs-panel > div {
   padding-left: 0;
   padding-right: 0;
-  margin-left: 0;
-  margin-right: 0;
   max-width: 1136px;
   box-sizing: border-box;
   margin-left: auto;
@@ -547,7 +545,6 @@
   display: block;
 }
 
-/* Tabs row: horizontally aligned with block content, visually balanced and spaced */
 .tabs.tabs12 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -559,7 +556,6 @@
   align-items: flex-end;
 }
 
-/* Tab buttons: uppercase, active tab stands out, tabs spaced, no extra border */
 .tabs.tabs12 .tabs-tab {
   border: none;
   border-radius: 0;
@@ -589,7 +585,6 @@
   padding: 0;
 }
 
-/* Panels: only show active */
 .tabs.tabs12 .tabs-panel {
   display: block;
   border: none;
@@ -598,12 +593,10 @@
   margin-top: 28px;
 }
 
-/* Hide inactive panels */
 .tabs.tabs12 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Heading: big, bold, tight underline using border-bottom for accent */
 .tabs.tabs12 .tabs-panel h3 {
   font-size: 2.1rem;
   color: #222;
@@ -618,7 +611,6 @@
   width: fit-content;
 }
 
-/* Image: full width, margin below */
 .tabs.tabs12 .tabs-panel picture,
 .tabs.tabs12 .tabs-panel img {
   display: block;
@@ -630,7 +622,6 @@
   height: auto;
 }
 
-/* Subheadline: bolder, larger, tighter to image */
 .tabs.tabs12 .tabs-panel > div > p:first-of-type {
   font-size: 1.13rem;
   font-weight: 900;
@@ -641,7 +632,6 @@
   letter-spacing: 0.04em;
 }
 
-/* Body: readable, slightly lighter, spaced out */
 .tabs.tabs12 .tabs-panel p,
 .tabs.tabs12 .tabs-panel ul {
   font-size: 1rem;
@@ -661,7 +651,6 @@
   margin-bottom: 8px;
 }
 
-/* Responsive: adjust padding and font for smaller screens */
 @media (width <= 800px) {
   .tabs.tabs12 {
     padding-left: 8px;
@@ -694,15 +683,213 @@
   }
 }
 
-/* Remove any previous borders or box-shadows */
 .tabs.tabs12 .tabs-panel,
 .tabs.tabs12 .tabs-tab {
   border: none;
   box-shadow: none;
 }
 
-/* Accessibility: show focus */
 .tabs.tabs12 .tabs-tab:focus {
   outline: 2px solid #fde68a;
   z-index: 1;
+}
+
+
+.tabs.tabs13 {
+  /* Use grid for two-column layout on large screens */
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3.5rem;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* Sidebar = first direct child */
+.tabs.tabs13 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 220px;
+  max-width: 340px;
+  padding: 2.5rem 1.5rem 2.5rem 0;
+  background: #fff;
+  border: none;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 > div:first-child {
+    min-width: 0;
+    max-width: 100%;
+    padding: 1.5rem 0 0;
+  }
+}
+
+/* Main content = second direct child */
+.tabs.tabs13 > div:nth-child(2) {
+  padding: 2.5rem 0;
+  background: #fff;
+  max-width: 900px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 > div:nth-child(2) {
+    padding: 1.5rem 0 2rem;
+    max-width: 100%;
+  }
+}
+
+/* Tabs Bar */
+.tabs.tabs13 .tabs-list {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  padding-left: 0.3rem;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.tabs.tabs13 .tabs-tab {
+  border: 1.5px solid #222;
+  border-radius: 0;
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.7em 2em;
+  cursor: pointer;
+  transition: background 0.17s, color 0.17s;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.tabs.tabs13 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 1.5px solid #222;
+  z-index: 1;
+}
+
+.tabs.tabs13 .tabs-tab p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+}
+
+/* Remove border and padding from content panel */
+.tabs.tabs13 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+  background: #fff;
+}
+
+.tabs.tabs13 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Main content spacing */
+.tabs.tabs13 .tabs-panel > div {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.1rem;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 .tabs-panel > div {
+    gap: 1.3rem;
+  }
+}
+
+/* Headings in content */
+.tabs.tabs13 h2, 
+.tabs.tabs13 h3 {
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+
+  /* Heading font is handled by base styles */
+}
+
+.tabs.tabs13 h2 {
+  font-size: 2rem;
+}
+
+.tabs.tabs13 h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Picture and image */
+.tabs.tabs13 picture,
+.tabs.tabs13 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0 0 1.9rem;
+  border: none;
+  box-shadow: none;
+}
+
+/* Paragraphs and text */
+.tabs.tabs13 p, 
+.tabs.tabs13 ul, 
+.tabs.tabs13 ol {
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.9rem;
+  margin-top: 0;
+}
+
+.tabs.tabs13 ul, 
+.tabs.tabs13 ol {
+  padding-left: 1.4rem;
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 600px) {
+  .tabs.tabs13 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .tabs.tabs13 > div:first-child,
+  .tabs.tabs13 > div:nth-child(2) {
+    padding: 1rem 0;
+  }
+
+  .tabs.tabs13 .tabs-list {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding-left: 0;
+  }
+}
+
+/* Utility: prevent leaking styles to outside */
+.tabs.tabs13 * {
+  box-sizing: border-box;
 }
