@@ -332,3 +332,43 @@
     padding-right: 24px;
   }
 }
+
+
+.carousel.carousel17 .carousel-slide-content {
+  display: none;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel17 .carousel-slide-indicators {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  gap: 5px;
+  background: none;
+  padding: 0;
+  z-index: 2;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c1c1c1;
+  border: none;
+  opacity: 0.85;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button:disabled,
+.carousel.carousel17 .carousel-slide-indicator button[disabled] {
+  background: #222;
+  opacity: 1;
+}
