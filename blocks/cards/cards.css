@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -290,7 +291,6 @@
   align-items: flex-start;
 }
 
-/* Image block: perfectly square and flush with card */
 .cards.cards26 .cards-card-image {
   width: 200px;
   height: 200px;
@@ -301,7 +301,6 @@
   flex-shrink: 0;
 }
 
-/* Remove all space above/below the image */
 .cards.cards26 .cards-card-image picture,
 .cards.cards26 .cards-card-image img {
   width: 100%;
@@ -314,7 +313,6 @@
   vertical-align: top;
 }
 
-/* Card body: absolutely no vertical spacing */
 .cards.cards26 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -325,7 +323,6 @@
   width: 100%;
 }
 
-/* Title: flush to image and description, no margin, minimal line-height */
 .cards.cards26 .cards-card-body h3 {
   font-size: 16px;
   font-weight: 600;
@@ -336,7 +333,6 @@
   text-align: left;
 }
 
-/* Description: flush to title, single-line ellipsis, minimal line-height */
 .cards.cards26 .cards-card-body p:not(.button-container) {
   font-size: 13px;
   color: #757575;
@@ -350,18 +346,15 @@
   line-height: 1;
 }
 
-/* Hide the button */
 .cards.cards26 .cards-card-body .button-container {
   display: none;
 }
 
-/* Remove any possible extra space below card body */
 .cards.cards26 > ul > li > *:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-/* Responsive: cards stack vertically at small screens */
 @media (width <= 500px) {
   .cards.cards26 > ul {
     flex-direction: column;
@@ -377,5 +370,126 @@
   .cards.cards26 .cards-card-image {
     aspect-ratio: 1/1;
     height: auto;
+  }
+}
+
+
+.cards.cards31 {
+  background: #fff;
+}
+
+.cards.cards31 > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: start;
+}
+
+.cards.cards31 > ul > li {
+  background: #fff;
+  border: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0;
+}
+
+.cards.cards31 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards31 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cards.cards31 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 12px;
+  margin: 16px 0 0; /* more margin-top for space below image */
+}
+
+.cards.cards31 .cards-card-body .button-container {
+  width: 100%;
+  margin: 0;
+}
+
+.cards.cards31 .cards-card-body .button {
+  background: none;
+  color: #222;
+  font-size: 17px;
+  font-weight: 700;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0 0 8px;
+  text-align: left;
+  line-height: 1.25;
+  display: block;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  cursor: pointer;
+}
+
+.cards.cards31 .cards-card-body .button:hover,
+.cards.cards31 .cards-card-body .button:focus {
+  background: none;
+  color: #222;
+  text-decoration: underline;
+}
+
+.cards.cards31 .cards-card-body p:not(.button-container) {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.6;
+  max-width: 100%;
+}
+
+.cards.cards31 .cards-card-body,
+.cards.cards31 .cards-card-body *,
+.cards.cards31 .cards-card-image,
+.cards.cards31 .cards-card-image * {
+  text-align: left;
+}
+
+@media (width <= 900px) {
+  .cards.cards31 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards31 > ul {
+    grid-template-columns: 1fr;
   }
 }
