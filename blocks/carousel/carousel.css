@@ -372,3 +372,94 @@
   background: #222;
   opacity: 1;
 }
+
+
+.carousel.carousel22 .carousel-slides-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 410px;
+  position: relative;
+}
+
+.carousel.carousel22 .carousel-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 410px;
+}
+
+/* Content box */
+.carousel.carousel22 .carousel-slide .carousel-slide-content {
+  background: #fff;
+  color: #131313;
+  margin: 0 auto 24px;
+  padding: 22px 36px 18px;
+  border-radius: 0;
+  max-width: 580px;
+  width: 44%;
+  position: relative;
+  inset: auto 0 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    width: 96%;
+    max-width: 100%;
+    margin: 0 auto 5vw;
+    padding: 13px 7vw;
+    gap: 6px;
+  }
+
+  .carousel.carousel22 .carousel-slides-container,
+  .carousel.carousel22 .carousel-slide {
+    min-height: 300px;
+  }
+}
+
+/* Heading */
+.carousel.carousel22 .carousel-slide .carousel-slide-content h2 {
+  color: #131313;
+  font-size: 1.58em;
+  margin: 0 0 2px;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+/* Paragraph */
+.carousel.carousel22 .carousel-slide .carousel-slide-content p {
+  color: #131313;
+  margin: 0 0 0.46em;
+  line-height: 1.4;
+}
+
+/* Yellow button */
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container .button {
+  background: #ffe600;
+  color: #131313;
+  font-weight: 600;
+  border-radius: 2em;
+  border: none;
+  padding: 0.39em 0.95em;
+  font-size: 1em;
+  box-shadow: none;
+  text-transform: uppercase;
+  min-width: 100px;
+  min-height: 30px;
+  margin: 0;
+  letter-spacing: 0.01em;
+  transition: background 0.18s;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container .button:hover,
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container .button:focus {
+  background: #fae100;
+  color: #131313;
+  text-decoration: underline;
+}
