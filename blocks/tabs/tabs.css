@@ -60,7 +60,6 @@
 
 
 .tabs.tabs3 {
-  /* Make block a touch wider and reduce padding for slight edge-to-edge feel */
   max-width: 1100px;
   padding-left: 36px;
   padding-right: 36px;
@@ -69,7 +68,6 @@
   display: block;
 }
 
-/* Tabs row: slightly more gap, keep left alignment, add bit more bottom margin */
 .tabs.tabs3 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -84,7 +82,6 @@
   text-align: left;
 }
 
-/* Tab buttons: pill style, big clickable area, left-aligned text */
 .tabs.tabs3 .tabs-tab {
   border: none;
   border-radius: 22px;
@@ -113,7 +110,6 @@
   margin: 0;
 }
 
-/* Content area: left-aligned, tight vertical flow */
 .tabs.tabs3 .tabs-panel {
   padding: 0;
   margin-top: 0;
@@ -132,7 +128,6 @@
   text-align: left;
 }
 
-/* Headings: strong visual prominence, very tight vertical rhythm */
 .tabs.tabs3 h3 {
   font-size: 2.3rem;
   font-weight: bold;
@@ -142,7 +137,6 @@
   line-height: 1.17;
 }
 
-/* Main description text: tight margin for rhythm */
 .tabs.tabs3 .tabs-panel p {
   font-size: 1.09rem;
   color: #222;
@@ -151,7 +145,6 @@
   margin-top: 0;
 }
 
-/* Caption: smaller, lighter, very tight spacing */
 .tabs.tabs3 .tabs-panel p:last-of-type {
   font-size: 0.96rem;
   color: #757575;
@@ -159,7 +152,6 @@
   margin-bottom: 1px;
 }
 
-/* Image: left-align, visually edge-to-edge fill */
 .tabs.tabs3 picture,
 .tabs.tabs3 img {
   display: block;
@@ -171,7 +163,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: adjust block width & padding for smaller screens */
 @media (width <= 900px) {
   .tabs.tabs3 {
     max-width: 100%;
@@ -208,3 +199,189 @@
     margin: 4px -6px 0;
   }
 }
+
+
+.tabs.tabs6 {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: flex-start;
+  background: var(--background-color);
+  padding: 40px 32px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 40px auto;
+  overflow: visible;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .tabs.tabs6 {
+    grid-template-columns: 1fr;
+    padding: 24px 12px;
+    gap: 0;
+  }
+}
+
+/* Sidebar column: first child div */
+.tabs.tabs6 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 220px;
+  max-width: 320px;
+  padding-top: 8px;
+  box-sizing: border-box;
+}
+
+/* Accent line below heading in sidebar */
+.tabs.tabs6 > div:first-child > *:first-child {
+  margin-bottom: 24px;
+}
+
+.tabs.tabs6 > div:first-child > *:nth-child(2) {
+  width: 48px;
+  height: 4px;
+  background: #F6D75A;
+  border-radius: 2px;
+  margin-bottom: 32px;
+}
+
+/* Sidebar info blocks */
+.tabs.tabs6 > div:first-child > *:not(:first-child, :nth-child(2)) {
+  margin-bottom: 20px;
+}
+
+.tabs.tabs6 > div:first-child span,
+.tabs.tabs6 > div:first-child label {
+  display: block;
+  font-size: 0.88rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.tabs.tabs6 > div:first-child strong,
+.tabs.tabs6 > div:first-child b {
+  display: block;
+  font-size: 1.08rem;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+/* Main content column: second child div */
+.tabs.tabs6 > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* Heading style */
+.tabs.tabs6 > div:nth-child(2) h3 {
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 10px;
+  letter-spacing: 0;
+  line-height: 1.13;
+}
+
+/* Tabs bar */
+.tabs.tabs6 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  border: none;
+  background: none;
+  margin-bottom: 18px;
+  padding: 0;
+  max-width: 100%;
+}
+
+/* Tab buttons */
+.tabs.tabs6 .tabs-list .tabs-tab {
+  border: none;
+  background: none;
+  color: #222;
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+}
+
+.tabs.tabs6 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs6 .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Hide borders from old CSS */
+.tabs.tabs6 .tabs-list .tabs-tab,
+.tabs.tabs6 .tabs-list {
+  border: none;
+}
+
+/* Panel content appearance */
+.tabs.tabs6 .tabs-panel {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.tabs.tabs6 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Paragraph text */
+.tabs.tabs6 .tabs-panel > div > p {
+  font-size: 1rem;
+  color: #222;
+  margin: 0 0 12px;
+  line-height: 1.7;
+}
+
+/* Image block: ensure image fills column width, not beyond */
+.tabs.tabs6 .tabs-panel picture,
+.tabs.tabs6 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Responsive: reduce sidebar on mobile, adjust main gap */
+@media (width <= 900px) {
+  .tabs.tabs6 > div:first-child {
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+    gap: 18px;
+  }
+
+  .tabs.tabs6 > div:nth-child(2) {
+    gap: 16px;
+    padding: 0;
+  }
+}
+
+/* Make sure overflow is clean */
