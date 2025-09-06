@@ -1020,7 +1020,6 @@
   }
 }
 
-/* Sidebar: vertical stack for metadata only */
 .tabs.tabs28 > div:first-child {
   min-width: 140px;
   max-width: 180px;
@@ -1033,12 +1032,10 @@
   grid-column: 1/2;
 }
 
-/* Remove vertical tab nav from sidebar completely */
 .tabs.tabs28 > div:first-child .tabs-list {
   display: none !important;
 }
 
-/* Main content: second grid column */
 .tabs.tabs28 > div:nth-child(2) {
   min-width: 0;
   display: flex;
@@ -1064,7 +1061,6 @@
   }
 }
 
-/* Always show tabs-list as a horizontal row at top of main column */
 .tabs.tabs28 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1076,7 +1072,6 @@
   margin-top: 0;
 }
 
-/* Tab button style */
 .tabs.tabs28 .tabs-tab {
   padding: 0.8em 2.4em;
   border-radius: 7px;
@@ -1108,7 +1103,6 @@
   width: 100%;
 }
 
-/* Title and subtitle styling */
 .tabs.tabs28 .tabs-panel > div > h3:first-child {
   font-size: 34px;
   color: var(--text-color);
@@ -1129,7 +1123,6 @@
   font-weight: 600;
 }
 
-/* Paragraphs */
 .tabs.tabs28 .tabs-panel p {
   color: var(--text-color);
   font-size: 15px;
@@ -1138,7 +1131,6 @@
   margin-top: 0;
 }
 
-/* Main image */
 .tabs.tabs28 .tabs-panel picture,
 .tabs.tabs28 .tabs-panel img {
   display: block;
@@ -1150,7 +1142,6 @@
   margin: 32px 0 18px;
 }
 
-/* Supplementary last paragraph */
 .tabs.tabs28 .tabs-panel p:last-child {
   font-size: 13px;
   color: #666;
@@ -1159,7 +1150,6 @@
   letter-spacing: 0.2px;
 }
 
-/* List styling for what-to-bring */
 .tabs.tabs28 .tabs-panel ul {
   padding-left: 24px;
   margin-bottom: 18px;
@@ -1171,7 +1161,6 @@
   color: var(--text-color);
 }
 
-/* Remove unwanted borders/backgrounds from tab buttons */
 .tabs.tabs28 .tabs-list button {
   border: none;
   background: transparent;
@@ -1185,7 +1174,6 @@
   box-shadow: none;
 }
 
-/* Ensure main content doesn't crowd sidebar */
 .tabs.tabs28 > div:nth-child(2) > .tabs-list,
 .tabs.tabs28 > div:nth-child(2) > .tabs-panel {
   margin-left: 0;
@@ -1205,9 +1193,165 @@
   }
 }
 
-/* Better main content width and centering */
 .tabs.tabs28 .tabs-panel > div {
   max-width: 750px;
   width: 100%;
   margin-left: 0;
+}
+
+
+.tabs.tabs30 {
+  background: #fff;
+  padding: 40px 32px;
+  box-sizing: border-box;
+  border-radius: 0;
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 64px;
+}
+
+/* Responsive grid layout for two columns on large screens */
+.tabs.tabs30 > .tabs-list,
+.tabs.tabs30 > .tabs-panel {
+  /* reset to block for grid layout below */
+  display: block;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs30 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 24px 8px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs30 {
+    padding: 10px 0;
+  }
+}
+
+/* TABS BAR */
+.tabs.tabs30 .tabs-list {
+  grid-column: 2;
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 0;
+}
+
+.tabs.tabs30 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #222;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 4px 4px 0 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.tabs.tabs30 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs30 .tabs-list button p {
+  margin: 0;
+}
+
+/* TABS PANEL */
+.tabs.tabs30 .tabs-panel {
+  grid-column: 2;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+  overflow: visible;
+  min-width: 0;
+}
+
+/* MAIN HEADINGS */
+.tabs.tabs30 .tabs-panel > div > h3:first-child {
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #222;
+  font-family: var(--heading-font-family);
+}
+
+.tabs.tabs30 .tabs-panel > div > h3:nth-child(2) {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 18px;
+  color: #222;
+  font-family: var(--heading-font-family);
+}
+
+/* IMAGE & CAPTION */
+.tabs.tabs30 .tabs-panel picture,
+.tabs.tabs30 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.tabs.tabs30 .tabs-panel p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #222;
+  margin-bottom: 16px;
+}
+
+.tabs.tabs30 .tabs-panel p:first-of-type {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.tabs.tabs30 .tabs-panel p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* SIDEBAR (left column) */
+.tabs.tabs30 > div:first-child {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 0;
+  min-width: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs30 > div:first-child {
+    grid-column: 1;
+    grid-row: 1;
+    padding-bottom: 16px;
+  }
+}
+
+/* When sidebar content is missing, don't reserve space */
+@media (width <= 900px) {
+  .tabs.tabs30 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Extra: add spacing between multiple panels if present */
+.tabs.tabs30 .tabs-panel > div > *:not(:last-child) {
+  margin-bottom: 14px;
 }
