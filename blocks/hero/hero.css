@@ -138,7 +138,6 @@
   overflow: hidden;
 }
 
-/* Full-bleed image background */
 .hero.hero19 > div:first-child {
   position: absolute;
   inset: 0;
@@ -157,7 +156,6 @@
   display: block;
 }
 
-/* Overlay card: flush to bottom and left, sizing and spacing for visual match, subtle shadow */
 .hero.hero19 > div:nth-child(2) {
   position: absolute;
   left: 24px;
@@ -176,7 +174,6 @@
   box-shadow: 0 2px 16px rgb(0 0 0 / 4.5%);
 }
 
-/* Heading and paragraph spacing */
 .hero.hero19 h2 {
   color: var(--text-color);
   font-size: var(--heading-font-size-xl);
@@ -192,7 +189,6 @@
   line-height: 1.6;
 }
 
-/* Responsive: card grows full width, padding shrinks */
 @media (width <= 900px) {
   .hero.hero19 > div:nth-child(2) {
     left: 0;
@@ -221,5 +217,153 @@
 
   .hero.hero19 p {
     font-size: var(--body-font-size-s);
+  }
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Hero image block: increase height for better overlap effect */
+.hero.hero27 > div:first-child {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  min-height: 320px;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.hero.hero27 > div:first-child > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.hero.hero27 picture,
+.hero.hero27 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Floating content box, lower on the image for more visible overlap */
+.hero.hero27 > div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px; /* further up for more image visible below */
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none;
+}
+
+.hero.hero27 > div:nth-child(2) > div {
+  background: #fff;
+  max-width: 1100px;
+  width: calc(100% - 120px);
+  margin: 0 auto;
+  padding: 32px 32px 24px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+.hero.hero27 h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 10px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.hero.hero27 p {
+  font-size: var(--body-font-size-m);
+  color: #444;
+  margin: 0 0 18px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.hero.hero27 .button-container {
+  margin-top: 18px;
+}
+
+.hero.hero27 .button {
+  background: #FFEB3B;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  font-size: var(--body-font-size-m);
+  transition: background 0.2s;
+  text-align: left;
+  margin: 0;
+  display: inline-block;
+}
+
+/* Responsive: stack and move box below image on small screens */
+@media (width <= 900px) {
+  .hero.hero27 > div:first-child {
+    height: 260px;
+    min-height: 130px;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    bottom: 16px;
+  }
+
+  .hero.hero27 > div:nth-child(2) > div {
+    width: calc(100% - 32px);
+    padding: 24px 12px;
+  }
+}
+
+@media (width <= 700px) {
+  .hero.hero27 > div:first-child {
+    height: 160px;
+    min-height: 90px;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    pointer-events: auto;
+  }
+
+  .hero.hero27 > div:nth-child(2) > div {
+    max-width: 100%;
+    width: 100%;
+    padding: 18px 8px;
+    box-shadow: none;
+    margin-bottom: 0;
   }
 }
