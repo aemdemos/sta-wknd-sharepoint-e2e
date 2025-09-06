@@ -1,10 +1,19 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  min-height: 96px;
+  padding: 36px 60px 0;
+  gap: 40px;
+  box-sizing: border-box;
+  background: transparent;
 }
 
 .columns img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .columns > div > div {
@@ -44,8 +53,6 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-
-  /* Minimal top padding, slightly more bottom for "anchored top" look */
   padding: 2px 32px 10px;
   box-sizing: border-box;
   height: auto;
@@ -105,5 +112,142 @@
   .columns.columns2 > div > div:nth-child(3) {
     align-items: flex-start;
     justify-content: flex-start;
+  }
+}
+
+
+.columns {
+  background: #232323;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout: side-by-side flex */
+
+/* Logo: vertically centered, no stretching */
+.columns .columns-img-col {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.columns .columns-img-col img {
+  max-height: 60px;
+  width: auto;
+  display: block;
+}
+
+/* ===== NAVIGATION: Show only sub-nav horizontally ===== */
+.columns > div > div:nth-child(2) ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* parent li flex, horizontal alignment */
+.columns > div > div:nth-child(2) > ul > li {
+  display: flex;
+  align-items: center;
+}
+
+/* Hide Home link only, display children */
+.columns > div > div:nth-child(2) > ul > li > a {
+  display: none;
+}
+
+/* Display nested ul as horizontal nav */
+.columns > div > div:nth-child(2) > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style nav links */
+.columns > div > div:nth-child(2) > ul > li > ul > li {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.columns > div > div:nth-child(2) > ul > li > ul > li > a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: border-bottom 0.2s;
+  background: none;
+  display: inline-block;
+}
+
+.columns > div > div:nth-child(2) > ul > li > ul > li > a:hover,
+.columns > div > div:nth-child(2) > ul > li > ul > li > a:focus {
+  border-bottom: 2px solid #fff;
+}
+
+/* SEARCH: plain uppercase white text, right-aligned */
+.columns > div > div:last-child {
+  margin-left: auto;
+  color: #fff;
+  text-align: right;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  min-width: 120px;
+  height: auto;
+  padding: 0;
+}
+
+/* Remove inherited button/input styling from Search */
+.columns > div > div:last-child p {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: right;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  display: inline-block;
+}
+
+/* Remove any default img stretching */
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 10px 0;
+    gap: 18px;
+    min-height: unset;
+  }
+
+  .columns .columns-img-col,
+  .columns > div > div:nth-child(2),
+  .columns > div > div:last-child {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+
+  .columns > div > div:last-child {
+    margin-left: 0;
+    min-width: unset;
+    height: unset;
   }
 }
