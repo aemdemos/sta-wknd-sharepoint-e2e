@@ -45,3 +45,89 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero12 {
+  position: relative;
+  min-height: 320px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Background image fill */
+.hero.hero12 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero12 picture,
+.hero.hero12 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Card overlay - raised higher above the bottom for proper gap */
+.hero.hero12 > div:nth-child(2) {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 56px;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* Card appearance - balanced width and padding */
+.hero.hero12 > div:nth-child(2) > div {
+  background: var(--background-color);
+  padding: 20px 36px 56px;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Heading/text styling - left aligned */
+.hero.hero12 h2 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+  line-height: 1.3;
+  width: 100%;
+}
+
+/* Divider line below hero block */
+.hero.hero12::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eaeaea;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments for mobile/tablet */
+@media (width <= 900px) {
+  .hero.hero12 > div:nth-child(2) {
+    left: 3%;
+    right: 3%;
+    bottom: 18px;
+  }
+
+  .hero.hero12 > div:nth-child(2) > div {
+    padding: 12px 4vw 28px;
+    max-width: 100%;
+  }
+}
