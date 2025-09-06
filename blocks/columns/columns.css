@@ -2,7 +2,7 @@
 .columns > div {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   min-height: 96px;
   padding: 0;
   gap: 40px;
@@ -137,16 +137,20 @@
 .columns .columns-img-col {
   display: flex;
   align-items: center;
-  margin-right: 40px;
+  margin-right: 0;
   margin-bottom: 16px;
+  max-width: 239px;
 }
 
 .columns .columns-img-col img {
   max-height: 89px;
-  width: 100%;
+  width: auto;
   display: block;
   max-width: 239px;
   height: auto;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
 }
 
 .columns > div > div:nth-child(2) ul {
@@ -158,6 +162,9 @@
 .columns > div > div:nth-child(2) > ul > li {
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
 .columns > div > div:nth-child(2) > ul > li > a {
@@ -170,6 +177,9 @@
   gap: 32px;
   margin: 0;
   padding: 0;
+  align-items: center;
+  list-style: none;
+  color: inherit;
 }
 
 .columns > div > div:nth-child(2) > ul > li > ul > li {
@@ -183,23 +193,28 @@
   color: #fff;
   text-transform: uppercase;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 2px;
   border-bottom: 2px solid transparent;
   padding-bottom: 2px;
   text-decoration: none;
-  transition: border-bottom 0.2s;
+  transition: border-bottom 0.2s, color 0.2s;
   background: none;
   display: inline-block;
+  line-height: 1.3;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 4px;
 }
 
 .columns > div > div:nth-child(2) > ul > li > ul > li > a:hover,
 .columns > div > div:nth-child(2) > ul > li > ul > li > a:focus {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #FFC144;
+  color: #FFC144;
 }
 
 .columns > div > div:last-child {
-  margin-left: auto;
+  margin-left: 0;
   color: #fff;
   text-align: right;
   font-size: 16px;
@@ -209,10 +224,12 @@
   background: none;
   border: none;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   min-width: 120px;
   height: auto;
   padding: 0;
+  justify-content: flex-end;
+  flex-shrink: 0;
 }
 
 .columns > div > div:last-child p {
@@ -252,26 +269,15 @@
   }
 }
 
-/* Force all text in columns to be white (including headings, labels, button text) */
 .columns,
 .columns * {
   color: #fff;
 }
 
-/* Top-level columns block: row layout for child column containers */
-
-/* Each column: stack content vertically */
-
-/* Left column alignment */
 .columns > div > div:first-child {
   align-items: flex-start;
 }
 
-/* Right column alignment */
-
-/* Logo image styling */
-
-/* Remove default margin/padding and bullets from lists in block */
 .columns ul,
 .columns li {
   margin: 0;
@@ -279,17 +285,14 @@
   list-style: none;
 }
 
-/* Spacing for vertical stacking in columns */
 .columns > div > div > *:not(:last-child) {
   margin-bottom: 12px;
 }
 
-/* Right column text and button alignment */
 .columns > div > div:last-child > * {
   text-align: right;
 }
 
-/* Override default and inherited button/input styles specifically for block */
 .columns > div > div:last-child .button,
 .columns > div > div:last-child button,
 .columns > div > div:last-child input[type="submit"] {
@@ -315,7 +318,6 @@
   border-color: #fff;
 }
 
-/* Responsive: stack columns vertically, adjust padding/gap */
 @media (width <= 900px) {
   .columns {
     padding: 24px 12px 16px;
@@ -337,3 +339,97 @@
     text-align: left;
   }
 }
+
+/* Main flex row for logo, nav, search */
+
+/* LOGO COLUMN */
+
+/* NAV COLUMN (force display and visibility of inner menu) */
+.columns > div > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  /* Prevent nav collapse if empty */
+  min-height: 40px;
+}
+
+/* Outer ul - no bullets/gaps */
+.columns > div > div:nth-child(2) > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 0;
+}
+
+/* Force display of nested menu (nav) horizontally even if previously hidden */
+
+/* NAV LINK STYLE */
+
+/* NAV LINK HOVER */
+
+/* SEARCH/RIGHT COLUMN - as plain uppercase white text */
+
+/* Remove default button/input look, force plain text appearance */
+.columns > div > div:last-child > *,
+.columns > div > div:last-child input,
+.columns > div > div:last-child button {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  display: inline-block;
+  box-shadow: none;
+  outline: none;
+  width: auto;
+  min-width: 0;
+  cursor: default;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .columns {
+    padding: 24px 12px 16px;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    min-height: unset;
+  }
+
+  .columns .columns-img-col,
+  .columns > div > div:nth-child(2),
+  .columns > div > div:last-child {
+    max-width: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .columns > div > div:last-child > * {
+    text-align: left;
+  }
+
+  .columns > div > div:nth-child(2) > ul > li > ul {
+    gap: 18px;
+  }
+}
+
+/* Remove bullets from all menu lists just in case */
