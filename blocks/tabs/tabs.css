@@ -56,3 +56,169 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+
+.tabs.tabs3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #fff;
+  max-width: 940px;
+  margin: 0 auto 48px;
+  padding: 40px 32px 32px;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 1px;
+}
+
+/* Make sure children stack as columns horizontally */
+.tabs.tabs3 > div {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* If not enough children (no sidebar), main column should stretch */
+.tabs.tabs3 > div:first-child:only-child {
+  flex-basis: 100%;
+}
+
+/* Tabs bar styling */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Tab button styling */
+.tabs.tabs3 .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  color: #222;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 20px;
+  margin: 0;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  box-shadow: none;
+  min-width: 0;
+  text-align: left;
+}
+
+.tabs.tabs3 .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs3 .tabs-tab p {
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+
+/* Panel styling */
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Hide inactive panels */
+.tabs.tabs3 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Content inside panels */
+.tabs.tabs3 .tabs-panel > div > h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 18px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.tabs.tabs3 .tabs-panel > div > p,
+.tabs.tabs3 .tabs-panel > div > ul,
+.tabs.tabs3 .tabs-panel > div > ol {
+  font-size: 16px;
+  color: #444;
+  margin: 0 0 18px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.tabs.tabs3 .tabs-panel > div > ul,
+.tabs.tabs3 .tabs-panel > div > ol {
+  padding-left: 20px;
+}
+
+.tabs.tabs3 .tabs-panel > div > ul > li,
+.tabs.tabs3 .tabs-panel > div > ol > li {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Image styling */
+.tabs.tabs3 .tabs-panel picture,
+.tabs.tabs3 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  margin: 22px 0 10px;
+  border-radius: 2px;
+  box-shadow: none;
+  background: none;
+}
+
+/* Small text at the bottom */
+.tabs.tabs3 .tabs-panel > div > p:last-child {
+  font-size: 13px;
+  color: #333;
+  margin: 12px 0 0;
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs3 {
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 8px 28px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs3 > div {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .tabs.tabs3 .tabs-list {
+    padding: 0 2px;
+  }
+
+  .tabs.tabs3 .tabs-panel picture,
+  .tabs.tabs3 .tabs-panel img {
+    max-width: 100%;
+  }
+}
