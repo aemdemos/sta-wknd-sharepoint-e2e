@@ -417,3 +417,176 @@
 .cards.cards20 .button-container .button {
   margin: 0;
 }
+
+
+.cards.cards22 {
+  padding: 32px 0;
+  background: #fff;
+}
+
+/* GRID LAYOUT */
+.cards.cards22 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-items: center;
+}
+
+@media (width <= 1000px) {
+  .cards.cards22 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 18px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards22 > ul {
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+  }
+}
+
+/* CARD STACK AND CENTERING */
+.cards.cards22 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+/* CIRCULAR PROFILE IMAGE */
+.cards.cards22 .cards-card-image {
+  width: 120px;
+  height: 120px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+}
+
+.cards.cards22 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* CARD BODY VERTICALLY STACKED AND CENTERED */
+.cards.cards22 .cards-card-body {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* NAME */
+.cards.cards22 .cards-card-body h3 {
+  font-size: 1.35em;
+  color: #212121;
+  font-weight: 700;
+  margin-bottom: 2px;
+  margin-top: 0;
+  letter-spacing: 0;
+}
+
+/* ROLE / DESCRIPTOR LINE */
+.cards.cards22 .cards-card-body h5 {
+  font-size: 0.93em;
+  color: #444;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-bottom: 2px;
+  margin-top: 0;
+}
+
+/* SOCIAL LINKS ROW: FLEX, HORIZONTAL, SPACED, ICON BUTTONS ONLY */
+.cards.cards22 .cards-card-body p {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* ICON BUTTONS: ONLY SHOW SQUARE BUTTON (NO TEXT, NO CIRCLE) */
+.cards.cards22 .cards-card-body p a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #232323;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 0;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  text-indent: -9999px;
+}
+
+.cards.cards22 .cards-card-body p a::after {
+  display: none;
+}
+
+/* Use background-image SVG for each social icon title attribute */
+.cards.cards22 .cards-card-body p a[title*="Facebook"] {
+  background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M13.7 20V10.89h3.07l.46-3.57H13.7V5.5c0-1.03.29-1.74 1.78-1.74h1.9V.32C17.01.22 15.9.09 14.58.09c-2.71 0-4.57 1.66-4.57 4.7v2.62H6.11v3.57h3.9V20h3.69z"/></svg>');
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: center;
+}
+
+.cards.cards22 .cards-card-body p a[title*="Twitter"] {
+  background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20 3.87a8.17 8.17 0 0 1-2.36.65A4.13 4.13 0 0 0 19.45 2c-.8.48-1.68.82-2.62 1a4.1 4.1 0 0 0-7 3.74A11.65 11.65 0 0 1 1.39 2.74a4.06 4.06 0 0 0-.55 2.07 4.1 4.1 0 0 0 1.82 3.42A4.09 4.09 0 0 1 .8 7.15v.05a4.13 4.13 0 0 0 3.29 4.03c-.4.1-.82.13-1.25.05a4.11 4.11 0 0 0 3.84 2.85A8.23 8.23 0 0 1 0 17.23 11.62 11.62 0 0 0 6.29 19c7.55 0 11.68-6.26 11.68-11.69 0-.18 0-.35-.01-.53A8.18 8.18 0 0 0 20 3.87z"/></svg>');
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: center;
+}
+
+.cards.cards22 .cards-card-body p a[title*="Insta"] {
+  background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.3" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="14" x="3" y="3" rx="4"/><circle cx="10" cy="10" r="4"/><circle cx="15.5" cy="4.5" r="1.1" fill="white" stroke="white"/></svg>');
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: center;
+}
+
+/* ICON BUTTON HOVER ACCENT */
+.cards.cards22 .cards-card-body p a:hover,
+.cards.cards22 .cards-card-body p a:focus {
+  background: #c7a008;
+  color: #212121;
+}
+
+/* Responsive image and gap size for smaller screens */
+@media (width <= 700px) {
+  .cards.cards22 .cards-card-image {
+    width: 88px;
+    height: 88px;
+  }
+
+  .cards.cards22 .cards-card-body p {
+    gap: 8px;
+  }
+}
