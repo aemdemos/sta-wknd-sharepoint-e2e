@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -53,7 +54,6 @@
   overflow: hidden;
 }
 
-/* Background image fill */
 .hero.hero12 > div:first-child {
   position: absolute;
   inset: 0;
@@ -71,7 +71,6 @@
   object-fit: cover;
 }
 
-/* Card overlay - raised higher above the bottom for proper gap */
 .hero.hero12 > div:nth-child(2) {
   position: absolute;
   left: 8%;
@@ -83,7 +82,6 @@
   justify-content: flex-start;
 }
 
-/* Card appearance - balanced width and padding */
 .hero.hero12 > div:nth-child(2) > div {
   background: var(--background-color);
   padding: 20px 36px 56px;
@@ -98,7 +96,6 @@
   justify-content: flex-start;
 }
 
-/* Heading/text styling - left aligned */
 .hero.hero12 h2 {
   margin: 0;
   color: var(--text-color);
@@ -109,7 +106,6 @@
   width: 100%;
 }
 
-/* Divider line below hero block */
 .hero.hero12::after {
   display: block;
   width: 100%;
@@ -118,7 +114,6 @@
   margin-top: 20px;
 }
 
-/* Responsive adjustments for mobile/tablet */
 @media (width <= 900px) {
   .hero.hero12 > div:nth-child(2) {
     left: 3%;
@@ -129,5 +124,102 @@
   .hero.hero12 > div:nth-child(2) > div {
     padding: 12px 4vw 28px;
     max-width: 100%;
+  }
+}
+
+
+.hero.hero19 {
+  position: relative;
+  width: 100vw;
+  min-height: 400px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Full-bleed image background */
+.hero.hero19 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero19 picture,
+.hero.hero19 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay card: flush to bottom and left, sizing and spacing for visual match, subtle shadow */
+.hero.hero19 > div:nth-child(2) {
+  position: absolute;
+  left: 24px;
+  bottom: 0;
+  max-width: 720px;
+  width: 54vw;
+  min-width: 316px;
+  background: var(--background-color);
+  padding: 32px 36px 28px;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 4.5%);
+}
+
+/* Heading and paragraph spacing */
+.hero.hero19 h2 {
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 16px;
+  line-height: 1.22;
+  font-weight: 600;
+}
+
+.hero.hero19 p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive: card grows full width, padding shrinks */
+@media (width <= 900px) {
+  .hero.hero19 > div:nth-child(2) {
+    left: 0;
+    bottom: 0;
+    max-width: 98vw;
+    width: 98vw;
+    min-width: 0;
+    padding: 16px 12px 14px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero19 > div:nth-child(2) {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100vw;
+    width: 100vw;
+    min-width: 0;
+    padding: 8px 6px;
+  }
+
+  .hero.hero19 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .hero.hero19 p {
+    font-size: var(--body-font-size-s);
   }
 }
