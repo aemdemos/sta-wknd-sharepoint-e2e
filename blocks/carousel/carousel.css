@@ -152,8 +152,6 @@
   }
 }
 
-
-/* Restore default layout structure for all parent containers */
 .carousel.carousel6 .carousel-slides-container,
 .carousel.carousel6 .carousel-slides,
 .carousel.carousel6 .carousel-slide {
@@ -168,7 +166,6 @@
   overflow: visible;
 }
 
-/* Only the image should be absolutely positioned and full-bleed */
 .carousel.carousel6 .carousel-slide .carousel-slide-image picture {
   position: absolute;
   inset: 0;
@@ -184,7 +181,6 @@
   display: block;
 }
 
-/* Card: slightly raised off the bottom, compact but visible */
 .carousel.carousel6 .carousel-slide .carousel-slide-content {
   position: absolute;
   left: 4vw;
@@ -213,7 +209,6 @@
   }
 }
 
-/* Heading and text, compact and tight */
 .carousel.carousel6 .carousel-slide .carousel-slide-content h2 {
   color: #131313;
   font-size: 1.25rem;
@@ -234,7 +229,6 @@
   margin-top: 8px;
 }
 
-/* Button: compact, less dominant */
 .carousel.carousel6 .carousel-slide .carousel-slide-content .button {
   background: #ffe600;
   color: #131313;
@@ -256,7 +250,6 @@
   text-decoration: underline;
 }
 
-/* Slide indicators just above nav arrows, centered */
 .carousel.carousel6 .carousel-slide-indicators {
   position: absolute;
   left: 0;
@@ -299,7 +292,6 @@
   border-color: #757575;
 }
 
-/* Navigation arrows: bottom right, compact and visible */
 .carousel.carousel6 .carousel-navigation-buttons {
   position: absolute;
   bottom: 32px;
@@ -367,4 +359,108 @@
   opacity: 0.26;
   cursor: not-allowed;
   background: #fafafa;
+}
+
+
+.carousel.carousel8 .carousel-slide-content {
+  display: none;
+}
+
+/* Controls container below image */
+.carousel.carousel8 .carousel-footer-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 18px;
+  gap: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Place indicators centered below image */
+.carousel.carousel8 .carousel-slide-indicators {
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  padding: 0;
+  margin: 20px 0 0;
+  min-height: 24px;
+  width: 100%;
+  order: 1;
+  z-index: 2;
+}
+
+/* Dot styles */
+.carousel.carousel8 .carousel-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #222;
+  opacity: 0.5;
+  border: none;
+  margin: 0 4px;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+
+.carousel.carousel8 .carousel-slide-indicator button:disabled,
+.carousel.carousel8 .carousel-slide-indicator button[aria-current="true"],
+.carousel.carousel8 .carousel-slide-indicator button.active {
+  opacity: 1;
+}
+
+/* Arrows at bottom right below image */
+.carousel.carousel8 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 32px 12px auto;
+  transform: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  width: auto;
+  height: auto;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Arrow button styles */
+.carousel.carousel8 .carousel-navigation-buttons button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #bbb;
+  background: #fff;
+  margin: 0;
+  box-shadow: none;
+  transition: border-color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel.carousel8 .carousel-navigation-buttons button:hover,
+.carousel.carousel8 .carousel-navigation-buttons button:focus-visible {
+  border-color: #444;
+  background: #f0f0f0;
+}
+
+.carousel.carousel8 .carousel-navigation-buttons button::after {
+  border-color: #222;
+  border-width: 2px;
+  height: 12px;
+  width: 12px;
+  left: 50%;
+  top: 50%;
+}
+
+/* Remove gap above/below carousel */
+.carousel-wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
 }
