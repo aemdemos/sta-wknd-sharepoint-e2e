@@ -424,7 +424,6 @@
   background: #fff;
 }
 
-/* GRID LAYOUT */
 .cards.cards22 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -449,7 +448,6 @@
   }
 }
 
-/* CARD STACK AND CENTERING */
 .cards.cards22 > ul > li {
   background: #fff;
   border: none;
@@ -460,7 +458,6 @@
   padding: 0;
 }
 
-/* CIRCULAR PROFILE IMAGE */
 .cards.cards22 .cards-card-image {
   width: 120px;
   height: 120px;
@@ -482,7 +479,6 @@
   border-radius: 50%;
 }
 
-/* CARD BODY VERTICALLY STACKED AND CENTERED */
 .cards.cards22 .cards-card-body {
   width: 100%;
   text-align: center;
@@ -493,7 +489,6 @@
   align-items: center;
 }
 
-/* NAME */
 .cards.cards22 .cards-card-body h3 {
   font-size: 1.35em;
   color: #212121;
@@ -503,7 +498,6 @@
   letter-spacing: 0;
 }
 
-/* ROLE / DESCRIPTOR LINE */
 .cards.cards22 .cards-card-body h5 {
   font-size: 0.93em;
   color: #444;
@@ -514,7 +508,6 @@
   margin-top: 0;
 }
 
-/* SOCIAL LINKS ROW: FLEX, HORIZONTAL, SPACED, ICON BUTTONS ONLY */
 .cards.cards22 .cards-card-body p {
   display: flex;
   flex-direction: row;
@@ -524,7 +517,6 @@
   padding: 0;
 }
 
-/* ICON BUTTONS: ONLY SHOW SQUARE BUTTON (NO TEXT, NO CIRCLE) */
 .cards.cards22 .cards-card-body p a {
   display: inline-flex;
   align-items: center;
@@ -550,7 +542,6 @@
   display: none;
 }
 
-/* Use background-image SVG for each social icon title attribute */
 .cards.cards22 .cards-card-body p a[title*="Facebook"] {
   background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M13.7 20V10.89h3.07l.46-3.57H13.7V5.5c0-1.03.29-1.74 1.78-1.74h1.9V.32C17.01.22 15.9.09 14.58.09c-2.71 0-4.57 1.66-4.57 4.7v2.62H6.11v3.57h3.9V20h3.69z"/></svg>');
   background-repeat: no-repeat;
@@ -572,14 +563,12 @@
   background-position: center;
 }
 
-/* ICON BUTTON HOVER ACCENT */
 .cards.cards22 .cards-card-body p a:hover,
 .cards.cards22 .cards-card-body p a:focus {
   background: #c7a008;
   color: #212121;
 }
 
-/* Responsive image and gap size for smaller screens */
 @media (width <= 700px) {
   .cards.cards22 .cards-card-image {
     width: 88px;
@@ -588,5 +577,119 @@
 
   .cards.cards22 .cards-card-body p {
     gap: 8px;
+  }
+}
+
+
+.cards.cards26 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* Outer <ul>: flex row for side-by-side cards, flush left, correct gap */
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Responsive stacking */
+@media (width <= 700px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+/* Remove borders, align inner content left */
+.cards.cards26 > ul > li {
+  border: none;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  align-items: flex-start;
+}
+
+/* Image container: square, flush left */
+.cards.cards26 .cards-card-image {
+  width: 180px;
+  height: 180px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  line-height: 0;
+  align-self: flex-start;
+}
+
+@media (width <= 700px) {
+  .cards.cards26 .cards-card-image {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+/* Image fills card */
+.cards.cards26 > ul > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: unset;
+}
+
+/* Card body: restrict width, align left, proper vertical spacing */
+.cards.cards26 .cards-card-body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 180px;
+  align-items: flex-start;
+}
+
+@media (width <= 700px) {
+  .cards.cards26 .cards-card-body {
+    max-width: 100%;
+  }
+}
+
+/* Title: bold, uppercase, proper margin, left align */
+.cards.cards26 .cards-card-body h3 {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  margin: 10px 0 0;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* Description: muted, single line, ellipsis, max width, left align, correct vertical spacing */
+.cards.cards26 .cards-card-body p {
+  font-size: 12px;
+  font-weight: normal;
+  color: #757575;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  max-width: 180px;
+}
+
+@media (width <= 700px) {
+  .cards.cards26 .cards-card-body p {
+    max-width: 100%;
   }
 }
