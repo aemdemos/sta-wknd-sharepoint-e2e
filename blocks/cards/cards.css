@@ -37,7 +37,6 @@
   list-style: none;
 }
 
-/* Featured card: Hero height, stronger aspect ratio, perfect alignment */
 .cards.cards4 > ul > li:first-child {
   display: flex;
   flex-direction: row;
@@ -53,7 +52,6 @@
   position: relative;
 }
 
-/* Image and body always fill parent height */
 .cards.cards4 > ul > li:first-child > .cards-card-image,
 .cards.cards4 > ul > li:first-child > .cards-card-body {
   height: 100%;
@@ -63,7 +61,6 @@
   padding: 0;
 }
 
-/* Image: always fills, no aspect-ratio restriction, consistent cropping */
 .cards.cards4 > ul > li:first-child > .cards-card-image {
   flex: 3 1 0%;
   display: flex;
@@ -80,7 +77,6 @@
   object-fit: cover;
 }
 
-/* Text panel: wide, padded, visually centered */
 .cards.cards4 > ul > li:first-child > .cards-card-body {
   flex: 2 1 0%;
   display: flex;
@@ -95,7 +91,6 @@
   height: 100%;
 }
 
-/* Label: even more letter-spacing, margin above */
 .cards.cards4 > ul > li:first-child > .cards-card-body > p:first-child {
   text-transform: uppercase;
   font-size: 15px;
@@ -105,7 +100,6 @@
   margin: 0 0 24px;
 }
 
-/* Heading: bigger and bolder */
 .cards.cards4 > ul > li:first-child > .cards-card-body > h2 {
   font-size: 44px;
   font-weight: 700;
@@ -115,7 +109,6 @@
   max-width: 23ch;
 }
 
-/* Description: more space below, shorter line length */
 .cards.cards4 > ul > li:first-child > .cards-card-body > p:nth-of-type(2) {
   font-size: 19px;
   color: #555;
@@ -125,14 +118,12 @@
   max-width: 38ch;
 }
 
-/* Button container: more space above */
 .cards.cards4 > ul > li:first-child > .cards-card-body > .button-container {
   margin: 0;
   padding: 0;
   display: block;
 }
 
-/* Featured card button: yellow, bold, left, more top margin, more presence */
 .cards.cards4 > ul > li:first-child > .cards-card-body .button {
   background: #ffd600;
   color: #111;
@@ -157,7 +148,6 @@
   text-decoration: none;
 }
 
-/* Regular cards: grid, stack, consistent */
 .cards.cards4 > ul > li:not(:first-child) {
   display: flex;
   flex-direction: column;
@@ -183,7 +173,6 @@
   padding: 0;
 }
 
-/* Responsive: stack, less padding, 2 columns */
 @media (width <= 1200px) {
   .cards.cards4 > ul {
     grid-template-columns: 1fr 1fr;
@@ -210,7 +199,6 @@
   }
 }
 
-/* Extra Responsive: 1 column, tight padding */
 @media (width <= 700px) {
   .cards.cards4 > ul {
     grid-template-columns: 1fr;
@@ -220,4 +208,100 @@
   .cards.cards4 > ul > li:first-child > .cards-card-body {
     padding: 22px 8px;
   }
+}
+
+
+.cards.cards15 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .cards.cards15 > ul {
+    flex-wrap: wrap;
+  }
+
+  .cards.cards15 > ul > li {
+    flex: 1 1 48%;
+    max-width: 48%;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards15 > ul {
+    flex-direction: column;
+  }
+
+  .cards.cards15 > ul > li {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.cards.cards15 > ul > li {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.cards.cards15 .cards-card-image {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.cards.cards15 .cards-card-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: unset;
+}
+
+.cards.cards15 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  margin-top: 9px;
+}
+
+.cards.cards15 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: #ccc;
+  font-weight: 400;
+  line-height: 1.3;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cards.cards15 .cards-card-body a {
+  display: block;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  margin-bottom: 2px;
+  text-decoration: none;
+}
+
+.cards.cards15 .cards-card-body br {
+  display: none;
+}
+
+.cards.cards15 > ul > li:last-child {
+  margin-bottom: 0;
 }
