@@ -1239,7 +1239,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: min-content;
-  row-gap: 16px; /* Tighter vertical rhythm for a more compact stack */
+  row-gap: 16px;
   box-sizing: border-box;
   width: 100%;
   max-width: 900px;
@@ -1251,7 +1251,6 @@
   margin: 0;
 }
 
-/* Reduce gap even more specifically between text and 2nd image, and 2nd image and related section */
 .tabs.tabs23 .tabs-panel > div > p + picture,
 .tabs.tabs23 .tabs-panel > div > p + img,
 .tabs.tabs23 .tabs-panel > div > picture + p,
@@ -1259,18 +1258,15 @@
   margin-top: 8px;
 }
 
-/* Further reduce gap above "Related trips" paragraph/list if it follows an image */
 .tabs.tabs23 .tabs-panel > div > img + p,
 .tabs.tabs23 .tabs-panel > div > picture + p {
   margin-top: 4px;
 }
 
-/* Remove bottom margin on the final element to avoid extra space */
 .tabs.tabs23 .tabs-panel > div > *:last-child {
   margin-bottom: 0;
 }
 
-/* Images: ensure full width, tight spacing */
 .tabs.tabs23 .tabs-panel picture,
 .tabs.tabs23 .tabs-panel img {
   display: block;
@@ -1319,7 +1315,6 @@
   margin-bottom: 0;
 }
 
-/* Tabs styling remains the same */
 .tabs.tabs23 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1374,7 +1369,6 @@
   width: 100%;
 }
 
-/* Responsive adjustments */
 @media (width <= 1000px) {
   .tabs.tabs23 .tabs-panel > div,
   .tabs.tabs23 .tabs-list {
@@ -1425,4 +1419,148 @@
   .tabs.tabs23 .tabs-panel h2 {
     font-size: 22px;
   }
+}
+
+
+.tabs.tabs25 {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  background: var(--background-color);
+  padding: 44px 42px;
+  box-sizing: border-box;
+  border: none;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs25 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 28px 8px;
+  }
+}
+
+/* Left column: sidebar (first child DIV) */
+.tabs.tabs25 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: flex-start;
+  min-width: 0;
+  padding-right: 16px;
+  border-right: 1px solid #ececec;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs25 > div:first-child {
+    border-right: none;
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 24px;
+    padding-right: 0;
+  }
+}
+
+/* Right column: main content (second child DIV) */
+.tabs.tabs25 > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  padding-left: 0;
+}
+
+/* Tabs bar */
+.tabs.tabs25 .tabs-list {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 35px;
+  padding-top: 0;
+  border: none;
+  font-size: var(--body-font-size-m);
+  overflow-x: auto;
+}
+
+/* Tabs styling */
+.tabs.tabs25 .tabs-list button {
+  background: transparent;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  padding: 13px 38px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6e6e6e;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Active tab */
+.tabs.tabs25 .tabs-list button[aria-selected="true"] {
+  background: #191919;
+  color: #fff;
+  box-shadow: none;
+}
+
+.tabs.tabs25 .tabs-list button p {
+  margin: 0;
+}
+
+/* Tabs panel styles */
+.tabs.tabs25 .tabs-panel {
+  border: none;
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Headings inside tab panels */
+.tabs.tabs25 .tabs-panel h3, 
+.tabs.tabs25 .tabs-panel h2 {
+  font-weight: 700;
+  color: #191919;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.tabs.tabs25 .tabs-panel h3 {
+  font-size: 24px;
+}
+
+.tabs.tabs25 .tabs-panel h2 {
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+/* Image sizing */
+.tabs.tabs25 .tabs-panel picture,
+.tabs.tabs25 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  border-radius: 0;
+  margin-bottom: 20px;
+  box-shadow: none;
+}
+
+/* Body text styling */
+.tabs.tabs25 .tabs-panel p,
+.tabs.tabs25 .tabs-panel ul,
+.tabs.tabs25 .tabs-panel li {
+  color: #393939;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+/* Remove extraneous styles from default panel */
+.tabs.tabs25 .tabs-panel[aria-hidden='true'] {
+  display: none;
 }
