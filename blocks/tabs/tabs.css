@@ -601,7 +601,6 @@
   box-sizing: border-box;
 }
 
-/* Center tabs row, minimal gap below */
 .tabs.tabs10 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -611,7 +610,6 @@
   padding: 0;
 }
 
-/* Tab buttons: pill style */
 .tabs.tabs10 .tabs-list button {
   border: none;
   background: transparent;
@@ -629,13 +627,11 @@
   min-width: 0;
 }
 
-/* Active Tab: black pill, white text */
 .tabs.tabs10 .tabs-list button[aria-selected="true"] {
   background: #131313;
   color: #fff;
 }
 
-/* Panel: Remove border, tighten vertical spacing */
 .tabs.tabs10 .tabs-panel {
   border: none;
   padding: 0;
@@ -643,7 +639,6 @@
   box-sizing: border-box;
 }
 
-/* Only show active panel */
 .tabs.tabs10 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
@@ -652,7 +647,6 @@
   display: block;
 }
 
-/* Stack content vertically, center children, balanced gap */
 .tabs.tabs10 .tabs-panel > div {
   display: flex;
   flex-direction: column;
@@ -660,7 +654,6 @@
   align-items: center;
 }
 
-/* Title: center align, yellow underline, extended underline, more space below */
 .tabs.tabs10 .tabs-panel h3 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -678,7 +671,6 @@
   display: block;
 }
 
-/* Description paragraph: more width, more space above, center text */
 .tabs.tabs10 .tabs-panel p {
   font-size: 1rem;
   color: #131313;
@@ -693,7 +685,6 @@
   margin-right: auto;
 }
 
-/* Responsive image: center, less rounded corners, fill width */
 .tabs.tabs10 .tabs-panel picture {
   display: block;
   width: 100%;
@@ -710,7 +701,6 @@
   max-width: 900px;
 }
 
-/* Image caption: centered, mid gray, more space above */
 .tabs.tabs10 .tabs-panel p > picture + * {
   font-size: 0.8em;
   color: #8a8a8a;
@@ -722,7 +712,6 @@
   display: block;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs10 {
     max-width: 100%;
@@ -752,5 +741,151 @@
 
   .tabs.tabs10 .tabs-panel img {
     max-width: 100vw;
+  }
+}
+
+
+.tabs.tabs11 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+  gap: 44px;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* Sidebar: tabs-list */
+.tabs.tabs11 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  width: 140px;
+  min-width: 120px;
+  max-width: 180px;
+  padding: 36px 0;
+  background: none;
+  border: none;
+  align-items: stretch;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+/* Tab Button Styles */
+.tabs.tabs11 > .tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1.09rem;
+  font-weight: 600;
+  color: #222;
+  border-radius: 4px;
+  padding: 0.6em 1em;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  line-height: 1.4;
+  display: block;
+  width: 100%;
+}
+
+.tabs.tabs11 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #f6fafd;
+  color: #256ac7;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.tabs.tabs11 > .tabs-list .tabs-tab:focus {
+  outline: 2px solid #3b63fb;
+}
+
+.tabs.tabs11 > .tabs-list .tabs-tab:not([aria-selected="true"]) {
+  color: #222;
+  font-weight: 600;
+  background: none;
+}
+
+.tabs.tabs11 > .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Panel Area */
+.tabs.tabs11 > .tabs-panel {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 900px;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+.tabs.tabs11 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Image in panel */
+.tabs.tabs11 > .tabs-panel picture,
+.tabs.tabs11 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 0;
+  margin-top: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+/* Responsive Layout */
+@media (width <= 900px) {
+  .tabs.tabs11 {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs11 > .tabs-list {
+    flex-direction: row;
+    gap: 14px;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    padding: 18px 0 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .tabs.tabs11 > .tabs-list .tabs-tab {
+    padding: 0.52em 0.8em;
+    font-size: 1rem;
+    border-radius: 4px;
+    width: auto;
+  }
+
+  .tabs.tabs11 > .tabs-panel {
+    max-width: 100%;
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .tabs.tabs11 > .tabs-panel picture,
+  .tabs.tabs11 > .tabs-panel img {
+    max-width: 100%;
+    border-radius: 10px;
   }
 }
