@@ -1,6 +1,16 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  background: #232323;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 0;
 }
 
 .columns img {
@@ -38,19 +48,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  /* Reduce vertical padding for a more compact header */
   padding: 10px 0;
   background: #fff;
   min-height: 70px;
 }
 
-/* Hide the language selector column */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo column: Remove ALL left margin for flush alignment */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -59,7 +65,6 @@
   padding-left: 0;
 }
 
-/* Image sizing remains accurate */
 .columns.columns2 .columns-img-col img {
   max-height: 48px;
   width: auto;
@@ -67,7 +72,6 @@
   display: block;
 }
 
-/* Search field column: Remove right margin, anchor flush to right, tighten icon/text spacing */
 .columns.columns2 > div > div:last-child {
   display: flex;
   align-items: center;
@@ -77,8 +81,6 @@
   min-width: 170px;
   max-width: 210px;
   height: 36px;
-
-  /* Reduced left padding so icon and text are more compact */
   padding: 0 10px 0 26px;
   margin-right: 0;
   box-sizing: border-box;
@@ -89,7 +91,6 @@
   background-size: 16px 16px;
 }
 
-/* "Suchen" text styling remains accurate */
 .columns.columns2 > div > div:last-child p {
   margin: 0;
   color: #777;
@@ -97,7 +98,6 @@
   letter-spacing: 0.2px;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -119,4 +119,160 @@
     width: 100%;
     max-width: 320px;
   }
+}
+
+
+.columns {
+  background: #232323;
+  color: #d7d7d7;
+  width: 100%;
+  margin: 0;
+  padding: 32px 0;
+  box-sizing: border-box;
+}
+
+/* Inner block row: ensure dark background also applies to inner row */
+
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 16px;
+  }
+}
+
+/* Logo column */
+.columns .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 120px;
+}
+
+/* Logo image sizing */
+.columns .columns-img-col img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0;
+
+  /* Optional: filter for black PNG/SVG logos on dark bg */
+
+  /* filter: invert(1); */
+}
+
+/* Navigation column (middle) - use flex for horizontal, target nested ul for actual links */
+.columns > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Target second-level ul for actual nav links */
+.columns > div > div:nth-child(2) > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove bullets from all nav list items */
+.columns > div > div:nth-child(2) > ul,
+.columns > div > div:nth-child(2) > ul > li,
+.columns > div > div:nth-child(2) > ul > li > ul,
+.columns > div > div:nth-child(2) > ul > li > ul > li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Nav link styling */
+.columns > div > div:nth-child(2) a {
+  color: #d7d7d7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0 4px;
+  display: inline-block;
+  line-height: 2.5;
+  background: transparent;
+  transition: color 0.2s;
+}
+
+.columns > div > div:nth-child(2) a:hover,
+.columns > div > div:nth-child(2) a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Active nav link underline (example for "Adventures") */
+.columns > div > div:nth-child(2) a[title="Adventures"] {
+  border-bottom: 2px solid #fff;
+}
+
+/* Last column: Search/Social area */
+.columns > div > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 120px;
+}
+
+/* Search text style (or could be social links) */
+.columns > div > div:nth-child(3) p {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+@media (width <= 900px) {
+  .columns > div > div:nth-child(3) {
+    justify-content: flex-start;
+    min-width: 0;
+    margin-top: 12px;
+  }
+
+  .columns > div > div:nth-child(2) {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+/* Override link styles for contrast in columns block */
+.columns a {
+  color: #d7d7d7;
+  text-decoration: none;
+  background: transparent;
+}
+
+.columns a:hover,
+.columns a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Style search input for dark background */
+.columns input[type="search"],
+.columns input[type="text"] {
+  background: #232323;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.columns input[type="search"]::placeholder,
+.columns input[type="text"]::placeholder {
+  color: #d7d7d7;
 }
