@@ -758,7 +758,6 @@
   box-sizing: border-box;
 }
 
-/* Sidebar: tabs-list */
 .tabs.tabs11 > .tabs-list {
   display: flex;
   flex-direction: column;
@@ -774,7 +773,6 @@
   box-sizing: border-box;
 }
 
-/* Tab Button Styles */
 .tabs.tabs11 > .tabs-list .tabs-tab {
   background: none;
   border: none;
@@ -815,7 +813,6 @@
   margin: 0;
 }
 
-/* Panel Area */
 .tabs.tabs11 > .tabs-panel {
   flex: 1 1 0%;
   display: flex;
@@ -835,7 +832,6 @@
   display: none;
 }
 
-/* Image in panel */
 .tabs.tabs11 > .tabs-panel picture,
 .tabs.tabs11 > .tabs-panel img {
   display: block;
@@ -849,7 +845,6 @@
   object-fit: cover;
 }
 
-/* Responsive Layout */
 @media (width <= 900px) {
   .tabs.tabs11 {
     flex-direction: column;
@@ -889,3 +884,188 @@
     border-radius: 10px;
   }
 }
+
+
+.tabs.tabs18 {
+  width: 100%;
+  max-width: 900px;
+  margin: 32px auto 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+}
+
+/* Tabs bar: center, reduce gap below, and increase underline */
+.tabs.tabs18 > .tabs-list {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start;
+  align-items: flex-end !important;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto 8px;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-right: none;
+}
+
+/* Tabs: more even spacing, fatter underline, larger clickable area */
+.tabs.tabs18 > .tabs-list button {
+  margin: 0;
+  border: none;
+  border-bottom: 4px solid transparent;
+  border-radius: 0;
+  background: none;
+  color: #222;
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  padding: 0 40px 14px 0;
+  transition: color 0.2s, border-color 0.2s;
+  outline: none;
+  box-shadow: none;
+  text-align: left;
+  cursor: pointer;
+  line-height: 1.1;
+  min-width: 0;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+}
+
+.tabs.tabs18 > .tabs-list button:last-child {
+  padding-right: 0;
+}
+
+.tabs.tabs18 > .tabs-list button[aria-selected='true'] {
+  border-bottom: 4px solid #f3e7bb;
+  color: #131313;
+  background: transparent;
+}
+
+.tabs.tabs18 > .tabs-list button:focus {
+  color: #3b63fb;
+}
+
+/* Main content area: less vertical gap above heading, left aligned */
+.tabs.tabs18 > .tabs-panel {
+  margin: 0 auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  max-width: 780px;
+  width: 100%;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs18 > .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs.tabs18 > .tabs-panel > div {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 780px;
+  width: 100%;
+}
+
+/* Heading and Underline: bolder and longer underline, less bottom margin */
+.tabs.tabs18 > .tabs-panel h3 {
+  font-size: var(--heading-font-size-l);
+  color: var(--text-color);
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  display: block;
+  text-align: left;
+  padding-left: 0;
+}
+
+.tabs.tabs18 > .tabs-panel h3::after {
+  display: block;
+  width: 54px;
+  height: 0;
+  border-bottom: 4px solid #f3e7bb;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  content: "";
+}
+
+/* Image styling: centered and constrained */
+.tabs.tabs18 > .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 780px;
+  margin: 0 auto 28px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Text styling: less vertical gap below image, more readable spacing */
+.tabs.tabs18 > .tabs-panel p,
+.tabs.tabs18 > .tabs-panel ul {
+  color: #444;
+  font-size: var(--body-font-size-m);
+  line-height: 1.75;
+  margin: 0 auto 18px;
+  max-width: 780px;
+  text-align: left;
+  padding-left: 0;
+}
+
+.tabs.tabs18 .tabs-panel,
+.tabs.tabs18 .tabs-panel > div,
+.tabs.tabs18 .tabs-panel picture {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Responsive: center, scale down padding for mobile */
+@media (width <= 900px) {
+  .tabs.tabs18,
+  .tabs.tabs18 > .tabs-panel {
+    max-width: 100vw;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs18 > .tabs-list {
+    max-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tabs.tabs18 > .tabs-panel > div {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs18 > .tabs-panel picture img {
+    max-width: 100vw;
+  }
+}
+
+/* Remove default button pill appearance on all tabs in main block */
+
+/* Ensure tab labels don't wrap oddly on small screens */
+.tabs.tabs18 > .tabs-list button p {
+  margin: 0;
+  white-space: nowrap;
+  padding: 0;
+}
+
+/* Tighter layout: reduce excess space above the tabs-list */
