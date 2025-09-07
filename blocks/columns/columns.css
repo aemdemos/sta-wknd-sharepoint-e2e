@@ -271,7 +271,6 @@
   box-sizing: border-box;
 }
 
-/* Two columns: left is min-content (vertical stack), right is flexible text */
 .columns.columns9 .columns-3-cols {
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -282,7 +281,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 900px) {
   .columns.columns9 .columns-3-cols {
     grid-template-columns: 1fr;
@@ -291,7 +289,6 @@
   }
 }
 
-/* Left column: vertical stack, left-aligned */
 .columns.columns9 .columns-3-cols > div:first-child {
   display: flex;
   flex-direction: column;
@@ -300,20 +297,17 @@
   min-width: 0;
 }
 
-/* Logo/title at top */
 .columns.columns9 .columns-img-col {
   align-self: flex-start;
   margin-bottom: 0;
 }
 
-/* Logo size */
 .columns.columns9 .columns-img-col img {
   width: 160px;
   height: auto;
   display: block;
 }
 
-/* Language selector tight below logo */
 .columns.columns9 ul {
   list-style: none;
   padding: 0;
@@ -332,7 +326,6 @@
   display: inline-block;
 }
 
-/* Follow Us group: vertical stack below language */
 .columns.columns9 .columns-3-cols > div:first-child > div:last-child {
   display: flex;
   flex-direction: column;
@@ -340,7 +333,6 @@
   gap: 6px;
 }
 
-/* Follow Us label */
 .columns.columns9 #follow-us,
 .columns.columns9 h4 {
   text-transform: uppercase;
@@ -353,7 +345,6 @@
   text-align: left;
 }
 
-/* Icons: row below label, tight horizontal gap, left-aligned */
 .columns.columns9 .columns-3-cols > div:first-child > div:last-child .button-container {
   display: flex;
   flex-direction: row;
@@ -362,7 +353,6 @@
   margin-bottom: 0;
 }
 
-/* Style buttons as square icons only */
 .columns.columns9 .button {
   background: #f4f4f4;
   color: #232221;
@@ -380,14 +370,12 @@
   padding: 0;
 }
 
-/* Button hover effect */
 .columns.columns9 .button:hover,
 .columns.columns9 .button:focus {
   background: #eaeaea;
   color: #232221;
 }
 
-/* Right column: text stacked and left aligned */
 .columns.columns9 .columns-3-cols > div:last-child {
   display: flex;
   flex-direction: column;
@@ -398,7 +386,6 @@
   gap: 0;
 }
 
-/* Copyright and paragraphs */
 .columns.columns9 .columns-3-cols > div:last-child > div > p {
   color: #f4f4f4;
   font-size: 13px;
@@ -413,21 +400,18 @@
   margin-bottom: 14px;
 }
 
-/* Links in paragraphs */
 .columns.columns9 .columns-3-cols > div:last-child a {
   color: #f4f4f4;
   text-decoration: underline;
   font-weight: 600;
 }
 
-/* Shrink logo on small screens */
 @media (width <= 600px) {
   .columns.columns9 .columns-img-col img {
     width: 120px;
   }
 }
 
-/* Ensure stacked vertical layout on mobile */
 @media (width <= 900px) {
   .columns.columns9 .columns-3-cols > div:first-child {
     gap: 14px;
@@ -436,4 +420,160 @@
   .columns.columns9 .columns-3-cols > div:last-child {
     padding-left: 0;
   }
+}
+
+
+.columns.columns21 {
+  background: #fff;
+  color: #131313;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main columns layout: two columns, row direction */
+.columns.columns21 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 400px;
+  padding: 0;
+  gap: 0;
+}
+
+/* Responsive stacking on mobile */
+@media (width <= 900px) {
+  .columns.columns21 > div {
+    flex-direction: column;
+    min-height: unset;
+  }
+}
+
+/* Left: Image column */
+.columns.columns21 .columns-img-col {
+  flex: 0 1 50%;
+  min-width: 0;
+  width: 50%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+.columns.columns21 .columns-img-col picture,
+.columns.columns21 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  border: none;
+  max-width: unset;
+  max-height: unset;
+}
+
+@media (width <= 900px) {
+  .columns.columns21 .columns-img-col,
+  .columns.columns21 .columns-img-col picture,
+  .columns.columns21 .columns-img-col img {
+    width: 100%;
+    min-height: 160px;
+    height: 180px;
+    max-height: 260px;
+  }
+}
+
+/* Right: Content area, vertically centered and wider */
+.columns.columns21 > div > div:not(.columns-img-col) {
+  flex: 0 1 50%;
+  min-width: 0;
+  width: 50%;
+  background: #f4f4f4;
+  color: #131313;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: flex-start;
+  min-height: 360px;
+  box-sizing: border-box;
+  padding: 0 32px;
+}
+
+@media (width <= 1200px) {
+  .columns.columns21 > div > div:not(.columns-img-col) {
+    padding: 0 18px;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns21 > div > div:not(.columns-img-col) {
+    width: 100%;
+    padding: 32px 10px;
+    min-height: unset;
+  }
+}
+
+/* Max width for content stack to allow heading to fit one line */
+.columns.columns21 > div > div:not(.columns-img-col) > * {
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Eyebrow/label styling */
+.columns.columns21 > div > div:not(.columns-img-col) > p:first-child {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  margin: 0 0 18px;
+  line-height: 1.4;
+}
+
+/* Heading */
+.columns.columns21 > div > div:not(.columns-img-col) h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 26px;
+  line-height: 1.1;
+}
+
+/* Body text */
+.columns.columns21 > div > div:not(.columns-img-col) > p:nth-of-type(2) {
+  font-size: 17px;
+  color: #555;
+  margin: 0 0 38px;
+  line-height: 1.5;
+}
+
+/* Button container and button styling */
+.columns.columns21 .button-container {
+  margin: 30px 0 0;
+  padding: 0;
+}
+
+.columns.columns21 .button-container .button {
+  background: #ffe100;
+  color: #111;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 18px 54px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  letter-spacing: 0;
+  display: inline-block;
+  line-height: 1.2;
+  transition: background 0.2s;
+  text-align: center;
+}
+
+.columns.columns21 .button-container .button:hover,
+.columns.columns21 .button-container .button:focus {
+  background: #ffd000;
+  color: #111;
+  text-decoration: none;
 }
