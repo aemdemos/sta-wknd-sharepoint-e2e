@@ -225,17 +225,16 @@
   box-sizing: border-box;
   max-width: 900px;
   margin: 0 auto;
-  padding: 76px 32px 40px; /* significantly increased top padding, horizontal unchanged */
+  padding: 76px 32px 40px;
 }
 
-/* Tabs Navigation */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: row;
   gap: 14px;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 24px; /* more space to title */
+  margin-bottom: 24px;
   margin-top: 0;
   margin-left: 0;
   border: none;
@@ -281,7 +280,6 @@
   margin: 0;
 }
 
-/* Panel Container */
 .tabs.tabs7 .tabs-panel {
   border: none;
   box-shadow: none;
@@ -290,7 +288,6 @@
   background: transparent;
 }
 
-/* Title styling and yellow underline */
 .tabs.tabs7 .tabs-panel h3 {
   font-size: 2rem;
   color: #222;
@@ -301,35 +298,32 @@
   letter-spacing: -0.01em;
   display: inline-block;
   position: relative;
-  padding-bottom: 0; /* remove extra gap to underline */
+  padding-bottom: 0;
   border-bottom: 2px solid #ffe066;
   width: auto;
 }
 
-/* Image Styling */
 .tabs.tabs7 .tabs-panel picture img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 16px;
-  margin-top: 18px;   /* more vertical gap to heading */
-  margin-bottom: 8px; /* less gap to subtitle */
+  margin-top: 18px;
+  margin-bottom: 8px;
   box-shadow: none;
 }
 
-/* Subtitle/Label styling */
 .tabs.tabs7 .tabs-panel > div > p:first-of-type {
   font-size: 0.98rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #222;
-  margin-top: 10px;  /* more gap from image */
-  margin-bottom: 8px; /* more gap to following paragraph */
+  margin-top: 10px;
+  margin-bottom: 8px;
   letter-spacing: 0.02em;
   line-height: 1.3;
 }
 
-/* Paragraph styling */
 .tabs.tabs7 .tabs-panel p {
   font-size: 1rem;
   color: #333;
@@ -338,7 +332,6 @@
   margin-bottom: 0.8em;
 }
 
-/* List styling for "what to bring" tab */
 .tabs.tabs7 .tabs-panel ul {
   margin-left: 20px;
   margin-bottom: 0;
@@ -351,7 +344,6 @@
   margin-bottom: 7px;
 }
 
-/* Responsive adjustments for spacing and layout */
 @media (width <= 900px) {
   .tabs.tabs7 {
     padding: 36px 7vw 24px;
@@ -413,4 +405,204 @@
     margin-top: 3px;
     margin-bottom: 3px;
   }
+}
+
+
+.tabs.tabs8 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 56px auto 0;
+  gap: 1.7rem;
+  background: #fff;
+  padding: 0;
+  min-height: 400px;
+}
+
+/* Sidebar: Tabs */
+.tabs.tabs8 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 160px;
+  max-width: 175px;
+  padding-top: 0.2rem;
+  gap: 1.05rem;
+  border: none;
+  background: transparent;
+}
+
+/* Tab buttons */
+.tabs.tabs8 .tabs-list button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  color: #212121;
+  font-size: 1.06rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: left;
+  text-transform: uppercase;
+  padding: 0.52em 0.1em;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s, border-bottom 0.2s;
+  box-shadow: none;
+  min-height: 0;
+  line-height: 1.25;
+}
+
+/* Selected tab styling */
+.tabs.tabs8 .tabs-list button[aria-selected="true"] {
+  background: #212121;
+  color: #fff;
+  border-bottom: 3px solid #F5E6B2;
+  padding-bottom: 0.7em;
+}
+
+/* Tab label */
+.tabs.tabs8 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Content Area */
+.tabs.tabs8 .tabs-panel {
+  flex: 1 1 0;
+  padding: 0.15rem 0 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  background: #fff;
+  min-width: 0;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Headings and spacing */
+.tabs.tabs8 .tabs-panel > div h3:first-of-type {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0 0 0.32rem;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-bottom: 0.6rem;
+  border-bottom: none;
+  display: inline-block;
+  margin-top: 0;
+}
+
+.tabs.tabs8 .tabs-panel > div h3:first-of-type::after {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #F5E6B2;
+  margin-top: 0.52rem;
+  border-radius: 2px;
+  content: "";
+}
+
+.tabs.tabs8 .tabs-panel > div h3 + h3 {
+  font-size: 1.19rem;
+  font-weight: 400;
+  margin: 0 0 1.13rem;
+  letter-spacing: 0;
+  padding: 0;
+}
+
+/* Subheading-image gap */
+.tabs.tabs8 .tabs-panel > div h3 + h3 + p > picture {
+  margin-top: 0.5rem;
+}
+
+/* Image styling */
+.tabs.tabs8 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 0.16rem;
+  border-radius: 7px;
+}
+
+/* Caption below image */
+.tabs.tabs8 .tabs-panel picture + p,
+.tabs.tabs8 .tabs-panel p:first-of-type {
+  font-size: 1.06rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #212121;
+  margin-top: 0.25rem;
+  margin-bottom: 0.63rem;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  display: block;
+}
+
+/* Body text */
+.tabs.tabs8 .tabs-panel p:not(:first-of-type) {
+  font-size: 1.07rem;
+  color: #212121;
+  line-height: 1.67;
+  margin-bottom: 1.1rem;
+  margin-top: 0.28rem;
+  font-weight: 400;
+  max-width: 99%;
+}
+
+/* Remove top margin if h3 is first child */
+
+/* Tighten vertical spacing for main content */
+.tabs.tabs8 .tabs-panel > div {
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0;
+  max-width: 650px;
+}
+
+/* Responsive: Stack columns vertically, adjust gaps */
+@media (width <= 900px) {
+  .tabs.tabs8 {
+    flex-direction: column;
+    gap: 1.1rem;
+    max-width: 100vw;
+    margin-top: 28px;
+  }
+
+  .tabs.tabs8 .tabs-list {
+    flex-direction: row;
+    gap: 0.85rem;
+    min-width: 0;
+    max-width: 100vw;
+    padding: 0.5rem 0 0.3rem;
+    border-bottom: 1px solid #eee;
+    align-items: stretch;
+  }
+
+  .tabs.tabs8 .tabs-list button {
+    padding: 0.36em 0.8em;
+    text-align: center;
+    margin-bottom: 0;
+    border-bottom: 3px solid transparent;
+    font-size: 1.07rem;
+  }
+
+  .tabs.tabs8 .tabs-panel {
+    padding-top: 0.6rem;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs8 .tabs-panel > div {
+    max-width: 100vw;
+  }
+}
+
+/* Hide panel if aria-hidden is true */
+.tabs.tabs8 .tabs-panel[aria-hidden='true'] {
+  display: none;
 }
