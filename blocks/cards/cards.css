@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -26,14 +27,11 @@
   object-fit: cover;
 }
 
-
-/* 1. Reduce top spacing above featured block */
 .cards.cards4 > ul {
   margin-top: 0;
   align-items: start;
 }
 
-/* 2. Featured block: favor text area, bigger height, less bottom gap */
 .cards.cards4 > ul > li:first-child {
   display: flex;
   flex-direction: row;
@@ -48,7 +46,6 @@
   align-items: stretch;
 }
 
-/* 3. Image: slightly less dominant, always fills vertical space */
 .cards.cards4 > ul > li:first-child .cards-card-image {
   flex: 0 0 44%;
   max-width: 44%;
@@ -67,7 +64,6 @@
   aspect-ratio: unset;
 }
 
-/* 4. Text area: more width, more vertical space, max-width for comfort */
 .cards.cards4 > ul > li:first-child .cards-card-body {
   flex: 1 1 56%;
   max-width: 700px;
@@ -82,7 +78,6 @@
   box-sizing: border-box;
 }
 
-/* 5. Typography: larger heading, more vertical spacing, more letter-spacing for label */
 .cards.cards4 > ul > li:first-child .cards-card-body p:first-child {
   margin-top: 0;
   margin-bottom: 28px;
@@ -109,7 +104,6 @@
   line-height: 1.6;
 }
 
-/* 6. Button: more vertical margin above, large size */
 .cards.cards4 > ul > li:first-child .cards-card-body .button-container {
   margin-top: 18px;
   margin-bottom: 0;
@@ -139,7 +133,6 @@
   text-decoration: none;
 }
 
-/* 7. Responsive: stack vertically, adjust padding for mobile */
 @media (width <= 900px) {
   .cards.cards4 > ul > li:first-child {
     flex-direction: column;
@@ -162,7 +155,6 @@
   }
 }
 
-/* 8. Keep grid styling for other cards */
 .cards.cards4 > ul > li:not(:first-child) {
   border: 1px solid #dadada;
   background: var(--background-color);
@@ -172,4 +164,181 @@
   margin: 16px;
 }
 
-/* 9. Grid vertical alignment/fix */
+
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px 64px; /* More space between cards */
+  place-items: start center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Center second row of three cards */
+.cards.cards24 > ul > li:nth-child(5) {
+  grid-column: 2 / span 1;
+}
+
+.cards.cards24 > ul > li:nth-child(6) {
+  grid-column: 3 / span 1;
+}
+
+.cards.cards24 > ul > li:nth-child(7) {
+  grid-column: 4 / span 1;
+}
+
+/* Make cards even more compact and visually balanced */
+.cards.cards24 > ul > li {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 180px;
+  min-width: 0;
+  overflow: visible;
+}
+
+/* Profile image styling: larger for better hierarchy */
+.cards.cards24 .cards-card-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards.cards24 .cards-card-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 3%);
+  background: #fff;
+}
+
+/* Card body: vertical stack, centered, minimal vertical spacing */
+.cards.cards24 .cards-card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* Name styling: slightly larger for visual weight */
+.cards.cards24 .cards-card-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+  margin-top: 0;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+/* Subtitle styling: more compact spacing */
+.cards.cards24 .cards-card-body p:first-of-type {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: #757575;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+  margin-top: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Social buttons: tightly packed, more square */
+.cards.cards24 .cards-card-body p:last-of-type {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* Social button style: square, more compact, tighter text */
+.cards.cards24 .cards-card-body p:last-of-type a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+  padding: 0 6px;
+  letter-spacing: 0.01em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  transition: background 0.18s;
+}
+
+.cards.cards24 .cards-card-body p:last-of-type a:hover {
+  background: #c6a300;
+  color: #fff;
+}
+
+/* Responsive: 2 per row on tablets, 1 per row on mobile */
+@media (width <= 900px) {
+  .cards.cards24 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 22px;
+  }
+
+  .cards.cards24 > ul > li {
+    max-width: 260px;
+  }
+
+  .cards.cards24 .cards-card-image,
+  .cards.cards24 .cards-card-image img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards24 > ul {
+    grid-template-columns: 1fr;
+    gap: 18px 0;
+  }
+
+  .cards.cards24 > ul > li {
+    max-width: 100%;
+  }
+
+  .cards.cards24 .cards-card-image,
+  .cards.cards24 .cards-card-image img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .cards.cards24 .cards-card-body h3 {
+    font-size: 1rem;
+  }
+
+  .cards.cards24 .cards-card-body p:first-of-type {
+    font-size: 0.87rem;
+  }
+}
