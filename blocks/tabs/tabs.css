@@ -1975,7 +1975,6 @@
   align-items: flex-start;
 }
 
-/* Sidebar: vertical stack, fixed width, border-right */
 .tabs.tabs34 > .tabs-list {
   display: flex;
   flex-direction: column;
@@ -1993,7 +1992,6 @@
   z-index: 1;
 }
 
-/* Tabs: block style vertical in sidebar */
 .tabs.tabs34 > .tabs-list > .tabs-tab {
   background: transparent;
   border: none;
@@ -2030,7 +2028,6 @@
   margin: 0;
 }
 
-/* Main content: add left padding to prevent overlap, ensure flush alignment */
 .tabs.tabs34 > .tabs-panel {
   flex: 1 1 0%;
   padding-left: 48px;
@@ -2047,7 +2044,6 @@
   z-index: 0;
 }
 
-/* Responsive: stack sidebar above main content on small screens */
 @media (width <= 900px) {
   .tabs.tabs34 {
     flex-direction: column;
@@ -2073,7 +2069,6 @@
   }
 }
 
-/* Heading "Downhill Skiing Wyoming" with tight yellow underline */
 .tabs.tabs34 > .tabs-panel h3 {
   font-size: var(--heading-font-size-l);
   font-weight: 600;
@@ -2092,7 +2087,6 @@
   border-radius: 2px;
 }
 
-/* Main headline */
 .tabs.tabs34 > .tabs-panel h2 {
   font-size: var(--heading-font-size-xl);
   font-weight: 600;
@@ -2103,7 +2097,6 @@
   text-align: left;
 }
 
-/* Image styling: left-aligned, increase max-width */
 .tabs.tabs34 > .tabs-panel picture,
 .tabs.tabs34 > .tabs-panel img {
   display: block;
@@ -2116,7 +2109,6 @@
   margin-left: 0;
 }
 
-/* Paragraphs */
 .tabs.tabs34 > .tabs-panel p {
   color: #333;
   font-size: var(--body-font-size-m);
@@ -2127,7 +2119,163 @@
   text-align: left;
 }
 
-/* Hide inactive panels */
 .tabs.tabs34 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+
+.tabs.tabs36 {
+  /* Remove left margin, flush block left within parent, minimal horizontal padding */
+  max-width: none;
+  width: 100%;
+  margin: 48px 0 0;
+  padding: 0 0 40px 24px;
+  box-sizing: border-box;
+  background: #fff;
+  display: block;
+}
+
+/* Tabs bar: flush left, minimal gap below */
+.tabs.tabs36 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin: 0 0 4px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 13px;
+  align-items: flex-start;
+}
+
+/* Individual Tab Buttons */
+.tabs.tabs36 .tabs-list button {
+  border: none;
+  background: none;
+  color: #232323;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 10px 20px;
+  margin: 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+  font-size: 13px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Active Tab */
+.tabs.tabs36 .tabs-list button[aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+  border-radius: 4px;
+}
+
+/* Panel container - flush left, no extra width */
+.tabs.tabs36 .tabs-panel {
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin: 0;
+  overflow: visible;
+  box-shadow: none;
+  width: 100%;
+  max-width: none;
+}
+
+/* Heading styling */
+.tabs.tabs36 .tabs-panel h3 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #232323;
+  margin-top: 0;
+  margin-bottom: 24px;
+  letter-spacing: 0.01em;
+  position: relative;
+  display: inline-block;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Yellow accent underline, short and separated */
+.tabs.tabs36 .tabs-panel h3::after {
+  display: block;
+  width: 54px;
+  height: 4px;
+  background: #F7D263;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+/* Paragraph: readable width, flush left */
+.tabs.tabs36 .tabs-panel > div > p {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 15px;
+  color: #232323;
+  line-height: 1.7;
+  max-width: 880px;
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Image: flush left, contained, no auto-centering */
+.tabs.tabs36 .tabs-panel picture img,
+.tabs.tabs36 .tabs-panel img {
+  max-width: 920px;
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Remove bottom margin from last paragraph before image if present */
+.tabs.tabs36 .tabs-panel > div > p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments for tighter layout on smaller screens */
+@media (width <= 1000px) {
+  .tabs.tabs36 {
+    padding: 0 0 24px 8px;
+  }
+
+  .tabs.tabs36 .tabs-panel > div > p,
+  .tabs.tabs36 .tabs-panel picture img,
+  .tabs.tabs36 .tabs-panel img {
+    max-width: 100%;
+  }
+
+  .tabs.tabs36 .tabs-list {
+    gap: 10px;
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .tabs.tabs36 .tabs-panel h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .tabs.tabs36 .tabs-panel h3::after {
+    width: 32px;
+    height: 3px;
+    margin-top: 6px;
+  }
+
+  .tabs.tabs36 .tabs-panel > div > p {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+}
+
+/* Hide inactive panels */
+.tabs.tabs36 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
