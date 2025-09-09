@@ -1932,7 +1932,8 @@
           "uuid": "863a2b0c-02-8508d37050d6ad651700fd3359628a43350d9ce0",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]"
         }
-      ]
+      ],
+      "key": "unknown7"
     },
     {
       "name": "Table (striped)",
@@ -2582,7 +2583,8 @@
           "uuid": "ef585c81-03-f340e94141f85f26fc370a5c2454e55480bd1776",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[2]"
         }
-      ]
+      ],
+      "key": "unknown17"
     },
     {
       "name": "Embed (social)",
@@ -2705,7 +2707,8 @@
           "uuid": "678b1ddd-04-9ec213d26ff1b13c9a420c5da3c01c4eaf313d61",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/main[1]"
         }
-      ]
+      ],
+      "key": "unknown23"
     },
     {
       "name": "Embed (social)",
@@ -2816,7 +2819,8 @@
           "uuid": "df129cf6-02-8508d37050d6ad651700fd3359628a43350d9ce0",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]"
         }
-      ]
+      ],
+      "key": "unknown29"
     },
     {
       "name": "unknown",
@@ -2846,7 +2850,8 @@
           "uuid": "c76865e0-11-9db6454d34483f7d59919e10da2b4e9d13ba5ba1",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/main[2]/div[1]/div[1]/div[2]"
         }
-      ]
+      ],
+      "key": "unknown30"
     },
     {
       "name": "Accordion",
