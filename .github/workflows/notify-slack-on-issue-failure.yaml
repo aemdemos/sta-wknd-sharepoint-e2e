@@ -1,0 +1,131 @@
+name: Notify Slack on Issue Failure
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  notify-slack-on-issue-failure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for parent issue and Slack thread
+        id: find_parent
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // 1. Check if the label is 'aemy-failed'
+            if (!context.payload.label || context.payload.label.name !== 'aemy-failed') {
+              console.log('Label is not aemy-failed, skipping.');
+              return;
+            }
+
+            // 2. Extract parent issue number from the body
+            const body = context.payload.issue.body || '';
+            const match = body.match(/Parent issue: #([0-9]+)/);
+            
+            let targetIssueNumber, isParentIssue, hasAemyFailedLabel, thread_ts;
+            
+            if (!match) {
+              // No parent found - this might be a parent issue failing itself
+              console.log('No parent issue number found in body. Treating as parent issue failure.');
+              targetIssueNumber = context.payload.issue.number;
+              isParentIssue = true;
+              hasAemyFailedLabel = false; // Will be set to true since this issue has aemy-failed label
+            } else {
+              // Parent found - this is a subissue
+              targetIssueNumber = Number(match[1]);
+              isParentIssue = false;
+              console.log('Parent issue number:', targetIssueNumber);
+              
+              // 3. Get parent issue details to check for aemy-failed label
+              const parentIssue = await github.rest.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: targetIssueNumber,
+              });
+              
+              hasAemyFailedLabel = parentIssue.data.labels.some(label => 
+                (typeof label === 'string' ? label : label.name) === 'aemy-failed'
+              );
+              console.log('Parent issue has aemy-failed label:', hasAemyFailedLabel);
+            }
+
+            // 4. Get Slack thread_ts from target issue comments
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: targetIssueNumber,
+            });
+            const threadComment = comments.data.reverse().find(c => c.body.startsWith('Slack thread_ts: '));
+            if (!threadComment) {
+              console.log('No Slack thread_ts found in target issue comments.');
+              return;
+            }
+            thread_ts = threadComment.body.replace('Slack thread_ts: ', '').trim();
+
+            // 5. Output for use in Slack step
+            core.setOutput('target_thread_ts', thread_ts);
+            core.setOutput('target_issue_url', `https://github.com/${context.repo.owner}/${context.repo.repo}/issues/${targetIssueNumber}`);
+            core.setOutput('is_parent_issue', isParentIssue);
+            core.setOutput('parent_has_aemy_failed', hasAemyFailedLabel);
+      - name: Notify Slack thread
+        if: steps.find_parent.outputs.target_thread_ts != '' && steps.find_parent.outputs.is_parent_issue == 'false'
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          payload: |
+            {
+              "text": "Subissue failed: ${{ github.event.issue.html_url }}",
+              "thread_ts": "${{ steps.find_parent.outputs.target_thread_ts }}"
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }} 
+      - name: Notify about parent issue failure itself
+        if: steps.find_parent.outputs.target_thread_ts != '' && steps.find_parent.outputs.is_parent_issue == 'true'
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          payload: |
+            {
+              "text": "🚨 Parent issue failed: ${{ github.event.issue.html_url }}",
+              "thread_ts": "${{ steps.find_parent.outputs.target_thread_ts }}"
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Notify about parent issue failure
+        if: steps.find_parent.outputs.target_thread_ts != '' && steps.find_parent.outputs.parent_has_aemy_failed == 'true'
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          payload: |
+            {
+              "text": "🚨 Parent issue also has aemy-failed label: ${{ steps.find_parent.outputs.target_issue_url }}",
+              "thread_ts": "${{ steps.find_parent.outputs.target_thread_ts }}"
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Add failed emoji reaction to message
+        if: steps.find_parent.outputs.target_thread_ts != ''
+        run: |
+          # Always add standard failed emoji (x)
+          curl -X POST "https://slack.com/api/reactions.add" \
+            -H "Authorization: Bearer ${{ secrets.SLACK_BOT_TOKEN }}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
+              "name": "x",
+              "timestamp": "${{ steps.find_parent.outputs.target_thread_ts }}"
+            }'
+          
+          # Add additional rotating light emoji if parent also has aemy-failed label OR if this is a parent issue failing
+          if [ "${{ steps.find_parent.outputs.parent_has_aemy_failed }}" = "true" ] || [ "${{ steps.find_parent.outputs.is_parent_issue }}" = "true" ]; then
+            curl -X POST "https://slack.com/api/reactions.add" \
+              -H "Authorization: Bearer ${{ secrets.SLACK_BOT_TOKEN }}" \
+              -H "Content-Type: application/json; charset=utf-8" \
+              -d '{
+                "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
+                "name": "rotating_light",
+                "timestamp": "${{ steps.find_parent.outputs.target_thread_ts }}"
+              }'
+          fi
