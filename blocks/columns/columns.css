@@ -1,6 +1,10 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
 }
 
 .columns img {
@@ -39,14 +43,11 @@
   padding: 0;
 }
 
-/* Main row: horizontal layout, visually center content vertically within block */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-
-  /* Add more top padding/height to mimic original's centered look */
   padding: 32px 24px 0 44px;
   min-height: 88px;
   width: 100%;
@@ -55,12 +56,10 @@
   position: relative;
 }
 
-/* Hide language/center column */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo column: logo size and alignment */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: flex-start;
@@ -77,7 +76,6 @@
   display: block;
 }
 
-/* Search container: restrict width and align to top */
 .columns.columns2 > div > div:last-child {
   display: flex;
   justify-content: flex-end;
@@ -86,13 +84,11 @@
   min-width: 120px;
 }
 
-/* Hide any list or extra content in search column */
 .columns.columns2 > div > div:last-child ul,
 .columns.columns2 > div > div:last-child ol {
   display: none;
 }
 
-/* Search box styling: more compact, vertically centered icon+text */
 .columns.columns2 > div > div:last-child p {
   margin: 0;
   padding: 2px 16px 2px 32px;
@@ -114,7 +110,6 @@
   vertical-align: middle;
 }
 
-/* Responsive: stack on small screens, decrease padding/height */
 @media (width <= 700px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -148,4 +143,95 @@
     padding-left: 28px;
     padding-right: 10px;
   }
+}
+
+
+.columns {
+  background: #232220;
+  color: #ededed;
+  padding: 32px 32px 24px;
+  border-bottom: 1px solid #ededed;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Main column layout: stack all content vertically for a unified block */
+
+/* Logo column: make logo visually prominent, keep left aligned */
+.columns .columns-img-col {
+  margin-bottom: 8px;
+}
+
+.columns .columns-img-col img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+/* Language selector list (if present): inline and spaced horizontally */
+.columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+  display: flex;
+  gap: 18px;
+}
+
+.columns ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Links: ensure correct color and hover state */
+.columns a {
+  color: #ededed;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.columns a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Paragraphs/text: light gray, smaller size */
+.columns p {
+  color: #ededed;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Search input field: styled for dark background */
+.columns input[type="search"],
+.columns input[type="text"] {
+  background: #292929;
+  color: #ededed;
+  border: none;
+  border-radius: 2px;
+  padding: 6px 12px;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 899px) {
+  .columns {
+    padding: 20px 8px 16px;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* If you want horizontally grouped sub-items (such as icons or languages), 
+   apply flex-direction: row ONLY to those nested containers */
+.columns > div > ul,
+.columns > div > .inline-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
 }
