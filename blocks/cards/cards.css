@@ -25,3 +25,229 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards4 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Cards grid (articles), excluding the featured card */
+.cards.cards4 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px 24px;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==== FEATURED CARD (FIRST LI) ==== */
+.cards.cards4 > ul > li:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-column: 1 / -1;
+  border: none;
+  background: transparent;
+  margin-bottom: 28px; /* tighter gap to grid */
+  min-height: 340px;
+  max-height: 390px;
+  box-shadow: none;
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+/* Featured image, left side: slightly wider ratio */
+.cards.cards4 > ul > li:first-child .cards-card-image {
+  flex: 13 7 0%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* Panoramic image - fills height of the card */
+.cards.cards4 > ul > li:first-child .cards-card-image picture,
+.cards.cards4 > ul > li:first-child .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  max-height: 390px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Featured text panel, right side - reduce padding for tighter feel */
+.cards.cards4 > ul > li:first-child .cards-card-body {
+  flex: 7 13 0%;
+  background: #F5F5F5;
+  padding: 36px 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  min-width: 0;
+  max-width: 420px;
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Label ("Featured Article") - tighter margin */
+.cards.cards4 > ul > li:first-child .cards-card-body > p:first-child {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 12px;
+  margin-top: 0;
+  letter-spacing: 0.7px;
+  line-height: 1.2;
+  opacity: 0.85;
+  align-self: flex-start;
+}
+
+/* Headline - tighter margin */
+.cards.cards4 > ul > li:first-child .cards-card-body h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 12px;
+  line-height: 1.16;
+  align-self: flex-start;
+}
+
+/* Paragraph - tighter margin */
+.cards.cards4 > ul > li:first-child .cards-card-body > p:nth-of-type(2) {
+  font-size: 1.04rem;
+  color: #444;
+  margin-bottom: 20px;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+/* Button styles for featured article */
+.cards.cards4 > ul > li:first-child .cards-card-body .button-container .button {
+  background: #FFD600;
+  color: #222;
+  font-size: 1.04rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 13px 36px;
+  min-width: 138px;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-start;
+  white-space: normal;
+  max-width: 100%;
+}
+
+/* Button hover effect */
+.cards.cards4 > ul > li:first-child .cards-card-body .button-container .button:hover,
+.cards.cards4 > ul > li:first-child .cards-card-body .button-container .button:focus {
+  background: #ffe866;
+}
+
+/* ==== GRID CARDS ==== */
+.cards.cards4 > ul > li:not(:first-child) {
+  border: 1px solid #dadada;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-shadow: none;
+  min-width: 0;
+  min-height: 320px;
+  height: 100%;
+  align-items: stretch;
+}
+
+/* Card image for grid cards */
+.cards.cards4 > ul > li:not(:first-child) .cards-card-image {
+  width: 100%;
+  height: 150px;
+  min-height: 130px;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  display: block;
+}
+
+.cards.cards4 > ul > li:not(:first-child) .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card body for grid cards */
+.cards.cards4 > ul > li:not(:first-child) .cards-card-body {
+  margin: 16px;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* ==== RESPONSIVE BREAKPOINTS ==== */
+@media (width <= 1200px) {
+  .cards.cards4 {
+    padding: 0 12px;
+  }
+
+  .cards.cards4 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px 18px;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards4 > ul {
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+  }
+
+  .cards.cards4 > ul > li:first-child {
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+
+  .cards.cards4 > ul > li:first-child .cards-card-image,
+  .cards.cards4 > ul > li:first-child .cards-card-body {
+    width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    height: auto;
+    max-width: unset;
+  }
+
+  .cards.cards4 > ul > li:first-child .cards-card-body {
+    padding: 22px 13px 13px;
+  }
+
+  .cards.cards4 > ul > li:first-child .cards-card-image picture,
+  .cards.cards4 > ul > li:first-child .cards-card-image img {
+    min-height: 140px;
+    max-height: 180px;
+    height: 140px;
+  }
+}
