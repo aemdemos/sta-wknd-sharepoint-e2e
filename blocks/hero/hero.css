@@ -345,3 +345,104 @@
     max-width: 100vw;
   }
 }
+
+
+.hero.hero39 {
+  position: relative;
+  width: 100vw;
+  min-height: 320px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Full-bleed for hero section */
+
+/* Fill the container with the image */
+.hero.hero39 > div:first-child {
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero39 picture,
+.hero.hero39 img {
+  display: block;
+  width: 100vw;
+  min-width: 100vw;
+  height: 100%;
+  max-width: unset;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+/* Overlay box: now slightly wider, more comfortable for text */
+.hero.hero39 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 1.6rem 2.6rem 1.4rem;
+  max-width: 800px;
+  width: 62vw;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 2%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Heading: prominence and spacing to match original layout */
+.hero.hero39 h1,
+.hero.hero39 h2 {
+  color: #222;
+  font-weight: 700;
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 1rem;
+  line-height: 1.13;
+}
+
+/* Paragraph: comfortable line-height for a balanced look */
+.hero.hero39 p {
+  color: #222;
+  font-size: var(--body-font-size-m);
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Responsive: maintain margins and box proportion */
+@media (width <= 900px) {
+  .hero.hero39 > div:nth-child(2) {
+    max-width: 95vw;
+    width: 95vw;
+    padding: 1.1rem 1rem 1rem;
+  }
+
+  .hero.hero39 h1,
+  .hero.hero39 h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.7rem;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero39 > div:nth-child(2) {
+    max-width: 98vw;
+    width: 98vw;
+    padding: 0.7rem 0.25rem;
+  }
+
+  .hero.hero39 h1,
+  .hero.hero39 h2 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+}
