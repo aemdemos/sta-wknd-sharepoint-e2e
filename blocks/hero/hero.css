@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -59,7 +60,6 @@
   padding: 0;
 }
 
-/* Background image block */
 .hero.hero12 > div:first-child {
   position: relative;
   z-index: 1;
@@ -79,7 +79,6 @@
   display: block;
 }
 
-/* Overlay card for text on image */
 .hero.hero12 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -99,7 +98,6 @@
   box-shadow: none;
 }
 
-/* Ensure all parent divs inside the card do not center content horizontally */
 .hero.hero12 > div:nth-child(2) > div {
   width: 100%;
   display: flex;
@@ -108,7 +106,6 @@
   justify-content: flex-start;
 }
 
-/* Headline alignment and sizing */
 .hero.hero12 > div:nth-child(2) h2 {
   color: var(--text-color);
   font-size: 18px;
@@ -120,7 +117,6 @@
   font-weight: 600;
 }
 
-/* Divider line below card */
 .hero.hero12::after {
   display: block;
   width: 100%;
@@ -131,7 +127,6 @@
   bottom: 0;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero12 > div:first-child {
     height: 220px;
@@ -147,5 +142,116 @@
 
   .hero.hero12 > div:nth-child(2) h2 {
     font-size: 15px;
+  }
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100%;
+  min-height: 440px;
+  display: block;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Make the image fill the entire hero area as a background */
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  overflow: hidden;
+}
+
+.hero.hero27 picture,
+.hero.hero27 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay white card at bottom left, with more floating effect */
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 0;
+  right: 56px;
+  bottom: 72px;
+  background: #fff;
+  max-width: 700px;
+  box-sizing: border-box;
+  padding: 32px 36px 32px 32px;
+  z-index: 2;
+  margin: 0;
+  text-align: left;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Heading styling */
+.hero.hero27 h2 {
+  color: #222;
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* Description styling */
+.hero.hero27 p:not(.button-container) {
+  color: #222;
+  font-size: var(--body-font-size-m);
+  margin: 0 0 16px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+/* Button container */
+.hero.hero27 .button-container {
+  margin-top: 20px;
+  text-align: left;
+}
+
+/* Button styling */
+.hero.hero27 .button-container .button {
+  background: #ffe000;
+  color: #222;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  box-shadow: none;
+  display: inline-block;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .hero.hero27 > div:first-child,
+  .hero.hero27 picture,
+  .hero.hero27 img {
+    position: static;
+    height: 200px;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .hero.hero27 > div:last-child {
+    position: static;
+    max-width: 100%;
+    padding: 24px 16px;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    margin: 0;
   }
 }
