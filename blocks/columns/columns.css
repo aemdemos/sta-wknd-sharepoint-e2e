@@ -155,9 +155,6 @@
   width: 100%;
 }
 
-/* Main column layout: stack all content vertically for a unified block */
-
-/* Logo column: make logo visually prominent, keep left aligned */
 .columns .columns-img-col {
   margin-bottom: 8px;
 }
@@ -168,7 +165,6 @@
   display: block;
 }
 
-/* Language selector list (if present): inline and spaced horizontally */
 .columns ul {
   list-style: none;
   padding: 0;
@@ -182,7 +178,6 @@
   padding: 0;
 }
 
-/* Links: ensure correct color and hover state */
 .columns a {
   color: #ededed;
   text-decoration: none;
@@ -194,14 +189,12 @@
   text-decoration: underline;
 }
 
-/* Paragraphs/text: light gray, smaller size */
 .columns p {
   color: #ededed;
   font-size: 14px;
   margin: 0;
 }
 
-/* Search input field: styled for dark background */
 .columns input[type="search"],
 .columns input[type="text"] {
   background: #292929;
@@ -214,7 +207,6 @@
   margin-top: 4px;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 899px) {
   .columns {
     padding: 20px 8px 16px;
@@ -226,12 +218,229 @@
   }
 }
 
-/* If you want horizontally grouped sub-items (such as icons or languages), 
-   apply flex-direction: row ONLY to those nested containers */
 .columns > div > ul,
 .columns > div > .inline-group {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 18px;
+}
+
+
+/* FULL-WIDTH WRAPPER (apply only if block should be edge-to-edge) */
+
+/* 
+.columns-container > .columns-wrapper {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+}
+*/
+
+/* ROOT BLOCK */
+.columns,
+.block.columns {
+  background: #232221;
+  color: #D5D5D5;
+  border-bottom: 1px solid #D5D5D5;
+  padding: 40px 48px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* MAIN FLEX LAYOUT: logo | nav | search */
+.columns > div,
+.block.columns > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  width: 100%;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.columns .columns-img-col,
+.block.columns .columns-img-col {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.columns .columns-img-col img,
+.block.columns .columns-img-col img {
+  display: block;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  margin: 0;
+  filter: brightness(0) invert(1);
+}
+
+/* NAVIGATION COLUMN (middle): Flex row, allow to grow/shrink */
+.columns > div > div:nth-child(2),
+.block.columns > div > div:nth-child(2) {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  justify-content: flex-start;
+  overflow: visible;
+
+  /* Ensure nav does not collapse if content is hidden */
+  min-height: 0;
+}
+
+/* HIDE "HOME" LINK BUT KEEP ITS INNER NAV VISIBLE */
+.columns ul > li > a,
+.block.columns ul > li > a {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+/* MAIN HORIZONTAL NAV MENU */
+.columns ul,
+.block.columns ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns ul > li > ul,
+.block.columns ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.columns ul > li > ul > li,
+.block.columns ul > li > ul > li {
+  margin: 0;
+  padding: 0;
+}
+
+.columns ul > li > ul > li > a,
+.block.columns ul > li > ul > li > a {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #D5D5D5;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: 400;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-bottom 0.2s;
+  background: none;
+  display: inline-block;
+  line-height: 1.6;
+
+  /* Prevent nav items from shrinking to 0 if nav is empty */
+  min-width: 0;
+}
+
+/* NAV HOVER/ACTIVE STATE */
+.columns ul > li > ul > li > a:hover,
+.columns ul > li > ul > li > a:focus,
+.block.columns ul > li > ul > li > a:hover,
+.block.columns ul > li > ul > li > a:focus {
+  color: #FFF;
+  border-bottom: 2px solid #FFF;
+}
+
+/* ACTIVE NAV ITEM (SECOND LINK AS EXAMPLE) */
+.columns ul > li > ul > li:nth-child(2) > a,
+.block.columns ul > li > ul > li:nth-child(2) > a {
+  color: #FFF;
+  font-weight: 700;
+  border-bottom: 2px solid #FFF;
+}
+
+/* SEARCH (RIGHT COLUMN) */
+.columns > div > div:nth-child(3),
+.block.columns > div > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #FFF;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 110px;
+  background: transparent;
+}
+
+/* STYLE SEARCH INPUT FOR DARK BG */
+.columns input[type="search"],
+.columns input[type="text"],
+.block.columns input[type="search"],
+.block.columns input[type="text"] {
+  background: #292929;
+  color: #ededed;
+  border: none;
+  border-radius: 2px;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-left: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+.columns input[type="search"]:focus,
+.columns input[type="text"]:focus,
+.block.columns input[type="search"]:focus,
+.block.columns input[type="text"]:focus {
+  outline: 1.5px solid #D5D5D5;
+}
+
+/* PARAGRAPHS BELOW MAIN ROW (footer text, etc) */
+.columns p,
+.block.columns p {
+  color: #D5D5D5;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* RESPONSIVE: STACK VERTICALLY ON SMALL SCREENS */
+@media (width <= 900px) {
+  .columns,
+  .block.columns {
+    padding: 24px 16px 16px;
+  }
+
+  .columns > div,
+  .block.columns > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .columns .columns-img-col,
+  .block.columns .columns-img-col,
+  .columns > div > div:nth-child(2),
+  .block.columns > div > div:nth-child(2),
+  .columns > div > div:nth-child(3),
+  .block.columns > div > div:nth-child(3) {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .columns ul > li > ul,
+  .block.columns ul > li > ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .columns > div > div:nth-child(3),
+  .block.columns > div > div:nth-child(3) {
+    justify-content: flex-start;
+  }
 }
