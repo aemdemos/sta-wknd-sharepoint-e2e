@@ -1693,7 +1693,6 @@
   border: none;
 }
 
-/* Tabs bar: flush to title, flex row, compact gap */
 .tabs.tabs31 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1707,7 +1706,6 @@
   align-items: flex-start;
 }
 
-/* Tab button: compact, uppercase, readable inactive, flush top/bottom */
 .tabs.tabs31 .tabs-tab {
   background: none;
   border: none;
@@ -1739,7 +1737,6 @@
   padding: 0;
 }
 
-/* Panel: Remove border and padding, align content flush */
 .tabs.tabs31 .tabs-panel {
   border: none;
   background: none;
@@ -1749,7 +1746,6 @@
   overflow: visible;
 }
 
-/* Title: tight to tabs, underline nearly flush to text */
 .tabs.tabs31 .tabs-panel > div > h3 {
   font-size: 2.23rem;
   font-weight: 400;
@@ -1761,7 +1757,6 @@
   line-height: 1.1;
 }
 
-/* Underline: flush, saturated, minimal margin below */
 .tabs.tabs31 .tabs-panel > div > h3::after {
   display: block;
   width: 52px;
@@ -1774,7 +1769,6 @@
   box-shadow: none;
 }
 
-/* Paragraph: dark, tight spacing, compact */
 .tabs.tabs31 .tabs-panel > div > p {
   font-size: 1.17rem;
   color: #222;
@@ -1784,7 +1778,6 @@
   text-align: left;
 }
 
-/* Images: flush, minimal vertical gap */
 .tabs.tabs31 .tabs-panel picture {
   display: block;
   margin: 2px 0 6px;
@@ -1799,7 +1792,6 @@
   margin: 0;
 }
 
-/* List styling: tight and compact */
 .tabs.tabs31 .tabs-panel ul {
   margin: 0 0 5px;
   padding-left: 18px;
@@ -1811,7 +1803,6 @@
   margin-bottom: 2px;
 }
 
-/* Responsive: slightly smaller gaps and fonts for mobile */
 @media (width <= 700px) {
   .tabs.tabs31 {
     max-width: 100%;
@@ -1832,7 +1823,6 @@
   }
 }
 
-/* Remove extra vertical gap between stacked children */
 .tabs.tabs31 .tabs-panel > div {
   margin: 0;
   padding: 0;
@@ -1840,4 +1830,239 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+}
+
+
+.tabs.tabs36 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* SIDEBAR (TABS) */
+.tabs.tabs36 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 88px;
+  min-width: 0;
+  max-width: 100px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+
+/* Fine-tune top alignment: bump tabs-list down 2px so heading and tabs align perfectly */
+
+@media (width <= 900px) {
+  .tabs.tabs36 {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs36 .tabs-list {
+    flex-direction: row;
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+    margin-bottom: 12px;
+    margin-top: 0;
+    justify-content: flex-start;
+  }
+}
+
+/* Tab button styling: minimal left padding, tight vertical gap */
+.tabs.tabs36 .tabs-list button {
+  all: unset;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 0;
+  border-left: 4px solid transparent;
+  background: none;
+  color: #212121;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  margin: 0 0 1px;
+  border-radius: 0;
+  line-height: 1.1;
+}
+
+.tabs.tabs36 .tabs-list button[aria-selected="true"] {
+  background: #212121;
+  color: #fff;
+  border-left: 4px solid #ffe074;
+  cursor: default;
+}
+
+.tabs.tabs36 .tabs-list button p {
+  margin: 0;
+}
+
+.tabs.tabs36 .tabs-list button:not(:last-child) {
+  margin-bottom: 1px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs36 .tabs-list button {
+    width: auto;
+    border-left: none;
+    border-bottom: 4px solid transparent;
+    text-align: center;
+    padding: 8px 10px;
+  }
+
+  .tabs.tabs36 .tabs-list button[aria-selected="true"] {
+    border-bottom: 4px solid #ffe074;
+    border-left: none;
+    background: #212121;
+    color: #fff;
+  }
+
+  .tabs.tabs36 .tabs-list button:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 6px;
+  }
+}
+
+/* MAIN CONTENT COLUMN */
+.tabs.tabs36 .tabs-panel {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  overflow: visible;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove padding/margin left from all content containers */
+.tabs.tabs36 .tabs-panel,
+.tabs.tabs36 .tabs-panel > div {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs36 .tabs-panel {
+    padding: 0;
+    margin-top: 10px;
+  }
+}
+
+/* Hide inactive panels as before */
+.tabs.tabs36 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* MAIN HEADING: Remove top margin, make underline thin and tight to text */
+.tabs.tabs36 .tabs-panel > div > h3 {
+  font-size: 2.15em;
+  font-weight: 400;
+  color: #212121;
+  line-height: 1.08;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #ffe074;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs36 .tabs-panel > div > h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    padding-bottom: 1px;
+  }
+}
+
+/* IMAGE: Remove extra margin above/below image */
+.tabs.tabs36 .tabs-panel picture {
+  display: block;
+  margin: 0;
+  line-height: 0;
+}
+
+.tabs.tabs36 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  margin: 0 0 4px;
+}
+
+/* IMAGE CAPTION: Tighten spacing */
+.tabs.tabs36 .tabs-panel p:first-of-type {
+  font-size: 1em;
+  font-weight: 700;
+  color: #212121;
+  text-transform: uppercase;
+  margin: 0 0 2px;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+
+/* BODY TEXT: Compact margins */
+.tabs.tabs36 .tabs-panel p:not(:first-of-type),
+.tabs.tabs36 .tabs-panel ul {
+  font-size: 1.07em;
+  color: #212121;
+  line-height: 1.55;
+  margin: 0 0 0.45em;
+}
+
+.tabs.tabs36 .tabs-panel ul {
+  padding-left: 20px;
+}
+
+.tabs.tabs36 .tabs-panel li {
+  margin-bottom: 0.3em;
+}
+
+/* Remove extra padding from div wrapping content in panel */
+.tabs.tabs36 .tabs-panel > div {
+  padding: 0;
+  margin: 0;
+}
+
+/* Make sure everything aligns at top */
+.tabs.tabs36 .tabs-list,
+.tabs.tabs36 .tabs-panel {
+  align-self: flex-start;
+}
+
+/* Responsive tweaks for content width and sidebar */
+@media (width >= 1200px) {
+  .tabs.tabs36 .tabs-list {
+    width: 88px;
+    min-width: 0;
+    max-width: 92px;
+  }
+}
+
+/* If any inherited h3 top margin sneaks in, forcibly remove it here */
+.tabs.tabs36 .tabs-panel h3 {
+  margin-top: 0;
 }
