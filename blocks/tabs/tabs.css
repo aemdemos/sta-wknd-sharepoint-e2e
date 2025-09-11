@@ -1846,7 +1846,6 @@
   box-shadow: none;
 }
 
-/* SIDEBAR (TABS) */
 .tabs.tabs36 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -1861,8 +1860,6 @@
   align-items: flex-start;
   margin-top: 2px;
 }
-
-/* Fine-tune top alignment: bump tabs-list down 2px so heading and tabs align perfectly */
 
 @media (width <= 900px) {
   .tabs.tabs36 {
@@ -1882,7 +1879,6 @@
   }
 }
 
-/* Tab button styling: minimal left padding, tight vertical gap */
 .tabs.tabs36 .tabs-list button {
   all: unset;
   display: block;
@@ -1941,7 +1937,6 @@
   }
 }
 
-/* MAIN CONTENT COLUMN */
 .tabs.tabs36 .tabs-panel {
   background: none;
   border: none;
@@ -1955,7 +1950,6 @@
   display: block;
 }
 
-/* Remove padding/margin left from all content containers */
 .tabs.tabs36 .tabs-panel,
 .tabs.tabs36 .tabs-panel > div {
   padding-left: 0;
@@ -1969,12 +1963,10 @@
   }
 }
 
-/* Hide inactive panels as before */
 .tabs.tabs36 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* MAIN HEADING: Remove top margin, make underline thin and tight to text */
 .tabs.tabs36 .tabs-panel > div > h3 {
   font-size: 2.15em;
   font-weight: 400;
@@ -1997,7 +1989,6 @@
   }
 }
 
-/* IMAGE: Remove extra margin above/below image */
 .tabs.tabs36 .tabs-panel picture {
   display: block;
   margin: 0;
@@ -2013,7 +2004,6 @@
   margin: 0 0 4px;
 }
 
-/* IMAGE CAPTION: Tighten spacing */
 .tabs.tabs36 .tabs-panel p:first-of-type {
   font-size: 1em;
   font-weight: 700;
@@ -2024,7 +2014,6 @@
   line-height: 1.1;
 }
 
-/* BODY TEXT: Compact margins */
 .tabs.tabs36 .tabs-panel p:not(:first-of-type),
 .tabs.tabs36 .tabs-panel ul {
   font-size: 1.07em;
@@ -2041,19 +2030,16 @@
   margin-bottom: 0.3em;
 }
 
-/* Remove extra padding from div wrapping content in panel */
 .tabs.tabs36 .tabs-panel > div {
   padding: 0;
   margin: 0;
 }
 
-/* Make sure everything aligns at top */
 .tabs.tabs36 .tabs-list,
 .tabs.tabs36 .tabs-panel {
   align-self: flex-start;
 }
 
-/* Responsive tweaks for content width and sidebar */
 @media (width >= 1200px) {
   .tabs.tabs36 .tabs-list {
     width: 88px;
@@ -2062,7 +2048,171 @@
   }
 }
 
-/* If any inherited h3 top margin sneaks in, forcibly remove it here */
 .tabs.tabs36 .tabs-panel h3 {
   margin-top: 0;
+}
+
+
+.tabs.tabs37 {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--background-color);
+  box-sizing: border-box;
+
+  /* Use flex layout for meta/content columns */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  /* Prevent collapsing children columns */
+  min-height: 1px;
+}
+
+/* Meta column simulation: empty spacer div for left meta area */
+.tabs.tabs37::before {
+  display: block;
+  flex: 0 0 140px;
+  height: 1px;
+
+  /* Lower value for less empty space, adjust as needed */
+  content: '';
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 {
+    flex-direction: column;
+  }
+
+  .tabs.tabs37::before {
+    display: none;
+  }
+}
+
+/* Main content column, aligns all content vertically */
+.tabs.tabs37 .tabs37-content {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* If .tabs37-content isn't present in HTML, target direct children instead: */
+.tabs.tabs37 > .tabs-list,
+.tabs.tabs37 > .tabs-panel {
+  /* Ensures correct column placement */
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Horizontal tabs above content, left-aligned */
+.tabs.tabs37 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 40px;
+  background: none;
+  border: none;
+  padding: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Tab button styles */
+.tabs.tabs37 .tabs-list button {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 12px 36px;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tabs.tabs37 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 600;
+}
+
+.tabs.tabs37 .tabs-list button p {
+  margin: 0;
+}
+
+/* Only show selected panel */
+.tabs.tabs37 .tabs-panel {
+  display: none;
+  border: none;
+  background: var(--background-color);
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 660px;
+}
+
+.tabs.tabs37 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Content area width, left aligned */
+.tabs.tabs37 .tabs-panel > div {
+  max-width: 600px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Title with yellow underline */
+.tabs.tabs37 .tabs-panel h3 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #222;
+  border-bottom: 4px solid #f7e6b0;
+  padding-bottom: 12px;
+  line-height: 1.15;
+}
+
+.tabs.tabs37 .tabs-panel h3::after {
+  display: none;
+}
+
+/* Image styling */
+.tabs.tabs37 .tabs-panel picture,
+.tabs.tabs37 .tabs-panel img {
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 32px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Description text improves readability */
+.tabs.tabs37 .tabs-panel > div > p:not(:first-child) {
+  font-size: var(--body-font-size-m);
+  line-height: 1.7;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 1.2em;
+  max-width: 100%;
+}
+
+/* Responsive: stack and full width on mobile */
+@media (width <= 900px) {
+  .tabs.tabs37 .tabs-panel,
+  .tabs.tabs37 .tabs-panel > div,
+  .tabs.tabs37 .tabs-panel picture,
+  .tabs.tabs37 .tabs-panel img {
+    max-width: 100%;
+  }
 }
