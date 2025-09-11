@@ -45,3 +45,107 @@
     padding: 40px 32px;
   }
 }
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero12 {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Background image block */
+.hero.hero12 > div:first-child {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 320px;
+  min-height: 220px;
+  max-height: 450px;
+  overflow: hidden;
+  display: block;
+}
+
+.hero.hero12 picture,
+.hero.hero12 picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay card for text on image */
+.hero.hero12 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: var(--background-color);
+  padding: 2px 32px 64px;
+  max-width: 800px;
+  width: calc(100% - 64px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Ensure all parent divs inside the card do not center content horizontally */
+.hero.hero12 > div:nth-child(2) > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Headline alignment and sizing */
+.hero.hero12 > div:nth-child(2) h2 {
+  color: var(--text-color);
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+  line-height: 1.3;
+  width: 100%;
+  font-weight: 600;
+}
+
+/* Divider line below card */
+.hero.hero12::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eaeaea;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero12 > div:first-child {
+    height: 220px;
+    max-height: 300px;
+  }
+
+  .hero.hero12 > div:nth-child(2) {
+    padding: 2px 12px 44px;
+    max-width: 96vw;
+    width: calc(100% - 24px);
+    bottom: 8px;
+  }
+
+  .hero.hero12 > div:nth-child(2) h2 {
+    font-size: 15px;
+  }
+}
