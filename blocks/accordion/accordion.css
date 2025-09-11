@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,145 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion7 {
+  display: block;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Accordion item styles */
+.accordion.accordion7 details {
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+  background: #fff;
+  transition: background 0.2s;
+}
+
+/* Remove spacing between items */
+.accordion.accordion7 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion7 details summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 56px;
+  padding: 0 44px 0 36px;
+  position: relative;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline: none;
+  transition: background 0.2s;
+}
+
+/* Subtle highlight when open/focused/hovered */
+.accordion.accordion7 details[open] summary,
+.accordion.accordion7 details summary:focus,
+.accordion.accordion7 details summary:hover {
+  background: #fafafa;
+}
+
+/* Question text: bold, all-caps, spaced */
+.accordion.accordion7 details summary p,
+.accordion.accordion7 details summary strong {
+  margin: 0;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #111;
+  flex: 1 1 auto;
+  line-height: 1.2;
+  display: block;
+  margin-right: 64px; /* extra space before icon (matches original) */
+}
+
+/* Hide default marker */
+.accordion.accordion7 details summary::-webkit-details-marker,
+.accordion.accordion7 details summary::marker {
+  display: none;
+}
+
+/* Custom plus/minus icon: visually lighter, more margin, softer edges */
+
+.accordion.accordion7 details summary::before,
+.accordion.accordion7 details summary::after {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  width: 15px;
+  height: 3px;
+  background: #bcbcbc;
+  border-radius: 2px;
+  transition: opacity 0.2s;
+  display: block;
+  pointer-events: none;
+  content: "";
+}
+
+/* Horizontal bar (always present) */
+.accordion.accordion7 details summary::before {
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+/* Vertical bar (for plus), hidden for minus */
+.accordion.accordion7 details summary::after {
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 1;
+}
+
+/* Minus only for open */
+.accordion.accordion7 details[open] summary::after {
+  opacity: 0;
+}
+
+/* Body/answer content */
+.accordion.accordion7 details .accordion-item-body {
+  padding: 18px 36px;
+  color: #222;
+  font-size: 14px;
+  background: #fff;
+  line-height: 1.6;
+  border: none;
+}
+
+.accordion.accordion7 details[open] .accordion-item-body {
+  background: #fafafa;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion7 {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .accordion.accordion7 details summary,
+  .accordion.accordion7 details .accordion-item-body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .accordion.accordion7 details summary p,
+  .accordion.accordion7 details summary strong {
+    margin-right: 36px;
+  }
+
+  .accordion.accordion7 details summary::before,
+  .accordion.accordion7 details summary::after {
+    right: 16px;
+  }
 }
