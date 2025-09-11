@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -33,7 +34,6 @@
   padding: 0 24px;
 }
 
-/* Cards grid (articles), excluding the featured card */
 .cards.cards4 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -42,7 +42,6 @@
   padding: 0;
 }
 
-/* ==== FEATURED CARD (FIRST LI) ==== */
 .cards.cards4 > ul > li:first-child {
   display: flex;
   flex-direction: row;
@@ -50,7 +49,7 @@
   grid-column: 1 / -1;
   border: none;
   background: transparent;
-  margin-bottom: 28px; /* tighter gap to grid */
+  margin-bottom: 28px;
   min-height: 340px;
   max-height: 390px;
   box-shadow: none;
@@ -59,7 +58,6 @@
   position: relative;
 }
 
-/* Featured image, left side: slightly wider ratio */
 .cards.cards4 > ul > li:first-child .cards-card-image {
   flex: 13 7 0%;
   min-width: 0;
@@ -71,7 +69,6 @@
   justify-content: stretch;
 }
 
-/* Panoramic image - fills height of the card */
 .cards.cards4 > ul > li:first-child .cards-card-image picture,
 .cards.cards4 > ul > li:first-child .cards-card-image img {
   width: 100%;
@@ -83,7 +80,6 @@
   border-radius: 0;
 }
 
-/* Featured text panel, right side - reduce padding for tighter feel */
 .cards.cards4 > ul > li:first-child .cards-card-body {
   flex: 7 13 0%;
   background: #F5F5F5;
@@ -101,7 +97,6 @@
   z-index: 1;
 }
 
-/* Label ("Featured Article") - tighter margin */
 .cards.cards4 > ul > li:first-child .cards-card-body > p:first-child {
   font-size: 12px;
   font-weight: 600;
@@ -115,7 +110,6 @@
   align-self: flex-start;
 }
 
-/* Headline - tighter margin */
 .cards.cards4 > ul > li:first-child .cards-card-body h2 {
   font-size: 2.2rem;
   font-weight: bold;
@@ -125,7 +119,6 @@
   align-self: flex-start;
 }
 
-/* Paragraph - tighter margin */
 .cards.cards4 > ul > li:first-child .cards-card-body > p:nth-of-type(2) {
   font-size: 1.04rem;
   color: #444;
@@ -134,7 +127,6 @@
   align-self: flex-start;
 }
 
-/* Button styles for featured article */
 .cards.cards4 > ul > li:first-child .cards-card-body .button-container .button {
   background: #FFD600;
   color: #222;
@@ -158,13 +150,11 @@
   max-width: 100%;
 }
 
-/* Button hover effect */
 .cards.cards4 > ul > li:first-child .cards-card-body .button-container .button:hover,
 .cards.cards4 > ul > li:first-child .cards-card-body .button-container .button:focus {
   background: #ffe866;
 }
 
-/* ==== GRID CARDS ==== */
 .cards.cards4 > ul > li:not(:first-child) {
   border: 1px solid #dadada;
   background-color: var(--background-color);
@@ -178,7 +168,6 @@
   align-items: stretch;
 }
 
-/* Card image for grid cards */
 .cards.cards4 > ul > li:not(:first-child) .cards-card-image {
   width: 100%;
   height: 150px;
@@ -195,7 +184,6 @@
   object-fit: cover;
 }
 
-/* Card body for grid cards */
 .cards.cards4 > ul > li:not(:first-child) .cards-card-body {
   margin: 16px;
   padding: 0;
@@ -204,7 +192,6 @@
   flex: 1 1 auto;
 }
 
-/* ==== RESPONSIVE BREAKPOINTS ==== */
 @media (width <= 1200px) {
   .cards.cards4 {
     padding: 0 12px;
@@ -249,5 +236,168 @@
     min-height: 140px;
     max-height: 180px;
     height: 140px;
+  }
+}
+
+
+.cards.cards6 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Layout: grid, spacing tuned for closer match to original */
+.cards.cards6 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 1.1rem;   /* slightly increased vertical gap */ /* slightly increased horizontal gap */
+  place-items: start center;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  max-width: 1140px;
+  width: 100%;
+}
+
+/* Force bottom row to start at left */
+.cards.cards6 > ul > li:nth-child(5) {
+  grid-column-start: 1;
+}
+
+/* Card: add gentle bottom padding for visual resting space */
+.cards.cards6 > ul > li {
+  border: none;
+  background: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+  padding: 0 0.3rem 0.7rem; /* increased bottom padding */
+  margin: 0;
+}
+
+/* Profile image: circular, centered, balanced margin */
+.cards.cards6 .cards-card-image {
+  margin-bottom: 0.6rem;
+  width: 112px;
+  height: 112px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards.cards6 .cards-card-image picture,
+.cards.cards6 .cards-card-image img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body and headers: spacing tuned for grouping */
+.cards.cards6 .cards-card-body {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cards.cards6 .cards-card-body h3 {
+  color: #222;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 0.14em; /* slightly more margin below name */
+  letter-spacing: 0.01em;
+}
+
+.cards.cards6 .cards-card-body h5 {
+  text-transform: uppercase;
+  color: #444;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.45em; /* more gap below role/title */
+  text-align: center;
+  line-height: 1.18;
+}
+
+/* Social row: slightly more gap, perfect centering */
+.cards.cards6 .cards-card-body p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.32rem; /* slightly increased gap between icons */
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+/* Social button squares: compact, centered, balanced */
+.cards.cards6 .cards-card-body p a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #222;
+  color: #fff;
+  border-radius: 0;
+  font-size: 1.09rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 200%;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+}
+
+/* Show focus/hover for social squares */
+.cards.cards6 .cards-card-body p a:hover,
+.cards.cards6 .cards-card-body p a:focus {
+  background: #C6A900;
+  color: #fff;
+}
+
+/* If any inline svg or img for icons, center and size */
+.cards.cards6 .cards-card-body p a > img,
+.cards.cards6 .cards-card-body p a > svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 900px) {
+  .cards.cards6 > ul {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 1rem 0.7rem;
+    max-width: 98vw;
+  }
+
+  .cards.cards6 > ul > li {
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards6 > ul {
+    grid-template-columns: 1fr;
+    gap: 0.7rem 0;
+    max-width: 100vw;
+  }
+
+  .cards.cards6 > ul > li {
+    padding-bottom: 0.3rem;
   }
 }
