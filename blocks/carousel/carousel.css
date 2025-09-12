@@ -337,8 +337,6 @@
   left: 2px;
 }
 
-/* Compose controls row if both indicators and navigation present */
-
 .carousel.carousel16 .carousel-controls-row > .carousel-slide-indicators {
   flex: 1 1 auto;
   display: flex;
@@ -349,4 +347,103 @@
   flex: 0 0 auto;
   display: flex;
   justify-content: flex-end;
+}
+
+
+.carousel.carousel17 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 0;
+  transform: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #dadada;
+  box-shadow: 0 1px 2px rgb(35 35 35 / 12%);
+  color: #131313;
+  transition: background-color 0.18s, border-color 0.18s;
+  margin: 0 2px;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button:hover,
+.carousel.carousel17 .carousel-navigation-buttons button:focus-visible {
+  background-color: #eee;
+  border-color: #3b63fb;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button:disabled,
+.carousel.carousel17 .carousel-navigation-buttons button:disabled:hover {
+  background-color: #f8f8f8;
+  border-color: #dadada;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button::after {
+  border-color: #131313;
+  height: 8px;
+  width: 8px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-135deg);
+  border-width: 2px;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.carousel.carousel17 .carousel-slide-indicators {
+  position: absolute;
+  inset: auto 0 2px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 2px;
+  z-index: 2;
+}
+
+.carousel.carousel17 .carousel-slide-indicator {
+  display: inline-block;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button {
+  width: 7px;
+  height: 7px;
+  min-width: 7px;
+  min-height: 7px;
+  border-radius: 50%;
+  background-color: #dadada;
+  border: none;
+  margin: 0;
+  transition: background-color 0.12s;
+  box-shadow: none;
+  padding: 0;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button:disabled,
+.carousel.carousel17 .carousel-slide-indicator button[disabled] {
+  background-color: #131313;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button:hover,
+.carousel.carousel17 .carousel-slide-indicator button:focus-visible {
+  background-color: #3b63fb;
+}
+
+/* Hide content overlay if empty */
+.carousel.carousel17 .carousel-slide-content:empty {
+  display: none;
 }
