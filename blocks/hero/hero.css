@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -155,7 +156,6 @@
   box-sizing: border-box;
 }
 
-/* Left column: image */
 .hero.hero18 > div:first-child {
   flex: 1 1 60%;
   min-width: 0;
@@ -183,7 +183,6 @@
   box-shadow: none;
 }
 
-/* Right column: text content */
 .hero.hero18 > div:last-child {
   flex: 1 1 40%;
   min-width: 320px;
@@ -199,7 +198,6 @@
   align-self: flex-start;
 }
 
-/* Heading */
 .hero.hero18 h1 {
   font-size: var(--heading-font-size-xxl);
   font-weight: 700;
@@ -210,7 +208,6 @@
   letter-spacing: -0.5px;
 }
 
-/* Subtitle / Author */
 .hero.hero18 h4 {
   font-size: var(--heading-font-size-m);
   text-transform: uppercase;
@@ -221,7 +218,6 @@
   letter-spacing: 0.4px;
 }
 
-/* Button container and button */
 .hero.hero18 .button-container {
   margin-bottom: 6px;
   width: 100%;
@@ -243,7 +239,6 @@
   max-width: initial;
 }
 
-/* Meta line under button */
 .hero.hero18 > div:last-child p:not(.button-container) {
   color: #555;
   font-size: 1rem;
@@ -251,7 +246,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive: Stack columns vertically on small screens */
 @media (width <= 900px) {
   .hero.hero18 {
     flex-direction: column;
@@ -273,5 +267,139 @@
 
   .hero.hero18 > div:first-child img {
     min-height: 160px;
+  }
+}
+
+
+.hero.hero26 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 340px;
+  background: none;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Image section: left side, fills height */
+.hero.hero26 > div:first-child {
+  flex: 1.15 0 0%;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 100%;
+  order: 1;
+}
+
+.hero.hero26 > div:first-child picture,
+.hero.hero26 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content section: right side, white box, flush to bottom */
+.hero.hero26 > div:last-child {
+  flex: 1 1 0%;
+  min-width: 320px;
+  max-width: 620px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  z-index: 1;
+
+  /* Trick to anchor the box flush to bottom of image: */
+  position: relative;
+}
+
+/* This creates the effect of the box being flush with the bottom edge */
+.hero.hero26 > div:last-child > div {
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding: 36px 38px 30px;
+}
+
+/* Tighten vertical spacing for "anchored" look */
+.hero.hero26 h2 {
+  font-size: var(--heading-font-size-xl);
+  color: #222;
+  margin: 0 0 0.4em;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.hero.hero26 p {
+  font-size: var(--body-font-size-m);
+  color: #222;
+  margin: 0 0 0.6em;
+  line-height: 1.5;
+}
+
+.hero.hero26 .button-container {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.hero.hero26 .button-container .button {
+  background: #ffe600;
+  color: #222;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border: none;
+  box-shadow: none;
+  display: inline-block;
+  margin: 0;
+  transition: background 0.2s;
+}
+
+.hero.hero26 .button-container .button:hover,
+.hero.hero26 .button-container .button:focus {
+  background: #ffef70;
+}
+
+/* Responsive layout for smaller screens: stack, keep bottom anchoring */
+@media (width <= 900px) {
+  .hero.hero26 {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .hero.hero26 > div:first-child,
+  .hero.hero26 > div:last-child {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    order: unset;
+    height: auto;
+  }
+
+  .hero.hero26 > div:first-child picture,
+  .hero.hero26 > div:first-child img {
+    height: 220px;
+    min-height: 180px;
+    max-height: 320px;
+  }
+
+  .hero.hero26 > div:last-child > div {
+    padding: 16px 14px 20px;
+    max-width: 100%;
   }
 }
