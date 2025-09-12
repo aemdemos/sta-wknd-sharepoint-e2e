@@ -31,3 +31,100 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.columns.columns2 .columns-img-col {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.columns.columns2 .columns-img-col img {
+  max-height: 48px;
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.columns.columns2 > div > div:nth-child(2) {
+  display: none;
+}
+
+/* Search box: even more compact, and closer to the right edge */
+.columns.columns2 > div > div:nth-child(3) {
+  background: #f5f5f5;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px 0 rgb(60 60 60 / 5%);
+  width: 132px;
+  max-width: 144px;
+  min-width: 100px;
+  height: 36px;
+  margin-right: 10px;
+  padding: 6px 14px 6px 28px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Vertically center search label text */
+.columns.columns2 > div > div:nth-child(3) p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #6E6E6E;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+}
+
+/* Add search icon using background image (no content property) */
+.columns.columns2 > div > div:nth-child(3)::after {
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  display: block;
+  background: url("data:image/svg+xml,%3Csvg fill='none' stroke='black' stroke-width='2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='9' cy='9' r='7'/%3E%3Cline x1='14' y1='14' x2='19' y2='19'/%3E%3C/svg%3E") no-repeat center center;
+  background-size: 15px 15px;
+  content: "";
+}
+
+/* Responsive adjustments: stack items and keep search box compact */
+@media (width <= 700px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    max-width: 100%;
+  }
+
+  .columns.columns2 .columns-img-col {
+    margin-left: 6px;
+    margin-bottom: 10px;
+  }
+
+  .columns.columns2 > div > div:nth-child(3) {
+    margin-right: 6px;
+    width: 100%;
+    max-width: 140px;
+    min-width: 90px;
+  }
+}
