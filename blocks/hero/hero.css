@@ -45,3 +45,104 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero12 {
+  position: relative;
+  width: 100%;
+  min-height: 390px;
+  padding: 0;
+  margin: 0 0 40px;
+  display: block;
+  background: none;
+}
+
+/* Ensure hero image fills the block */
+.hero.hero12 > div:first-child {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+}
+
+.hero.hero12 > div:first-child picture,
+.hero.hero12 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Overlay card: flush with bottom, slightly wider, more vertical padding */
+.hero.hero12 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 64%;
+  max-width: 760px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 38px 32px 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 2%);
+  z-index: 2;
+}
+
+/* Heading: left-aligned, visible, well-spaced */
+.hero.hero12 > div:nth-child(2) h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #232323;
+  font-weight: 400;
+  text-align: left;
+  line-height: 1.25;
+  width: 100%;
+}
+
+/* Divider under image, not card */
+.hero.hero12::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eee;
+  position: absolute;
+  left: 0;
+  bottom: -40px;
+  z-index: 3;
+  content: "";
+}
+
+/* Let hero span full width */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero12 > div:first-child {
+    height: 210px;
+  }
+
+  .hero.hero12 > div:nth-child(2) {
+    width: 97%;
+    max-width: 99vw;
+    padding: 18px 8px 22px;
+    bottom: 0;
+  }
+
+  .hero.hero12 > div:nth-child(2) h2 {
+    font-size: 17px;
+  }
+
+  .hero.hero12 {
+    margin-bottom: 18px;
+  }
+
+  .hero.hero12::after {
+    bottom: -18px;
+  }
+}
