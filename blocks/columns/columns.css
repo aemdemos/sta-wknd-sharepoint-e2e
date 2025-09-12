@@ -147,17 +147,12 @@
   margin: 0;
 }
 
-/* Remove all white backgrounds from descendants */
 .columns,
 .columns > div,
 .columns > div > div {
   background: none;
   box-shadow: none;
 }
-
-/* Main row: logo, nav, right section */
-
-/* First column: logo */
 
 .columns .columns-img-col img {
   width: 112px;
@@ -166,7 +161,6 @@
   margin: 0;
 }
 
-/* Second column: navigation */
 .columns > div > div:nth-child(2) {
   flex-grow: 1;
   min-width: 0;
@@ -178,7 +172,6 @@
   padding: 0;
 }
 
-/* Navigation: horizontal menu */
 .columns > div > div:nth-child(2) > ul {
   margin: 0;
   padding: 0;
@@ -198,7 +191,6 @@
   padding: 0;
 }
 
-/* Nav links: uppercase, white, underline for active */
 .columns > div > div:nth-child(2) > ul > li > ul > li > a {
   text-transform: uppercase;
   color: #fff;
@@ -214,17 +206,14 @@
   transition: border-color 0.2s;
 }
 
-/* Underline the second nav item (Adventures) */
 .columns > div > div:nth-child(2) > ul > li > ul > li:nth-child(2) > a {
   border-bottom: 2px solid #fff;
 }
 
-/* Hide parent nav link */
 .columns > div > div:nth-child(2) > ul > li > a {
   display: none;
 }
 
-/* Third column: right-align */
 .columns > div > div:nth-child(3) {
   min-width: 0;
   margin-left: auto;
@@ -237,7 +226,6 @@
   background: none;
 }
 
-/* Style right label (search/follow us) */
 .columns > div > div:nth-child(3) p {
   color: #fff;
   text-transform: uppercase;
@@ -253,14 +241,12 @@
   border-radius: 0;
 }
 
-/* Remove bullets and margin from all nested lists */
 .columns ul, .columns ul ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Responsive: stack columns vertically under 900px */
 @media (width <= 900px) {
   .columns {
     padding: 20px 8px 16px;
@@ -284,4 +270,159 @@
   }
 }
 
-/* Remove border-radius or border on right section label if present from base styles */
+
+.columns.columns10 {
+  background: #232220;
+  color: #e0e0e0;
+  padding: 0;
+}
+
+/* Use grid to group first and third child into one column */
+.columns.columns10 > div {
+  display: grid;
+  grid-template-columns: minmax(0, 2.6fr) minmax(170px, 1fr);
+  align-items: flex-start;
+  gap: 0;
+  padding: 40px 40px 24px;
+  box-sizing: border-box;
+}
+
+/* Place both first and third child in the left grid column, stacked vertically */
+.columns.columns10 > div > div:first-child,
+.columns.columns10 > div > div:nth-child(3) {
+  grid-column: 1 / 2;
+  width: 100%;
+  display: block;
+}
+
+/* Add visual gap between logo/language and text block */
+.columns.columns10 > div > div:first-child {
+  margin-bottom: 20px;
+}
+
+.columns.columns10 > div > div:nth-child(3) {
+  margin-top: 0;
+}
+
+/* Stack the first and third child visually as one left column */
+
+/* All text in left column should be left-aligned */
+.columns.columns10 > div > div:first-child,
+.columns.columns10 > div > div:nth-child(3),
+.columns.columns10 > div > div:first-child *,
+.columns.columns10 > div > div:nth-child(3) * {
+  text-align: left;
+}
+
+/* Right column: Only FOLLOW US, top right */
+.columns.columns10 > div > div:nth-child(2) {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-width: 170px;
+  max-width: 340px;
+  padding-left: 0;
+  padding-top: 4px;
+  gap: 12px;
+  margin-left: 40px;
+}
+
+@media (width <= 900px) {
+  .columns.columns10 > div {
+    grid-template-columns: 1fr;
+    padding: 24px 12px 16px;
+  }
+
+  .columns.columns10 > div > div:nth-child(2) {
+    align-items: flex-start;
+    margin-left: 0;
+    grid-column: 1 / 2;
+    margin-top: 24px;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+/* --- LOGO and language --- */
+.columns.columns10 picture img {
+  max-width: 220px;
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+.columns.columns10 ul {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns10 ul li {
+  display: inline-block;
+  margin-right: 14px;
+  font-size: 1rem;
+}
+
+.columns.columns10 ul li a {
+  color: #e0e0e0;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+/* --- Body/copyright text --- */
+.columns.columns10 > div > div:first-child p,
+.columns.columns10 > div > div:nth-child(3) p,
+.columns.columns10 > div > div:first-child li,
+.columns.columns10 > div > div:first-child ul,
+.columns.columns10 > div > div:nth-child(3) li,
+.columns.columns10 > div > div:nth-child(3) ul {
+  color: #e0e0e0;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0 0 9px;
+}
+
+.columns.columns10 > div > div:first-child a,
+.columns.columns10 > div > div:nth-child(3) a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.columns.columns10 > div > div:nth-child(3) p:last-child {
+  margin-bottom: 0;
+}
+
+/* Remove background/border from links in this block */
+.columns.columns10 a {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* "Follow Us" heading */
+.columns.columns10 > div > div:nth-child(2) h4,
+.columns.columns10 > div > div:nth-child(2) h3,
+.columns.columns10 > div > div:nth-child(2) h2 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: right;
+  line-height: 1.2;
+}
+
+@media (width <= 900px) {
+  .columns.columns10 > div > div:nth-child(2) h4,
+  .columns.columns10 > div > div:nth-child(2) h3,
+  .columns.columns10 > div > div:nth-child(2) h2 {
+    text-align: left;
+    margin-bottom: 8px;
+  }
+}
