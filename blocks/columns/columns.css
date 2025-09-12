@@ -1,6 +1,15 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  gap: 48px;
+  box-sizing: border-box;
 }
 
 .columns img {
@@ -13,6 +22,9 @@
 
 .columns > div > .columns-img-col {
   order: 0;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
 }
 
 .columns > div > .columns-img-col img {
@@ -64,7 +76,6 @@
   display: none;
 }
 
-/* Search box: even more compact, and closer to the right edge */
 .columns.columns2 > div > div:nth-child(3) {
   background: #f5f5f5;
   border-radius: 2px;
@@ -81,7 +92,6 @@
   box-sizing: border-box;
 }
 
-/* Vertically center search label text */
 .columns.columns2 > div > div:nth-child(3) p {
   margin: 0;
   padding: 0;
@@ -92,7 +102,6 @@
   align-items: center;
 }
 
-/* Add search icon using background image (no content property) */
 .columns.columns2 > div > div:nth-child(3)::after {
   position: absolute;
   left: 9px;
@@ -106,7 +115,6 @@
   content: "";
 }
 
-/* Responsive adjustments: stack items and keep search box compact */
 @media (width <= 700px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -128,3 +136,152 @@
     min-width: 90px;
   }
 }
+
+
+.columns {
+  background: #222;
+  color: #fff;
+  padding: 32px 40px 24px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+}
+
+/* Remove all white backgrounds from descendants */
+.columns,
+.columns > div,
+.columns > div > div {
+  background: none;
+  box-shadow: none;
+}
+
+/* Main row: logo, nav, right section */
+
+/* First column: logo */
+
+.columns .columns-img-col img {
+  width: 112px;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+/* Second column: navigation */
+.columns > div > div:nth-child(2) {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation: horizontal menu */
+.columns > div > div:nth-child(2) > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div > div:nth-child(2) > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns > div > div:nth-child(2) > ul > li > ul > li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav links: uppercase, white, underline for active */
+.columns > div > div:nth-child(2) > ul > li > ul > li > a {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 0.7px;
+  font-weight: 400;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  display: inline-block;
+  line-height: 1.4;
+  background: none;
+  transition: border-color 0.2s;
+}
+
+/* Underline the second nav item (Adventures) */
+.columns > div > div:nth-child(2) > ul > li > ul > li:nth-child(2) > a {
+  border-bottom: 2px solid #fff;
+}
+
+/* Hide parent nav link */
+.columns > div > div:nth-child(2) > ul > li > a {
+  display: none;
+}
+
+/* Third column: right-align */
+.columns > div > div:nth-child(3) {
+  min-width: 0;
+  margin-left: auto;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: right;
+  padding: 0;
+  background: none;
+}
+
+/* Style right label (search/follow us) */
+.columns > div > div:nth-child(3) p {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  display: inline-block;
+  border-radius: 0;
+}
+
+/* Remove bullets and margin from all nested lists */
+.columns ul, .columns ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: stack columns vertically under 900px */
+@media (width <= 900px) {
+  .columns {
+    padding: 20px 8px 16px;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .columns > div > div:nth-child(3) {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .columns > div > div:nth-child(2) > ul > li > ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* Remove border-radius or border on right section label if present from base styles */
