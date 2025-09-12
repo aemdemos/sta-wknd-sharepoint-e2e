@@ -17,7 +17,12 @@ import path from 'path';
 import unzipper from 'unzipper';
 // eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
 import archiver from 'archiver';
-import { doExtractContentPaths, getFilterPaths } from './xwalk-content.js';
+import {
+  doExtractContentPaths,
+  getFilterPaths,
+  processContentXmlFiles,
+  BOILERPLATE_PATTERN,
+} from './xwalk-content.js';
 
 export const XWALK_OPERATIONS = Object.freeze({
   UPLOAD: 'upload',
@@ -226,7 +231,7 @@ function convertBoilerplatePaths(filterXmlContent, repoName) {
   let modifiedContent = filterXmlContent;
 
   // Replace the paths in root attributes and any text content
-  modifiedContent = modifiedContent.replace(/sta-xwalk-boilerplate/g, repoName);
+  modifiedContent = modifiedContent.replace(BOILERPLATE_PATTERN, repoName);
 
   // Also handle the case where paths might be in different formats or escaped
   // This regex looks for paths that contain 'sta-xwalk-boilerplate' and replaces them
@@ -235,18 +240,12 @@ function convertBoilerplatePaths(filterXmlContent, repoName) {
     (match, originalPath) => {
       // Convert ALL paths that contain 'sta-xwalk-boilerplate' to use the repo name
       if (originalPath.includes('sta-xwalk-boilerplate')) {
-        const newPath = originalPath.replace(/sta-xwalk-boilerplate/g, repoName);
+        const newPath = originalPath.replace(BOILERPLATE_PATTERN, repoName);
         core.info(`  Converted path: ${originalPath} -> ${newPath}`);
         return `root="${newPath}"`;
       }
-      return match; // Keep original if something went wrong
+      return match;
     },
-  );
-
-  // Additional pattern to catch any remaining instances that might be formatted differently
-  modifiedContent = modifiedContent.replace(
-    /([^"\w-])sta-xwalk-boilerplate([^"\w-])/g,
-    `$1${repoName}$2`,
   );
 
   return modifiedContent;
@@ -353,10 +352,10 @@ async function createPackageFromExtractedContent(zipContentsPath, repoName) {
   }
 
   const originalFilterContent = fs.readFileSync(filterXmlPath, 'utf8');
-  core.info(`📄 Original filter.xml content:\n${originalFilterContent}`);
+  core.debug(`📄 Original filter.xml content:\n${originalFilterContent}`);
 
   const modifiedFilterContent = convertBoilerplatePaths(originalFilterContent, repoName);
-  core.info(`📄 Modified filter.xml content:\n${modifiedFilterContent}`);
+  core.debug(`📄 Modified filter.xml content:\n${modifiedFilterContent}`);
 
   // Write the modified filter.xml back
   fs.writeFileSync(filterXmlPath, modifiedFilterContent, 'utf8');
@@ -364,6 +363,10 @@ async function createPackageFromExtractedContent(zipContentsPath, repoName) {
 
   // Rename folders in jcr_root
   renameFoldersInJcrRoot(jcrRootPath, repoName);
+
+  // Process all XML files to replace boilerplate paths (only for boilerplate packages)
+  core.info('🔄 Processing XML files for boilerplate path replacement...');
+  processContentXmlFiles(jcrRootPath, metaInfPath, repoName);
 
   // Create new zip with modified content - only include jcr_root and META-INF
   const convertedPackagePath = path.join(zipContentsPath, `converted-boilerplate-${repoName}.zip`);
@@ -529,7 +532,7 @@ export async function run() {
         const convertedPagePaths = result.pagePaths.map((originalPath) => {
           // Convert ALL paths that contain 'sta-xwalk-boilerplate' to use the repo name
           if (originalPath.includes('sta-xwalk-boilerplate')) {
-            return originalPath.replace(/sta-xwalk-boilerplate/g, repoName);
+            return originalPath.replace(BOILERPLATE_PATTERN, repoName);
           }
           return originalPath; // Keep original if not a boilerplate path
         });
