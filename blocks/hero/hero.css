@@ -45,3 +45,123 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero12 {
+  display: grid;
+  position: relative;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  min-height: 440px;
+  overflow: visible;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+/* HERO BACKGROUND IMAGE FILL */
+.hero.hero12 > div:first-child {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  height: 440px;
+  width: 100vw;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero.hero12 picture,
+.hero.hero12 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* WHITE CARD OVERLAY - LOWERED TO ALMOST SIT ON THE ROCK */
+.hero.hero12 > div:nth-child(2) {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  position: absolute;
+  left: 50%;
+  top: 71%; /* Lowered; visually floats just above the rock */
+  transform: translateX(-50%);
+  width: 48vw;
+  max-width: 500px;
+  min-width: 220px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 14px 24px; /* Tighter vertical padding for compact appearance */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* HEADLINE IN CARD */
+.hero.hero12 > div:nth-child(2) h2 {
+  margin: 0;
+  color: #222;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+/* BOTTOM SEPARATOR LINE */
+.hero.hero12::after {
+  display: block;
+  width: 100vw;
+  height: 1px;
+  background: #eee;
+  margin: 0 auto;
+  margin-top: 16px;
+  content: "";
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+/* HERO FULL WIDTH NO PADDING */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (width <= 900px) {
+  .hero.hero12 > div:first-child {
+    height: 240px;
+  }
+
+  .hero.hero12 > div:nth-child(2) {
+    top: 80%;
+    width: 90vw;
+    max-width: 96vw;
+    min-width: 0;
+    padding: 10px 6vw;
+  }
+
+  .hero.hero12::after {
+    margin-top: 6px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero12 > div:first-child {
+    height: 130px;
+  }
+
+  .hero.hero12 > div:nth-child(2) {
+    top: 86%;
+    width: 98vw;
+    max-width: 99vw;
+    min-width: 0;
+    padding: 7px 2vw;
+  }
+
+  .hero.hero12::after {
+    margin-top: 2px;
+  }
+}
