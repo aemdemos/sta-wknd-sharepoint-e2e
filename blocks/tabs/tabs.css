@@ -269,7 +269,6 @@
   background: var(--background-color);
 }
 
-/* Sidebar: slightly narrower, less top padding for precise alignment */
 .tabs.tabs8 > .tabs-list {
   flex: 0 0 126px;
   min-width: 110px;
@@ -283,7 +282,6 @@
   background: var(--background-color);
 }
 
-/* Vertical tabs: more relaxed gap, but not too wide */
 .tabs.tabs8 > .tabs-list .tabs-tab {
   display: block;
   width: 100%;
@@ -307,7 +305,6 @@
   margin-bottom: 0;
 }
 
-/* Label (p) styling inside sidebar tab */
 .tabs.tabs8 > .tabs-list .tabs-tab p {
   margin: 0;
   padding: 0;
@@ -319,7 +316,6 @@
   line-height: 1.2;
 }
 
-/* Selected sidebar tab: thinner, shorter, closer accent bar above label */
 .tabs.tabs8 > .tabs-list .tabs-tab[aria-selected="true"] {
   color: #222;
   font-weight: 700;
@@ -343,12 +339,10 @@
   background: #eee28b;
 }
 
-/* Hide accent for non-selected tabs */
 .tabs.tabs8 > .tabs-list .tabs-tab:not([aria-selected="true"])::before {
   display: none;
 }
 
-/* Main content: tighter to sidebar, less padding */
 .tabs.tabs8 > .tabs-panel {
   flex: 1 1 0;
   padding: 28px 32px 0 38px;
@@ -360,7 +354,6 @@
   max-width: 900px;
 }
 
-/* Responsive: stack on small screens */
 @media (width <= 900px) {
   .tabs.tabs8 {
     flex-direction: column;
@@ -385,7 +378,6 @@
   }
 }
 
-/* Title: underline thinner, shorter, closer */
 .tabs.tabs8 > .tabs-panel h3 {
   font-size: 27px;
   font-weight: 500;
@@ -404,11 +396,8 @@
   border-radius: 1px;
   margin-top: 4px;
   margin-bottom: 14px;
-
-  /* No content property per constraints */
 }
 
-/* Paragraphs: less vertical margin for compact flow */
 .tabs.tabs8 > .tabs-panel > div > p,
 .tabs.tabs8 > .tabs-panel > div > ul,
 .tabs.tabs8 > .tabs-panel > div > ol {
@@ -423,7 +412,6 @@
   margin-bottom: 13px;
 }
 
-/* Images: nearly full width, minimal gap above/below */
 .tabs.tabs8 > .tabs-panel picture,
 .tabs.tabs8 > .tabs-panel img {
   display: block;
@@ -446,4 +434,211 @@
 
 .tabs.tabs8 > .tabs-panel > div > *:last-child {
   margin-bottom: 0;
+}
+
+
+.tabs.tabs11 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+  gap: 48px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs11 {
+    flex-direction: column;
+    gap: 0;
+    max-width: 100%;
+    margin: 32px 0 0;
+  }
+}
+
+/* Sidebar (tabs-list) */
+.tabs.tabs11 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 110px;
+  max-width: 130px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs11 .tabs-list {
+    flex-direction: row;
+    gap: 0.5ch;
+    min-width: 0;
+    max-width: 100%;
+    border-bottom: 1px solid #dadada;
+    padding: 0 0 10px;
+  }
+}
+
+/* Tabs */
+.tabs.tabs11 .tabs-list button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: #222;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 15px;
+  padding: 6px 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+  min-height: 24px;
+  line-height: 1.2;
+}
+
+.tabs.tabs11 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 6px;
+  cursor: default;
+}
+
+.tabs.tabs11 .tabs-list button p {
+  margin: 0;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs11 .tabs-list button {
+    padding: 10px 14px;
+    font-size: 14px;
+    min-width: 110px;
+    text-align: center;
+    border-radius: 6px 6px 0 0;
+  }
+}
+
+/* Main Content Column (.tabs-panel) */
+.tabs.tabs11 .tabs-panel {
+  flex: 1 1 0;
+  background: var(--background-color);
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs11 .tabs-panel {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* Headings */
+.tabs.tabs11 h3 {
+  font-size: 2em;
+  font-weight: 600;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 2px;
+  line-height: 1.05;
+  position: relative;
+}
+
+.tabs.tabs11 h3::after {
+  display: block;
+  width: 48px;
+  height: 1.5px;
+  background: #f7e37b;
+  margin-top: 2px;
+  border-radius: 2px;
+}
+
+/* Main Heading */
+.tabs.tabs11 h2 {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #222;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.15;
+}
+
+/* Paragraphs and Lists */
+.tabs.tabs11 p,
+.tabs.tabs11 ul,
+.tabs.tabs11 li {
+  font-size: 16px;
+  color: #222;
+  line-height: 1.5;
+}
+
+.tabs.tabs11 p {
+  margin: 12px 0;
+}
+
+.tabs.tabs11 ul {
+  margin: 8px 0 0 22px;
+  padding: 0;
+}
+
+.tabs.tabs11 ul li {
+  list-style: none;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.tabs.tabs11 ul li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #222;
+  font-size: 1em;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
+/* Related trips paragraph */
+.tabs.tabs11 p:last-of-type {
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+/* Images */
+.tabs.tabs11 picture,
+.tabs.tabs11 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 18px 0;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
+}
+
+.tabs.tabs11 img {
+  width: 100%;
+  height: auto;
+}
+
+/* Hide inactive panels */
+.tabs.tabs11 .tabs-panel[aria-hidden='true'] {
+  display: none;
 }
