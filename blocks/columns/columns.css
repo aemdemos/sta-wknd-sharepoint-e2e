@@ -315,7 +315,6 @@
   padding: 0;
 }
 
-/* --- Layout and Columns --- */
 .columns.columns9 > div {
   display: flex;
   flex-direction: row;
@@ -343,7 +342,6 @@
   }
 }
 
-/* Main Content Column */
 .columns.columns9 > div > div:first-child {
   flex: 1 1 0;
   min-width: 0;
@@ -351,7 +349,6 @@
   padding-top: 0;
 }
 
-/* Sidebar Column */
 .columns.columns9 > div > div:last-child {
   min-width: 140px;
   max-width: 170px;
@@ -380,7 +377,6 @@
   }
 }
 
-/* --- Headings and Section Accents --- */
 .columns.columns9 h1 {
   font-size: 2.18em;
   font-weight: bold;
@@ -429,7 +425,6 @@
   font-weight: 600;
 }
 
-/* --- Byline, subtext, and intro --- */
 .columns.columns9 h4 + h3 {
   margin-top: 0.08em;
 }
@@ -447,7 +442,6 @@
   font-style: italic;
 }
 
-/* --- Blockquote Styling --- */
 .columns.columns9 blockquote {
   background: #f5f5f5;
   font-size: 0.95em;
@@ -482,7 +476,6 @@
   margin-bottom: 0.8em;
 }
 
-/* --- Section address/caption styling --- */
 .columns.columns9 p strong em,
 .columns.columns9 p em strong {
   display: block;
@@ -494,7 +487,6 @@
   font-weight: 500;
 }
 
-/* --- Images and captions --- */
 .columns.columns9 picture,
 .columns.columns9 img {
   display: block;
@@ -511,7 +503,6 @@
   font-weight: 500;
 }
 
-/* --- Sidebar styles --- */
 .columns.columns9 > div > div:last-child h5 {
   font-size: 0.82em;
   color: #b8b8b8;
@@ -575,7 +566,6 @@
   margin-bottom: 0.09em;
 }
 
-/* Sidebar button */
 .columns.columns9 > div > div:last-child .button-container {
   margin: 0.11em 0 0.22em;
   width: 100%;
@@ -616,7 +606,6 @@
   }
 }
 
-/* --- Author block styles --- */
 .columns.columns9 h2[id*="stacey"] {
   margin-top: 1em;
   font-size: 0.97em;
@@ -653,10 +642,86 @@
   color: #191919;
 }
 
-/* Remove background and color inheritance from block elements */
 .columns.columns9,
 .columns.columns9 * {
   background: none;
   color: inherit;
   box-sizing: border-box;
+}
+
+
+.columns.columns10 {
+  background: #232221;
+  border-bottom: 2px solid #fff;
+  padding: 32px 0;
+  width: 100%;
+}
+
+.columns.columns10 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns10 {
+    padding: 24px 0;
+  }
+
+  .columns.columns10 > div {
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.columns.columns10 > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-transform: none;
+  text-align: left;
+  max-width: 560px;
+  margin-left: 24px;
+}
+
+@media (width <= 700px) {
+  .columns.columns10 > div > div {
+    max-width: 100%;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+
+.columns.columns10 > div > div p {
+  margin: 0 0 2px;
+  color: #fff;
+  font-weight: 400;
+  text-transform: none;
+  text-align: left;
+}
+
+.columns.columns10 > div > div p:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns10 > div > div a {
+  color: #d1d1d1;
+  text-decoration: underline;
+  transition: color 0.2s;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.columns.columns10 > div > div a:hover {
+  color: #fff;
 }
