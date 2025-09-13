@@ -58,7 +58,6 @@
   grid-template-columns: 1fr;
 }
 
-/* HERO BACKGROUND IMAGE FILL */
 .hero.hero12 > div:first-child {
   grid-row: 1 / 2;
   grid-column: 1 / 2;
@@ -77,20 +76,19 @@
   display: block;
 }
 
-/* WHITE CARD OVERLAY - LOWERED TO ALMOST SIT ON THE ROCK */
 .hero.hero12 > div:nth-child(2) {
   grid-row: 1 / 2;
   grid-column: 1 / 2;
   position: absolute;
   left: 50%;
-  top: 71%; /* Lowered; visually floats just above the rock */
+  top: 71%;
   transform: translateX(-50%);
   width: 48vw;
   max-width: 500px;
   min-width: 220px;
   background: #fff;
   box-sizing: border-box;
-  padding: 14px 24px; /* Tighter vertical padding for compact appearance */
+  padding: 14px 24px;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -99,7 +97,6 @@
   box-shadow: none;
 }
 
-/* HEADLINE IN CARD */
 .hero.hero12 > div:nth-child(2) h2 {
   margin: 0;
   color: #222;
@@ -110,7 +107,6 @@
   letter-spacing: 0;
 }
 
-/* BOTTOM SEPARATOR LINE */
 .hero.hero12::after {
   display: block;
   width: 100vw;
@@ -123,13 +119,11 @@
   grid-column: 1 / 2;
 }
 
-/* HERO FULL WIDTH NO PADDING */
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
-/* RESPONSIVE ADJUSTMENTS */
 @media (width <= 900px) {
   .hero.hero12 > div:first-child {
     height: 240px;
@@ -164,4 +158,111 @@
   .hero.hero12::after {
     margin-top: 2px;
   }
+}
+
+/* Root hero block styles */
+.hero.hero27 {
+  position: relative;
+  width: 100vw;
+  min-height: 320px;
+  display: block;
+  overflow: hidden;
+  background: none;
+}
+
+/* Background image layer */
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero27 picture,
+.hero.hero27 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content overlay - slightly raised above bottom for better balance */
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 2rem;
+  width: 80vw;
+  max-width: 100vw;
+  background: #fff;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: none;
+  top: unset;
+  transform: none;
+}
+
+/* Responsive overlay for mobile screens */
+@media (width <= 800px) {
+  .hero.hero27 > div:last-child {
+    width: 98vw;
+    left: 1vw;
+    padding: 1rem;
+    bottom: 0;
+    top: unset;
+    transform: none;
+  }
+}
+
+/* Headline in overlay */
+.hero.hero27 > div:last-child h2 {
+  color: #222;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+/* Description in overlay */
+.hero.hero27 > div:last-child p:not(.button-container) {
+  color: #222;
+  font-size: var(--body-font-size-m);
+  margin: 0 0 1.2rem;
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* Button override: ensure correct style and alignment */
+.hero.hero27 > div:last-child .button-container {
+  margin: 0;
+}
+
+.hero.hero27 > div:last-child .button-container .button {
+  background: #FFEB3B;
+  color: #222;
+  text-transform: uppercase;
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  margin-top: 0.5rem;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.hero.hero27 > div:last-child .button-container .button:hover,
+.hero.hero27 > div:last-child .button-container .button:focus {
+  background: #ffe000;
 }
