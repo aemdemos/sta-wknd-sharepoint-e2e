@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,40 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion3 summary {
+  position: relative;
+  padding-right: 2.5em; /* Reserve space for the icon */
+}
+
+.accordion.accordion3 summary::before,
+.accordion.accordion3 summary::after {
+  content: "";
+  position: absolute;
+  right: 1.35em;
+  top: 50%;
+  background: #222;
+  border-radius: 1px;
+  pointer-events: none;
+  display: block;
+}
+
+.accordion.accordion3 summary::before {
+  width: 18px;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.accordion.accordion3 summary::after {
+  width: 2px;
+  height: 18px;
+  transform: translateY(-50%);
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+
+.accordion.accordion3 details[open] summary::after {
+  opacity: 0;
 }
