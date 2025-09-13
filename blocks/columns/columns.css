@@ -152,17 +152,12 @@
   }
 }
 
-
-/* Stronger selectors for background and text color */
 .columns, .columns > div, .columns * {
   background: #232323;
   color: #fff;
   box-sizing: border-box;
 }
 
-/* Grid layout for 3 columns, top aligned */
-
-/* Responsive: stack columns vertically */
 @media (width <= 900px) {
   .columns {
     padding: 24px 16px;
@@ -174,7 +169,6 @@
   }
 }
 
-/* --- LOGO COLUMN --- */
 .columns .columns-img-col {
   display: flex;
   align-items: flex-start;
@@ -189,7 +183,6 @@
   filter: brightness(100) invert(1);
 }
 
-/* --- NAVIGATION COLUMN --- */
 .columns > div > div:nth-child(2) {
   display: flex;
   align-items: flex-start;
@@ -199,7 +192,6 @@
   padding: 0;
 }
 
-/* Remove bullets and extra space */
 .columns > div > div:nth-child(2) ul,
 .columns > div > div:nth-child(2) ul ul {
   list-style: none;
@@ -207,7 +199,6 @@
   padding: 0;
 }
 
-/* Hide Home link visually but keep subnav visible */
 .columns > div > div:nth-child(2) > ul > li > a[href*="Home"] {
   position: absolute;
   left: -9999px;
@@ -216,18 +207,15 @@
   overflow: hidden;
 }
 
-/* Subnav: visible, horizontal row */
 .columns > div > div:nth-child(2) > ul > li > ul {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   gap: 32px;
   align-items: flex-start;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap;
 }
 
-/* Nav link style */
 .columns > div > div:nth-child(2) > ul > li > ul > li > a {
   color: #fff;
   font-size: 14px;
@@ -247,7 +235,6 @@
   text-decoration: underline;
 }
 
-/* Responsive nav: stack links vertically */
 @media (width <= 700px) {
   .columns > div > div:nth-child(2) > ul > li > ul {
     flex-direction: column;
@@ -255,7 +242,6 @@
   }
 }
 
-/* --- RIGHT COLUMN (SEARCH/SOCIAL) --- */
 .columns > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -263,7 +249,6 @@
   justify-content: flex-start;
 }
 
-/* Reset button/input (search) and style as text */
 .columns > div > div:last-child p,
 .columns > div > div:last-child button,
 .columns > div > div:last-child input[type="text"],
@@ -288,12 +273,10 @@
   min-height: unset;
 }
 
-/* Remove default button margin */
 .columns > div > div:last-child button {
   margin: 0;
 }
 
-/* Hover/focus for search */
 .columns > div > div:last-child button:hover,
 .columns > div > div:last-child button:focus,
 .columns > div > div:last-child input[type="text"]:focus,
@@ -301,7 +284,6 @@
   color: #3b86ff;
 }
 
-/* Links in columns block */
 .columns a {
   color: #fff;
   text-decoration: none;
@@ -321,9 +303,360 @@
   padding: 0;
 }
 
-/* Hide placeholder bullets in case of nested lists */
 .columns li {
   list-style: none;
 }
 
-/* Make horizontal spacing even if nav gets long */
+
+.columns.columns9 {
+  background: #fff;
+  color: #191919;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* --- Layout and Columns --- */
+.columns.columns9 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 32px 32px;
+  gap: 44px;
+}
+
+@media (width <= 1100px) {
+  .columns.columns9 > div {
+    max-width: 100vw;
+    padding: 0 12px 20px;
+    gap: 28px;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns9 > div {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 2vw 14px;
+    max-width: 100%;
+  }
+}
+
+/* Main Content Column */
+.columns.columns9 > div > div:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 85%;
+  padding-top: 0;
+}
+
+/* Sidebar Column */
+.columns.columns9 > div > div:last-child {
+  min-width: 140px;
+  max-width: 170px;
+  flex: 0 0 170px;
+  padding-left: 0;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+  margin-top: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns9 > div > div:first-child,
+  .columns.columns9 > div > div:last-child {
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    margin-left: 0;
+    align-items: flex-start;
+  }
+
+  .columns.columns9 > div > div:last-child {
+    margin-top: 24px;
+  }
+}
+
+/* --- Headings and Section Accents --- */
+.columns.columns9 h1 {
+  font-size: 2.18em;
+  font-weight: bold;
+  color: #191919;
+  margin-top: 0.7em;
+  margin-bottom: 0.08em;
+  letter-spacing: -0.01em;
+}
+
+.columns.columns9 h2 {
+  font-size: 1.13em;
+  font-weight: 700;
+  color: #191919;
+  margin-top: 1.12em;
+  margin-bottom: 0.02em;
+  position: relative;
+  padding-bottom: 0.1em;
+}
+
+.columns.columns9 h2::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #F5D46D;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.columns.columns9 h3 {
+  font-size: 1.05em;
+  font-weight: bold;
+  color: #191919;
+  margin-top: 0.88em;
+  margin-bottom: 0.05em;
+}
+
+.columns.columns9 h4,
+.columns.columns9 h5 {
+  font-size: 0.89em;
+  color: #b2b2b2;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.07em;
+  margin-top: 0.10em;
+  font-weight: 600;
+}
+
+/* --- Byline, subtext, and intro --- */
+.columns.columns9 h4 + h3 {
+  margin-top: 0.08em;
+}
+
+.columns.columns9 p {
+  color: #191919;
+  font-size: 0.97em;
+  line-height: 1.45;
+  margin-bottom: 0.35em;
+  margin-top: 0.05em;
+}
+
+.columns.columns9 p strong,
+.columns.columns9 p em {
+  font-style: italic;
+}
+
+/* --- Blockquote Styling --- */
+.columns.columns9 blockquote {
+  background: #f5f5f5;
+  font-size: 0.95em;
+  font-style: italic;
+  padding: 0.7em 1em 0.7em 1.1em;
+  margin: 1.2em 0;
+  border-left: 2px solid #F5D46D;
+  color: #222;
+  border-radius: 2px;
+  max-width: 98%;
+}
+
+@media (width <= 900px) {
+  .columns.columns9 blockquote {
+    max-width: 100%;
+    padding: 0.6em 0.5em 0.6em 0.7em;
+  }
+}
+
+.columns.columns9 blockquote p {
+  color: #222;
+  margin: 0;
+}
+
+.columns.columns9 blockquote + p,
+.columns.columns9 blockquote + p u,
+.columns.columns9 blockquote + p u em {
+  color: #888;
+  font-style: italic;
+  font-size: 0.96em;
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+/* --- Section address/caption styling --- */
+.columns.columns9 p strong em,
+.columns.columns9 p em strong {
+  display: block;
+  font-size: 0.93em;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 0.36em;
+  margin-top: -0.12em;
+  font-weight: 500;
+}
+
+/* --- Images and captions --- */
+.columns.columns9 picture,
+.columns.columns9 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.8em;
+  margin-bottom: 0.06em;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.columns.columns9 p strong em {
+  font-weight: 500;
+}
+
+/* --- Sidebar styles --- */
+.columns.columns9 > div > div:last-child h5 {
+  font-size: 0.82em;
+  color: #b8b8b8;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.11em;
+  font-weight: 700;
+  text-align: right;
+}
+
+.columns.columns9 > div > div:last-child h3 {
+  font-size: 0.89em;
+  color: #191919;
+  margin: 0 0 0.09em;
+  font-weight: 700;
+  text-align: right;
+}
+
+.columns.columns9 > div > div:last-child p {
+  color: #b8b8b8;
+  font-size: 0.90em;
+  margin-bottom: 0.11em;
+  margin-top: 0.10em;
+  text-align: right;
+}
+
+.columns.columns9 > div > div:last-child ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.18em 0 0.09em;
+  width: 100%;
+}
+
+.columns.columns9 > div > div:last-child ul li {
+  color: #8a8a8a;
+  font-size: 0.87em;
+  margin-bottom: 0.03em;
+  padding: 0.09em 0 0.04em;
+  border-bottom: 1px solid #eee;
+}
+
+.columns.columns9 > div > div:last-child ul li:last-child {
+  border-bottom: none;
+}
+
+.columns.columns9 > div > div:last-child ul li a {
+  color: #191919;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.91em;
+  display: block;
+  margin-bottom: 0.01em;
+}
+
+.columns.columns9 > div > div:last-child ul li a:hover {
+  color: #F5D46D;
+  text-decoration: underline;
+}
+
+.columns.columns9 > div > div:last-child ul li:not(:last-child) {
+  margin-bottom: 0.09em;
+}
+
+/* Sidebar button */
+.columns.columns9 > div > div:last-child .button-container {
+  margin: 0.11em 0 0.22em;
+  width: 100%;
+  text-align: right;
+}
+
+.columns.columns9 > div > div:last-child .button {
+  background: #191919;
+  color: #fff;
+  border-radius: 2em;
+  padding: 0.16em 0.65em;
+  font-size: 0.89em;
+  font-weight: 700;
+  border: none;
+  transition: background 0.10s;
+  display: inline-block;
+  margin: 0;
+  min-width: 70px;
+  text-align: center;
+}
+
+.columns.columns9 > div > div:last-child .button:hover,
+.columns.columns9 > div > div:last-child .button:focus {
+  background: #F5D46D;
+  color: #191919;
+}
+
+@media (width <= 900px) {
+  .columns.columns9 > div > div:last-child .button-container,
+  .columns.columns9 > div > div:last-child h5,
+  .columns.columns9 > div > div:last-child h3,
+  .columns.columns9 > div > div:last-child p {
+    text-align: left;
+  }
+
+  .columns.columns9 > div > div:last-child .button-container {
+    margin-top: 0.7em;
+  }
+}
+
+/* --- Author block styles --- */
+.columns.columns9 h2[id*="stacey"] {
+  margin-top: 1em;
+  font-size: 0.97em;
+  font-weight: bold;
+  color: #191919;
+  margin-bottom: 0.05em;
+}
+
+.columns.columns9 p.button-container {
+  display: inline-block;
+  margin-right: 0.12em;
+  margin-bottom: 0.03em;
+}
+
+.columns.columns9 .button-container .button {
+  background: #191919;
+  color: #fff;
+  border-radius: 2em;
+  font-size: 0.88em;
+  padding: 0.09em 0.7em;
+  margin-right: 0.06em;
+  margin-bottom: 0.03em;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.09s;
+  display: inline-block;
+  min-width: 44px;
+  min-height: 0;
+}
+
+.columns.columns9 .button-container .button:hover,
+.columns.columns9 .button-container .button:focus {
+  background: #F5D46D;
+  color: #191919;
+}
+
+/* Remove background and color inheritance from block elements */
+.columns.columns9,
+.columns.columns9 * {
+  background: none;
+  color: inherit;
+  box-sizing: border-box;
+}
