@@ -68,7 +68,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs Row: left-aligned, slightly more padding for pill look, slightly increased gap */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -85,7 +84,6 @@
   box-sizing: border-box;
 }
 
-/* Tab Buttons: more prominent pill style */
 .tabs.tabs7 .tabs-list button {
   background: transparent;
   border: none;
@@ -107,20 +105,17 @@
   line-height: 1.35;
 }
 
-/* Selected Tab Styling */
 .tabs.tabs7 .tabs-list button[aria-selected='true'] {
   background: #222;
   color: #fff;
   font-weight: 700;
 }
 
-/* Remove default margin from tab label paragraph */
 .tabs.tabs7 .tabs-list button p {
   margin: 0;
   padding: 0;
 }
 
-/* Tabs Panel */
 .tabs.tabs7 .tabs-panel {
   border: none;
   background: none;
@@ -132,12 +127,10 @@
   box-sizing: border-box;
 }
 
-/* Hide inactive panels */
 .tabs.tabs7 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* h3: "Cycling Tuscany" with bold yellow underline */
 .tabs.tabs7 .tabs-panel h3 {
   font-size: 30px;
   font-weight: 400;
@@ -162,7 +155,6 @@
   line-height: 1.14;
 }
 
-/* Image/Picture: left aligned, constrained width, breathing space above/below */
 .tabs.tabs7 .tabs-panel picture {
   display: block;
   margin-top: 6px;
@@ -183,7 +175,6 @@
   object-fit: cover;
 }
 
-/* Paragraph: clean spacing, readability */
 .tabs.tabs7 .tabs-panel p {
   color: #222;
   font-size: 16px;
@@ -194,7 +185,6 @@
   width: 100%;
 }
 
-/* Responsive adjustments */
 @media (width <= 1100px) {
   .tabs.tabs7 {
     max-width: 100%;
@@ -263,4 +253,197 @@
     font-size: 11px;
     margin-bottom: 4px;
   }
+}
+
+
+.tabs.tabs8 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: none;
+  border: none;
+  padding-top: 0;
+  background: var(--background-color);
+}
+
+/* Sidebar: slightly narrower, less top padding for precise alignment */
+.tabs.tabs8 > .tabs-list {
+  flex: 0 0 126px;
+  min-width: 110px;
+  max-width: 140px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 28px 0 0 16px;
+  border-right: 1px solid #eee;
+  margin: 0;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+/* Vertical tabs: more relaxed gap, but not too wide */
+.tabs.tabs8 > .tabs-list .tabs-tab {
+  display: block;
+  width: 100%;
+  margin: 0 0 14px;
+  border: none;
+  background: none;
+  color: #222;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: left;
+  padding: 0 0 5px;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.tabs.tabs8 > .tabs-list .tabs-tab:last-child {
+  margin-bottom: 0;
+}
+
+/* Label (p) styling inside sidebar tab */
+.tabs.tabs8 > .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  color: #ababab;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Selected sidebar tab: thinner, shorter, closer accent bar above label */
+.tabs.tabs8 > .tabs-list .tabs-tab[aria-selected="true"] {
+  color: #222;
+  font-weight: 700;
+  padding-top: 8px;
+}
+
+.tabs.tabs8 > .tabs-list .tabs-tab[aria-selected="true"] p {
+  color: #222;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.tabs.tabs8 > .tabs-list .tabs-tab[aria-selected="true"]::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  border-radius: 1px;
+  background: #eee28b;
+}
+
+/* Hide accent for non-selected tabs */
+.tabs.tabs8 > .tabs-list .tabs-tab:not([aria-selected="true"])::before {
+  display: none;
+}
+
+/* Main content: tighter to sidebar, less padding */
+.tabs.tabs8 > .tabs-panel {
+  flex: 1 1 0;
+  padding: 28px 32px 0 38px;
+  box-sizing: border-box;
+  border: none;
+  background: var(--background-color);
+  min-width: 0;
+  margin: 0;
+  max-width: 900px;
+}
+
+/* Responsive: stack on small screens */
+@media (width <= 900px) {
+  .tabs.tabs8 {
+    flex-direction: column;
+    max-width: 100vw;
+    padding-top: 0;
+  }
+
+  .tabs.tabs8 > .tabs-list {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: unset;
+    min-width: unset;
+    padding: 16px 0 0;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+  }
+
+  .tabs.tabs8 > .tabs-panel {
+    padding: 22px 0 8px;
+    max-width: 100vw;
+  }
+}
+
+/* Title: underline thinner, shorter, closer */
+.tabs.tabs8 > .tabs-panel h3 {
+  font-size: 27px;
+  font-weight: 500;
+  color: #222;
+  margin: 0 0 6px;
+  padding: 0;
+  line-height: 1.1;
+  position: relative;
+}
+
+.tabs.tabs8 > .tabs-panel h3::after {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: #eee28b;
+  border-radius: 1px;
+  margin-top: 4px;
+  margin-bottom: 14px;
+
+  /* No content property per constraints */
+}
+
+/* Paragraphs: less vertical margin for compact flow */
+.tabs.tabs8 > .tabs-panel > div > p,
+.tabs.tabs8 > .tabs-panel > div > ul,
+.tabs.tabs8 > .tabs-panel > div > ol {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.tabs.tabs8 > .tabs-panel > div > p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 13px;
+}
+
+/* Images: nearly full width, minimal gap above/below */
+.tabs.tabs8 > .tabs-panel picture,
+.tabs.tabs8 > .tabs-panel img {
+  display: block;
+  margin: 0 auto;
+  max-width: 99%;
+  width: 99%;
+  min-width: 320px;
+  height: auto;
+  border-radius: 0;
+}
+
+.tabs.tabs8 > .tabs-panel p:has(picture) {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.tabs.tabs8 > .tabs-panel p + p:has(picture) {
+  margin-top: 2px;
+}
+
+.tabs.tabs8 > .tabs-panel > div > *:last-child {
+  margin-bottom: 0;
 }
