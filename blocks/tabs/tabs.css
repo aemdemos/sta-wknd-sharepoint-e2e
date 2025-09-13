@@ -2127,7 +2127,6 @@
   align-items: flex-start;
 }
 
-/* TAB BAR: Left-aligned, visually integrated with heading */
 .tabs.tabs34 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2144,7 +2143,6 @@
   border: none;
 }
 
-/* Tab Buttons: pill style, uppercase, compact */
 .tabs.tabs34 .tabs-list button {
   border: none;
   background: transparent;
@@ -2179,7 +2177,6 @@
   padding: 0;
 }
 
-/* TAB PANEL: Left-align, remove excess spacing */
 .tabs.tabs34 .tabs-panel {
   width: 100%;
   max-width: 760px;
@@ -2194,7 +2191,6 @@
   align-items: flex-start;
 }
 
-/* HEADINGS: Tighten vertical spacing, add accent under h3 */
 .tabs.tabs34 .tabs-panel h3 {
   font-weight: 400;
   font-size: 2.15rem;
@@ -2217,7 +2213,6 @@
   content: "";
 }
 
-/* Subtitle (h2): More prominent, even tighter vertical spacing */
 .tabs.tabs34 .tabs-panel h2 {
   font-weight: 700;
   font-size: 1.35rem;
@@ -2227,7 +2222,6 @@
   line-height: 1.18;
 }
 
-/* IMAGE: Wide, minimal vertical spacing */
 .tabs.tabs34 .tabs-panel picture,
 .tabs.tabs34 .tabs-panel img {
   display: block;
@@ -2241,7 +2235,6 @@
   box-shadow: none;
 }
 
-/* PARAGRAPH: Left-aligned, compact vertical spacing */
 .tabs.tabs34 .tabs-panel p {
   font-size: 1rem;
   color: #222;
@@ -2251,12 +2244,10 @@
   text-align: left;
 }
 
-/* Hide inactive panels */
 .tabs.tabs34 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Responsive adjustments */
 @media (width <= 600px) {
   .tabs.tabs34 {
     padding: 8vw 0 6vw;
@@ -2295,4 +2286,134 @@
     margin-top: 4px;
     margin-bottom: 4px;
   }
+}
+
+
+.tabs.tabs36 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 32px 40px 64px; /* ample left gutter, balanced right */
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+/* Tabs row at top */
+.tabs.tabs36 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  font-size: 15px;
+  margin-bottom: 32px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+.tabs.tabs36 .tabs-list button {
+  border: none;
+  background: none;
+  padding: 10px 28px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #222;
+  font-weight: 500;
+  letter-spacing: .015em;
+  transition: background 0.2s;
+  box-shadow: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+.tabs.tabs36 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs36 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove border around tab panel */
+.tabs.tabs36 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  background: var(--background-color);
+  padding: 0;
+  margin-top: 0;
+}
+
+/* Stack main content vertically */
+.tabs.tabs36 .tabs-panel[aria-hidden='false'] > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+/* Heading styling & yellow accent line */
+.tabs.tabs36 .tabs-panel h3 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 14px;
+  position: relative;
+  padding-bottom: 8px;
+  background-image: linear-gradient(90deg, #ffd700 0 40px, transparent 40px);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 40px 3px;
+}
+
+/* Description paragraph: readable width and left alignment */
+.tabs.tabs36 .tabs-panel[aria-hidden='false'] > div > p {
+  font-size: var(--body-font-size-m);
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 22px;
+  max-width: 700px;
+  width: 100%;
+  text-align: left;
+}
+
+/* Image: align left, match text width, strong visual impact */
+.tabs.tabs36 .tabs-panel[aria-hidden='false'] img {
+  display: block;
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+  margin: 0;
+  margin-left: 0;
+}
+
+/* Responsive adjustments for mobile/tablet screens */
+@media (width <= 900px) {
+  .tabs.tabs36 {
+    max-width: 100vw;
+    padding: 16px 4vw;
+  }
+
+  .tabs.tabs36 .tabs-panel[aria-hidden='false'] > div > p {
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .tabs.tabs36 .tabs-panel[aria-hidden='false'] img {
+    max-width: 100vw;
+    width: 100vw;
+  }
+}
+
+/* Remove extra bottom margin from last child */
+.tabs.tabs36 .tabs-panel[aria-hidden='false'] > div > *:last-child {
+  margin-bottom: 0;
 }
