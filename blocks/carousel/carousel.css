@@ -204,7 +204,6 @@
   display: none;
 }
 
-/* --- Controls (navigation & indicators) --- */
 .carousel.carousel15 .carousel-navigation-buttons {
   position: absolute;
   bottom: -38px;
@@ -275,7 +274,6 @@
   margin-right: 2px;
 }
 
-/* --- Indicators --- */
 .carousel.carousel15 .carousel-slide-indicators {
   position: absolute;
   left: 0;
@@ -317,8 +315,6 @@
   background: #444;
 }
 
-/* Ensure indicators don't overlap navigation buttons */
-
 @media (width <= 700px) {
   .carousel.carousel15,
   .carousel.carousel15 .carousel-slides-container,
@@ -340,5 +336,161 @@
   .carousel.carousel15 .carousel-slide-indicators {
     bottom: -30px;
     right: 10px;
+  }
+}
+
+
+.carousel.carousel18 {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  position: relative;
+}
+
+.carousel.carousel18 .carousel-slides-container {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  background: transparent;
+  min-height: 0;
+}
+
+.carousel.carousel18 .carousel-slides {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  height: auto;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.carousel.carousel18 .carousel-slide {
+  min-height: unset;
+  height: 540px;
+  max-height: 560px;
+  display: flex;
+  align-items: stretch;
+}
+
+.carousel.carousel18 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel18 .carousel-slide .carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 0;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons {
+  margin-top: 28px;
+  margin-bottom: 0;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+  position: static;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.17s;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button:hover,
+.carousel.carousel18 .carousel-navigation-buttons button:focus-visible {
+  background: #f0f0f0;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button:disabled,
+.carousel.carousel18 .carousel-navigation-buttons button[disabled] {
+  opacity: 0.33;
+  background: none;
+  cursor: default;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons .slide-prev::after,
+.carousel.carousel18 .carousel-navigation-buttons .slide-next::after {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+  border: none;
+  position: static;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons .slide-prev::after {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='none' stroke='%23000' stroke-width='2.2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M15 6l-6 6 6 6'/></svg>");
+}
+
+.carousel.carousel18 .carousel-navigation-buttons .slide-next::after {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='none' stroke='%23000' stroke-width='2.2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M9 6l6 6-6 6'/></svg>");
+}
+
+.carousel.carousel18 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  z-index: 2;
+  width: 100%;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  background: #222;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button:disabled {
+  background: #000;
+}
+
+@media (width <= 900px) {
+  .carousel.carousel18 .carousel-slide {
+    height: 340px;
+    max-height: 360px;
+  }
+
+  .carousel.carousel18 .carousel-navigation-buttons {
+    margin-top: 14px;
+    padding: 0 10px;
+  }
+
+  .carousel.carousel18 .carousel-slide-indicators {
+    bottom: 10px;
   }
 }
