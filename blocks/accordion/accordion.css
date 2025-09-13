@@ -63,7 +63,7 @@
 
 .accordion.accordion3 summary {
   position: relative;
-  padding-right: 2.5em; /* Reserve space for the icon */
+  padding-right: 2.5em;
 }
 
 .accordion.accordion3 summary::before,
@@ -94,4 +94,149 @@
 
 .accordion.accordion3 details[open] summary::after {
   opacity: 0;
+}
+
+
+.accordion.accordion29 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 64px;
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 48px 32px;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* Make both columns fill the grid cell horizontally */
+.accordion.accordion29 > details {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main column: first details */
+.accordion.accordion29 > details:first-of-type {
+  grid-column: 1;
+  align-self: flex-start;
+  padding-right: 32px;
+
+  /* Ensures main column content doesn't hug left edge */
+}
+
+/* Sidebar column: all subsequent details */
+.accordion.accordion29 > details:not(:first-of-type) {
+  grid-column: 2;
+  align-self: flex-start;
+  padding-left: 16px;
+  margin-bottom: 18px;
+
+  /* Ensures sidebar items stack and have breathing room */
+}
+
+/* Remove margin for last sidebar item */
+.accordion.accordion29 > details:not(:first-of-type):last-child {
+  margin-bottom: 0;
+}
+
+/* Main heading styles */
+.accordion.accordion29 > details:first-of-type h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 28px;
+  line-height: 1.2;
+}
+
+/* Sidebar heading styles */
+.accordion.accordion29 > details:not(:first-of-type) h2 {
+  font-size: 1.1rem;
+  color: #BDBDBD;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  overflow-wrap: anywhere; /* Modern property to achieve breaking of words */
+}
+
+/* Remove default summary box styling */
+.accordion.accordion29 > details > summary {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* De-emphasize sidebar chevrons */
+.accordion.accordion29 > details:not(:first-of-type) > summary::after {
+  opacity: 0.18;
+}
+
+/* Main content body */
+.accordion.accordion29 > details:first-of-type .accordion-item-body p {
+  font-size: 1.125rem;
+  color: #222;
+  margin: 0 0 24px;
+  line-height: 1.7;
+}
+
+/* Sidebar content body */
+.accordion.accordion29 > details:not(:first-of-type) .accordion-item-body {
+  font-size: 0.97rem;
+  color: #BDBDBD;
+}
+
+.accordion.accordion29 > details:not(:first-of-type) .accordion-item-body p {
+  margin: 0 0 10px;
+}
+
+/* Images and picture blocks (main content only) */
+.accordion.accordion29 > details:first-of-type .accordion-item-body picture,
+.accordion.accordion29 > details:first-of-type .accordion-item-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 24px 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+/* Blockquotes (pull quotes) in main */
+.accordion.accordion29 > details:first-of-type .accordion-item-body blockquote {
+  background: #f5f5f5;
+  color: #333;
+  font-size: 1.25rem;
+  font-style: italic;
+  border-left: 4px solid #e0e0e0;
+  margin: 32px 0;
+  padding: 24px 32px;
+  border-radius: 4px;
+}
+
+.accordion.accordion29 > details:first-of-type .accordion-item-body blockquote p {
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion29 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 16px 8px;
+    max-width: 100%;
+  }
+
+  .accordion.accordion29 > details:first-of-type {
+    padding-right: 0;
+  }
+
+  .accordion.accordion29 > details:not(:first-of-type) {
+    padding-left: 0;
+    max-width: 100%;
+  }
 }
