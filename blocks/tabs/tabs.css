@@ -1902,3 +1902,224 @@
   line-height: 1.7;
   width: 100%;
 }
+
+
+.tabs.tabs33 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Sidebar: vertical tab navigation, flush alignment, open spacing */
+.tabs.tabs33 > div:first-child {
+  flex: 0 0 220px;
+  width: 220px;
+  min-width: 170px;
+  max-width: 260px;
+  box-sizing: border-box;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.tabs.tabs33 > div:first-child .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+  margin: 40px 0 0;
+  padding: 0;
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+.tabs.tabs33 > div:first-child .tabs-list button {
+  border: none;
+  background: none;
+  color: #888;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin: 0;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  line-height: 2.2;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Selected tab: visually subtle highlight */
+.tabs.tabs33 > div:first-child .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 600;
+  padding-left: 8px;
+}
+
+.tabs.tabs33 > div:first-child .tabs-list button:not([aria-selected="true"]) {
+  background: none;
+  color: #888;
+}
+
+.tabs.tabs33 > div:first-child .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main content area (second child): single wide column, only active panel visible */
+.tabs.tabs33 > .block {
+  flex: 1 1 0%;
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Only show the active tab panel */
+.tabs.tabs33 .tabs-panel {
+  display: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+  overflow: visible;
+  background: none;
+  width: 100%;
+}
+
+.tabs.tabs33 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Headings and accent bar styling */
+.tabs.tabs33 h3 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 0;
+  color: var(--text-color);
+  line-height: 1.18;
+  position: relative;
+  letter-spacing: 0.01em;
+  padding-bottom: 22px;
+  border-bottom: 4px solid #F5DC7D;
+  width: fit-content;
+}
+
+/* Sub-heading styling */
+.tabs.tabs33 h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 36px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  line-height: 1.24;
+  letter-spacing: 0.01em;
+}
+
+.tabs.tabs33 p {
+  font-size: 16px;
+  margin-top: 28px;
+  margin-bottom: 0;
+  color: var(--text-color);
+  line-height: 1.7;
+  max-width: 100%;
+}
+
+.tabs.tabs33 picture,
+.tabs.tabs33 img {
+  display: block;
+  margin: 32px 0;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border: none;
+}
+
+/* List styling for consistency */
+.tabs.tabs33 ul {
+  margin: 0 0 0 24px;
+  padding: 0;
+}
+
+.tabs.tabs33 li {
+  font-size: 16px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+/* Ensure all content is left-aligned and consistent */
+.tabs.tabs33 > .block,
+.tabs.tabs33 .tabs-panel,
+.tabs.tabs33 .tabs-list,
+.tabs.tabs33 .tabs-panel > div {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: sidebar and main stack on small screens, better vertical spacing */
+@media (width <= 900px) {
+  .tabs.tabs33 {
+    flex-direction: column;
+    gap: 0;
+    margin: 24px 0 0;
+    max-width: 100%;
+  }
+
+  .tabs.tabs33 > div:first-child {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin-bottom: 36px;
+    align-items: flex-start;
+  }
+
+  .tabs.tabs33 .tabs-list {
+    margin-top: 18px;
+    margin-bottom: 14px;
+    gap: 14px;
+  }
+
+  .tabs.tabs33 h3 {
+    font-size: 22px;
+    margin-bottom: 2px;
+    padding-bottom: 8px;
+    border-bottom-width: 3px;
+  }
+
+  .tabs.tabs33 h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs33 p,
+  .tabs.tabs33 li {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .tabs.tabs33 picture,
+  .tabs.tabs33 img {
+    margin: 10px 0 16px;
+  }
+}
