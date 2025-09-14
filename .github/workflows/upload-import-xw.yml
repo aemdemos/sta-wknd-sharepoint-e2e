@@ -256,6 +256,7 @@ jobs:
           is_preview: 'true'
 
       - name: '[Check] Replicate content to AEM Preview'
+        continue-on-error: true
         if: ${{ steps.replicate-preview-step.outputs.error_message != '' }}
         uses: ./.github/actions/sta-status
         with:
@@ -270,7 +271,7 @@ jobs:
         with:
           callback_urls: ${{ github.event.inputs.aemy_callback_urls }}
           context: ${{ github.event.inputs.aemy_context }}
-          message: Content replicated to preview successfully. Now replicating content to AEM Publish... (Step 7 of ${{ env.total_steps }}). ${{ env.ACTION_URL }}
+          message: Preview step completed (with or without errors). Now replicating content to AEM Publish... (Step 7 of ${{ env.total_steps }}). ${{ env.ACTION_URL }}
           status_type: progress
           agent_name: upload-import-xw
 
