@@ -327,7 +327,6 @@
   display: block;
 }
 
-/* Card body spacing for alignment */
 .cards.cards21 .cards-card-body {
   padding: 12px 12px 0;
   margin: 0;
@@ -337,7 +336,6 @@
   justify-content: flex-start;
 }
 
-/* Title styling */
 .cards.cards21 .cards-card-body h3 {
   margin: 0 0 8px;
   font-size: 1rem;
@@ -351,7 +349,6 @@
   text-overflow: unset;
 }
 
-/* Description styling */
 .cards.cards21 .cards-card-body p {
   margin: 0;
   font-size: .97rem;
@@ -362,4 +359,117 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+
+.cards.cards26 {
+  padding: 0;
+  margin: 0;
+}
+
+/* Flex row for horizontal layout, tuned gap for original spacing */
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Card: width and stacking tuned to match original proportions */
+.cards.cards26 > ul > li {
+  flex: 0 0 auto;
+  width: 126px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: none;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+}
+
+/* Image: square and compact, margin below tuned to original */
+.cards.cards26 .cards-card-image {
+  width: 126px;
+  height: 126px;
+  margin: 0 0 4px;
+  padding: 0;
+  overflow: hidden;
+  background: #eee;
+  display: block;
+}
+
+/* Image fills the square area */
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body: stacking and sizing tuned, no extra margin/padding */
+.cards.cards26 .cards-card-body {
+  padding: 0;
+  margin: 0;
+  width: 126px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Title: bold, compact, flush below image, tighter margin */
+.cards.cards26 .cards-card-body h3 {
+  margin: 0 0 1px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000;
+  line-height: 1.2;
+  text-align: left;
+  letter-spacing: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Description: small, gray, single line, minimal spacing below title */
+.cards.cards26 .cards-card-body p:not(.button-container) {
+  margin: 0;
+  font-size: 11px;
+  color: #888;
+  line-height: 1.3;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Hide the button for original look */
+.cards.cards26 .cards-card-body .button-container {
+  display: none;
+}
+
+/* Responsive: stack vertically and make cards full width on small screens */
+@media (width <= 500px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .cards.cards26 > ul > li,
+  .cards.cards26 .cards-card-image,
+  .cards.cards26 .cards-card-body {
+    width: 100vw;
+    min-width: 0;
+    max-width: 100%;
+  }
 }
