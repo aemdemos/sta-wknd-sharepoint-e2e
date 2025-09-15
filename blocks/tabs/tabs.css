@@ -438,7 +438,6 @@
   padding: 0;
 }
 
-/* Responsive: single column on mobile */
 @media (width <= 900px) {
   .tabs.tabs11 {
     grid-template-columns: 1fr;
@@ -448,19 +447,16 @@
   }
 }
 
-/* Only the first child (sidebar/empty or info if present) in column 1 */
 .tabs.tabs11 > *:first-child {
   grid-column: 1;
   grid-row: 1 / span 2;
 }
 
-/* All following siblings (tabs list, main content) to main column */
 .tabs.tabs11 > *:nth-child(n+2) {
   grid-column: 2;
   width: 100%;
 }
 
-/* On mobile, everything stacks */
 @media (width <= 900px) {
   .tabs.tabs11 > *:first-child,
   .tabs.tabs11 > *:nth-child(n+2) {
@@ -469,7 +465,6 @@
   }
 }
 
-/* Tabs horizontally aligned at top of main column */
 .tabs.tabs11 > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -483,7 +478,6 @@
   width: 100%;
 }
 
-/* Tabs horizontally aligned also on mobile, wrapping if needed */
 @media (width <= 900px) {
   .tabs.tabs11 > .tabs-list {
     padding-bottom: 24px;
@@ -493,7 +487,6 @@
   }
 }
 
-/* Tabs button styling */
 .tabs.tabs11 > .tabs-list .tabs-tab {
   background: transparent;
   border: none;
@@ -517,7 +510,6 @@
   font-weight: 600;
 }
 
-/* Main content: column layout for tabs, title, image, text */
 .tabs.tabs11 > .block {
   display: flex;
   flex-direction: column;
@@ -528,7 +520,6 @@
   width: 100%;
 }
 
-/* Title styling, left-aligned, yellow underline */
 .tabs.tabs11 h3 {
   margin-top: 0;
   margin-bottom: 24px;
@@ -542,14 +533,12 @@
   padding-bottom: 6px;
 }
 
-/* Remove border underline for later h3s (e.g. inside panels) */
 .tabs.tabs11 .tabs-panel h3 {
   border-bottom: none;
   padding-bottom: 0;
   margin-bottom: 16px;
 }
 
-/* Main image styling */
 .tabs.tabs11 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -561,7 +550,6 @@
   background: none;
 }
 
-/* Remove panel borders and paddings */
 .tabs.tabs11 .tabs-panel {
   border: none;
   padding: 0;
@@ -571,7 +559,6 @@
   overflow: visible;
 }
 
-/* Main panel text styling, left-aligned, airy */
 .tabs.tabs11 .tabs-panel > div > p,
 .tabs.tabs11 .tabs-panel > div > ul,
 .tabs.tabs11 .tabs-panel > div > ol {
@@ -583,9 +570,6 @@
   text-align: left;
 }
 
-/* Remove grid gap/padding for tight layout */
-
-/* Mobile: full width for image and text */
 @media (width <= 900px) {
   .tabs.tabs11 .tabs-panel > div > p,
   .tabs.tabs11 .tabs-panel > div > ul,
@@ -595,7 +579,179 @@
   }
 }
 
-/* Remove extra margin from last paragraph */
 .tabs.tabs11 .tabs-panel > div > p:last-child {
   margin-bottom: 0;
+}
+
+
+.tabs.tabs12 {
+  /* Slightly wider, more open layout for large screens */
+  display: block;
+  max-width: 980px;
+  margin: 48px auto 0;
+  padding: 0 28px 48px;
+  background: var(--background-color);
+  box-sizing: border-box;
+  border: none;
+}
+
+@media (width <= 700px) {
+  .tabs.tabs12 {
+    padding: 0 10px 32px;
+    max-width: 100vw;
+  }
+}
+
+/* Tabs horizontal, left-aligned, even less space below */
+.tabs.tabs12 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  margin-bottom: 12px;
+  background: none;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tabs.tabs12 .tabs-list button {
+  background: none;
+  border: none;
+  border-radius: 3px;
+  color: var(--dark-color);
+  padding: 13px 32px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+  margin: 0;
+  min-width: 112px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs12 .tabs-list button[aria-selected='true'] {
+  background: #212121;
+  color: #fff;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.tabs.tabs12 .tabs-list button:not([aria-selected='true']):hover {
+  background: #ececec;
+  color: #131313;
+}
+
+.tabs.tabs12 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel appearance and strong left alignment */
+.tabs.tabs12 .tabs-panel {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+  text-align: left;
+}
+
+/* Heading styling: underline, left aligned, fine-tuned underline size/position */
+.tabs.tabs12 .tabs-panel h3 {
+  margin-top: 0;
+  margin-bottom: 13px;
+  font-size: 2.25rem;
+  font-weight: 600;
+  position: relative;
+  color: #1a1a1a;
+  text-align: left;
+  padding-left: 0;
+}
+
+.tabs.tabs12 .tabs-panel h3::after {
+  display: block;
+  content: '';
+  margin-top: 5px;
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: #ffe066;
+}
+
+@media (width <= 700px) {
+  .tabs.tabs12 .tabs-panel h3::after {
+    width: 34px;
+    height: 3px;
+  }
+}
+
+/* Image styling - left aligned and flush with other content */
+.tabs.tabs12 .tabs-panel picture,
+.tabs.tabs12 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 0;
+  text-align: left;
+}
+
+.tabs.tabs12 .tabs-panel picture {
+  margin-bottom: 0;
+}
+
+/* Caption styling - left aligned, slightly more space below */
+.tabs.tabs12 .tabs-panel > div > p:first-of-type {
+  font-size: 1.01rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #222;
+  margin-bottom: 22px;
+  margin-top: 0;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Body text - left aligned */
+.tabs.tabs12 .tabs-panel p {
+  color: #222;
+  margin-bottom: 1.2em;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Remove sidebar or vertical column layout from any previous attempts */
+.tabs.tabs12 > :first-child {
+  background: none;
+  border: none;
+  min-width: unset;
+  min-height: unset;
+  padding: 0;
+}
+
+/* Add space below image for content separation */
+.tabs.tabs12 .tabs-panel p + p {
+  margin-top: 0.6em;
+}
+
+/* Prevent any inherited center alignment */
+.tabs.tabs12,
+.tabs.tabs12 .tabs-panel,
+.tabs.tabs12 .tabs-panel > div,
+.tabs.tabs12 .tabs-list {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
 }
