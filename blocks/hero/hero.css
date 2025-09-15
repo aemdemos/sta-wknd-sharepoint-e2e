@@ -156,3 +156,137 @@
     font-size: 17px;
   }
 }
+
+
+.hero.hero27 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 540px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+/* Left image column fills hero area */
+.hero.hero27 > div:first-child {
+  flex: 1 1 62%;
+  order: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.hero.hero27 picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.hero.hero27 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content column overlays left side, spaced from edges */
+.hero.hero27 > div:last-child {
+  flex: 0 1 50%;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #fff;
+  padding: 2.5rem 2.8rem;
+  box-sizing: border-box;
+  min-height: 230px;
+  max-width: 600px;
+  position: absolute;
+  left: 3.5rem;
+  bottom: 2.5rem;
+  box-shadow: 0 3px 24px rgb(0 0 0 / 10%);
+  z-index: 2;
+}
+
+/* Space between text and button inside card */
+.hero.hero27 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Title styling */
+.hero.hero27 h2 {
+  color: #222;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+}
+
+/* Description styling */
+.hero.hero27 p {
+  color: #222;
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+}
+
+/* Button container spacing */
+.hero.hero27 .button-container {
+  margin-top: 0.5rem;
+}
+
+/* Hero-specific button override */
+.hero-container > .hero-wrapper > .block.hero.hero27 .button {
+  background: #ffe000;
+  color: #222;
+  border-radius: 0;
+  border-width: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.75em 2em;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero27 .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero27 .button:focus {
+  background: #ffd100;
+}
+
+/* Responsive: stack vertically, remove overlay/offset */
+@media (width <= 900px) {
+  .hero.hero27 {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .hero.hero27 > div:first-child,
+  .hero.hero27 > div:last-child {
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    position: static;
+    max-width: none;
+    box-shadow: none;
+    left: 0;
+    bottom: 0;
+  }
+
+  .hero.hero27 > div:last-child {
+    padding: 1.2rem 1rem;
+  }
+}
