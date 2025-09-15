@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -51,7 +52,6 @@
   box-sizing: border-box;
 }
 
-/* Left column: logo */
 .columns.columns2 > div > .columns-img-col {
   display: flex;
   align-items: flex-start;
@@ -66,12 +66,10 @@
   margin: 0;
 }
 
-/* Hide middle (language selector) column */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Right column: search box */
 .columns.columns2 > div > div:last-child {
   display: flex;
   align-items: center;
@@ -101,7 +99,6 @@
   text-align: right;
 }
 
-/* Push logo left, search right, gap via auto-margin */
 @media (width >= 600px) {
   .columns.columns2 > div {
     gap: 0;
@@ -112,7 +109,6 @@
   }
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -133,5 +129,174 @@
     justify-content: center;
     width: 100%;
     max-width: 100%;
+  }
+}
+
+
+.columns.columns5 {
+  background: #232220;
+  color: #ccc;
+  padding: 32px 40px 24px;
+}
+
+/* Two-column grid: left for logo, right for follow-us & icons, body below */
+.columns.columns5 > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  gap: 0 56px;
+  align-items: start;
+  position: relative;
+}
+
+/* Logo top left */
+.columns.columns5 > div > .columns-img-col {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+}
+
+.columns.columns5 .columns-img-col img {
+  max-width: 150px;
+  min-width: 90px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 4px;
+}
+
+/* Hide the language selector */
+.columns.columns5 > div > ul {
+  display: none;
+}
+
+/* --- Group "Follow Us" label and icons at top right --- */
+
+/* Place both "Follow Us" and icons in the same grid cell */
+.columns.columns5 > div > h4,
+.columns.columns5 > div > div:nth-child(4) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Stack label above icons using margin for grouping and flex for icons */
+.columns.columns5 > div > h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: right;
+  display: block;
+}
+
+.columns.columns5 > div > div:nth-child(4) {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top: 0;
+}
+
+/* Social "buttons" icon style */
+.columns.columns5 .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns5 .button {
+  background: #e5e5e5;
+  color: #232220;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 0;
+  font-size: 0;
+  font-weight: 400;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+/* Hide button text for icon-only effect */
+.columns.columns5 .button::first-letter {
+  color: #232220;
+  background: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Button hover */
+.columns.columns5 .button:hover,
+.columns.columns5 .button:focus {
+  background: #ccc;
+}
+
+/* --- Body text full width below header --- */
+.columns.columns5 > div > div:nth-child(5) {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.columns.columns5 > div > div:nth-child(5) p {
+  margin: 0 0 10px;
+}
+
+.columns.columns5 > div > div:nth-child(5) a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.columns.columns5 > div > div:nth-child(5) a:hover,
+.columns.columns5 > div > div:nth-child(5) a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Responsive: stack vertically on small screens, regroup icons/label */
+@media (width <= 900px) {
+  .columns.columns5 {
+    padding: 24px 12px 18px;
+  }
+
+  .columns.columns5 > div {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: static;
+  }
+
+  .columns.columns5 > div > h4,
+  .columns.columns5 > div > div:nth-child(4) {
+    margin-top: 0 !important;
+    text-align: left;
+    align-items: flex-start;
+    position: static;
+  }
+
+  .columns.columns5 > div > h4 {
+    margin-bottom: 6px;
+  }
+
+  .columns.columns5 > div > div:nth-child(4) {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-bottom: 0;
+    justify-content: flex-start;
   }
 }
