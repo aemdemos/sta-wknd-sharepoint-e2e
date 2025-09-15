@@ -1777,7 +1777,6 @@
   padding: 0;
 }
 
-/* Hide all .tabs-panel except the active one */
 .tabs.tabs23 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
@@ -1786,7 +1785,6 @@
   display: block;
 }
 
-/* Sidebar: tabs-list stays in left column */
 .tabs.tabs23 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -1820,7 +1818,6 @@
   }
 }
 
-/* Tab buttons */
 .tabs.tabs23 .tabs-list button {
   box-sizing: border-box;
   background: transparent;
@@ -1848,7 +1845,6 @@
   margin: 0;
 }
 
-/* Main content panel: wider and less centered, no flex */
 .tabs.tabs23 .tabs-panel {
   box-sizing: border-box;
   padding: 0 0 0 8px;
@@ -1867,7 +1863,6 @@
   margin-right: 0;
 }
 
-/* Main heading and accent line */
 .tabs.tabs23 .tabs-panel > div > h3 {
   font-size: 2.1em;
   font-weight: 600;
@@ -1892,7 +1887,6 @@
   width: 100%;
 }
 
-/* Paragraph text */
 .tabs.tabs23 .tabs-panel p {
   font-size: 1em;
   color: #444;
@@ -1902,7 +1896,6 @@
   max-width: 880px;
 }
 
-/* Images: wider and centered with breathing room */
 .tabs.tabs23 .tabs-panel picture,
 .tabs.tabs23 .tabs-panel img {
   display: block;
@@ -1914,7 +1907,6 @@
   box-sizing: border-box;
 }
 
-/* Related trips section */
 .tabs.tabs23 .tabs-panel ul {
   list-style-type: disc;
   padding-left: 22px;
@@ -1929,7 +1921,6 @@
   margin-bottom: 6px;
 }
 
-/* Related trips label styling */
 .tabs.tabs23 .tabs-panel p + ul {
   margin-top: 4px;
 }
@@ -1942,7 +1933,6 @@
   max-width: 880px;
 }
 
-/* Responsive main content adjustments */
 @media (width <= 900px) {
   .tabs.tabs23 .tabs-panel {
     padding-left: 0;
@@ -1966,4 +1956,159 @@
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+
+.tabs.tabs28 {
+  box-sizing: border-box;
+  background: #fff;
+  display: block;
+  max-width: 900px;
+  margin: 0 auto 44px;
+  padding: 0 40px 42px;
+}
+
+/* Responsive: reduce horizontal padding and bottom margin on smaller screens */
+@media (width <= 1000px) {
+  .tabs.tabs28 {
+    max-width: 100%;
+    padding: 0 16px 32px;
+    margin: 0 auto 32px;
+  }
+}
+
+@media (width <= 700px) {
+  .tabs.tabs28 {
+    padding: 0 8px 16px;
+    margin: 0 auto 16px;
+  }
+}
+
+/* Tabs horizontal row, left-aligned */
+.tabs.tabs28 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin-bottom: 32px;
+  padding: 0;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Tab buttons -- left-aligned, bold, uppercase, sharp corners */
+.tabs.tabs28 .tabs-list button {
+  border: none;
+  border-radius: 0;
+  background: #F5F5F5;
+  color: #222;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 8px 24px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  box-shadow: none;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs28 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  cursor: default;
+}
+
+.tabs.tabs28 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Only show active panel, vertical stack */
+.tabs.tabs28 .tabs-panel {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.tabs.tabs28 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+}
+
+/* Main content vertical stack, left-aligned */
+.tabs.tabs28 .tabs-panel > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Main heading: left-aligned with yellow underline */
+.tabs.tabs28 h3#beervana-in-portland {
+  font-size: 28px;
+  color: #222;
+  font-weight: 400;
+  margin-top: 0;
+  letter-spacing: 0;
+  position: relative;
+  max-width: 100%;
+  text-align: left;
+  border: none;
+  border-bottom: 2px solid #FFED8D;
+  width: fit-content;
+  margin-bottom: 18px;
+  padding-bottom: 6px;
+}
+
+/* Section heading after main heading */
+.tabs.tabs28 h3#experience-the-best-craft-breweries-in-the-pacific-northwest {
+  font-size: 16px;
+  color: #222;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  text-align: left;
+  width: 100%;
+}
+
+/* Paragraph text, left-aligned */
+.tabs.tabs28 .tabs-panel p {
+  font-size: 13px;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  text-align: left;
+  width: 100%;
+}
+
+/* Image left-aligned, max width, margin above and below */
+.tabs.tabs28 .tabs-panel picture,
+.tabs.tabs28 .tabs-panel img {
+  display: block;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border: none;
+  box-shadow: none;
+  text-align: left;
+}
+
+/* Footer note, left-aligned, smaller and lighter */
+.tabs.tabs28 .tabs-panel p:last-child {
+  font-size: 11px;
+  color: #888;
+  margin-top: 14px;
+  margin-bottom: 0;
+  text-align: left;
+  width: 100%;
 }
