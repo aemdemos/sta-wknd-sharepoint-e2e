@@ -1100,7 +1100,6 @@
   padding-top: 0;
 }
 
-/* Remove unwanted spacing on all key descendants */
 .tabs.tabs15,
 .tabs.tabs15 > .tabs-list,
 .tabs.tabs15 > .tabs-panel {
@@ -1108,7 +1107,6 @@
   padding-top: 0;
 }
 
-/* Sidebar: narrower and more gap from main */
 .tabs.tabs15 > .tabs-list {
   display: flex;
   flex-direction: column;
@@ -1140,7 +1138,6 @@
   }
 }
 
-/* Sidebar tab button improvements */
 .tabs.tabs15 > .tabs-list .tabs-tab {
   width: 100%;
   min-width: 110px;
@@ -1182,7 +1179,6 @@
   }
 }
 
-/* Main panel refinements */
 .tabs.tabs15 > .tabs-panel {
   flex: 1 1 0;
   max-width: 1100px;
@@ -1198,7 +1194,6 @@
   align-items: flex-start;
 }
 
-/* Main Heading (h3) styling and accent line using border-bottom */
 .tabs.tabs15 > .tabs-panel h3 {
   font-size: 2.6em;
   font-weight: 400;
@@ -1212,7 +1207,6 @@
   box-sizing: border-box;
 }
 
-/* Subheading (h2) spacing and size */
 .tabs.tabs15 > .tabs-panel h2 {
   font-size: 2.15em;
   font-weight: 700;
@@ -1221,7 +1215,6 @@
   line-height: 1.18;
 }
 
-/* Paragraphs and lists: improved vertical rhythm */
 .tabs.tabs15 > .tabs-panel p,
 .tabs.tabs15 > .tabs-panel ul,
 .tabs.tabs15 > .tabs-panel ol {
@@ -1241,7 +1234,6 @@
   margin-bottom: 14px;
 }
 
-/* Images: more space above and below, larger width */
 .tabs.tabs15 > .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -1252,7 +1244,160 @@
   border-radius: 0;
 }
 
-/* Hide panel when not active */
 .tabs.tabs15 > .tabs-panel[aria-hidden="true"] {
   display: none;
+}
+
+
+.tabs.tabs19 {
+  margin: 48px 0 0;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 900px;
+  width: 100%;
+}
+
+.tabs.tabs19 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 1rem; /* tighter vertical gap */
+  padding-left: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.tabs.tabs19 .tabs-list button {
+  border: none;
+  background: none;
+  color: #222;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.8rem 1.5rem 0.8rem 0;
+  margin: 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs19 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs19 .tabs-list button p {
+  margin: 0;
+}
+
+.tabs.tabs19 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  max-width: 900px;
+  background: none;
+}
+
+.tabs.tabs19 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* even tighter vertical rhythm */
+  align-items: flex-start;
+}
+
+.tabs.tabs19 .tabs-panel h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+  line-height: 1.13;
+  text-align: left;
+  border-bottom: 3px solid #F4E18D;
+  padding-bottom: 0.35rem;
+  width: max-content; /* divider matches heading text */
+  max-width: 100%;
+}
+
+.tabs.tabs19 .tabs-panel picture,
+.tabs.tabs19 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 0.65rem;
+  object-fit: cover;
+}
+
+.tabs.tabs19 .tabs-panel p {
+  font-size: 1.1rem;
+  color: #222;
+  line-height: 1.65;
+  margin-bottom: 0.2rem; /* tight gap after text */
+  text-align: left;
+  max-width: 900px;
+}
+
+@media (width <= 1200px) {
+  .tabs.tabs19, 
+  .tabs.tabs19 .tabs-panel,
+  .tabs.tabs19 .tabs-panel picture,
+  .tabs.tabs19 .tabs-panel img,
+  .tabs.tabs19 .tabs-panel p {
+    max-width: 100vw;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs19 {
+    max-width: 100vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .tabs.tabs19 .tabs-list {
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tabs.tabs19 .tabs-panel > div {
+    gap: 0.3rem;
+  }
+
+  .tabs.tabs19 .tabs-panel h3 {
+    font-size: 1.2rem;
+    border-bottom-width: 2px;
+    padding-bottom: 0.18rem;
+  }
+
+  .tabs.tabs19 .tabs-panel picture,
+  .tabs.tabs19 .tabs-panel img {
+    max-width: 100vw;
+    border-radius: 7px;
+    margin-bottom: 0.4rem;
+  }
+
+  .tabs.tabs19 .tabs-panel p {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    max-width: 100vw;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs19 {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin-top: 14px;
+  }
+
+  .tabs.tabs19 .tabs-panel h3 {
+    font-size: 0.95rem;
+    border-bottom-width: 2px;
+    padding-bottom: 0.09rem;
+  }
 }
