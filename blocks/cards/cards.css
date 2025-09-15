@@ -367,7 +367,6 @@
   margin: 0;
 }
 
-/* Flex row for horizontal layout, tuned gap for original spacing */
 .cards.cards26 > ul {
   display: flex;
   flex-direction: row;
@@ -381,7 +380,6 @@
   max-width: 100%;
 }
 
-/* Card: width and stacking tuned to match original proportions */
 .cards.cards26 > ul > li {
   flex: 0 0 auto;
   width: 126px;
@@ -396,7 +394,6 @@
   min-width: 0;
 }
 
-/* Image: square and compact, margin below tuned to original */
 .cards.cards26 .cards-card-image {
   width: 126px;
   height: 126px;
@@ -407,7 +404,6 @@
   display: block;
 }
 
-/* Image fills the square area */
 .cards.cards26 .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -415,7 +411,6 @@
   display: block;
 }
 
-/* Card body: stacking and sizing tuned, no extra margin/padding */
 .cards.cards26 .cards-card-body {
   padding: 0;
   margin: 0;
@@ -425,7 +420,6 @@
   align-items: flex-start;
 }
 
-/* Title: bold, compact, flush below image, tighter margin */
 .cards.cards26 .cards-card-body h3 {
   margin: 0 0 1px;
   font-size: 13px;
@@ -435,10 +429,9 @@
   text-align: left;
   letter-spacing: 0;
   word-break: break-word;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
-/* Description: small, gray, single line, minimal spacing below title */
 .cards.cards26 .cards-card-body p:not(.button-container) {
   margin: 0;
   font-size: 11px;
@@ -452,12 +445,10 @@
   max-width: 100%;
 }
 
-/* Hide the button for original look */
 .cards.cards26 .cards-card-body .button-container {
   display: none;
 }
 
-/* Responsive: stack vertically and make cards full width on small screens */
 @media (width <= 500px) {
   .cards.cards26 > ul {
     flex-direction: column;
@@ -472,4 +463,134 @@
     min-width: 0;
     max-width: 100%;
   }
+}
+
+
+.cards.cards30 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Root grid: 4 columns, cards side by side, top aligned */
+.cards.cards30 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  place-items: start stretch;
+  width: 100%;
+}
+
+@media (width <= 1024px) {
+  .cards.cards30 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards30 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Each card is a vertical flex column: image -> text */
+.cards.cards30 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border: none;
+  min-width: 0;
+  box-shadow: none;
+}
+
+/* Square image at the top of each card */
+.cards.cards30 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+/* Image covers container, no extra margin/padding */
+.cards.cards30 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body: vertical stack, tight spacing below image */
+.cards.cards30 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px; /* tighter under image */
+  gap: 2px; /* minimal spacing between title and description */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Title: bold, uppercase, left-aligned, no pill, no extra margin */
+.cards.cards30 .cards-card-body .button-container a.button.primary {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  text-align: left;
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  line-height: 1.2;
+  display: inline;
+  max-width: 100%;
+}
+
+/* Remove button-container extra margin */
+.cards.cards30 .cards-card-body .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Description: smaller, gray, left, truncate, minimal margin, CONTAINED */
+.cards.cards30 .cards-card-body p:not(.button-container) {
+  font-size: 13px;
+  color: #767676;
+  text-align: left;
+  margin: 0;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Remove extra ul styles */
+.cards.cards30 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
