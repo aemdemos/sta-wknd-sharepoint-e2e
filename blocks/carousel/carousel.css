@@ -600,3 +600,83 @@
     margin-right: auto;
   }
 }
+
+
+.carousel.carousel39 .carousel-slide {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: stretch;
+
+  /* Ensures the overlay and image fill the block */
+}
+
+.carousel.carousel39 .carousel-slide .carousel-slide-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.carousel.carousel39 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel39 .carousel-slide .carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel.carousel39 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: #fff;
+  color: #131313;
+  padding: 32px 48px 24px;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 6%);
+  width: 100%;
+  max-width: 100%;
+  opacity: 1;
+  min-height: 120px;
+  display: block;
+  margin: 0;
+
+  /* Overlay now truly sits on image */
+}
+
+.carousel.carousel39 .carousel-slide .carousel-slide-content h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 2em;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #131313;
+}
+
+.carousel.carousel39 .carousel-slide .carousel-slide-content p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1em;
+  color: #131313;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Responsive: ensure overlay isn't too tall for small screens */
+@media (width <= 900px) {
+  .carousel.carousel39 .carousel-slide {
+    min-height: 320px;
+  }
+
+  .carousel.carousel39 .carousel-slide .carousel-slide-content {
+    padding: 18px 10px 14px;
+    min-height: 70px;
+  }
+}
