@@ -191,7 +191,6 @@
   align-items: flex-start;
 }
 
-/* Responsive: stack cards vertically */
 @media (width <= 900px) {
   .cards.cards4 > ul {
     flex-direction: column;
@@ -205,7 +204,6 @@
   }
 }
 
-/* Image */
 .cards.cards4 .cards-card-image {
   width: 100%;
   height: 220px;
@@ -224,7 +222,6 @@
   display: block;
 }
 
-/* Card body */
 .cards.cards4 .cards-card-body {
   padding: 28px 24px 22px;
   margin: 0;
@@ -235,7 +232,6 @@
   align-items: flex-start;
 }
 
-/* Title & subtitle spacing */
 .cards.cards4 .cards-card-body h2 {
   margin-bottom: 16px;
 }
@@ -247,7 +243,6 @@
   font-size: 1rem;
 }
 
-/* Button: left-aligned, full block feel */
 .cards.cards4 .cards-card-body p:last-of-type {
   padding: 16px 46px;
   font-size: 1.05rem;
@@ -270,4 +265,101 @@
 
 .cards.cards4 .cards-card-body p:last-of-type:hover {
   background: #ffe033;
+}
+
+
+.cards.cards21 {
+  padding: 32px 16px;
+  background: #fff;
+}
+
+.cards.cards21 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width <= 1200px) {
+  .cards.cards21 > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards21 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards21 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards.cards21 > ul > li {
+  background: #fff;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.cards.cards21 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+}
+
+.cards.cards21 .cards-card-image picture,
+.cards.cards21 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body spacing for alignment */
+.cards.cards21 .cards-card-body {
+  padding: 12px 12px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+}
+
+/* Title styling */
+.cards.cards21 .cards-card-body h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.02em;
+  line-height: 1.22;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+/* Description styling */
+.cards.cards21 .cards-card-body p {
+  margin: 0;
+  font-size: .97rem;
+  color: #888;
+  font-weight: normal;
+  line-height: 1.47;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
