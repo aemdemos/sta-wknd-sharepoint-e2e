@@ -1968,7 +1968,6 @@
   padding: 0 40px 42px;
 }
 
-/* Responsive: reduce horizontal padding and bottom margin on smaller screens */
 @media (width <= 1000px) {
   .tabs.tabs28 {
     max-width: 100%;
@@ -1984,7 +1983,6 @@
   }
 }
 
-/* Tabs horizontal row, left-aligned */
 .tabs.tabs28 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1996,7 +1994,6 @@
   align-items: flex-start;
 }
 
-/* Tab buttons -- left-aligned, bold, uppercase, sharp corners */
 .tabs.tabs28 .tabs-list button {
   border: none;
   border-radius: 0;
@@ -2027,7 +2024,6 @@
   padding: 0;
 }
 
-/* Only show active panel, vertical stack */
 .tabs.tabs28 .tabs-panel {
   display: none;
   flex-direction: column;
@@ -2043,7 +2039,6 @@
   display: flex;
 }
 
-/* Main content vertical stack, left-aligned */
 .tabs.tabs28 .tabs-panel > div {
   width: 100%;
   display: flex;
@@ -2051,7 +2046,6 @@
   align-items: flex-start;
 }
 
-/* Main heading: left-aligned with yellow underline */
 .tabs.tabs28 h3#beervana-in-portland {
   font-size: 28px;
   color: #222;
@@ -2068,7 +2062,6 @@
   padding-bottom: 6px;
 }
 
-/* Section heading after main heading */
 .tabs.tabs28 h3#experience-the-best-craft-breweries-in-the-pacific-northwest {
   font-size: 16px;
   color: #222;
@@ -2079,7 +2072,6 @@
   width: 100%;
 }
 
-/* Paragraph text, left-aligned */
 .tabs.tabs28 .tabs-panel p {
   font-size: 13px;
   color: #222;
@@ -2090,7 +2082,6 @@
   width: 100%;
 }
 
-/* Image left-aligned, max width, margin above and below */
 .tabs.tabs28 .tabs-panel picture,
 .tabs.tabs28 .tabs-panel img {
   display: block;
@@ -2103,7 +2094,6 @@
   text-align: left;
 }
 
-/* Footer note, left-aligned, smaller and lighter */
 .tabs.tabs28 .tabs-panel p:last-child {
   font-size: 11px;
   color: #888;
@@ -2111,4 +2101,169 @@
   margin-bottom: 0;
   text-align: left;
   width: 100%;
+}
+
+
+.tabs.tabs34 {
+  display: grid;
+  grid-template-columns: 152px 1fr;
+  gap: 0;
+  align-items: start;
+  background: var(--background-color);
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-width: 0;
+}
+
+.tabs.tabs34 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 14px;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border-right: 1px solid #fafafa;
+  height: 100%;
+  background: transparent;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs34 {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs.tabs34 .tabs-list {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid #fafafa;
+    gap: 8px;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 12px;
+    padding-right: 0;
+    margin-bottom: 24px;
+  }
+}
+
+.tabs.tabs34 .tabs-list button {
+  display: block;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: #222;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 4px 8px;
+  margin: 0;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: left;
+  min-width: 0;
+  transition: background 0.2s;
+  box-shadow: none;
+  outline: none;
+  white-space: nowrap;
+}
+
+.tabs.tabs34 .tabs-list button[aria-selected="true"] {
+  background: #131313;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.tabs.tabs34 .tabs-list button:not([aria-selected="true"]) {
+  color: #222;
+  font-weight: 400;
+  background: transparent;
+  font-size: 15px;
+}
+
+.tabs.tabs34 .tabs-list button:not([aria-selected="true"]):hover,
+.tabs.tabs34 .tabs-list button:not([aria-selected="true"]):focus {
+  background: #f3f3f3;
+}
+
+.tabs.tabs34 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: inherit;
+}
+
+.tabs.tabs34 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  min-width: 0;
+}
+
+.tabs.tabs34 .tabs-panel > div {
+  padding-left: 52px;
+  padding-right: 0;
+  padding-top: 0;
+  min-width: 0;
+  max-width: 1000px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs34 .tabs-panel > div {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+    padding-top: 0;
+  }
+}
+
+.tabs.tabs34 .tabs-panel h3 {
+  font-size: var(--heading-font-size-l);
+  color: var(--text-color);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.18;
+}
+
+.tabs.tabs34 .tabs-panel h2 {
+  font-size: 2.2rem;
+  color: var(--text-color);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 18px;
+  line-height: 1.13;
+}
+
+.tabs.tabs34 .tabs-panel picture,
+.tabs.tabs34 .tabs-panel img {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.tabs.tabs34 .tabs-panel p {
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  margin-bottom: 20px;
+  margin-top: 0;
+  line-height: 1.7;
+  max-width: 1000px;
+}
+
+.tabs.tabs34 .tabs-panel p:last-child {
+  margin-bottom: 0;
 }
