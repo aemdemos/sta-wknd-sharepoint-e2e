@@ -1102,7 +1102,6 @@
 
 
 .tabs.tabs16 {
-  /* Remove all vertical offset; ensure block starts at top */
   margin-top: 0;
   padding-top: 0;
   display: grid;
@@ -1115,7 +1114,6 @@
   box-sizing: border-box;
 }
 
-/* Prevent vertical offset from ancestor sections */
 .tabs.tabs16,
 .tabs.tabs16 > div,
 .tabs.tabs16 > div:first-child,
@@ -1124,7 +1122,6 @@
   padding-top: 0;
 }
 
-/* Sidebar (should only be for metadata; tabs go in main content) */
 .tabs.tabs16 > div:first-child {
   display: flex;
   flex-direction: column;
@@ -1154,12 +1151,10 @@
   }
 }
 
-/* Sidebar content: clarify vertical stack for typical metadata */
 .tabs.tabs16 > div:first-child > * {
   margin-bottom: 0.4rem;
 }
 
-/* Key labels in sidebar */
 .tabs.tabs16 > div:first-child p,
 .tabs.tabs16 > div:first-child span,
 .tabs.tabs16 > div:first-child div {
@@ -1171,7 +1166,6 @@
   margin-bottom: 0.15rem;
 }
 
-/* Metadata values in sidebar */
 .tabs.tabs16 > div:first-child p + p,
 .tabs.tabs16 > div:first-child span + span,
 .tabs.tabs16 > div:first-child div + div {
@@ -1182,7 +1176,6 @@
   margin-bottom: 0.35rem;
 }
 
-/* Share this adventure: visually offset */
 .tabs.tabs16 > div:first-child > *:last-child {
   margin-top: 2.5rem;
   color: #222;
@@ -1193,7 +1186,6 @@
   cursor: pointer;
 }
 
-/* Main content: left-aligned, tabs at top */
 .tabs.tabs16 > div:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -1210,7 +1202,6 @@
   }
 }
 
-/* Tabs navigation: horizontal row, at top of main column */
 .tabs.tabs16 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1226,7 +1217,6 @@
   order: 0;
 }
 
-/* Tab buttons: horizontal, style as per design */
 .tabs.tabs16 .tabs-list button {
   background: #222;
   color: #fff;
@@ -1259,14 +1249,12 @@
   font-weight: 700;
 }
 
-/* Remove unwanted borders */
 .tabs.tabs16 .tabs-panel,
 .tabs.tabs16 .tabs-list,
 .tabs.tabs16 .tabs-list button {
   border: none;
 }
 
-/* Main title: left-aligned, with yellow underline flush to grid */
 .tabs.tabs16 h3[id^="whistler-mountain-biking"] {
   font-size: 2.1rem;
   font-weight: 400;
@@ -1280,7 +1268,6 @@
   box-sizing: border-box;
 }
 
-/* Section subtitle: left-aligned, spacing */
 .tabs.tabs16 h2 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -1291,7 +1278,6 @@
   box-sizing: border-box;
 }
 
-/* Remove background for tabs-panel; add spacing */
 .tabs.tabs16 .tabs-panel {
   background: #fff;
   margin: 0;
@@ -1301,12 +1287,10 @@
   width: 100%;
 }
 
-/* Hide inactive panels */
 .tabs.tabs16 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Images in main content: full width */
 .tabs.tabs16 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -1316,7 +1300,6 @@
   box-shadow: none;
 }
 
-/* Paragraphs in main content: left-aligned, spacing */
 .tabs.tabs16 .tabs-panel p {
   color: #222;
   font-size: 1rem;
@@ -1326,4 +1309,196 @@
   padding: 0;
   box-shadow: none;
   text-align: left;
+}
+
+
+.tabs.tabs18 {
+  /* Left-align block and set shared max-width */
+  max-width: 950px;
+  margin-left: 56px; /* create left margin as in original */
+  margin-right: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tabs list: horizontal row, tightly spaced, left-aligned */
+.tabs.tabs18 > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  gap: 0.08rem;
+  margin-bottom: 1.1rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Only show the active panel */
+.tabs.tabs18 > .tabs-panel {
+  display: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+  width: 100%;
+  max-width: 900px;
+}
+
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Content alignment and vertical spacing */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  background: transparent;
+  width: 100%;
+  max-width: 900px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Title styling and underline adjustment */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] h3 {
+  margin-top: 0;
+  margin-bottom: 0.08rem;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.2;
+  position: relative;
+  padding-left: 0;
+}
+
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] h3::after {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #e8db97;
+  margin-top: 10px;
+  border-radius: 2px;
+  content: " ";
+}
+
+/* Image styling and left alignment */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] picture {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 0.08rem;
+}
+
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Panel body text */
+.tabs.tabs18 > .tabs-panel[aria-hidden="false"] p {
+  margin-top: 1.2rem;
+  margin-bottom: 0;
+  font-size: 1.09rem;
+  color: #333;
+  line-height: 1.7;
+  letter-spacing: 0;
+  max-width: 96%;
+  padding-left: 0;
+}
+
+/* Tab buttons: reduce horizontal padding, tighter gap */
+.tabs.tabs18 .tabs-tab {
+  box-sizing: border-box;
+  border: 1px solid #dadada;
+  border-radius: 0;
+  padding: 0.58em 1.3em;
+  background: #fff;
+  color: #222;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  transition: background 0.15s, color 0.15s, border 0.15s;
+  outline: none;
+  min-width: 0;
+}
+
+/* Active tab styling */
+.tabs.tabs18 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 1px solid #222;
+  cursor: default;
+  outline: none;
+}
+
+.tabs.tabs18 .tabs-tab[aria-selected="false"] {
+  background: #fff;
+  color: #222;
+  border: 1px solid #dadada;
+}
+
+.tabs.tabs18 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs18,
+  .tabs.tabs18 > .tabs-list,
+  .tabs.tabs18 > .tabs-panel,
+  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] h3 {
+    font-size: 1.3rem;
+  }
+
+  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] h3::after {
+    width: 28px;
+    height: 2px;
+    margin-top: 6px;
+  }
+
+  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] picture {
+    max-width: 100%;
+  }
+
+  .tabs.tabs18 .tabs-tab {
+    padding: 0.46em 0.7em;
+    font-size: 0.95rem;
+  }
+
+  .tabs.tabs18 > .tabs-list {
+    gap: 0.08rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .tabs.tabs18 > .tabs-panel[aria-hidden="false"] > div {
+    gap: 0.7rem;
+  }
 }
