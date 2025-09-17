@@ -45,3 +45,130 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero10 {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+  display: block;
+  overflow: visible;
+}
+
+/* Image block at the top */
+.hero.hero10 > div:first-child {
+  width: 100%;
+  height: 340px;
+  min-height: 200px;
+  max-height: 420px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+/* Make sure image fills container */
+.hero.hero10 picture,
+.hero.hero10 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlapping card (anchor to bottom edge of image, overlap lower third) */
+.hero.hero10 > div:last-child {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  /* Overlap about 40-45% of card into image, bottom flush with image edge */
+  transform: translate(-50%, 45%);
+  width: 82%;
+  max-width: 960px;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Card styling with generous vertical padding */
+.hero.hero10 > div:last-child > div {
+  background: var(--background-color);
+  padding: 2.6em 2.2em 2em;
+  width: 100%;
+  min-height: 5em;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  pointer-events: auto;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Left-align the heading and give more breathing room */
+.hero.hero10 h2 {
+  color: var(--text-color);
+  font-size: 1.38rem;
+  font-weight: 400;
+  text-align: left;
+  margin: 0;
+  line-height: 1.3;
+  max-width: 100%;
+}
+
+/* Separator line directly below the card */
+.hero.hero10::after {
+  display: block;
+  width: 94%;
+  margin: 1.6em auto 0;
+  height: 1px;
+  background: #e0e0e0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 900px) {
+  .hero.hero10 > div:first-child {
+    height: 28vw;
+    min-height: 140px;
+    max-height: 260px;
+  }
+
+  .hero.hero10 > div:last-child {
+    width: 94%;
+    max-width: 99vw;
+    transform: translate(-50%, 25%);
+  }
+
+  .hero.hero10 > div:last-child > div {
+    padding: 1.6em 0.9em 1.2em;
+    min-height: 3.5em;
+  }
+
+  .hero.hero10::after {
+    width: 99%;
+    margin-top: 1.2em;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero10 > div:first-child {
+    height: 22vw;
+    min-height: 80px;
+    max-height: 120px;
+  }
+
+  .hero.hero10 > div:last-child {
+    width: 99%;
+    transform: translate(-50%, 7%);
+  }
+
+  .hero.hero10 > div:last-child > div {
+    padding: 1em 0.4em 0.7em;
+    min-height: 1.5em;
+  }
+}
