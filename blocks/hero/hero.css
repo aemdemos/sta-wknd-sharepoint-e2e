@@ -177,7 +177,6 @@
   overflow: visible;
 }
 
-/* Ensure image fills full width of hero and acts as "banner" */
 .hero.hero27 > div:first-child {
   position: relative;
   width: 100%;
@@ -187,7 +186,6 @@
   overflow: hidden;
 }
 
-/* Make sure the inner image matches block dimensions and is not stretched */
 .hero.hero27 > div:first-child picture,
 .hero.hero27 > div:first-child img {
   width: 100%;
@@ -198,7 +196,6 @@
   padding: 0;
 }
 
-/* Overlay the white content box at the bottom, centered horizontally */
 .hero.hero27 > div:last-child {
   position: absolute;
   left: 50%;
@@ -217,7 +214,6 @@
   align-items: flex-start;
 }
 
-/* Make sure headings and paragraphs in content box are left-aligned and have correct color */
 .hero.hero27 > div:last-child h2,
 .hero.hero27 > div:last-child p {
   color: #222;
@@ -238,7 +234,6 @@
   line-height: 1.5;
 }
 
-/* Button appearance override */
 .hero.hero27 > div:last-child .button-container {
   margin-top: 0.7em;
 }
@@ -257,7 +252,6 @@
   text-align: left;
 }
 
-/* Responsive: stack content below image on small screens and adjust box width */
 @media (width <= 900px) {
   .hero.hero27 > div:last-child {
     position: static;
@@ -270,5 +264,109 @@
 
   .hero.hero27 > div:first-child {
     height: 240px;
+  }
+}
+
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero39 {
+  position: relative;
+  width: 100vw;
+  min-height: 540px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  overflow: hidden;
+}
+
+/* Make image fill the entire hero block, edge-to-edge */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* The image itself */
+.hero.hero39 picture,
+.hero.hero39 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay white panel at bottom, edge-to-edge, with no margin */
+.hero.hero39 > div:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+  padding: 32px 40px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* Vertically stack text inside the panel, left-aligned */
+.hero.hero39 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Heading and paragraph styles */
+.hero.hero39 h2 {
+  margin: 0 0 12px;
+  color: #222;
+  font-weight: 600;
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.hero.hero39 p {
+  margin: 0;
+  color: #444;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Responsive: shrink padding and fonts on smaller screens */
+@media (width <= 900px) {
+  .hero.hero39 > div:last-child {
+    padding: 20px 16px;
+  }
+
+  .hero.hero39 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .hero.hero39 p {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero39 > div:last-child {
+    padding: 14px 6px;
   }
 }
