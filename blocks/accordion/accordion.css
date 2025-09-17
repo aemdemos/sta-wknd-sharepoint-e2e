@@ -120,7 +120,6 @@
   flex: 1 1 auto;
 }
 
-/* Improved plus/minus icon: pseudo elements centered over each other */
 .accordion.accordion7 > details > summary::after,
 .accordion.accordion7 > details > summary::before {
   display: block;
@@ -138,8 +137,6 @@
   width: 20px;
   height: 2px;
   transform: translate(-50%, -50%);
-
-  /* horizontal bar always present */
 }
 
 .accordion.accordion7 > details > summary::before {
@@ -154,9 +151,6 @@
   height: 0;
 }
 
-/* Place icon group closer to right edge using a container span for layout (workaround for pseudo elements) */
-
-/* FAQ answer/body text */
 .accordion.accordion7 > details > .accordion-item-body {
   padding: 0 48px 20px 14px;
   background: transparent;
@@ -165,7 +159,6 @@
   color: #444;
 }
 
-/* Responsive: stack/center on small screens, reduce padding */
 @media (width <= 800px) {
   .accordion.accordion7 {
     max-width: 100%;
@@ -176,5 +169,111 @@
   .accordion.accordion7 > details > .accordion-item-body {
     padding-right: 14px;
     padding-left: 8px;
+  }
+}
+
+
+.accordion.accordion19 {
+  max-width: 1200px;
+  margin: 44px auto 0;
+  padding: 0;
+  background: #fff;
+  border: none;
+  display: block;
+}
+
+.accordion.accordion19 details {
+  border: none;
+  margin-bottom: 40px;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.accordion.accordion19 details summary {
+  padding: 0;
+  background: none;
+  outline: none;
+  border: none;
+  min-height: 0;
+  display: block;
+  text-align: left;
+  transition: none;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+.accordion.accordion19 details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion19 details summary::after {
+  display: none;
+}
+
+.accordion.accordion19 details[open] summary,
+.accordion.accordion19 details summary:focus,
+.accordion.accordion19 details summary:hover {
+  background: none;
+}
+
+.accordion.accordion19 .accordion-item-label h2 {
+  margin: 40px 0 3px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #222;
+  border-bottom: 5px solid #ffe066;
+  padding-bottom: 2px;
+  display: block;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+  text-align: left;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.accordion.accordion19 .accordion-item-body {
+  padding: 0;
+  margin-bottom: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  text-align: left;
+}
+
+.accordion.accordion19 .accordion-item-body picture,
+.accordion.accordion19 .accordion-item-body img {
+  display: block;
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  margin: 36px 0 0;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 4%);
+}
+
+@media (width <= 900px) {
+  .accordion.accordion19 {
+    max-width: 100%;
+    margin: 24px 0 0;
+  }
+
+  .accordion.accordion19 details summary,
+  .accordion.accordion19 .accordion-item-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .accordion.accordion19 .accordion-item-label h2 {
+    font-size: 1.5rem;
+    border-bottom-width: 3px;
+    padding-bottom: 2px;
+    margin-top: 26px;
+  }
+
+  .accordion.accordion19 .accordion-item-body picture,
+  .accordion.accordion19 .accordion-item-body img {
+    max-width: 100%;
+    margin-top: 16px;
   }
 }
