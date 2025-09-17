@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -56,7 +57,6 @@
   overflow: visible;
 }
 
-/* Image block at the top */
 .hero.hero10 > div:first-child {
   width: 100%;
   height: 340px;
@@ -67,7 +67,6 @@
   display: flex;
 }
 
-/* Make sure image fills container */
 .hero.hero10 picture,
 .hero.hero10 img {
   width: 100%;
@@ -76,13 +75,10 @@
   display: block;
 }
 
-/* Overlapping card (anchor to bottom edge of image, overlap lower third) */
 .hero.hero10 > div:last-child {
   position: absolute;
   left: 50%;
   bottom: 0;
-
-  /* Overlap about 40-45% of card into image, bottom flush with image edge */
   transform: translate(-50%, 45%);
   width: 82%;
   max-width: 960px;
@@ -93,7 +89,6 @@
   overflow: visible;
 }
 
-/* Card styling with generous vertical padding */
 .hero.hero10 > div:last-child > div {
   background: var(--background-color);
   padding: 2.6em 2.2em 2em;
@@ -108,7 +103,6 @@
   overflow: visible;
 }
 
-/* Left-align the heading and give more breathing room */
 .hero.hero10 h2 {
   color: var(--text-color);
   font-size: 1.38rem;
@@ -119,7 +113,6 @@
   max-width: 100%;
 }
 
-/* Separator line directly below the card */
 .hero.hero10::after {
   display: block;
   width: 94%;
@@ -130,7 +123,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 900px) {
   .hero.hero10 > div:first-child {
     height: 28vw;
@@ -170,5 +162,113 @@
   .hero.hero10 > div:last-child > div {
     padding: 1em 0.4em 0.7em;
     min-height: 1.5em;
+  }
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  display: block;
+  overflow: visible;
+}
+
+/* Ensure image fills full width of hero and acts as "banner" */
+.hero.hero27 > div:first-child {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Make sure the inner image matches block dimensions and is not stretched */
+.hero.hero27 > div:first-child picture,
+.hero.hero27 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Overlay the white content box at the bottom, centered horizontally */
+.hero.hero27 > div:last-child {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background: #fff;
+  max-width: 900px;
+  width: 70vw;
+  box-sizing: border-box;
+  padding: 2.5em 2.5em 2em;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Make sure headings and paragraphs in content box are left-aligned and have correct color */
+.hero.hero27 > div:last-child h2,
+.hero.hero27 > div:last-child p {
+  color: #222;
+  margin: 0 0 1em;
+  text-align: left;
+  font-weight: 600;
+}
+
+.hero.hero27 > div:last-child h2 {
+  font-size: 2em;
+  margin-bottom: 0.6em;
+  font-weight: 600;
+}
+
+.hero.hero27 > div:last-child p {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Button appearance override */
+.hero.hero27 > div:last-child .button-container {
+  margin-top: 0.7em;
+}
+
+.hero.hero27 > div:last-child .button {
+  background: #ffe000;
+  color: #222;
+  padding: 0.7em 2em;
+  border: none;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 1em;
+  box-shadow: none;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+/* Responsive: stack content below image on small screens and adjust box width */
+@media (width <= 900px) {
+  .hero.hero27 > div:last-child {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5em;
+    margin: 0;
+  }
+
+  .hero.hero27 > div:first-child {
+    height: 240px;
   }
 }
