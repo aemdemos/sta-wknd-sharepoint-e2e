@@ -396,7 +396,6 @@
 
 
 .tabs.tabs8 {
-  /* Remove any left padding/margin, anchor block to left */
   max-width: 1040px;
   margin: 0 auto;
   padding: 0;
@@ -407,7 +406,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs bar: minimal vertical space below, tightly grouped with headings */
 .tabs.tabs8 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -424,7 +422,6 @@
   gap: 0;
 }
 
-/* Tab buttons: compact, visually grouped */
 .tabs.tabs8 .tabs-list button {
   border: none;
   border-radius: 4px 4px 0 0;
@@ -442,7 +439,6 @@
   z-index: 0;
 }
 
-/* Active tab: solid dark background, white text */
 .tabs.tabs8 .tabs-list button[aria-selected='true'] {
   background: #1d1d1d;
   color: #fff;
@@ -460,7 +456,6 @@
   padding: 0;
 }
 
-/* Content panel: left-aligned, tight grouping */
 .tabs.tabs8 .tabs-panel {
   border: none;
   background: var(--background-color);
@@ -471,12 +466,10 @@
   box-sizing: border-box;
 }
 
-/* Hide inactive panels */
 .tabs.tabs8 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Headings: visually connected, compact vertical rhythm */
 .tabs.tabs8 .tabs-panel h3:first-child {
   font-size: 2.08rem;
   font-weight: 600;
@@ -493,7 +486,6 @@
   line-height: 1.22;
 }
 
-/* Image: large, left-aligned, minimal vertical space */
 .tabs.tabs8 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -505,7 +497,6 @@
   object-fit: cover;
 }
 
-/* Caption: bold, uppercase, tight grouping */
 .tabs.tabs8 .tabs-panel p {
   color: #505050;
   font-size: 1rem;
@@ -523,7 +514,6 @@
   line-height: 1.35;
 }
 
-/* List styling for 'What to Bring' tab */
 .tabs.tabs8 .tabs-panel ul {
   margin: 0 0 12px 20px;
   padding: 0;
@@ -531,7 +521,6 @@
   font-size: 1rem;
 }
 
-/* Responsive tweaks */
 @media (width <= 1100px) {
   .tabs.tabs8 {
     max-width: 100%;
@@ -560,5 +549,180 @@
   .tabs.tabs8 .tabs-list button {
     font-size: 15px;
     padding: 12px 14px 10px;
+  }
+}
+
+
+.tabs.tabs12 {
+  /* Overall layout: center content and add max width */
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 32px 0;
+  background: var(--background-color);
+}
+
+/* Inner wrapper to mimic sidebar space for desktop */
+.tabs.tabs12 > .tabs {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* If there is no sidebar div, the first column stays empty */
+.tabs.tabs12 > .tabs > :first-child:not(.tabs-list, .tabs-panel) {
+  grid-column: 1 / 2;
+}
+
+.tabs.tabs12 > .tabs .tabs-list,
+.tabs.tabs12 > .tabs .tabs-panel {
+  grid-column: 2 / 3;
+}
+
+/* Tabs list styling */
+.tabs.tabs12 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 32px;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* Tabs button styling */
+.tabs.tabs12 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #222;
+  padding: 10px 32px;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+.tabs.tabs12 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs12 .tabs-list button[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+}
+
+.tabs.tabs12 .tabs-list button p {
+  margin: 0;
+}
+
+/* Panel styling */
+.tabs.tabs12 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  max-width: 800px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    padding: 0;
+  }
+
+  .tabs.tabs12 > .tabs {
+    display: block;
+    max-width: 100%;
+    padding: 0 12px;
+  }
+
+  .tabs.tabs12 .tabs-panel {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* Title styling and accent bar */
+.tabs.tabs12 .tabs-panel h3 {
+  font-size: 2.1em;
+  color: #222;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 14px;
+  position: relative;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f9d949;
+  display: inline-block;
+}
+
+/* Main image styling */
+.tabs.tabs12 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  margin: 18px 0;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Subheading immediately after image */
+.tabs.tabs12 .tabs-panel p:first-of-type {
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 14px;
+  margin-top: 0;
+  letter-spacing: 0.01em;
+}
+
+/* General text */
+.tabs.tabs12 .tabs-panel p:not(:first-of-type) {
+  color: #333;
+  font-size: 1.05em;
+  margin-bottom: 20px;
+}
+
+.tabs.tabs12 .tabs-panel ul {
+  margin-bottom: 24px;
+  margin-top: 0;
+  color: #333;
+  padding-left: 20px;
+}
+
+.tabs.tabs12 .tabs-panel li {
+  margin-bottom: 6px;
+}
+
+/* Make everything responsive for small devices */
+@media (width <= 600px) {
+  .tabs.tabs12 > .tabs {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 4px;
+  }
+
+  .tabs.tabs12 .tabs-list {
+    gap: 10px;
+    padding: 0 0 12px;
+  }
+
+  .tabs.tabs12 .tabs-panel h3 {
+    font-size: 1.3em;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  .tabs.tabs12 .tabs-panel picture img {
+    max-width: 100%;
+    margin: 12px 0;
   }
 }
