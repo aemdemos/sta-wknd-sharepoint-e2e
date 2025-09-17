@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -225,7 +226,6 @@
   align-items: flex-start;
 }
 
-/* Sidebar tab column: align with heading, more space right, more vertical tab gap */
 .tabs.tabs6 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -240,7 +240,6 @@
   border: none;
 }
 
-/* Tab styles: lighter inactive, less bold, more horizontal padding */
 .tabs.tabs6 .tabs-list button {
   background: transparent;
   border: none;
@@ -277,7 +276,6 @@
   padding: 0;
 }
 
-/* Main content area: wider, closer to sidebar, aligns with heading */
 .tabs.tabs6 .tabs-panel {
   flex: 1 1 0;
   max-width: 680px;
@@ -322,7 +320,6 @@
   text-align: left;
 }
 
-/* Center image, slightly wider, less top margin */
 .tabs.tabs6 .tabs-panel picture,
 .tabs.tabs6 .tabs-panel img {
   display: block;
@@ -333,7 +330,6 @@
   box-sizing: border-box;
 }
 
-/* Center caption, less spacing below image */
 .tabs.tabs6 .tabs-panel p:last-of-type {
   font-size: 1em;
   color: #888;
@@ -343,7 +339,6 @@
   max-width: 630px;
 }
 
-/* Responsive improvements */
 @media (width <= 900px) {
   .tabs.tabs6 {
     flex-direction: column;
@@ -395,7 +390,175 @@
   }
 }
 
-/* Hide inactive panels */
 .tabs.tabs6 .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs8 {
+  /* Remove any left padding/margin, anchor block to left */
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* Tabs bar: minimal vertical space below, tightly grouped with headings */
+.tabs.tabs8 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 0;
+  background: none;
+  padding: 0;
+  width: auto;
+  min-width: 0;
+  gap: 0;
+}
+
+/* Tab buttons: compact, visually grouped */
+.tabs.tabs8 .tabs-list button {
+  border: none;
+  border-radius: 4px 4px 0 0;
+  background: none;
+  color: #3a3a3a;
+  font-weight: 400;
+  padding: 12px 32px 10px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 0;
+}
+
+/* Active tab: solid dark background, white text */
+.tabs.tabs8 .tabs-list button[aria-selected='true'] {
+  background: #1d1d1d;
+  color: #fff;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.tabs.tabs8 .tabs-list button:not([aria-selected='true']) {
+  background: none;
+  border: none;
+}
+
+.tabs.tabs8 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Content panel: left-aligned, tight grouping */
+.tabs.tabs8 .tabs-panel {
+  border: none;
+  background: var(--background-color);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 1040px;
+  box-sizing: border-box;
+}
+
+/* Hide inactive panels */
+.tabs.tabs8 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Headings: visually connected, compact vertical rhythm */
+.tabs.tabs8 .tabs-panel h3:first-child {
+  font-size: 2.08rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 16px 0 0;
+  line-height: 1.15;
+}
+
+.tabs.tabs8 .tabs-panel h3:not(:first-child) {
+  font-size: 1.16rem;
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 4px 0 14px;
+  line-height: 1.22;
+}
+
+/* Image: large, left-aligned, minimal vertical space */
+.tabs.tabs8 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 1040px;
+  height: auto;
+  margin: 0 0 4px;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+/* Caption: bold, uppercase, tight grouping */
+.tabs.tabs8 .tabs-panel p {
+  color: #505050;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.tabs.tabs8 .tabs-panel p:first-of-type {
+  font-weight: 700;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin: 2px 0;
+  line-height: 1.35;
+}
+
+/* List styling for 'What to Bring' tab */
+.tabs.tabs8 .tabs-panel ul {
+  margin: 0 0 12px 20px;
+  padding: 0;
+  color: #505050;
+  font-size: 1rem;
+}
+
+/* Responsive tweaks */
+@media (width <= 1100px) {
+  .tabs.tabs8 {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs8 .tabs-panel,
+  .tabs.tabs8 .tabs-panel picture img {
+    max-width: 100%;
+  }
+}
+
+@media (width <= 700px) {
+  .tabs.tabs8 {
+    padding: 0;
+  }
+
+  .tabs.tabs8 .tabs-panel h3:first-child {
+    font-size: 1.22rem;
+  }
+
+  .tabs.tabs8 .tabs-panel h3:not(:first-child) {
+    font-size: 0.97rem;
+  }
+
+  .tabs.tabs8 .tabs-list button {
+    font-size: 15px;
+    padding: 12px 14px 10px;
+  }
 }
