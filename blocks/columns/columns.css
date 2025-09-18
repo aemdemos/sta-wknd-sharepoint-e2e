@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -45,12 +46,10 @@
   width: 100%;
 }
 
-/* Hide the middle column (language list) */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo alignment and sizing */
 .columns.columns2 > div > .columns-img-col {
   display: flex;
   align-items: center;
@@ -66,7 +65,6 @@
   vertical-align: middle;
 }
 
-/* Search box styling */
 .columns.columns2 > div > div:last-child {
   display: flex;
   align-items: center;
@@ -85,7 +83,6 @@
   box-shadow: none;
 }
 
-/* Search label styling */
 .columns.columns2 > div > div:last-child p {
   margin: 0;
   text-transform: uppercase;
@@ -102,12 +99,10 @@
   justify-content: center;
 }
 
-/* Remove any pseudo-element icons */
 .columns.columns2 > div > div:last-child::before {
   display: none;
 }
 
-/* Responsive adjustments */
 @media (width <= 700px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -139,5 +134,159 @@
   .columns.columns2 > div > div:last-child p {
     line-height: 26px;
     font-size: 0.9em;
+  }
+}
+
+
+.columns.columns5 {
+  background: #232220;
+  border-bottom: 1px solid #fff;
+  padding: 0;
+}
+
+/* Lay out the block as a 2-row grid: header (logo-left, social-right), footer (text full width) */
+.columns.columns5 > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  padding: 32px 40px 24px;
+  gap: 0;
+  align-items: start; /* ensure header items start at top */
+}
+
+/* Logo (left, header row) */
+.columns.columns5 > div > div:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+  place-self: start start; /* aligns logo to top of block */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Hide language selector */
+.columns.columns5 > div > div:nth-child(2),
+.columns.columns5 ul {
+  display: none;
+}
+
+/* Social section (right, header row) */
+.columns.columns5 > div > div:nth-child(3) {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* ensures the label aligns with the top of the logo */
+  justify-content: flex-end;
+  gap: 8px; /* tighter gap between label and buttons */
+  margin: 0;
+  padding: 0;
+}
+
+/* Social label */
+.columns.columns5 > div > div:nth-child(3) h4 {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  margin-right: 8px;
+  letter-spacing: 1px;
+  align-self: flex-start;
+  padding: 0;
+}
+
+/* Social buttons: horizontal row, spaced, square, hide text visually */
+.columns.columns5 > div > div:nth-child(3) .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns5 > div > div:nth-child(3) .button {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background: #fff;
+  color: #232220;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0; /* visually hide text */
+  padding: 0;
+  margin: 0;
+  transition: background 0.2s;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: -9999px;
+  border: none;
+}
+
+/* Footer text: full width, below header */
+.columns.columns5 > div > div:nth-child(4) {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  margin-top: 36px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.columns.columns5 > div > div:nth-child(4) p {
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.columns.columns5 > div > div:nth-child(4) p:first-child {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Footer links */
+.columns.columns5 > div > div:nth-child(4) a {
+  color: #e2e2e2;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* Logo sizing */
+.columns.columns5 .columns-img-col picture img {
+  width: 140px;
+  height: auto;
+  display: block;
+}
+
+/* Responsive stacking for small screens */
+@media (width <= 900px) {
+  .columns.columns5 > div {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px 18px;
+  }
+
+  .columns.columns5 > div > div {
+    width: 100%;
+    margin-bottom: 24px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .columns.columns5 > div > div:nth-child(3) {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 24px;
+    margin-top: 0;
+    gap: 8px;
+  }
+
+  .columns.columns5 > div > div:nth-child(2),
+  .columns.columns5 ul {
+    display: none;
+  }
+
+  .columns.columns5 > div > div:nth-child(4) {
+    margin-top: 4px;
   }
 }
