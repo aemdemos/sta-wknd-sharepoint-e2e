@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
@@ -61,7 +62,6 @@
 
 
 .accordion.accordion12 {
-  /* Center main column, wider for editorial flow, use grid for future sidebar/content compatibility */
   display: grid;
   grid-template-columns: 1fr;
   max-width: 720px;
@@ -95,8 +95,6 @@
   margin-bottom: 12px;
   width: 100%;
   transition: border-color 0.15s;
-
-  /* For side-by-side layout in future, flex row would be applied here */
   display: flex;
   flex-direction: column;
 }
@@ -130,13 +128,11 @@
   background: #f7f7f7;
 }
 
-/* Hide default marker */
 .accordion.accordion12 details summary::-webkit-details-marker,
 .accordion.accordion12 details summary::marker {
   display: none;
 }
 
-/* Arrow: flush with right edge */
 .accordion.accordion12 details summary::after {
   display: block;
   position: absolute;
@@ -192,4 +188,114 @@
 
 .accordion.accordion12 details .accordion-item-body h3 {
   font-size: var(--heading-font-size-l);
+}
+
+
+.accordion.accordion14 {
+  box-sizing: border-box;
+  max-width: 640px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  /* Use grid to ensure flush alignment with other section content, 
+     and allow for future two-column layouts if sidebar is added */
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Remove any inherited padding or margin from children */
+.accordion.accordion14 > * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Accordion items: bottom divider only, no additional space */
+.accordion.accordion14 details {
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+  background: var(--background-color);
+  transition: background 0.2s;
+  box-sizing: border-box;
+}
+
+.accordion.accordion14 details:last-child {
+  border-bottom: none;
+}
+
+/* Remove vertical margin between items */
+.accordion.accordion14 details + details {
+  margin-top: 0;
+}
+
+/* FAQ row: bold, uppercase, compact, left-aligned, flush with block edge */
+.accordion.accordion14 summary {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #222;
+  letter-spacing: 0.02em;
+  padding: 12px 40px 12px 0;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  background: var(--background-color);
+  cursor: pointer;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+
+/* Subtle hover/focus/open background for summary */
+.accordion.accordion14 summary:hover,
+.accordion.accordion14 summary:focus,
+.accordion.accordion14 details[open] summary {
+  background: #f7f7f7;
+}
+
+/* Remove webkit marker */
+.accordion.accordion14 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* FAQ summary text: flush left, no extra margin, flexible */
+.accordion.accordion14 summary p {
+  margin: 0;
+  flex: 1 1 auto;
+  line-height: 1.25;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+/* FAQ body: subtle padding, lighter color */
+.accordion.accordion14 .accordion-item-body {
+  padding: 12px 0 16px;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+  background: var(--background-color);
+  border: none;
+  margin: 0;
+}
+
+/* Responsive: fill parent, allow full width on small screens */
+@media (width <= 899px) {
+  .accordion.accordion14 {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .accordion.accordion14 summary {
+    font-size: 12px;
+    padding-right: 20px;
+  }
+
+  .accordion.accordion14 .accordion-item-body {
+    font-size: 14px;
+  }
 }
