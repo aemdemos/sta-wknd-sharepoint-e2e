@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -59,11 +60,8 @@
 
 
 .tabs.tabs7 {
-  /* Remove excessive top margin/padding to start block near top of viewport */
   margin-top: 0;
   padding-top: 0;
-
-  /* Asymmetric padding for subtle left shift, but keep block visually balanced */
   max-width: 1000px;
   margin-left: 0;
   margin-right: auto;
@@ -209,4 +207,189 @@
     max-width: 100%;
     width: 100%;
   }
+}
+
+
+.tabs.tabs11 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  background: var(--background-color);
+  min-height: 0;
+  margin-top: 32px; /* Provide top margin to visually separate from nav/header */
+  margin-left: 32px; /* Inset the block from the left edge for balanced layout */
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+.tabs.tabs11 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0; /* Remove left padding, margin-left on parent gives space */
+  border-right: 1px solid #eee;
+  min-width: 120px;
+  max-width: 150px;
+  width: 140px;
+  gap: 6px;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+.tabs.tabs11 .tabs-list button {
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  background: var(--background-color);
+  color: #222;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.tabs.tabs11 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs11 .tabs-list button p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.tabs.tabs11 .tabs-panel {
+  flex: 1 1 0;
+  padding: 0 0 0 72px; /* Increased left padding for more separation from sidebar */
+  background: var(--background-color);
+  border: none;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.tabs.tabs11 .tabs-panel > div {
+  max-width: 900px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.tabs.tabs11 .tabs-panel h3 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 12px;
+}
+
+.tabs.tabs11 .tabs-panel h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin: 24px 0 18px;
+}
+
+.tabs.tabs11 .tabs-panel p {
+  font-size: 14px;
+  color: #222;
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+
+.tabs.tabs11 .tabs-panel ul {
+  margin: 16px 0 0 40px; /* Further indent related links for visual polish */
+  padding: 0;
+}
+
+.tabs.tabs11 .tabs-panel li {
+  font-size: 13px;
+  color: #222;
+  margin-bottom: 8px;
+  list-style: none;
+  position: relative;
+  padding-left: 18px;
+}
+
+.tabs.tabs11 .tabs-panel li::before {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #222;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.tabs.tabs11 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  margin: 18px 0 28px;
+  border-radius: 3px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 3%);
+  object-fit: cover;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs11 {
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 0;
+    margin-top: 16px;
+  }
+
+  .tabs.tabs11 .tabs-list {
+    flex-direction: row;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 16px 16px 10px;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    gap: 8px;
+  }
+
+  .tabs.tabs11 .tabs-list button {
+    text-align: center;
+    padding: 12px 10px;
+    border-radius: 4px 4px 0 0;
+    min-width: 100px;
+  }
+
+  .tabs.tabs11 .tabs-panel {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs11 .tabs-panel > div {
+    max-width: 100%;
+  }
+
+  .tabs.tabs11 .tabs-panel ul {
+    margin-left: 24px;
+  }
+
+  .tabs.tabs11 .tabs-panel img {
+    max-width: 100%;
+  }
+}
+
+.tabs.tabs11 .tabs-panel[aria-hidden='true'] {
+  display: none;
 }
