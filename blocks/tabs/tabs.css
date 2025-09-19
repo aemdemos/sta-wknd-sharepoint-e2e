@@ -903,12 +903,9 @@
   max-width: 900px;
   margin: 0 auto;
   padding-top: 48px;
-
-  /* No horizontal padding here: let child containers control edge alignment */
   box-sizing: border-box;
 }
 
-/* Tabs row: left-aligned, perfectly flush with content */
 .tabs.tabs22 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -917,12 +914,11 @@
   gap: 0;
   margin-top: 0;
   margin-bottom: 40px;
-  padding: 0; /* Remove side padding for flush left */
+  padding: 0;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Tab buttons: compact sizing, tight gap, only background for selected */
 .tabs.tabs22 .tabs-list button {
   border: none;
   background: transparent;
@@ -944,7 +940,7 @@
 }
 
 .tabs.tabs22 .tabs-list button:not(:last-child) {
-  margin-right: 2px; /* extremely tight gap, matches original */
+  margin-right: 2px;
 }
 
 .tabs.tabs22 .tabs-list button[aria-selected="true"] {
@@ -963,7 +959,6 @@
   margin: 0;
 }
 
-/* Panel and its content: flush left/right, matches tabs alignment */
 .tabs.tabs22 .tabs-panel {
   padding: 0;
   margin: 0;
@@ -998,7 +993,6 @@
   margin-bottom: 0;
 }
 
-/* Image: flush left, fills content, sharp corners, spaced above/below */
 .tabs.tabs22 .tabs-panel img {
   display: block;
   width: 100%;
@@ -1009,7 +1003,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: reduce max-width and margin for smaller screens */
 @media (width <= 900px) {
   .tabs.tabs22 {
     max-width: 100%;
@@ -1034,4 +1027,205 @@
   .tabs.tabs22 .tabs-list button:not(:last-child) {
     margin-right: 2px;
   }
+}
+
+
+.tabs.tabs23 {
+  /* Remove card/border, open layout */
+  border: none;
+  background: var(--background-color);
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Center the inner column, but align content flush left */
+.tabs.tabs23 .tabs-panel > div {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs row: left-align, reduce vertical gaps, tighter group with content */
+.tabs.tabs23 .tabs-list {
+  width: 100%;
+  max-width: 960px;
+  margin: 24px auto 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+/* Tabs: compact, visually consistent */
+.tabs.tabs23 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.25rem 1rem;
+  border-radius: 4px;
+  margin: 0;
+  box-shadow: none;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Selected tab style */
+.tabs.tabs23 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+  cursor: default;
+}
+
+/* Tab hover/focus for inactive tabs */
+.tabs.tabs23 .tabs-list button:not([aria-selected='true']):hover,
+.tabs.tabs23 .tabs-list button:not([aria-selected='true']):focus {
+  background: #ffe066;
+  color: #222;
+}
+
+/* Remove margin on tab text */
+.tabs.tabs23 .tabs-list button p {
+  margin: 0;
+}
+
+/* Headings: flush left, tight visual grouping */
+.tabs.tabs23 .tabs-panel h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+  text-align: left;
+  padding-left: 0;
+}
+
+.tabs.tabs23 .tabs-panel h3 strong {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0.08rem;
+  margin-bottom: 0.38rem;
+  display: block;
+  text-align: left;
+}
+
+.tabs.tabs23 .tabs-panel h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.7rem;
+  text-align: left;
+  padding-left: 0;
+}
+
+/* Image: left align, open sides, reduce top/bottom space */
+.tabs.tabs23 .tabs-panel picture {
+  display: block;
+  margin: 0.45rem 0 0.4rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+.tabs.tabs23 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Body text: left-aligned, compact after image */
+.tabs.tabs23 .tabs-panel > div > p,
+.tabs.tabs23 .tabs-panel > div > ul,
+.tabs.tabs23 .tabs-panel > div > ol {
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0.38rem 0 0.28rem;
+  font-weight: 400;
+  text-align: left;
+  max-width: 900px;
+  padding-left: 0;
+}
+
+/* Reduce margin between image and first paragraph */
+.tabs.tabs23 .tabs-panel picture + p {
+  margin-top: 0.22rem;
+}
+
+/* Lists: contained and left-indented */
+.tabs.tabs23 .tabs-panel > div > ul,
+.tabs.tabs23 .tabs-panel > div > ol {
+  padding-left: 1.7rem;
+}
+
+.tabs.tabs23 .tabs-panel li {
+  background: none;
+  border: none;
+  padding: 0.12em 0;
+  margin: 0;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Responsive: stack content and decrease paddings/gaps for small screens */
+@media (width <= 700px) {
+  .tabs.tabs23 .tabs-list,
+  .tabs.tabs23 .tabs-panel > div {
+    max-width: 100vw;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs23 .tabs-panel img,
+  .tabs.tabs23 .tabs-panel picture {
+    max-width: 100vw;
+  }
+
+  .tabs.tabs23 .tabs-list {
+    margin-top: 12px;
+    margin-bottom: 9px;
+    gap: 0.28rem;
+  }
+
+  .tabs.tabs23 .tabs-panel > div > p,
+  .tabs.tabs23 .tabs-panel > div > ul,
+  .tabs.tabs23 .tabs-panel > div > ol {
+    font-size: 0.97rem;
+    max-width: 100vw;
+    padding-left: 0;
+  }
+
+  .tabs.tabs23 .tabs-panel h3 {
+    font-size: 1.2rem;
+  }
+
+  .tabs.tabs23 .tabs-panel h2 {
+    font-size: 1rem;
+  }
+}
+
+/* Remove extra margin from last element in the panel */
+.tabs.tabs23 .tabs-panel > div > *:last-child {
+  margin-bottom: 0;
 }
