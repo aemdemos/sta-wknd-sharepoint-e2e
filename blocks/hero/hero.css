@@ -139,14 +139,11 @@
   position: relative;
   min-height: 360px;
   background: transparent;
-
-  /* Contain image and card to the same max width for perfect alignment */
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Image wrapper (first child div) */
 .hero.hero13 > div:first-child {
   width: 100%;
   position: relative;
@@ -155,7 +152,6 @@
   overflow: hidden;
 }
 
-/* Image fills container */
 .hero.hero13 > div:first-child picture,
 .hero.hero13 > div:first-child img {
   width: 100%;
@@ -164,16 +160,15 @@
   display: block;
 }
 
-/* Content card (second child div) */
 .hero.hero13 > div:last-child {
   position: relative;
   width: 100%;
   background: #fff;
   box-shadow: 0 4px 24px rgb(0 0 0 / 7%);
-  margin-top: -70px;           /* overlap the image */
+  margin-top: -70px;
   margin-left: 0;
-  margin-right: 0;             /* left-aligned, not centered */
-  padding: 2.2rem 2.5vw 2rem 3vw; /* slightly larger left padding, less on right */
+  margin-right: 0;
+  padding: 2.2rem 2.5vw 2rem 3vw;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -211,7 +206,6 @@
   text-decoration: none;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 900px) {
   .hero.hero13 {
     max-width: 100vw;
@@ -230,5 +224,84 @@
     margin-top: -30px;
     padding: 1.2rem 1rem 1.5rem;
     box-shadow: none;
+  }
+}
+
+
+.hero.hero17 {
+  position: relative;
+  min-height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero.hero17 > div:first-child {
+  /* Background image fills hero area */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero.hero17 picture,
+.hero.hero17 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero17 > div:nth-child(2) {
+  /* White text panel anchored to bottom, more tightly hugging content */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: #fff;
+  max-width: 97vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding: 36px 48px 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 8px 32px rgb(32 32 32 / 14%);
+}
+
+.hero.hero17 h2 {
+  color: #222;
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 0.5em;
+  font-weight: 600;
+  text-align: left;
+}
+
+.hero.hero17 p {
+  color: #444;
+  font-size: var(--body-font-size-m);
+  margin: 0;
+  font-weight: 400;
+  text-align: left;
+  max-width: 60ch;
+}
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero17 {
+    min-height: 220px;
+  }
+
+  .hero.hero17 > div:nth-child(2) {
+    max-width: 100vw;
+    padding: 18px 4vw 6px;
   }
 }
