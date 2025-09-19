@@ -307,7 +307,6 @@
   background: transparent;
 }
 
-/* Header row: heading left, arrow right, extra vertical space, perfect vertical centering */
 .accordion.accordion31 summary.accordion-item-label {
   display: flex;
   flex-direction: row;
@@ -322,14 +321,12 @@
   outline: none;
 }
 
-/* Header hover & open effect */
 .accordion.accordion31 details[open] summary.accordion-item-label,
 .accordion.accordion31 summary.accordion-item-label:focus,
 .accordion.accordion31 summary.accordion-item-label:hover {
   background-color: var(--light-color);
 }
 
-/* Heading: visually left aligned, extra space, big font, more breathing room */
 .accordion.accordion31 summary.accordion-item-label h2 {
   margin: 0;
   padding: 0;
@@ -341,12 +338,10 @@
   align-self: center;
 }
 
-/* Hide default marker */
 .accordion.accordion31 summary.accordion-item-label::-webkit-details-marker {
   display: none;
 }
 
-/* Body of the accordion: image and content */
 .accordion.accordion31 details .accordion-item-body {
   padding: 0 3.8rem 3.8rem;
   display: flex;
@@ -361,7 +356,6 @@
   background-color: #fff;
 }
 
-/* Responsive layout for smaller screens */
 @media (width <= 900px) {
   .accordion.accordion31 {
     max-width: 100%;
@@ -385,7 +379,6 @@
   }
 }
 
-/* Ensure image fills body width with rounded corners and shadow */
 .accordion.accordion31 .accordion-item-body picture,
 .accordion.accordion31 .accordion-item-body img {
   width: 100%;
@@ -394,4 +387,20 @@
   box-shadow: 0 3px 18px rgb(60 60 60 / 12%);
   margin: 2.2rem 0 0;
   display: block;
+}
+
+
+.accordion.accordion38.block {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Main content wider */
+  gap: 48px; /* Space between columns */
+}
+
+/* Assign items to columns manually using nth-child */
+.accordion.accordion38.block .accordion-item:nth-child(-n+3) {
+  grid-column: 1;
+}
+
+.accordion.accordion38.block .accordion-item:nth-child(n+4) {
+  grid-column: 2;
 }
