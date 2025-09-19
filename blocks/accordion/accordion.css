@@ -197,21 +197,16 @@
   width: 100%;
   margin: 0;
   padding: 0;
-
-  /* Use grid to ensure flush alignment with other section content, 
-     and allow for future two-column layouts if sidebar is added */
   display: grid;
   grid-template-columns: 1fr;
 }
 
-/* Remove any inherited padding or margin from children */
 .accordion.accordion14 > * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Accordion items: bottom divider only, no additional space */
 .accordion.accordion14 details {
   border: none;
   border-bottom: 1px solid #eee;
@@ -225,12 +220,10 @@
   border-bottom: none;
 }
 
-/* Remove vertical margin between items */
 .accordion.accordion14 details + details {
   margin-top: 0;
 }
 
-/* FAQ row: bold, uppercase, compact, left-aligned, flush with block edge */
 .accordion.accordion14 summary {
   font-weight: 600;
   text-transform: uppercase;
@@ -250,19 +243,16 @@
   justify-content: flex-start;
 }
 
-/* Subtle hover/focus/open background for summary */
 .accordion.accordion14 summary:hover,
 .accordion.accordion14 summary:focus,
 .accordion.accordion14 details[open] summary {
   background: #f7f7f7;
 }
 
-/* Remove webkit marker */
 .accordion.accordion14 summary::-webkit-details-marker {
   display: none;
 }
 
-/* FAQ summary text: flush left, no extra margin, flexible */
 .accordion.accordion14 summary p {
   margin: 0;
   flex: 1 1 auto;
@@ -272,7 +262,6 @@
   text-align: left;
 }
 
-/* FAQ body: subtle padding, lighter color */
 .accordion.accordion14 .accordion-item-body {
   padding: 12px 0 16px;
   font-size: 15px;
@@ -283,7 +272,6 @@
   margin: 0;
 }
 
-/* Responsive: fill parent, allow full width on small screens */
 @media (width <= 899px) {
   .accordion.accordion14 {
     max-width: 100%;
@@ -298,4 +286,112 @@
   .accordion.accordion14 .accordion-item-body {
     font-size: 14px;
   }
+}
+
+
+.accordion.accordion31 {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgb(60 60 60 / 11%);
+  max-width: 950px;
+  margin: 56px auto;
+  padding: 0;
+  border: none;
+  display: block;
+}
+
+.accordion.accordion31 details {
+  width: 100%;
+  border: none;
+  margin: 0;
+  background: transparent;
+}
+
+/* Header row: heading left, arrow right, extra vertical space, perfect vertical centering */
+.accordion.accordion31 summary.accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5.5rem 3.8rem;
+  min-height: 180px;
+  background: transparent;
+  border-radius: 16px;
+  box-sizing: border-box;
+  transition: background 0.2s;
+  outline: none;
+}
+
+/* Header hover & open effect */
+.accordion.accordion31 details[open] summary.accordion-item-label,
+.accordion.accordion31 summary.accordion-item-label:focus,
+.accordion.accordion31 summary.accordion-item-label:hover {
+  background-color: var(--light-color);
+}
+
+/* Heading: visually left aligned, extra space, big font, more breathing room */
+.accordion.accordion31 summary.accordion-item-label h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #3c3c3c;
+  line-height: 1.27;
+  letter-spacing: -0.5px;
+  align-self: center;
+}
+
+/* Hide default marker */
+.accordion.accordion31 summary.accordion-item-label::-webkit-details-marker {
+  display: none;
+}
+
+/* Body of the accordion: image and content */
+.accordion.accordion31 details .accordion-item-body {
+  padding: 0 3.8rem 3.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: 1px solid #eaeaea;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.accordion.accordion31 details[open] .accordion-item-body {
+  background-color: #fff;
+}
+
+/* Responsive layout for smaller screens */
+@media (width <= 900px) {
+  .accordion.accordion31 {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 28px auto;
+  }
+
+  .accordion.accordion31 summary.accordion-item-label {
+    padding: 2rem 1.2rem;
+    min-height: 70px;
+    border-radius: 7px;
+  }
+
+  .accordion.accordion31 summary.accordion-item-label h2 {
+    font-size: 1.7rem;
+    line-height: 1.20;
+  }
+
+  .accordion.accordion31 details .accordion-item-body {
+    padding: 0 1.2rem 1.2rem;
+  }
+}
+
+/* Ensure image fills body width with rounded corners and shadow */
+.accordion.accordion31 .accordion-item-body picture,
+.accordion.accordion31 .accordion-item-body img {
+  width: 100%;
+  max-width: 730px;
+  border-radius: 12px;
+  box-shadow: 0 3px 18px rgb(60 60 60 / 12%);
+  margin: 2.2rem 0 0;
+  display: block;
 }
