@@ -1636,7 +1636,8 @@
           "uuid": "fbda622a-01-7c33728a2204b95b0c204c62c3b77e6128cb8e79",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]"
         }
-      ]
+      ],
+      "key": "unknown2"
     },
     {
       "name": "Carousel",
@@ -2025,7 +2026,8 @@
           "uuid": "fbda622a-02-8508d37050d6ad651700fd3359628a43350d9ce0",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]"
         }
-      ]
+      ],
+      "key": "unknown9"
     },
     {
       "name": "Columns",
@@ -2726,7 +2728,8 @@
           "uuid": "df129cf6-02-8508d37050d6ad651700fd3359628a43350d9ce0",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]"
         }
-      ]
+      ],
+      "key": "unknown28"
     },
     {
       "name": "Tabs",
@@ -2927,7 +2930,8 @@
           "uuid": "617a9329-02-8508d37050d6ad651700fd3359628a43350d9ce0",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]"
         }
-      ]
+      ],
+      "key": "unknown34"
     },
     {
       "name": "Tabs",
