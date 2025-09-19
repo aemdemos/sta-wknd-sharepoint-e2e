@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,139 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion12 {
+  /* Center main column, wider for editorial flow, use grid for future sidebar/content compatibility */
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+@media (width <= 900px) {
+  .accordion.accordion12 {
+    max-width: 96vw;
+    margin: 0 2vw;
+    padding: 0;
+  }
+}
+
+@media (width <= 600px) {
+  .accordion.accordion12 {
+    max-width: 100vw;
+    margin: 0;
+    padding: 0 8px;
+  }
+}
+
+.accordion.accordion12 details {
+  background: #fcfcfc;
+  border: 1px solid #ededed;
+  border-radius: 4px;
+  box-shadow: none;
+  margin-bottom: 12px;
+  width: 100%;
+  transition: border-color 0.15s;
+
+  /* For side-by-side layout in future, flex row would be applied here */
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion.accordion12 details:last-child {
+  margin-bottom: 0;
+}
+
+.accordion.accordion12 details summary {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-color);
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 20px 36px 20px 24px;
+  border-radius: 4px 4px 0 0;
+  min-height: 44px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  line-height: 1.38;
+  transition: background 0.15s;
+}
+
+.accordion.accordion12 details[open] summary,
+.accordion.accordion12 details summary:focus,
+.accordion.accordion12 details summary:hover {
+  background: #f7f7f7;
+}
+
+/* Hide default marker */
+.accordion.accordion12 details summary::-webkit-details-marker,
+.accordion.accordion12 details summary::marker {
+  display: none;
+}
+
+/* Arrow: flush with right edge */
+.accordion.accordion12 details summary::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 7px;
+  height: 7px;
+  border: 2px solid #b6b6b6;
+  border-top: none;
+  border-left: none;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.2s;
+  pointer-events: none;
+}
+
+.accordion.accordion12 details[open] summary::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.accordion.accordion12 details .accordion-item-body {
+  padding: 22px 28px 28px;
+  font-size: 1.08rem;
+  color: var(--text-color);
+  background: #f7f7f7;
+  border-radius: 0 0 4px 4px;
+  line-height: 1.7;
+  border-top: 1px solid #ededed;
+}
+
+.accordion.accordion12 details .accordion-item-body p {
+  margin-bottom: 16px;
+}
+
+.accordion.accordion12 details .accordion-item-body strong {
+  color: #f0a202;
+  font-weight: 700;
+}
+
+.accordion.accordion12 details .accordion-item-body em {
+  font-style: italic;
+}
+
+.accordion.accordion12 details .accordion-item-body h2,
+.accordion.accordion12 details .accordion-item-body h3 {
+  font-weight: 700;
+  margin: 24px 0 12px;
+  color: var(--text-color);
+}
+
+.accordion.accordion12 details .accordion-item-body h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.accordion.accordion12 details .accordion-item-body h3 {
+  font-size: var(--heading-font-size-l);
 }
