@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,138 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background: #222;
+  color: #ccc;
+  padding: 32px 48px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Main layout: two large child divs stacked vertically */
+.columns > .columns10.block.columns-3-cols {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* --- TOP ROW: LOGO, NAV, FOLLOW US --- */
+.columns > .columns10.block.columns-3-cols > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 22px;
+  min-width: 0;
+}
+
+/* Group logo and nav links tightly */
+.columns .columns-img-col {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin-right: 16px;
+}
+
+.columns .columns-img-col img {
+  max-width: 120px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+/* Nav links: grouped, uppercase, override link color */
+.columns > .columns10.block.columns-3-cols ul {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.columns > .columns10.block.columns-3-cols ul li a {
+  color: #ccc;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.columns > .columns10.block.columns-3-cols ul li a:hover,
+.columns > .columns10.block.columns-3-cols ul li a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* "Follow Us": push fully right */
+.columns > .columns10.block.columns-3-cols h4 {
+  margin: 0;
+  margin-left: auto;
+  color: #ccc;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  align-self: center;
+}
+
+/* --- BOTTOM ROW: INFO TEXT FULL WIDTH --- */
+.columns > .columns10.block.columns-3-cols > div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+/* Info paragraphs and links */
+.columns > .columns10.block.columns-3-cols > div:nth-child(2) p {
+  color: #ccc;
+  font-size: 0.97rem;
+  line-height: 1.55;
+  margin-bottom: 12px;
+  margin-top: 0;
+  width: 100%;
+}
+
+.columns > .columns10.block.columns-3-cols > div:nth-child(2) a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.columns > .columns10.block.columns-3-cols > div:nth-child(2) a:hover,
+.columns > .columns10.block.columns-3-cols > div:nth-child(2) a:focus {
+  color: #ccc;
+}
+
+/* Responsive: stack top row vertically, tighter padding */
+@media (width <= 900px) {
+  .columns {
+    padding: 24px 12px;
+  }
+
+  .columns > .columns10.block.columns-3-cols > div:first-child {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .columns .columns-img-col img {
+    max-width: 90px;
+  }
+
+  .columns > .columns10.block.columns-3-cols > div:nth-child(2) {
+    margin-top: 0;
   }
 }
