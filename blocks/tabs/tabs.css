@@ -418,7 +418,6 @@
   }
 }
 
-/* Sidebar (tablist) */
 .tabs.tabs15 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -444,7 +443,6 @@
   }
 }
 
-/* Tab buttons */
 .tabs.tabs15 .tabs-list .tabs-tab {
   width: 100%;
   background: #222;
@@ -484,7 +482,6 @@
   }
 }
 
-/* Main content panel */
 .tabs.tabs15 .tabs-panel {
   border: none;
   background: none;
@@ -502,7 +499,6 @@
   display: none;
 }
 
-/* Headings */
 .tabs.tabs15 .tabs-panel h3 {
   margin-top: 0;
   margin-bottom: 1px;
@@ -523,7 +519,6 @@
   text-align: left;
 }
 
-/* Body text */
 .tabs.tabs15 .tabs-panel p,
 .tabs.tabs15 .tabs-panel ul {
   font-size: 15px;
@@ -538,7 +533,6 @@
   padding-left: 12px;
 }
 
-/* Images */
 .tabs.tabs15 .tabs-panel picture,
 .tabs.tabs15 .tabs-panel img {
   display: block;
@@ -567,10 +561,205 @@
   }
 }
 
-/* Remove unwanted borders/padding from inherited styles */
 .tabs.tabs15 .tabs-panel,
 .tabs.tabs15 .tabs-list {
   border: none;
   box-shadow: none;
   padding: 0;
+}
+
+
+.tabs.tabs16 {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 40px;
+  background: var(--background-color);
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs16 {
+    display: block;
+    max-width: 100%;
+    margin: 24px 0;
+    padding: 0 12px;
+  }
+}
+
+/* Sidebar: top-aligned tabs, subtle divider, refined width and padding */
+.tabs.tabs16 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 36px 0 0;
+  min-width: 0;
+  max-width: 170px;
+  width: 100%;
+  background: var(--background-color);
+  gap: 2px;
+  border: none;
+  border-right: 1px solid #e5e5e5;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs16 .tabs-list {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+    border-right: none;
+    gap: 8px;
+  }
+}
+
+/* Tab buttons: vertical, more padding for touch target */
+.tabs.tabs16 .tabs-list button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 14px 16px;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  color: #b9b9b9;
+  border-radius: 0;
+  border-left: 4px solid transparent;
+  transition: background 0.2s, color 0.2s, border-left 0.2s;
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.tabs.tabs16 .tabs-list button[aria-selected="false"] {
+  background: none;
+  color: #b9b9b9;
+  font-weight: 400;
+}
+
+.tabs.tabs16 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  border-left: 4px solid #f4e27b;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs16 .tabs-list button {
+    width: auto;
+    min-width: 80px;
+    text-align: center;
+    padding: 13px 18px;
+    border-left: none;
+    border-bottom: 4px solid transparent;
+    border-radius: 0;
+  }
+
+  .tabs.tabs16 .tabs-list button[aria-selected="true"] {
+    border-bottom: 4px solid #f4e27b;
+    border-left: none;
+    background: #222;
+    color: #fff;
+  }
+}
+
+.tabs.tabs16 .tabs-list button p {
+  margin: 0;
+}
+
+/* Main content: flush alignment, no extra left padding */
+.tabs.tabs16 .tabs-panel {
+  padding: 36px 0 0;
+  box-sizing: border-box;
+  border: none;
+  background: var(--background-color);
+  min-width: 0;
+  max-width: 900px;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs16 .tabs-panel {
+    padding: 32px 0 0;
+    max-width: 100%;
+  }
+}
+
+.tabs.tabs16 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Main heading and accent: tight and visually anchored */
+.tabs.tabs16 .tabs-panel h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding-bottom: 8px;
+}
+
+.tabs.tabs16 .tabs-panel h3::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #f4e27b;
+  margin-top: 7px;
+  margin-bottom: 0;
+}
+
+/* Headline spacing and size */
+.tabs.tabs16 .tabs-panel h2 {
+  margin-top: 8px;
+  margin-bottom: 18px;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+
+/* Image styling: full width, tighter vertical margin */
+.tabs.tabs16 .tabs-panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 18px 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Paragraph styling: normal margins */
+.tabs.tabs16 .tabs-panel p {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  padding-left: 0;
+}
+
+/* List styling */
+.tabs.tabs16 .tabs-panel ul {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  padding-left: 20px;
+}
+
+/* Remove outer border if inherited from previous styles */
+.tabs.tabs16 .tabs-panel,
+.tabs.tabs16 .tabs-list {
+  border: none;
 }
