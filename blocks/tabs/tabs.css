@@ -2425,7 +2425,6 @@
   min-height: 100vh;
 }
 
-/* Sidebar - left column: should not show tabs-list */
 .tabs.tabs37 > div:first-child {
   flex: 0 0 220px;
   min-width: 180px;
@@ -2440,12 +2439,10 @@
   min-height: 100vh;
 }
 
-/* Hide any tabs-list in the sidebar */
 .tabs.tabs37 > div:first-child .tabs-list {
   display: none;
 }
 
-/* Main content - right column */
 .tabs.tabs37 > div:last-child {
   flex: 1 1 0%;
   min-width: 0;
@@ -2475,7 +2472,6 @@
   }
 }
 
-/* Show tabs horizontally at top of main column */
 .tabs.tabs37 > div:last-child .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2489,7 +2485,6 @@
   gap: 0;
 }
 
-/* Tabs: horizontal, clean, compact */
 .tabs.tabs37 > div:last-child .tabs-list button {
   border: none;
   border-radius: 0;
@@ -2529,7 +2524,6 @@
   margin: 0;
 }
 
-/* Tab panel content */
 .tabs.tabs37 .tabs-panel {
   border: none;
   background: transparent;
@@ -2541,7 +2535,6 @@
   display: block;
 }
 
-/* Main image */
 .tabs.tabs37 .tabs-panel picture img {
   width: 100%;
   height: auto;
@@ -2552,7 +2545,6 @@
   max-width: 800px;
 }
 
-/* Image caption (first p below image) */
 .tabs.tabs37 .tabs-panel > div > p:first-of-type {
   margin-top: 0;
   margin-bottom: 18px;
@@ -2564,11 +2556,152 @@
   max-width: 800px;
 }
 
-/* Body text under caption */
 .tabs.tabs37 .tabs-panel > div > p:not(:first-of-type) {
   color: #444;
   font-size: 1.09em;
   line-height: 1.7;
   margin-bottom: 1.5em;
   max-width: 800px;
+}
+
+
+.tabs.tabs39 {
+  max-width: 980px;
+  width: 100%;
+  margin: 54px auto 0;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+}
+
+/* Use grid for vertical stacking and left alignment of children */
+
+/* Tabs bar: flex row, left aligned, less vertical space */
+.tabs.tabs39 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  margin: 0 0 24px; /* reduce spacing below tabs */
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tabs: rectangular, moderate padding, uppercase, active tab styling */
+.tabs.tabs39 .tabs-tab {
+  border: none;
+  background: #fff;
+  color: #222;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 15px 36px 13px 24px;
+  border-radius: 0;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  text-align: left;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  outline: none;
+}
+
+.tabs.tabs39 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs39 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel: left-aligned, matching left edge of tabs, vertical stacking inside */
+.tabs.tabs39 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: transparent;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+}
+
+.tabs.tabs39 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs39 .tabs-panel > div > p:first-child {
+  margin: 0;
+  padding: 0;
+}
+
+/* Image: left-aligned, wide, margin below */
+.tabs.tabs39 .tabs-panel img,
+.tabs.tabs39 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 0 24px;
+  border: none;
+  box-shadow: none;
+  height: auto;
+  justify-self: start;
+}
+
+/* Description: left-aligned, readable, matching image width */
+.tabs.tabs39 .tabs-panel > div > p:not(:first-child) {
+  color: #222;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.7;
+  text-align: left;
+  padding: 0;
+  max-width: 820px;
+  justify-self: start;
+}
+
+/* Responsive adjustments for tablets/mobile */
+@media (width <= 1023px) {
+  .tabs.tabs39 {
+    max-width: 100vw;
+  }
+
+  .tabs.tabs39 .tabs-panel img,
+  .tabs.tabs39 .tabs-panel picture,
+  .tabs.tabs39 .tabs-panel > div > p:not(:first-child) {
+    max-width: 96vw;
+  }
+}
+
+@media (width <= 699px) {
+  .tabs.tabs39 {
+    margin-top: 24px;
+  }
+
+  .tabs.tabs39 .tabs-list {
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+
+  .tabs.tabs39 .tabs-tab {
+    padding: 10px 16px;
+  }
+
+  .tabs.tabs39 .tabs-panel img,
+  .tabs.tabs39 .tabs-panel picture,
+  .tabs.tabs39 .tabs-panel > div > p:not(:first-child) {
+    max-width: 94vw;
+  }
 }
