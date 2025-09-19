@@ -1619,7 +1619,7 @@
   margin-top: 0;
   background: none;
   border: none;
-  gap: 6px; /* Tighter vertical gap between buttons */
+  gap: 6px;
   align-self: flex-start;
 }
 
@@ -1642,7 +1642,7 @@
 .tabs.tabs27 .tabs-list button {
   width: 100%;
   min-width: 80px;
-  padding: 5px 8px; /* More compact tabs */
+  padding: 5px 8px;
   border: none;
   border-left: 4px solid transparent;
   border-radius: 0;
@@ -1707,7 +1707,6 @@
   max-width: 100%;
 }
 
-/* Only underline h3 */
 .tabs.tabs27 > .tabs-panel h3 {
   border-bottom: 2px solid #ffde74;
   padding-bottom: 3px;
@@ -1720,7 +1719,6 @@
   line-height: 1.25;
 }
 
-/* Remove underline from h2, adjust spacing and sizing closer to original */
 .tabs.tabs27 > .tabs-panel h2,
 .tabs.tabs27 > .tabs-panel h2 strong {
   border-bottom: none;
@@ -1762,4 +1760,173 @@
 .tabs.tabs27 > .tabs-panel > div {
   margin-left: 0;
   padding-left: 0;
+}
+
+
+.tabs.tabs29 {
+  display: flex;
+  flex-direction: row;
+  min-height: 640px;
+  background: var(--background-color);
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  align-items: flex-start;
+}
+
+/* Remove any centering/margin if inherited from parent containers */
+
+/* Sidebar/tab column - maximize flush-left, minimize whitespace */
+.tabs.tabs29 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 120px;
+  max-width: 140px;
+  background-color: var(--background-color);
+  padding: 40px 0 0;
+  margin: 0;
+  border-right: 1px solid #ece6d6;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* Tabs styled as minimal sidebar menu items */
+.tabs.tabs29 > .tabs-list button {
+  background: none;
+  border: none;
+  padding: 8px 0 8px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: left;
+  width: 100%;
+  border-radius: 0;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin: 0;
+}
+
+.tabs.tabs29 > .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs29 > .tabs-list button[aria-selected="true"]::after {
+  position: absolute;
+  left: 24px;
+  bottom: 0;
+  width: 24px;
+  height: 3px;
+  background: #d6bc6a;
+  border-radius: 2px;
+  display: block;
+  content: "";
+}
+
+/* Main content area - minimal padding, flush with sidebar */
+.tabs.tabs29 > .tabs-panel {
+  flex: 1 1 0;
+  padding: 40px 16px 16px 24px;
+  background: var(--background-color);
+  min-width: 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Responsive: stack tabs horizontally above on small screens, keep left-aligned */
+@media (width <= 900px) {
+  .tabs.tabs29 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tabs.tabs29 > .tabs-list {
+    flex-direction: row;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ece6d6;
+    padding: 0;
+    margin-bottom: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .tabs.tabs29 > .tabs-panel {
+    padding: 24px 8px 16px;
+  }
+
+  .tabs.tabs29 > .tabs-list button {
+    padding: 8px 16px 8px 8px;
+    text-align: center;
+    width: auto;
+  }
+
+  .tabs.tabs29 > .tabs-list button[aria-selected="true"]::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Title and subtitle spacing */
+.tabs.tabs29 > .tabs-panel h3:first-of-type {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.tabs.tabs29 > .tabs-panel h3:not(:first-of-type) {
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+
+/* Image styling */
+.tabs.tabs29 > .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 8%);
+  margin-bottom: 8px;
+}
+
+/* Caption styling */
+.tabs.tabs29 > .tabs-panel p:first-of-type {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin-top: 8px;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+/* Description paragraph */
+.tabs.tabs29 > .tabs-panel p:not(:first-of-type) {
+  font-size: var(--body-font-size-m);
+  color: #444;
+  margin: 8px 0 24px;
+  line-height: 1.7;
+}
+
+/* Remove default list button inner margin */
+.tabs.tabs29 > .tabs-list button p {
+  margin: 0;
+}
+
+/* Hide inactive tab panels */
+.tabs.tabs29 > .tabs-panel[aria-hidden='true'] {
+  display: none;
 }
