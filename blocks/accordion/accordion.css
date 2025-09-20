@@ -61,21 +61,6 @@
 }
 
 
-.accordion.accordion38.block {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 48px;
-}
-
-.accordion.accordion38.block .accordion-item:nth-child(-n+3) {
-  grid-column: 1;
-}
-
-.accordion.accordion38.block .accordion-item:nth-child(n+4) {
-  grid-column: 2;
-}
-
-
 .accordion.accordion12 {
   margin: 112px 0 56px;
   max-width: 840px;
@@ -313,7 +298,6 @@
 
 
 .accordion.accordion31 {
-  /* Layout: multi-column accordion items in grid */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
@@ -324,12 +308,9 @@
   margin: 56px auto;
   padding: 40px;
   border: none;
-
-  /* Ensure content isn't scrollable horizontally */
   overflow-x: auto;
 }
 
-/* Responsive: stack columns vertically on smaller screens */
 @media (width <= 900px) {
   .accordion.accordion31 {
     grid-template-columns: 1fr;
@@ -341,7 +322,6 @@
   }
 }
 
-/* Individual accordion items as columns */
 .accordion.accordion31 > details {
   background: #fff;
   border-radius: 10px;
@@ -351,11 +331,8 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-
-  /* Remove vertical spacing between details */
 }
 
-/* Accordion summary styling */
 .accordion.accordion31 summary.accordion-item-label {
   display: block;
   padding: 32px 24px 0;
@@ -368,7 +345,6 @@
   outline: none;
 }
 
-/* Headings styling */
 .accordion.accordion31 summary.accordion-item-label h2 {
   color: #A0885A;
   font-size: 2rem;
@@ -378,7 +354,6 @@
   letter-spacing: -0.5px;
 }
 
-/* Accordion body styling: vertical spacing only */
 .accordion.accordion31 .accordion-item-body {
   padding: 0 24px 32px;
   background: #fff;
@@ -389,7 +364,6 @@
   align-items: flex-start;
 }
 
-/* Paragraphs */
 .accordion.accordion31 .accordion-item-body p {
   color: #444;
   font-size: 1rem;
@@ -398,7 +372,6 @@
   line-height: 1.65;
 }
 
-/* Images */
 .accordion.accordion31 .accordion-item-body picture,
 .accordion.accordion31 .accordion-item-body img {
   width: 100%;
@@ -410,7 +383,6 @@
   object-fit: cover;
 }
 
-/* Remove default browser marker from summary */
 .accordion.accordion31 summary::-webkit-details-marker {
   display: none;
 }
@@ -419,14 +391,102 @@
   display: none;
 }
 
-/* Remove excess spacing between details */
 .accordion.accordion31 > details + details {
   margin-top: 0;
 }
 
-/* Ensure open/hover states are subtle */
 .accordion.accordion31 details[open] summary,
 .accordion.accordion31 summary:focus,
 .accordion.accordion31 summary:hover {
   background-color: #f8f8f8;
+}
+
+
+.accordion.accordion38 {
+  background: #fff;
+  box-sizing: border-box;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  padding: 0;
+  border: none;
+  max-width: 100%;
+}
+
+/* Remove border, background, and shadow from details */
+.accordion.accordion38 details {
+  border: none;
+  background: none;
+  margin: 0 0 48px;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Summary bar: vertical and horizontal centering, proper padding */
+.accordion.accordion38 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Center arrow and title vertically */
+  justify-content: space-between;
+  padding: 22px 32px 16px; /* vertical and horizontal padding */
+  min-height: 64px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* Title styling: underline only as wide as text, not stretching */
+.accordion.accordion38 summary p {
+  display: inline-block;
+  flex: 0 1 auto;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  border-bottom: 2px solid #e1b94b;
+  margin-bottom: 0;
+  padding-bottom: 3px;
+  line-height: 1.2;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Remove previous hover/active background */
+.accordion.accordion38 details summary:hover,
+.accordion.accordion38 details summary:focus {
+  background: none;
+}
+
+/* Remove default summary marker */
+.accordion.accordion38 summary::-webkit-details-marker,
+.accordion.accordion38 summary::marker {
+  display: none;
+}
+
+/* Arrow remains right aligned and vertically centered */
+.accordion.accordion38 summary::after {
+  align-self: center;
+}
+
+/* Remove any extra spacing between details items */
+.accordion.accordion38 details + details {
+  margin-top: 0;
+}
+
+/* Responsive: reduce summary padding and font size for mobile */
+@media (width <= 600px) {
+  .accordion.accordion38 summary {
+    padding: 12px 14px 8px;
+    font-size: 1.35rem;
+    min-height: 46px;
+  }
+
+  .accordion.accordion38 summary p {
+    font-size: 1.35rem;
+    border-bottom-width: 2px;
+    padding-bottom: 2px;
+  }
 }
