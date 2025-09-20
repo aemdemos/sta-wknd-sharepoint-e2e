@@ -59,181 +59,6 @@
 }
 
 
-.tabs.tabs15 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  max-width: none;
-  padding-left: 18px;
-  margin: 32px 0 0;
-  background: var(--background-color);
-  border: none;
-  box-shadow: none;
-  gap: 22px;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs15 {
-    flex-direction: column;
-    max-width: 100%;
-    gap: 0;
-    margin: 20px 0 0;
-    padding-left: 0;
-  }
-}
-
-.tabs.tabs15 .tabs-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-  width: 86px;
-  margin-left: 6px;
-  padding: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-  align-items: stretch;
-  justify-content: flex-start;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs15 .tabs-list {
-    flex-direction: row;
-    gap: 8px;
-    width: 100%;
-    margin-left: 0;
-    padding: 0 0 12px;
-  }
-}
-
-.tabs.tabs15 .tabs-list .tabs-tab {
-  width: 100%;
-  background: #222;
-  color: #fff;
-  border: none;
-  border-radius: 0;
-  text-align: left;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  padding: 2px 7px;
-  margin: 0;
-  line-height: 1.1;
-  outline: none;
-  box-shadow: none;
-  transition: background 0.2s, color 0.2s;
-}
-
-.tabs.tabs15 .tabs-list .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #f6e27a;
-  font-weight: 600;
-}
-
-.tabs.tabs15 .tabs-list .tabs-tab p {
-  margin: 0;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs15 .tabs-list .tabs-tab {
-    width: auto;
-    min-width: 62px;
-    text-align: center;
-    padding: 2px 7px;
-    font-size: 11.5px;
-  }
-}
-
-.tabs.tabs15 .tabs-panel {
-  border: none;
-  background: none;
-  box-shadow: none;
-  margin: 0;
-  padding: 0;
-  max-width: 1120px;
-  width: 100%;
-  align-self: flex-start;
-  display: flex;
-  flex-direction: column;
-}
-
-.tabs.tabs15 .tabs-panel[aria-hidden="true"] {
-  display: none;
-}
-
-.tabs.tabs15 .tabs-panel h3 {
-  margin-top: 0;
-  margin-bottom: 1px;
-  font-size: 32px;
-  font-weight: 400;
-  color: #222;
-  letter-spacing: 0.3px;
-  text-align: left;
-}
-
-.tabs.tabs15 .tabs-panel h2,
-.tabs.tabs15 .tabs-panel h2 strong {
-  margin: 0 0 2px;
-  font-size: 24px;
-  font-weight: 700;
-  color: #222;
-  line-height: 1.15;
-  text-align: left;
-}
-
-.tabs.tabs15 .tabs-panel p,
-.tabs.tabs15 .tabs-panel ul {
-  font-size: 15px;
-  color: #222;
-  line-height: 1.6;
-  margin-bottom: 8px;
-  margin-top: 0;
-  text-align: left;
-}
-
-.tabs.tabs15 .tabs-panel ul {
-  padding-left: 12px;
-}
-
-.tabs.tabs15 .tabs-panel picture,
-.tabs.tabs15 .tabs-panel img {
-  display: block;
-  margin: 4px 0 0;
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.tabs.tabs15 .tabs-panel picture:first-of-type,
-.tabs.tabs15 .tabs-panel img:first-of-type {
-  margin-top: 2px;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs15 .tabs-panel {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .tabs.tabs15 .tabs-panel picture,
-  .tabs.tabs15 .tabs-panel img {
-    margin: 6px 0 0;
-  }
-}
-
-.tabs.tabs15 .tabs-panel,
-.tabs.tabs15 .tabs-list {
-  border: none;
-  box-shadow: none;
-  padding: 0;
-}
-
-
 .tabs.tabs16 {
   display: grid;
   grid-template-columns: 170px 1fr;
@@ -2559,7 +2384,6 @@
   }
 }
 
-/* Sidebar */
 .tabs.tabs11 > .tabs-list {
   min-width: 210px;
   max-width: 230px;
@@ -2585,7 +2409,6 @@
   }
 }
 
-/* Sidebar Tabs */
 .tabs.tabs11 > .tabs-list > .tabs-tab {
   width: 100%;
   box-sizing: border-box;
@@ -2619,7 +2442,6 @@
   }
 }
 
-/* Only show the active panel */
 .tabs.tabs11 > .tabs-panel {
   display: none;
 }
@@ -2650,7 +2472,6 @@
   }
 }
 
-/* Inner Content: Make it full-width, left-aligned */
 .tabs.tabs11 > .tabs-panel[aria-hidden="false"] > div {
   width: 100%;
   margin: 0 auto;
@@ -2663,14 +2484,12 @@
   padding-right: 0;
 }
 
-/* Remove card border from panel and inner containers */
 .tabs.tabs11 > .tabs-panel,
 .tabs.tabs11 > .tabs-panel > div {
   border: none;
   box-shadow: none;
 }
 
-/* Heading styles */
 .tabs.tabs11 > .tabs-panel[aria-hidden="false"] h2 strong,
 .tabs.tabs11 > .tabs-panel[aria-hidden="false"] h2 {
   font-size: 38px;
@@ -2682,8 +2501,8 @@
   max-width: 980px;
   margin-left: 0;
   align-self: flex-start;
-  word-break: break-word;
-  overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 @media (width <= 900px) {
@@ -2696,7 +2515,6 @@
   }
 }
 
-/* Paragraph styles */
 .tabs.tabs11 > .tabs-panel[aria-hidden="false"] p {
     font-size: 15px;
     max-width: 100%;
@@ -2711,7 +2529,6 @@
   }
 }
 
-/* Image styles */
 .tabs.tabs11 > .tabs-panel[aria-hidden="false"] img {
   display: block;
   width: 100%;
@@ -2732,7 +2549,6 @@
   }
 }
 
-/* Related trips section */
 .tabs.tabs11 > .tabs-panel[aria-hidden="false"] ul {
   margin: 56px 0 0;
   padding: 0;
@@ -2750,5 +2566,189 @@
 @media (width <= 900px) {
   .tabs.tabs11 > .tabs-panel[aria-hidden="false"] li {
     font-size: 15px;
+  }
+}
+
+
+.tabs.tabs15 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--background-color);
+  padding: 0;
+  gap: 80px;
+  min-height: 0;
+  box-shadow: none;
+  border: none;
+  position: relative;
+}
+
+.tabs.tabs15,
+.tabs.tabs15 > .tabs-list,
+.tabs.tabs15 > .tabs-panel {
+  margin-top: 0;
+  padding-top: 0;
+  align-items: flex-start;
+  place-content: flex-start flex-start;
+}
+
+/* Sidebar: tabs-list */
+.tabs.tabs15 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 180px;
+  min-width: 140px;
+  max-width: 220px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0 0 0 40px; /* increased left padding for whitespace */
+  margin: 0;
+  gap: 22px;
+  position: relative;
+}
+
+/* Tabs styling */
+.tabs.tabs15 > .tabs-list .tabs-tab {
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 10px 12px 12px;
+  margin: 0;
+  border: none;
+  border-radius: 4px;
+  background: #212121;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.tabs.tabs15 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #212121;
+  color: #fff;
+}
+
+.tabs.tabs15 > .tabs-list .tabs-tab:not([aria-selected="true"]) {
+  background: #fff;
+  color: #212121;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
+}
+
+.tabs.tabs15 > .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Main content area */
+.tabs.tabs15 > .tabs-panel {
+  flex: 1 1 0;
+  max-width: 900px;
+  min-width: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0 32px 0 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.tabs.tabs15 > .tabs-panel > div {
+  width: 100%;
+  max-width: 900px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+.tabs.tabs15 > .tabs-panel h2,
+.tabs.tabs15 > .tabs-panel h2 strong {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #212121;
+  line-height: 1.15;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.tabs.tabs15 > .tabs-panel h2 strong {
+  border-bottom: 3px solid #FFE082;
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+/* Paragraphs */
+.tabs.tabs15 > .tabs-panel p {
+  font-size: 1rem;
+  color: #212121;
+  line-height: 1.6;
+  margin-bottom: 22px;
+  margin-top: 0;
+  text-align: left;
+}
+
+/* Images */
+.tabs.tabs15 > .tabs-panel picture,
+.tabs.tabs15 > .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 24px 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* List styling inside panel */
+.tabs.tabs15 > .tabs-panel ul {
+  padding-left: 24px;
+  margin-bottom: 24px;
+}
+
+/* Hide inactive panels for accessibility */
+.tabs.tabs15 > .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Ensure all alignment is flush to top */
+
+/* Responsive: stack sidebar above content */
+@media (width <= 900px) {
+  .tabs.tabs15 {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  .tabs.tabs15 > .tabs-list {
+    flex-direction: row;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    padding: 0 0 18px;
+    gap: 10px;
+  }
+
+  .tabs.tabs15 > .tabs-panel {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
   }
 }
