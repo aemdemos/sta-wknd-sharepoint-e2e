@@ -59,138 +59,6 @@
 }
 
 
-.tabs.tabs22 {
-  display: block;
-  max-width: 900px;
-  margin: 0 auto;
-  padding-top: 48px;
-  box-sizing: border-box;
-}
-
-.tabs.tabs22 .tabs-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0;
-  margin-top: 0;
-  margin-bottom: 40px;
-  padding: 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.tabs.tabs22 .tabs-list button {
-  border: none;
-  background: transparent;
-  color: #222;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 8px 16px;
-  border-radius: 2px;
-  font-size: 1rem;
-  line-height: 1.1;
-  box-shadow: none;
-  outline: none;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  text-align: center;
-  margin: 0;
-  min-width: unset;
-}
-
-.tabs.tabs22 .tabs-list button:not(:last-child) {
-  margin-right: 2px;
-}
-
-.tabs.tabs22 .tabs-list button[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  z-index: 1;
-}
-
-.tabs.tabs22 .tabs-list button[aria-selected="false"] {
-  background: transparent;
-  color: #222;
-  z-index: 0;
-}
-
-.tabs.tabs22 .tabs-list button p {
-  margin: 0;
-}
-
-.tabs.tabs22 .tabs-panel {
-  padding: 0;
-  margin: 0;
-  border: none;
-  box-shadow: none;
-  overflow: visible;
-  width: 100%;
-  max-width: 900px;
-  box-sizing: border-box;
-}
-
-.tabs.tabs22 .tabs-panel > div {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.tabs.tabs22 .tabs-panel > div > p {
-  color: #222;
-  font-size: 1.12rem;
-  line-height: 1.7;
-  margin: 0 0 1.3em;
-  padding: 0;
-  max-width: 900px;
-}
-
-.tabs.tabs22 .tabs-panel > div > p:last-child {
-  color: #858585;
-  font-size: 0.97rem;
-  margin-top: 24px;
-  margin-bottom: 0;
-}
-
-.tabs.tabs22 .tabs-panel img {
-  display: block;
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  border-radius: 0;
-  margin: 32px 0 10px;
-  box-sizing: border-box;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs22 {
-    max-width: 100%;
-    padding-top: 32px;
-  }
-
-  .tabs.tabs22 .tabs-panel,
-  .tabs.tabs22 .tabs-panel > div,
-  .tabs.tabs22 .tabs-panel img {
-    max-width: 100%;
-  }
-
-  .tabs.tabs22 .tabs-list {
-    margin-bottom: 22px;
-  }
-
-  .tabs.tabs22 .tabs-list button {
-    padding: 7px;
-    font-size: 1rem;
-  }
-
-  .tabs.tabs22 .tabs-list button:not(:last-child) {
-    margin-right: 2px;
-  }
-}
-
-
 .tabs.tabs23 {
   border: none;
   background: var(--background-color);
@@ -2600,7 +2468,6 @@
   align-items: flex-start;
 }
 
-/* Tabs row: ultra-compact, flush left, all in one row, flat border */
 .tabs.tabs19 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2614,7 +2481,6 @@
   background: none;
 }
 
-/* Tab buttons: very compact, flat borders, unified look, minimal padding */
 .tabs.tabs19 .tabs-tab {
   background: none;
   border: none;
@@ -2637,7 +2503,6 @@
   cursor: pointer;
 }
 
-/* Remove left border for first tab, right border for last tab to unify row */
 .tabs.tabs19 .tabs-tab:not(:first-child) {
   border-left: 1px solid #e2e2e2;
 }
@@ -2646,7 +2511,6 @@
   border-right: none;
 }
 
-/* Active tab: black background, white text, subtle yellow top border, blends into content */
 .tabs.tabs19 .tabs-tab[aria-selected="true"] {
   background: #212121;
   color: #fff;
@@ -2664,7 +2528,6 @@
   color: #212121;
 }
 
-/* Remove p default margin in button */
 .tabs.tabs19 .tabs-tab p {
   margin: 0;
   font-size: inherit;
@@ -2673,7 +2536,6 @@
   letter-spacing: inherit;
 }
 
-/* Main panel area: reset width and spacing */
 .tabs.tabs19 .tabs-panel {
   border: none;
   background: transparent;
@@ -2687,7 +2549,6 @@
   display: none;
 }
 
-/* Heading: tight spacing below tabs, yellow underline */
 .tabs.tabs19 .tabs-panel > div > h3 {
   font-size: 2rem;
   font-weight: 700;
@@ -2700,7 +2561,6 @@
   background: none;
 }
 
-/* Image: tight vertical spacing, 6px rounded corners */
 .tabs.tabs19 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -2710,7 +2570,6 @@
   box-shadow: none;
 }
 
-/* Text/Paragraphs: max width, readable spacing, compact */
 .tabs.tabs19 .tabs-panel > div > p,
 .tabs.tabs19 .tabs-panel > div > ul,
 .tabs.tabs19 .tabs-panel > div > ol {
@@ -2732,7 +2591,6 @@
   margin-bottom: 5px;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs19 {
     max-width: 100%;
@@ -2774,5 +2632,177 @@
     font-size: 0.93rem;
     line-height: 1.35;
     margin-bottom: 6px;
+  }
+}
+
+
+.tabs.tabs22 {
+  max-width: 900px;
+  margin-left: 80px;
+  margin-right: 0;
+  padding-top: 48px;
+  box-sizing: border-box;
+  display: block;
+}
+
+@media (width <= 1200px) {
+  .tabs.tabs22 {
+    margin-left: 40px;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs22 {
+    margin-left: 0;
+    max-width: 100%;
+    padding-top: 24px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/* Tabs row: left-aligned, horizontal */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 0;
+  width: 100%;
+  gap: 0;
+}
+
+/* Tab buttons styling and spacing */
+.tabs.tabs22 .tabs-list button {
+  background: transparent;
+  border: none;
+  color: #222;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 22px;
+  border-radius: 3px;
+  font-size: 1rem;
+  line-height: 1.1;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-align: center;
+  margin: 0 8px 0 0;
+  min-width: unset;
+}
+
+.tabs.tabs22 .tabs-list button:last-child {
+  margin-right: 0;
+}
+
+.tabs.tabs22 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  z-index: 1;
+}
+
+.tabs.tabs22 .tabs-list button[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+  z-index: 0;
+}
+
+.tabs.tabs22 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main panel: vertical column, left-aligned */
+.tabs.tabs22 .tabs-panel {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.tabs.tabs22 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs.tabs22 .tabs-panel > div > h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: #222;
+  position: relative;
+  line-height: 1.15;
+}
+
+.tabs.tabs22 .tabs-panel > div > h3::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #f4d35e;
+  margin-top: 10px;
+  border-radius: 2px;
+  margin-bottom: 18px;
+  content: "";
+}
+
+/* Body text */
+.tabs.tabs22 .tabs-panel > div > p {
+  color: #222;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+  max-width: 700px;
+  text-align: left;
+}
+
+.tabs.tabs22 .tabs-panel > div > p:last-child {
+  color: #888;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/* Image and picture */
+.tabs.tabs22 .tabs-panel picture,
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 32px 0 12px;
+  border-radius: 0;
+  box-shadow: none;
+  align-self: flex-start;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs22 .tabs-list {
+    margin-bottom: 18px;
+  }
+
+  .tabs.tabs22 .tabs-panel > div > h3 {
+    font-size: 1.3rem;
+  }
+
+  .tabs.tabs22 .tabs-panel > div > p,
+  .tabs.tabs22 .tabs-panel > div > p:last-child {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .tabs.tabs22 .tabs-panel picture,
+  .tabs.tabs22 .tabs-panel img {
+    max-width: 100%;
   }
 }
