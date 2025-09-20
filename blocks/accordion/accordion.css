@@ -61,104 +61,6 @@
 }
 
 
-.accordion.accordion14 {
-  box-sizing: border-box;
-  max-width: 640px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.accordion.accordion14 > * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.accordion.accordion14 details {
-  border: none;
-  border-bottom: 1px solid #eee;
-  margin: 0;
-  background: var(--background-color);
-  transition: background 0.2s;
-  box-sizing: border-box;
-}
-
-.accordion.accordion14 details:last-child {
-  border-bottom: none;
-}
-
-.accordion.accordion14 details + details {
-  margin-top: 0;
-}
-
-.accordion.accordion14 summary {
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 13px;
-  color: #222;
-  letter-spacing: 0.02em;
-  padding: 12px 40px 12px 0;
-  min-height: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  outline: none;
-  border: none;
-  background: var(--background-color);
-  cursor: pointer;
-  box-sizing: border-box;
-  justify-content: flex-start;
-}
-
-.accordion.accordion14 summary:hover,
-.accordion.accordion14 summary:focus,
-.accordion.accordion14 details[open] summary {
-  background: #f7f7f7;
-}
-
-.accordion.accordion14 summary::-webkit-details-marker {
-  display: none;
-}
-
-.accordion.accordion14 summary p {
-  margin: 0;
-  flex: 1 1 auto;
-  line-height: 1.25;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  text-align: left;
-}
-
-.accordion.accordion14 .accordion-item-body {
-  padding: 12px 0 16px;
-  font-size: 15px;
-  color: #444;
-  line-height: 1.6;
-  background: var(--background-color);
-  border: none;
-  margin: 0;
-}
-
-@media (width <= 899px) {
-  .accordion.accordion14 {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .accordion.accordion14 summary {
-    font-size: 12px;
-    padding-right: 20px;
-  }
-
-  .accordion.accordion14 .accordion-item-body {
-    font-size: 14px;
-  }
-}
-
-
 .accordion.accordion31 {
   background: #fff;
   border-radius: 18px;
@@ -276,7 +178,6 @@
 
 
 .accordion.accordion12 {
-  /* Left-aligned block, larger vertical whitespace */
   margin: 112px 0 56px;
   max-width: 840px;
   background: #fff;
@@ -406,5 +307,115 @@
 
   .accordion.accordion12 details .accordion-item-body {
     font-size: 1rem;
+  }
+}
+
+
+.accordion.accordion14 {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto 32px; /* Remove top margin so block starts higher on page */
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 0;
+  padding: 0 24px;
+}
+
+/* FAQ items: stack vertically, fill block width */
+.accordion.accordion14 details {
+  border-bottom: 1px solid #dadada;
+  background: #fff;
+  margin: 0;
+  box-sizing: border-box;
+  transition: background 0.2s;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove gap between accordion items */
+.accordion.accordion14 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion14 details:last-child {
+  border-bottom: none;
+}
+
+/* FAQ summary row: flex row for label and icon, balanced horizontal padding */
+.accordion.accordion14 summary {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  padding: 18px 24px;
+  min-height: 48px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  outline: none;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+  justify-content: space-between;
+  letter-spacing: 0;
+  transition: background 0.2s;
+}
+
+/* Remove default marker for summary */
+.accordion.accordion14 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* FAQ label: left align, fill available space */
+.accordion.accordion14 summary p {
+  margin: 0;
+  flex: 1 1 auto;
+  text-align: left;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+/* Keep background white on interaction */
+.accordion.accordion14 summary:focus,
+.accordion.accordion14 summary:hover,
+.accordion.accordion14 details[open] summary {
+  background: #fff;
+}
+
+/* FAQ answer/body: match horizontal padding, left align */
+.accordion.accordion14 .accordion-item-body {
+  padding: 16px 24px 20px;
+  font-size: 13px;
+  color: #222;
+  background: #fff;
+  margin: 0;
+  line-height: 1.6;
+  border: none;
+  text-align: left;
+}
+
+/* Responsive: reduce side padding and bottom margin for mobile */
+@media (width <= 899px) {
+  .accordion.accordion14 {
+    max-width: 100%;
+    margin: 0 0 20px;
+    padding: 0 8px;
+  }
+
+  .accordion.accordion14 summary {
+    font-size: 12px;
+    padding: 14px 8px;
+    min-height: 44px;
+  }
+
+  .accordion.accordion14 .accordion-item-body {
+    font-size: 14px;
+    padding: 12px 8px 16px;
   }
 }
