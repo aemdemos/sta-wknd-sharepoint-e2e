@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -25,3 +26,111 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards4 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  place-items: stretch stretch;
+  justify-content: start;
+}
+
+@media (width <= 900px) {
+  .cards.cards4 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards4 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards.cards4 > ul > li {
+  border: none;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  box-shadow: none;
+  overflow: visible;
+  justify-content: flex-start;
+}
+
+.cards.cards4 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cards.cards4 .cards-card-body {
+  padding: 8px 10px 10px; /* slightly more horizontal padding for comfort */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cards.cards4 .cards-card-body h3 {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin: 6px 0 0; /* more top margin for separation from image */
+  letter-spacing: 0.8px; /* slightly more spaced uppercase look */
+  line-height: 1.15;
+}
+
+.cards.cards4 .cards-card-body p {
+  font-size: 13px;
+  color: var(--dark-color);
+  margin: 0 0 1px;
+  line-height: 1.4;
+}
+
+.cards.cards4 .cards-card-body p:last-child {
+  color: #888;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+/* Remove extra vertical spacing between image and body */
+.cards.cards4 .cards-card-image + .cards-card-body {
+  margin-top: 0;
+}
+
+/* Ensure cards fill all grid columns (no shrink wrap) */
+.cards.cards4 > ul > li,
+.cards.cards4 .cards-card-body {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Prevent last row from centering if not full */
