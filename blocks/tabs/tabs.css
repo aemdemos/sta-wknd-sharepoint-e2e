@@ -59,157 +59,6 @@
 }
 
 
-.tabs.tabs37 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  background: #fff;
-  border: none;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-}
-
-.tabs.tabs37 > div:first-child {
-  flex: 0 0 220px;
-  min-width: 180px;
-  max-width: 260px;
-  background: #fafafa;
-  padding: 0;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  border-right: 1px solid #efefef;
-  min-height: 100vh;
-}
-
-.tabs.tabs37 > div:first-child .tabs-list {
-  display: none;
-}
-
-.tabs.tabs37 > div:last-child {
-  flex: 1 1 0%;
-  min-width: 0;
-  padding: 48px 48px 0;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs37 {
-    flex-direction: column;
-    min-height: unset;
-  }
-
-  .tabs.tabs37 > div:first-child {
-    min-width: 0;
-    max-width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #efefef;
-    min-height: unset;
-  }
-
-  .tabs.tabs37 > div:last-child {
-    padding: 32px 0 0;
-  }
-}
-
-.tabs.tabs37 > div:last-child .tabs-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin-bottom: 32px;
-  gap: 0;
-}
-
-.tabs.tabs37 > div:last-child .tabs-list button {
-  border: none;
-  border-radius: 0;
-  background: transparent;
-  color: #222;
-  font-weight: 600;
-  font-size: 1em;
-  text-transform: uppercase;
-  padding: 14px 36px 14px 24px;
-  margin: 0;
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  outline: none;
-  letter-spacing: 0.03em;
-  box-shadow: none;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 120px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.tabs.tabs37 > div:last-child .tabs-list button[aria-selected='true'] {
-  background: #222;
-  color: #fff;
-  border-bottom: 3px solid #222;
-  cursor: default;
-  z-index: 1;
-}
-
-.tabs.tabs37 > div:last-child .tabs-list button:not([aria-selected='true']):hover {
-  color: #222;
-  background: #ededed;
-}
-
-.tabs.tabs37 > div:last-child .tabs-list button p {
-  margin: 0;
-}
-
-.tabs.tabs37 .tabs-panel {
-  border: none;
-  background: transparent;
-  padding: 0;
-  margin-top: 0;
-  box-shadow: none;
-  width: 100%;
-  max-width: 800px;
-  display: block;
-}
-
-.tabs.tabs37 .tabs-panel picture img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 14px;
-  border-radius: 8px;
-  box-shadow: none;
-  max-width: 800px;
-}
-
-.tabs.tabs37 .tabs-panel > div > p:first-of-type {
-  margin-top: 0;
-  margin-bottom: 18px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1em;
-  color: #111;
-  letter-spacing: 0.04em;
-  max-width: 800px;
-}
-
-.tabs.tabs37 .tabs-panel > div > p:not(:first-of-type) {
-  color: #444;
-  font-size: 1.09em;
-  line-height: 1.7;
-  margin-bottom: 1.5em;
-  max-width: 800px;
-}
-
-
 .tabs.tabs39 {
   max-width: 980px;
   width: 100%;
@@ -2646,7 +2495,6 @@ main > div > .tabs.tabs35,
 
 
 .tabs.tabs36 {
-  /* Layout: Use CSS Grid for sidebar + content, stack on small screens */
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 48px;
@@ -2668,7 +2516,6 @@ main > div > .tabs.tabs35,
   }
 }
 
-/* "Sidebar" placeholder: targets first direct child div as sidebar */
 .tabs.tabs36 > div:first-child {
   grid-column: 1 / 2;
   background: #fff;
@@ -2681,14 +2528,12 @@ main > div > .tabs.tabs35,
   align-items: flex-end;
 }
 
-/* Hide sidebar on small screens */
 @media (width <= 900px) {
   .tabs.tabs36 > div:first-child {
     display: none;
   }
 }
 
-/* Main content column */
 .tabs.tabs36 > div:last-child {
   grid-column: 2 / 3;
   padding: 48px 0 32px;
@@ -2698,7 +2543,6 @@ main > div > .tabs.tabs35,
   min-width: 0;
 }
 
-/* Tabs List Styling */
 .tabs.tabs36 .tabs-list {
   display: flex;
   gap: 0;
@@ -2711,7 +2555,6 @@ main > div > .tabs.tabs35,
   width: 100%;
 }
 
-/* Tab Buttons */
 .tabs.tabs36 .tabs-tab {
   background: transparent;
   border: none;
@@ -2744,7 +2587,6 @@ main > div > .tabs.tabs35,
   padding: 0;
 }
 
-/* Panel styling */
 .tabs.tabs36 .tabs-panel {
   width: 100%;
   padding: 0;
@@ -2757,7 +2599,6 @@ main > div > .tabs.tabs35,
   display: none;
 }
 
-/* Heading with yellow underline accent */
 .tabs.tabs36 .tabs-panel > div > h3:first-child {
   font-size: 2rem;
   font-weight: 400;
@@ -2778,7 +2619,6 @@ main > div > .tabs.tabs35,
   content: "";
 }
 
-/* Image styling */
 .tabs.tabs36 .tabs-panel picture,
 .tabs.tabs36 .tabs-panel img {
   display: block;
@@ -2790,7 +2630,6 @@ main > div > .tabs.tabs35,
   box-sizing: border-box;
 }
 
-/* Caption styling */
 .tabs.tabs36 .tabs-panel > div > p:nth-child(2) {
   margin-top: 0;
   margin-bottom: 8px;
@@ -2801,7 +2640,6 @@ main > div > .tabs.tabs35,
   text-transform: uppercase;
 }
 
-/* Description styling */
 .tabs.tabs36 .tabs-panel > div > p:nth-child(3) {
   margin-top: 0;
   color: #222;
@@ -2811,7 +2649,6 @@ main > div > .tabs.tabs35,
   margin-bottom: 0;
 }
 
-/* Responsive content column padding */
 @media (width <= 900px) {
   .tabs.tabs36 > div:last-child {
     padding: 16px 0;
@@ -2823,7 +2660,6 @@ main > div > .tabs.tabs35,
   }
 }
 
-/* Ensure tab bar scrolls horizontally on small screens */
 @media (width <= 700px) {
   .tabs.tabs36 .tabs-list {
     overflow-x: auto;
@@ -2834,4 +2670,246 @@ main > div > .tabs.tabs35,
     padding-right: 1em;
     font-size: 1rem;
   }
+}
+
+
+.tabs.tabs37 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #fff;
+  min-height: 650px;
+  box-shadow: none;
+  border-radius: 0;
+  column-gap: 32px; /* proper gutter */
+}
+
+/* Sidebar: Minimal, hide sidebar's vertical tabs */
+.tabs.tabs37 > div:first-child {
+  flex: 0 0 120px;
+  min-width: 90px;
+  max-width: 140px;
+  background: #f8f8f8;
+  padding: 0;
+  border-right: 1px solid #efefef;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* vertically center if the sidebar is empty (optional) */
+  justify-content: flex-start;
+}
+
+.tabs.tabs37 > div:first-child .tabs-list {
+  display: none;
+}
+
+/* Main content area: stack content vertically, remove excessive left padding */
+.tabs.tabs37 > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 56px 0;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+  background: #fff;
+  position: relative;
+}
+
+/* Tabs row horizontal above heading, flush left alignment */
+.tabs.tabs37 > div:last-child .tabs-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 0;
+  margin-bottom: 32px;
+  background: none;
+  border: none;
+  padding-left: 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Tabs: align and style horizontally */
+.tabs.tabs37 > div:last-child .tabs-list button {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #222;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 12px 32px 12px 10px;
+  margin: 0;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 0.02em;
+  border-radius: 0;
+  min-width: 110px;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tabs.tabs37 > div:last-child .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  border-bottom: 3px solid #222;
+  cursor: default;
+  z-index: 2;
+}
+
+.tabs.tabs37 > div:last-child .tabs-list button:not([aria-selected='true']):hover {
+  background: #ededed;
+  color: #222;
+}
+
+.tabs.tabs37 > div:last-child .tabs-list button p {
+  margin: 0;
+}
+
+/* Only show the active panel */
+.tabs.tabs37 .tabs-panel {
+  display: none;
+  width: 100%;
+  max-width: 960px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+.tabs.tabs37 .tabs-panel[aria-hidden='false'] {
+  display: block;
+  animation: fadein .22s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Headline styling with underline (flush left) */
+.tabs.tabs37 .tabs-panel > div > h3:first-child {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 12px;
+  line-height: 1.17;
+  display: block;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.tabs.tabs37 .tabs-panel > div > h3:first-child::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #fbe37b;
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+/* Remove underline from additional h3s */
+.tabs.tabs37 .tabs-panel > div > h3:not(:first-child)::after {
+  display: none;
+}
+
+/* Image styling, always flush left */
+.tabs.tabs37 .tabs-panel picture,
+.tabs.tabs37 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  border-radius: 0;
+  margin: 0 0 10px;
+  box-shadow: none;
+}
+
+/* Caption ("Crystalline...") */
+.tabs.tabs37 .tabs-panel > div > p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
+  color: #1566b2;
+  letter-spacing: 0.04em;
+  max-width: 900px;
+}
+
+/* Content paragraphs */
+.tabs.tabs37 .tabs-panel > div > p:not(:first-of-type) {
+  color: #222;
+  font-size: 1.04rem;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+  max-width: 900px;
+}
+
+/* List styles for What to Bring */
+.tabs.tabs37 .tabs-panel ul {
+  padding-left: 24px;
+  margin-top: 0.7em;
+  margin-bottom: 1.7em;
+}
+
+.tabs.tabs37 .tabs-panel li {
+  font-size: 1.01rem;
+  color: #222;
+  line-height: 1.6;
+  margin-bottom: 9px;
+}
+
+/* Remove unwanted margins from repeated components */
+.tabs.tabs37 .tabs-panel > div > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments for main content and sidebar */
+@media (width <= 1100px) {
+  .tabs.tabs37 .tabs-panel,
+  .tabs.tabs37 .tabs-panel picture,
+  .tabs.tabs37 .tabs-panel img {
+    max-width: 99vw;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 {
+    flex-direction: column;
+    column-gap: 0;
+  }
+
+  .tabs.tabs37 > div:first-child {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .tabs.tabs37 > div:last-child {
+    padding: 24px 0;
+  }
+
+  .tabs.tabs37 > div:last-child .tabs-list {
+    padding-left: 0;
+  }
+}
+
+/* Accessibility: focus ring for tabs */
+.tabs.tabs37 > div:last-child .tabs-list button:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 2px;
 }
