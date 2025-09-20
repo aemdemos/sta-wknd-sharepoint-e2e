@@ -310,3 +310,165 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
+
+.cards.cards21 {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Grid: 4 top, 3 centered bottom */
+.cards.cards21 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 18px 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  place-items: start center;
+}
+
+/* Center bottom row cards under top row */
+.cards.cards21 > ul > li:nth-child(5) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.cards.cards21 > ul > li:nth-child(6) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.cards.cards21 > ul > li:nth-child(7) {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+/* Card: vertical stack, centered, very tight spacing */
+.cards.cards21 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Circular, centered image */
+.cards.cards21 .cards-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+/* Image: fixed size, circle crop */
+.cards.cards21 .cards-card-image picture,
+.cards.cards21 .cards-card-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Card body: vertical stack, tight spacing */
+.cards.cards21 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Name: bold, even tighter vertical spacing */
+.cards.cards21 .cards-card-body h3 {
+  margin: 6px 0 2px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+}
+
+/* Role: uppercase, gray, minimal margin below name */
+.cards.cards21 .cards-card-body > p:first-of-type {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Social links row: squares, minimal gap */
+.cards.cards21 .cards-card-body > p:last-of-type {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Squares: hide link text, uniform spacing */
+.cards.cards21 .cards-card-body > p:last-of-type > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: #222;
+  color: #fff;
+  border-radius: 0;
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s;
+  line-height: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100vw; /* visually hide link text */
+}
+
+/* Show highlight on hover/focus */
+.cards.cards21 .cards-card-body > p:last-of-type > a:hover,
+.cards.cards21 .cards-card-body > p:last-of-type > a:focus {
+  background: #B39C4D;
+  color: #fff;
+}
+
+/* Responsive: 2 cols then 1 col on small screens */
+@media (width <= 991px) {
+  .cards.cards21 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 12px 6px;
+  }
+
+  .cards.cards21 > ul > li:nth-child(5),
+  .cards.cards21 > ul > li:nth-child(6),
+  .cards.cards21 > ul > li:nth-child(7) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards21 > ul {
+    grid-template-columns: 1fr;
+    gap: 10px 0;
+  }
+
+  .cards.cards21 {
+    max-width: 97vw;
+    padding: 0;
+  }
+}
