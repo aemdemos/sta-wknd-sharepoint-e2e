@@ -68,7 +68,6 @@
   background: #fff;
 }
 
-/* Tabs navigation row */
 .tabs.tabs6 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -81,7 +80,6 @@
   background: transparent;
 }
 
-/* Individual tab buttons */
 .tabs.tabs6 .tabs-list button {
   border: none;
   background: transparent;
@@ -113,7 +111,6 @@
   margin: 0;
 }
 
-/* Heading and accent line */
 .tabs.tabs6 .tabs-panel h3 {
   font-size: 32px;
   font-weight: bold;
@@ -128,7 +125,6 @@
   border-bottom: 4px solid #ffd700;
 }
 
-/* Paragraph styles for readability */
 .tabs.tabs6 .tabs-panel p {
   font-size: 16px;
   color: #232323;
@@ -139,7 +135,6 @@
   text-align: left;
 }
 
-/* Content panel */
 .tabs.tabs6 .tabs-panel {
   padding: 0;
   margin: 0;
@@ -151,7 +146,6 @@
   text-align: left;
 }
 
-/* Full-width image, aligned and contained */
 .tabs.tabs6 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -163,7 +157,6 @@
   margin: 30px 0 0;
 }
 
-/* Responsive tweaks */
 @media (width <= 899px) {
   .tabs.tabs6 {
     max-width: 100%;
@@ -191,5 +184,157 @@
     max-height: 150px;
     border-radius: 8px;
     margin-top: 16px;
+  }
+}
+
+
+.tabs.tabs7 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  /* Give some min-height if needed */
+}
+
+/* SIDEBAR creation and styling */
+.tabs.tabs7 > div:first-child {
+  /* Sidebar styles */
+  width: 25%; /* Sidebar width */
+  min-width: 200px;
+  max-width: 300px;
+  padding-top: 40px;
+  padding-left: 0;
+  padding-right: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* MAIN CONTENT: push right to make room for sidebar */
+.tabs.tabs7 > div:last-child {
+  width: 75%;
+  min-width: 0;
+  max-width: 900px;
+  margin-left: 0;
+  box-sizing: border-box;
+}
+
+/* Title Styling */
+.tabs.tabs7 h3[id^="beervana-in-portland"] {
+  font-size: 30px;
+  font-weight: bold;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* Yellow line under title */
+.tabs.tabs7 h3[id^="beervana-in-portland"]::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: #fcda5c;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+/* Tabs row styling */
+.tabs.tabs7 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 0 32px;
+  padding: 0;
+}
+
+/* Tabs styling for sidebar (vertical) */
+.tabs.tabs7 .tabs-tab {
+  background: #eee;
+  color: #222;
+  padding: 12px 24px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.tabs.tabs7 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+/* Remove p tag spacing inside button */
+.tabs.tabs7 .tabs-tab p {
+  margin: 0;
+}
+
+/* Content Headline */
+.tabs.tabs7 h3:not([id^="beervana-in-portland"]) {
+  font-size: 20px;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Paragraph styling */
+.tabs.tabs7 p {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+/* Image styling */
+.tabs.tabs7 picture img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 32px 0 24px;
+  box-shadow: none;
+  border: none;
+}
+
+/* Footer text */
+.tabs.tabs7 .tabs-panel > div > p:last-of-type {
+  font-size: 12px;
+  color: #808080;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs7 {
+    flex-direction: column;
+  }
+
+  .tabs.tabs7 > div:first-child {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    padding-top: 0;
+    padding-right: 0;
+    margin-bottom: 32px;
+  }
+
+  .tabs.tabs7 > div:last-child {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .tabs.tabs7 .tabs-list {
+    flex-direction: row;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .tabs.tabs7 picture img {
+    max-width: 100%;
+    margin: 24px 0 16px;
   }
 }
