@@ -1467,7 +1467,6 @@
   align-items: flex-start;
 }
 
-/* Responsive padding for smaller screens */
 @media (width <= 1200px) {
   .tabs.tabs28 {
     max-width: 100vw;
@@ -1592,7 +1591,6 @@
   text-align: left;
 }
 
-/* Fix for possible image collapse: always allow images and picture elements to show */
 .tabs.tabs28 .tabs-panel picture {
   visibility: visible;
   height: auto;
@@ -1607,7 +1605,6 @@
   overflow: visible;
 }
 
-/* Responsive: stack tabs vertically on small screens, images full width */
 @media (width <= 600px) {
   .tabs.tabs28 {
     max-width: 100vw;
@@ -1627,5 +1624,123 @@
   .tabs.tabs28 .tabs-panel picture,
   .tabs.tabs28 .tabs-panel img {
     max-width: 100vw;
+  }
+}
+
+
+.tabs31.block {
+  /* Full width, white background, vertical stack */
+  background: #fff;
+  padding: 0 32px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: Georgia, serif; /* or system font */
+}
+
+.tabs-list {
+  display: flex;
+  gap: 12px;
+  margin: 32px 0 24px;
+  border: none;
+}
+
+.tabs-tab {
+  background: transparent;
+  border: none;
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #888;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s;
+  padding: 10px 20px;
+  border-radius: 3px;
+}
+
+.tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs-panel {
+  display: none;
+
+  /* vertical stack by default */
+}
+
+.tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Title styling */
+.tabs-panel > div > h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #222;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  position: relative;
+}
+
+/* Yellow underline under h3 */
+.tabs-panel > div > h3::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #ffecb0;
+  margin-top: 8px;
+}
+
+/* Paragraph text */
+.tabs-panel > div > p {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* Large images */
+.tabs-panel picture,
+.tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* Add spacing between stacked images */
+.tabs-panel picture {
+  margin-bottom: 24px;
+}
+
+/* Remove list style and fix padding for ul (what-to-bring tab) */
+.tabs-panel ul {
+  padding-left: 24px;
+  margin-bottom: 1.5em;
+}
+
+/* Responsive: stack narrower on small screens */
+@media (width <= 700px) {
+  .tabs31.block {
+    padding: 0 8px 24px;
+    max-width: 100vw;
+  }
+
+  .tabs-panel > div > h3 {
+    font-size: 1.4rem;
   }
 }
