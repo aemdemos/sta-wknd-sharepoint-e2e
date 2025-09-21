@@ -525,12 +525,10 @@
   display: block;
 }
 
-/* Hide overlay content as in the original */
 .carousel.carousel30 .carousel-slide-content {
   display: none;
 }
 
-/* Controls row below image, edge-to-edge, on white background */
 .carousel.carousel30 .carousel-slide-indicators,
 .carousel.carousel30 .carousel-navigation-buttons {
   position: absolute;
@@ -545,7 +543,6 @@
   box-sizing: border-box;
 }
 
-/* Center the indicator dot */
 .carousel.carousel30 .carousel-slide-indicators {
   justify-content: center;
   gap: 0;
@@ -553,7 +550,6 @@
   max-width: 100vw;
 }
 
-/* Navigation buttons to right */
 .carousel.carousel30 .carousel-navigation-buttons {
   justify-content: flex-end;
   gap: 8px;
@@ -564,7 +560,6 @@
   background: transparent;
 }
 
-/* Dots styling */
 .carousel.carousel30 .carousel-slide-indicator button {
   width: 10px;
   height: 10px;
@@ -583,7 +578,6 @@
   background: #000;
 }
 
-/* Navigation buttons styling */
 .carousel.carousel30 .carousel-navigation-buttons button {
   width: 32px;
   height: 32px;
@@ -603,7 +597,6 @@
   background: rgb(0 0 0 / 7%);
 }
 
-/* Arrow icon styling */
 .carousel.carousel30 .carousel-navigation-buttons button::after {
   border: solid #333;
   border-width: 0 2px 2px 0;
@@ -622,4 +615,130 @@
 
 .carousel.carousel30 .carousel-navigation-buttons button.slide-next::after {
   transform: rotate(-45deg);
+}
+
+
+.carousel.carousel40 .carousel-slide {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 530px;
+  height: 530px;
+}
+
+.carousel.carousel40 .carousel-slide-image {
+  flex: 0 1 72%;
+  min-width: 0;
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel.carousel40 .carousel-slide-image picture,
+.carousel.carousel40 .carousel-slide-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel.carousel40 .carousel-slide-content {
+  flex: 0 1 28%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 16px 18px 12px 28px;
+  background: #ededed;
+  color: #131313;
+  min-width: 220px;
+  max-width: 315px;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: #ededed;
+}
+
+/* 'Featured Article': even tighter to top */
+.carousel.carousel40 .carousel-slide-content > p:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #131313;
+}
+
+/* Heading: slightly larger and tighter */
+.carousel.carousel40 .carousel-slide-content h2 {
+  margin-top: 0;
+  margin-bottom: 7px;
+  font-size: 2.9rem;
+  font-weight: 700;
+  line-height: 1.045;
+  color: #131313;
+}
+
+/* Body text: wraps sooner, minimal margin */
+.carousel.carousel40 .carousel-slide-content p:not(:first-child, .button-container) {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 0.91rem;
+  font-weight: 400;
+  color: #131313;
+  max-width: 290px;
+}
+
+/* Button container: tighter to text */
+.carousel.carousel40 .carousel-slide-content .button-container {
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Button: compact, matching width, minimal vertical space */
+.carousel.carousel40 .carousel-slide-content a.button {
+  background: #ffe600;
+  color: #131313;
+  font-weight: 700;
+  border-radius: 2px;
+  border: none;
+  padding: 0.28em 0.95em;
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-align: left;
+  min-width: 105px;
+  box-shadow: none;
+}
+
+/* Button hover: slightly darker yellow */
+.carousel.carousel40 .carousel-slide-content a.button:hover,
+.carousel.carousel40 .carousel-slide-content a.button:focus {
+  background: #ffcf00;
+  color: #131313;
+  text-decoration: none;
+}
+
+/* Responsive: stack columns, keep everything compact */
+@media (width <= 900px) {
+  .carousel.carousel40 .carousel-slide {
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+  }
+
+  .carousel.carousel40 .carousel-slide-image {
+    min-height: 150px;
+    height: 150px;
+    flex: 0 1 auto;
+  }
+
+  .carousel.carousel40 .carousel-slide-content {
+    min-width: 0;
+    max-width: 100%;
+    padding: 14px 6px 8px 8px;
+    height: auto;
+  }
 }
