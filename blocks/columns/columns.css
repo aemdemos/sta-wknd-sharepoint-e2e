@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +31,107 @@
     flex: 1;
     order: unset;
   }
+}
+
+
+.columns.columns2 {
+  width: 100%;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* center logo and search vertically */
+  justify-content: space-between;
+  width: 100%;
+  min-height: 88px;
+  padding: 8px 32px;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+@media (width <= 700px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 60px;
+    padding: 0 16px;
+    gap: 12px;
+  }
+}
+
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.columns.columns2 .columns-img-col img {
+  height: 60px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns2 > div > div:not(.columns-img-col, :last-child) {
+  display: none;
+}
+
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: #f5f5f5;
+  border-radius: 2px;
+  width: 170px;
+  max-width: 100%;
+  height: 38px;
+  box-sizing: border-box;
+  padding: 0 18px 0 14px;
+  margin-left: auto;
+  flex: 0 0 170px;
+  position: relative;
+  transition: width 0.2s;
+}
+
+@media (width <= 700px) {
+  .columns.columns2 > div > div:last-child {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-top: 4px;
+    padding: 0 10px;
+    height: 32px;
+    flex: 1 1 auto;
+  }
+
+  .columns.columns2 .columns-img-col img {
+    height: 36px;
+  }
+}
+
+.columns.columns2 > div > div:last-child::before {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" stroke="%23888"/><line x1="16" y1="16" x2="22" y2="22" stroke="%23888"/></svg>') no-repeat center center;
+  vertical-align: middle;
+  content: "";
+}
+
+.columns.columns2 > div > div:last-child p {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  display: inline-block;
 }
