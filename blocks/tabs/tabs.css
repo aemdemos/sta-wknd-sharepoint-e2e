@@ -490,7 +490,6 @@
 
 
 .tabs.tabs10 {
-  /* Top-level layout: sidebar left, main content right */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -500,7 +499,6 @@
   padding: 0;
 }
 
-/* --- SIDEBAR --- */
 .tabs.tabs10 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -515,7 +513,6 @@
   box-shadow: none;
 }
 
-/* TAB BUTTONS */
 .tabs.tabs10 .tabs-list button {
   width: 100%;
   text-align: left;
@@ -545,7 +542,6 @@
   margin: 0;
 }
 
-/* --- MAIN CONTENT COLUMN --- */
 .tabs.tabs10 .tabs-panel {
   flex: 1 1 0%;
   background: #fff;
@@ -559,7 +555,6 @@
   display: block;
 }
 
-/* Critical: Remove all multi-column, grid, or flex row from main content! */
 .tabs.tabs10 .tabs-panel,
 .tabs.tabs10 .tabs-panel > div {
   column-count: initial;
@@ -575,7 +570,6 @@
   box-sizing: border-box;
 }
 
-/* --- TYPOGRAPHY & SPACING --- */
 .tabs.tabs10 .tabs-panel h3 {
   font-size: 24px;
   font-weight: 400;
@@ -601,7 +595,6 @@
   line-height: 1.6;
 }
 
-/* --- IMAGES --- */
 .tabs.tabs10 .tabs-panel picture,
 .tabs.tabs10 .tabs-panel img {
   display: block;
@@ -613,7 +606,6 @@
   height: auto;
 }
 
-/* --- LISTS --- */
 .tabs.tabs10 .tabs-panel ul {
   list-style-type: disc;
   padding-left: 24px;
@@ -625,7 +617,6 @@
   padding-left: 0;
 }
 
-/* --- RESPONSIVENESS --- */
 @media (width <= 900px) {
   .tabs.tabs10 {
     flex-direction: column;
@@ -673,5 +664,197 @@
   .tabs.tabs10 .tabs-panel > div {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+
+.tabs.tabs12 {
+  /* Two columns: metadata/sidebar and main content */
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100%;
+  }
+}
+
+/* ----- LEFT COLUMN (Metadata Sidebar) ----- */
+.tabs.tabs12 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+  padding-top: 32px;
+  min-width: 200px;
+  max-width: 320px;
+}
+
+/* Visually group metadata items with spacing */
+.tabs.tabs12 > div:first-child > * {
+  margin-bottom: 24px;
+}
+
+.tabs.tabs12 > div:first-child > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- RIGHT COLUMN (Main Content & Tabs) ---- */
+.tabs.tabs12 > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Ensure title is at the top of main column */
+.tabs.tabs12 > div:nth-child(2) > h3 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #222;
+  margin: 0 0 16px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-align: left;
+  position: relative;
+}
+
+/* Add yellow accent underline to title */
+.tabs.tabs12 > div:nth-child(2) > h3::after {
+  display: block;
+  content: "";
+  margin-top: 8px;
+  width: 88px;
+  height: 4px;
+  background: #f4e25e;
+  border-radius: 2px;
+}
+
+/* Tabs navigation: horizontal and at top of main column */
+.tabs.tabs12 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 28px;
+  background: none;
+  border: none;
+  align-items: flex-end;
+  padding: 0;
+  width: 100%;
+}
+
+/* Tabs styling - horizontal, bold, uppercase */
+.tabs.tabs12 .tabs-tab {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 11px 28px;
+  background: transparent;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  color: #222;
+  margin: 0;
+  transition: background 0.15s, color 0.15s;
+  position: relative;
+}
+
+.tabs.tabs12 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  z-index: 2;
+}
+
+.tabs.tabs12 .tabs-tab:not([aria-selected="true"]) {
+  background: transparent;
+  color: #222;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tabs.tabs12 .tabs-tab p {
+  margin: 0;
+}
+
+/* Panel Content - remove borders and boxy appearance */
+.tabs.tabs12 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  overflow: visible;
+}
+
+/* Image styling */
+.tabs.tabs12 .tabs-panel img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  margin-top: 0;
+  height: auto;
+  display: block;
+}
+
+/* Caption styling below image */
+.tabs.tabs12 .tabs-panel > div > p:first-of-type {
+  color: #222;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  margin: 0 0 18px;
+  display: block;
+}
+
+/* Keep image and caption on separate lines */
+.tabs.tabs12 .tabs-panel > div > p:first-of-type picture {
+  margin-bottom: 11px;
+  display: block;
+}
+
+/* Main Paragraphs */
+.tabs.tabs12 .tabs-panel p:not(:first-of-type) {
+  color: #222;
+  font-size: 16px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* List Styling */
+.tabs.tabs12 .tabs-panel ul {
+  color: #222;
+  font-size: 16px;
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+
+/* Responsive tweaks for image and text columns */
+@media (width <= 900px) {
+  .tabs.tabs12 > div:first-child {
+    max-width: 100%;
+    padding-top: 0;
+    margin-bottom: 32px;
+    align-items: stretch;
+  }
+
+  .tabs.tabs12 > div:nth-child(2) {
+    padding: 0;
+  }
+
+  .tabs.tabs12 .tabs-panel img {
+    max-width: 100%;
+  }
+
+  .tabs.tabs12 {
+    max-width: 100%;
+    padding: 0 12px;
   }
 }
