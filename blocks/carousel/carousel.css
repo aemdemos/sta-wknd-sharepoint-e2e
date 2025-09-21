@@ -271,7 +271,6 @@
   position: relative;
 }
 
-/* Make carousel image full-bleed horizontally */
 .carousel.carousel22 .carousel-slide .carousel-slide-image picture,
 .carousel.carousel22 .carousel-slide .carousel-slide-image img {
   position: absolute;
@@ -286,7 +285,6 @@
   z-index: 1;
 }
 
-/* Container needs a relative context for absolutely placed children */
 .carousel.carousel22 .carousel-slide {
   position: relative;
   min-height: 52vw;
@@ -295,7 +293,6 @@
   padding: 0;
 }
 
-/* Content card: overlay bottom of image, nearly full width */
 .carousel.carousel22 .carousel-slide .carousel-slide-content {
   position: absolute;
   left: 2vw;
@@ -315,7 +312,6 @@
   min-height: 140px;
 }
 
-/* Responsive card width/padding */
 @media (width <= 900px) {
   .carousel.carousel22 .carousel-slide .carousel-slide-content {
     padding: 18px 4vw;
@@ -332,7 +328,6 @@
   }
 }
 
-/* Headings and text sizing */
 .carousel.carousel22 .carousel-slide .carousel-slide-content h2 {
   margin-top: 0;
   margin-bottom: 14px;
@@ -349,7 +344,6 @@
   line-height: 1.6;
 }
 
-/* Button: add left margin so it doesn't overlap nav arrow */
 .carousel.carousel22 .carousel-slide .carousel-slide-content .button-container {
   margin-left: 6px;
 }
@@ -367,7 +361,6 @@
   transition: background 0.18s, color 0.18s;
 }
 
-/* Indicators: overlay image, below card, centered */
 .carousel.carousel22 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -401,7 +394,6 @@
   background: #bdbdbd;
 }
 
-/* Navigation arrows: overlay image, left/right, bottom aligned with card/indicators */
 .carousel.carousel22 .carousel-navigation-buttons {
   position: absolute;
   left: 24px;
@@ -470,4 +462,164 @@
   .carousel.carousel22 .carousel-slide-indicators {
     bottom: 8px;
   }
+}
+
+
+.carousel.carousel30 {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+
+.carousel.carousel30 .carousel-slides-container {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.carousel.carousel30 .carousel-slides {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  max-width: 100vw;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.carousel.carousel30 .carousel-slide {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.carousel.carousel30 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel30 .carousel-slide .carousel-slide-image img {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  position: static;
+  inset: unset;
+  width: 100vw;
+  max-width: 100vw;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hide overlay content as in the original */
+.carousel.carousel30 .carousel-slide-content {
+  display: none;
+}
+
+/* Controls row below image, edge-to-edge, on white background */
+.carousel.carousel30 .carousel-slide-indicators,
+.carousel.carousel30 .carousel-navigation-buttons {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  z-index: 2;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Center the indicator dot */
+.carousel.carousel30 .carousel-slide-indicators {
+  justify-content: center;
+  gap: 0;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+/* Navigation buttons to right */
+.carousel.carousel30 .carousel-navigation-buttons {
+  justify-content: flex-end;
+  gap: 8px;
+  width: 100vw;
+  max-width: 100vw;
+  right: 24px;
+  left: auto;
+  background: transparent;
+}
+
+/* Dots styling */
+.carousel.carousel30 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  background: #222;
+  border-radius: 50%;
+  margin: 0 4px;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s;
+  padding: 0;
+  display: inline-block;
+}
+
+.carousel.carousel30 .carousel-slide-indicator button:disabled,
+.carousel.carousel30 .carousel-slide-indicator button.active {
+  background: #000;
+}
+
+/* Navigation buttons styling */
+.carousel.carousel30 .carousel-navigation-buttons button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  transition: background 0.2s;
+}
+
+.carousel.carousel30 .carousel-navigation-buttons button:hover,
+.carousel.carousel30 .carousel-navigation-buttons button:focus-visible {
+  background: rgb(0 0 0 / 7%);
+}
+
+/* Arrow icon styling */
+.carousel.carousel30 .carousel-navigation-buttons button::after {
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  width: 8px;
+  height: 8px;
+  position: static;
+  transform: none;
+  vertical-align: middle;
+}
+
+.carousel.carousel30 .carousel-navigation-buttons button.slide-prev::after {
+  transform: rotate(135deg);
+}
+
+.carousel.carousel30 .carousel-navigation-buttons button.slide-next::after {
+  transform: rotate(-45deg);
 }
