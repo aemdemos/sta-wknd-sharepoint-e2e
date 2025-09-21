@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,140 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs6 {
+  box-sizing: border-box;
+  max-width: 900px;
+  margin-left: 64px;
+  margin-right: 0;
+  padding: 0 0 48px;
+  background: #fff;
+}
+
+/* Tabs navigation row */
+.tabs.tabs6 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 28px;
+  margin: 0 0 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Individual tab buttons */
+.tabs.tabs6 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #232323;
+  padding: 10px 32px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background 0.2s;
+  margin: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: none;
+  outline: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs6 .tabs-list button[aria-selected='true'] {
+  background: #232323;
+  color: #fff;
+  z-index: 1;
+}
+
+.tabs.tabs6 .tabs-list button p {
+  margin: 0;
+}
+
+/* Heading and accent line */
+.tabs.tabs6 .tabs-panel h3 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #232323;
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  display: block;
+  border: none;
+  padding-bottom: 8px;
+  position: relative;
+  border-bottom: 4px solid #ffd700;
+}
+
+/* Paragraph styles for readability */
+.tabs.tabs6 .tabs-panel p {
+  font-size: 16px;
+  color: #232323;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 18px;
+  max-width: 850px;
+  text-align: left;
+}
+
+/* Content panel */
+.tabs.tabs6 .tabs-panel {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  overflow: visible;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* Full-width image, aligned and contained */
+.tabs.tabs6 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 30px 0 0;
+}
+
+/* Responsive tweaks */
+@media (width <= 899px) {
+  .tabs.tabs6 {
+    max-width: 100%;
+    margin-left: 0;
+    padding: 0 12px 24px;
+  }
+
+  .tabs.tabs6 .tabs-list {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .tabs.tabs6 .tabs-panel h3 {
+    font-size: 22px;
+    border-bottom-width: 3px;
+    margin-bottom: 10px;
+    padding-bottom: 0.25em;
+  }
+
+  .tabs.tabs6 .tabs-panel p {
+    max-width: 100%;
+  }
+
+  .tabs.tabs6 .tabs-panel picture img {
+    max-height: 150px;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
 }
