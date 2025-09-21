@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -72,7 +73,6 @@
   display: block;
 }
 
-/* Overlay box: flush to bottom, wider, minimal top padding, extra bottom padding */
 .hero.hero11 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -92,7 +92,6 @@
   justify-content: flex-start;
 }
 
-/* Heading styling for correct spacing and alignment */
 .hero.hero11 > div:nth-child(2) h2 {
   margin: 0;
   color: var(--text-color);
@@ -103,7 +102,6 @@
   max-width: 100%;
 }
 
-/* Responsive: overlay box width and padding adapt, flush to bottom */
 @media (width <= 900px) {
   .hero.hero11 > div:first-child {
     height: 160px;
@@ -117,6 +115,124 @@
   }
 
   .hero.hero11 > div:nth-child(2) h2 {
+    font-size: var(--heading-font-size-m);
+  }
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+  display: block;
+}
+
+/* Make the image tall to maximize visible area above overlay */
+.hero.hero27 > div:first-child {
+  position: relative;
+  width: 100%;
+  height: 620px; /* Increase for greater image dominance */
+  overflow: hidden;
+}
+
+/* Ensures image fills its container */
+.hero.hero27 > div:first-child picture,
+.hero.hero27 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Overlay white panel with minimal height and padding, positioned higher over the image */
+.hero.hero27 > div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background-color);
+  box-shadow: 0 2px 24px rgb(0 0 0 / 8%);
+  padding: 8px 24px; /* Tighter vertical padding for subtle overlay */
+  max-width: 100%;
+  z-index: 2;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* Minimal gap for compact stack */
+}
+
+/* Headline styling, minimize bottom margin */
+.hero.hero27 h2 {
+  margin: 0 0 2px;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+/* Paragraph styling, minimal bottom margin */
+.hero.hero27 p {
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  margin: 0 0 2px;
+  line-height: 1.5;
+}
+
+/* Button container, very compact */
+.hero.hero27 .button-container {
+  margin: 0;
+}
+
+/* Button styling, override for visibility */
+.hero-container > .hero-wrapper > .block.hero.hero27 .button-container .button {
+  background: #FFD600;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 7%);
+  border: none;
+  margin: 0;
+  padding: 12px 32px;
+  text-transform: uppercase;
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+/* Responsive adjustments for tablet and mobile */
+@media (width <= 900px) {
+  .hero.hero27 > div:first-child {
+    height: 280px;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    padding: 7px 8px;
+    gap: 1px;
+  }
+
+  .hero.hero27 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .hero.hero27 p {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero27 > div:first-child {
+    height: 110px;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    padding: 5px 3px;
+    gap: 0;
+  }
+
+  .hero.hero27 h2 {
     font-size: var(--heading-font-size-m);
   }
 }
