@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,117 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel17 {
+  position: relative;
+  padding-bottom: 72px; /* space for indicators and arrows below */
+}
+
+/* Remove unintended top spacing if present */
+.carousel.carousel17 .carousel-slides-container {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Restore indicators, place just below the image, above arrows */
+.carousel.carousel17 .carousel-slide-indicators {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Indicators: small, unobtrusive dots */
+.carousel.carousel17 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: none;
+  margin: 0 3px;
+  padding: 0;
+  transition: background 0.2s;
+  box-shadow: none;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button:disabled {
+  background: #222;
+}
+
+/* Restore and style navigation buttons at the bottom corners */
+.carousel.carousel17 .carousel-navigation-buttons {
+  display: flex;
+  position: absolute;
+  inset: auto 0 10px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 28px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Arrows: smaller, in line with dots, in the white margin */
+.carousel.carousel17 .carousel-navigation-buttons button {
+  pointer-events: auto;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 1.5px solid #d2d2d2;
+  border-radius: 50%;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 6px rgb(30 30 30 / 3%);
+  transition: border-color 0.2s, background 0.2s;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button:hover,
+.carousel.carousel17 .carousel-navigation-buttons button:focus-visible {
+  background: #f6f6f6;
+  border-color: #3b63fb;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button:disabled {
+  opacity: 0.5;
+  border-color: #ededed;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button::after {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  border-top: 2px solid #222;
+  border-right: 2px solid #222;
+  background: none;
+  margin: 0;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button.slide-prev::after {
+  transform: rotate(-135deg);
+  margin-left: 1px;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button.slide-next::after {
+  transform: rotate(45deg);
+  margin-right: 1px;
+}
+
+/* Ensure no overlay/content */
+.carousel.carousel17 .carousel-slide-content {
+  display: none;
 }
