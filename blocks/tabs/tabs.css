@@ -2090,7 +2090,6 @@
 
 
 .tabs.tabs36 {
-  /* Center the block and slightly increase width for balance */
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -2112,7 +2111,6 @@
   align-items: center;
 }
 
-/* Tab buttons: pill shape, minimal horizontal padding for compactness */
 .tabs.tabs36 .tabs-tab {
   background: transparent;
   border: none;
@@ -2150,7 +2148,6 @@
   padding: 0;
 }
 
-/* Panel: left-align everything, compact vertical spacing */
 .tabs.tabs36 .tabs-panel {
   display: none;
   background: transparent;
@@ -2175,7 +2172,6 @@
   align-items: flex-start;
 }
 
-/* Heading: tight bottom margin */
 .tabs.tabs36 .tabs-panel > div > h3 {
   font-size: 2.19rem;
   font-weight: 600;
@@ -2191,7 +2187,6 @@
   text-align: left;
 }
 
-/* Underline accent: short, thin, very close to text */
 .tabs.tabs36 .tabs-panel > div > h3::after {
   position: absolute;
   left: 0;
@@ -2203,7 +2198,6 @@
   display: block;
 }
 
-/* Description: left aligned, compact vertical spacing */
 .tabs.tabs36 .tabs-panel > div > p {
   color: #333;
   font-size: 1.07rem;
@@ -2215,7 +2209,6 @@
   max-width: 600px;
 }
 
-/* Image: left-aligned, tight section spacing */
 .tabs.tabs36 .tabs-panel picture,
 .tabs.tabs36 .tabs-panel img {
   display: block;
@@ -2245,7 +2238,6 @@
   max-width: 600px;
 }
 
-/* List spacing */
 .tabs.tabs36 .tabs-panel ul,
 .tabs.tabs36 .tabs-panel ol {
   margin-bottom: 0.7em;
@@ -2258,7 +2250,6 @@
   text-align: left;
 }
 
-/* Responsive: keep centered block and left-aligned content */
 @media (width <= 700px) {
   .tabs.tabs36 {
     max-width: 100vw;
@@ -2275,7 +2266,6 @@
   }
 }
 
-/* Remove unwanted centering from parent containers if inherited */
 .tabs.tabs36,
 .tabs.tabs36 .tabs-panel > div,
 .tabs.tabs36 .tabs-list,
@@ -2285,4 +2275,170 @@
 .tabs.tabs36 .tabs-panel picture,
 .tabs.tabs36 .tabs-panel img {
   text-align: left;
+}
+
+
+.tabs.tabs37 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1210px;
+  margin: 36px auto 0; /* Slightly more top margin for balance */
+  gap: 14px; /* Slightly tighter than previous */
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 {
+    flex-direction: column;
+    gap: 0;
+    margin: 24px 8px 0;
+  }
+}
+
+.tabs.tabs37 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px; /* Tighter vertical spacing for tabs */
+  margin: 0;
+  padding: 0;
+  min-width: 112px;
+  width: 112px;
+
+  /* Vertically align sidebar tabs with main block title: */
+  margin-top: 3px;
+}
+
+.tabs.tabs37 .tabs-tab {
+  background: transparent;
+  border: none;
+  color: #222;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 9px 0 9px 8px; /* Reduced vertical padding */
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  text-align: left;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.tabs.tabs37 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs37 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panels: show only one, fallback to first if needed */
+.tabs.tabs37 .tabs-panel {
+  display: none;
+  padding: 0;
+  border: none;
+  margin: 0;
+  width: 100%;
+}
+
+.tabs.tabs37 .tabs-panel[aria-hidden="false"],
+.tabs.tabs37 .tabs-panel:not([aria-hidden]),
+.tabs.tabs37 .tabs-panel:first-of-type {
+  display: block;
+}
+
+/* Remove left margin/padding from main content for perfect vertical alignment */
+.tabs.tabs37 .tabs-panel > div {
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+/* Title: slightly less bold, with tight letter spacing */
+.tabs.tabs37 .tabs-panel > div > h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 7px;
+  line-height: 1.1;
+  text-align: left;
+  letter-spacing: -0.01em;
+  padding-left: 0;
+  position: relative;
+}
+
+/* Yellow underline accent for title */
+.tabs.tabs37 .tabs-panel > div > h3::after {
+  display: block;
+  width: 42px;
+  height: 3px;
+  background: #FFDC72;
+  margin-top: 6px;
+  border-radius: 1.5px;
+}
+
+/* Responsive: smaller title on mobile */
+@media (width <= 700px) {
+  .tabs.tabs37 .tabs-panel > div > h3 {
+    font-size: 1.12rem;
+  }
+}
+
+/* Image: large, flush left, tight to title underline */
+.tabs.tabs37 .tabs-panel picture,
+.tabs.tabs37 .tabs-panel img {
+  display: block;
+  margin: 0 0 8px;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border: none;
+  box-shadow: none;
+}
+
+/* Caption: slightly lighter, more spacing below image */
+.tabs.tabs37 .tabs-panel > div > p:first-of-type {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 7px;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+/* Body copy: readable, left-aligned, spacing */
+.tabs.tabs37 .tabs-panel > div > p:not(:first-of-type) {
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 1em;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* List style for items under "What to Bring" tab */
+.tabs.tabs37 .tabs-panel ul {
+  margin-left: 0;
+  padding-left: 18px;
+  margin-bottom: 1em;
+}
+
+.tabs.tabs37 .tabs-panel li {
+  font-size: 16px;
+  color: #222;
+  line-height: 1.7;
+}
+
+/* Remove unwanted borders & shadows */
+.tabs.tabs37 .tabs-panel,
+.tabs.tabs37 .tabs-panel[aria-hidden="false"] {
+  border: none;
+  box-shadow: none;
 }
