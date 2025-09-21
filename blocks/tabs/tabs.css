@@ -1116,7 +1116,6 @@
 
 
 .tabs.tabs23 {
-  /* Add left/right padding so content is not flush to the edge */
   max-width: 900px;
   margin: 40px auto 0;
   padding-left: 32px;
@@ -1133,7 +1132,6 @@
   }
 }
 
-/* Tabs Row: left-align, margin-top, reduce gap, compact and visually separated from top */
 .tabs.tabs23 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1148,7 +1146,6 @@
   border: none;
 }
 
-/* Tabs Buttons: compact, left-aligned text, smaller font, less padding */
 .tabs.tabs23 .tabs-list button {
   border: none;
   background: transparent;
@@ -1168,7 +1165,6 @@
   line-height: 1.2;
 }
 
-/* Tabs Buttons: active and hover states */
 .tabs.tabs23 .tabs-list button[aria-selected="true"] {
   background: #222;
   color: #fff;
@@ -1183,7 +1179,6 @@
   margin: 0;
 }
 
-/* Remove border, padding from panel */
 .tabs.tabs23 .tabs-panel {
   border: none;
   margin-top: 0;
@@ -1192,7 +1187,6 @@
   box-shadow: none;
 }
 
-/* Heading: reduce size and weight, add more margin below for separation */
 .tabs.tabs23 .tabs-panel h3 {
   font-size: 1.75rem;
   font-weight: 600;
@@ -1203,7 +1197,6 @@
   text-align: left;
 }
 
-/* Paragraphs & List: reduce margin, left-align, compact */
 .tabs.tabs23 .tabs-panel > div > p,
 .tabs.tabs23 .tabs-panel > div > ul {
   font-size: 1rem;
@@ -1214,7 +1207,6 @@
   text-align: left;
 }
 
-/* Image: fill container width, flush left, spacing above/below */
 .tabs.tabs23 .tabs-panel picture,
 .tabs.tabs23 .tabs-panel img {
   display: block;
@@ -1228,7 +1220,6 @@
   object-position: left top;
 }
 
-/* Footer/last paragraph: smaller, lighter, left-aligned */
 .tabs.tabs23 .tabs-panel > div > p:last-child {
   font-size: 0.95rem;
   color: #767676;
@@ -1236,7 +1227,6 @@
   text-align: left;
 }
 
-/* Responsive: reduce horizontal padding and gaps for small screens */
 @media (width <= 700px) {
   .tabs.tabs23 {
     max-width: 100vw;
@@ -1258,5 +1248,213 @@
   .tabs.tabs23 .tabs-panel h3 {
     font-size: 1.25rem;
     margin-bottom: 12px;
+  }
+}
+
+
+.tabs.tabs24 {
+  margin: 0;
+  padding: 0;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Bring block up, remove top space */
+.tabs.tabs24 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 8px 0 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+/* Tabs: compact, tightly grouped */
+.tabs.tabs24 .tabs-list button {
+  margin: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  padding: 7px 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #222;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 1px;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs24 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.tabs.tabs24 .tabs-list button:focus {
+  outline: 2px solid #222;
+}
+
+.tabs.tabs24 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel: max horizontal space, flush left */
+.tabs.tabs24 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  background: var(--background-color);
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  width: 100%;
+}
+
+.tabs.tabs24 .tabs-panel > div {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading: left-align, underline tight below, very short/thin */
+.tabs.tabs24 .tabs-panel h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  color: #222;
+  position: relative;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.tabs.tabs24 .tabs-panel h3::after {
+  display: block;
+  width: 13px;
+  height: 2px;
+  background: #f6df8e;
+  border-radius: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* Image: edge-to-edge, gentle corners, minimal margin below */
+.tabs.tabs24 .tabs-panel picture,
+.tabs.tabs24 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 10px;
+  margin: 0 0 7px;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+/* Paragraph/content: left-align, minimal spacing */
+.tabs.tabs24 .tabs-panel p,
+.tabs.tabs24 .tabs-panel ul,
+.tabs.tabs24 .tabs-panel li {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.tabs.tabs24 .tabs-panel ul {
+  padding-left: 22px;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.tabs.tabs24 .tabs-panel li {
+  margin-bottom: 2px;
+}
+
+.tabs.tabs24 .tabs-panel p > strong {
+  font-weight: 700;
+  color: #222;
+  display: block;
+  margin-bottom: 3px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+/* Responsive tweaks: keep tight spacing and edge alignment */
+@media (width <= 1200px) {
+  .tabs.tabs24,
+  .tabs.tabs24 .tabs-panel > div,
+  .tabs.tabs24 .tabs-panel img,
+  .tabs.tabs24 .tabs-panel picture {
+    max-width: 100%;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs24 {
+    padding: 0;
+  }
+
+  .tabs.tabs24 .tabs-panel > div {
+    padding: 0;
+  }
+
+  .tabs.tabs24 .tabs-list {
+    gap: 5px;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+
+  .tabs.tabs24 .tabs-panel picture,
+  .tabs.tabs24 .tabs-panel img {
+    margin-bottom: 4px;
+    border-radius: 7px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs24 {
+    padding: 0;
+  }
+
+  .tabs.tabs24 .tabs-list {
+    flex-wrap: wrap;
+    font-size: 0.97rem;
+    gap: 1px;
+    margin-top: 2px;
+    margin-bottom: 0;
+  }
+
+  .tabs.tabs24 .tabs-list button {
+    padding: 5px 7px;
+    font-size: 0.97rem;
+  }
+
+  .tabs.tabs24 .tabs-panel h3 {
+    font-size: var(--heading-font-size-m);
+  }
+
+  .tabs.tabs24 .tabs-panel h3::after {
+    width: 8px;
+    height: 2px;
+    margin-bottom: 2px;
   }
 }
