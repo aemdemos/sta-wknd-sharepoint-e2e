@@ -192,14 +192,10 @@
   display: flex;
   flex-direction: row;
   position: relative;
-
-  /* Give some min-height if needed */
 }
 
-/* SIDEBAR creation and styling */
 .tabs.tabs7 > div:first-child {
-  /* Sidebar styles */
-  width: 25%; /* Sidebar width */
+  width: 25%;
   min-width: 200px;
   max-width: 300px;
   padding-top: 40px;
@@ -211,7 +207,6 @@
   align-items: flex-start;
 }
 
-/* MAIN CONTENT: push right to make room for sidebar */
 .tabs.tabs7 > div:last-child {
   width: 75%;
   min-width: 0;
@@ -220,7 +215,6 @@
   box-sizing: border-box;
 }
 
-/* Title Styling */
 .tabs.tabs7 h3[id^="beervana-in-portland"] {
   font-size: 30px;
   font-weight: bold;
@@ -229,7 +223,6 @@
   margin-bottom: 8px;
 }
 
-/* Yellow line under title */
 .tabs.tabs7 h3[id^="beervana-in-portland"]::after {
   content: '';
   display: block;
@@ -240,7 +233,6 @@
   margin-bottom: 24px;
 }
 
-/* Tabs row styling */
 .tabs.tabs7 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -249,7 +241,6 @@
   padding: 0;
 }
 
-/* Tabs styling for sidebar (vertical) */
 .tabs.tabs7 .tabs-tab {
   background: #eee;
   color: #222;
@@ -266,12 +257,10 @@
   color: #fff;
 }
 
-/* Remove p tag spacing inside button */
 .tabs.tabs7 .tabs-tab p {
   margin: 0;
 }
 
-/* Content Headline */
 .tabs.tabs7 h3:not([id^="beervana-in-portland"]) {
   font-size: 20px;
   color: #222;
@@ -279,7 +268,6 @@
   margin-bottom: 8px;
 }
 
-/* Paragraph styling */
 .tabs.tabs7 p {
   font-size: 14px;
   color: #222;
@@ -287,7 +275,6 @@
   margin-top: 0;
 }
 
-/* Image styling */
 .tabs.tabs7 picture img {
   display: block;
   width: 100%;
@@ -298,7 +285,6 @@
   border: none;
 }
 
-/* Footer text */
 .tabs.tabs7 .tabs-panel > div > p:last-of-type {
   font-size: 12px;
   color: #808080;
@@ -306,7 +292,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs7 {
     flex-direction: column;
@@ -336,5 +321,170 @@
   .tabs.tabs7 picture img {
     max-width: 100%;
     margin: 24px 0 16px;
+  }
+}
+
+
+.tabs.tabs8 {
+  max-width: 810px;
+  margin: 44px auto 0;
+  padding: 0 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs8 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+  border-bottom: 1px solid #f2f2f2;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  padding: 0;
+  width: 100%;
+  background: none;
+}
+
+.tabs.tabs8 .tabs-list button {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: #888;
+  font-weight: 600;
+  padding: 10px 32px 4px 0;
+  margin: 0;
+  border-bottom: 3px solid transparent;
+  font-size: 1.01rem;
+  line-height: 1.2;
+  min-width: 82px;
+  text-align: left;
+  box-shadow: none;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s;
+  white-space: nowrap;
+}
+
+.tabs.tabs8 .tabs-list button[aria-selected="true"] {
+  color: #222;
+  border-bottom: 3px solid #f7e6b7;
+  background: none;
+  cursor: default;
+}
+
+.tabs.tabs8 .tabs-list button:last-child {
+  margin-right: 0;
+}
+
+.tabs.tabs8 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+.tabs.tabs8 .tabs-panel {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 810px;
+}
+
+.tabs.tabs8 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs8 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+}
+
+.tabs.tabs8 .tabs-panel h3 {
+  margin: 0 0 7px;
+  font-size: 2.03rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.13;
+  border-bottom: none;
+}
+
+.tabs.tabs8 .tabs-panel picture,
+.tabs.tabs8 .tabs-panel img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  display: block;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+.tabs.tabs8 .tabs-panel > div > p:first-of-type {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.87rem;
+  color: #222;
+  letter-spacing: 0.01em;
+  margin-top: 8px;
+  margin-bottom: 1px;
+  line-height: 1.2;
+}
+
+.tabs.tabs8 .tabs-panel p {
+  font-size: 1.025rem;
+  color: #222;
+  margin: 0 0 0.8em;
+  line-height: 1.7;
+}
+
+.tabs.tabs8 .tabs-panel > div > p:first-of-type + p {
+  margin-top: 2px;
+}
+
+/* Responsive tweaks */
+@media (width <= 900px) {
+  .tabs.tabs8 {
+    max-width: 100%;
+    padding: 0 6px;
+  }
+
+  .tabs.tabs8 .tabs-panel {
+    max-width: 100%;
+  }
+
+  .tabs.tabs8 .tabs-panel h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+
+  .tabs.tabs8 .tabs-panel > div > p:first-of-type {
+    font-size: 0.8rem;
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs8 {
+    padding: 0 2px;
+  }
+
+  .tabs.tabs8 .tabs-list button {
+    padding: 8px 8px 3px 0;
+    min-width: 55px;
+    font-size: 0.89rem;
+  }
+
+  .tabs.tabs8 .tabs-panel h3 {
+    font-size: 0.95rem;
+    margin-bottom: 3px;
   }
 }
