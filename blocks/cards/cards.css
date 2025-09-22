@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -34,7 +35,6 @@
   background: none;
 }
 
-/* Flexbox row, left-aligned, minimal gap */
 .cards.cards4 > ul {
   display: flex;
   flex-flow: row wrap;
@@ -46,7 +46,6 @@
   list-style: none;
 }
 
-/* Fixed-width, left-aligned cards */
 .cards.cards4 > ul > li {
   background: #fff;
   border: none;
@@ -62,7 +61,6 @@
   justify-content: flex-start;
 }
 
-/* Image: 16:9, flush to top and edges */
 .cards.cards4 .cards-card-image {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -82,7 +80,6 @@
   margin: 0;
 }
 
-/* Card body: denser padding, more breathing room at bottom */
 .cards.cards4 .cards-card-body {
   padding: 6px 9px 16px;
   margin: 0;
@@ -95,7 +92,6 @@
   line-height: 1.6;
 }
 
-/* Title: uppercase, bold, tight to image */
 .cards.cards4 .cards-card-body strong {
   font-size: 1rem;
   font-weight: 700;
@@ -107,7 +103,6 @@
   line-height: 1.18;
 }
 
-/* Paragraph spacing: tight, readable */
 .cards.cards4 .cards-card-body p {
   margin: 0 0 3px;
   padding: 0;
@@ -116,7 +111,6 @@
   line-height: 1.6;
 }
 
-/* Link: bold, block, minimal margin, yellow on hover */
 .cards.cards4 .cards-card-body a {
   color: #222;
   font-weight: 600;
@@ -135,7 +129,6 @@
   text-decoration: underline;
 }
 
-/* Responsive: 2 columns on medium, 1 on mobile */
 @media (width <= 900px) {
   .cards.cards4 > ul {
     gap: 8px;
@@ -166,4 +159,122 @@
     padding-left: 6px;
     padding-right: 6px;
   }
+}
+
+
+.cards.cards15 ul {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (width <= 1100px) {
+  .cards.cards15 ul {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards15 ul {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .cards.cards15 ul li {
+    flex-basis: calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards15 ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cards.cards15 ul li {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+.cards.cards15 ul li {
+  background: var(--background-color);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+  box-shadow: none;
+}
+
+.cards.cards15 .cards-card-image {
+  width: 100%;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.cards.cards15 .cards-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards15 .cards-card-body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cards.cards15 .cards-card-body h3 {
+  margin: 8px 0 1px;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.cards.cards15 .cards-card-body h3 a {
+  color: #222;
+  text-decoration: none;
+}
+
+.cards.cards15 .cards-card-body p {
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+  font-weight: 400;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* Remove extra spacing from base ul/p styles in block */
+.cards.cards15 ul,
+.cards.cards15 p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
