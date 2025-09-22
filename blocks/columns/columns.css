@@ -36,14 +36,11 @@
 
 .columns.columns2 {
   background: var(--background-color);
-
-  /* Slightly increase vertical padding for better block height */
   padding-top: 38px;
   padding-bottom: 38px;
   box-sizing: border-box;
 }
 
-/* Main layout: logo left, search right, perfectly centered vertically */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
@@ -53,12 +50,10 @@
   min-height: 32px;
 }
 
-/* Hide the language selector column */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo column */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -66,7 +61,6 @@
   margin: 0;
 }
 
-/* Adjust logo image size and margin */
 .columns.columns2 .columns-img-col img {
   max-height: 40px;
   width: auto;
@@ -76,7 +70,6 @@
   vertical-align: middle;
 }
 
-/* Search column: right-aligned and vertically centered */
 .columns.columns2 > div > div:last-child {
   display: flex;
   justify-content: flex-end;
@@ -84,7 +77,6 @@
   height: 100%;
 }
 
-/* Style search box appearance and center icon/text vertically */
 .columns.columns2 > div > div:last-child p {
   display: flex;
   align-items: center;
@@ -109,9 +101,6 @@
   background-position: 10px 56%;
 }
 
-/* Add a search icon as a background image, slightly lower for best alignment */
-
-/* Responsive stacking for small screens */
 @media (width <= 899px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -131,9 +120,167 @@
   }
 }
 
-/* Remove unwanted margin from surrounding elements */
 .columns.columns2 ul,
 .columns.columns2 p {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+
+.columns.columns5 {
+  background: #232220;
+  color: #ccc;
+  padding: 32px 48px 24px;
+  border-bottom: 1px solid #fff;
+}
+
+/* Grid: tighter gap and right alignment for social section */
+.columns.columns5 > div {
+  display: grid;
+  grid-template: "logo social" auto "text text" 1fr / 1fr auto;
+  gap: 0 0.5vw;
+  align-items: flex-start;
+}
+
+/* Logo and language stack */
+.columns.columns5 > div > div:nth-child(1) {
+  grid-area: logo;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  justify-content: flex-start;
+}
+
+/* Logo sizing and spacing */
+.columns.columns5 > div > div:nth-child(1) picture img {
+  display: block;
+  max-width: 104px;
+  height: auto;
+  margin-bottom: 0.16em;
+}
+
+/* Language link */
+.columns.columns5 > div > div:nth-child(1) ul {
+  margin: 0.1em 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns5 > div > div:nth-child(1) ul li a {
+  font-size: 13px;
+  color: #ccc;
+  text-decoration: underline;
+}
+
+/* Social section: tightly grouped, right-aligned, top-aligned */
+.columns.columns5 > div > div:nth-child(2) {
+  grid-area: social;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 3px;
+  min-width: 0;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+/* Follow Us label: top-aligned with logo */
+.columns.columns5 > div > div:nth-child(2) h4 {
+  margin: 0 3px 0 0;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  text-transform: uppercase;
+  align-self: flex-start;
+  line-height: 28px;
+  padding-top: 0;
+}
+
+/* Social buttons: compact, square, only show as much text as fits, center text vertically */
+.columns.columns5 > div > div:nth-child(2) .button-container {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.columns.columns5 > div > div:nth-child(2) .button {
+  min-width: 26px;
+  width: 26px;
+  height: 26px;
+  background: #fff;
+  color: #232220;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 24px;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  transition: background 0.2s, color 0.2s;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Reduce truncation: allow more space if needed, and center text */
+
+/* Bottom row: full-width text, minimal top margin */
+.columns.columns5 > div > div:nth-child(3) {
+  grid-area: text;
+  grid-column: 1 / -1;
+  margin-top: 2px;
+}
+
+/* Copyright/description text */
+.columns.columns5 > div > div:nth-child(3) p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #ccc;
+  margin: 0 0 6px;
+}
+
+/* Links in text */
+.columns.columns5 > div > div:nth-child(3) a {
+  color: #e0e0e0;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .columns.columns5 {
+    padding: 24px 6px 16px;
+  }
+
+  .columns.columns5 > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .columns.columns5 > div > div:nth-child(2) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .columns.columns5 > div > div:nth-child(2) .button {
+    min-width: 26px;
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .columns.columns5 > div > div:nth-child(3) {
+    margin-top: 4px;
+  }
 }
