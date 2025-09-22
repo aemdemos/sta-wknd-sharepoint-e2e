@@ -239,3 +239,126 @@
   background: #222;
   box-shadow: 0 0 2px #222;
 }
+
+
+.carousel.carousel9 {
+  position: relative;
+  margin-top: 0 !important;
+}
+
+/* Center navigation arrows vertically, overlaying carousel image sides */
+.carousel.carousel9 .carousel-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+/* Make only buttons clickable */
+.carousel.carousel9 .carousel-navigation-buttons button {
+  pointer-events: auto;
+  background: rgb(255 255 255 / 85%);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.carousel.carousel9 .carousel-navigation-buttons button:hover,
+.carousel.carousel9 .carousel-navigation-buttons button:focus-visible {
+  background: #ededed;
+}
+
+.carousel.carousel9 .carousel-navigation-buttons button::after {
+  border-width: 2.5px;
+  border-color: #222;
+  width: 14px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel.carousel9 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Hide empty slide content overlays */
+.carousel.carousel9 .carousel-slide-content:empty {
+  display: none;
+}
+
+/* Indicators below image, centered */
+.carousel.carousel9 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  gap: 0 14px;
+  padding: 0;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+/* Small, subtle dots for indicators */
+.carousel.carousel9 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #222;
+  opacity: 0.2;
+  margin: 0;
+  border: none;
+  padding: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+/* Active indicator style */
+.carousel.carousel9 .carousel-slide-indicator button:disabled,
+.carousel.carousel9 .carousel-slide-indicator button[aria-current='true'] {
+  opacity: 1;
+  background: #222;
+}
+
+/* Ensure carousel image has no extra margin on top */
+.carousel.carousel9 .carousel-slides-container {
+  padding-top: 0 !important;
+  padding-bottom: 60px; /* for indicators and navigation */
+}
+
+@media (width <= 800px) {
+  .carousel.carousel9 .carousel-navigation-buttons button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .carousel.carousel9 .carousel-slide-indicator button {
+    width: 8px;
+    height: 8px;
+  }
+
+  .carousel.carousel9 .carousel-slide-indicators {
+    bottom: 8px;
+    gap: 0 10px;
+  }
+}
+
+/* Remove excessive vertical gap above image if any wrapper applies */
