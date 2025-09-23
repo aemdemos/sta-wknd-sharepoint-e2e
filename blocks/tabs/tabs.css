@@ -1104,7 +1104,6 @@
   align-items: flex-start;
 }
 
-/* Responsive: stack columns vertically */
 @media (width <= 900px) {
   .tabs.tabs24 {
     grid-template-columns: 1fr;
@@ -1113,7 +1112,6 @@
   }
 }
 
-/* --- SIDEBAR: Meta-info only, vertical stack --- */
 .tabs.tabs24 > div:first-child {
   display: flex;
   flex-direction: column;
@@ -1125,7 +1123,6 @@
   padding-right: 0;
 }
 
-/* Meta-info labels/values (generic, adapt to real markup) */
 .tabs.tabs24 > div:first-child span,
 .tabs.tabs24 > div:first-child strong {
   display: block;
@@ -1153,7 +1150,6 @@
   letter-spacing: 0.08em;
 }
 
-/* --- MAIN COLUMN: Tabs navigation + content, vertical stack --- */
 .tabs.tabs24 > div:last-child {
   min-width: 0;
   width: 100%;
@@ -1164,7 +1160,6 @@
   padding-top: 0;
 }
 
-/* Tabs navigation row ONLY in the main column */
 .tabs.tabs24 > div:last-child .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1178,12 +1173,10 @@
   justify-content: flex-start;
 }
 
-/* Prevent vertical stacking of tabs in the sidebar */
 .tabs.tabs24 > div:first-child .tabs-list {
   display: none;
 }
 
-/* Tabs styling */
 .tabs.tabs24 .tabs-list .tabs-tab {
   padding: 11px 34px;
   border-radius: 2em;
@@ -1222,7 +1215,6 @@
   padding: 0;
 }
 
-/* --- TABS PANEL --- */
 .tabs.tabs24 .tabs-panel {
   background: #fff;
   border: none;
@@ -1239,7 +1231,6 @@
   display: none;
 }
 
-/* Paragraph and section spacing in panel */
 .tabs.tabs24 .tabs-panel > div > p,
 .tabs.tabs24 .tabs-panel > div > h2,
 .tabs.tabs24 .tabs-panel > div > ul,
@@ -1249,7 +1240,6 @@
   max-width: 730px;
 }
 
-/* Image styling */
 .tabs.tabs24 .tabs-panel picture,
 .tabs.tabs24 .tabs-panel img {
   display: block;
@@ -1260,7 +1250,6 @@
   background: #eee;
 }
 
-/* Caption styling (last p in panel, after image) */
 .tabs.tabs24 .tabs-panel p:last-child {
   margin-top: 10px;
   font-size: 11px;
@@ -1271,7 +1260,6 @@
   max-width: 910px;
 }
 
-/* Responsive tweaks for main content width and sidebar */
 @media (width <= 700px) {
   .tabs.tabs24 {
     grid-template-columns: 1fr;
@@ -1303,8 +1291,177 @@
   }
 }
 
-/* Focus ring for accessibility */
 .tabs.tabs24 .tabs-list .tabs-tab:focus {
   outline: 2px solid #ffce51;
   outline-offset: 2px;
+}
+
+
+.tabs.tabs27 {
+  /* More compact, centered block, slightly wider for optimal text length */
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 0 24px 38px;
+  background: var(--background-color);
+}
+
+/* Tabs: left aligned, tight, slightly more space below */
+.tabs.tabs27 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  margin-bottom: 20px;
+  margin-left: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.tabs.tabs27 .tabs-list button {
+  border: none;
+  border-radius: 6px;
+  background: #fff;
+  color: #1a1a1a;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 12px;
+  margin: 0;
+  box-shadow: none;
+  cursor: pointer;
+  min-width: 90px;
+  height: 38px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tabs.tabs27 .tabs-list button[aria-selected='true'] {
+  background: #1a1a1a;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs27 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Tab panel: no border, tighten spacing */
+.tabs.tabs27 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Main Heading: minimal margin below, compact style */
+.tabs.tabs27 h3[id^="beervana-in-portland"] {
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 6px;
+  position: relative;
+  line-height: 1.18;
+}
+
+/* Underline accent: wider, thicker, more elegant gap */
+.tabs.tabs27 h3[id^="beervana-in-portland"]::after {
+  display: block;
+  width: 54px;
+  height: 3px;
+  background: #ffe699;
+  margin-top: 10px;
+  border-radius: 2px;
+  content: "";
+}
+
+/* Subheading: slightly more space above/below */
+.tabs.tabs27 h3[id^="experience-the-best-craft-breweries"] {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-top: 20px;
+  margin-bottom: 14px;
+  line-height: 1.28;
+}
+
+/* Paragraphs: slightly wider, better vertical rhythm */
+.tabs.tabs27 p {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-top: 0.6em;
+  margin-bottom: 1.1em;
+  line-height: 1.62;
+  max-width: 650px;
+}
+
+/* First paragraph after subheading: extra gap for clarity */
+.tabs.tabs27 h3[id^="experience-the-best-craft-breweries"] + p {
+  margin-top: 10px;
+}
+
+/* Footer note: extra space above */
+.tabs.tabs27 .tabs-panel > div > p:last-child {
+  color: #767676;
+  font-size: 0.96rem;
+  margin-top: 22px;
+  margin-bottom: 0;
+}
+
+/* Image: extra space above, visually balanced */
+.tabs.tabs27 picture img,
+.tabs.tabs27 img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 30px auto 18px;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+/* Remove excess default section/main padding for this block */
+.tabs.tabs27 .section,
+.tabs.tabs27 main {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs27 {
+    max-width: 99vw;
+    padding: 0 8px 20px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs27 {
+    padding: 0 0 10px;
+  }
+
+  .tabs.tabs27 .tabs-list {
+    gap: 1px;
+    font-size: 0.92rem;
+    margin-left: 0;
+  }
+
+  .tabs.tabs27 h3[id^="beervana-in-portland"] {
+    font-size: 1.18rem;
+  }
+
+  .tabs.tabs27 h3[id^="experience-the-best-craft-breweries"] {
+    font-size: 0.94rem;
+    margin-top: 10px;
+  }
+
+  .tabs.tabs27 picture img,
+  .tabs.tabs27 img {
+    margin: 16px auto 10px;
+    border-radius: 5px;
+  }
 }
