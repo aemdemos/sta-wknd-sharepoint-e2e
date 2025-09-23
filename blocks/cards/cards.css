@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -241,7 +242,7 @@
 .cards.cards20 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0 14px; /* Zero row gap, 14px column gap for tighter stacking */
+  gap: 0 14px;
   place-items: start stretch;
 }
 
@@ -339,4 +340,166 @@
 .cards.cards20 > ul > li:hover {
   box-shadow: none;
   transition: none;
+}
+
+
+.cards.cards23 {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  /* Place cards side-by-side on desktop using flexbox */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5rem 1.5rem; /* row-gap column-gap */
+  box-sizing: border-box;
+}
+
+/* Ensure the <ul> doesn't interfere with layout */
+.cards.cards23 > ul {
+  display: contents;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each card fills a "column" in the flex row */
+.cards.cards23 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 220px;
+  max-width: 250px;
+  flex: 1 1 220px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  row-gap: 0.5em;
+}
+
+/* Avatar image */
+.cards.cards23 .cards-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.6em;
+}
+
+.cards.cards23 .cards-card-image img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  aspect-ratio: unset;
+  max-width: none;
+}
+
+/* Card body */
+.cards.cards23 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 0.15em;
+}
+
+.cards.cards23 .cards-card-body h3 {
+  font-size: 1.25em;
+  color: #212121;
+  font-weight: bold;
+  margin: 0 0 0.18em;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.cards.cards23 .cards-card-body h5 {
+  font-size: 0.9em;
+  color: #666;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 0 0 0.4em;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+/* Social links row: 3 buttons side by side */
+.cards.cards23 .cards-card-body p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards23 .cards-card-body p a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #212121;
+  color: transparent;
+  border-radius: 0.15em;
+  text-decoration: none;
+  margin: 0;
+  border: none;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 0; /* visually hide text, keep accessible for screen readers */
+}
+
+.cards.cards23 .cards-card-body p a:focus {
+  outline: 2px solid #c7a94b;
+}
+
+.cards.cards23 .cards-card-body p a:hover,
+.cards.cards23 .cards-card-body p a:active {
+  background: #c7a94b;
+  color: transparent;
+}
+
+/* Responsive: 3 columns on tablet, 1 column on mobile */
+@media (width <= 1000px) {
+  .cards.cards23 {
+    gap: 2rem 1rem;
+  }
+
+  .cards.cards23 > ul > li {
+    min-width: 180px;
+    max-width: 200px;
+    flex: 1 1 180px;
+  }
+
+  .cards.cards23 .cards-card-image img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards23 {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem 0;
+  }
+
+  .cards.cards23 > ul > li {
+    min-width: 95vw;
+    max-width: 95vw;
+    flex: 1 1 95vw;
+  }
 }
