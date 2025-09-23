@@ -45,3 +45,112 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero3 {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  min-height: 370px;
+  padding: 0;
+  box-sizing: border-box;
+  background: none;
+  overflow: visible;
+  display: block;
+}
+
+.hero.hero3 > div:first-child {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  min-height: 370px;
+  z-index: 1;
+  display: block;
+}
+
+.hero.hero3 picture,
+.hero.hero3 picture img {
+  width: 100vw;
+  height: 370px;
+  min-height: 180px;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+/* TEXT OVERLAY: flush with bottom edge, better padding */
+.hero.hero3 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 93vw;
+  max-width: 1200px;
+  min-width: 240px;
+  background: #fff;
+  padding: 1.8em 2.5em 1.7em; /* increased vertical padding for comfort */
+  box-sizing: border-box;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 2px 12px 0 rgb(32 32 32 / 4%);
+  border-radius: 0;
+}
+
+.hero.hero3 > div:nth-child(2) > div {
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0; /* divider line */
+  margin-bottom: 1.1em;
+}
+
+.hero.hero3 h2 {
+  color: #222;
+  font-size: 1.375rem;
+  font-weight: 400;
+  margin: 0 0 0.6em; /* slightly less below headline for balance */
+  line-height: 1.2;
+  text-align: left;
+  max-width: unset;
+}
+
+/* Responsive adjustments for small screens */
+@media (width <= 900px) {
+  .hero.hero3,
+  .hero.hero3 > div:first-child {
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    left: 50%;
+    right: 50%;
+    max-width: unset;
+    min-height: 190px;
+  }
+
+  .hero.hero3 picture,
+  .hero.hero3 picture img {
+    width: 100vw;
+    min-height: 120px;
+    height: 32vw;
+    max-height: 220px;
+  }
+
+  .hero.hero3 > div:nth-child(2) {
+    width: 98vw;
+    padding: 1.2em 1em 1.1em;
+    bottom: 0;
+    max-width: unset;
+  }
+
+  .hero.hero3 > div:nth-child(2) > div {
+    margin-bottom: 0.8em;
+  }
+}
