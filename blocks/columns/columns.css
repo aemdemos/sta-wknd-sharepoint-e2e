@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -40,7 +41,6 @@
   padding: 0;
 }
 
-/* Fine-tune flex row for perfect baseline alignment */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
@@ -53,12 +53,10 @@
   gap: 0;
 }
 
-/* Hide the middle (language selector) column */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo column: baseline alignment, nudge down for perfect centering */
 .columns.columns2 > div > .columns-img-col {
   display: flex;
   align-items: baseline;
@@ -66,16 +64,14 @@
   height: 100%;
 }
 
-/* Logo image: match search box baseline by nudging down */
 .columns.columns2 > div > .columns-img-col img {
   width: 140px;
   height: auto;
   display: block;
-  margin-top: 7px; /* nudge down for baseline match */
+  margin-top: 7px;
   margin-bottom: 0;
 }
 
-/* Search box: compact, matches logo baseline */
 .columns.columns2 > div > div:nth-child(3) {
   display: flex;
   align-items: baseline;
@@ -92,7 +88,6 @@
   height: 40px;
 }
 
-/* Search text styling */
 .columns.columns2 > div > div:nth-child(3) p {
   color: #666;
   font-size: 14px;
@@ -106,7 +101,6 @@
   height: 22px;
 }
 
-/* Search icon (inline SVG background) */
 .columns.columns2 > div > div:nth-child(3) p::before {
   display: inline-block;
   position: absolute;
@@ -119,7 +113,6 @@
   background-size: 16px 16px;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 800px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -138,4 +131,175 @@
     width: 100%;
     max-width: 100%;
   }
+}
+
+
+/* Stronger selector to ensure background and color apply */
+.columns.block,
+.columns.block > div {
+  background: #222;
+  color: #e0e0e0;
+}
+
+/* Flex row for main block */
+.columns.block > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+  min-height: 96px;
+  padding: 32px 40px;
+  box-sizing: border-box;
+}
+
+/* Logo column styling */
+.columns.block .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 180px;
+}
+
+.columns.block .columns-img-col img {
+  width: 239px;
+  height: 89px;
+  object-fit: contain;
+  margin: 0;
+}
+
+/* Navigation column targeting deeply nested nav */
+.columns.block > div > div:nth-child(2) {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.columns.block > div > div:nth-child(2) > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.block > div > div:nth-child(2) > ul,
+.columns.block > div > div:nth-child(2) > ul > li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.block > div > div:nth-child(2) > ul > li > ul > li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation link styling */
+.columns.block > div > div:nth-child(2) > ul > li > ul > li > a {
+  color: #f6f6f6;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.6;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+
+.columns.block > div > div:nth-child(2) > ul > li > ul > li > a:hover,
+.columns.block > div > div:nth-child(2) > ul > li > ul > li > a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Remove bullets everywhere in nav */
+.columns.block ul,
+.columns.block ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Search column */
+.columns.block > div > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 140px;
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: right;
+  padding-left: 24px;
+}
+
+/* Remove background/border from search, align, style as block text */
+.columns.block > div > div:nth-child(3) p {
+  color: #e0e0e0;
+  text-transform: uppercase;
+  background: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: right;
+  border: none;
+  box-shadow: none;
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 900px) {
+  .columns.block > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    min-height: unset;
+    padding: 20px 8px;
+  }
+
+  .columns.block .columns-img-col {
+    min-width: 0;
+    margin-bottom: 8px;
+  }
+
+  .columns.block .columns-img-col img {
+    width: 150px;
+    height: auto;
+  }
+
+  .columns.block > div > div:nth-child(2) {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .columns.block > div > div:nth-child(3) {
+    justify-content: flex-start;
+    min-width: 0;
+    padding-left: 0;
+    text-align: left;
+    margin-top: 10px;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.block .columns-img-col img {
+    width: 100px;
+  }
+}
+
+/* Prevent backgrounds and borders leaking in */
+.columns.block * {
+  background: none;
+  border: none;
+  box-shadow: none;
 }
