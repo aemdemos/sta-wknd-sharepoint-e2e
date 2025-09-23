@@ -629,7 +629,6 @@
   background: var(--background-color);
 }
 
-/* Tabs Bar - tight grouping with header */
 .tabs.tabs13 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -642,7 +641,6 @@
   background: none;
 }
 
-/* Tab Buttons - chunkier, more visual presence */
 .tabs.tabs13 .tabs-list button {
   margin: 0;
   border: 1px solid #222;
@@ -674,7 +672,6 @@
   margin: 0;
 }
 
-/* Stack header and content vertically, align left */
 .tabs.tabs13 .tabs-panel {
   border: none;
   box-sizing: border-box;
@@ -693,7 +690,6 @@
   width: 100%;
 }
 
-/* Cycling Tuscany header - gold underline, lighter and spaced further below */
 .tabs.tabs13 .tabs-panel h3[id^="cycling-tuscany"] {
   font-size: 2em;
   font-weight: 400;
@@ -706,7 +702,6 @@
   max-width: 100%;
 }
 
-/* Headline - reduced gap above, strong presence */
 .tabs.tabs13 .tabs-panel h2 {
   font-size: 2.2em;
   font-weight: 700;
@@ -717,7 +712,6 @@
   width: 100%;
 }
 
-/* Ensure picture and images always show and take up space */
 .tabs.tabs13 .tabs-panel picture {
   display: block;
   width: 100%;
@@ -734,7 +728,6 @@
   min-height: 1px;
 }
 
-/* Body text: readable, max width, left aligned */
 .tabs.tabs13 .tabs-panel p,
 .tabs.tabs13 .tabs-panel ul,
 .tabs.tabs13 .tabs-panel li {
@@ -762,7 +755,6 @@
   max-width: 700px;
 }
 
-/* Section vertical gaps: tighter for cohesion */
 .tabs.tabs13 .tabs-panel > div > h3[id^="cycling-tuscany"] + h2 {
   margin-top: 0;
 }
@@ -771,7 +763,6 @@
   margin-top: 0;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs13 {
     max-width: 100%;
@@ -814,5 +805,169 @@
 
   .tabs.tabs13 .tabs-panel > div {
     gap: 16px;
+  }
+}
+
+
+.tabs.tabs19 {
+  box-sizing: border-box;
+  max-width: 1050px;
+  width: 100%;
+  margin: 40px 0 0;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs Row: left-align, slightly larger gap */
+.tabs.tabs19 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-bottom: 14px;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  overflow-x: auto;
+  position: relative;
+}
+
+/* Individual Tab Buttons */
+.tabs.tabs19 .tabs-tab {
+  background: transparent;
+  color: #000;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 13px 36px 11px 0;
+  line-height: 1.25;
+  transition: background 0.2s;
+  cursor: pointer;
+  margin: 0;
+  text-align: left;
+  box-shadow: none;
+  min-width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  letter-spacing: 0.02em;
+}
+
+.tabs.tabs19 .tabs-tab[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs19 .tabs-tab p {
+  margin: 0;
+  text-align: left;
+}
+
+/* Panel styles */
+.tabs.tabs19 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  width: 100%;
+  display: block;
+}
+
+/* Heading styles with tighter underline */
+.tabs.tabs19 .tabs-panel > div > h3:first-of-type {
+  font-size: 2.12rem;
+  font-weight: 400;
+  margin: 0 0 4px;
+  border-bottom: 2px solid #FFF1B6;
+  padding-bottom: 2px;
+  display: block;
+  width: 100px;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* Section subheading styles */
+.tabs.tabs19 .tabs-panel > div > h3 + h3 strong {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: block;
+  margin: 12px 0 8px;
+  color: #000;
+  text-align: left;
+}
+
+/* Image alignment and sizing */
+.tabs.tabs19 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  margin: 0 0 15px;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+  text-align: left;
+}
+
+/* Paragraph and text */
+.tabs.tabs19 .tabs-panel p {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 18px;
+  text-align: left;
+  max-width: 850px;
+}
+
+/* List styles */
+.tabs.tabs19 .tabs-panel ul {
+  font-size: 1.08rem;
+  color: #000;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  text-align: left;
+  max-width: 850px;
+}
+
+.tabs.tabs19 .tabs-panel ul li {
+  margin-bottom: 8px;
+}
+
+@media (width <= 1100px) {
+  .tabs.tabs19 {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs19 .tabs-panel img,
+  .tabs.tabs19 .tabs-panel p,
+  .tabs.tabs19 .tabs-panel ul {
+    max-width: 100%;
+  }
+
+  .tabs.tabs19 .tabs-panel > div > h3:first-of-type {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (width <= 700px) {
+  .tabs.tabs19 {
+    padding: 0 2vw;
+  }
+
+  .tabs.tabs19 .tabs-panel img,
+  .tabs.tabs19 .tabs-panel p,
+  .tabs.tabs19 .tabs-panel ul {
+    max-width: 100%;
   }
 }
