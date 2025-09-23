@@ -31,3 +31,111 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 {
+  background: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fine-tune flex row for perfect baseline alignment */
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 88px;
+  padding: 0;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+/* Hide the middle (language selector) column */
+.columns.columns2 > div > div:nth-child(2) {
+  display: none;
+}
+
+/* Logo column: baseline alignment, nudge down for perfect centering */
+.columns.columns2 > div > .columns-img-col {
+  display: flex;
+  align-items: baseline;
+  margin-left: 56px;
+  height: 100%;
+}
+
+/* Logo image: match search box baseline by nudging down */
+.columns.columns2 > div > .columns-img-col img {
+  width: 140px;
+  height: auto;
+  display: block;
+  margin-top: 7px; /* nudge down for baseline match */
+  margin-bottom: 0;
+}
+
+/* Search box: compact, matches logo baseline */
+.columns.columns2 > div > div:nth-child(3) {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  background: #f5f5f5;
+  border-radius: 2px;
+  width: 210px;
+  max-width: 210px;
+  min-width: 140px;
+  padding: 6px 16px;
+  margin-right: 80px;
+  margin-top: 0;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+/* Search text styling */
+.columns.columns2 > div > div:nth-child(3) p {
+  color: #666;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.03em;
+  padding-left: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 22px;
+}
+
+/* Search icon (inline SVG background) */
+.columns.columns2 > div > div:nth-child(3) p::before {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" stroke="gray" stroke-width="2" fill="none"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="gray" stroke-width="2"/></svg>') no-repeat center center;
+  background-size: 16px 16px;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 800px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 0;
+  }
+
+  .columns.columns2 > div > .columns-img-col {
+    margin-left: 20px;
+    margin-bottom: 16px;
+  }
+
+  .columns.columns2 > div > div:nth-child(3) {
+    margin-right: 20px;
+    margin-top: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
