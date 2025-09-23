@@ -1624,7 +1624,7 @@
   align-items: flex-start;
   max-width: 980px;
   margin: 0 auto;
-  padding: 24px 0 0; /* Reduced top padding for higher block placement */
+  padding: 24px 0 0;
   box-sizing: border-box;
 }
 
@@ -1635,7 +1635,6 @@
   }
 }
 
-/* Tabs row: horizontal, tight grouping, uppercase, pill-style active tab */
 .tabs.tabs30 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1687,7 +1686,6 @@
   padding: 0;
 }
 
-/* Remove panel border/padding for open, flush look */
 .tabs.tabs30 .tabs-panel {
   border: none;
   padding: 0;
@@ -1696,7 +1694,6 @@
   background: none;
 }
 
-/* Title, with bold yellow underline and tighter left alignment */
 .tabs.tabs30 h3 {
   font-size: 2.17rem;
   color: #222;
@@ -1715,7 +1712,6 @@
   border-radius: 2px;
 }
 
-/* Paragraphs: larger, more spacing */
 .tabs.tabs30 .tabs-panel > div > p,
 .tabs.tabs30 .tabs-panel > div > ul,
 .tabs.tabs30 .tabs-panel > div > ol {
@@ -1726,12 +1722,10 @@
   margin-top: 0;
 }
 
-/* Extra spacing after last p before images */
 .tabs.tabs30 .tabs-panel > div > p:last-of-type {
   margin-bottom: 2.7em;
 }
 
-/* Images: flush, spaced vertically, edge-to-edge inside content */
 .tabs.tabs30 .tabs-panel img {
   width: 100%;
   max-width: 100%;
@@ -1744,19 +1738,16 @@
   object-fit: cover;
 }
 
-/* Remove extra spacing under last image */
 .tabs.tabs30 .tabs-panel img:last-child {
   margin-bottom: 0;
 }
 
-/* List spacing */
 .tabs.tabs30 .tabs-panel ul,
 .tabs.tabs30 .tabs-panel ol {
   padding-left: 24px;
   margin-bottom: 1.35em;
 }
 
-/* Responsive: maintain edge-to-edge on mobile, adjust gaps */
 @media (width <= 900px) {
   .tabs.tabs30 .tabs-panel img {
     margin-bottom: 20px;
@@ -1773,8 +1764,239 @@
   }
 }
 
-/* Hide scrollbar for tabs-list if possible */
-
 .tabs.tabs30 .tabs-list::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
+}
+
+
+.tabs.tabs32 {
+  /* Simulate sidebar gutter using larger left padding, single column layout */
+  max-width: 900px;
+  margin: 48px 0 0;
+  padding: 0 0 0 260px;
+  background: #fff;
+  box-sizing: border-box;
+  border: none;
+  position: relative;
+}
+
+@media (width <= 1200px) {
+  .tabs.tabs32 {
+    padding-left: 180px;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs32 {
+    margin: 24px 0 0;
+    padding-left: 0;
+    max-width: 100%;
+  }
+}
+
+/* Main content area padding and width */
+.tabs.tabs32 > .tabs {
+  padding: 40px 40px 40px 0;
+  max-width: 640px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs32 > .tabs {
+    padding: 24px 8px;
+    max-width: 100%;
+  }
+}
+
+/* Tabs: horizontal layout, left-aligned, larger gap */
+.tabs.tabs32 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 44px;
+  margin-bottom: 58px;
+  border: none;
+  padding: 0;
+  justify-content: flex-start;
+  overflow-x: auto;
+}
+
+/* Tab button style refinement */
+.tabs.tabs32 .tabs-list button {
+  background: #fff;
+  color: #222;
+  border: 1.5px solid #222;
+  border-radius: 3px;
+  padding: 14px 42px;
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  box-sizing: border-box;
+  line-height: 1.25;
+  margin: 0;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs32 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 1.5px solid #222;
+}
+
+/* Remove default button style, style p inside */
+.tabs.tabs32 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+}
+
+/* Panel styling */
+.tabs.tabs32 .tabs-panel {
+  border: none;
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+/* Title styling */
+.tabs.tabs32 h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+  position: relative;
+  line-height: 1.2;
+}
+
+/* Accent yellow line under title */
+.tabs.tabs32 h3::after {
+  display: block;
+  height: 2px;
+  width: 28px;
+  background: #f1e232;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+/* Section headings */
+.tabs.tabs32 h2 {
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 38px;
+  margin-bottom: 36px;
+  line-height: 1.22;
+  letter-spacing: 0.2px;
+}
+
+/* Paragraphs and text content: limit width for readability */
+.tabs.tabs32 .tabs-panel > div > p,
+.tabs.tabs32 .tabs-panel > div > ul,
+.tabs.tabs32 .tabs-panel > div > h2 {
+  max-width: 580px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.tabs.tabs32 .tabs-panel > div > p,
+.tabs.tabs32 .tabs-panel > div > ul {
+  font-size: 1.05rem;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  margin-top: 0;
+}
+
+.tabs.tabs32 ul {
+  padding-left: 22px;
+}
+
+.tabs.tabs32 p:last-child,
+.tabs.tabs32 ul:last-child {
+  margin-bottom: 0;
+}
+
+/* Images: center, max width, larger margin */
+.tabs.tabs32 picture,
+.tabs.tabs32 img {
+  display: block;
+  max-width: 620px;
+  width: 100%;
+  margin: 0 auto 46px;
+  border-radius: 8px;
+  box-shadow: 0 2px 14px rgb(0 0 0 / 12%);
+}
+
+/* Remove bottom margin on last image */
+.tabs.tabs32 p:last-of-type picture,
+.tabs.tabs32 p:last-of-type img {
+  margin-bottom: 0;
+}
+
+/* Show only active tab panel */
+.tabs.tabs32 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs32 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs32 {
+    padding-left: 0;
+  }
+
+  .tabs.tabs32 > .tabs {
+    padding: 8px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs32 .tabs-list {
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .tabs.tabs32 .tabs-list button {
+    padding: 8px 10px;
+    font-size: 13px;
+    min-width: unset;
+  }
+
+  .tabs.tabs32 h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .tabs.tabs32 h2 {
+    font-size: 1rem;
+    margin-top: 22px;
+    margin-bottom: 14px;
+  }
+
+  .tabs.tabs32 .tabs-panel > div > p, 
+  .tabs.tabs32 .tabs-panel > div > ul,
+  .tabs.tabs32 .tabs-panel > div > h2,
+  .tabs.tabs32 picture, 
+  .tabs.tabs32 img {
+    max-width: 100%;
+  }
+
+  .tabs.tabs32 picture, 
+  .tabs.tabs32 img {
+    margin-bottom: 16px;
+    border-radius: 3px;
+  }
 }
