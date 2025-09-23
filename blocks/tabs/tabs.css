@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,178 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs10 {
+  margin: 0 auto 0 0;
+  padding: 0 24px 32px;
+  max-width: 900px;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  display: block;
+}
+
+/* Tabs Header Row */
+.tabs.tabs10 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  padding-left: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Tab Buttons */
+.tabs.tabs10 .tabs-list button {
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 28px;
+  background: transparent;
+  color: #222;
+  font-weight: 600;
+  font-size: 1em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs10 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  cursor: default;
+}
+
+.tabs.tabs10 .tabs-list button[aria-selected='false']:hover,
+.tabs.tabs10 .tabs-list button:not([aria-selected='true']):hover {
+  background: #ececec;
+  color: #222;
+}
+
+.tabs.tabs10 .tabs-list button p {
+  margin: 0;
+}
+
+/* Panel styling */
+.tabs.tabs10 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  background: transparent;
+  overflow: unset;
+  box-shadow: none;
+}
+
+.tabs.tabs10 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Headings */
+.tabs.tabs10 h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.45em;
+  margin-top: 0.1em;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.tabs.tabs10 h3 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+/* Paragraph & Content spacing */
+.tabs.tabs10 .tabs-panel > div > p,
+.tabs.tabs10 .tabs-panel > div > ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.15em;
+  color: #222;
+  font-size: 1em;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.tabs.tabs10 .tabs-panel > div > p:first-child {
+  margin-top: 0;
+}
+
+/* Images */
+.tabs.tabs10 .tabs-panel picture,
+.tabs.tabs10 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0.7em 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+/* Related trips styling */
+.tabs.tabs10 .tabs-panel ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.2em;
+  margin-bottom: 0.1em;
+  text-align: left;
+}
+
+.tabs.tabs10 .tabs-panel ul li {
+  position: relative;
+  padding-left: 1.3em;
+  margin-bottom: 0.1em;
+  color: #222;
+}
+
+/* Related trips label */
+.tabs.tabs10 .tabs-panel p + ul {
+  margin-top: 0.08em;
+}
+
+.tabs.tabs10 .tabs-panel > div > p:last-of-type {
+  margin-bottom: 0.1em;
+}
+
+/* Responsive */
+@media (width <= 900px) {
+  .tabs.tabs10 {
+    padding-left: 8px;
+    padding-right: 8px;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs10 .tabs-list {
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .tabs.tabs10 h2 {
+    font-size: 1.05em;
+  }
+
+  .tabs.tabs10 h3 {
+    font-size: 0.95em;
+  }
 }
