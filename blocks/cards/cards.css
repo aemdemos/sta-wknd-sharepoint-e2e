@@ -33,7 +33,6 @@
   padding: 0;
 }
 
-/* Grid layout for 5 columns, aligning all card items to the start of their cell */
 .cards.cards4 > ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -70,7 +69,6 @@
   align-items: stretch;
 }
 
-/* Image always at top, aspect ratio matches original */
 .cards.cards4 .cards-card-image {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -88,7 +86,6 @@
   margin: 0;
 }
 
-/* Card body is always top-aligned under image, padding matches original, no flex grow */
 .cards.cards4 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -100,7 +97,6 @@
   flex: unset;
 }
 
-/* Title styling */
 .cards.cards4 .cards-card-body strong {
   display: block;
   font-size: 13px;
@@ -113,7 +109,6 @@
   line-height: 1.15;
 }
 
-/* Description is directly below title, top-aligned, NO margin-top:auto */
 .cards.cards4 .cards-card-body p {
   font-size: 11px;
   color: #444;
@@ -127,4 +122,116 @@
 .cards.cards4 > ul > li {
   margin: 0;
   padding: 0;
+}
+
+
+.cards.cards14 {
+  background: #fff;
+  padding-bottom: 32px;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+/* Main row of cards */
+.cards.cards14 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+/* Each card: fill available space, stack image & text vertically */
+.cards.cards14 ul > li {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Responsive stacking for tablet and mobile */
+@media (width <= 900px) {
+  .cards.cards14 ul {
+    flex-wrap: wrap;
+  }
+
+  .cards.cards14 ul > li {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards14 ul > li {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Card image: consistent aspect ratio, fills width */
+.cards.cards14 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1.3 / 1;
+  overflow: hidden;
+  line-height: 0;
+  margin: 0;
+  background: #fff;
+}
+
+.cards.cards14 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+/* Card body: horizontal margin, tight vertical spacing below image */
+.cards.cards14 .cards-card-body {
+  margin: 6px 12px 0;
+  padding: 0;
+  flex: none;
+}
+
+/* Title: bold, uppercase, slightly tighter, ellipsis, nearly flush to image */
+.cards.cards14 .cards-card-body h3 {
+  margin: 0 0 2px;
+  color: #000;
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Title link: inherit styling, don't break visual flow */
+.cards.cards14 .cards-card-body h3 a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+  text-transform: inherit;
+  white-space: inherit;
+  overflow: inherit;
+  text-overflow: inherit;
+}
+
+/* Description: lighter gray, smaller font, single line, ellipsis, tight below title */
+.cards.cards14 .cards-card-body p {
+  color: #bbb;
+  font-size: 11.5px;
+  margin: 0 0 6px;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
