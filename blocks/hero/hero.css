@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -86,7 +87,6 @@
   margin: 0 auto;
 }
 
-/* TEXT OVERLAY: flush with bottom edge, better padding */
 .hero.hero3 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -96,7 +96,7 @@
   max-width: 1200px;
   min-width: 240px;
   background: #fff;
-  padding: 1.8em 2.5em 1.7em; /* increased vertical padding for comfort */
+  padding: 1.8em 2.5em 1.7em;
   box-sizing: border-box;
   z-index: 2;
   display: flex;
@@ -108,7 +108,7 @@
 
 .hero.hero3 > div:nth-child(2) > div {
   width: 100%;
-  border-bottom: 1px solid #e0e0e0; /* divider line */
+  border-bottom: 1px solid #e0e0e0;
   margin-bottom: 1.1em;
 }
 
@@ -116,13 +116,12 @@
   color: #222;
   font-size: 1.375rem;
   font-weight: 400;
-  margin: 0 0 0.6em; /* slightly less below headline for balance */
+  margin: 0 0 0.6em;
   line-height: 1.2;
   text-align: left;
   max-width: unset;
 }
 
-/* Responsive adjustments for small screens */
 @media (width <= 900px) {
   .hero.hero3,
   .hero.hero3 > div:first-child {
@@ -152,5 +151,96 @@
 
   .hero.hero3 > div:nth-child(2) > div {
     margin-bottom: 0.8em;
+  }
+}
+
+
+.hero.hero18 {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 340px;
+  height: 340px;
+  overflow: hidden;
+  display: block;
+}
+
+/* The image fills the hero block */
+.hero.hero18 > div:first-child {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero.hero18 picture,
+.hero.hero18 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay white text box INSIDE the image block, overlapping the bottom of the image */
+.hero.hero18 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 900px;
+  background: var(--background-color);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+  padding: 2em 2em 1.5em;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Ensure text is left-aligned and visible */
+.hero.hero18 > div:nth-child(2) > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero.hero18 h2 {
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 0 0 0.5em;
+  line-height: 1.15;
+  text-align: left;
+  width: 100%;
+}
+
+.hero.hero18 p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  margin: 0;
+  line-height: 1.6;
+  text-align: left;
+  width: 100%;
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 900px) {
+  .hero.hero18 {
+    min-height: 220px;
+    height: 220px;
+  }
+
+  .hero.hero18 > div:nth-child(2) {
+    width: 95%;
+    padding: 1em;
+    max-width: none;
+  }
+
+  .hero.hero18 h2 {
+    font-size: var(--heading-font-size-l);
   }
 }
