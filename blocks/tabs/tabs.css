@@ -1298,14 +1298,12 @@
 
 
 .tabs.tabs27 {
-  /* More compact, centered block, slightly wider for optimal text length */
   margin: 0 auto;
   max-width: 720px;
   padding: 0 24px 38px;
   background: var(--background-color);
 }
 
-/* Tabs: left aligned, tight, slightly more space below */
 .tabs.tabs27 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1347,7 +1345,6 @@
   padding: 0;
 }
 
-/* Tab panel: no border, tighten spacing */
 .tabs.tabs27 .tabs-panel {
   border: none;
   padding: 0;
@@ -1357,7 +1354,6 @@
   overflow: visible;
 }
 
-/* Main Heading: minimal margin below, compact style */
 .tabs.tabs27 h3[id^="beervana-in-portland"] {
   font-size: 1.7rem;
   font-weight: 400;
@@ -1368,7 +1364,6 @@
   line-height: 1.18;
 }
 
-/* Underline accent: wider, thicker, more elegant gap */
 .tabs.tabs27 h3[id^="beervana-in-portland"]::after {
   display: block;
   width: 54px;
@@ -1379,7 +1374,6 @@
   content: "";
 }
 
-/* Subheading: slightly more space above/below */
 .tabs.tabs27 h3[id^="experience-the-best-craft-breweries"] {
   font-size: 1.08rem;
   font-weight: 500;
@@ -1389,7 +1383,6 @@
   line-height: 1.28;
 }
 
-/* Paragraphs: slightly wider, better vertical rhythm */
 .tabs.tabs27 p {
   font-size: 1rem;
   color: #1a1a1a;
@@ -1399,12 +1392,10 @@
   max-width: 650px;
 }
 
-/* First paragraph after subheading: extra gap for clarity */
 .tabs.tabs27 h3[id^="experience-the-best-craft-breweries"] + p {
   margin-top: 10px;
 }
 
-/* Footer note: extra space above */
 .tabs.tabs27 .tabs-panel > div > p:last-child {
   color: #767676;
   font-size: 0.96rem;
@@ -1412,7 +1403,6 @@
   margin-bottom: 0;
 }
 
-/* Image: extra space above, visually balanced */
 .tabs.tabs27 picture img,
 .tabs.tabs27 img {
   display: block;
@@ -1423,7 +1413,6 @@
   box-shadow: none;
 }
 
-/* Remove excess default section/main padding for this block */
 .tabs.tabs27 .section,
 .tabs.tabs27 main {
   padding: 0;
@@ -1463,5 +1452,177 @@
   .tabs.tabs27 img {
     margin: 16px auto 10px;
     border-radius: 5px;
+  }
+}
+
+
+.tabs.tabs29 {
+  width: 100%;
+  margin-left: 0;
+  margin-right: auto;
+  margin-top: 0;
+  padding-top: 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* Center content column but left align items inside */
+.tabs.tabs29 .tabs-panel > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: start start;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Tabs Bar */
+.tabs.tabs29 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  border: none;
+  background: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: none;
+}
+
+/* Accent line: restrict to content column width using a child of .tabs-panel > div */
+.tabs.tabs29 .tabs-panel > div::before {
+  content: "";
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: 2px;
+  background: #e6c97b;
+  margin: 0 0 18px;
+}
+
+/* Remove border from tabs-list (previous accent line) */
+
+/* Tabs Bar Buttons */
+.tabs.tabs29 .tabs-list button {
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: #111;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 10px 24px 10px 0;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  box-shadow: none;
+  align-self: flex-end;
+  border-bottom: 0 solid transparent;
+}
+
+.tabs.tabs29 .tabs-list button[aria-selected='true'] {
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 0;
+}
+
+.tabs.tabs29 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove panel border/card and ensure content starts right after accent line */
+.tabs.tabs29 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  background: none;
+  margin-top: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Heading spacing: tighter below accent line */
+.tabs.tabs29 .tabs-panel > div > h3 {
+  font-size: 2.35rem;
+  font-weight: 700;
+  color: #111;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  line-height: 1.18;
+  letter-spacing: 0;
+  text-align: left;
+  grid-column: 1;
+}
+
+/* Image and caption grid alignment */
+.tabs.tabs29 .tabs-panel picture,
+.tabs.tabs29 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 0 8px;
+  height: auto;
+  box-shadow: none;
+  border: none;
+  grid-column: 1;
+}
+
+.tabs.tabs29 .tabs-panel p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  color: #111;
+  font-size: 16px;
+  text-align: left;
+  grid-column: 1;
+}
+
+.tabs.tabs29 .tabs-panel p:first-of-type {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: #111;
+  margin: 6px 0 16px;
+  display: block;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs29 .tabs-panel > div {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs29 .tabs-panel > div::before {
+    max-width: 100%;
+  }
+
+  .tabs.tabs29 .tabs-list {
+    gap: 14px;
+    padding-right: 0;
+  }
+
+  .tabs.tabs29 .tabs-panel picture,
+  .tabs.tabs29 .tabs-panel img {
+    max-width: 100%;
+  }
+}
+
+@media (width >= 1200px) {
+  .tabs.tabs29 .tabs-panel > div,
+  .tabs.tabs29 .tabs-panel picture,
+  .tabs.tabs29 .tabs-panel img {
+    max-width: 950px;
+  }
+
+  .tabs.tabs29 .tabs-panel > div::before {
+    max-width: 950px;
   }
 }
