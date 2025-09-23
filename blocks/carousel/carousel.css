@@ -199,8 +199,6 @@
   display: block;
   border: none;
   opacity: 0.85;
-
-  /* Thin, dark chevron */
 }
 
 .carousel.carousel8 .carousel-navigation-buttons .slide-prev::after {
@@ -217,7 +215,6 @@
   transform: translate(-46%, -50%) rotate(45deg);
 }
 
-/* Indicators: smaller, less shadow, very close to bottom edge */
 .carousel.carousel8 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -268,4 +265,57 @@
 .carousel.carousel8 .carousel-slides-container {
   position: relative;
   overflow: hidden;
+}
+
+
+.carousel.carousel17 .carousel-slides-container {
+  /* Remove aspect-ratio to troubleshoot image rendering */
+  max-height: 420px;
+  min-height: 120px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Ensure all parent containers of the image take full height */
+.carousel.carousel17 .carousel-slide-image,
+.carousel.carousel17 .carousel-slide-image picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+/* Restore the image, ensure it fills the parent and is cropped correctly */
+.carousel.carousel17 .carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+}
+
+/* Remove all default margins/padding from the slide */
+.carousel.carousel17 .carousel-slide {
+  padding: 0;
+  margin: 0;
+  min-height: unset;
+  align-items: stretch;
+}
+
+/* Hide carousel UI controls */
+.carousel.carousel17 .carousel-slide-indicators,
+.carousel.carousel17 .carousel-navigation-buttons {
+  display: none;
+}
+
+/* On smaller screens, let the image breathe a little more */
+@media (width <= 900px) {
+  .carousel.carousel17 .carousel-slides-container {
+    max-height: 260px;
+    min-height: 80px;
+  }
 }
