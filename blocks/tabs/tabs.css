@@ -59,134 +59,6 @@
 }
 
 
-.tabs.tabs22 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 48px;
-  background: #fff;
-  border: none;
-  padding-top: 32px;
-  padding-bottom: 0;
-  min-height: 0;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs22 {
-    flex-direction: column;
-    gap: 0;
-    padding-top: 16px;
-    padding-bottom: 0;
-  }
-}
-
-.tabs.tabs22 .tabs-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-width: 170px;
-  max-width: 200px;
-  width: 100%;
-  padding: 12px 0 0;
-  gap: 18px;
-  border: none;
-  background: #fff;
-  box-sizing: border-box;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs22 .tabs-list {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    min-width: 0;
-    max-width: 100%;
-    width: 100%;
-    gap: 10px;
-    padding-top: 0;
-    padding-bottom: 12px;
-  }
-}
-
-.tabs.tabs22 .tabs-list button {
-  background: #fff;
-  color: #222;
-  border: none;
-  border-radius: 0;
-  padding: 6px 22px;
-  font-weight: 500;
-  text-align: left;
-  text-transform: uppercase;
-  font-size: 14px;
-  width: 140px;
-  max-width: 100%;
-  cursor: pointer;
-  box-shadow: none;
-  outline: none;
-  line-height: 1.3;
-  transition: background 0.2s, color 0.2s;
-  margin: 0;
-  min-height: 32px;
-  display: flex;
-  align-items: center;
-}
-
-.tabs.tabs22 .tabs-list button[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  font-weight: 700;
-}
-
-.tabs.tabs22 .tabs-list button p {
-  margin: 0;
-  padding: 0;
-}
-
-.tabs.tabs22 .tabs-panel {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 12px 0 0;
-  background: #fff;
-  border: none;
-  margin-top: 0;
-  color: #222;
-  box-shadow: none;
-  font-size: 16px;
-  min-height: 0;
-}
-
-.tabs.tabs22 .tabs-panel > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.tabs.tabs22 .tabs-panel[aria-hidden="true"] {
-  display: none;
-}
-
-.tabs.tabs22 .tabs-panel > div > p:last-child {
-  color: #666;
-  font-size: 14px;
-  margin-top: 18px;
-}
-
-.tabs.tabs22 .tabs-panel > div > p {
-  max-width: 640px;
-}
-
-@media (width >= 1200px) {
-  .tabs.tabs22 {
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-
 .tabs.tabs24 {
   display: grid;
   grid-template-columns: 175px 1fr;
@@ -2682,7 +2554,6 @@
   }
 }
 
-/* Left column styles: target first direct child div as details */
 .tabs.tabs19 > div:first-of-type {
   display: flex;
   flex-direction: column;
@@ -2695,7 +2566,6 @@
   margin-bottom: 0;
 }
 
-/* Details labels (first span or first p): uppercase, muted */
 .tabs.tabs19 > div:first-of-type > *:nth-child(1),
 .tabs.tabs19 > div:first-of-type > * span,
 .tabs.tabs19 > div:first-of-type > * p {
@@ -2707,7 +2577,6 @@
   margin-bottom: 2px;
 }
 
-/* Details values (second span or strong): black, bold */
 .tabs.tabs19 > div:first-of-type > * strong,
 .tabs.tabs19 > div:first-of-type > *:nth-child(2) {
   color: #222;
@@ -2716,7 +2585,6 @@
   margin-bottom: 0;
 }
 
-/* Share label if present */
 .tabs.tabs19 > div:first-of-type > *:last-child {
   color: #757575;
   font-size: 13px;
@@ -2725,13 +2593,11 @@
   margin-top: 32px;
 }
 
-/* Right column: tabs + panels */
 .tabs.tabs19 > div:last-of-type {
   min-width: 0;
   width: 100%;
 }
 
-/* Tabs bar */
 .tabs.tabs19 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2746,7 +2612,6 @@
   position: relative;
 }
 
-/* Tabs */
 .tabs.tabs19 .tabs-tab {
   background: transparent;
   color: #222;
@@ -2772,7 +2637,6 @@
   border-radius: 8px;
 }
 
-/* Panels */
 .tabs.tabs19 .tabs-panel {
   margin: 0;
   padding: 0;
@@ -2783,7 +2647,6 @@
   display: block;
 }
 
-/* Section headings */
 .tabs.tabs19 .tabs-panel h3,
 .tabs.tabs19 .tabs-panel h2 {
   font-size: 22px;
@@ -2793,7 +2656,6 @@
   margin-bottom: 16px;
 }
 
-/* Main image */
 .tabs.tabs19 .tabs-panel picture,
 .tabs.tabs19 .tabs-panel img {
   border-radius: 6px;
@@ -2803,7 +2665,6 @@
   box-shadow: none;
 }
 
-/* Paragraphs */
 .tabs.tabs19 .tabs-panel p {
   color: #555;
   font-size: 16px;
@@ -2813,7 +2674,6 @@
   text-align: left;
 }
 
-/* List styles */
 .tabs.tabs19 .tabs-panel ul {
   color: #555;
   font-size: 16px;
@@ -2828,7 +2688,6 @@
   margin-bottom: 8px;
 }
 
-/* Responsive adjustments for vertical stack */
 @media (width <= 900px) {
   .tabs.tabs19 {
     grid-template-columns: 1fr;
@@ -2854,5 +2713,167 @@
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+  }
+}
+
+
+.tabs.tabs22 {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  padding-top: 0;
+  background: #fff;
+  border: none;
+  box-sizing: border-box;
+}
+
+@media (width <= 1000px) {
+  .tabs.tabs22 {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Tabs navigation row: left aligned to block, compact */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 0;
+  width: 100%;
+  border: none;
+  background: none;
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+
+/* Individual tab buttons */
+.tabs.tabs22 .tabs-list button {
+  background: transparent;
+  color: #222;
+  border: none;
+  border-radius: 4px;
+  padding: 0 18px;
+  height: 32px;
+  min-width: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Selected tab button */
+.tabs.tabs22 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Remove default styles on tab button text */
+.tabs.tabs22 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel layout and spacing: wider for text, narrower for image */
+.tabs.tabs22 .tabs-panel {
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #222;
+  box-shadow: none;
+  font-size: 16px;
+  max-width: 750px;
+  margin: 0;
+}
+
+.tabs.tabs22 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+}
+
+/* Content stacking within panel */
+.tabs.tabs22 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+/* Heading: left aligned, compact margin */
+.tabs.tabs22 .tabs-panel h3 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* Paragraphs and spacing: slightly wider container */
+.tabs.tabs22 .tabs-panel p,
+.tabs.tabs22 .tabs-panel ul,
+.tabs.tabs22 .tabs-panel li {
+  font-size: 15px;
+  color: #222;
+  line-height: 1.6;
+  margin: 0 0 8px;
+  max-width: 750px;
+  text-align: left;
+}
+
+/* Last paragraph (subtext) */
+.tabs.tabs22 .tabs-panel > div > p:last-child {
+  font-size: 13px;
+  color: #222;
+  margin: 10px 0 0;
+  text-align: left;
+}
+
+/* Image and picture styling: left aligned, compact margin, narrower than text */
+.tabs.tabs22 .tabs-panel picture,
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 0;
+}
+
+/* Responsive: stack tabs and content vertically on small screens */
+@media (width <= 700px) {
+  .tabs.tabs22 {
+    padding-top: 4px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs22 .tabs-panel,
+  .tabs.tabs22 .tabs-panel > div,
+  .tabs.tabs22 .tabs-list {
+    max-width: 100%;
+  }
+
+  .tabs.tabs22 .tabs-panel picture,
+  .tabs.tabs22 .tabs-panel img {
+    max-width: 100%;
   }
 }
