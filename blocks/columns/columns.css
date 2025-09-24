@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +31,499 @@
     flex: 1;
     order: unset;
   }
+}
+
+.columns.block,
+.columns.block > div {
+  background: #222;
+  color: #e0e0e0;
+}
+
+.columns.block > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+  min-height: 96px;
+  padding: 32px 40px;
+  box-sizing: border-box;
+}
+
+.columns.block .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 180px;
+}
+
+.columns.block .columns-img-col img {
+  width: 239px;
+  height: 89px;
+  object-fit: contain;
+  margin: 0;
+}
+
+.columns.block > div > div:nth-child(2) {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.columns.block > div > div:nth-child(2) > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.block > div > div:nth-child(2) > ul,
+.columns.block > div > div:nth-child(2) > ul > li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.block > div > div:nth-child(2) > ul > li > ul > li {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.block > div > div:nth-child(2) > ul > li > ul > li > a {
+  color: #f6f6f6;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.6;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+
+.columns.block > div > div:nth-child(2) > ul > li > ul > li > a:hover,
+.columns.block > div > div:nth-child(2) > ul > li > ul > li > a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.columns.block ul,
+.columns.block ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.block > div > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 140px;
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: right;
+  padding-left: 24px;
+}
+
+.columns.block > div > div:nth-child(3) p {
+  color: #e0e0e0;
+  text-transform: uppercase;
+  background: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: right;
+  border: none;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .columns.block > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    min-height: unset;
+    padding: 20px 8px;
+  }
+
+  .columns.block .columns-img-col {
+    min-width: 0;
+    margin-bottom: 8px;
+  }
+
+  .columns.block .columns-img-col img {
+    width: 150px;
+    height: auto;
+  }
+
+  .columns.block > div > div:nth-child(2) {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .columns.block > div > div:nth-child(3) {
+    justify-content: flex-start;
+    min-width: 0;
+    padding-left: 0;
+    text-align: left;
+    margin-top: 10px;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.block .columns-img-col img {
+    width: 100px;
+  }
+}
+
+.columns.block * {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+
+.columns.columns9 {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  padding: 32px 40px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.columns.columns9 .columns {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns9 {
+    padding: 20px 8px;
+  }
+
+  .columns.columns9 .columns {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.columns.columns9 .columns > div:first-child {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.columns.columns9 .columns-img-col {
+  margin-bottom: 1.5rem;
+}
+
+.columns.columns9 .columns-img-col img {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (width <= 600px) {
+  .columns.columns9 .columns-img-col img {
+    max-width: 100px;
+  }
+}
+
+.columns.columns9 .columns > div:first-child ul {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns9 .columns > div:first-child ul li a {
+  color: #f3f3f3;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.columns.columns9 .columns > div:first-child ul li a:hover,
+.columns.columns9 .columns > div:first-child ul li a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.columns.columns9 .columns > div:first-child h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.columns.columns9 .columns > div:first-child > div:last-child {
+  margin-top: 2.5rem;
+  width: 100%;
+}
+
+.columns.columns9 .columns > div:first-child > div:last-child p {
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  padding: 0;
+  max-width: 820px;
+}
+
+.columns.columns9 .columns > div:first-child > div:last-child p:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns9 .columns > div:first-child > div:last-child a {
+  color: #f3f3f3;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.columns.columns9 .columns > div:first-child > div:last-child a:hover,
+.columns.columns9 .columns > div:first-child > div:last-child a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.columns.columns9 .columns > div:last-child {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+  align-items: start;
+  justify-content: end;
+  gap: 18px;
+  min-height: 36px;
+  padding: 0;
+  margin-top: 0;
+}
+
+.columns.columns9 .columns > div:last-child > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns9 .columns > div:last-child h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 0;
+  text-align: right;
+}
+
+.columns.columns9 .columns > div:last-child > div:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  height: 36px;
+}
+
+.columns.columns9 .button-container {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+}
+
+.columns.columns9 .button {
+  background: #f3f3f3;
+  color: #222;
+  border-radius: 8px;
+  min-width: 78px;
+  height: 36px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+  padding: 0 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.columns.columns9 .button:hover,
+.columns.columns9 .button:focus {
+  background: #e0e0e0;
+  color: #000;
+}
+
+@media (width <= 600px) {
+  .columns.columns9 .columns > div:last-child {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-content: start;
+    align-items: start;
+    gap: 8px;
+  }
+
+  .columns.columns9 .columns > div:last-child > div:last-child {
+    margin-top: 4px;
+    gap: 8px;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+}
+
+
+.columns.columns2,
+.columns-wrapper .columns.columns2 {
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+}
+
+/* Flex row for layout, ensuring two columns are side by side */
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 88px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  gap: 0;
+  background: transparent;
+}
+
+/* Hide the middle column (usually language) */
+.columns.columns2 > div > div:nth-child(2) {
+  display: none;
+}
+
+/* Left column: preserve space for logo/text (even if empty) */
+.columns.columns2 > div > div:first-child {
+  min-width: 180px;
+  min-height: 40px;
+  margin-left: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: none;
+
+  /* Remove list styles just in case */
+}
+
+.columns.columns2 > div > div:first-child ul,
+.columns.columns2 > div > div:first-child li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Right column: search box styling */
+.columns.columns2 > div > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: #f5f5f5;
+  border-radius: 4px;
+  min-width: 140px;
+  max-width: 220px;
+  width: 210px;
+  height: 32px;
+  padding: 0 16px;
+  margin-right: 80px;
+  box-sizing: border-box;
+}
+
+/* Search text, icon alignment */
+.columns.columns2 > div > div:nth-child(3) p {
+  color: #888;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  padding: 0 0 0 24px;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+  line-height: 1;
+  position: relative;
+}
+
+.columns.columns2 > div > div:nth-child(3) p::before {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" stroke="gray" stroke-width="2" fill="none"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="gray" stroke-width="2"/></svg>') no-repeat center center;
+  background-size: 16px 16px;
+  content: "";
+}
+
+/* Responsive: stack columns vertically and adjust paddings on smaller screens */
+@media (width <= 800px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 0;
+    gap: 16px;
+  }
+
+  .columns.columns2 > div > div:first-child {
+    margin-left: 20px;
+    margin-bottom: 0;
+    min-width: 0;
+  }
+
+  .columns.columns2 > div > div:nth-child(3) {
+    margin-right: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Remove any accidental background from empty columns parent if set elsewhere */
+.columns-wrapper {
+  background: transparent;
 }
