@@ -1,7 +1,11 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 56px;
 }
 
 .columns img {
@@ -415,7 +419,6 @@
   border: none;
 }
 
-/* Flex row for layout, ensuring two columns are side by side */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
@@ -429,12 +432,10 @@
   background: transparent;
 }
 
-/* Hide the middle column (usually language) */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Left column: preserve space for logo/text (even if empty) */
 .columns.columns2 > div > div:first-child {
   min-width: 180px;
   min-height: 40px;
@@ -443,8 +444,6 @@
   align-items: center;
   padding: 0;
   background: none;
-
-  /* Remove list styles just in case */
 }
 
 .columns.columns2 > div > div:first-child ul,
@@ -454,7 +453,6 @@
   padding: 0;
 }
 
-/* Right column: search box styling */
 .columns.columns2 > div > div:nth-child(3) {
   display: flex;
   align-items: center;
@@ -470,7 +468,6 @@
   box-sizing: border-box;
 }
 
-/* Search text, icon alignment */
 .columns.columns2 > div > div:nth-child(3) p {
   color: #888;
   font-size: 13px;
@@ -501,7 +498,6 @@
   content: "";
 }
 
-/* Responsive: stack columns vertically and adjust paddings on smaller screens */
 @media (width <= 800px) {
   .columns.columns2 > div {
     flex-direction: column;
@@ -523,7 +519,166 @@
   }
 }
 
-/* Remove any accidental background from empty columns parent if set elsewhere */
 .columns-wrapper {
   background: transparent;
+}
+
+
+.columns {
+  background: #222;
+  color: #ccc;
+  width: 100%;
+  min-height: 96px;
+  padding: 32px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Main row: three columns side-by-side, push right col to far right */
+
+/* Left column: reserve space for branding/logo even if empty */
+.columns > div > div:first-child {
+  flex: 0 0 160px;
+  min-width: 80px;
+  min-height: 48px;
+}
+
+/* Center column: navigation area */
+.columns > div > div:nth-child(2) {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+  min-width: 120px;
+  min-height: 48px;
+  padding: 0 16px;
+}
+
+/* Navigation horizontal list, no bullets */
+.columns > div > div:nth-child(2) ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div > div:nth-child(2) ul ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation link styling */
+.columns > div > div:nth-child(2) a {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  padding: 0 4px;
+  display: inline-block;
+  line-height: 1.7;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.columns > div > div:nth-child(2) a:hover,
+.columns > div > div:nth-child(2) a:focus {
+  color: #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Remove bullets from all lists */
+.columns ul, .columns ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Right column: search/social, flush right */
+.columns > div > div:nth-child(3) {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 160px;
+  color: #ccc;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: right;
+  padding-left: 0;
+  margin-right: 0;
+}
+
+/* Search text styling */
+.columns > div > div:nth-child(3) p {
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+/* Responsive: stack columns vertically at <=900px */
+@media (width <= 900px) {
+  .columns {
+    padding: 20px 8px;
+    min-height: unset;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    gap: 24px;
+    min-height: unset;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .columns > div > div,
+  .columns > div > div:first-child,
+  .columns > div > div:nth-child(3) {
+    min-width: 0;
+    max-width: unset;
+    flex: 1 1 0;
+    margin-right: 0;
+  }
+
+  .columns > div > div:nth-child(2) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .columns > div > div:nth-child(2) ul,
+  .columns > div > div:nth-child(2) ul ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .columns > div > div:nth-child(3) {
+    justify-content: flex-start;
+    min-width: 0;
+    text-align: left;
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .columns > div > div:nth-child(3) p {
+    text-align: left;
+  }
 }
