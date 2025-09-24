@@ -59,225 +59,6 @@
 }
 
 
-.tabs.tabs32 {
-  max-width: 900px;
-  margin: 48px 0 0;
-  padding: 0 0 0 260px;
-  background: #fff;
-  box-sizing: border-box;
-  border: none;
-  position: relative;
-}
-
-@media (width <= 1200px) {
-  .tabs.tabs32 {
-    padding-left: 180px;
-  }
-}
-
-@media (width <= 900px) {
-  .tabs.tabs32 {
-    margin: 24px 0 0;
-    padding-left: 0;
-    max-width: 100%;
-  }
-}
-
-.tabs.tabs32 > .tabs {
-  padding: 40px 40px 40px 0;
-  max-width: 640px;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs32 > .tabs {
-    padding: 24px 8px;
-    max-width: 100%;
-  }
-}
-
-.tabs.tabs32 .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 44px;
-  margin-bottom: 58px;
-  border: none;
-  padding: 0;
-  justify-content: flex-start;
-  overflow-x: auto;
-}
-
-.tabs.tabs32 .tabs-list button {
-  background: #fff;
-  color: #222;
-  border: 1.5px solid #222;
-  border-radius: 3px;
-  padding: 14px 42px;
-  font-size: 17px;
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  outline: none;
-  box-sizing: border-box;
-  line-height: 1.25;
-  margin: 0;
-  min-width: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tabs.tabs32 .tabs-list button[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  border: 1.5px solid #222;
-}
-
-.tabs.tabs32 .tabs-list button p {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  text-transform: inherit;
-}
-
-.tabs.tabs32 .tabs-panel {
-  border: none;
-  margin-top: 0;
-  padding: 0;
-  background: transparent;
-  overflow: visible;
-}
-
-.tabs.tabs32 h3 {
-  font-size: 2rem;
-  font-weight: 400;
-  color: #222;
-  margin-top: 0;
-  margin-bottom: 18px;
-  letter-spacing: 0.5px;
-  position: relative;
-  line-height: 1.2;
-}
-
-.tabs.tabs32 h3::after {
-  display: block;
-  height: 2px;
-  width: 28px;
-  background: #f1e232;
-  margin-top: 8px;
-  border-radius: 2px;
-}
-
-.tabs.tabs32 h2 {
-  font-size: 1.32rem;
-  font-weight: 700;
-  color: #222;
-  margin-top: 38px;
-  margin-bottom: 36px;
-  line-height: 1.22;
-  letter-spacing: 0.2px;
-}
-
-.tabs.tabs32 .tabs-panel > div > p,
-.tabs.tabs32 .tabs-panel > div > ul,
-.tabs.tabs32 .tabs-panel > div > h2 {
-  max-width: 580px;
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.tabs.tabs32 .tabs-panel > div > p,
-.tabs.tabs32 .tabs-panel > div > ul {
-  font-size: 1.05rem;
-  color: #222;
-  line-height: 1.7;
-  margin-bottom: 32px;
-  margin-top: 0;
-}
-
-.tabs.tabs32 ul {
-  padding-left: 22px;
-}
-
-.tabs.tabs32 p:last-child,
-.tabs.tabs32 ul:last-child {
-  margin-bottom: 0;
-}
-
-.tabs.tabs32 picture,
-.tabs.tabs32 img {
-  display: block;
-  max-width: 620px;
-  width: 100%;
-  margin: 0 auto 46px;
-  border-radius: 8px;
-  box-shadow: 0 2px 14px rgb(0 0 0 / 12%);
-}
-
-.tabs.tabs32 p:last-of-type picture,
-.tabs.tabs32 p:last-of-type img {
-  margin-bottom: 0;
-}
-
-.tabs.tabs32 .tabs-panel[aria-hidden="true"] {
-  display: none;
-}
-
-.tabs.tabs32 .tabs-panel[aria-hidden="false"] {
-  display: block;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs32 {
-    padding-left: 0;
-  }
-
-  .tabs.tabs32 > .tabs {
-    padding: 8px;
-    max-width: 100%;
-  }
-
-  .tabs.tabs32 .tabs-list {
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-
-  .tabs.tabs32 .tabs-list button {
-    padding: 8px 10px;
-    font-size: 13px;
-    min-width: unset;
-  }
-
-  .tabs.tabs32 h3 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-
-  .tabs.tabs32 h2 {
-    font-size: 1rem;
-    margin-top: 22px;
-    margin-bottom: 14px;
-  }
-
-  .tabs.tabs32 .tabs-panel > div > p, 
-  .tabs.tabs32 .tabs-panel > div > ul,
-  .tabs.tabs32 .tabs-panel > div > h2,
-  .tabs.tabs32 picture, 
-  .tabs.tabs32 img {
-    max-width: 100%;
-  }
-
-  .tabs.tabs32 picture, 
-  .tabs.tabs32 img {
-    margin-bottom: 16px;
-    border-radius: 3px;
-  }
-}
-
-
 .tabs.tabs33 {
   display: flex;
   flex-direction: row;
@@ -2780,7 +2561,7 @@
   padding: 0;
   background: #fff;
   box-sizing: border-box;
-  gap: 60px; /* Reduced gap to match original */
+  gap: 60px;
 }
 
 @media (width <= 900px) {
@@ -2792,7 +2573,6 @@
   }
 }
 
-/* Sidebar column: first child div */
 .tabs.tabs30 > div:first-child {
   flex: 0 0 260px;
   min-width: 0;
@@ -2805,13 +2585,11 @@
   justify-content: flex-start;
 }
 
-/* Fine-tune vertical alignment of sidebar content */
 .tabs.tabs30 > div:first-child > *:first-child {
-  margin-top: 7px; /* Pushes sidebar content down to align with main column heading/tabs */
+  margin-top: 7px;
   padding-top: 0;
 }
 
-/* Sidebar labels and values */
 .tabs.tabs30 > div:first-child span,
 .tabs.tabs30 > div:first-child p,
 .tabs.tabs30 > div:first-child strong {
@@ -2835,7 +2613,6 @@
   margin-top: 0;
 }
 
-/* Share link at bottom of sidebar */
 .tabs.tabs30 > div:first-child a,
 .tabs.tabs30 > div:first-child .share {
   color: #222;
@@ -2847,7 +2624,6 @@
   cursor: pointer;
 }
 
-/* Main content column: second child div */
 .tabs.tabs30 > div:last-child {
   flex: 1 1 0;
   max-width: 780px;
@@ -2860,18 +2636,16 @@
   justify-content: flex-start;
 }
 
-/* Remove top margin from direct child so heading aligns with sidebar content */
 .tabs.tabs30 > div:last-child > *:first-child {
   margin-top: 0;
   padding-top: 0;
 }
 
-/* Tabs navigation styling: reduce vertical space below tabs */
 .tabs.tabs30 .tabs-list {
   display: flex;
   flex-direction: row;
   gap: 22px;
-  margin-bottom: 3px; /* Tighter grouping with heading */
+  margin-bottom: 3px;
   margin-top: 0;
   padding: 0;
   border: none;
@@ -2881,7 +2655,6 @@
   scrollbar-width: none;
 }
 
-/* Tab buttons */
 .tabs.tabs30 .tabs-tab {
   background: transparent;
   border: none;
@@ -2912,7 +2685,6 @@
   z-index: 0;
 }
 
-/* Only show the selected tab panel */
 .tabs.tabs30 .tabs-panel[aria-hidden='true'] {
   display: none;
 }
@@ -2921,7 +2693,6 @@
   display: block;
 }
 
-/* Panel container styles */
 .tabs.tabs30 .tabs-panel {
   background: none;
   border: none;
@@ -2941,7 +2712,6 @@
   align-items: flex-start;
 }
 
-/* Heading and underline */
 .tabs.tabs30 h3 {
   font-size: 2.17rem;
   font-weight: 400;
@@ -2960,7 +2730,6 @@
   margin-top: 7px;
 }
 
-/* Paragraphs and lists inside panel */
 .tabs.tabs30 .tabs-panel > div > p,
 .tabs.tabs30 .tabs-panel > div > ul,
 .tabs.tabs30 .tabs-panel > div > ol {
@@ -2977,7 +2746,6 @@
   margin-bottom: 14px;
 }
 
-/* Images inside tab panel */
 .tabs.tabs30 .tabs-panel img {
   width: 100%;
   max-width: 780px;
@@ -3023,6 +2791,182 @@
   }
 
   .tabs.tabs30 .tabs-panel img {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+
+.tabs.tabs32 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 980px;
+  width: 100%;
+  margin: 40px auto 0;
+  padding: 0 32px;
+  background: #fff;
+  border: none;
+  position: relative;
+}
+
+@media (width <= 1100px) {
+  .tabs.tabs32 {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+}
+
+.tabs.tabs32 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 14px;
+  border: none;
+  padding: 0;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.tabs.tabs32 .tabs-list button {
+  background: #fff;
+  color: #222;
+  border: 1.5px solid #222;
+  border-radius: 3px;
+  padding: 8px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  line-height: 1.2;
+  margin: 0;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tabs.tabs32 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 1.5px solid #222;
+}
+
+.tabs.tabs32 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+}
+
+.tabs.tabs32 .tabs-panel {
+  border: none;
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+  width: 100%;
+}
+
+.tabs.tabs32 h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 8px;
+  margin-bottom: 2px;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  position: relative;
+  text-align: left;
+}
+
+.tabs.tabs32 h2 strong {
+  font-weight: 700;
+}
+
+.tabs.tabs32 h2::after {
+  display: block;
+  height: 4px;
+  width: 28px;
+  background: #F8E16C;
+  margin-top: 0;
+  border-radius: 2px;
+}
+
+.tabs.tabs32 .tabs-panel > div > p,
+.tabs.tabs32 .tabs-panel > div > ul {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.7;
+  margin: 0 0 1.5em;
+  max-width: 740px;
+  text-align: left;
+}
+
+.tabs.tabs32 ul {
+  padding-left: 22px;
+}
+
+.tabs.tabs32 p:last-child,
+.tabs.tabs32 ul:last-child {
+  margin-bottom: 0;
+}
+
+.tabs.tabs32 picture,
+.tabs.tabs32 img {
+  display: block;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 0 28px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs32 p:last-of-type picture,
+.tabs.tabs32 p:last-of-type img {
+  margin-bottom: 0;
+}
+
+.tabs.tabs32 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs32 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs32 {
+    max-width: 100%;
+    padding: 0 6px;
+  }
+
+  .tabs.tabs32 .tabs-list {
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .tabs.tabs32 .tabs-list button {
+    padding: 6px 7px;
+    font-size: 13px;
+    min-width: unset;
+  }
+
+  .tabs.tabs32 h2 {
+    font-size: 1.08rem;
+    margin-top: 4px;
+    margin-bottom: 1px;
+  }
+
+  .tabs.tabs32 .tabs-panel > div > p,
+  .tabs.tabs32 .tabs-panel > div > ul,
+  .tabs.tabs32 picture,
+  .tabs.tabs32 img {
     max-width: 100%;
     margin-bottom: 10px;
   }
