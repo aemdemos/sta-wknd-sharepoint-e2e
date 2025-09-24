@@ -59,210 +59,6 @@
 }
 
 
-.tabs.tabs24 {
-  display: grid;
-  grid-template-columns: 175px 1fr;
-  gap: 44px;
-  max-width: 1150px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 54px 0 40px;
-  align-items: flex-start;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs24 {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 28px 0;
-  }
-}
-
-.tabs.tabs24 > div:first-child {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: flex-start;
-  max-width: 175px;
-  min-width: 120px;
-  margin-top: 6px;
-  padding-right: 0;
-}
-
-.tabs.tabs24 > div:first-child span,
-.tabs.tabs24 > div:first-child strong {
-  display: block;
-  text-transform: uppercase;
-  font-size: 13px;
-  color: #888;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  margin-bottom: 5px;
-}
-
-.tabs.tabs24 > div:first-child .meta-value,
-.tabs.tabs24 > div:first-child strong {
-  color: #222;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.tabs.tabs24 > div:first-child .share,
-.tabs.tabs24 > div:first-child [class*='share'] {
-  margin-top: 22px;
-  font-size: 11px;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.tabs.tabs24 > div:last-child {
-  min-width: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 0;
-}
-
-.tabs.tabs24 > div:last-child .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  width: 100%;
-  margin: 0 0 28px;
-  padding: 0;
-  border: none;
-  background: none;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.tabs.tabs24 > div:first-child .tabs-list {
-  display: none;
-}
-
-.tabs.tabs24 .tabs-list .tabs-tab {
-  padding: 11px 34px;
-  border-radius: 2em;
-  border: none;
-  background: transparent;
-  color: #222;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.18s, color 0.18s;
-  letter-spacing: 0.03em;
-  outline: none;
-  cursor: pointer;
-  min-width: 0;
-  box-shadow: none;
-}
-
-.tabs.tabs24 .tabs-list .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  font-weight: 700;
-}
-
-.tabs.tabs24 .tabs-list .tabs-tab[aria-selected="false"] {
-  background: transparent;
-  color: #222;
-  font-weight: 600;
-}
-
-.tabs.tabs24 .tabs-list .tabs-tab p {
-  margin: 0;
-  padding: 0;
-}
-
-.tabs.tabs24 .tabs-panel {
-  background: #fff;
-  border: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  box-shadow: none;
-  font-size: 16px;
-  color: #222;
-  line-height: 1.65;
-}
-
-.tabs.tabs24 .tabs-panel[aria-hidden="true"] {
-  display: none;
-}
-
-.tabs.tabs24 .tabs-panel > div > p,
-.tabs.tabs24 .tabs-panel > div > h2,
-.tabs.tabs24 .tabs-panel > div > ul,
-.tabs.tabs24 .tabs-panel > div > ol {
-  margin-top: 0;
-  margin-bottom: 1.1em;
-  max-width: 730px;
-}
-
-.tabs.tabs24 .tabs-panel picture,
-.tabs.tabs24 .tabs-panel img {
-  display: block;
-  width: 100%;
-  max-width: 910px;
-  margin: 28px 0 0;
-  border-radius: 0;
-  background: #eee;
-}
-
-.tabs.tabs24 .tabs-panel p:last-child {
-  margin-top: 10px;
-  font-size: 11px;
-  text-transform: uppercase;
-  color: #222;
-  letter-spacing: 0.04em;
-  margin-bottom: 0;
-  max-width: 910px;
-}
-
-@media (width <= 700px) {
-  .tabs.tabs24 {
-    grid-template-columns: 1fr;
-    padding: 10px 0 20px;
-    gap: 18px;
-  }
-
-  .tabs.tabs24 > div:first-child {
-    flex-flow: row wrap;
-    max-width: none;
-    gap: 16px;
-    margin-top: 0;
-    align-items: stretch;
-  }
-
-  .tabs.tabs24 > div:last-child {
-    width: 100%;
-    padding-top: 0;
-  }
-
-  .tabs.tabs24 .tabs-panel > div > p,
-  .tabs.tabs24 .tabs-panel > div > h2,
-  .tabs.tabs24 .tabs-panel > div > ul,
-  .tabs.tabs24 .tabs-panel > div > ol,
-  .tabs.tabs24 .tabs-panel p:last-child,
-  .tabs.tabs24 .tabs-panel picture,
-  .tabs.tabs24 .tabs-panel img {
-    max-width: 100%;
-  }
-}
-
-.tabs.tabs24 .tabs-list .tabs-tab:focus {
-  outline: 2px solid #ffce51;
-  outline-offset: 2px;
-}
-
-
 .tabs.tabs27 {
   margin: 0 auto;
   max-width: 720px;
@@ -2739,7 +2535,6 @@
   }
 }
 
-/* Tabs navigation row: left aligned to block, compact */
 .tabs.tabs22 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2754,7 +2549,6 @@
   margin-top: 0;
 }
 
-/* Individual tab buttons */
 .tabs.tabs22 .tabs-list button {
   background: transparent;
   color: #222;
@@ -2774,20 +2568,17 @@
   outline: none;
 }
 
-/* Selected tab button */
 .tabs.tabs22 .tabs-list button[aria-selected="true"] {
   background: #222;
   color: #fff;
   font-weight: 700;
 }
 
-/* Remove default styles on tab button text */
 .tabs.tabs22 .tabs-list button p {
   margin: 0;
   padding: 0;
 }
 
-/* Panel layout and spacing: wider for text, narrower for image */
 .tabs.tabs22 .tabs-panel {
   display: none;
   flex-direction: column;
@@ -2807,7 +2598,6 @@
   display: flex;
 }
 
-/* Content stacking within panel */
 .tabs.tabs22 .tabs-panel > div {
   display: flex;
   flex-direction: column;
@@ -2815,7 +2605,6 @@
   gap: 0;
 }
 
-/* Heading: left aligned, compact margin */
 .tabs.tabs22 .tabs-panel h3 {
   font-size: 28px;
   font-weight: 600;
@@ -2826,7 +2615,6 @@
   text-align: left;
 }
 
-/* Paragraphs and spacing: slightly wider container */
 .tabs.tabs22 .tabs-panel p,
 .tabs.tabs22 .tabs-panel ul,
 .tabs.tabs22 .tabs-panel li {
@@ -2838,7 +2626,6 @@
   text-align: left;
 }
 
-/* Last paragraph (subtext) */
 .tabs.tabs22 .tabs-panel > div > p:last-child {
   font-size: 13px;
   color: #222;
@@ -2846,7 +2633,6 @@
   text-align: left;
 }
 
-/* Image and picture styling: left aligned, compact margin, narrower than text */
 .tabs.tabs22 .tabs-panel picture,
 .tabs.tabs22 .tabs-panel img {
   display: block;
@@ -2859,7 +2645,6 @@
   border-radius: 0;
 }
 
-/* Responsive: stack tabs and content vertically on small screens */
 @media (width <= 700px) {
   .tabs.tabs22 {
     padding-top: 4px;
@@ -2875,5 +2660,233 @@
   .tabs.tabs22 .tabs-panel picture,
   .tabs.tabs22 .tabs-panel img {
     max-width: 100%;
+  }
+}
+
+
+.tabs.tabs24 {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 44px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0;
+  align-items: start;
+}
+
+/* Remove top padding/margin from grid and columns */
+.tabs.tabs24,
+.tabs.tabs24 > div,
+.tabs.tabs24 > div:first-child,
+.tabs.tabs24 > div:last-child {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Left column: metadata only, vertical stack */
+.tabs.tabs24 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 200px;
+  min-width: 140px;
+  padding-right: 0;
+  margin-top: 0;
+}
+
+/* Hide tabs-list in the left column completely */
+.tabs.tabs24 > div:first-child .tabs-list {
+  display: none;
+}
+
+/* Metadata labels and values styling */
+.tabs.tabs24 > div:first-child span,
+.tabs.tabs24 > div:first-child strong {
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 5px;
+}
+
+.tabs.tabs24 > div:first-child .meta-value,
+.tabs.tabs24 > div:first-child strong {
+  color: #222;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.tabs.tabs24 > div:first-child .share,
+.tabs.tabs24 > div:first-child [class*='share'] {
+  margin-top: 18px;
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+/* Right column: stack children vertically, align to top */
+.tabs.tabs24 > div:last-child {
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Tabs-list: horizontal row at top of right column (main content) */
+.tabs.tabs24 > div:last-child .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  width: auto;
+  margin: 0 0 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Tabs pills styling */
+.tabs.tabs24 .tabs-list .tabs-tab {
+  padding: 11px 36px;
+  border-radius: 2em;
+  border: none;
+  background: transparent;
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, color 0.18s;
+  letter-spacing: 0.03em;
+  outline: none;
+  cursor: pointer;
+  min-width: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs24 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs24 .tabs-list .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+  font-weight: 600;
+}
+
+.tabs.tabs24 .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel content spacing */
+.tabs.tabs24 .tabs-panel {
+  background: #fff;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-shadow: none;
+  font-size: 16px;
+  color: #222;
+  line-height: 1.65;
+}
+
+/* Hide inactive panels */
+.tabs.tabs24 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Content within .tabs-panel */
+.tabs.tabs24 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Paragraphs and headings */
+.tabs.tabs24 .tabs-panel > div > p,
+.tabs.tabs24 .tabs-panel > div > h2,
+.tabs.tabs24 .tabs-panel > div > ul,
+.tabs.tabs24 .tabs-panel > div > ol {
+  margin-top: 0;
+  margin-bottom: 1.1em;
+  max-width: 730px;
+}
+
+/* Image styles */
+.tabs.tabs24 .tabs-panel picture,
+.tabs.tabs24 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 32px 0 0;
+  border-radius: 0;
+  background: #eee;
+}
+
+/* Image caption styling */
+.tabs.tabs24 .tabs-panel p:last-child {
+  margin-top: 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 0.04em;
+  margin-bottom: 0;
+  max-width: 900px;
+  align-self: flex-start;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 700px) {
+  .tabs.tabs24 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .tabs.tabs24 > div:first-child {
+    max-width: none;
+    gap: 14px;
+    margin-top: 0;
+    align-items: stretch;
+  }
+
+  .tabs.tabs24 > div:last-child {
+    width: 100%;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .tabs.tabs24 .tabs-panel > div > p,
+  .tabs.tabs24 .tabs-panel > div > h2,
+  .tabs.tabs24 .tabs-panel > div > ul,
+  .tabs.tabs24 .tabs-panel > div > ol,
+  .tabs.tabs24 .tabs-panel p:last-child,
+  .tabs.tabs24 .tabs-panel picture,
+  .tabs.tabs24 .tabs-panel img {
+    max-width: 100%;
+  }
+
+  .tabs.tabs24 > div:last-child .tabs-list {
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 24px;
   }
 }
