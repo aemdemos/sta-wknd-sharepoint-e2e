@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,131 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion6 {
+  max-width: 860px;
+  margin: 48px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: #fff;
+}
+
+.accordion.accordion6 .accordion-item,
+.accordion.accordion6 details {
+  width: 100%;
+  background: #fff;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Pack heading and chevron tightly to the left */
+.accordion.accordion6 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 18px 0 12px;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 0;
+  outline: none;
+  min-height: 0;
+  user-select: none;
+  box-sizing: border-box;
+
+  /* Remove gap and stretch by default */
+  gap: 0;
+  width: auto;
+}
+
+.accordion.accordion6 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+  margin-right: 10px; /* small gap to chevron */
+}
+
+/* Headings: flush left, bold, correct color */
+.accordion.accordion6 .accordion-item-label h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-align: left;
+  white-space: normal;
+}
+
+/* Bring chevron right next to label, not far right */
+.accordion.accordion6 summary::after {
+  margin-left: 0;
+  margin-right: 0;
+  align-self: center;
+
+  /* prevent occupying the rest of the row */
+  flex-shrink: 0;
+}
+
+/* Subtle background highlight on hover/open */
+.accordion.accordion6 details[open] summary,
+.accordion.accordion6 summary:focus,
+.accordion.accordion6 summary:hover {
+  background: #f7f7f7;
+}
+
+/* Accordion body: flush with headings, no extra padding */
+.accordion.accordion6 .accordion-item-body {
+  padding: 0 0 24px;
+  background: #fff;
+  border: none;
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.7;
+  box-sizing: border-box;
+}
+
+/* Remove divider line for open sections */
+.accordion.accordion6 details[open] .accordion-item-body {
+  border-top: none;
+}
+
+/* Images: full width, no margins */
+.accordion.accordion6 .accordion-item-body picture,
+.accordion.accordion6 .accordion-item-body img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  margin: 24px 0 0;
+  box-shadow: none;
+}
+
+/* Remove extra margins from first/last children in body */
+.accordion.accordion6 .accordion-item-body > *:first-child { margin-top: 0; }
+.accordion.accordion6 .accordion-item-body > *:last-child { margin-bottom: 0; }
+
+@media (width <= 900px) {
+  .accordion.accordion6 {
+    max-width: 100%;
+    padding: 0 6px;
+    gap: 16px;
+  }
+
+  .accordion.accordion6 summary {
+    padding: 10px 0 8px;
+  }
+
+  .accordion.accordion6 .accordion-item-label {
+    margin-right: 7px;
+  }
 }
