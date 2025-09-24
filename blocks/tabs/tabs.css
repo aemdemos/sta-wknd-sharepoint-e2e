@@ -59,197 +59,6 @@
 }
 
 
-.tabs.tabs33 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100%;
-  background: #fff;
-  min-height: 100px;
-}
-
-.tabs.tabs33 > div:first-child {
-  flex: 0 0 220px;
-  max-width: 260px;
-  min-width: 160px;
-  padding: 44px 16px 44px 32px;
-  background: #fff;
-  border-right: 1px solid #ededed;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 32px;
-  box-sizing: border-box;
-  min-height: 100vh;
-}
-
-.tabs.tabs33 > div:first-child .tabs-list {
-  display: none;
-}
-
-.tabs.tabs33 > div:nth-child(2) {
-  flex: 1 1 0;
-  padding: 44px 48px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  align-items: flex-start;
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-.tabs.tabs33 > div:nth-child(2) .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  margin-bottom: 32px;
-  margin-top: 0;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-}
-
-.tabs.tabs33 > div:nth-child(2) .tabs-list .tabs-tab {
-  background: transparent;
-  color: #222;
-  border-radius: 20px;
-  padding: 8px 28px;
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0;
-  transition: background 0.2s, color 0.2s;
-  cursor: pointer;
-  outline: none;
-  line-height: 1.1;
-  min-width: 95px;
-  box-shadow: none;
-  border: 2px solid transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tabs.tabs33 > div:nth-child(2) .tabs-list .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  border-color: #222;
-}
-
-.tabs.tabs33 > div:nth-child(2) .tabs-list .tabs-tab[aria-selected="false"] {
-  background: #f5f5f5;
-  color: #222;
-  border-color: #f5f5f5;
-}
-
-.tabs.tabs33 > div:nth-child(2) .tabs-list .tabs-tab p {
-  margin: 0;
-}
-
-.tabs.tabs33 > div:nth-child(2) h3 {
-  font-size: 27px;
-  font-weight: normal;
-  color: #222;
-  margin: 0 0 12px;
-  border-bottom: 3px solid #fdeca6;
-  display: inline-block;
-  padding-bottom: 3px;
-}
-
-.tabs.tabs33 > div:nth-child(2) h2 {
-  font-size: 22px;
-  font-weight: normal;
-  color: #222;
-  margin: 32px 0 20px;
-  line-height: 1.2;
-  letter-spacing: 0.1px;
-}
-
-.tabs.tabs33 > div:nth-child(2) picture,
-.tabs.tabs33 > div:nth-child(2) img {
-  display: block;
-  margin: 22px auto 16px;
-  width: 90%;
-  max-width: 800px;
-  min-width: 320px;
-  height: auto;
-  box-sizing: border-box;
-}
-
-.tabs.tabs33 > div:nth-child(2) p {
-  font-size: 15px;
-  color: #222;
-  margin: 0 0 18px;
-  line-height: 1.6;
-  letter-spacing: 0.1px;
-  max-width: 900px;
-}
-
-.tabs.tabs33 .tabs-panel {
-  border: none;
-  background: #fff;
-  margin-top: 0;
-  padding: 0;
-  box-shadow: none;
-  overflow: visible;
-}
-
-.tabs.tabs33 .tabs-panel[aria-hidden="true"] {
-  display: none;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs33 {
-    flex-direction: column;
-  }
-
-  .tabs.tabs33 > div:first-child {
-    border-right: none;
-    border-bottom: 1px solid #ededed;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    padding: 18px 12px 10px;
-    min-height: unset;
-  }
-
-  .tabs.tabs33 > div:nth-child(2) {
-    width: 100%;
-    padding: 24px 8px 28px;
-    align-items: stretch;
-  }
-
-  .tabs.tabs33 > div:nth-child(2) picture,
-  .tabs.tabs33 > div:nth-child(2) img {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    margin: 16px 0 14px;
-  }
-
-  .tabs.tabs33 > div:nth-child(2) p {
-    max-width: 100%;
-  }
-}
-
-.tabs.tabs33 > div:first-child > * {
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 0;
-}
-
-.tabs.tabs33 > div:first-child a,
-.tabs.tabs33 > div:first-child .share-link {
-  color: #222;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 13px;
-  margin-top: auto;
-  display: inline-block;
-  text-transform: uppercase;
-}
-
-
 .tabs.tabs35 {
   display: flex;
   flex-direction: column;
@@ -2969,5 +2778,224 @@
   .tabs.tabs32 img {
     max-width: 100%;
     margin-bottom: 10px;
+  }
+}
+
+
+/* Use CSS Grid for main two-column layout, but position tabs-list absolutely at top of right column for horizontal nav */
+.tabs.tabs33 {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Sidebar */
+.tabs.tabs33 > div:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  background: #fff;
+  border-right: 1px solid #ededed;
+  padding: 64px 16px 44px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  min-height: 100vh;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* Hide the vertical tabs-list in sidebar */
+.tabs.tabs33 > div:first-child .tabs-list {
+  display: none;
+}
+
+/* Main content column */
+.tabs.tabs33 > div:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 56px 40px 40px 32px;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  position: relative;
+}
+
+/* Visually move tabs-list to top of main column and make it horizontal */
+.tabs.tabs33 > div:nth-child(2) .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  z-index: 2;
+  align-items: flex-start;
+}
+
+/* Push first child content below tabs-list when present */
+.tabs.tabs33 > div:nth-child(2) > .tabs-list + * {
+  margin-top: 52px;
+}
+
+/* Tab style: horizontal nav, active/inactive states */
+.tabs.tabs33 > div:nth-child(2) .tabs-list .tabs-tab {
+  background: transparent;
+  color: #222;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+}
+
+.tabs.tabs33 > div:nth-child(2) .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs33 > div:nth-child(2) .tabs-list .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #222;
+}
+
+/* Block title with accent underline, tight spacing */
+.tabs.tabs33 > div:nth-child(2) h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 4px;
+  border-bottom: 6px solid #F9E49C;
+  display: inline-block;
+  padding-bottom: 5px;
+  letter-spacing: 0.1px;
+  line-height: 1.1;
+}
+
+/* Headline below title: tight vertical spacing */
+.tabs.tabs33 > div:nth-child(2) h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  margin: 16px 0 14px;
+  line-height: 1.2;
+}
+
+/* Image: maximize width, reduce vertical gap */
+.tabs.tabs33 > div:nth-child(2) picture,
+.tabs.tabs33 > div:nth-child(2) img {
+  display: block;
+  margin: 18px auto 14px;
+  width: 100%;
+  max-width: 900px;
+  min-width: 320px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+/* Paragraph below image: tighter gap */
+.tabs.tabs33 > div:nth-child(2) p {
+  font-size: 15px;
+  color: #222;
+  margin: 0 0 18px;
+  line-height: 1.6;
+  max-width: 950px;
+  text-align: left;
+}
+
+/* List styles */
+.tabs.tabs33 > div:nth-child(2) ul {
+  font-size: 15px;
+  color: #222;
+  margin-left: 32px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.tabs.tabs33 > div:nth-child(2) li {
+  margin-bottom: 8px;
+}
+
+/* Remove border/padding from visible tab panel */
+.tabs.tabs33 .tabs-panel {
+  border: none;
+  background: #fff;
+  margin-top: 0;
+  padding: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Responsive: stack columns, tabs-list reverts to static position */
+@media (width <= 900px) {
+  .tabs.tabs33 {
+    display: flex;
+    flex-direction: column;
+    min-height: unset;
+    max-width: 100%;
+  }
+
+  .tabs.tabs33 > div:first-child {
+    border-right: none;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 18px 12px 10px;
+    min-height: unset;
+    gap: 24px;
+  }
+
+  .tabs.tabs33 > div:nth-child(2) {
+    padding: 24px 8px 28px;
+    align-items: stretch;
+    width: 100%;
+    gap: 0;
+    position: static;
+  }
+
+  .tabs.tabs33 > div:nth-child(2) .tabs-list {
+    position: static;
+    margin-bottom: 18px;
+  }
+
+  .tabs.tabs33 > div:nth-child(2) > .tabs-list + * {
+    margin-top: 0;
+  }
+
+  .tabs.tabs33 > div:nth-child(2) picture,
+  .tabs.tabs33 > div:nth-child(2) img {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 10px 0;
+  }
+
+  .tabs.tabs33 > div:nth-child(2) p {
+    max-width: 100%;
+    margin-bottom: 16px;
   }
 }
