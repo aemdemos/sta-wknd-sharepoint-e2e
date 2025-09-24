@@ -59,196 +59,6 @@
 }
 
 
-.tabs.tabs13 {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: start;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 32px 48px;
-  background: var(--background-color);
-}
-
-.tabs.tabs13 .tabs-list {
-  display: flex;
-  flex-direction: row;
-  gap: 14px;
-  margin: 0 0 12px;
-  padding: 0;
-  align-items: flex-start;
-  justify-content: flex-start;
-  border: none;
-  background: none;
-}
-
-.tabs.tabs13 .tabs-list button {
-  margin: 0;
-  border: 1px solid #222;
-  border-radius: 2px;
-  background: #fff;
-  color: #222;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 16px 36px;
-  cursor: pointer;
-  box-shadow: none;
-  outline: none;
-  min-width: 120px;
-  text-align: center;
-  line-height: 1.2;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.tabs.tabs13 .tabs-list button[aria-selected="true"] {
-  background: #222;
-  color: #fff;
-  border-color: #222;
-  cursor: default;
-}
-
-.tabs.tabs13 .tabs-list button p {
-  margin: 0;
-}
-
-.tabs.tabs13 .tabs-panel {
-  border: none;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  background: none;
-  width: 100%;
-  display: block;
-}
-
-.tabs.tabs13 .tabs-panel > div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  width: 100%;
-}
-
-.tabs.tabs13 .tabs-panel h3[id^="cycling-tuscany"] {
-  font-size: 2em;
-  font-weight: 400;
-  color: #222;
-  margin: 0 0 0.2em;
-  display: inline-block;
-  border-bottom: 2px solid #ffe082;
-  padding-bottom: 8px;
-  width: max-content;
-  max-width: 100%;
-}
-
-.tabs.tabs13 .tabs-panel h2 {
-  font-size: 2.2em;
-  font-weight: 700;
-  color: #222;
-  margin: 8px 0 18px;
-  line-height: 1.2;
-  padding: 0;
-  width: 100%;
-}
-
-.tabs.tabs13 .tabs-panel picture {
-  display: block;
-  width: 100%;
-  margin: 0 0 24px;
-  height: auto;
-  overflow: visible;
-  min-height: 1px;
-}
-
-.tabs.tabs13 .tabs-panel picture img {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-height: 1px;
-}
-
-.tabs.tabs13 .tabs-panel p,
-.tabs.tabs13 .tabs-panel ul,
-.tabs.tabs13 .tabs-panel li {
-  font-size: 15px;
-  color: #222;
-  line-height: 1.7;
-}
-
-.tabs.tabs13 .tabs-panel p {
-  margin: 0 0 14px;
-  max-width: 700px;
-  width: 100%;
-  text-align: left;
-}
-
-.tabs.tabs13 .tabs-panel ul {
-  margin-left: 24px;
-  margin-bottom: 0;
-  padding-left: 0;
-  max-width: 700px;
-}
-
-.tabs.tabs13 .tabs-panel li {
-  margin-bottom: 8px;
-  max-width: 700px;
-}
-
-.tabs.tabs13 .tabs-panel > div > h3[id^="cycling-tuscany"] + h2 {
-  margin-top: 0;
-}
-
-.tabs.tabs13 .tabs-panel > div > h2 + p > picture {
-  margin-top: 0;
-}
-
-@media (width <= 900px) {
-  .tabs.tabs13 {
-    max-width: 100%;
-    padding: 0 8px 32px;
-  }
-
-  .tabs.tabs13 .tabs-list {
-    gap: 7px;
-    margin-bottom: 10px;
-  }
-
-  .tabs.tabs13 .tabs-list button {
-    font-size: 13px;
-    padding: 10px 14px;
-    min-width: 80px;
-  }
-
-  .tabs.tabs13 .tabs-panel h3[id^="cycling-tuscany"] {
-    font-size: 1.3em;
-    padding-bottom: 5px;
-    margin-bottom: 0.15em;
-  }
-
-  .tabs.tabs13 .tabs-panel h2 {
-    font-size: 1.25em;
-    margin-top: 4px;
-    margin-bottom: 10px;
-  }
-
-  .tabs.tabs13 .tabs-panel picture {
-    margin-bottom: 10px;
-  }
-
-  .tabs.tabs13 .tabs-panel p,
-  .tabs.tabs13 .tabs-panel ul,
-  .tabs.tabs13 .tabs-panel li {
-    font-size: 14px;
-    max-width: 100%;
-  }
-
-  .tabs.tabs13 .tabs-panel > div {
-    gap: 16px;
-  }
-}
-
-
 .tabs.tabs19 {
   box-sizing: border-box;
   max-width: 1050px;
@@ -2848,4 +2658,171 @@
 .tabs.tabs12 .tabs-panel > div,
 .tabs.tabs12 .tabs-panel > div > * {
   text-align: left;
+}
+
+
+.tabs.tabs13 {
+  /* Center the block and give balanced horizontal padding */
+  box-sizing: border-box;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 32px 48px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tabs header row: aligned left, keep contained inside block */
+.tabs.tabs13 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 22px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.tabs.tabs13 .tabs-list button {
+  border: 1.5px solid #222;
+  background: #fff;
+  color: #222;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 22px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-width: 115px;
+  line-height: 1.2;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+.tabs.tabs13 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+.tabs.tabs13 .tabs-list button[aria-selected="false"] {
+  background: #fff;
+  color: #222;
+  border-color: #222;
+}
+
+/* Main content layout: flex column, width 100% so headings and images align with tabs */
+.tabs.tabs13 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+}
+
+/* Block Title "Cycling Tuscany" */
+.tabs.tabs13 .tabs-panel > div > h3[id^="cycling-tuscany"] {
+  display: inline-block;
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 8px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #ecd977;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* Section Headings */
+.tabs.tabs13 .tabs-panel > div > h2 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #222;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  padding: 0;
+  width: 100%;
+}
+
+/* Images: match block width, centered in column */
+.tabs.tabs13 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  margin: 0 0 20px;
+  height: auto;
+}
+
+.tabs.tabs13 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: cover;
+  max-width: 900px;
+}
+
+/* Paragraphs and Lists: full block width, left align */
+.tabs.tabs13 .tabs-panel p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 12px;
+  max-width: 900px;
+  text-align: left;
+}
+
+.tabs.tabs13 .tabs-panel ul {
+  margin-left: 24px;
+  margin-bottom: 12px;
+  padding-left: 0;
+  list-style: disc inside;
+  max-width: 900px;
+}
+
+.tabs.tabs13 .tabs-panel li {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  max-width: 900px;
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 900px) {
+  .tabs.tabs13 {
+    padding: 18px 8px 32px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs13 .tabs-panel > div > h3[id^="cycling-tuscany"] {
+    font-size: 1.2rem;
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+  }
+
+  .tabs.tabs13 .tabs-panel > div > h2 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+
+  .tabs.tabs13 .tabs-list button {
+    font-size: 13px;
+    padding: 8px 12px;
+    min-width: 66px;
+  }
+
+  .tabs.tabs13 .tabs-panel p,
+  .tabs.tabs13 .tabs-panel li,
+  .tabs.tabs13 .tabs-panel ul {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs13 .tabs-panel picture img {
+    max-width: 100%;
+  }
 }
