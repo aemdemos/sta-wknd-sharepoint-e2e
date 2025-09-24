@@ -48,93 +48,6 @@
 }
 
 
-.hero.hero18 {
-  position: relative;
-  width: 100vw;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  min-height: 340px;
-  height: 340px;
-  overflow: hidden;
-  display: block;
-}
-
-.hero.hero18 > div:first-child {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.hero.hero18 picture,
-.hero.hero18 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero.hero18 > div:nth-child(2) {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 80%;
-  max-width: 900px;
-  background: var(--background-color);
-  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
-  padding: 2em 2em 1.5em;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hero.hero18 > div:nth-child(2) > div {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hero.hero18 h2 {
-  color: var(--text-color);
-  font-size: var(--heading-font-size-xl);
-  font-weight: 600;
-  margin: 0 0 0.5em;
-  line-height: 1.15;
-  text-align: left;
-  width: 100%;
-}
-
-.hero.hero18 p {
-  color: var(--dark-color);
-  font-size: var(--body-font-size-m);
-  margin: 0;
-  line-height: 1.6;
-  text-align: left;
-  width: 100%;
-}
-
-@media (width <= 900px) {
-  .hero.hero18 {
-    min-height: 220px;
-    height: 220px;
-  }
-
-  .hero.hero18 > div:nth-child(2) {
-    width: 95%;
-    padding: 1em;
-    max-width: none;
-  }
-
-  .hero.hero18 h2 {
-    font-size: var(--heading-font-size-l);
-  }
-}
-
-
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -273,7 +186,6 @@
   display: block;
 }
 
-/* Hero image full-bleed */
 .hero.hero3 > div:first-child {
   position: relative;
   width: 100vw;
@@ -297,7 +209,6 @@
   margin: 0 auto;
 }
 
-/* Overlay box: almost flush to bottom, less left padding, moderate vertical padding */
 .hero.hero3 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -317,14 +228,12 @@
   border-radius: 0;
 }
 
-/* Remove any inner border or unwanted spacing */
 .hero.hero3 > div:nth-child(2) > div {
   width: 100%;
   border-bottom: none;
   margin-bottom: 0;
 }
 
-/* Heading: enforce left text alignment */
 .hero.hero3 h2 {
   color: #222;
   font-size: 1.375rem;
@@ -336,7 +245,6 @@
   padding: 0;
 }
 
-/* Separator line below the hero */
 .hero.hero3::after {
   display: block;
   width: 100%;
@@ -349,7 +257,6 @@
   bottom: -18px;
 }
 
-/* Responsive tweaks for mobile: shrink overlay width and adjust paddings */
 @media (width <= 900px) {
   .hero.hero3,
   .hero.hero3 > div:first-child {
@@ -377,4 +284,119 @@
   }
 }
 
-/* Ensure the hero fills the browser edge-to-edge with no wrapper margin */
+.hero.hero18 {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  min-height: 350px;
+  height: 350px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+}
+
+/* Background image fills the container */
+.hero.hero18 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero.hero18 picture,
+.hero.hero18 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay text box flush at bottom, wide with subtle side margins, square corners, comfortable padding */
+.hero.hero18 > div:nth-child(2) {
+  position: absolute;
+  left: 1.5%;
+  right: 1.5%;
+  bottom: 0;
+  z-index: 2;
+  background: var(--background-color);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.25em 2.3em 1.15em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
+  max-width: none;
+}
+
+/* Vertical stacking for inner content */
+.hero.hero18 > div:nth-child(2) > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Typography and alignment: ensure visible foreground colors */
+.hero.hero18 h2 {
+  color: #222;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 0.35em;
+  line-height: 1.15;
+  text-align: left;
+  width: 100%;
+}
+
+.hero.hero18 p {
+  color: #555;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+  text-align: left;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .hero.hero18 {
+    min-height: 200px;
+    height: 200px;
+  }
+
+  .hero.hero18 > div:nth-child(2) {
+    left: 2%;
+    right: 2%;
+    padding: 1em 1.1em 0.9em;
+  }
+
+  .hero.hero18 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .hero.hero18 p {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero18 {
+    min-height: 120px;
+    height: 120px;
+  }
+
+  .hero.hero18 > div:nth-child(2) {
+    left: 2.5%;
+    right: 2.5%;
+    padding: 0.7em 0.7em 0.6em;
+  }
+
+  .hero.hero18 h2 {
+    font-size: var(--heading-font-size-m);
+  }
+
+  .hero.hero18 p {
+    font-size: var(--body-font-size-xs);
+  }
+}
