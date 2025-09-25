@@ -599,7 +599,6 @@
   gap: 40px;
 }
 
-/* Sidebar: slim, compact vertical stack */
 .tabs.tabs13 > .tabs-list {
   flex: 0 0 152px;
   min-width: 120px;
@@ -613,7 +612,6 @@
   background: none;
 }
 
-/* Vertical tab buttons: compact */
 .tabs.tabs13 > .tabs-list > .tabs-tab {
   display: block;
   width: 100%;
@@ -645,7 +643,6 @@
   margin: 0;
 }
 
-/* Main content: remove box/border, flush left */
 .tabs.tabs13 > .tabs-panel {
   flex: 1 1 0;
   background: none;
@@ -657,18 +654,15 @@
   box-shadow: none;
 }
 
-/* Hide inactive panels */
 .tabs.tabs13 > .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* Remove default margin from direct child div */
 .tabs.tabs13 > .tabs-panel > div {
   margin: 0;
   padding: 0;
 }
 
-/* Headings: flush, accent line using ::before for short yellow bar */
 .tabs.tabs13 > .tabs-panel h3 {
   margin-top: 0;
   margin-bottom: 0;
@@ -683,7 +677,6 @@
   padding-bottom: 0;
 }
 
-/* Short yellow line under h3 */
 .tabs.tabs13 > .tabs-panel h3::before {
   display: block;
   width: 60px;
@@ -697,7 +690,6 @@
   content: "";
 }
 
-/* Subtitle - strong, more space below */
 .tabs.tabs13 > .tabs-panel h2 {
   font-size: 1.38rem;
   font-weight: 700;
@@ -708,7 +700,6 @@
   padding-left: 0;
 }
 
-/* Image: as wide as possible, no box, flush left, tighter margin below */
 .tabs.tabs13 > .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -720,7 +711,6 @@
   box-shadow: none;
 }
 
-/* Paragraphs and lists: smaller vertical spacing, flush alignment */
 .tabs.tabs13 > .tabs-panel p, 
 .tabs.tabs13 > .tabs-panel ul {
   color: #222;
@@ -730,12 +720,10 @@
   padding: 0;
 }
 
-/* Slightly less left indent for lists */
 .tabs.tabs13 > .tabs-panel ul {
   padding-left: 18px;
 }
 
-/* Responsive: stack columns on small screens */
 @media (width <= 900px) {
   .tabs.tabs13 {
     flex-direction: column;
@@ -765,5 +753,177 @@
   .tabs.tabs13 > .tabs-panel {
     max-width: 100vw;
     padding: 0;
+  }
+}
+
+
+.tabs.tabs15 {
+  display: flex;
+  flex-direction: row;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--background-color);
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  align-items: flex-start;
+}
+
+/* Sidebar (Tabs List) */
+.tabs.tabs15 .tabs-list {
+  flex: 0 0 138px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0;
+  padding-left: 0;
+  background: transparent;
+  border: none;
+  min-width: 120px;
+  max-width: 138px;
+  gap: 6px;
+  margin-top: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs15 {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .tabs.tabs15 .tabs-list {
+    flex-direction: row;
+    min-width: 0;
+    max-width: none;
+    padding-top: 0;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Tabs styling */
+.tabs.tabs15 .tabs-list button {
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--dark-color);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left;
+  padding: 7px 0 7px 18px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+  min-height: 30px;
+  border-left: none;
+  border-top: 4px solid transparent;
+  margin-top: 0;
+}
+
+/* Active tab style: yellow bar only at the top */
+.tabs.tabs15 .tabs-list button[aria-selected='true'] {
+  background: #505050;
+  color: #fff;
+  border-left: none;
+  border-top: 4px solid #fcdc4d;
+}
+
+/* Tab text wrapper */
+.tabs.tabs15 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  text-transform: inherit;
+}
+
+/* Main content area */
+.tabs.tabs15 .tabs-panel {
+  flex: 1 1 0;
+  max-width: 900px;
+  min-width: 0;
+  padding: 0 32px 0 16px;
+  background: transparent;
+  border: none;
+  margin: 0;
+  overflow: visible;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs15 .tabs-panel {
+    padding: 8px 0 0;
+    max-width: 100%;
+  }
+}
+
+.tabs.tabs15 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs.tabs15 .tabs-panel > div {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+/* Main heading styling with yellow underline */
+.tabs.tabs15 .tabs-panel h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 0.15em;
+  border-bottom: 4px solid #fcdc4d;
+  display: inline-block;
+  padding-bottom: 2px;
+  line-height: 1.1;
+}
+
+/* Section heading styling */
+.tabs.tabs15 .tabs-panel h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-top: 1.1em;
+  margin-bottom: 0.65em;
+}
+
+/* Paragraph and list styling */
+.tabs.tabs15 .tabs-panel p,
+.tabs.tabs15 .tabs-panel li {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.tabs.tabs15 .tabs-panel ul {
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+/* Image and picture styling */
+.tabs.tabs15 .tabs-panel picture,
+.tabs.tabs15 .tabs-panel img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.2em 0;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs15 .tabs-panel picture,
+  .tabs.tabs15 .tabs-panel img {
+    margin: 1em 0;
+    border-radius: 4px;
   }
 }
