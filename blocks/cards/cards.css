@@ -191,7 +191,6 @@
   box-sizing: border-box;
 }
 
-/* Grid layout for cards */
 .cards.cards14 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -209,7 +208,6 @@
   }
 }
 
-/* Each card: vertical stack, border, flush edges */
 .cards.cards14 > ul > li {
   display: flex;
   flex-direction: column;
@@ -224,7 +222,6 @@
   overflow: hidden;
 }
 
-/* image section */
 .cards.cards14 .cards-card-image {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -236,7 +233,6 @@
   padding: 0;
 }
 
-/* img itself */
 .cards.cards14 .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -246,7 +242,6 @@
   padding: 0;
 }
 
-/* Card body: tight under image, flush left/right, no extra space */
 .cards.cards14 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -256,7 +251,6 @@
   flex-grow: 1;
 }
 
-/* Title: uppercase, bold, almost no margin/padding, very tight line-height */
 .cards.cards14 .cards-card-body h3 {
   text-transform: uppercase;
   color: #000;
@@ -269,7 +263,6 @@
   text-align: left;
 }
 
-/* Description: 1 line, gray, ellipsis, minimal bottom spacing, flush left/right */
 .cards.cards14 .cards-card-body p {
   color: #7a7a7a;
   font-size: 13px;
@@ -282,9 +275,177 @@
   text-align: left;
 }
 
-/* Remove default margin/padding on ul, li */
 .cards.cards14 > ul,
 .cards.cards14 > ul > li {
   margin: 0;
   padding: 0;
+}
+
+
+.cards.cards24 {
+  max-width: 770px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 14px;
+  justify-content: center;
+  align-items: start;
+  max-width: 770px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 950px) {
+  .cards.cards24 > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 570px;
+    column-gap: 12px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards24 > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 375px;
+    column-gap: 10px;
+  }
+}
+
+@media (width <= 480px) {
+  .cards.cards24 > ul {
+    grid-template-columns: 1fr;
+    max-width: 98vw;
+    column-gap: 0;
+  }
+}
+
+.cards.cards24 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  min-width: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Card image: circular, centered, fixed size */
+.cards.cards24 .cards-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+  width: 105px;
+  height: 105px;
+}
+
+.cards.cards24 .cards-card-image img {
+  width: 105px;
+  height: 105px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0;
+}
+
+/* Card body wrapper */
+.cards.cards24 .cards-card-body {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+/* Name: bold, heading style, centered, less bottom margin */
+.cards.cards24 .cards-card-body h3 {
+  font-weight: 700;
+  color: #222;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0 0 0.3em;
+  letter-spacing: 0;
+  line-height: 1.12;
+}
+
+/* Role/description: uppercase, small, muted, centered, very tight spacing */
+.cards.cards24 .cards-card-body p:first-of-type {
+  font-size: 0.91rem;
+  color: #444;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+/* Social links: row, very tight gap for compact look */
+.cards.cards24 .cards-card-body p:last-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding-top: 0;
+}
+
+.cards.cards24 .cards-card-body p:last-of-type a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #222;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin: 0;
+  position: relative;
+}
+
+.cards.cards24 .cards-card-body p:last-of-type a:hover {
+  background: #d4b200;
+}
+
+/* Icon replacement: visually hide link text, show generic icon placeholder */
+.cards.cards24 .cards-card-body p:last-of-type a[title*="Facebook"]::after {
+  display: block;
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22,12A10,10,0,1,0,12,22V14.5H10.5V12h1.5V10.75a2.25,2.25,0,0,1,2.25-2.25h1.75V10.5H15A.5.5,0,0,0,14.5,11V12h2l-.5,2.5h-1.5v7A10,10,0,0,0,22,12Z"/></svg>') center/contain no-repeat;
+}
+
+.cards.cards24 .cards-card-body p:last-of-type a[title*="Twitter"]::after {
+  display: block;
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.46 6c-.77.35-1.6.58-2.47.69a4.11 4.11 0 0 0 1.8-2.27c-.83.5-1.75.87-2.7 1.06A4.07 4.07 0 0 0 12.16 8c0 .32.04.64.1.94C8.86 8.77 6.16 7.13 4.26 4.79c-.35.6-.54 1.3-.54 2.04 0 1.41.72 2.65 1.82 3.38a4.08 4.08 0 0 1-1.85-.51v.05c0 1.97 1.4 3.62 3.25 4a4.12 4.12 0 0 1-1.08.14c-.26 0-.52-.03-.77-.07a4.1 4.1 0 0 0 3.83 2.85A8.22 8.22 0 0 1 2 19.54a11.62 11.62 0 0 0 6.29 1.84c7.55 0 11.69-6.26 11.69-11.69 0-.18 0-.37-.02-.55A8.29 8.29 0 0 0 24 4.59a8.22 8.22 0 0 1-2.54.7z"/></svg>') center/contain no-repeat;
+}
+
+.cards.cards24 .cards-card-body p:last-of-type a[title*="Instagram"]::after {
+  display: block;
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm0 5.2a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm5.2-5.4a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0zM20.4 6.6a5.4 5.4 0 0 0-5.4-5.4H9a5.4 5.4 0 0 0-5.4 5.4v6c0 3 2.4 5.4 5.4 5.4h6c3 0 5.4-2.4 5.4-5.4v-6zm-1.2 6c0 2.3-1.9 4.2-4.2 4.2h-6c-2.3 0-4.2-1.9-4.2-4.2v-6c0-2.3 1.9-4.2 4.2-4.2h6c2.3 0 4.2 1.9 4.2 4.2v6z"/></svg>') center/contain no-repeat;
+}
+
+.cards.cards24 .cards-card-body p:last-of-type a span {
+  display: none;
 }
