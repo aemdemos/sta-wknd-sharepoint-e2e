@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,159 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion3 {
+  /* Center block, max width for readability */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 56px auto;
+  padding: 0 24px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion3 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 32px 0;
+    padding: 0 8px;
+  }
+}
+
+.accordion.accordion3 > details {
+  /* Remove accordion box styling, show always open */
+  border: none;
+  background: none;
+  margin: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.accordion.accordion3 > details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion3 details summary {
+  /* Remove interactive styles */
+  padding: 0;
+  cursor: default;
+  background: none;
+  border: none;
+  transition: none;
+  outline: none;
+  box-shadow: none;
+  position: static;
+  list-style: none;
+  overflow: visible;
+}
+
+.accordion.accordion3 details summary:focus,
+.accordion.accordion3 details summary:hover {
+  background: none;
+}
+
+.accordion.accordion3 details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion3 details summary::after {
+  display: none;
+}
+
+.accordion.accordion3 details .accordion-item-body {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.accordion.accordion3 details[open] .accordion-item-body {
+  border-top: none;
+  background: none;
+}
+
+.accordion.accordion3 h3,
+.accordion.accordion3 h2 {
+  margin-top: 0;
+  margin-bottom: 36px;
+  color: #222;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.accordion.accordion3 h3 {
+  font-size: 2.4rem;
+}
+
+.accordion.accordion3 h2 {
+  font-size: 2rem;
+}
+
+.accordion.accordion3 .accordion-item-body p {
+  font-size: 1.125rem;
+  color: #222;
+  line-height: 1.7;
+  margin: 0 0 32px;
+}
+
+.accordion.accordion3 .accordion-item-body picture {
+  display: block;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.accordion.accordion3 .accordion-item-body img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.accordion.accordion3 .accordion-item-body blockquote {
+  background: #f5f5f5;
+  border-left: 4px solid #4caf50;
+  padding: 24px 32px;
+  margin: 40px 0;
+  font-size: 1.25rem;
+  color: #222;
+}
+
+.accordion.accordion3 .accordion-item-body blockquote strong {
+  color: #222;
+  font-weight: 700;
+}
+
+.accordion.accordion3 .accordion-item-body blockquote strong:last-of-type {
+  color: #4caf50;
+  font-weight: 700;
+}
+
+/* Optional: Add extra space above section headers inside the body */
+.accordion.accordion3 .accordion-item-body h2 {
+  margin-top: 48px;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Ensure images and blockquotes don't overflow the column */
+.accordion.accordion3 .accordion-item-body picture,
+.accordion.accordion3 .accordion-item-body blockquote {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive tweaks for images and blockquotes on small screens */
+@media (width <= 900px) {
+  .accordion.accordion3 .accordion-item-body picture,
+  .accordion.accordion3 .accordion-item-body blockquote {
+    margin: 32px 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
