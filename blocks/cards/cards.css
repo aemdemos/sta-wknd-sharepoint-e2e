@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -448,6 +449,7 @@
   background: #fff;
   padding: 0;
 }
+
 .cards.cards26 > ul {
   display: flex;
   flex-direction: row;
@@ -458,6 +460,7 @@
   padding: 0;
   list-style: none;
 }
+
 .cards.cards26 > ul > li {
   display: flex;
   flex-direction: column;
@@ -468,6 +471,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .cards.cards26 .cards-card-image {
   margin: 0;
   padding: 0;
@@ -483,10 +487,12 @@
   padding: 0;
   border: none;
 }
+
 .cards.cards26 .cards-card-body {
   margin: 6px 0 0;
   padding: 0;
 }
+
 .cards.cards26 .cards-card-body p strong {
   display: block;
   font-weight: 700;
@@ -498,6 +504,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .cards.cards26 .cards-card-body p {
   font-size: 11.5px;
   color: #757575;
@@ -511,6 +518,7 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+
 @media (width <= 600px) {
   .cards.cards26 > ul {
     flex-direction: column;
@@ -525,7 +533,7 @@
 
 .cards.cards33 {
   max-width: 1100px;
-  margin: 0 auto 56px auto;
+  margin: 0 auto 56px;
   background: #fff;
   padding: 0 32px;
   box-sizing: border-box;
@@ -543,7 +551,6 @@
   min-height: 400px;
 }
 
-/* Main content column: all li except last-child */
 .cards.cards33 > ul > li:not(:last-child) {
   flex: 2 1 0;
   margin: 0;
@@ -557,7 +564,6 @@
   padding-right: 0;
 }
 
-/* Sidebar column: last-child */
 .cards.cards33 > ul > li:last-child {
   flex: 1 1 0;
   margin: 0;
@@ -572,14 +578,12 @@
   align-items: flex-start;
 }
 
-/* If only one li, remove sidebar styling and let it span full width */
 .cards.cards33 > ul > li:only-child {
   flex: 1 1 0;
   border-left: none;
   padding-left: 0;
 }
 
-/* Images: full width, natural aspect ratio, vertical spacing */
 .cards.cards33 img {
   display: block;
   width: 100%;
@@ -589,22 +593,20 @@
   object-fit: unset;
 }
 
-/* Headings: spacing and color for hierarchy */
 .cards.cards33 h1,
 .cards.cards33 h2,
 .cards.cards33 h3,
 .cards.cards33 h4 {
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   color: #222;
   font-weight: 600;
 }
 
 .cards.cards33 p {
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   color: #222;
 }
 
-/* Sidebar: smaller font and muted color for auxiliary info */
 .cards.cards33 > ul > li:last-child h2,
 .cards.cards33 > ul > li:last-child h3,
 .cards.cards33 > ul > li:last-child h4,
@@ -614,7 +616,6 @@
   margin-bottom: 14px;
 }
 
-/* Make sure sidebar links align left and have smaller space */
 .cards.cards33 > ul > li:last-child a {
   color: #505050;
   margin-bottom: 12px;
@@ -622,16 +623,17 @@
   text-align: left;
 }
 
-/* Responsive: stack columns vertically and adjust gaps/paddings for mobile */
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .cards.cards33 {
     padding: 0 12px;
   }
+
   .cards.cards33 > ul {
     flex-direction: column;
     gap: 36px;
     min-height: 0;
   }
+
   .cards.cards33 > ul > li,
   .cards.cards33 > ul > li:not(:last-child),
   .cards.cards33 > ul > li:last-child {
@@ -642,4 +644,89 @@
     width: 100%;
     gap: 24px;
   }
+}
+
+
+.cards.cards40 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+}
+
+@media (width <= 900px) {
+  .cards.cards40 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards40 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards.cards40 > ul > li {
+  background: #fff;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+
+.cards.cards40 .cards-card-image {
+  width: 100%;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.cards.cards40 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  margin: 0;
+  border: none;
+}
+
+.cards.cards40 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 0;
+  padding: 0 18px 20px;
+}
+
+.cards.cards40 .cards-card-body h3 {
+  margin: 20px 0 0;
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cards.cards40 .cards-card-body p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
