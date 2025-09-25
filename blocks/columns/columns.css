@@ -1,6 +1,10 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  min-height: 90px;
 }
 
 .columns img {
@@ -29,5 +33,159 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background: #242424;
+  padding: 32px 0 24px;
+  color: #e0e0e0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left: Logo */
+.columns .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 140px;
+  margin-left: 24px;
+  margin-right: 0;
+}
+
+.columns .columns-img-col img {
+  width: 140px;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+/* Center: Menu */
+.columns > div > div:nth-child(2) {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  max-width: 900px;
+}
+
+.columns > div > div:nth-child(2) ul,
+.columns > div > div:nth-child(2) ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div > div:nth-child(2) ul > li {
+  font-size: 0;
+}
+
+.columns > div > div:nth-child(2) ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Prevent wrapping on menu links */
+.columns > div > div:nth-child(2) ul > li > ul > li > a {
+  white-space: nowrap;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 0 2px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Highlight 2nd menu item ("Adventures") */
+.columns > div > div:nth-child(2) ul > li > ul > li:nth-child(2) > a {
+  color: #e0e0e0;
+}
+
+.columns > div > div:nth-child(2) ul > li > ul > li > a:hover {
+  color: #bbb;
+}
+
+/* Right: Search/Social */
+.columns > div > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 140px;
+  margin-right: 24px;
+}
+
+.columns > div > div:nth-child(3) p {
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+@media (width <= 1200px) {
+  .columns > div > div:nth-child(2) {
+    max-width: 700px;
+  }
+
+  .columns > div > div:nth-child(2) ul > li > ul {
+    gap: 32px;
+  }
+}
+
+@media (width <= 900px) {
+  .columns {
+    padding: 24px 0;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: unset;
+  }
+
+  .columns .columns-img-col {
+    margin-left: 0;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .columns .columns-img-col img {
+    width: 100px;
+  }
+
+  .columns > div > div:nth-child(2) {
+    justify-content: flex-start;
+    margin-bottom: 16px;
+    max-width: unset;
+  }
+
+  .columns > div > div:nth-child(2) ul > li > ul {
+    flex-direction: column;
+    gap: 12px;
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .columns > div > div:nth-child(3) {
+    margin-right: 0;
+    justify-content: flex-start;
   }
 }
