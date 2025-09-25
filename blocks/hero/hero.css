@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -60,13 +61,11 @@
   background: none;
 }
 
-/* Ensure hero section extends to full page width */
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
-/* Hero image container */
 .hero.hero10 > div:first-child {
   width: 100%;
   height: 400px;
@@ -74,7 +73,6 @@
   z-index: 1;
 }
 
-/* Responsive image sizing */
 .hero.hero10 picture,
 .hero.hero10 img {
   width: 100%;
@@ -83,17 +81,16 @@
   object-fit: cover;
 }
 
-/* Overlay card: raise slightly and widen for closer match */
 .hero.hero10 > div:nth-child(2) {
   box-sizing: border-box;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: auto;
-  bottom: 16px; /* Raised for a larger strip of image below the card */
+  bottom: 16px;
   width: 67%;
   background: #fff;
-  padding: 52px 44px 60px; /* Increased vertical padding for better breathing space */
+  padding: 52px 44px 60px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -102,7 +99,6 @@
   border-radius: 0;
 }
 
-/* Card content wrapper */
 .hero.hero10 > div:nth-child(2) > div {
   width: 100%;
   position: relative;
@@ -110,7 +106,6 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-/* Headline text styling */
 .hero.hero10 > div:nth-child(2) h2 {
   color: #333;
   font-size: 2rem;
@@ -121,7 +116,6 @@
   line-height: 1.25;
 }
 
-/* Responsive adjustments */
 @media (width <= 899px) {
   .hero.hero10 > div:first-child {
     height: 220px;
@@ -159,5 +153,125 @@
 
   .hero.hero10 > div:nth-child(2) > div {
     padding-bottom: 6px;
+  }
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: transparent;
+  overflow: hidden;
+}
+
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+}
+
+.hero.hero27 > div:first-child picture,
+.hero.hero27 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Floating, narrower, lower card */
+.hero.hero27 > div:last-child {
+  position: relative;
+  z-index: 2;
+  background: var(--background-color);
+  max-width: 520px;
+  margin: 320px auto 48px;
+  padding: 44px 34px 24px;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: 0 14px 60px rgb(0 0 0 / 13%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.hero.hero27 > div:last-child > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hero.hero27 h2 {
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+
+.hero.hero27 p:not(.button-container) {
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  margin: 0 0 26px;
+  line-height: 1.5;
+}
+
+.hero.hero27 .button-container {
+  margin-top: 38px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button {
+  background: #ffe100;
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 16px 44px;
+  font-size: var(--body-font-size-m);
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button:hover,
+.hero-container > .hero-wrapper > .block.hero .button:focus {
+  background: #ffd600;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero27 {
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  .hero.hero27 > div:first-child {
+    position: relative;
+    height: 200px;
+    min-height: 140px;
+  }
+
+  .hero.hero27 > div:last-child {
+    margin-top: -30px;
+    margin-bottom: 0;
+    max-width: 96vw;
+    padding: 22px 6vw;
+    box-shadow: 0 4px 18px rgb(0 0 0 / 8%);
+  }
+
+  .hero.hero27 > div:last-child > div {
+    gap: 14px;
   }
 }
