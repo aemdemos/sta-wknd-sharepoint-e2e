@@ -1420,13 +1420,11 @@
   display: block;
 }
 
-/* Remove unwanted box border if inherited from a parent */
 .tabs.tabs25, .tabs.tabs25 > .tabs {
   border: none;
   box-shadow: none;
 }
 
-/* Tabs List */
 .tabs.tabs25 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1441,14 +1439,12 @@
   padding: 0;
 }
 
-/* Add space above the block, but NOT inside the bordered area */
 .tabs.tabs25::before {
   display: block;
   height: 44px;
   content: "";
 }
 
-/* Tabs Button styling */
 .tabs.tabs25 .tabs-list button {
   border: none;
   background: transparent;
@@ -1477,14 +1473,12 @@
   margin: 0;
 }
 
-/* Panels grid, vertical stacking but minimal vertical gap */
 .tabs.tabs25 .tabs-panel > div {
   display: grid;
   grid-template-rows: auto auto auto 1fr;
   row-gap: 18px;
 }
 
-/* Heading styling, bold, accent underline, moderate margin below */
 .tabs.tabs25 .tabs-panel h3 {
   font-size: 32px;
   font-weight: 600;
@@ -1508,7 +1502,6 @@
   content: "";
 }
 
-/* Image styling - flush, no border/padding, responsive */
 .tabs.tabs25 picture,
 .tabs.tabs25 img {
   display: block;
@@ -1521,7 +1514,6 @@
   padding: 0;
 }
 
-/* Description text block styling */
 .tabs.tabs25 p,
 .tabs.tabs25 ul,
 .tabs.tabs25 li {
@@ -1542,12 +1534,10 @@
   margin-bottom: 8px;
 }
 
-/* Add moderate margin above the first p after the image for blocky separation */
 .tabs.tabs25 .tabs-panel > div > picture + p {
   margin-top: 18px;
 }
 
-/* Responsive layout tweaks */
 @media (width <= 900px) {
   .tabs.tabs25 {
     max-width: 100%;
@@ -1580,4 +1570,232 @@
   .tabs.tabs25 .tabs-panel > div > picture + p {
     margin-top: 7px;
   }
+}
+
+
+.tabs.tabs28 {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 36px;
+  background: var(--background-color);
+  padding: 0;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* Responsive stacking for mobile screens */
+@media (width <= 900px) {
+  .tabs.tabs28 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* Sidebar styles (first child): Only trip meta, no .tabs-list */
+.tabs.tabs28 > div:first-child {
+  min-width: 0;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  padding-top: 12px;
+}
+
+/* Hide tabs-list in sidebar, force horizontal tabs only in main content column */
+.tabs.tabs28 > div:first-child .tabs-list {
+  display: none !important;
+}
+
+/* Main content column layout */
+.tabs.tabs28 > div:last-child {
+  min-width: 0;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Ensure .tabs-list appears at top, horizontally in main content column */
+.tabs.tabs28 > div:last-child .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 28px;
+  margin-top: 0;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 15px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  order: -1; /* Push tabs above anything else in main column */
+}
+
+/* Tab button styling for block look */
+.tabs.tabs28 > div:last-child .tabs-list button {
+  margin: 0;
+  border: 1px solid #222;
+  border-radius: 0;
+  background: #fff;
+  color: #222;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 11px 32px;
+  cursor: pointer;
+  box-shadow: none;
+  min-width: 120px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.tabs.tabs28 > div:last-child .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 1px solid #222;
+}
+
+/* Remove vertical stacking for tabs in main content */
+.tabs.tabs28 > div:last-child .tabs-list button p {
+  margin: 0;
+}
+
+/* Remove panel border/background */
+.tabs.tabs28 .tabs-panel {
+  padding: 0;
+  border: none;
+  background: none;
+  margin-top: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Remove bullet points for stray lists */
+.tabs.tabs28 ul,
+.tabs.tabs28 ol {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* Title styling */
+.tabs.tabs28 h3[id^="beervana-in-portland"] {
+  font-size: 28px;
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 0;
+  line-height: 1.1;
+  position: relative;
+}
+
+/* Yellow accent underline for title */
+.tabs.tabs28 h3[id^="beervana-in-portland"]::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #ffe977;
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+/* Section heading in panel */
+.tabs.tabs28 .tabs-panel h3:not([id^="beervana-in-portland"]) {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 8px;
+  margin-top: 24px;
+  line-height: 1.2;
+}
+
+/* Paragraphs and lists */
+.tabs.tabs28 .tabs-panel p,
+.tabs.tabs28 .tabs-panel ul,
+.tabs.tabs28 .tabs-panel li {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 1.2em;
+  line-height: 1.6;
+}
+
+/* Image styling */
+.tabs.tabs28 .tabs-panel picture,
+.tabs.tabs28 .tabs-panel img {
+  display: block;
+  max-width: 85%;
+  margin: 28px 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Footer note styling */
+.tabs.tabs28 .tabs-panel p:last-child {
+  font-size: 13px;
+  color: #333;
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+
+/* Responsive image and tabs gap */
+@media (width <= 900px) {
+  .tabs.tabs28 > div:first-child {
+    max-width: none;
+    margin-bottom: 24px;
+    padding-top: 0;
+  }
+
+  .tabs.tabs28 .tabs-panel picture,
+  .tabs.tabs28 .tabs-panel img {
+    max-width: 100%;
+  }
+
+  .tabs.tabs28 > div:last-child .tabs-list {
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Example meta info styling in sidebar, if present */
+.tabs.tabs28 > div:first-child h5,
+.tabs.tabs28 > div:first-child .label {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.tabs.tabs28 > div:first-child strong,
+.tabs.tabs28 > div:first-child .value {
+  font-size: 13px;
+  font-weight: bold;
+  color: #222;
+}
+
+.tabs.tabs28 > div:first-child a,
+.tabs.tabs28 > div:first-child .share {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #222;
+  text-decoration: none;
+  margin-top: 24px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  display: block;
 }
