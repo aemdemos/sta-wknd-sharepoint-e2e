@@ -306,8 +306,6 @@
   position: relative;
   box-sizing: border-box;
   width: 100%;
-
-  /* Make space for the visual right "column" on desktop */
 }
 
 .columns.columns9 > div {
@@ -320,7 +318,6 @@
   position: relative;
 }
 
-/* Main content "column" is left, social is right, using CSS Grid for two areas */
 .columns.columns9 > div > div {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -329,12 +326,10 @@
   column-gap: 0;
 }
 
-/* Main content area */
 .columns.columns9 > div > div > *:not(#follow-us, #follow-us + p) {
   grid-column: 1/2;
 }
 
-/* Social "column" area styles */
 .columns.columns9 #follow-us,
 .columns.columns9 #follow-us + p {
   grid-column: 2/3;
@@ -362,7 +357,6 @@
   padding-left: 0;
 }
 
-/* Social button styling in "icon column" */
 .columns.columns9 #follow-us + p a {
   display: inline-flex;
   align-items: center;
@@ -389,7 +383,6 @@
   text-decoration: underline;
 }
 
-/* Left content: constrain width, align left, spacing tweaks */
 .columns.columns9 .button-container,
 .columns.columns9 p,
 .columns.columns9 h4 {
@@ -399,7 +392,6 @@
   text-align: left;
 }
 
-/* Make .button-container more compact, align left */
 .columns.columns9 .button-container {
   margin-top: 0;
   margin-bottom: 28px;
@@ -409,7 +401,6 @@
   padding-left: 0;
 }
 
-/* Button tweaks */
 .columns.columns9 .button-container .button {
   background: transparent;
   border: 2px solid #fff;
@@ -437,7 +428,6 @@
   border-color: #fff;
 }
 
-/* Headings */
 .columns.columns9 h1,
 .columns.columns9 h2,
 .columns.columns9 h3,
@@ -456,7 +446,6 @@
   font-size: 16px;
 }
 
-/* Paragraphs: left-aligned, readable max-width, clear vertical rhythm */
 .columns.columns9 p {
   color: #fff;
   font-size: 13px;
@@ -472,13 +461,11 @@
   word-break: break-all;
 }
 
-/* Bolded text */
 .columns.columns9 p strong,
 .columns.columns9 strong {
   font-weight: bold;
 }
 
-/* Links: white, underlined */
 .columns.columns9 a {
   color: #fff;
   text-decoration: underline;
@@ -490,7 +477,6 @@
   color: #bbb;
 }
 
-/* Divider at the bottom */
 .columns.columns9::after {
   display: block;
   position: absolute;
@@ -502,7 +488,6 @@
   width: 100%;
 }
 
-/* Responsive: single-column on small screens, stack social links below as row */
 @media (width <= 950px) {
   .columns.columns9 > div > div {
     display: flex;
@@ -557,4 +542,319 @@
     padding: 8px 10px;
     font-size: 13px;
   }
+}
+
+
+.columns.columns18 {
+  background: #fff;
+  color: #141414;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Grid: align columns at the top, give main content more width, sidebar narrower, gap tighter */
+.columns.columns18 > div {
+  display: grid;
+  grid-template-columns: minmax(0, 2.7fr) 170px;
+  gap: 36px;
+  align-items: start;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 36px 28px 44px;
+}
+
+@media (width <= 900px) {
+  .columns.columns18 > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 14px 2vw 18px;
+  }
+
+  .columns.columns18 > div > div:last-child {
+    margin-top: 36px;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Sidebar: remove top margin/padding, keep it compact */
+.columns.columns18 > div > div:last-child {
+  min-width: 0;
+  max-width: 170px;
+  width: 100%;
+  margin-left: 0;
+  place-self: start start;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Sidebar heading */
+.columns.columns18 > div > div:last-child > h5 {
+  text-transform: uppercase;
+  font-size: 0.97rem;
+  color: #6c6c6c;
+  letter-spacing: 0.09em;
+  margin-bottom: 1em;
+  margin-top: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Sidebar download section: visually group and compact */
+.columns.columns18 > div > div:last-child .sidebar-download-card,
+.columns.columns18 > div > div:last-child .sidebar-download-group {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+  padding: 10px 12px 13px;
+  margin-bottom: 1.1em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2em;
+}
+
+.columns.columns18 > div > div:last-child > h3,
+.columns.columns18 > div > div:last-child > p,
+.columns.columns18 > div > div:last-child .button-container {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  display: block;
+  text-align: left;
+}
+
+/* Download PDF block */
+.columns.columns18 > div > div:last-child > h3 {
+  font-size: 1.05rem;
+  color: #141414;
+  margin-bottom: 0.38em;
+  font-weight: 700;
+  display: block;
+}
+
+.columns.columns18 > div > div:last-child > h3 a {
+  color: #141414;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.columns.columns18 > div > div:last-child > p {
+  font-size: 0.97rem;
+  color: #6c6c6c;
+  line-height: 1.5;
+  margin-bottom: 0.4em;
+  margin-top: 0.1em;
+}
+
+/* Download button: sharp corners, left-aligned, fits card */
+.columns.columns18 > div > div:last-child .button-container {
+  width: 100%;
+  margin: 0.15em 0 0;
+}
+
+.columns.columns18 > div > div:last-child .button-container .button {
+  background: #141414;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  padding: 0.58em 0.95em;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Related links: left-aligned, tighter grouping */
+.columns.columns18 > div > div:last-child ul {
+  list-style: none;
+  margin: 1.2em 0 0;
+  padding: 0;
+}
+
+.columns.columns18 > div > div:last-child ul li {
+  margin-bottom: 0.7em;
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 0.6em;
+}
+
+.columns.columns18 > div > div:last-child ul li:last-child {
+  border-bottom: none;
+}
+
+.columns.columns18 > div > div:last-child ul li a {
+  color: #141414;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.93rem;
+  display: block;
+  margin-bottom: 0.12em;
+  line-height: 1.25;
+}
+
+.columns.columns18 > div > div:last-child ul li a[title] {
+  color: #6c6c6c;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* Main content wider, more space, less margin above images */
+.columns.columns18 > div > div:first-child {
+  min-width: 0;
+  max-width: 880px;
+  margin-right: auto;
+}
+
+/* Headings & underline accent, more space above/below */
+.columns.columns18 h1 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-top: 0.1em;
+  margin-bottom: 0.85em;
+  color: #141414;
+  letter-spacing: -0.01em;
+}
+
+.columns.columns18 h4 {
+  font-size: 1rem;
+  color: #b3b3b3;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  margin-bottom: 2.2em;
+  margin-top: -1.05em;
+  font-weight: 600;
+}
+
+.columns.columns18 h2,
+.columns.columns18 h3 {
+  font-size: 1.29rem;
+  font-weight: 700;
+  color: #141414;
+  margin-top: 2em;
+  margin-bottom: 0.32em;
+  position: relative;
+}
+
+.columns.columns18 h2::after,
+.columns.columns18 h3::after {
+  display: block;
+  width: 54px;
+  height: 4px;
+  background: #ffe156;
+  border-radius: 2px;
+  margin-top: 7px;
+  margin-left: 0;
+}
+
+.columns.columns18 p {
+  font-size: 1.09rem;
+  color: #141414;
+  line-height: 1.69;
+  margin-bottom: 1.13em;
+  margin-top: 0.48em;
+  max-width: 100%;
+}
+
+.columns.columns18 p strong em,
+.columns.columns18 p em strong,
+.columns.columns18 p strong>em,
+.columns.columns18 p em>strong {
+  color: #8a8a8a;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.93em;
+  display: block;
+  margin-top: 0.12em;
+  margin-bottom: 0.8em;
+}
+
+/* Blockquote styling: lighter, more padding, compact width */
+.columns.columns18 blockquote {
+  background: #f7f7f7;
+  border-left: 5px solid #ffe156;
+  margin: 1.3em 0 0.8em;
+  padding: 1em 1.1em 0.8em 1.08em;
+  font-size: 1.06rem;
+  font-style: italic;
+  color: #141414;
+  border-radius: 4px;
+  box-sizing: border-box;
+  max-width: 95%;
+}
+
+/* Images and captions: less margin, tighter grouping */
+.columns.columns18 picture,
+.columns.columns18 img {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  border-radius: 12px;
+  box-shadow: 0 2px 11px rgb(0 0 0 / 6%);
+  margin: 0.85em 0 0.35em;
+  background: #fff;
+}
+
+@media (width <= 900px) {
+  .columns.columns18 picture,
+  .columns.columns18 img {
+    margin: 0.7em 0 0.35em;
+    max-width: 100%;
+  }
+}
+
+/* Author section: more margin above, social buttons spaced horizontally */
+.columns.columns18 h2#stacey-roswells {
+  font-size: 1.13rem;
+  margin-top: 2.2em;
+  margin-bottom: 0.18em;
+  font-weight: 700;
+}
+
+.columns.columns18 > div > div:first-child p.button-container {
+  display: inline-block;
+  margin-right: 1.2em;
+  margin-bottom: 0.18em;
+  margin-top: 0.4em;
+}
+
+.columns.columns18 > div > div:first-child .button {
+  background: #141414;
+  color: #fff;
+  border-radius: 2em;
+  padding: 0.51em 1.25em;
+  font-size: 0.97rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-right: 0.33em;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+  border: none;
+  outline: none;
+  min-width: 110px;
+  margin-top: 0.22em;
+}
+
+.columns.columns18 > div > div:first-child .button:hover,
+.columns.columns18 > div > div:first-child .button:focus {
+  background: #ffe156;
+  color: #141414;
+}
+
+/* Remove list style from author/social links */
+.columns.columns18 > div > div:first-child ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
