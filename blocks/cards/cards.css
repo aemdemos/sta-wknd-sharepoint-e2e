@@ -339,7 +339,6 @@
   margin-right: auto;
 }
 
-/* Card image: circular, centered, fixed size */
 .cards.cards24 .cards-card-image {
   display: flex;
   justify-content: center;
@@ -359,7 +358,6 @@
   margin: 0;
 }
 
-/* Card body wrapper */
 .cards.cards24 .cards-card-body {
   margin: 0;
   width: 100%;
@@ -369,7 +367,6 @@
   padding: 0;
 }
 
-/* Name: bold, heading style, centered, less bottom margin */
 .cards.cards24 .cards-card-body h3 {
   font-weight: 700;
   color: #222;
@@ -380,7 +377,6 @@
   line-height: 1.12;
 }
 
-/* Role/description: uppercase, small, muted, centered, very tight spacing */
 .cards.cards24 .cards-card-body p:first-of-type {
   font-size: 0.91rem;
   color: #444;
@@ -391,7 +387,6 @@
   line-height: 1.2;
 }
 
-/* Social links: row, very tight gap for compact look */
 .cards.cards24 .cards-card-body p:last-of-type {
   display: flex;
   flex-direction: row;
@@ -421,7 +416,6 @@
   background: #d4b200;
 }
 
-/* Icon replacement: visually hide link text, show generic icon placeholder */
 .cards.cards24 .cards-card-body p:last-of-type a[title*="Facebook"]::after {
   display: block;
   content: "";
@@ -448,4 +442,99 @@
 
 .cards.cards24 .cards-card-body p:last-of-type a span {
   display: none;
+}
+
+
+.cards.cards26 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Flex row for side-by-side cards, top aligned */
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Card layout/size */
+.cards.cards26 > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: 208px;
+  min-width: 0;
+  background: #fff;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Image: square, fills card width */
+.cards.cards26 .cards-card-image {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Card body: tight spacing below image */
+.cards.cards26 .cards-card-body {
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+/* Title styling: bold, black, single line (never truncated unless extremely long) */
+.cards.cards26 .cards-card-body p strong {
+  display: block;
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #000;
+  margin-bottom: 2px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Make the description (the text after <br>) truncated to one line, even if browser does not create a new element after <br> */
+.cards.cards26 .cards-card-body p {
+  font-size: 11.5px;
+  color: #757575;
+  margin: 0;
+  line-height: 1.4;
+  padding: 0;
+  word-break: break-all; /* Replaced deprecated 'break-word' with valid alternative 'break-all' */
+  max-width: 100%;
+
+  /* The trick: allow wrapping but clamp to two lines, so the title (first line) and description (second line) are shown */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Responsive: stack cards vertically on small screens */
+@media (width <= 600px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cards.cards26 > ul > li {
+    width: 100%;
+  }
 }
