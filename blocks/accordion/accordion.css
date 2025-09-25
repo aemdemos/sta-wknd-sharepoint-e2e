@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
@@ -61,7 +62,6 @@
 
 
 .accordion.accordion3 {
-  /* Center block, max width for readability */
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 56px;
@@ -82,7 +82,6 @@
 }
 
 .accordion.accordion3 > details {
-  /* Remove accordion box styling, show always open */
   border: none;
   background: none;
   margin: 0;
@@ -95,7 +94,6 @@
 }
 
 .accordion.accordion3 details summary {
-  /* Remove interactive styles */
   padding: 0;
   cursor: default;
   background: none;
@@ -188,7 +186,6 @@
   font-weight: 700;
 }
 
-/* Optional: Add extra space above section headers inside the body */
 .accordion.accordion3 .accordion-item-body h2 {
   margin-top: 48px;
   margin-bottom: 24px;
@@ -197,19 +194,142 @@
   color: #222;
 }
 
-/* Ensure images and blockquotes don't overflow the column */
 .accordion.accordion3 .accordion-item-body picture,
 .accordion.accordion3 .accordion-item-body blockquote {
   max-width: 100%;
   box-sizing: border-box;
 }
 
-/* Responsive tweaks for images and blockquotes on small screens */
 @media (width <= 900px) {
   .accordion.accordion3 .accordion-item-body picture,
   .accordion.accordion3 .accordion-item-body blockquote {
     margin: 32px 0;
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+
+.accordion.accordion7 {
+  /* Remove max-width; use grid layout to visually anchor block to the left */
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 640px);
+  justify-content: start;
+  width: 100%;
+  margin: 0;
+  background: var(--background-color);
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Align all FAQ content in the second column (the left column simulates gutter/empty space) */
+.accordion.accordion7 > * {
+  grid-column: 2;
+
+  /* Add horizontal padding for inner content, matching original left column */
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+}
+
+/* Accordion items: visually compact, no extra margin */
+.accordion.accordion7 details {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0;
+  border-radius: 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+.accordion.accordion7 details:last-child {
+  border-bottom: none;
+}
+
+/* FAQ summary row: compact, flush left and right with column, no extra background */
+.accordion.accordion7 details summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 0;
+  cursor: pointer;
+  background: var(--background-color);
+  border-radius: 0;
+  font-size: 15px;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* Remove default marker */
+.accordion.accordion7 details summary::-webkit-details-marker,
+.accordion.accordion7 details summary::marker {
+  display: none;
+}
+
+/* Summary text styles */
+.accordion.accordion7 details summary p,
+.accordion.accordion7 details summary strong {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0.02em;
+  font-size: 15px;
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+/* Icon/caret for summary (if SVG or markup present in HTML) */
+.accordion.accordion7 details summary > svg,
+.accordion.accordion7 details summary > span {
+  color: #888;
+  font-size: 19px;
+  margin-left: 12px;
+  flex-shrink: 0;
+  height: 19px;
+  width: 19px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Accordion body: compact, subtle */
+.accordion.accordion7 details .accordion-item-body {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+  padding: 10px 0 16px;
+  background: var(--background-color);
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Remove border/background on open */
+.accordion.accordion7 details[open] .accordion-item-body {
+  background: var(--background-color);
+  border-top: none;
+}
+
+/* No gap between items */
+.accordion.accordion7 details + details {
+  margin-top: 0;
+}
+
+/* Responsive: collapse padding and grid for small screens */
+@media (width <= 900px) {
+  .accordion.accordion7 {
+    display: block;
+  }
+
+  .accordion.accordion7 > * {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
