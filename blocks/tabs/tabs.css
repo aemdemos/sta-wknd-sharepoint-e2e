@@ -1585,7 +1585,6 @@
   align-items: flex-start;
 }
 
-/* Responsive stacking for mobile screens */
 @media (width <= 900px) {
   .tabs.tabs28 {
     grid-template-columns: 1fr;
@@ -1593,7 +1592,6 @@
   }
 }
 
-/* Sidebar styles (first child): Only trip meta, no .tabs-list */
 .tabs.tabs28 > div:first-child {
   min-width: 0;
   max-width: none;
@@ -1606,12 +1604,10 @@
   padding-top: 12px;
 }
 
-/* Hide tabs-list in sidebar, force horizontal tabs only in main content column */
 .tabs.tabs28 > div:first-child .tabs-list {
   display: none !important;
 }
 
-/* Main content column layout */
 .tabs.tabs28 > div:last-child {
   min-width: 0;
   background: transparent;
@@ -1623,7 +1619,6 @@
   align-items: flex-start;
 }
 
-/* Ensure .tabs-list appears at top, horizontally in main content column */
 .tabs.tabs28 > div:last-child .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1637,10 +1632,9 @@
   font-size: 15px;
   align-items: flex-start;
   justify-content: flex-start;
-  order: -1; /* Push tabs above anything else in main column */
+  order: -1;
 }
 
-/* Tab button styling for block look */
 .tabs.tabs28 > div:last-child .tabs-list button {
   margin: 0;
   border: 1px solid #222;
@@ -1668,12 +1662,10 @@
   border: 1px solid #222;
 }
 
-/* Remove vertical stacking for tabs in main content */
 .tabs.tabs28 > div:last-child .tabs-list button p {
   margin: 0;
 }
 
-/* Remove panel border/background */
 .tabs.tabs28 .tabs-panel {
   padding: 0;
   border: none;
@@ -1683,7 +1675,6 @@
   overflow: visible;
 }
 
-/* Remove bullet points for stray lists */
 .tabs.tabs28 ul,
 .tabs.tabs28 ol {
   list-style: none;
@@ -1691,7 +1682,6 @@
   margin-left: 0;
 }
 
-/* Title styling */
 .tabs.tabs28 h3[id^="beervana-in-portland"] {
   font-size: 28px;
   color: #222;
@@ -1702,7 +1692,6 @@
   position: relative;
 }
 
-/* Yellow accent underline for title */
 .tabs.tabs28 h3[id^="beervana-in-portland"]::after {
   display: block;
   width: 48px;
@@ -1712,7 +1701,6 @@
   margin-bottom: 18px;
 }
 
-/* Section heading in panel */
 .tabs.tabs28 .tabs-panel h3:not([id^="beervana-in-portland"]) {
   font-size: 18px;
   font-weight: bold;
@@ -1722,7 +1710,6 @@
   line-height: 1.2;
 }
 
-/* Paragraphs and lists */
 .tabs.tabs28 .tabs-panel p,
 .tabs.tabs28 .tabs-panel ul,
 .tabs.tabs28 .tabs-panel li {
@@ -1732,7 +1719,6 @@
   line-height: 1.6;
 }
 
-/* Image styling */
 .tabs.tabs28 .tabs-panel picture,
 .tabs.tabs28 .tabs-panel img {
   display: block;
@@ -1742,7 +1728,6 @@
   box-shadow: none;
 }
 
-/* Footer note styling */
 .tabs.tabs28 .tabs-panel p:last-child {
   font-size: 13px;
   color: #333;
@@ -1750,7 +1735,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive image and tabs gap */
 @media (width <= 900px) {
   .tabs.tabs28 > div:first-child {
     max-width: none;
@@ -1770,7 +1754,6 @@
   }
 }
 
-/* Example meta info styling in sidebar, if present */
 .tabs.tabs28 > div:first-child h5,
 .tabs.tabs28 > div:first-child .label {
   font-size: 11px;
@@ -1798,4 +1781,165 @@
   letter-spacing: 0.5px;
   font-weight: 600;
   display: block;
+}
+
+
+.tabs.tabs30 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* Sidebar: vertical stack for nav */
+.tabs.tabs30 > .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  min-width: 170px;
+  max-width: 200px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+/* Sidebar tab buttons: vertical, left-aligned */
+.tabs.tabs30 > .tabs-list button,
+.tabs.tabs30 > .tabs-list .tabs-tab {
+  background: transparent;
+  color: var(--dark-color);
+  border: none;
+  border-radius: 2px;
+  width: 100%;
+  padding: 14px 0 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+  outline: none;
+}
+
+.tabs.tabs30 > .tabs-list button[aria-selected="true"],
+.tabs.tabs30 > .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: var(--background-color);
+}
+
+/* Remove button paragraph margins */
+.tabs.tabs30 > .tabs-list button p,
+.tabs.tabs30 > .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main content area */
+.tabs.tabs30 > .tabs-panel {
+  flex: 1 1 0%;
+  min-width: 0;
+  max-width: 800px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: none;
+  box-shadow: none;
+}
+
+/* Only show active panel */
+.tabs.tabs30 > .tabs-panel:not([aria-hidden="false"]) {
+  display: none;
+}
+
+/* Heading styles */
+.tabs.tabs30 > .tabs-panel h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 24px;
+  line-height: 1.15;
+  text-align: left;
+}
+
+/* Image styles */
+.tabs.tabs30 > .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  border-radius: 18px;
+  margin-bottom: 8px;
+}
+
+/* Caption styling under image */
+.tabs.tabs30 > .tabs-panel p:first-of-type {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 6px;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+/* Paragraph styling after caption */
+.tabs.tabs30 > .tabs-panel p:not(:first-of-type) {
+  font-size: 15px;
+  color: var(--dark-color);
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+/* List styling */
+.tabs.tabs30 > .tabs-panel ul,
+.tabs.tabs30 > .tabs-panel ol {
+  margin: 18px 0 0;
+  padding-left: 22px;
+  font-size: 15px;
+  color: var(--dark-color);
+}
+
+.tabs.tabs30 > .tabs-panel li {
+  margin-bottom: 14px;
+}
+
+/* Responsive adjustments for stacking */
+@media (width <= 900px) {
+  .tabs.tabs30 {
+    flex-direction: column;
+    gap: 0;
+    max-width: 100vw;
+    margin: 16px 0;
+    padding: 0;
+  }
+
+  .tabs.tabs30 > .tabs-list {
+    flex-direction: row;
+    gap: 12px;
+    min-width: 0;
+    max-width: none;
+    margin-bottom: 18px;
+    width: 100vw;
+  }
+
+  .tabs.tabs30 > .tabs-panel {
+    max-width: 100vw;
+  }
+
+  .tabs.tabs30 > .tabs-panel picture img {
+    max-width: 100vw;
+    border-radius: 10px;
+  }
 }
