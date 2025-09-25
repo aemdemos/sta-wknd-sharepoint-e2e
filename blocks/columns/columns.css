@@ -195,7 +195,6 @@
   padding: 0;
 }
 
-/* Increase side padding to match original visual insets */
 .columns.columns5 > div {
   display: flex;
   flex-direction: row;
@@ -210,12 +209,10 @@
   gap: 0;
 }
 
-/* Hide the middle (language/navigation) column */
 .columns.columns5 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo column: perfect vertical centering, no extra margin */
 .columns.columns5 .columns-img-col {
   display: flex;
   align-items: center;
@@ -226,7 +223,6 @@
   height: 100%;
 }
 
-/* Logo image: size and alignment for crisp baseline match */
 .columns.columns5 .columns-img-col img {
   width: 150px;
   height: auto;
@@ -237,7 +233,6 @@
   vertical-align: middle;
 }
 
-/* Right column: search box styling and vertical centering */
 .columns.columns5 > div > div:nth-child(3) {
   display: flex;
   align-items: center;
@@ -248,7 +243,6 @@
   height: 100%;
 }
 
-/* Search box: appearance and icon */
 .columns.columns5 > div > div:nth-child(3) p {
   background: #f5f5f5;
   color: #bdbdbd;
@@ -301,5 +295,266 @@
   .columns.columns5 > div > div:nth-child(3) p {
     min-width: 100px;
     height: 32px;
+  }
+}
+
+
+.columns.columns9 {
+  background: #232220;
+  color: #fff;
+  padding: 40px 48px 24px;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+
+  /* Make space for the visual right "column" on desktop */
+}
+
+.columns.columns9 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0;
+  position: relative;
+}
+
+/* Main content "column" is left, social is right, using CSS Grid for two areas */
+.columns.columns9 > div > div {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  width: 100%;
+  max-width: 100%;
+  column-gap: 0;
+}
+
+/* Main content area */
+.columns.columns9 > div > div > *:not(#follow-us, #follow-us + p) {
+  grid-column: 1/2;
+}
+
+/* Social "column" area styles */
+.columns.columns9 #follow-us,
+.columns.columns9 #follow-us + p {
+  grid-column: 2/3;
+  text-align: right;
+}
+
+.columns.columns9 #follow-us {
+  margin-top: 0;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  justify-self: end;
+}
+
+.columns.columns9 #follow-us + p {
+  margin-bottom: 62px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  padding-left: 0;
+}
+
+/* Social button styling in "icon column" */
+.columns.columns9 #follow-us + p a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  height: 32px;
+  background: #f5f5f5;
+  color: #232220;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 14px;
+  margin: 0;
+  text-decoration: none;
+  vertical-align: middle;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+}
+
+.columns.columns9 #follow-us + p a:hover,
+.columns.columns9 #follow-us + p a:focus {
+  background: #e0e0e0;
+  color: #232220;
+  text-decoration: underline;
+}
+
+/* Left content: constrain width, align left, spacing tweaks */
+.columns.columns9 .button-container,
+.columns.columns9 p,
+.columns.columns9 h4 {
+  max-width: 650px;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* Make .button-container more compact, align left */
+.columns.columns9 .button-container {
+  margin-top: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  padding-left: 0;
+}
+
+/* Button tweaks */
+.columns.columns9 .button-container .button {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 8px 18px;
+  margin: 0 16px 0 0;
+  font-size: 13px;
+  min-width: 90px;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.columns.columns9 .button-container .button:last-child {
+  margin-right: 0;
+}
+
+.columns.columns9 .button-container .button:hover,
+.columns.columns9 .button-container .button:focus {
+  background: #fff;
+  color: #232220;
+  border-color: #fff;
+}
+
+/* Headings */
+.columns.columns9 h1,
+.columns.columns9 h2,
+.columns.columns9 h3,
+.columns.columns9 h4,
+.columns.columns9 h5,
+.columns.columns9 h6 {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.columns.columns9 h4 {
+  font-size: 16px;
+}
+
+/* Paragraphs: left-aligned, readable max-width, clear vertical rhythm */
+.columns.columns9 p {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 14px;
+  margin-top: 0;
+  line-height: 1.6;
+  max-width: 650px;
+  text-align: left;
+}
+
+.columns.columns9 p a {
+  word-break: break-all;
+}
+
+/* Bolded text */
+.columns.columns9 p strong,
+.columns.columns9 strong {
+  font-weight: bold;
+}
+
+/* Links: white, underlined */
+.columns.columns9 a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.columns.columns9 a:hover,
+.columns.columns9 a:focus {
+  color: #bbb;
+}
+
+/* Divider at the bottom */
+.columns.columns9::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #fff;
+  width: 100%;
+}
+
+/* Responsive: single-column on small screens, stack social links below as row */
+@media (width <= 950px) {
+  .columns.columns9 > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .columns.columns9 #follow-us,
+  .columns.columns9 #follow-us + p {
+    grid-column: auto;
+    position: static;
+    width: 100%;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .columns.columns9 #follow-us + p {
+    margin-bottom: 40px;
+    gap: 12px;
+  }
+
+  .columns.columns9 .button-container,
+  .columns.columns9 p,
+  .columns.columns9 h4 {
+    max-width: 100%;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns9 {
+    padding: 24px 8px 12px;
+  }
+
+  .columns.columns9 > div {
+    padding: 0;
+  }
+
+  .columns.columns9 > div > div,
+  .columns.columns9 .button-container,
+  .columns.columns9 p,
+  .columns.columns9 h4 {
+    max-width: 100%;
+  }
+
+  .columns.columns9 #follow-us + p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .columns.columns9 .button-container .button {
+    min-width: 80px;
+    padding: 8px 10px;
+    font-size: 13px;
   }
 }
