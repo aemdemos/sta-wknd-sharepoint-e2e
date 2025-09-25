@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -129,14 +130,12 @@
   text-overflow: unset;
 }
 
-/* Button hover state: slightly darker yellow */
 .cards.cards2 .cards-card-body .button-container .button:hover,
 .cards.cards2 .cards-card-body .button-container .button:focus {
   background: #FFC400;
   color: #000;
 }
 
-/* Responsive: allow cards to wrap and take full width on mobile/tablet */
 @media (width <= 1100px) {
   .cards.cards2 > ul {
     flex-wrap: wrap;
@@ -181,4 +180,111 @@
     min-height: 44px;
     max-height: 44px;
   }
+}
+
+
+.cards.cards14 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Grid layout for cards */
+.cards.cards14 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .cards.cards14 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Each card: vertical stack, border, flush edges */
+.cards.cards14 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #dadada;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 240px;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* image section */
+.cards.cards14 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  line-height: 0;
+  flex-shrink: 0;
+  background: #eee;
+  margin: 0;
+  padding: 0;
+}
+
+/* img itself */
+.cards.cards14 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card body: tight under image, flush left/right, no extra space */
+.cards.cards14 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* Title: uppercase, bold, almost no margin/padding, very tight line-height */
+.cards.cards14 .cards-card-body h3 {
+  text-transform: uppercase;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 1px;
+  padding: 0 4px;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* Description: 1 line, gray, ellipsis, minimal bottom spacing, flush left/right */
+.cards.cards14 .cards-card-body p {
+  color: #7a7a7a;
+  font-size: 13px;
+  margin: 0;
+  padding: 0 4px;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+/* Remove default margin/padding on ul, li */
+.cards.cards14 > ul,
+.cards.cards14 > ul > li {
+  margin: 0;
+  padding: 0;
 }
