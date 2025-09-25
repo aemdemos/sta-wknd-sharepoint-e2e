@@ -416,7 +416,6 @@
   border: none;
 }
 
-/* Sidebar column (first child .tabs-list) */
 .tabs.tabs12 > .tabs-list:first-child {
   flex: 0 0 240px;
   min-width: 200px;
@@ -427,7 +426,6 @@
   margin: 0;
 }
 
-/* Main content column: vertical stack */
 .tabs.tabs12 > div:not(.tabs-list:first-child) {
   flex: 1 1 0%;
   max-width: 900px;
@@ -441,7 +439,6 @@
   box-shadow: none;
 }
 
-/* Tabs bar should be at the top of main content, not sidebar */
 .tabs.tabs12 > div:not(.tabs-list:first-child) > .tabs-list {
   display: flex;
   flex-direction: row;
@@ -454,7 +451,6 @@
   background: none;
 }
 
-/* Tab buttons */
 .tabs.tabs12 .tabs-tab {
   background: transparent;
   border: none;
@@ -489,7 +485,6 @@
   padding: 0;
 }
 
-/* Only show the active panel: stacked vertically below tabs */
 .tabs.tabs12 > div:not(.tabs-list:first-child) > .tabs-panel {
   display: none;
   width: 100%;
@@ -506,7 +501,6 @@
   display: block;
 }
 
-/* Ensure only active tab-panel is visible even if flex/grid were inherited */
 .tabs.tabs12 .tabs-panel[aria-hidden="true"] {
   display: none !important;
 }
@@ -515,7 +509,6 @@
   display: block;
 }
 
-/* Heading with yellow underline, reduce gap under tabs */
 .tabs.tabs12 .tabs-panel h3 {
   font-size: var(--heading-font-size-l);
   font-weight: 700;
@@ -529,7 +522,6 @@
   min-width: 48px;
 }
 
-/* Image styling */
 .tabs.tabs12 .tabs-panel picture,
 .tabs.tabs12 .tabs-panel img {
   display: block;
@@ -540,7 +532,6 @@
   margin-bottom: 18px;
 }
 
-/* Caption/lead-in text */
 .tabs.tabs12 .tabs-panel p:first-of-type {
   font-weight: bold;
   text-transform: uppercase;
@@ -551,7 +542,6 @@
   line-height: 1.4;
 }
 
-/* Body text */
 .tabs.tabs12 .tabs-panel p {
   font-size: var(--body-font-size-m);
   color: #444;
@@ -559,7 +549,6 @@
   line-height: 1.7;
 }
 
-/* List styling for "What to Bring" */
 .tabs.tabs12 .tabs-panel ul {
   margin: 18px 0 0;
   padding-left: 24px;
@@ -575,9 +564,6 @@
   border: none;
 }
 
-/* Remove border from main content container */
-
-/* Responsive: stack sidebar above main content on mobile */
 @media (width <= 900px) {
   .tabs.tabs12 {
     flex-direction: column;
@@ -597,5 +583,187 @@
   .tabs.tabs12 > div:not(.tabs-list:first-child) > .tabs-list {
     margin: 0 0 16px;
     gap: 24px;
+  }
+}
+
+
+.tabs.tabs13 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 64px auto 0;
+  background: none;
+  box-sizing: border-box;
+  padding: 0;
+  gap: 40px;
+}
+
+/* Sidebar: slim, compact vertical stack */
+.tabs.tabs13 > .tabs-list {
+  flex: 0 0 152px;
+  min-width: 120px;
+  max-width: 160px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+  background: none;
+}
+
+/* Vertical tab buttons: compact */
+.tabs.tabs13 > .tabs-list > .tabs-tab {
+  display: block;
+  width: 100%;
+  border: 2px solid #222;
+  border-radius: 0;
+  margin: 0;
+  padding: 12px 14px 10px;
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+  box-sizing: border-box;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+}
+
+.tabs.tabs13 > .tabs-list > .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+  cursor: default;
+}
+
+.tabs.tabs13 > .tabs-list > .tabs-tab p {
+  margin: 0;
+}
+
+/* Main content: remove box/border, flush left */
+.tabs.tabs13 > .tabs-panel {
+  flex: 1 1 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  max-width: 880px;
+  border: none;
+  box-shadow: none;
+}
+
+/* Hide inactive panels */
+.tabs.tabs13 > .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Remove default margin from direct child div */
+.tabs.tabs13 > .tabs-panel > div {
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings: flush, accent line using ::before for short yellow bar */
+.tabs.tabs13 > .tabs-panel h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.12;
+  display: block;
+  position: relative;
+  padding-left: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Short yellow line under h3 */
+.tabs.tabs13 > .tabs-panel h3::before {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #f5e6b5;
+  border-radius: 2px;
+  margin-bottom: 14px;
+  margin-top: 8px;
+  position: relative;
+  left: 0;
+  content: "";
+}
+
+/* Subtitle - strong, more space below */
+.tabs.tabs13 > .tabs-panel h2 {
+  font-size: 1.38rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 30px;
+  line-height: 1.18;
+  padding-left: 0;
+}
+
+/* Image: as wide as possible, no box, flush left, tighter margin below */
+.tabs.tabs13 > .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 18px;
+  margin-top: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Paragraphs and lists: smaller vertical spacing, flush alignment */
+.tabs.tabs13 > .tabs-panel p, 
+.tabs.tabs13 > .tabs-panel ul {
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.45;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+/* Slightly less left indent for lists */
+.tabs.tabs13 > .tabs-panel ul {
+  padding-left: 18px;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .tabs.tabs13 {
+    flex-direction: column;
+    gap: 0;
+    max-width: 100vw;
+    padding: 0 4vw;
+    margin-top: 32px;
+  }
+
+  .tabs.tabs13 > .tabs-list {
+    flex-direction: row;
+    min-width: 0;
+    max-width: 100vw;
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .tabs.tabs13 > .tabs-list > .tabs-tab {
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+    padding: 10px 16px;
+  }
+
+  .tabs.tabs13 > .tabs-panel {
+    max-width: 100vw;
+    padding: 0;
   }
 }
