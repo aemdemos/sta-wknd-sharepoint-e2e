@@ -2127,7 +2127,6 @@
   border: none;
 }
 
-/* Tabs row styling */
 .tabs.tabs34 .tabs-list {
   display: flex;
   gap: 18px;
@@ -2168,7 +2167,6 @@
   margin: 0;
 }
 
-/* Main layout: two columns with sidebar and main content */
 .tabs.tabs34 .tabs-panel {
   margin-top: 0;
   padding: 0;
@@ -2185,7 +2183,6 @@
   gap: 0 48px;
 }
 
-/* Responsive stacks sidebar above content */
 @media (width <= 900px) {
   .tabs.tabs34 .tabs-panel > div {
     grid-template-columns: 1fr;
@@ -2193,7 +2190,6 @@
   }
 }
 
-/* Sidebar (first child) */
 .tabs.tabs34 .tabs-panel > div > *:first-child {
   border-right: 2px solid #eaeaea;
   min-height: 400px;
@@ -2212,7 +2208,6 @@
   }
 }
 
-/* Main content column: force all children to vertical stack and fill width */
 .tabs.tabs34 .tabs-panel > div > *:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -2232,7 +2227,6 @@
   margin-right: 0;
 }
 
-/* Headings decoration */
 .tabs.tabs34 h3 {
   font-size: 2em;
   font-weight: 400;
@@ -2253,7 +2247,6 @@
   content: "";
 }
 
-/* Main heading: margin for separation from image */
 .tabs.tabs34 h2 {
   font-size: 1.5em;
   font-weight: 600;
@@ -2262,7 +2255,6 @@
   line-height: 1.2;
 }
 
-/* Ensure image is stacked and fills the main column width */
 .tabs.tabs34 .tabs-panel > div > *:nth-child(2) p > picture {
   width: 100%;
   display: block;
@@ -2278,7 +2270,6 @@
   box-shadow: none;
 }
 
-/* Ensure the picture paragraph itself has no side-by-side effect */
 .tabs.tabs34 .tabs-panel > div > *:nth-child(2) p {
   margin: 0 0 18px;
   padding: 0;
@@ -2286,7 +2277,6 @@
   display: block;
 }
 
-/* Ensure descriptive paragraph is stacked and fills main content width */
 .tabs.tabs34 .tabs-panel > div > *:nth-child(2) p:last-of-type {
   color: #222;
   font-size: 15px;
@@ -2297,4 +2287,188 @@
   display: block;
 }
 
-/* Remove container border/padding from previous implementations */
+
+.tabs.tabs36 {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 960px;
+  margin: 48px auto 0;
+  padding: 0 40px 48px;
+  background: var(--background-color);
+  border: none;
+  box-shadow: none;
+  display: block;
+}
+
+/* TABS ROW: align with content by removing horizontal padding; use only vertical margin */
+.tabs.tabs36 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 1.6rem;
+  margin: 24px 0 2.2rem;
+  padding: 0;
+  border: none;
+  background: none;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+/* TABS BUTTONS: as previous */
+.tabs.tabs36 .tabs-list button {
+  border: none;
+  background: transparent;
+  color: #222;
+  padding: 0.45em 1.8em 0.45em 0;
+  margin: 0;
+  font-size: 1.11rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  max-width: unset;
+  white-space: nowrap;
+  text-align: left;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs36 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0;
+}
+
+/* Remove default p styling inside button */
+.tabs.tabs36 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+/* TAB PANEL */
+.tabs.tabs36 .tabs-panel {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+/* Only hide inactive panels */
+.tabs.tabs36 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* TITLE: keep bottom margin, clear yellow accent underline */
+.tabs.tabs36 .tabs-panel > div > h3 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 0.2rem;
+  line-height: 1.13;
+  padding-bottom: 0.5rem;
+  position: relative;
+  letter-spacing: 0;
+  border-bottom: none;
+}
+
+/* YELLOW ACCENT LINE — visually matches original */
+.tabs.tabs36 .tabs-panel > div > h3::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #ffe16c;
+  margin-top: 0.35rem;
+  margin-bottom: 1.1rem;
+  border-radius: 1.5px;
+
+  /* No content property per constraints */
+}
+
+/* PARAGRAPH: match to image width, remove extra margin */
+.tabs.tabs36 .tabs-panel > div > p {
+  font-size: 1.13rem;
+  color: #222;
+  margin: 0 0 1.1rem;
+  line-height: 1.6;
+  padding: 0;
+  max-width: 100%;
+}
+
+.tabs.tabs36 .tabs-panel > div > p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* IMAGE: margin top for spacing, margin bottom for overall block balance */
+.tabs.tabs36 .tabs-panel picture,
+.tabs.tabs36 .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 2.2rem;
+  margin-bottom: 1.4rem;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Remove margin on p that contains picture */
+.tabs.tabs36 .tabs-panel > div > p > picture {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs36 .tabs-panel > div > p > img {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: tighten up padding/gaps for small screens */
+@media (width <= 900px) {
+  .tabs.tabs36 {
+    max-width: 100vw;
+    margin: 20px 0 0;
+    padding: 0 8px 24px;
+  }
+
+  .tabs.tabs36 .tabs-list {
+    gap: 0.8rem;
+    margin-top: 16px;
+    margin-bottom: 1.2rem;
+    padding: 0;
+  }
+
+  .tabs.tabs36 .tabs-panel > div > h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .tabs.tabs36 .tabs-panel > div > h3::after {
+    width: 28px;
+    height: 2px;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tabs.tabs36 .tabs-panel > div > p {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .tabs.tabs36 .tabs-panel img,
+  .tabs.tabs36 .tabs-panel picture {
+    margin-top: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+}
