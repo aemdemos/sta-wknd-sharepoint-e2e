@@ -45,3 +45,119 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero10 {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 0;
+  min-height: 400px;
+  display: block;
+  overflow: hidden;
+  background: none;
+}
+
+/* Ensure hero section extends to full page width */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Hero image container */
+.hero.hero10 > div:first-child {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive image sizing */
+.hero.hero10 picture,
+.hero.hero10 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Overlay card: raise slightly and widen for closer match */
+.hero.hero10 > div:nth-child(2) {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: auto;
+  bottom: 16px; /* Raised for a larger strip of image below the card */
+  width: 67%;
+  background: #fff;
+  padding: 52px 44px 60px; /* Increased vertical padding for better breathing space */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Card content wrapper */
+.hero.hero10 > div:nth-child(2) > div {
+  width: 100%;
+  position: relative;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Headline text styling */
+.hero.hero10 > div:nth-child(2) h2 {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0 0 18px;
+  text-align: left;
+  max-width: 100%;
+  line-height: 1.25;
+}
+
+/* Responsive adjustments */
+@media (width <= 899px) {
+  .hero.hero10 > div:first-child {
+    height: 220px;
+  }
+
+  .hero.hero10 > div:nth-child(2) {
+    width: 94%;
+    padding: 24px 12px 32px;
+    bottom: 10px;
+  }
+
+  .hero.hero10 > div:nth-child(2) h2 {
+    font-size: 1.15rem;
+  }
+
+  .hero.hero10 > div:nth-child(2) > div {
+    padding-bottom: 12px;
+  }
+}
+
+@media (width <= 599px) {
+  .hero.hero10 > div:first-child {
+    height: 120px;
+  }
+
+  .hero.hero10 > div:nth-child(2) {
+    width: 99%;
+    padding: 7px 4px 12px;
+    bottom: 3px;
+  }
+
+  .hero.hero10 > div:nth-child(2) h2 {
+    font-size: 0.97rem;
+  }
+
+  .hero.hero10 > div:nth-child(2) > div {
+    padding-bottom: 6px;
+  }
+}
