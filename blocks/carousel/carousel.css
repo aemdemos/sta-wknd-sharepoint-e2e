@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,57 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel16 {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+}
+
+/* Remove section/wrapper margin if inherited */
+.carousel.carousel16 .carousel-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure carousel slides and image fill the entire width */
+.carousel.carousel16 .carousel-slides-container,
+.carousel.carousel16 .carousel-slides,
+.carousel.carousel16 .carousel-slide {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.carousel.carousel16 .carousel-slide-image picture,
+.carousel.carousel16 .carousel-slide-image picture > img {
+  width: 100vw;
+  max-width: 100vw;
+  height: auto;
+  min-height: 320px;
+  display: block;
+  margin: 0;
+  object-fit: cover;
+}
+
+/* Hide overlay text */
+.carousel.carousel16 .carousel-slide-content {
+  display: none;
+}
+
+/* Controls area below image */
+.carousel.carousel16 .carousel-slides-container {
+  padding-bottom: 36px;
 }
