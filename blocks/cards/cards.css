@@ -248,11 +248,10 @@
   box-sizing: border-box;
 }
 
-/* 4 columns grid, center everything */
 .cards.cards24 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px 72px; /* more horizontal space, tighter vertical space */
+  gap: 40px 72px;
   justify-content: center;
   align-items: start;
   list-style: none;
@@ -260,7 +259,6 @@
   padding: 0;
 }
 
-/* Center the second row of 3 cards using empty cells */
 .cards.cards24 > ul > li:nth-child(5) {
   grid-column-start: 2;
 }
@@ -273,7 +271,6 @@
   grid-column-start: 4;
 }
 
-/* Responsive: 900px and below - 2 columns, center all */
 @media (width <= 900px) {
   .cards.cards24 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -285,7 +282,6 @@
   }
 }
 
-/* Responsive: 600px and below - 1 column, center all */
 @media (width <= 600px) {
   .cards.cards24 > ul {
     grid-template-columns: 1fr;
@@ -293,7 +289,6 @@
   }
 }
 
-/* Card styling */
 .cards.cards24 > ul > li {
   background: #fff;
   border: none;
@@ -308,7 +303,6 @@
   justify-self: center;
 }
 
-/* Avatar image */
 .cards.cards24 .cards-card-image {
   width: 142px;
   height: 142px;
@@ -327,7 +321,6 @@
   box-shadow: 0 2px 8px rgb(60 60 60 / 7%);
 }
 
-/* Card body centering and spacing */
 .cards.cards24 .cards-card-body {
   text-align: center;
   padding: 0 0 44px;
@@ -338,7 +331,6 @@
   align-items: center;
 }
 
-/* Name styling */
 .cards.cards24 .cards-card-body h4 {
   font-size: 26px;
   font-weight: 700;
@@ -348,7 +340,6 @@
   letter-spacing: 0.1px;
 }
 
-/* Role styling */
 .cards.cards24 .cards-card-body p:first-of-type {
   font-size: 14px;
   font-weight: 400;
@@ -359,7 +350,6 @@
   line-height: 1.6;
 }
 
-/* Social row */
 .cards.cards24 .cards-card-body p:last-of-type {
   display: flex;
   flex-direction: row;
@@ -369,7 +359,6 @@
   padding: 0;
 }
 
-/* Social icon button styling */
 .cards.cards24 .cards-card-body p:last-of-type a {
   display: inline-flex;
   align-items: center;
@@ -397,9 +386,108 @@
   color: #fff;
 }
 
-/* Remove unwanted spacing for ul and li */
 .cards.cards24 > ul,
 .cards.cards24 > ul > li {
   margin: 0;
   padding: 0;
+}
+
+
+.cards.cards26 {
+  padding-left: 0;
+}
+
+/* Card row: flex row, left/top aligned, tight gap */
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual cards: column layout, consistent width */
+.cards.cards26 > ul > li {
+  border: none;
+  background: none;
+  min-width: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 196px; /* Increased width so long titles fit */
+}
+
+/* Card image: fixed size square */
+.cards.cards26 .cards-card-image {
+  margin-bottom: 8px;
+  width: 196px;
+  height: 196px;
+  line-height: 0;
+  display: block;
+}
+
+.cards.cards26 .cards-card-image img {
+  width: 196px;
+  height: 196px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body: fixed width, left aligned, no extra padding */
+.cards.cards26 .cards-card-body {
+  padding: 0;
+  margin: 0;
+  width: 196px;
+  text-align: left;
+}
+
+/* Title: single line, ellipsis, uppercase, bold, allow max width */
+.cards.cards26 .cards-card-body p:first-child {
+  margin: 0 0 8px;
+}
+
+.cards.cards26 .cards-card-body p:first-child strong {
+  font-size: 16px;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Description: single line, ellipsis, gray, small, left aligned */
+.cards.cards26 .cards-card-body p:last-child {
+  font-size: 12px;
+  color: #757575;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+  text-align: left;
+}
+
+/* Responsive: stack cards vertically and make elements fill container */
+@media (width <= 500px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cards.cards26 > ul > li,
+  .cards.cards26 .cards-card-image,
+  .cards.cards26 .cards-card-body {
+    width: 100%;
+    max-width: 100%;
+  }
 }
