@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -236,4 +237,169 @@
 
 .cards.cards21 .cards-card-body .button-container {
   display: none;
+}
+
+
+.cards.cards24 {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 108px 48px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* 4 columns grid, center everything */
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 72px; /* more horizontal space, tighter vertical space */
+  justify-content: center;
+  align-items: start;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Center the second row of 3 cards using empty cells */
+.cards.cards24 > ul > li:nth-child(5) {
+  grid-column-start: 2;
+}
+
+.cards.cards24 > ul > li:nth-child(6) {
+  grid-column-start: 3;
+}
+
+.cards.cards24 > ul > li:nth-child(7) {
+  grid-column-start: 4;
+}
+
+/* Responsive: 900px and below - 2 columns, center all */
+@media (width <= 900px) {
+  .cards.cards24 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 24px;
+  }
+
+  .cards.cards24 > ul > li {
+    grid-column: unset;
+  }
+}
+
+/* Responsive: 600px and below - 1 column, center all */
+@media (width <= 600px) {
+  .cards.cards24 > ul {
+    grid-template-columns: 1fr;
+    gap: 40px 0;
+  }
+}
+
+/* Card styling */
+.cards.cards24 > ul > li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  max-width: 300px;
+  width: 100%;
+  justify-self: center;
+}
+
+/* Avatar image */
+.cards.cards24 .cards-card-image {
+  width: 142px;
+  height: 142px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards.cards24 .cards-card-image img {
+  width: 142px;
+  height: 142px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 2px 8px rgb(60 60 60 / 7%);
+}
+
+/* Card body centering and spacing */
+.cards.cards24 .cards-card-body {
+  text-align: center;
+  padding: 0 0 44px;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Name styling */
+.cards.cards24 .cards-card-body h4 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 21px;
+  line-height: 1.24;
+  letter-spacing: 0.1px;
+}
+
+/* Role styling */
+.cards.cards24 .cards-card-body p:first-of-type {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #666;
+  margin: 0 0 36px;
+  letter-spacing: 0.6px;
+  line-height: 1.6;
+}
+
+/* Social row */
+.cards.cards24 .cards-card-body p:last-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Social icon button styling */
+.cards.cards24 .cards-card-body p:last-of-type a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: #222;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 0;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin: 0;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 6%);
+}
+
+.cards.cards24 .cards-card-body p:last-of-type a:hover,
+.cards.cards24 .cards-card-body p:last-of-type a:focus {
+  background: #444;
+  color: #fff;
+}
+
+.cards.cards24 .cards-card-body p:last-of-type a:active,
+.cards.cards24 .cards-card-body p:last-of-type a:visited {
+  color: #fff;
+}
+
+/* Remove unwanted spacing for ul and li */
+.cards.cards24 > ul,
+.cards.cards24 > ul > li {
+  margin: 0;
+  padding: 0;
 }
