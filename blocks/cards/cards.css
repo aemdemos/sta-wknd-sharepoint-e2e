@@ -397,7 +397,6 @@
   padding-left: 0;
 }
 
-/* Card row: flex row, left/top aligned, tight gap */
 .cards.cards26 > ul {
   display: flex;
   flex-direction: row;
@@ -409,7 +408,6 @@
   padding: 0;
 }
 
-/* Individual cards: column layout, consistent width */
 .cards.cards26 > ul > li {
   border: none;
   background: none;
@@ -419,10 +417,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 196px; /* Increased width so long titles fit */
+  width: 196px;
 }
 
-/* Card image: fixed size square */
 .cards.cards26 .cards-card-image {
   margin-bottom: 8px;
   width: 196px;
@@ -438,7 +435,6 @@
   display: block;
 }
 
-/* Card body: fixed width, left aligned, no extra padding */
 .cards.cards26 .cards-card-body {
   padding: 0;
   margin: 0;
@@ -446,7 +442,6 @@
   text-align: left;
 }
 
-/* Title: single line, ellipsis, uppercase, bold, allow max width */
 .cards.cards26 .cards-card-body p:first-child {
   margin: 0 0 8px;
 }
@@ -464,7 +459,6 @@
   text-overflow: ellipsis;
 }
 
-/* Description: single line, ellipsis, gray, small, left aligned */
 .cards.cards26 .cards-card-body p:last-child {
   font-size: 12px;
   color: #757575;
@@ -477,7 +471,6 @@
   text-align: left;
 }
 
-/* Responsive: stack cards vertically and make elements fill container */
 @media (width <= 500px) {
   .cards.cards26 > ul {
     flex-direction: column;
@@ -490,4 +483,107 @@
     width: 100%;
     max-width: 100%;
   }
+}
+
+
+.cards.cards30 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Outer card layout: increased gap for closer match to original */
+.cards.cards30 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width <= 1200px) {
+  .cards.cards30 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards30 > ul {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Card: vertical stacking, tight, no border */
+.cards.cards30 > ul > li {
+  background: #fff;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  box-shadow: none;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* Image wrapper: square aspect */
+.cards.cards30 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Image: square fill */
+.cards.cards30 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+/* Card body: tight stacking, increased margin under title for breathing room */
+.cards.cards30 .cards-card-body {
+  padding-top: 12px;
+  margin: 0;
+  display: block;
+}
+
+/* Title: uppercase, bold, left-aligned, more margin below */
+.cards.cards30 .cards-card-body h3 {
+  font-size: 1.06em;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* Excerpt: one line, ellipsis, gray, very tight below */
+.cards.cards30 .cards-card-body > p:not(.button-container) {
+  font-size: 0.95em;
+  color: #4d4d4d;
+  margin: 0;
+  margin-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.cards.cards30 .cards-card-body > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Hide button container */
+.cards.cards30 .cards-card-body .button-container {
+  display: none;
 }
