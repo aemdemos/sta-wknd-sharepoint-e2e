@@ -166,13 +166,11 @@
   background: transparent;
 }
 
-/* Remove section/wrapper margin if inherited */
 .carousel.carousel16 .carousel-wrapper {
   margin: 0;
   padding: 0;
 }
 
-/* Ensure carousel slides and image fill the entire width */
 .carousel.carousel16 .carousel-slides-container,
 .carousel.carousel16 .carousel-slides,
 .carousel.carousel16 .carousel-slide {
@@ -195,12 +193,81 @@
   object-fit: cover;
 }
 
-/* Hide overlay text */
 .carousel.carousel16 .carousel-slide-content {
   display: none;
 }
 
-/* Controls area below image */
 .carousel.carousel16 .carousel-slides-container {
   padding-bottom: 36px;
+}
+
+
+.carousel.carousel18 {
+  background: #fff;
+  padding-bottom: 80px;
+}
+
+/* Expanded white area below the image for more breathing room */
+.carousel.carousel18 .carousel-slides-container {
+  padding-bottom: 72px;
+}
+
+/* Navigation arrows: larger, bolder, spaced further from edges, vertically centered in the white area */
+.carousel.carousel18 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 0 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  background: none;
+  pointer-events: auto;
+  padding: 0 48px;
+  height: 0; /* Let buttons align with dots */
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  margin: 0;
+  font-size: 0; /* hide any accidental text nodes */
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button:hover,
+.carousel.carousel18 .carousel-navigation-buttons button:focus-visible {
+  background: #ededed;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button::after {
+  border-color: #111;
+  border-width: 3px;
+  height: 18px;
+  width: 18px;
+  left: 50%;
+  top: 50%;
+}
+
+/* Hide overlay content for clean image */
+.carousel.carousel18 .carousel-slide .carousel-slide-content {
+  background: none;
+  color: transparent;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
 }
