@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,213 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs6 {
+  max-width: 740px;
+  margin: 56px auto 0;
+  box-sizing: border-box;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs6 > .tabs-panel > div {
+  width: 100%;
+  max-width: 600px;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+}
+
+.tabs.tabs6 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 44px;
+  border: none;
+  background: transparent;
+  margin-top: 20px;
+  margin-bottom: 28px;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabs.tabs6 .tabs-tab {
+  border: none;
+  background: transparent;
+  color: #222;
+  padding: 0 0 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  position: relative;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.tabs.tabs6 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: bold;
+}
+
+.tabs.tabs6 .tabs-tab[aria-selected="true"] p {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.tabs.tabs6 .tabs-tab[aria-selected="true"] p::after {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -3px;
+  height: 2px;
+  width: 54%;
+  max-width: 24px;
+  background: #ffe066;
+  border-radius: 2px;
+}
+
+.tabs.tabs6 .tabs-tab:not([aria-selected="true"]):hover {
+  background: #f6f6f6;
+}
+
+.tabs.tabs6 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs6 .tabs-panel {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+  overflow: visible;
+  width: 100%;
+}
+
+.tabs.tabs6 .tabs-panel > div > h3:first-child {
+  font-size: 2em;
+  font-weight: 600;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.18em;
+  position: relative;
+  padding-bottom: 7px;
+}
+
+.tabs.tabs6 .tabs-panel > div > h3:first-child::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 28px;
+  height: 2px;
+  background: #ffe066;
+  border-radius: 2px;
+}
+
+.tabs.tabs6 .tabs-panel > div > h3 + h3,
+.tabs.tabs6 .tabs-panel > div > h2 {
+  font-size: 1.12em;
+  font-weight: 600;
+  color: #222;
+  margin-top: 0.5em;
+  margin-bottom: 0.42em;
+}
+
+.tabs.tabs6 .tabs-panel picture {
+  display: block;
+  margin-bottom: 1.05em;
+  margin-top: 0.5em;
+  width: 100%;
+}
+
+.tabs.tabs6 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs6 .tabs-panel > div > p,
+.tabs.tabs6 .tabs-panel > div > ul,
+.tabs.tabs6 .tabs-panel > div > ol {
+  color: #444;
+  font-size: 1.05em;
+  line-height: 1.7;
+  margin: 0.3em 0 0.8em;
+  max-width: 600px;
+  padding: 0;
+  text-align: left;
+}
+
+.tabs.tabs6 .tabs-panel > div > ul,
+.tabs.tabs6 .tabs-panel > div > ol {
+  padding-left: 1.2em;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs6 {
+    max-width: 99vw;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .tabs.tabs6 > .tabs-panel > div {
+    max-width: 98vw;
+  }
+
+  .tabs.tabs6 .tabs-list {
+    gap: 18px;
+    margin-bottom: 16px;
+  }
+
+  .tabs.tabs6 .tabs-panel > div > h3:first-child {
+    font-size: 1.4em;
+    padding-bottom: 5px;
+  }
+
+  .tabs.tabs6 .tabs-panel > div > p,
+  .tabs.tabs6 .tabs-panel > div > ul,
+  .tabs.tabs6 .tabs-panel > div > ol {
+    font-size: 1em;
+    max-width: 98vw;
+  }
+
+  .tabs.tabs6 .tabs-panel picture {
+    margin-bottom: 1em;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs6 .tabs-list {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .tabs.tabs6 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tabs.tabs6 > .tabs-panel > div {
+    max-width: 100vw;
+  }
 }
