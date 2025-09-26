@@ -54,7 +54,6 @@
   padding: 0;
 }
 
-/* Hero image: background layer */
 .hero.hero12 > div:first-child {
   position: absolute;
   inset: 0;
@@ -72,7 +71,6 @@
   display: block;
 }
 
-/* Overlay card: flush to bottom, centered horizontally */
 .hero.hero12 > div:last-child {
   position: absolute;
   left: 50%;
@@ -86,7 +84,6 @@
   pointer-events: none;
 }
 
-/* Card styling */
 .hero.hero12 > div:last-child > div {
   background: var(--background-color);
   box-sizing: border-box;
@@ -101,7 +98,6 @@
   overflow: visible;
 }
 
-/* Divider line under card */
 .hero.hero12 > div:last-child > div::after {
   display: block;
   width: 100%;
@@ -111,7 +107,6 @@
   margin-bottom: -1rem;
 }
 
-/* Headline alignment and weight */
 .hero.hero12 h1,
 .hero.hero12 h2,
 .hero.hero12 h3,
@@ -125,7 +120,6 @@
   line-height: 1.3;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero12 > div:last-child > div {
     width: 97%;
@@ -143,5 +137,141 @@
 
   .hero.hero12 {
     min-height: 180px;
+  }
+}
+
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero27 {
+  position: relative;
+  width: 100vw;
+  min-height: 320px;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+}
+
+/* Full-bleed background image */
+.hero.hero27 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero27 picture,
+.hero.hero27 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay box: anchored to bottom, compact vertical padding, nearly full width */
+.hero.hero27 > div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 0;
+  pointer-events: auto;
+}
+
+/* Even more compact overlay for minimal vertical presence */
+.hero.hero27 > div:nth-child(2) > div {
+  background: #fff;
+  padding: 0.7rem 2vw 0.8rem; /* considerably smaller vertical padding */
+  margin: 0;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 2px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 8%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.hero.hero27 h2,
+.hero.hero27 p {
+  color: var(--text-color);
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.hero.hero27 h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero.hero27 p {
+  font-size: var(--body-font-size-m);
+  margin-bottom: 1.1rem;
+}
+
+.hero.hero27 .button-container {
+  text-align: left;
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+}
+
+/* Button style override for hero */
+.hero-container > .hero-wrapper > .block.hero.hero27 .button {
+  background: #ffd600;
+  color: var(--text-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  padding: 0.7em 2em;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin: 0;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero27 .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero27 .button:focus {
+  background: #ffe066;
+  color: var(--dark-color);
+}
+
+/* Responsive: stack, reduce padding/margins, keep overlay at bottom */
+@media (width <= 900px) {
+  .hero.hero27 > div:nth-child(2) > div {
+    padding: 0.5rem 1vw;
+    max-width: 99vw;
+    border-radius: 0;
+  }
+
+  .hero.hero27 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero27 > div:nth-child(2) > div {
+    padding: 0.4rem 0.5vw;
+    margin: 0;
+    max-width: 100vw;
   }
 }
