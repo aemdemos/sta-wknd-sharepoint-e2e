@@ -78,7 +78,6 @@
   position: relative;
 }
 
-/* --- LEFT COLUMN: logo and language only, stacked --- */
 .columns.columns10 > .block > div:first-child {
   display: flex;
   flex-direction: column;
@@ -88,7 +87,6 @@
   padding: 0;
 }
 
-/* Logo */
 .columns.columns10 .columns-img-col {
   margin-bottom: 10px;
 }
@@ -101,7 +99,6 @@
   margin: 0;
 }
 
-/* Language selector: remove bullet, left-align, compact */
 .columns.columns10 > .block > div:first-child > div:nth-child(2) ul {
   list-style: none;
   padding: 0;
@@ -130,10 +127,8 @@
   color: #fff;
 }
 
-/* --- "Follow Us" + Social: horizontal row, right aligned, absolute at top right of block --- */
 .columns.columns10 > .block > div:first-child > div:nth-child(3),
 .columns.columns10 > .block > div:first-child > div:nth-child(4) {
-  /* Place social area absolutely at top-right of .block, above info column */
   position: absolute;
   top: 32px;
   right: 40px;
@@ -167,7 +162,6 @@
   }
 }
 
-/* "Follow Us" label: small, uppercase, right-aligned */
 .columns.columns10 > .block > div:first-child > div:nth-child(3) h4 {
   margin: 0 12px 0 0;
   color: #f5f5f5;
@@ -181,7 +175,6 @@
   white-space: nowrap;
 }
 
-/* Social links: small square button style, icon-only, horizontal row */
 .columns.columns10 .button-container {
   margin: 0;
 }
@@ -236,7 +229,6 @@
   text-decoration: none;
 }
 
-/* --- RIGHT COLUMN --- */
 .columns.columns10 > .block > div:last-child {
   align-self: flex-start;
 }
@@ -271,7 +263,150 @@
   color: #eaeaea;
 }
 
-/* Top alignment for all columns */
 .columns.columns10 > .block > div {
   align-self: flex-start;
+}
+
+
+.columns.columns40 {
+  background: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.columns.columns40 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  width: 100%;
+  min-height: 420px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure each column takes up exactly half the width, never collapses */
+.columns.columns40 > div > div:first-child,
+.columns.columns40 > div > div.columns-img-col {
+  flex: 1 1 0;
+  width: 50%;
+  min-width: 0;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+/* TEXT COLUMN */
+.columns.columns40 > div > div:first-child {
+  background: #f2f2f2;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 32px;
+  height: auto;
+}
+
+/* IMAGE COLUMN */
+.columns.columns40 > div > div.columns-img-col {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+.columns.columns40 .columns-img-col picture,
+.columns.columns40 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Typography and text spacing */
+.columns.columns40 > div > div:first-child p:first-child {
+  font-size: var(--body-font-size-s);
+  text-transform: uppercase;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 26px;
+  margin-top: 0;
+  letter-spacing: 0.05em;
+}
+
+.columns.columns40 > div > div:first-child h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 24px;
+  margin-top: 0;
+  line-height: 1.15;
+}
+
+.columns.columns40 > div > div:first-child p:not(:first-child, .button-container) {
+  font-size: var(--body-font-size-m);
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  margin-top: 0;
+}
+
+/* Button styling */
+.columns.columns40 .button-container {
+  margin-top: 24px;
+}
+
+.columns.columns40 .button-container .button {
+  background: #ffe800;
+  color: #222;
+  font-weight: 700;
+  font-size: var(--body-font-size-m);
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  padding: 16px 32px;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s;
+  outline: none;
+  display: inline-block;
+}
+
+.columns.columns40 .button-container .button:hover,
+.columns.columns40 .button-container .button:focus {
+  background: #ffd700;
+  color: #222;
+  text-decoration: none;
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 900px) {
+  .columns.columns40 > div {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .columns.columns40 > div > div:first-child,
+  .columns.columns40 > div > div.columns-img-col {
+    width: 100%;
+    min-width: 0;
+    min-height: 180px;
+    padding: 24px 16px;
+    height: auto;
+  }
+
+  .columns.columns40 .columns-img-col picture,
+  .columns.columns40 .columns-img-col img {
+    min-height: 160px;
+    height: 220px;
+    max-height: 260px;
+  }
 }
