@@ -644,7 +644,6 @@
   margin: 0 auto;
 }
 
-/* Sidebar (first child) */
 .tabs.tabs11 > div:first-child {
   flex: 0 0 130px;
   max-width: 130px;
@@ -659,7 +658,6 @@
   gap: 0;
 }
 
-/* Only show active tab panel as flex column next to sidebar */
 .tabs.tabs11 > .tabs-panel[aria-hidden="false"] {
   flex: 1 1 0;
   display: flex;
@@ -671,7 +669,6 @@
   max-width: 1100px;
 }
 
-/* Hide all inactive tab panels */
 .tabs.tabs11 > .tabs-panel[aria-hidden="true"] {
   display: none;
 }
@@ -696,7 +693,6 @@
   }
 }
 
-/* Sidebar Tabs Navigation */
 .tabs.tabs11 > div:first-child .tabs-list {
   display: flex;
   flex-direction: column;
@@ -724,7 +720,6 @@
   border: none;
 }
 
-/* Remove all border/background from inactive tabs */
 .tabs.tabs11 > div:first-child .tabs-list button:not([aria-selected="true"]) {
   background: none;
   color: #6d6d6d;
@@ -762,7 +757,6 @@
   }
 }
 
-/* Panel content spacing and layout */
 .tabs.tabs11 .tabs-panel {
   border: none;
   box-shadow: none;
@@ -773,7 +767,6 @@
   width: 100%;
 }
 
-/* Headings and yellow underline */
 .tabs.tabs11 .tabs-panel h3 {
   font-size: 28px;
   font-weight: 600;
@@ -797,7 +790,6 @@
   background: #e3ca7d;
 }
 
-/* Main Title (h2) */
 .tabs.tabs11 .tabs-panel h2 {
   font-size: 32px;
   font-weight: 700;
@@ -807,7 +799,6 @@
   letter-spacing: 0;
 }
 
-/* Body text */
 .tabs.tabs11 .tabs-panel p {
   color: var(--text-color);
   font-size: var(--body-font-size-m);
@@ -817,7 +808,6 @@
   max-width: 1000px;
 }
 
-/* Images */
 .tabs.tabs11 .tabs-panel picture,
 .tabs.tabs11 .tabs-panel img {
   display: block;
@@ -831,7 +821,6 @@
   text-align: left;
 }
 
-/* List styling */
 .tabs.tabs11 .tabs-panel ul {
   margin-top: 0;
   margin-bottom: 30px;
@@ -845,7 +834,6 @@
   list-style-type: disc;
 }
 
-/* Sidebar summary area, if present */
 .tabs.tabs11 > div:first-child :not(.tabs-list) {
   color: #6d6d6d;
   font-size: var(--body-font-size-s);
@@ -864,7 +852,6 @@
   margin-bottom: 12px;
 }
 
-/* Responsive image max-width */
 @media (width <= 1200px) {
   .tabs.tabs11 .tabs-panel picture,
   .tabs.tabs11 .tabs-panel img,
@@ -899,3 +886,186 @@
     margin: 10px 0;
   }
 }
+
+
+.tabs.tabs13 {
+  /* Flexbox root: two columns, flush left; tighter gap, more unified block */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 56px;
+  gap: 28px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--background-color);
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 {
+    flex-direction: column;
+    gap: 0;
+    padding-top: 32px;
+    max-width: 100%;
+  }
+}
+
+/* Sidebar navigation column */
+.tabs.tabs13 .tabs-list {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  width: 120px;
+  background: none;
+  border: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 .tabs-list {
+    flex-direction: row;
+    width: auto;
+    gap: 0.5ch;
+    margin-bottom: 24px;
+  }
+}
+
+/* Sidebar tab buttons: vertical, simple nav style */
+.tabs.tabs13 .tabs-list button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  color: #808080;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.6;
+  border-radius: 0;
+  outline: none;
+  transition: color 0.2s;
+  min-width: 0;
+  letter-spacing: 0.015em;
+}
+
+.tabs.tabs13 .tabs-list button[aria-selected='true'] {
+  color: #222;
+  font-weight: 700;
+  background: none;
+  border: none;
+  cursor: default;
+}
+
+.tabs.tabs13 .tabs-list button p {
+  margin: 0;
+}
+
+/* Main content column */
+.tabs.tabs13 .tabs-panel {
+  flex: 1 1 0%;
+  min-width: 0;
+  background: var(--background-color);
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Hide inactive panels */
+.tabs.tabs13 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Heading inside content (flush-left with sidebar, negative margin ONLY) */
+.tabs.tabs13 .tabs-panel > div > h3 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 34px;
+  line-height: 1.1;
+  position: relative;
+  margin-left: -120px;
+  max-width: 850px;
+  letter-spacing: 0.01em;
+  padding-left: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs13 .tabs-panel > div > h3 {
+    margin-left: 0;
+    font-size: 1.5rem;
+    margin-bottom: 22px;
+    max-width: 100%;
+  }
+}
+
+.tabs.tabs13 .tabs-panel > div > h3::after {
+  display: block;
+  width: 54px;
+  height: 4px;
+  background: #ffe588;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+/* Image */
+.tabs.tabs13 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.tabs.tabs13 .tabs-panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
+  border-radius: 0;
+}
+
+/* Section headline below image */
+.tabs.tabs13 .tabs-panel p:first-of-type {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  font-size: 15px;
+  margin-bottom: 12px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+/* Body text */
+.tabs.tabs13 .tabs-panel p:not(:first-of-type) {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* List styling in "What to Bring" tab */
+.tabs.tabs13 .tabs-panel ul {
+  margin: 0 0 20px;
+  padding-left: 20px;
+  word-wrap: break-word;
+}
+
+.tabs.tabs13 .tabs-panel li {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+/* Prevent overflow in main content */
