@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,178 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background: #232323;
+  color: #ccc;
+  padding: 40px 32px;
+  box-sizing: border-box;
+}
+
+/* Two columns: left (content group), right (text) */
+.columns > .columns10.block {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  gap: 48px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns > .columns10.block {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* LEFT COLUMN: tightly grouped, all children left-aligned, compact */
+.columns > .columns10.block > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0; /* Remove default gap, we'll control spacing more directly */
+  padding: 0;
+}
+
+/* LOGO: margin below to nav */
+.columns .columns-img-col {
+  margin-bottom: 6px;
+}
+
+.columns .columns-img-col img {
+  max-width: 220px;
+  width: 100%;
+  display: block;
+  height: auto;
+  margin: 0;
+}
+
+/* NAVIGATION: horizontal, uppercase, no bullets, right under logo */
+.columns > .columns10.block > div:first-child > div:nth-child(2) ul {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  align-items: flex-end;
+}
+
+.columns > .columns10.block > div:first-child > div:nth-child(2) ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.columns > .columns10.block > div:first-child > div:nth-child(2) ul li a {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #eee;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.columns > .columns10.block > div:first-child > div:nth-child(2) ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* GROUP "Follow Us" LABEL AND SOCIAL BUTTONS TIGHTLY */
+.columns > .columns10.block > div:first-child > div:nth-child(3) {
+  margin: 0 0 2px;
+}
+
+.columns > .columns10.block > div:first-child > div:nth-child(4) {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+/* "Follow Us" label: smaller margin, left-aligned */
+.columns > .columns10.block > div:first-child > div:nth-child(3) h4 {
+  margin: 0 0 6px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  align-self: flex-start;
+  line-height: 1.15;
+}
+
+/* SOCIAL BUTTONS: horizontal row, outlined, tight gap, left-aligned */
+
+@media (width <= 650px) {
+  .columns > .columns10.block > div:first-child > div:nth-child(4) {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+.columns > .columns10.block .button-container {
+  margin: 0;
+}
+
+.columns > .columns10.block .button-container .button {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 6px 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.25;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.columns > .columns10.block .button-container .button:hover,
+.columns > .columns10.block .button-container .button:focus {
+  background: #fff;
+  color: #222;
+  border-color: #fff;
+  text-decoration: none;
+}
+
+/* RIGHT COLUMN: DESCRIPTION */
+.columns > .columns10.block > div:last-child > div {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 0;
+}
+
+.columns > .columns10.block > div:last-child p {
+  margin: 0 0 12px;
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Inline links: underline and brighter */
+.columns > .columns10.block > div:last-child a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.columns > .columns10.block > div:last-child a:hover {
+  color: #aad8ff;
+}
+
+/* Responsive padding */
+@media (width <= 900px) {
+  .columns {
+    padding: 24px 8px;
   }
 }
