@@ -269,7 +269,6 @@
 
 
 .tabs.tabs8 {
-  /* Remove border and background to match original */
   border: none;
   background: transparent;
   box-shadow: none;
@@ -280,7 +279,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs Row: Compact, flush left */
 .tabs.tabs8 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -332,7 +330,6 @@
   padding: 0;
 }
 
-/* Content stack: vertical rhythm, left aligned */
 .tabs.tabs8 .tabs-panel > div {
   display: flex;
   flex-direction: column;
@@ -342,7 +339,6 @@
   width: 100%;
 }
 
-/* Headings and accent line */
 .tabs.tabs8 .tabs-panel h3 {
   font-size: 2rem;
   font-weight: 400;
@@ -379,7 +375,6 @@
   box-sizing: border-box;
 }
 
-/* Main image: full width, consistent vertical spacing */
 .tabs.tabs8 .tabs-panel picture,
 .tabs.tabs8 .tabs-panel img {
   margin-top: 0;
@@ -393,7 +388,6 @@
   justify-self: start;
 }
 
-/* Body text & lists: vertical rhythm, left alignment */
 .tabs.tabs8 .tabs-panel p,
 .tabs.tabs8 .tabs-panel ul {
   font-size: 1rem;
@@ -410,7 +404,6 @@
   padding-left: 1.6em;
 }
 
-/* Remove extra-top margin from global h3/h2 */
 .tabs.tabs8 .tabs-panel h3,
 .tabs.tabs8 .tabs-panel h2 {
   margin-top: 0;
@@ -420,7 +413,6 @@
   margin-top: 0;
 }
 
-/* Responsive tweaks */
 @media (width <= 900px) {
   .tabs.tabs8 {
     max-width: 100vw;
@@ -465,5 +457,191 @@
 
   .tabs.tabs8 .tabs-panel h2 {
     font-size: 0.90rem;
+  }
+}
+
+
+.tabs.tabs9 {
+  padding: 0;
+}
+
+/* Tabs Navigation */
+.tabs.tabs9 .tabs-list {
+  display: flex;
+  gap: 0;
+  margin: 0 0 40px;
+  padding: 0;
+  border: none;
+  background: none;
+  position: relative;
+  z-index: 1;
+
+  /* Optionally align tabs left with main content */
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tabs.tabs9 .tabs-list button {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0 36px;
+  height: 44px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-bottom 0.2s;
+  border-radius: 0;
+  margin: 0;
+  line-height: 44px;
+  box-shadow: none;
+}
+
+.tabs.tabs9 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #222;
+  z-index: 1;
+}
+
+.tabs.tabs9 .tabs-list button p {
+  margin: 0;
+}
+
+/* Main layout: Adjusted grid for sidebar width and gap */
+.tabs.tabs9 .tabs-panel {
+  border: none;
+  background: var(--background-color);
+  margin-top: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.tabs.tabs9 .tabs-panel > div {
+  display: grid;
+  grid-template-columns: minmax(140px, 200px) 1fr;
+  gap: 16px;
+  align-items: start;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Sidebar/title column: prevent wrapping, maintain left alignment */
+.tabs.tabs9 .tabs-panel > div > h3 {
+  grid-column: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  align-self: flex-start;
+  position: relative;
+  padding-bottom: 8px;
+  border-bottom: none;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.tabs.tabs9 .tabs-panel > div > h3::after {
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: #f7e8a4;
+  border-radius: 2px;
+  margin-top: 10px;
+  background-image: linear-gradient(to right, #f7e8a4 100%, transparent 0);
+  background-size: 64px 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+/* Main column: stack all content in right column with minimal margin to top */
+.tabs.tabs9 .tabs-panel > div > *:not(h3) {
+  grid-column: 2;
+  margin-top: 0;
+}
+
+/* Remove vertical gap between columns and reduce margin above image */
+.tabs.tabs9 .tabs-panel > div > *:not(h3):first-child {
+  margin-top: 0;
+}
+
+/* Remove extra vertical gap between image and top of content */
+.tabs.tabs9 picture,
+.tabs.tabs9 img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+/* Caption styles */
+.tabs.tabs9 .tabs-panel > div > p:first-of-type {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #135;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+/* Main body text */
+.tabs.tabs9 .tabs-panel > div > p {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+/* Lists (Itinerary, What to Bring) */
+.tabs.tabs9 .tabs-panel ul {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin: 0 0 18px 24px;
+  padding: 0;
+}
+
+.tabs.tabs9 .tabs-panel ul li {
+  margin-bottom: 8px;
+}
+
+/* Remove unwanted borders and backgrounds for maximum cleanliness */
+.tabs.tabs9 .tabs-panel,
+.tabs.tabs9 .tabs-list button {
+  box-shadow: none;
+  background: none;
+  border: none;
+}
+
+/* Responsive: Stack columns vertically on small screens */
+@media (width <= 900px) {
+  .tabs.tabs9 .tabs-panel > div {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .tabs.tabs9 .tabs-panel > div > h3,
+  .tabs.tabs9 .tabs-panel > div > *:not(h3) {
+    grid-column: 1;
+  }
+
+  .tabs.tabs9 .tabs-panel > div > h3 {
+    padding-bottom: 8px;
+    white-space: normal;
+  }
+
+  .tabs.tabs9 .tabs-panel > div > h3::after {
+    margin-bottom: 12px;
   }
 }
