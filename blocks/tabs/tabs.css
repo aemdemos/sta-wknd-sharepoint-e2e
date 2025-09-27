@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,132 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs6 .tabs-panel[aria-hidden="false"] > div {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto auto;
+  gap: 0 56px;
+  max-width: 1160px;
+  margin: 0 auto;
+  align-items: start;
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Left column: Title spans both rows, top-aligned */
+.tabs.tabs6 .tabs-panel[aria-hidden="false"] > div > h3 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  border-bottom: 3px solid #fff2cb;
+  padding-bottom: 12px;
+  line-height: 1.1;
+  align-self: start;
+  margin-top: 24px;
+}
+
+/* Right column: Image on top, left-aligned */
+.tabs.tabs6 .tabs-panel[aria-hidden="false"] > div > p:first-of-type {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  margin: 24px 0 18px;
+  display: block;
+  max-width: 540px;
+  justify-self: start;
+}
+
+/* Right column: Description below image, left-aligned */
+.tabs.tabs6 .tabs-panel[aria-hidden="false"] > div > p:last-of-type {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  color: #222;
+  font-size: 1.06rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 540px;
+  justify-self: start;
+}
+
+/* Make image always fill right column width */
+.tabs.tabs6 .tabs-panel[aria-hidden="false"] > div > p:first-of-type picture img {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  min-width: 220px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Responsive: stack all content vertically on small screens */
+@media (width <= 900px) {
+  .tabs.tabs6 .tabs-panel[aria-hidden="false"] > div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    max-width: 100%;
+    padding: 0 12px;
+    min-height: 0;
+  }
+
+  .tabs.tabs6 .tabs-panel[aria-hidden="false"] > div > h3,
+  .tabs.tabs6 .tabs-panel[aria-hidden="false"] > div > p:first-of-type,
+  .tabs.tabs6 .tabs-panel[aria-hidden="false"] > div > p:last-of-type {
+    grid-column: auto;
+    grid-row: auto;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    align-self: flex-start;
+  }
+}
+
+.tabs.tabs6 .tabs-list {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  overflow-x: auto;
+}
+
+.tabs.tabs6 .tabs-list button {
+  background: none;
+  border: none;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  padding: 10px 32px 10px 0;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.tabs.tabs6 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: none;
+}
+
+.tabs.tabs6 .tabs-list button p {
+  margin: 0;
+}
+
+/* Remove panel border and outer padding */
+.tabs.tabs6 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
 }
