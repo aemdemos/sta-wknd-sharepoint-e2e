@@ -145,27 +145,17 @@
   padding: 44px 32px 40px;
   width: 100%;
   box-sizing: border-box;
-  overflow-wrap: break-word; /* Replaced deprecated 'word-break' keyword */
+  overflow-wrap: break-word;
 }
 
-/* Outer columns: side by side layout with flex, top-aligned and balanced gap */
-
-/* Each column stacks its content vertically */
-
-/* Logo column: logo is prominent and left/top aligned */
 .columns-img-col img {
   width: 130px;
   max-width: 100%;
   height: auto;
   margin-bottom: 0;
   display: block;
-
-  /* If logo is black on transparent, uncomment next line: */
-
-  /* filter: brightness(0) invert(1); */
 }
 
-/* Center column: vertical grouping for lists, links etc. */
 .columns > div > div:nth-child(2) ul,
 .columns > div > div:nth-child(2) li {
   margin: 0;
@@ -184,12 +174,10 @@
   font-size: 1rem;
 }
 
-/* Right column: right-align controls */
 .columns > div > div:last-child {
   align-items: flex-end;
 }
 
-/* Inputs/controls: dark background to match block, minimal border */
 .columns input,
 .columns select,
 .columns button {
@@ -203,7 +191,6 @@
   box-sizing: border-box;
 }
 
-/* Remove default button styling in columns for minimal look */
 .columns a.button,
 .columns button {
   background: none;
@@ -212,7 +199,6 @@
   box-shadow: none;
 }
 
-/* Light gray for less prominent text and lists */
 .columns p,
 .columns li {
   color: #e0e0e0;
@@ -220,18 +206,15 @@
   margin: 0 0 8px;
 }
 
-/* Remove default ul margin/padding */
 .columns ul {
   margin: 0;
   padding: 0;
 }
 
-/* Reduce horizontal spacing if center column is empty */
 .columns > div > div:empty {
   display: none;
 }
 
-/* Responsive: stack columns vertically and left-align on small screens */
 @media (width <= 900px) {
   .columns {
     padding: 32px 12px 28px;
@@ -245,5 +228,276 @@
   .columns > div > div,
   .columns > div > div:last-child {
     align-items: flex-start;
+  }
+}
+
+
+.columns.columns38 {
+  background: #fff;
+  color: #222;
+  border-bottom: none;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.columns.columns38 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns38 > div {
+    flex-direction: column;
+    gap: 0;
+    padding: 18px 8px;
+  }
+}
+
+.columns.columns38 > div > div:first-child {
+  flex: 3.2 1 0;
+  min-width: 0;
+  margin-right: 0;
+  max-width: 1100px;
+}
+
+.columns.columns38 > div > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 220px;
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns38 > div > div:last-child,
+  .columns.columns38 > div > div:first-child {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+}
+
+/* Main Heading Styles */
+.columns.columns38 h3#ultimate-guide-to-la-skateparks {
+  font-size: 3em;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 40px;
+  line-height: 1.08;
+}
+
+/* Section Heading Styles and underline */
+.columns.columns38 h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #222;
+  margin-top: 40px;
+  margin-bottom: 18px;
+  position: relative;
+  display: inline-block;
+  line-height: 1.21;
+}
+
+.columns.columns38 h2::after {
+  display: block;
+  width: 52px;
+  height: 2px;
+  background: #FFD700;
+  margin-top: 2px;
+}
+
+/* paragraph styles */
+.columns.columns38 p {
+  color: #222;
+  font-size: 1.09em;
+  margin-bottom: 18px;
+  margin-top: 0;
+  line-height: 1.72;
+  max-width: 980px;
+}
+
+.columns.columns38 p > strong > em,
+.columns.columns38 p > strong em {
+  color: #222;
+  font-style: italic;
+  font-size: 1em;
+}
+
+/* Blockquote Styling: yellow top border, lighter background, full width */
+.columns.columns38 blockquote {
+  background: #f6f6f6;
+  color: #222;
+  font-style: italic;
+  font-size: 1.1em;
+  padding: 20px 32px;
+  margin: 32px 0 16px;
+  border-top: 2px solid #FFD700;
+  border-left: none;
+  line-height: 1.72;
+  max-width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns.columns38 blockquote {
+    max-width: 100%;
+    padding: 12px 4px;
+  }
+}
+
+.columns.columns38 blockquote p {
+  margin: 0;
+}
+
+.columns.columns38 p u,
+.columns.columns38 p > u {
+  color: #888;
+  font-size: 1em;
+  text-decoration: underline;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+/* Images: vertical margin and alignment */
+.columns.columns38 picture,
+.columns.columns38 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 32px 0 24px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Sidebar styles */
+.columns.columns38 > div > div:last-child h5 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 14px;
+  line-height: 1.18;
+}
+
+.columns.columns38 > div > div:last-child h3 {
+  font-size: 1em;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 8px;
+}
+
+.columns.columns38 > div > div:last-child h3 a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Sidebar lists */
+.columns.columns38 > div > div:last-child ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 8px;
+  overflow-wrap: break-word;
+}
+
+.columns.columns38 > div > div:last-child ul li {
+  font-size: 1em;
+  color: #888;
+  margin-bottom: 0;
+  overflow-wrap: anywhere; /* Replaced deprecated 'word-break: break-word' */
+  line-height: 1.32;
+  font-weight: 700;
+}
+
+/* Sidebar links */
+.columns.columns38 > div > div:last-child a,
+.columns.columns38 > div > div:last-child li {
+  color: #222;
+  text-decoration: none;
+  font-size: 1em;
+  line-height: 1.32;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.columns.columns38 .button-container {
+  margin-bottom: 8px;
+}
+
+/* Sidebar button: compact, block, aligned */
+.columns.columns38 a.button,
+.columns.columns38 > div > div:last-child .button {
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px 0;
+  text-decoration: none;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 7%);
+  transition: background 0.15s, color 0.15s;
+  font-size: 1em;
+  margin: 0 0 10px;
+  display: block;
+  width: 100%;
+  min-width: unset;
+  text-align: center;
+}
+
+.columns.columns38 a.button:hover,
+.columns.columns38 a.button:focus,
+.columns.columns38 > div > div:last-child .button:hover,
+.columns.columns38 > div > div:last-child .button:focus {
+  background: #FFD700;
+  color: #222;
+}
+
+/* Sidebar recent posts: uppercase, bold, compact */
+.columns.columns38 > div > div:last-child ul:last-of-type li a {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  transition: color 0.15s;
+  line-height: 1.28;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type li {
+  margin-bottom: 6px;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type li a:hover {
+  color: #FFD700;
+  text-decoration: underline;
+}
+
+/* Section spacing */
+
+@media (width <= 900px) {
+  .columns.columns38 > div > div:last-child {
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .columns.columns38 > div > div:first-child {
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .columns.columns38 blockquote {
+    max-width: 100%;
+    padding: 10px 2px;
   }
 }
