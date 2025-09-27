@@ -297,7 +297,6 @@
   align-items: flex-start;
 }
 
-/* Remove border, background, and box shadow from accordion details and summary */
 .accordion.accordion16 details {
   border: none;
   background: none;
@@ -328,12 +327,10 @@
   box-shadow: none;
 }
 
-/* Remove marker for clean heading look */
 .accordion.accordion16 details summary::-webkit-details-marker {
   display: none;
 }
 
-/* Accordion body: vertical stack, left-aligned */
 .accordion.accordion16 details .accordion-item-body {
   padding: 0;
   background: none;
@@ -346,7 +343,6 @@
   align-items: flex-start;
 }
 
-/* Headings and paragraphs: left-aligned and spaced */
 .accordion.accordion16 details .accordion-item-body h2 {
   font-size: var(--heading-font-size-l);
   font-weight: 600;
@@ -367,7 +363,6 @@
   text-align: left;
 }
 
-/* Images in content: large, rounded, spaced */
 .accordion.accordion16 details .accordion-item-body picture img {
   display: block;
   width: 100%;
@@ -387,7 +382,6 @@
   margin-bottom: 12px;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 900px) {
   .accordion.accordion16 {
     padding: 24px 8px;
@@ -413,7 +407,131 @@
   }
 }
 
-/* Remove extra margin from last details */
 .accordion.accordion16 details:last-child {
   margin-bottom: 0;
+}
+
+
+.accordion25 {
+  display: flex;
+  flex-direction: row;
+  gap: 40px; /* gutter between columns */
+  align-items: flex-start;
+
+  /* Optionally, add padding */
+  padding: 48px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.accordion25 > .accordion-item {
+  /* Both details as columns */
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Left column (heading/author) smaller */
+.accordion25 > .accordion-item:first-child {
+  flex-basis: 30%;
+  max-width: 360px;
+}
+
+/* Right column (main content) wider */
+.accordion25 > .accordion-item:nth-child(2) {
+  flex-basis: 70%;
+  max-width: 900px;
+}
+
+/* Main background and font */
+body, .accordion-wrapper {
+  background: #fff;
+  color: #232323; /* main body color */
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Heading (title) */
+.accordion25 h1 {
+  font-size: 2.5rem; /* ~40px */
+  font-weight: bold;
+  color: #000;
+  margin: 0 0 0.5em;
+}
+
+.accordion25 h4 {
+  font-size: 0.95rem; /* ~16px */
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #aaa;
+  margin: 0 0 1.2em;
+}
+
+/* Section headings */
+.accordion25 h2 {
+  font-size: 1.75rem; /* ~28px */
+  font-weight: bold;
+  color: #000;
+  margin: 2.2em 0 1em;
+}
+
+/* Paragraphs */
+.accordion25 p {
+  font-size: 1em;
+  color: #232323;
+  margin-bottom: 1.5em;
+}
+
+/* Images */
+.accordion25 picture, .accordion25 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 2em;
+  border-radius: 0;
+}
+
+/* Blockquotes for highlighted box */
+.accordion25 blockquote {
+  background: #f2f2f2;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 7%);
+  border-left: none;
+  padding: 1.6em 2em;
+  margin: 2em 0;
+  font-size: 1.25em;
+  color: #232323;
+  position: relative;
+}
+
+.accordion25 blockquote strong {
+  color: #FFBA00; /* accent orange for emphasis */
+  font-weight: bold;
+}
+
+/* Miscellaneous */
+.accordion-item-body > h2 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+/* Remove default summary arrow if desired */
+.accordion-item-label {
+  list-style: none;
+}
+
+details[open] > summary::-webkit-details-marker, 
+summary::-webkit-details-marker { display: none; }
+
+/* Responsive Stack (for mobile screens): */
+@media (width <= 900px) {
+  .accordion25 {
+    flex-direction: column;
+    gap: 0;
+    padding: 16px;
+  }
+
+  .accordion25 > .accordion-item {
+    max-width: 100%;
+    width: 100%;
+  }
 }
