@@ -61,7 +61,6 @@
   display: block;
 }
 
-/* Hero image container and image */
 .hero.hero12 > div:nth-child(1),
 .hero.hero12 > div:nth-child(1) > div {
   width: 100vw;
@@ -78,11 +77,10 @@
   object-fit: cover;
 }
 
-/* Card overlay - now slightly lifted above the bottom */
 .hero.hero12 > div:nth-child(2) {
   position: absolute;
   left: 50%;
-  bottom: 24px; /* Lifts card just above the bottom */
+  bottom: 24px;
   transform: translateX(-50%);
   width: 80vw;
   max-width: 1200px;
@@ -97,7 +95,6 @@
   box-shadow: none;
 }
 
-/* Remove any vertical margin below card content */
 .hero.hero12 > div:nth-child(2) > div {
   margin: 0;
   padding: 0;
@@ -115,7 +112,6 @@
   background: none;
 }
 
-/* Divider below card - full width, flush to image bottom */
 .hero.hero12::after {
   display: block;
   width: 100vw;
@@ -128,7 +124,6 @@
   z-index: 3;
 }
 
-/* Responsive adjustments */
 @media (width <= 1200px) {
   .hero.hero12 > div:nth-child(2) {
     width: 96vw;
@@ -164,5 +159,160 @@
 
   .hero.hero12 > div:nth-child(2) h2 {
     font-size: 15px;
+  }
+}
+
+
+.hero.hero19 {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  min-height: 460px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+}
+
+/* Ensure hero spans full viewport width if wrapped */
+
+/* Image container setup */
+.hero.hero19 > div:first-child {
+  width: 100%;
+  height: 460px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.hero.hero19 picture,
+.hero.hero19 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay card for content */
+.hero.hero19 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 97.5%;
+  max-width: 1700px;
+  background: #fff;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
+  padding: 12px 28px 10px;
+  border-radius: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Inner content max-width for better text wrapping and alignment */
+.hero.hero19 > div:nth-child(2) > div {
+  width: 100%;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Heading and text styles */
+.hero.hero19 h1,
+.hero.hero19 h2,
+.hero.hero19 h3,
+.hero.hero19 h4,
+.hero.hero19 h5,
+.hero.hero19 h6 {
+  color: #222;
+  text-align: left;
+  margin: 0 0 10px;
+  max-width: 100%;
+  font-weight: 600;
+}
+
+.hero.hero19 p {
+  color: #222;
+  text-align: left;
+  margin: 0 0 6px;
+  max-width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Button styling */
+.hero.hero19 .button-container {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero19 .button {
+  background: #fd0;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 10px 22px;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero19 .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero19 .button:focus {
+  background: #ffe666;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 1200px) {
+  .hero.hero19 > div:nth-child(2) > div {
+    max-width: 90vw;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero19 > div:first-child {
+    height: 220px;
+  }
+
+  .hero.hero19 > div:nth-child(2) {
+    width: 99%;
+    padding: 10px 6px 8px;
+    max-width: 98vw;
+  }
+
+  .hero.hero19 > div:nth-child(2) > div {
+    max-width: 98vw;
+  }
+
+  .hero.hero19 h2 {
+    font-size: 1.12rem;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero19 > div:first-child {
+    height: 140px;
+  }
+
+  .hero.hero19 > div:nth-child(2) {
+    width: 100%;
+    padding: 6px 2vw;
+    max-width: 100vw;
+  }
+
+  .hero.hero19 > div:nth-child(2) > div {
+    max-width: 100vw;
+  }
+
+  .hero.hero19 h2 {
+    font-size: 1rem;
   }
 }
