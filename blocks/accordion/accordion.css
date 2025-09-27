@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,121 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion7 {
+  max-width: 600px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.accordion.accordion7 details {
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.accordion.accordion7 details:last-child {
+  border-bottom: 1px solid #eee;
+}
+
+.accordion.accordion7 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion7 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  height: 40px;
+  padding: 0 12px;
+  position: relative;
+  cursor: pointer;
+  background: #fff;
+  gap: 0;
+}
+
+/* Plus/minus symbol using two bars — gray, medium thickness, properly toggling */
+.accordion.accordion7 .accordion-item-label::before,
+.accordion.accordion7 .accordion-item-label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: #888;
+  border-radius: 1px;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+/* Vertical bar for plus (right part of the icon area) */
+.accordion.accordion7 .accordion-item-label::before {
+  right: 28px;
+  top: 50%;
+  width: 2px;
+  height: 16px;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+/* Horizontal bar for plus/minus */
+.accordion.accordion7 .accordion-item-label::after {
+  right: 20px;
+  top: 50%;
+  width: 16px;
+  height: 2px;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+/* Hide vertical bar when open to display minus only */
+.accordion.accordion7 details[open] .accordion-item-label::before {
+  opacity: 0;
+}
+
+/* FAQ question text styling */
+.accordion.accordion7 .accordion-item-label p,
+.accordion.accordion7 .accordion-item-label strong {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #222;
+  font-size: 1em;
+  margin: 0;
+  line-height: 1.2;
+  flex-shrink: 1;
+}
+
+/* Accordion body and row styles */
+.accordion.accordion7 .accordion-item-body {
+  padding: 16px 12px;
+  background: #fff;
+  color: #222;
+  font-size: 0.97em;
+  margin: 0;
+  border: none;
+}
+
+.accordion.accordion7 details[open] .accordion-item-body {
+  border: none;
+  background: #fff;
+}
+
+.accordion.accordion7 .accordion-item-label:focus,
+.accordion.accordion7 .accordion-item-label:hover {
+  background: #fff;
+  outline: none;
+}
+
+@media (width <= 700px) {
+  .accordion.accordion7 {
+    max-width: 100%;
+  }
 }
