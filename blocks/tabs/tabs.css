@@ -528,32 +528,27 @@
   text-align: left;
 }
 
-
-/* Add comfortable left gutter to entire block for better visual alignment */
 .tabs.tabs14 {
   padding-left: 48px;
   padding-right: 0;
 }
 
-/* Make sure tabs and grid align with the left gutter */
 .tabs.tabs14 .tabs-list {
   margin-left: 0;
   padding-left: 0;
   margin-bottom: 24px;
 }
 
-/* Main content grid: visually group headings, reduce horizontal gap */
 .tabs.tabs14 .tabs-panel > div {
   display: grid;
   grid-template-columns: 128px minmax(0, 1fr);
   column-gap: 20px;
-  align-items: baseline; /* keeps headings aligned */
+  align-items: baseline;
   max-width: 1120px;
   margin-left: 0;
   padding-left: 0;
 }
 
-/* Responsive: decrease left gutter and grid gap for smaller screens */
 @media (width <= 900px) {
   .tabs.tabs14 {
     padding-left: 16px;
@@ -578,7 +573,6 @@
   }
 }
 
-/* Sidebar heading: move slightly higher, visually overlap main heading */
 .tabs.tabs14 .tabs-panel > div > h3 {
   grid-column: 1;
   font-size: 1.27rem;
@@ -592,7 +586,6 @@
   display: block;
 }
 
-/* Main heading: visually grouped with sidebar heading */
 .tabs.tabs14 .tabs-panel h2 {
   font-size: 2.07rem;
   font-weight: 700;
@@ -602,12 +595,10 @@
   line-height: 1.16;
 }
 
-/* Main content always in column 2 */
 .tabs.tabs14 .tabs-panel > div > :not(h3) {
   grid-column: 2;
 }
 
-/* Image: closer to heading, good vertical rhythm */
 .tabs.tabs14 .tabs-panel img {
   width: 100%;
   max-width: 100%;
@@ -617,7 +608,6 @@
   box-shadow: none;
 }
 
-/* Body text: left-align, max width for paragraph lines */
 .tabs.tabs14 .tabs-panel p,
 .tabs.tabs14 .tabs-panel ul {
   font-size: 16px;
@@ -628,14 +618,243 @@
   max-width: 700px;
 }
 
-/* Lists: Indent just enough but not more than text */
 .tabs.tabs14 .tabs-panel ul {
   padding-left: 18px;
 }
 
-/* Remove unintended margin from first child in block and grid */
 .tabs.tabs14:first-child,
 .tabs.tabs14 .tabs-panel > div > *:first-child {
   margin-top: 0;
   padding-top: 0;
+}
+
+
+.tabs.tabs15 {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  background: var(--background-color);
+  min-height: 600px;
+  box-shadow: none;
+  border-radius: 0;
+  gap: 0;
+  align-items: flex-start;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs15 {
+    grid-template-columns: 1fr;
+    margin: 24px 0 0;
+    min-height: unset;
+  }
+}
+
+/* Sidebar column (first direct child) */
+.tabs.tabs15 > div:first-child {
+  background: #f7f7f7;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 140px;
+  max-width: 240px;
+  border-right: 1px solid #ececec;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs15 > div:first-child {
+    border-right: none;
+    padding: 16px 8px;
+    min-width: unset;
+    max-width: unset;
+    gap: 10px;
+  }
+}
+
+/* Vertically stack anything in sidebar (including .tabs-list if it appears here) */
+.tabs.tabs15 > div:first-child .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-bottom: none;
+  align-items: stretch;
+}
+
+/* Sidebar tab buttons, vertical */
+.tabs.tabs15 > div:first-child .tabs-tab {
+  background: none;
+  border: none;
+  padding: 10px 0;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0;
+  box-shadow: none;
+  text-align: left;
+  transition: background 0.15s;
+  border-bottom: none;
+}
+
+.tabs.tabs15 > div:first-child .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Main content column (second direct child) */
+.tabs.tabs15 > div:last-child {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--background-color);
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0;
+  position: relative;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs15 > div:last-child {
+    padding: 18px 4vw 24px;
+  }
+}
+
+/* Place .tabs-list as horizontal tabs at the top of main content (preferably above .tabs-panel) */
+.tabs.tabs15 > div:last-child .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 28px;
+  margin-top: 0;
+  padding: 0;
+  border-bottom: none;
+  align-items: flex-end;
+  width: 100%;
+  position: static;
+}
+
+.tabs.tabs15 > div:last-child .tabs-tab {
+  background: none;
+  border: none;
+  padding: 10px 32px;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 3px 3px 0 0;
+  cursor: pointer;
+  margin: 0;
+  border-bottom: 2px solid transparent;
+  box-shadow: none;
+  text-align: center;
+  transition: background 0.15s;
+}
+
+.tabs.tabs15 > div:last-child .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 2px solid #222;
+}
+
+/* Only show one panel at a time */
+.tabs.tabs15 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Panel content spacing */
+.tabs.tabs15 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  overflow: visible;
+  width: 100%;
+}
+
+/* Heading and gold underline */
+.tabs.tabs15 .tabs-panel > div h3:first-of-type {
+  font-size: 2.1rem;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  font-weight: 600;
+  line-height: 1.19;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #e6c67c;
+  width: fit-content;
+  display: block;
+}
+
+/* Sub-heading */
+.tabs.tabs15 .tabs-panel > div h3:nth-of-type(2) {
+  margin-top: 1.2em;
+  margin-bottom: 1em;
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: 600;
+}
+
+/* Image styling */
+.tabs.tabs15 .tabs-panel > div picture,
+.tabs.tabs15 .tabs-panel > div img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 14px;
+  margin-top: 0;
+  border-radius: 0;
+}
+
+/* Caption style */
+.tabs.tabs15 .tabs-panel > div p:first-of-type {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #222;
+  display: block;
+}
+
+/* Paragraph text */
+.tabs.tabs15 .tabs-panel > div p:not(:first-of-type) {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* Responsive adjustments for spacing and stacking */
+@media (width <= 700px) {
+  .tabs.tabs15 > div:first-child,
+  .tabs.tabs15 > div:last-child {
+    padding: 10px 2vw 12px;
+  }
+
+  .tabs.tabs15 > div:last-child .tabs-list {
+    flex-wrap: wrap;
+    gap: 2px;
+    margin-bottom: 14px;
+  }
+
+  .tabs.tabs15 .tabs-panel > div h3:first-of-type {
+    font-size: 1.15rem;
+    padding-bottom: 5px;
+  }
+
+  .tabs.tabs15 {
+    grid-template-columns: 1fr;
+  }
 }
