@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,35 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel8 {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel.carousel8 .carousel-slide .carousel-slide-image,
+.carousel.carousel8 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel8 .carousel-slide .carousel-slide-image picture > img {
+  width: 100vw;
+  max-width: 100vw;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+  position: relative;
+  left: 0;
+  transform: none;
+}
+
+/* Hide overlay bar if empty */
+.carousel.carousel8 .carousel-slide .carousel-slide-content:empty {
+  display: none;
 }
