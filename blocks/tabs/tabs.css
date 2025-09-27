@@ -1578,7 +1578,6 @@
   gap: 0;
 }
 
-/* Sidebar: vertical tabs menu, make narrower and compressed */
 .tabs.tabs24 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -1631,13 +1630,10 @@
   border-bottom: 2px solid #222;
 }
 
-/* Remove excess space below tabs in sidebar */
-
 .tabs.tabs24 .tabs-list::after {
   display: none;
 }
 
-/* Main content area: more left padding for visual centering */
 .tabs.tabs24 > .tabs {
   flex: 1 1 0%;
   min-width: 0;
@@ -1649,7 +1645,6 @@
   justify-content: flex-start;
 }
 
-/* Title styling */
 .tabs.tabs24 .tabs-panel > div > h3 {
   font-size: var(--heading-font-size-l);
   font-weight: 600;
@@ -1661,7 +1656,6 @@
   padding-left: 2px;
 }
 
-/* Main image styling */
 .tabs.tabs24 .tabs-panel picture {
   display: block;
   max-width: 100%;
@@ -1677,7 +1671,6 @@
   border-radius: 12px;
 }
 
-/* Paragraph and list styling */
 .tabs.tabs24 .tabs-panel p,
 .tabs.tabs24 .tabs-panel ul {
   color: #555;
@@ -1698,7 +1691,6 @@
   color: #555;
 }
 
-/* Responsive: stack sidebar above main content on small screens, tabs horizontal */
 @media (width <= 900px) {
   .tabs.tabs24 {
     flex-direction: column;
@@ -1750,10 +1742,229 @@
   }
 }
 
-/* Ensure active tab and content doesn't overflow on small screens */
 .tabs.tabs24 .tabs-panel {
   word-break: break-word;
   overflow-x: auto;
   background: none;
   border: none;
+}
+
+
+.tabs.tabs28 {
+  /* Outer wrapper: max width, center, background, padding */
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  column-gap: 48px;
+  border-radius: 0;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .tabs.tabs28 {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}
+
+/* ---- Left Meta Column ---- */
+.tabs.tabs28 > div:first-child {
+  /* Target left sidebar (meta info column) */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 36px 0;
+  border-right: 1px solid #ececec;
+  min-width: 0;
+  background: var(--background-color);
+}
+
+@media (width <= 900px) {
+  .tabs.tabs28 > div:first-child {
+    border-right: none;
+    border-bottom: 1px solid #ececec;
+    padding: 24px 0 16px;
+  }
+}
+
+/* Meta labels: uppercase, small, muted */
+.tabs.tabs28 > div:first-child * {
+  font-size: 0.85rem;
+  color: #999;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.25em;
+  font-weight: 400;
+}
+
+.tabs.tabs28 > div:first-child strong,
+.tabs.tabs28 > div:first-child b {
+  color: #222;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.tabs.tabs28 > div:first-child > * {
+  margin-bottom: 40px;
+}
+
+.tabs.tabs28 > div:first-child > *:last-child {
+  margin-bottom: 0;
+  margin-top: auto;
+  color: #222;
+  font-weight: 600;
+}
+
+/* ---- Right Content Column ---- */
+.tabs.tabs28 > div:last-child {
+  padding: 36px 0;
+  min-width: 0;
+}
+
+/* ---- Tabs Header ---- */
+.tabs.tabs28 .tabs-list {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 28px;
+  padding-left: 0;
+  border: none;
+  background: none;
+  overflow-x: auto;
+  box-shadow: none;
+}
+
+.tabs.tabs28 .tabs-list button {
+  background: none;
+  border: none;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 5px 5px 0 0;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Active tab */
+.tabs.tabs28 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+  font-weight: 600;
+}
+
+.tabs.tabs28 .tabs-list button:hover:not([aria-selected='true']) {
+  background: #f2f2f2;
+}
+
+.tabs.tabs28 .tabs-list button p {
+  margin: 0;
+}
+
+/* ---- Content Panel ---- */
+.tabs.tabs28 .tabs-panel {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* ---- Main Title ---- */
+.tabs.tabs28 > div:last-child h1:first-child {
+  font-size: 2.3rem;
+  color: #222;
+  font-weight: 400;
+  margin-bottom: 0.3em;
+  position: relative;
+  margin-top: 0;
+}
+
+.tabs.tabs28 > div:last-child h1:first-child::after {
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: #ffe066;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+/* ---- Headings ---- */
+.tabs.tabs28 > div:last-child h2,
+.tabs.tabs28 > div:last-child h3,
+.tabs.tabs28 > div:last-child h4,
+.tabs.tabs28 > div:last-child h5,
+.tabs.tabs28 > div:last-child h6 {
+  color: #222;
+  font-weight: 400;
+  margin-top: 1.6em;
+  margin-bottom: 0.8em;
+}
+
+/* ---- Paragraphs and Lists ---- */
+.tabs.tabs28 > div:last-child p,
+.tabs.tabs28 > div:last-child ul,
+.tabs.tabs28 > div:last-child ol {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 1em;
+  margin-bottom: 1.2em;
+}
+
+.tabs.tabs28 > div:last-child ul,
+.tabs.tabs28 > div:last-child ol {
+  padding-left: 1.2em;
+}
+
+/* ---- Images ---- */
+.tabs.tabs28 > div:last-child img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  margin: 32px 0;
+  border-radius: 9px;
+  object-fit: cover;
+}
+
+/* ---- "Looking for an overseas adventure?" note ---- */
+.tabs.tabs28 > div:last-child p:last-child {
+  color: #666;
+  font-size: 13px;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Remove main content padding on mobile ---- */
+@media (width <= 900px) {
+  .tabs.tabs28 > div:last-child {
+    padding: 24px 0;
+  }
+
+  .tabs.tabs28 .tabs-list {
+    margin-bottom: 22px;
+    gap: 10px;
+  }
+
+  .tabs.tabs28 > div:last-child img {
+    margin: 20px 0;
+    max-width: 100%;
+  }
+}
+
+/* ---- Hide meta sidebar if not present ---- */
+.tabs.tabs28 > div:first-child:empty {
+  display: none;
+}
+
+/* ---- Ensure correct stacking for accessibility panels ---- */
+.tabs.tabs28 .tabs-panel[aria-hidden='true'] {
+  display: none;
 }
