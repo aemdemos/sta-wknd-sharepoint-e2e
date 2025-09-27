@@ -101,7 +101,6 @@
   gap: 0;
 }
 
-/* Plus/minus symbol using two bars — gray, medium thickness, properly toggling */
 .accordion.accordion7 .accordion-item-label::before,
 .accordion.accordion7 .accordion-item-label::after {
   content: "";
@@ -113,7 +112,6 @@
   transition: opacity 0.2s;
 }
 
-/* Vertical bar for plus (right part of the icon area) */
 .accordion.accordion7 .accordion-item-label::before {
   right: 28px;
   top: 50%;
@@ -123,7 +121,6 @@
   opacity: 1;
 }
 
-/* Horizontal bar for plus/minus */
 .accordion.accordion7 .accordion-item-label::after {
   right: 20px;
   top: 50%;
@@ -133,12 +130,10 @@
   opacity: 1;
 }
 
-/* Hide vertical bar when open to display minus only */
 .accordion.accordion7 details[open] .accordion-item-label::before {
   opacity: 0;
 }
 
-/* FAQ question text styling */
 .accordion.accordion7 .accordion-item-label p,
 .accordion.accordion7 .accordion-item-label strong {
   text-transform: uppercase;
@@ -150,7 +145,6 @@
   flex-shrink: 1;
 }
 
-/* Accordion body and row styles */
 .accordion.accordion7 .accordion-item-body {
   padding: 16px 12px;
   background: #fff;
@@ -174,5 +168,118 @@
 @media (width <= 700px) {
   .accordion.accordion7 {
     max-width: 100%;
+  }
+}
+
+
+.accordion.accordion9 {
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 48px auto 0;
+  background: #fff;
+  padding: 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.accordion.accordion9 .accordion-item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.accordion.accordion9 details {
+  width: 100%;
+  border: none;
+  margin: 0 0 40px;
+  background: transparent;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.accordion.accordion9 details summary {
+  position: relative;
+  padding: 0;
+  cursor: default;
+  background: transparent;
+  min-height: unset;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.accordion.accordion9 details summary::-webkit-details-marker,
+.accordion.accordion9 details summary::after {
+  display: none;
+}
+
+.accordion.accordion9 .accordion-item-label {
+  width: 100%;
+  margin-bottom: 32px;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 10px auto;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.accordion.accordion9 .accordion-item-label::before {
+  grid-row: 1;
+  grid-column: 1;
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: #e7b85e;
+  border-radius: 2px;
+  content: "";
+  align-self: start;
+  margin-bottom: 6px;
+}
+
+.accordion.accordion9 .accordion-item-label h1 {
+  color: #232323;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  line-height: 1.12;
+  text-align: left;
+  width: 100%;
+  padding-top: 0;
+  box-sizing: border-box;
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.accordion.accordion9 .accordion-item-body {
+  padding: 0;
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (width <= 700px) {
+  .accordion.accordion9 {
+    padding: 24px 0 0;
+    max-width: 100%;
+  }
+
+  .accordion.accordion9 .accordion-item-label::before {
+    width: 28px;
+    height: 2px;
+    margin-bottom: 4px;
+  }
+
+  .accordion.accordion9 .accordion-item-label h1 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
   }
 }
