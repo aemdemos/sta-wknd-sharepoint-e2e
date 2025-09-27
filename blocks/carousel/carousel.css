@@ -464,3 +464,120 @@
   width: 0;
   pointer-events: none;
 }
+
+
+.carousel.carousel40 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel40 .carousel-slide-indicators {
+  display: none;
+}
+
+/* Layout: Image wider, content panel narrower */
+.carousel.carousel40 .carousel-slide {
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 350px;
+}
+
+.carousel.carousel40 .carousel-slide-image {
+  flex: 0 1 71%;
+  min-width: 0;
+  min-height: 350px;
+  position: relative;
+}
+
+.carousel.carousel40 .carousel-slide-content {
+  flex: 0 0 29%;
+  max-width: 310px;
+  min-width: 180px;
+  margin: 0;
+  padding: 48px 28px;
+  background: #ededed;
+  color: #131313;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Vertical centering for all content */
+@media (width >= 600px) {
+  .carousel.carousel40 .carousel-slide-content {
+    min-height: 350px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+/* "Featured Article" label: extra light and compact */
+.carousel.carousel40 .carousel-slide-content > p:first-child {
+  margin: 0 0 0.7em;
+  font-size: 0.86rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  opacity: 0.46;
+  line-height: 1.1;
+  padding: 0;
+}
+
+/* Headline: large, bold, compact margin */
+.carousel.carousel40 .carousel-slide-content h2 {
+  font-size: 2.92rem;
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 0 0 0.38em;
+  letter-spacing: -0.012em;
+  color: #131313;
+}
+
+/* Body: lighter, smaller, compact */
+.carousel.carousel40 .carousel-slide-content > p:not(:first-child, .button-container) {
+  font-size: 0.93rem;
+  color: #8c8c8c;
+  margin: 0 0 1.05em;
+  line-height: 1.34;
+  opacity: 0.88;
+  padding: 0;
+}
+
+/* Button: bold, uppercase, wide, less margin above */
+.carousel.carousel40 .carousel-slide-content .button-container {
+  margin: 0;
+  margin-top: 0.7em;
+}
+
+.carousel.carousel40 .carousel-slide-content .button {
+  background: #ffe500;
+  color: #131313;
+  font-weight: 700;
+  border-radius: 0;
+  border: none;
+  font-size: 1rem;
+  padding: 0.76em 3em;
+  margin: 0;
+  min-width: 0;
+  max-width: none;
+  box-shadow: none;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+
+.carousel.carousel40 .carousel-slide-content .button:hover,
+.carousel.carousel40 .carousel-slide-content .button:focus {
+  background: #ffd600;
+  color: #131313;
+  text-decoration: none;
+}
+
+/* Tighter vertical rhythm between elements */
+.carousel.carousel40 .carousel-slide-content > *:not(:last-child) {
+  margin-bottom: 0.34em;
+}
