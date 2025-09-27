@@ -1,6 +1,11 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
 }
 
 .columns img {
@@ -9,6 +14,12 @@
 
 .columns > div > div {
   order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  overflow-wrap: break-word;
+  gap: 18px;
 }
 
 .columns > div > .columns-img-col {
@@ -39,36 +50,32 @@
   margin: 0;
 }
 
-/* Main flex row: perfectly center content vertically, minimal vertical padding */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
-  align-items: center; /* vertical centering */
+  align-items: center;
   justify-content: space-between;
-  height: 48px;        /* compact height to tightly fit content */
+  height: 48px;
   min-height: 48px;
   padding: 0 2vw;
   gap: 0;
   box-sizing: border-box;
 }
 
-/* Hide language switcher */
 .columns.columns2 > div > div:nth-child(2) {
   display: none;
 }
 
-/* Logo column styles */
 .columns.columns2 .columns-img-col {
   display: flex;
-  align-items: center; /* perfectly vertical center */
+  align-items: center;
   justify-content: flex-start;
   padding: 0;
   margin: 0;
 }
 
-/* Logo sizing: fill height but keep visual balance */
 .columns.columns2 .columns-img-col img {
-  height: 38px;  /* fills most of the block, but not flush */
+  height: 38px;
   width: auto;
   max-width: 160px;
   object-fit: contain;
@@ -77,7 +84,6 @@
   padding: 0;
 }
 
-/* Search block: right-aligned, vertically centered */
 .columns.columns2 > div > div:last-child {
   display: flex;
   align-items: center;
@@ -87,13 +93,12 @@
   padding: 0;
 }
 
-/* Search "input": compact, visually centered with logo */
 .columns.columns2 > div > div:last-child p {
   background: #f5f5f5;
   color: #b0b0b0;
   font-size: 13px;
   min-width: 120px;
-  height: 26px;          /* even more compact */
+  height: 26px;
   line-height: 26px;
   padding: 0 28px 0 32px;
   border-radius: 2px;
@@ -108,7 +113,6 @@
   background-size: 13px 13px;
 }
 
-/* Remove list style from language switcher in case it's visible */
 .columns.columns2 ul,
 .columns.columns2 li {
   list-style: none;
@@ -116,8 +120,7 @@
   padding: 0;
 }
 
-/* Responsive: stack elements on small screens */
-@media (max-width: 700px) {
+@media (width <= 700px) {
   .columns.columns2 > div {
     flex-direction: column;
     align-items: flex-start;
@@ -126,9 +129,121 @@
     padding: 8px 3vw;
     gap: 10px;
   }
+
   .columns.columns2 > div > div:last-child {
     justify-content: flex-start;
     min-width: 0;
     width: 100%;
+  }
+}
+
+
+.columns {
+  background: #232220;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  padding: 44px 32px 40px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word; /* Replaced deprecated 'word-break' keyword */
+}
+
+/* Outer columns: side by side layout with flex, top-aligned and balanced gap */
+
+/* Each column stacks its content vertically */
+
+/* Logo column: logo is prominent and left/top aligned */
+.columns-img-col img {
+  width: 130px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  display: block;
+
+  /* If logo is black on transparent, uncomment next line: */
+
+  /* filter: brightness(0) invert(1); */
+}
+
+/* Center column: vertical grouping for lists, links etc. */
+.columns > div > div:nth-child(2) ul,
+.columns > div > div:nth-child(2) li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns > div > div:nth-child(2) ul {
+  margin-bottom: 6px;
+}
+
+.columns > div > div:nth-child(2) a,
+.columns > div > div:nth-child(2) li {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+/* Right column: right-align controls */
+.columns > div > div:last-child {
+  align-items: flex-end;
+}
+
+/* Inputs/controls: dark background to match block, minimal border */
+.columns input,
+.columns select,
+.columns button {
+  background: #232220;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default button styling in columns for minimal look */
+.columns a.button,
+.columns button {
+  background: none;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: none;
+}
+
+/* Light gray for less prominent text and lists */
+.columns p,
+.columns li {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  margin: 0 0 8px;
+}
+
+/* Remove default ul margin/padding */
+.columns ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Reduce horizontal spacing if center column is empty */
+.columns > div > div:empty {
+  display: none;
+}
+
+/* Responsive: stack columns vertically and left-align on small screens */
+@media (width <= 900px) {
+  .columns {
+    padding: 32px 12px 28px;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .columns > div > div,
+  .columns > div > div:last-child {
+    align-items: flex-start;
   }
 }
