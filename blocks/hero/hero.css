@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,125 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero12 {
+  position: relative;
+  width: 100vw;
+  min-height: 620px;
+  overflow: hidden;
+  padding: 0;
+  display: block;
+}
+
+/* Hero image container and image */
+.hero.hero12 > div:nth-child(1),
+.hero.hero12 > div:nth-child(1) > div {
+  width: 100vw;
+  height: 620px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero.hero12 picture,
+.hero.hero12 img {
+  display: block;
+  width: 100vw;
+  height: 620px;
+  object-fit: cover;
+}
+
+/* Card overlay - now slightly lifted above the bottom */
+.hero.hero12 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 24px; /* Lifts card just above the bottom */
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 1200px;
+  background: #fff;
+  padding: 36px 60px 32px;
+  box-sizing: border-box;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Remove any vertical margin below card content */
+.hero.hero12 > div:nth-child(2) > div {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.hero.hero12 > div:nth-child(2) h2 {
+  margin: 0;
+  color: #222;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: left;
+  letter-spacing: 0;
+  background: none;
+}
+
+/* Divider below card - full width, flush to image bottom */
+.hero.hero12::after {
+  display: block;
+  width: 100vw;
+  height: 1px;
+  background: #eaeaea;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+}
+
+/* Responsive adjustments */
+@media (width <= 1200px) {
+  .hero.hero12 > div:nth-child(2) {
+    width: 96vw;
+    max-width: 99vw;
+    padding: 18px 4vw;
+    bottom: 16px;
+  }
+
+  .hero.hero12 > div:nth-child(1),
+  .hero.hero12 > div:nth-child(1) > div,
+  .hero.hero12 picture,
+  .hero.hero12 img {
+    height: 340px;
+    min-height: 200px;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero12 > div:nth-child(2) {
+    width: 99vw;
+    max-width: 99vw;
+    padding: 12px 2vw 14px;
+    bottom: 8px;
+  }
+
+  .hero.hero12 > div:nth-child(1),
+  .hero.hero12 > div:nth-child(1) > div,
+  .hero.hero12 picture,
+  .hero.hero12 img {
+    height: 180px;
+    min-height: 90px;
+  }
+
+  .hero.hero12 > div:nth-child(2) h2 {
+    font-size: 15px;
   }
 }
