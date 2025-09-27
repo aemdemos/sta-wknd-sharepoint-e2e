@@ -2264,7 +2264,6 @@
 
 
 .tabs.tabs36 {
-  /* Reduce left padding for better balance */
   margin: 0;
   padding-left: 48px;
   padding-right: 0;
@@ -2274,7 +2273,6 @@
   display: block;
 }
 
-/* Responsive: reduce left padding on smaller screens */
 @media (width <= 900px) {
   .tabs.tabs36 {
     padding-left: 14px;
@@ -2288,7 +2286,6 @@
   }
 }
 
-/* Tabs row: left aligned, more compact tabs, tighter gap below */
 .tabs.tabs36 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2301,7 +2298,6 @@
   align-items: flex-start;
 }
 
-/* Tabs: shorter/compact, uppercase, active/inactive states */
 .tabs.tabs36 .tabs-list .tabs-tab {
   border: 1.5px solid #222;
   background: transparent;
@@ -2339,7 +2335,6 @@
   margin: 0;
 }
 
-/* Content area: readable width, tighter vertical spacing */
 .tabs.tabs36 .tabs-panel {
   border: none;
   padding: 0;
@@ -2352,12 +2347,10 @@
   align-items: flex-start;
 }
 
-/* Hide inactive panels */
 .tabs.tabs36 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Max width for readability, left aligned, tighter gap */
 .tabs.tabs36 .tabs-panel > div {
   width: 100%;
   max-width: 700px;
@@ -2369,7 +2362,6 @@
   align-items: flex-start;
 }
 
-/* Heading: inline-block, short accent bar, less spacing */
 .tabs.tabs36 .tabs-panel > div > h3 {
   font-size: 32px;
   color: #222;
@@ -2385,7 +2377,6 @@
   background-size: 40px 3px;
 }
 
-/* Description paragraph, all text left aligned */
 .tabs.tabs36 .tabs-panel > div > p {
   font-size: 16px;
   color: #222;
@@ -2396,12 +2387,10 @@
   text-align: left;
 }
 
-/* Reduce gap between last paragraph and image */
 .tabs.tabs36 .tabs-panel > div > p:last-of-type {
   margin-bottom: 7px;
 }
 
-/* Image: left aligned, full content width */
 .tabs.tabs36 .tabs-panel picture,
 .tabs.tabs36 .tabs-panel img {
   width: 100%;
@@ -2414,7 +2403,6 @@
   align-self: flex-start;
 }
 
-/* Responsive adjustments for spacing and font size */
 @media (width <= 900px) {
   .tabs.tabs36 .tabs-panel > div {
     max-width: 100%;
@@ -2441,5 +2429,138 @@
 
   .tabs.tabs36 .tabs-panel > div > p {
     font-size: 15px;
+  }
+}
+
+
+.tabs.tabs37 {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 40px 32px;
+  background: var(--background-color);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs list: flex row, left-aligned, slightly tighter gap and less margin below */
+.tabs.tabs37 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  width: 100%;
+}
+
+/* Tabs: uppercase, compact padding, no min-width */
+.tabs.tabs37 .tabs-list .tabs-tab {
+  background: #f5f5f5;
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1.2;
+  margin: 0;
+  position: relative;
+  text-align: left;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Selected tab: black background, white text */
+.tabs.tabs37 .tabs-list .tabs-tab[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+/* Remove default p margin inside tabs button */
+.tabs.tabs37 .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Panel: left-aligned, readable width, no border, no shadow */
+.tabs.tabs37 .tabs-panel {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+  max-width: 700px;
+  width: 100%;
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.6;
+  background: transparent;
+  text-align: left;
+}
+
+/* Paragraph spacing inside panel */
+.tabs.tabs37 .tabs-panel > div > p {
+  margin-bottom: 16px;
+  margin-top: 0;
+  text-align: left;
+}
+
+/* Image: left-aligned, full width, no extra margin */
+.tabs.tabs37 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.tabs.tabs37 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+/* Caption: last p in panel, uppercase, very tight above image */
+.tabs.tabs37 .tabs-panel > div > p:last-child {
+  font-size: 10px;
+  color: #999;
+  text-transform: uppercase;
+  margin-top: 2px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+/* Responsive: stack content, adjust paddings/gaps for mobile */
+@media (width <= 600px) {
+  .tabs.tabs37 {
+    padding: 24px 8px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs37 .tabs-list {
+    gap: 3px;
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs37 .tabs-panel {
+    max-width: 100%;
+  }
+
+  .tabs.tabs37 .tabs-list .tabs-tab {
+    padding: 7px 6px;
+    font-size: 12px;
   }
 }
