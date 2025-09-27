@@ -384,7 +384,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs Row: minimal gap to heading */
 .tabs.tabs13 .tabs-list {
   display: flex;
   gap: 1rem;
@@ -397,7 +396,6 @@
   align-items: flex-end;
 }
 
-/* Tabs: appearance, spacing, alignment */
 .tabs.tabs13 .tabs-tab {
   border: none;
   background: transparent;
@@ -416,7 +414,6 @@
   letter-spacing: normal;
 }
 
-/* Active tab: solid dark background, white text */
 .tabs.tabs13 .tabs-tab[aria-selected="true"] {
   background: #222;
   color: #fff;
@@ -424,13 +421,11 @@
   cursor: default;
 }
 
-/* Tab text wrapper */
 .tabs.tabs13 .tabs-tab p {
   margin: 0;
   padding: 0;
 }
 
-/* Panel: no border/padding, stack content, no background */
 .tabs.tabs13 .tabs-panel {
   border: none;
   padding: 0;
@@ -445,11 +440,10 @@
 .tabs.tabs13 .tabs-panel > div {
   display: flex;
   flex-direction: column;
-  gap: 0.26rem; /* Tighter vertical group */
+  gap: 0.26rem;
   margin-bottom: 0;
 }
 
-/* Heading: lighter weight, tighter accent line, minimal space below */
 .tabs.tabs13 .tabs-panel h3 {
   font-size: 1.6rem;
   font-weight: 400;
@@ -461,7 +455,6 @@
   line-height: 1.2;
 }
 
-/* Large image: very little space above, sharp corners, block display */
 .tabs.tabs13 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -471,7 +464,6 @@
   box-shadow: none;
 }
 
-/* Section heading/caption: uppercase, bold, lighter weight, tightly below image */
 .tabs.tabs13 .tabs-panel p:first-of-type {
   font-weight: 600;
   text-transform: uppercase;
@@ -482,7 +474,6 @@
   line-height: 1.15;
 }
 
-/* Body text: dark gray, no extra margin above first paragraph for tight grouping */
 .tabs.tabs13 .tabs-panel p:not(:first-of-type),
 .tabs.tabs13 .tabs-panel ul {
   color: #444;
@@ -491,18 +482,15 @@
   line-height: 1.7;
 }
 
-/* Tighter gap between caption and first paragraph */
 .tabs.tabs13 .tabs-panel p:first-of-type + p {
   margin-top: 0;
 }
 
-/* Lists: consistent indentation and spacing */
 .tabs.tabs13 .tabs-panel ul {
   padding-left: 1.25em;
   margin-bottom: 1rem;
 }
 
-/* Responsive tweaks: smaller heading/image margin and block width */
 @media (width <= 900px) {
   .tabs.tabs13 {
     max-width: 100%;
@@ -532,11 +520,122 @@
   }
 }
 
-/* Ensure everything aligns left and prevent accidental centering */
 .tabs.tabs13 .tabs-panel,
 .tabs.tabs13 .tabs-panel > div,
 .tabs.tabs13 .tabs-panel h3,
 .tabs.tabs13 .tabs-panel p,
 .tabs.tabs13 .tabs-panel ul {
   text-align: left;
+}
+
+
+/* Add comfortable left gutter to entire block for better visual alignment */
+.tabs.tabs14 {
+  padding-left: 48px;
+  padding-right: 0;
+}
+
+/* Make sure tabs and grid align with the left gutter */
+.tabs.tabs14 .tabs-list {
+  margin-left: 0;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+
+/* Main content grid: visually group headings, reduce horizontal gap */
+.tabs.tabs14 .tabs-panel > div {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  column-gap: 20px;
+  align-items: baseline; /* keeps headings aligned */
+  max-width: 1120px;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Responsive: decrease left gutter and grid gap for smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs14 {
+    padding-left: 16px;
+  }
+
+  .tabs.tabs14 .tabs-panel > div {
+    grid-template-columns: 80px 1fr;
+    column-gap: 10px;
+    max-width: 100vw;
+  }
+}
+
+@media (width <= 700px) {
+  .tabs.tabs14 {
+    padding-left: 0;
+  }
+
+  .tabs.tabs14 .tabs-panel > div {
+    display: block;
+    padding-left: 0;
+    margin-left: 0;
+  }
+}
+
+/* Sidebar heading: move slightly higher, visually overlap main heading */
+.tabs.tabs14 .tabs-panel > div > h3 {
+  grid-column: 1;
+  font-size: 1.27rem;
+  font-weight: 600;
+  color: #222;
+  margin-top: 0.2em;
+  margin-bottom: 34px;
+  line-height: 1.12;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #f6c85f;
+  display: block;
+}
+
+/* Main heading: visually grouped with sidebar heading */
+.tabs.tabs14 .tabs-panel h2 {
+  font-size: 2.07rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0.18em;
+  margin-bottom: 22px;
+  line-height: 1.16;
+}
+
+/* Main content always in column 2 */
+.tabs.tabs14 .tabs-panel > div > :not(h3) {
+  grid-column: 2;
+}
+
+/* Image: closer to heading, good vertical rhythm */
+.tabs.tabs14 .tabs-panel img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin-bottom: 18px;
+  margin-top: 0;
+  box-shadow: none;
+}
+
+/* Body text: left-align, max width for paragraph lines */
+.tabs.tabs14 .tabs-panel p,
+.tabs.tabs14 .tabs-panel ul {
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 12px;
+  margin-top: 0;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+/* Lists: Indent just enough but not more than text */
+.tabs.tabs14 .tabs-panel ul {
+  padding-left: 18px;
+}
+
+/* Remove unintended margin from first child in block and grid */
+.tabs.tabs14:first-child,
+.tabs.tabs14 .tabs-panel > div > *:first-child {
+  margin-top: 0;
+  padding-top: 0;
 }
