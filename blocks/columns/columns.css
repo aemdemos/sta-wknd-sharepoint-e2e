@@ -2,9 +2,9 @@
 .columns > div {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 64px;
   width: 100%;
 }
 
@@ -14,7 +14,7 @@
 
 .columns > div > div {
   order: 1;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: flex-start;
   min-width: 0;
@@ -45,17 +45,21 @@
 
 
 .columns {
-  background: #232220;
+  background: #232221;
   color: #fff;
-  border-bottom: 1px solid #fff;
-  padding: 44px 32px 40px;
+  border-bottom: 2px solid #fff;
+  padding: 64px 48px 56px;
   width: 100%;
   box-sizing: border-box;
   overflow-wrap: break-word;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .columns-img-col img {
-  width: 130px;
+  width: 140px;
   max-width: 100%;
   height: auto;
   margin-bottom: 0;
@@ -81,7 +85,9 @@
 }
 
 .columns > div > div:last-child {
-  align-items: flex-end;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .columns input,
@@ -108,8 +114,9 @@
 .columns p,
 .columns li {
   color: #e0e0e0;
-  font-size: 0.95rem;
-  margin: 0 0 8px;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
 }
 
 .columns ul {
@@ -406,7 +413,6 @@
   width: 100%;
 }
 
-/* Ensure flex layout with no extra horizontal padding or margin */
 .columns.columns2 > div {
   display: flex;
   flex-direction: row;
@@ -419,12 +425,10 @@
   box-sizing: border-box;
 }
 
-/* Hide any middle columns the HTML might have */
 .columns.columns2 > div > div:not(.columns-img-col, :last-child) {
   display: none;
 }
 
-/* LOGO COLUMN: absolutely minimal left margin */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: flex-start;
@@ -433,7 +437,6 @@
   padding: 0;
 }
 
-/* Logo image style */
 .columns.columns2 .columns-img-col img {
   height: 56px;
   width: auto;
@@ -444,7 +447,6 @@
   display: block;
 }
 
-/* SEARCH COLUMN: absolutely minimal right margin */
 .columns.columns2 > div > div:last-child {
   display: flex;
   align-items: flex-start;
@@ -454,7 +456,6 @@
   padding: 0;
 }
 
-/* Search box styling */
 .columns.columns2 > div > div:last-child p {
   background: #f5f5f5;
   color: #888;
@@ -475,7 +476,6 @@
   background-size: 16px 16px;
 }
 
-/* Responsive adjustments for mobile/tablet */
 @media (width <= 700px) {
   .columns.columns2 {
     padding-top: 16px;
@@ -504,5 +504,65 @@
   .columns.columns2 > div > div:last-child p {
     min-width: 120px;
     width: auto;
+  }
+}
+
+/* Remove nested flex column, let children align center with parent flex row */
+
+/* Ensure the logo is centered in its cell */
+.columns-img-col {
+  display: flex;
+  align-items: center;
+}
+
+/* Remove list bullets and spacing for lists */
+.columns ul,
+.columns li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Text styling for body and links */
+
+/* Links in .columns: white and underlined */
+.columns a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Right column alignment for search box */
+
+/* Search field styling for dark background */
+.columns input[type="search"], 
+.columns input[type="text"], 
+.columns input[type="email"], 
+.columns input[type="password"] {
+  background: #232221;
+  color: #e0e0e0;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .columns {
+    padding: 32px 12px 28px;
+    min-height: unset;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .columns > div > div,
+  .columns > div > div:last-child {
+    display: block;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 }
