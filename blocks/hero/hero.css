@@ -54,153 +54,6 @@
 }
 
 
-.hero.hero19 {
-  position: relative;
-  width: 100%;
-  padding: 0;
-  min-height: 460px;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: block;
-}
-
-.hero.hero19 > div:first-child {
-  width: 100%;
-  height: 460px;
-  position: relative;
-  overflow: hidden;
-  display: block;
-}
-
-.hero.hero19 picture,
-.hero.hero19 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero.hero19 > div:nth-child(2) {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 97.5%;
-  max-width: 1700px;
-  background: #fff;
-  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
-  padding: 12px 28px 10px;
-  border-radius: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-sizing: border-box;
-}
-
-.hero.hero19 > div:nth-child(2) > div {
-  width: 100%;
-  max-width: 900px;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.hero.hero19 h1,
-.hero.hero19 h2,
-.hero.hero19 h3,
-.hero.hero19 h4,
-.hero.hero19 h5,
-.hero.hero19 h6 {
-  color: #222;
-  text-align: left;
-  margin: 0 0 10px;
-  max-width: 100%;
-  font-weight: 600;
-}
-
-.hero.hero19 p {
-  color: #222;
-  text-align: left;
-  margin: 0 0 6px;
-  max-width: 100%;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.hero.hero19 .button-container {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.hero-container > .hero-wrapper > .block.hero.hero19 .button {
-  background: #fd0;
-  color: #000;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 0;
-  padding: 10px 22px;
-  box-shadow: none;
-  border: none;
-  margin: 0;
-  font-size: 1rem;
-  display: inline-block;
-  transition: background 0.2s;
-}
-
-.hero-container > .hero-wrapper > .block.hero.hero19 .button:hover,
-.hero-container > .hero-wrapper > .block.hero.hero19 .button:focus {
-  background: #ffe666;
-  color: #000;
-  text-decoration: none;
-}
-
-@media (width <= 1200px) {
-  .hero.hero19 > div:nth-child(2) > div {
-    max-width: 90vw;
-  }
-}
-
-@media (width <= 900px) {
-  .hero.hero19 > div:first-child {
-    height: 220px;
-  }
-
-  .hero.hero19 > div:nth-child(2) {
-    width: 99%;
-    padding: 10px 6px 8px;
-    max-width: 98vw;
-  }
-
-  .hero.hero19 > div:nth-child(2) > div {
-    max-width: 98vw;
-  }
-
-  .hero.hero19 h2 {
-    font-size: 1.12rem;
-  }
-}
-
-@media (width <= 600px) {
-  .hero.hero19 > div:first-child {
-    height: 140px;
-  }
-
-  .hero.hero19 > div:nth-child(2) {
-    width: 100%;
-    padding: 6px 2vw;
-    max-width: 100vw;
-  }
-
-  .hero.hero19 > div:nth-child(2) > div {
-    max-width: 100vw;
-  }
-
-  .hero.hero19 h2 {
-    font-size: 1rem;
-  }
-}
-
-
 .hero.hero27 {
   position: relative;
   width: 100%;
@@ -307,9 +160,6 @@
   overflow: hidden;
 }
 
-/* Remove extra space around the hero */
-
-/* Make the image flush to the top, tall, and immersive */
 .hero.hero12 > div:first-child,
 .hero.hero12 > div:first-child > div {
   width: 100vw;
@@ -330,7 +180,6 @@
   margin: 0;
 }
 
-/* Responsive image sizing */
 @media (width <= 900px) {
   .hero.hero12 > div:first-child,
   .hero.hero12 > div:first-child > div,
@@ -341,7 +190,6 @@
   }
 }
 
-/* Card overlay styles: lower and slightly narrower */
 .hero.hero12 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -360,7 +208,6 @@
   margin: 0;
 }
 
-/* Responsive card overlay */
 @media (width <= 1200px) {
   .hero.hero12 > div:nth-child(2) {
     width: 88vw;
@@ -379,7 +226,6 @@
   }
 }
 
-/* Card content (text) */
 .hero.hero12 > div:nth-child(2) > div {
   margin: 0;
   padding: 0;
@@ -391,7 +237,6 @@
   padding-bottom: 8px;
 }
 
-/* Title style inside card */
 .hero.hero12 > div:nth-child(2) h2 {
   color: #222;
   font-size: 20px;
@@ -403,7 +248,161 @@
   background: none;
 }
 
-/* Hide any outer divider if present */
 .hero.hero12::after {
   display: none;
+}
+
+
+/* Edge-to-edge, no margin/padding on any wrapper or hero image */
+.hero-container > .hero-wrapper,
+.hero.hero19,
+.hero.hero19 > div:first-child,
+.hero.hero19 picture,
+.hero.hero19 img {
+  max-width: unset;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Increase hero image height for more dramatic space above card */
+.hero.hero19 {
+  min-height: 480px;
+  overflow: hidden;
+  background: none;
+}
+
+/* Hero image container: even taller for desktop */
+.hero.hero19 > div:first-child {
+  height: 480px;
+  min-height: 480px;
+  max-height: 650px;
+  overflow: hidden;
+  display: block;
+}
+
+@media (width <= 1100px) {
+  .hero.hero19 > div:first-child {
+    height: 320px;
+    min-height: 200px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero19 > div:first-child {
+    height: 160px;
+    min-height: 100px;
+  }
+}
+
+/* Overlay card: reduce padding to let card sit lower, increase space above card */
+.hero.hero19 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 950px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgb(0 0 0 / 16%);
+  padding: 1.25rem 2rem 1rem;
+  border-radius: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  gap: 1.25rem;
+}
+
+/* Responsive card width for smaller screens */
+@media (width <= 900px) {
+  .hero.hero19 > div:nth-child(2) {
+    width: 98vw;
+    max-width: 98vw;
+    padding: 1rem 2vw 0.75rem;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero19 > div:nth-child(2) {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0.6rem 2vw;
+  }
+}
+
+/* Content width within card: centered, detached from edges */
+.hero.hero19 > div:nth-child(2) > div {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Heading: lighter weight, spacing */
+.hero.hero19 h1,
+.hero.hero19 h2,
+.hero.hero19 h3,
+.hero.hero19 h4,
+.hero.hero19 h5,
+.hero.hero19 h6 {
+  color: #222;
+  text-align: left;
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 1em;
+  max-width: 100%;
+}
+
+/* Description */
+.hero.hero19 p:not(.button-container) {
+  color: #222;
+  text-align: left;
+  font-size: 0.95em;
+  font-weight: 400;
+  margin-bottom: 1.5em;
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+/* Button container */
+.hero.hero19 .button-container {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Button styling */
+.hero-container > .hero-wrapper > .block.hero.hero19 .button,
+.hero.hero19 .button {
+  background: #FFE100;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 0.5em 1.5em;
+  font-size: 0.95em;
+  letter-spacing: 0.03em;
+  display: inline-block;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero19 .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero19 .button:focus,
+.hero.hero19 .button:hover,
+.hero.hero19 .button:focus {
+  background: #ffd400;
+  color: #222;
+  text-decoration: none;
 }
