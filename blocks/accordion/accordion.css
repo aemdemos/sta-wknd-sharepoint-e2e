@@ -61,134 +61,6 @@
 }
 
 
-.accordion.accordion16 {
-  background: var(--background-color);
-  max-width: 900px;
-  margin: 48px auto;
-  padding: 40px 32px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  box-shadow: 0 4px 32px 0 rgb(32 32 32 / 7%);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.accordion.accordion16 details {
-  border: none;
-  background: none;
-  box-shadow: none;
-  margin: 0 0 32px;
-  width: 100%;
-}
-
-.accordion.accordion16 details summary {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  min-height: 56px;
-  font-size: var(--heading-font-size-xl);
-  font-weight: 600;
-  color: var(--text-color);
-  background: none;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  cursor: pointer;
-  transition: background 0.15s;
-  text-align: left;
-  box-shadow: none;
-}
-
-.accordion.accordion16 details summary::-webkit-details-marker {
-  display: none;
-}
-
-.accordion.accordion16 details .accordion-item-body {
-  padding: 0;
-  background: none;
-  border-top: none;
-  box-shadow: none;
-  margin: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.accordion.accordion16 details .accordion-item-body h2 {
-  font-size: var(--heading-font-size-l);
-  font-weight: 600;
-  color: var(--text-color);
-  margin-top: 44px;
-  margin-bottom: 14px;
-  text-align: left;
-  letter-spacing: -0.5px;
-}
-
-.accordion.accordion16 details .accordion-item-body p {
-  font-size: var(--body-font-size-m);
-  line-height: 1.7;
-  color: var(--text-color);
-  margin-bottom: 26px;
-  margin-top: 0;
-  max-width: 700px;
-  text-align: left;
-}
-
-.accordion.accordion16 details .accordion-item-body picture img {
-  display: block;
-  width: 100%;
-  max-width: 760px;
-  height: auto;
-  border-radius: 10px;
-  margin: 28px 0;
-  box-shadow: 0 4px 16px 0 rgb(32 32 32 / 9%);
-}
-
-.accordion.accordion16 details .accordion-item-body ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.accordion.accordion16 details .accordion-item-body li {
-  margin-bottom: 12px;
-}
-
-@media (width <= 900px) {
-  .accordion.accordion16 {
-    padding: 24px 8px;
-    max-width: 100%;
-    box-shadow: none;
-    border-radius: 0;
-  }
-
-  .accordion.accordion16 details .accordion-item-body picture img {
-    max-width: 100%;
-    margin: 18px 0;
-    border-radius: 7px;
-  }
-
-  .accordion.accordion16 details .accordion-item-body h2 {
-    font-size: var(--heading-font-size-m);
-    margin-top: 28px;
-    margin-bottom: 8px;
-  }
-
-  .accordion.accordion16 details .accordion-item-body p {
-    max-width: 100%;
-  }
-}
-
-.accordion.accordion16 details:last-child {
-  margin-bottom: 0;
-}
-
-
 .accordion25 {
   display: flex;
   flex-direction: row;
@@ -429,7 +301,6 @@ summary::-webkit-details-marker { display: none; }
   padding: 0;
 }
 
-/* Use flex row for possible columns, but visually anchor main content to the left */
 .accordion.accordion9 .accordion-item {
   display: flex;
   flex-direction: row;
@@ -440,14 +311,12 @@ summary::-webkit-details-marker { display: none; }
   background: transparent;
 }
 
-/* Responsive stack for small screens */
 @media (width <= 850px) {
   .accordion.accordion9 .accordion-item {
     flex-direction: column;
   }
 }
 
-/* Main column: left-aligned, generous padding, gold bar above h1 */
 .accordion.accordion9 .accordion-item-label {
   width: 100%;
   padding: 72px 0 36px 64px;
@@ -468,7 +337,6 @@ summary::-webkit-details-marker { display: none; }
   }
 }
 
-/* Decorative gold bar above heading, correctly spaced */
 .accordion.accordion9 .accordion-item-label::before {
   display: block;
   width: 56px;
@@ -479,7 +347,6 @@ summary::-webkit-details-marker { display: none; }
   margin-top: 0;
 }
 
-/* Heading: left-aligned, strong size, no extra margin */
 .accordion.accordion9 .accordion-item-label h1 {
   font-size: var(--heading-font-size-xxl);
   font-weight: 700;
@@ -492,7 +359,6 @@ summary::-webkit-details-marker { display: none; }
   align-self: flex-start;
 }
 
-/* Enforce left alignment for heading and its container */
 .accordion.accordion9 .accordion-item-label,
 .accordion.accordion9 .accordion-item-label h1 {
   text-align: left;
@@ -500,10 +366,195 @@ summary::-webkit-details-marker { display: none; }
   justify-content: flex-start;
 }
 
-/* Remove any centering that might persist */
-
-/* Robustly hide details/summary marker/arrow in all browsers */
 .accordion.accordion9 details > summary::-webkit-details-marker,
 .accordion.accordion9 details > summary::marker {
   display: none;
+}
+
+
+.accordion.accordion16 {
+  /* Overall block style */
+  background: #fff;
+  margin: 48px auto;
+  box-sizing: border-box;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px 0 rgb(32 32 32 / 7%);
+  padding: 40px 32px 60px;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 56px;
+}
+
+/* Only target direct children for layout (main + sidebar) */
+.accordion.accordion16 > div {
+  min-width: 0;
+}
+
+.accordion.accordion16 > div:first-child {
+  /* Main accordion area */
+  width: 100%;
+}
+
+.accordion.accordion16 > div:last-child {
+  /* Sidebar area */
+  border-left: 1px solid #eee;
+  padding-left: 36px;
+  color: #888;
+  font-size: var(--body-font-size-m);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Sidebar vertical link list */
+.accordion.accordion16 > div:last-child ul,
+.accordion.accordion16 > div:last-child ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accordion.accordion16 > div:last-child li {
+  border-bottom: 1px solid #eee;
+  padding: 16px 0;
+  margin: 0;
+  font-size: var(--body-font-size-m);
+  color: #888;
+}
+
+.accordion.accordion16 > div:last-child li strong,
+.accordion.accordion16 > div:last-child li a {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* Accordion details structure */
+.accordion.accordion16 details {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.accordion.accordion16 details:last-child {
+  margin-bottom: 0;
+}
+
+/* Accordion summary (section headers) */
+.accordion.accordion16 details summary {
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  color: var(--text-color);
+  padding: 0;
+  margin: 0;
+  min-height: 56px;
+  background: none;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.accordion.accordion16 details[open] > summary {
+  background: #fffbe9;
+  color: #f7b500;
+}
+
+/* Accordion summary hover/focus */
+.accordion.accordion16 details summary:hover,
+.accordion.accordion16 details summary:focus {
+  background: #fffbe9;
+  color: #f7b500;
+}
+
+/* Remove default marker */
+.accordion.accordion16 details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Body content inside details */
+.accordion.accordion16 details .accordion-item-body {
+  padding: 0;
+  background: none;
+  border-top: none;
+  box-shadow: none;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Headings inside details content */
+.accordion.accordion16 details .accordion-item-body h2 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  color: var(--text-color);
+  margin-top: 44px;
+  margin-bottom: 14px;
+  text-align: left;
+  letter-spacing: -0.5px;
+}
+
+/* Paragraphs inside details content */
+.accordion.accordion16 details .accordion-item-body p {
+  font-size: var(--body-font-size-m);
+  line-height: 1.7;
+  color: var(--text-color);
+  margin-bottom: 26px;
+  margin-top: 0;
+  max-width: 700px;
+  text-align: left;
+}
+
+/* Image styles: large, rounded, shadow */
+.accordion.accordion16 details .accordion-item-body picture img {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  border-radius: 10px;
+  margin: 28px auto 12px;
+  box-shadow: 0 4px 16px 0 rgb(32 32 32 / 9%);
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .accordion.accordion16 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 24px 8px 36px;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .accordion.accordion16 > div:last-child {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 40px;
+    max-width: 100%;
+  }
+
+  .accordion.accordion16 details .accordion-item-body picture img {
+    max-width: 100%;
+    margin: 18px 0;
+    border-radius: 7px;
+  }
+
+  .accordion.accordion16 details .accordion-item-body h2 {
+    font-size: var(--heading-font-size-m);
+    margin-top: 28px;
+    margin-bottom: 8px;
+  }
+
+  .accordion.accordion16 details .accordion-item-body p {
+    max-width: 100%;
+  }
 }
