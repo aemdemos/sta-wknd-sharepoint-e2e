@@ -1,6 +1,11 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
 }
 
 .columns img {
@@ -9,6 +14,12 @@
 
 .columns > div > div {
   order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  overflow-wrap: break-word;
+  gap: 18px;
 }
 
 .columns > div > .columns-img-col {
@@ -29,5 +40,469 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background: #232220;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  padding: 44px 32px 40px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.columns-img-col img {
+  width: 130px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  display: block;
+}
+
+.columns > div > div:nth-child(2) ul,
+.columns > div > div:nth-child(2) li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns > div > div:nth-child(2) ul {
+  margin-bottom: 6px;
+}
+
+.columns > div > div:nth-child(2) a,
+.columns > div > div:nth-child(2) li {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.columns > div > div:last-child {
+  align-items: flex-end;
+}
+
+.columns input,
+.columns select,
+.columns button {
+  background: #232220;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.columns a.button,
+.columns button {
+  background: none;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: none;
+}
+
+.columns p,
+.columns li {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  margin: 0 0 8px;
+}
+
+.columns ul {
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div > div:empty {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .columns {
+    padding: 32px 12px 28px;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .columns > div > div,
+  .columns > div > div:last-child {
+    align-items: flex-start;
+  }
+}
+
+
+.columns.columns38 {
+  background: #fff;
+  color: #222;
+  border-bottom: none;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.columns.columns38 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns38 > div {
+    flex-direction: column;
+    gap: 0;
+    padding: 18px 8px;
+  }
+}
+
+.columns.columns38 > div > div:first-child {
+  flex: 3.2 1 0;
+  min-width: 0;
+  margin-right: 0;
+  max-width: 1100px;
+}
+
+.columns.columns38 > div > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 220px;
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns38 > div > div:last-child,
+  .columns.columns38 > div > div:first-child {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+}
+
+.columns.columns38 h3#ultimate-guide-to-la-skateparks {
+  font-size: 3em;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 40px;
+  line-height: 1.08;
+}
+
+.columns.columns38 h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #222;
+  margin-top: 40px;
+  margin-bottom: 18px;
+  position: relative;
+  display: inline-block;
+  line-height: 1.21;
+}
+
+.columns.columns38 h2::after {
+  display: block;
+  width: 52px;
+  height: 2px;
+  background: #FFD700;
+  margin-top: 2px;
+}
+
+.columns.columns38 p {
+  color: #222;
+  font-size: 1.09em;
+  margin-bottom: 18px;
+  margin-top: 0;
+  line-height: 1.72;
+  max-width: 980px;
+}
+
+.columns.columns38 p > strong > em,
+.columns.columns38 p > strong em {
+  color: #222;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.columns.columns38 blockquote {
+  background: #f6f6f6;
+  color: #222;
+  font-style: italic;
+  font-size: 1.1em;
+  padding: 20px 32px;
+  margin: 32px 0 16px;
+  border-top: 2px solid #FFD700;
+  border-left: none;
+  line-height: 1.72;
+  max-width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns.columns38 blockquote {
+    max-width: 100%;
+    padding: 12px 4px;
+  }
+}
+
+.columns.columns38 blockquote p {
+  margin: 0;
+}
+
+.columns.columns38 p u,
+.columns.columns38 p > u {
+  color: #888;
+  font-size: 1em;
+  text-decoration: underline;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.columns.columns38 picture,
+.columns.columns38 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 32px 0 24px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.columns.columns38 > div > div:last-child h5 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 14px;
+  line-height: 1.18;
+}
+
+.columns.columns38 > div > div:last-child h3 {
+  font-size: 1em;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 8px;
+}
+
+.columns.columns38 > div > div:last-child h3 a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.columns.columns38 > div > div:last-child ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 8px;
+  overflow-wrap: break-word;
+}
+
+.columns.columns38 > div > div:last-child ul li {
+  font-size: 1em;
+  color: #888;
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.32;
+  font-weight: 700;
+}
+
+.columns.columns38 > div > div:last-child a,
+.columns.columns38 > div > div:last-child li {
+  color: #222;
+  text-decoration: none;
+  font-size: 1em;
+  line-height: 1.32;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.columns.columns38 .button-container {
+  margin-bottom: 8px;
+}
+
+.columns.columns38 a.button,
+.columns.columns38 > div > div:last-child .button {
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px 0;
+  text-decoration: none;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 7%);
+  transition: background 0.15s, color 0.15s;
+  font-size: 1em;
+  margin: 0 0 10px;
+  display: block;
+  width: 100%;
+  min-width: unset;
+  text-align: center;
+}
+
+.columns.columns38 a.button:hover,
+.columns.columns38 a.button:focus,
+.columns.columns38 > div > div:last-child .button:hover,
+.columns.columns38 > div > div:last-child .button:focus {
+  background: #FFD700;
+  color: #222;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type li a {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  transition: color 0.15s;
+  line-height: 1.28;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type li {
+  margin-bottom: 6px;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type li a:hover {
+  color: #FFD700;
+  text-decoration: underline;
+}
+
+@media (width <= 900px) {
+  .columns.columns38 > div > div:last-child {
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .columns.columns38 > div > div:first-child {
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .columns.columns38 blockquote {
+    max-width: 100%;
+    padding: 10px 2px;
+  }
+}
+
+
+.columns.columns2 {
+  background: #fff;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  min-height: 88px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Ensure flex layout with no extra horizontal padding or margin */
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 56px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Hide any middle columns the HTML might have */
+.columns.columns2 > div > div:not(.columns-img-col, :last-child) {
+  display: none;
+}
+
+/* LOGO COLUMN: absolutely minimal left margin */
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* Logo image style */
+.columns.columns2 .columns-img-col img {
+  height: 56px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* SEARCH COLUMN: absolutely minimal right margin */
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 180px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Search box styling */
+.columns.columns2 > div > div:last-child p {
+  background: #f5f5f5;
+  color: #888;
+  font-size: 13px;
+  min-width: 140px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 16px 0 32px;
+  border-radius: 4px;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="gray" stroke-width="2" fill="none"/><line x1="13" y1="13" x2="16" y2="16" stroke="gray" stroke-width="2"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 16px 16px;
+}
+
+/* Responsive adjustments for mobile/tablet */
+@media (width <= 700px) {
+  .columns.columns2 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    min-height: unset;
+  }
+
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    min-height: unset;
+  }
+
+  .columns.columns2 .columns-img-col {
+    margin: 0;
+  }
+
+  .columns.columns2 > div > div:last-child {
+    margin: 0;
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+
+  .columns.columns2 > div > div:last-child p {
+    min-width: 120px;
+    width: auto;
   }
 }
