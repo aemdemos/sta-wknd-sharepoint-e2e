@@ -145,265 +145,6 @@
 }
 
 
-.columns.columns38 {
-  background: #fff;
-  color: #222;
-  border-bottom: none;
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.columns.columns38 > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  gap: 24px;
-  box-sizing: border-box;
-}
-
-@media (width <= 900px) {
-  .columns.columns38 > div {
-    flex-direction: column;
-    gap: 0;
-    padding: 18px 8px;
-  }
-}
-
-.columns.columns38 > div > div:first-child {
-  flex: 3.2 1 0;
-  min-width: 0;
-  margin-right: 0;
-  max-width: 1100px;
-}
-
-.columns.columns38 > div > div:last-child {
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: 220px;
-  padding-left: 8px;
-  box-sizing: border-box;
-}
-
-@media (width <= 900px) {
-  .columns.columns38 > div > div:last-child,
-  .columns.columns38 > div > div:first-child {
-    padding-left: 0;
-    padding-right: 0;
-    max-width: 100%;
-  }
-}
-
-.columns.columns38 h3#ultimate-guide-to-la-skateparks {
-  font-size: 3em;
-  font-weight: 700;
-  color: #222;
-  margin-top: 0;
-  margin-bottom: 40px;
-  line-height: 1.08;
-}
-
-.columns.columns38 h2 {
-  font-size: 1.5em;
-  font-weight: 700;
-  color: #222;
-  margin-top: 40px;
-  margin-bottom: 18px;
-  position: relative;
-  display: inline-block;
-  line-height: 1.21;
-}
-
-.columns.columns38 h2::after {
-  display: block;
-  width: 52px;
-  height: 2px;
-  background: #FFD700;
-  margin-top: 2px;
-}
-
-.columns.columns38 p {
-  color: #222;
-  font-size: 1.09em;
-  margin-bottom: 18px;
-  margin-top: 0;
-  line-height: 1.72;
-  max-width: 980px;
-}
-
-.columns.columns38 p > strong > em,
-.columns.columns38 p > strong em {
-  color: #222;
-  font-style: italic;
-  font-size: 1em;
-}
-
-.columns.columns38 blockquote {
-  background: #f6f6f6;
-  color: #222;
-  font-style: italic;
-  font-size: 1.1em;
-  padding: 20px 32px;
-  margin: 32px 0 16px;
-  border-top: 2px solid #FFD700;
-  border-left: none;
-  line-height: 1.72;
-  max-width: 100%;
-}
-
-@media (width <= 900px) {
-  .columns.columns38 blockquote {
-    max-width: 100%;
-    padding: 12px 4px;
-  }
-}
-
-.columns.columns38 blockquote p {
-  margin: 0;
-}
-
-.columns.columns38 p u,
-.columns.columns38 p > u {
-  color: #888;
-  font-size: 1em;
-  text-decoration: underline;
-  margin-bottom: 24px;
-  display: inline-block;
-}
-
-.columns.columns38 picture,
-.columns.columns38 img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 32px 0 24px;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.columns.columns38 > div > div:last-child h5 {
-  font-size: 1em;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 700;
-  color: #111;
-  margin: 0 0 14px;
-  line-height: 1.18;
-}
-
-.columns.columns38 > div > div:last-child h3 {
-  font-size: 1em;
-  font-weight: 700;
-  color: #222;
-  margin: 0 0 8px;
-}
-
-.columns.columns38 > div > div:last-child h3 a {
-  color: #222;
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.columns.columns38 > div > div:last-child ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 8px;
-  overflow-wrap: break-word;
-}
-
-.columns.columns38 > div > div:last-child ul li {
-  font-size: 1em;
-  color: #888;
-  margin-bottom: 0;
-  overflow-wrap: anywhere;
-  line-height: 1.32;
-  font-weight: 700;
-}
-
-.columns.columns38 > div > div:last-child a,
-.columns.columns38 > div > div:last-child li {
-  color: #222;
-  text-decoration: none;
-  font-size: 1em;
-  line-height: 1.32;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.columns.columns38 .button-container {
-  margin-bottom: 8px;
-}
-
-.columns.columns38 a.button,
-.columns.columns38 > div > div:last-child .button {
-  background: #222;
-  color: #fff;
-  border-radius: 4px;
-  padding: 8px 0;
-  text-decoration: none;
-  border: none;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgb(34 34 34 / 7%);
-  transition: background 0.15s, color 0.15s;
-  font-size: 1em;
-  margin: 0 0 10px;
-  display: block;
-  width: 100%;
-  min-width: unset;
-  text-align: center;
-}
-
-.columns.columns38 a.button:hover,
-.columns.columns38 a.button:focus,
-.columns.columns38 > div > div:last-child .button:hover,
-.columns.columns38 > div > div:last-child .button:focus {
-  background: #FFD700;
-  color: #222;
-}
-
-.columns.columns38 > div > div:last-child ul:last-of-type li a {
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #222;
-  text-decoration: none;
-  font-size: 1em;
-  letter-spacing: 0.5px;
-  transition: color 0.15s;
-  line-height: 1.28;
-}
-
-.columns.columns38 > div > div:last-child ul:last-of-type li {
-  margin-bottom: 6px;
-}
-
-.columns.columns38 > div > div:last-child ul:last-of-type li a:hover {
-  color: #FFD700;
-  text-decoration: underline;
-}
-
-@media (width <= 900px) {
-  .columns.columns38 > div > div:last-child {
-    padding-left: 0;
-    max-width: 100%;
-  }
-
-  .columns.columns38 > div > div:first-child {
-    padding-right: 0;
-    max-width: 100%;
-  }
-
-  .columns.columns38 blockquote {
-    max-width: 100%;
-    padding: 10px 2px;
-  }
-}
-
-
 .columns.columns2 {
   background: #fff;
   padding-top: 32px;
@@ -507,15 +248,11 @@
   }
 }
 
-/* Remove nested flex column, let children align center with parent flex row */
-
-/* Ensure the logo is centered in its cell */
 .columns-img-col {
   display: flex;
   align-items: center;
 }
 
-/* Remove list bullets and spacing for lists */
 .columns ul,
 .columns li {
   list-style: none;
@@ -523,17 +260,11 @@
   padding: 0;
 }
 
-/* Text styling for body and links */
-
-/* Links in .columns: white and underlined */
 .columns a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* Right column alignment for search box */
-
-/* Search field styling for dark background */
 .columns input[type="search"], 
 .columns input[type="text"], 
 .columns input[type="email"], 
@@ -546,7 +277,6 @@
   font-size: 1rem;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .columns {
     padding: 32px 12px 28px;
@@ -565,4 +295,305 @@
     align-items: flex-start;
     justify-content: flex-start;
   }
+}
+
+
+.columns.columns38 {
+  background: #fff;
+  color: #222;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+}
+
+/* Layout: Wider main content, narrower sidebar, less padding, align tops */
+.columns.columns38 > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1040px) minmax(0, 160px);
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 12px 0;
+  place-items: start start;
+  box-sizing: border-box;
+}
+
+@media (width <= 1200px) {
+  .columns.columns38 > div {
+    max-width: 99vw;
+    gap: 18px;
+    padding: 32px 4vw 0;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns38 > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 12px 1vw 0;
+  }
+
+  .columns.columns38 > div > div:first-child,
+  .columns.columns38 > div > div:last-child {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* Main column (left) */
+.columns.columns38 > div > div:first-child {
+  min-width: 0;
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Sidebar (right) */
+.columns.columns38 > div > div:last-child {
+  min-width: 0;
+  max-width: 160px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.91em;
+  color: #b9b9b9;
+  margin-left: auto;
+  margin-right: 0;
+  padding-left: 0;
+  align-self: flex-start;
+  position: relative;
+}
+
+/* Headings */
+.columns.columns38 h3#ultimate-guide-to-la-skateparks {
+  font-size: 2.6em;
+  font-weight: bold;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 36px;
+  line-height: 1.14;
+  letter-spacing: -0.5px;
+}
+
+.columns.columns38 h2 {
+  font-size: 1.18em;
+  font-weight: bold;
+  color: #222;
+  margin-top: 58px;
+  margin-bottom: 22px;
+  position: relative;
+  display: inline-block;
+  line-height: 1.22;
+  letter-spacing: -0.2px;
+}
+
+.columns.columns38 h2::after {
+  display: block;
+  width: 68px;
+  height: 1.5px;
+  background: #ffc600;
+  margin-top: 13px;
+  border-radius: 1px;
+}
+
+/* Paragraphs */
+.columns.columns38 p {
+  color: #222;
+  font-size: 1.03em;
+  margin-bottom: 28px;
+  margin-top: 0;
+  line-height: 1.8;
+  max-width: 1020px;
+}
+
+/* Blockquote */
+.columns.columns38 blockquote {
+  background: #fcfcfa;
+  color: #444;
+  font-style: italic;
+  font-size: 1.09em;
+  padding: 26px 40px;
+  margin: 52px 0 32px;
+  border-left: 4px solid #ffc600;
+  border-top: none;
+  line-height: 1.66;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.columns.columns38 blockquote p {
+  margin: 0;
+}
+
+/* Attribution below blockquote */
+.columns.columns38 blockquote + p u,
+.columns.columns38 blockquote + p > u {
+  margin-top: 12px;
+  margin-bottom: 28px;
+  display: inline-block;
+}
+
+.columns.columns38 p u,
+.columns.columns38 p > u {
+  color: #888;
+  font-size: 0.96em;
+  text-decoration: underline;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+/* Images */
+.columns.columns38 picture,
+.columns.columns38 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 44px 0 36px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgb(34 34 34 / 9%);
+}
+
+/* Image caption/address */
+.columns.columns38 p strong em,
+.columns.columns38 p strong > em {
+  color: #444;
+  font-style: italic;
+  font-size: 0.99em;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Sidebar Section */
+.columns.columns38 > div > div:last-child h5 {
+  font-size: 0.88em;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  font-weight: 400;
+  color: #b9b9b9;
+  margin: 0 0 28px;
+  line-height: 1.18;
+}
+
+.columns.columns38 > div > div:last-child h3 {
+  font-size: 0.98em;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 15px;
+  letter-spacing: -0.1px;
+}
+
+.columns.columns38 > div > div:last-child h3 a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+.columns.columns38 > div > div:last-child ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  overflow-wrap: break-word;
+}
+
+.columns.columns38 > div > div:last-child ul li {
+  font-size: 0.91em;
+  color: #b9b9b9;
+  line-height: 1.34;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding-bottom: 7px;
+  overflow-wrap: anywhere;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type {
+  border-top: 1px solid #eee;
+  padding-top: 18px;
+  margin-top: 28px;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type li {
+  margin-bottom: 13px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 7px;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type li:last-child {
+  border-bottom: none;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type li a {
+  color: #222;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.14s, border-bottom-color 0.14s;
+  display: block;
+  position: relative;
+  padding-bottom: 4px;
+  font-size: 0.91em;
+  letter-spacing: 0.01em;
+}
+
+.columns.columns38 > div > div:last-child ul:last-of-type li a:hover {
+  color: #ffc600;
+  border-bottom: 2px solid #ffc600;
+}
+
+/* Sidebar section spacing */
+.columns.columns38 > div > div:last-child > * {
+  margin-bottom: 28px;
+}
+
+/* Button styles */
+.columns.columns38 a.button,
+.columns.columns38 > div > div:last-child .button {
+  background: #222;
+  color: #fff;
+  border-radius: 3px;
+  padding: 5.5px 0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 10px 0 18px;
+  width: 100%;
+  display: block;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 7%);
+  text-align: center;
+  transition: background 0.13s, color 0.13s;
+  border: none;
+}
+
+.columns.columns38 a.button:hover,
+.columns.columns38 .button:focus {
+  background: #ffc600;
+  color: #222;
+}
+
+/* Misc overrides for scoped links in sidebar */
+.columns.columns38 > div > div:last-child a,
+.columns.columns38 > div > div:last-child li {
+  color: #222;
+  font-size: 0.91em;
+  font-weight: 400;
+  line-height: 1.32;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns38 > div > div:first-child,
+  .columns.columns38 > div > div:last-child {
+    padding: 0;
+    max-width: 100%;
+  }
+}
+
+/* Section vertical spacing in main content */
+.columns.columns38 > div > div:first-child > h2 {
+  margin-top: 58px;
+  margin-bottom: 22px;
+}
+
+.columns.columns38 > div > div:first-child > *:last-child {
+  margin-bottom: 0;
 }
