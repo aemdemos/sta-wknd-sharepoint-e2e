@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -44,4 +45,365 @@
   .hero {
     padding: 40px 32px;
   }
+}
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+}
+
+
+.hero.hero19 {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  min-height: 460px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+}
+
+.hero.hero19 > div:first-child {
+  width: 100%;
+  height: 460px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.hero.hero19 picture,
+.hero.hero19 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero19 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 97.5%;
+  max-width: 1700px;
+  background: #fff;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
+  padding: 12px 28px 10px;
+  border-radius: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.hero.hero19 > div:nth-child(2) > div {
+  width: 100%;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero.hero19 h1,
+.hero.hero19 h2,
+.hero.hero19 h3,
+.hero.hero19 h4,
+.hero.hero19 h5,
+.hero.hero19 h6 {
+  color: #222;
+  text-align: left;
+  margin: 0 0 10px;
+  max-width: 100%;
+  font-weight: 600;
+}
+
+.hero.hero19 p {
+  color: #222;
+  text-align: left;
+  margin: 0 0 6px;
+  max-width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.hero.hero19 .button-container {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero19 .button {
+  background: #fd0;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 10px 22px;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero19 .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero19 .button:focus {
+  background: #ffe666;
+  color: #000;
+  text-decoration: none;
+}
+
+@media (width <= 1200px) {
+  .hero.hero19 > div:nth-child(2) > div {
+    max-width: 90vw;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero19 > div:first-child {
+    height: 220px;
+  }
+
+  .hero.hero19 > div:nth-child(2) {
+    width: 99%;
+    padding: 10px 6px 8px;
+    max-width: 98vw;
+  }
+
+  .hero.hero19 > div:nth-child(2) > div {
+    max-width: 98vw;
+  }
+
+  .hero.hero19 h2 {
+    font-size: 1.12rem;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero19 > div:first-child {
+    height: 140px;
+  }
+
+  .hero.hero19 > div:nth-child(2) {
+    width: 100%;
+    padding: 6px 2vw;
+    max-width: 100vw;
+  }
+
+  .hero.hero19 > div:nth-child(2) > div {
+    max-width: 100vw;
+  }
+
+  .hero.hero19 h2 {
+    font-size: 1rem;
+  }
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100%;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero27 > div:first-child {
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero27 > div:first-child picture,
+.hero.hero27 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+}
+
+.hero.hero27 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+  width: 78%;
+  max-width: 950px;
+  background: var(--background-color);
+  padding: 40px 38px 32px;
+  box-shadow: 0 8px 36px rgb(0 0 0 / 13%);
+  border-radius: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero.hero27 > div:nth-child(2) h2 {
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.hero.hero27 > div:nth-child(2) p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (width <= 1200px) {
+  .hero.hero27 > div:nth-child(2) {
+    width: 92%;
+    max-width: 98vw;
+    padding: 24px 12px 16px;
+    bottom: 26px;
+  }
+
+  .hero.hero27 > div:first-child {
+    height: 340px;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero27 > div:nth-child(2) {
+    width: 99%;
+    padding: 14px 6px 8px;
+    bottom: 14px;
+  }
+
+  .hero.hero27 > div:first-child {
+    height: 210px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero27 > div:nth-child(2) {
+    width: 99%;
+    padding: 4px 2px;
+    bottom: 6px;
+  }
+
+  .hero.hero27 > div:first-child {
+    height: 120px;
+  }
+}
+
+
+.hero.hero12 {
+  position: relative;
+  width: 100vw;
+  min-height: 560px;
+  padding: 0;
+  margin: 0;
+  display: block;
+  overflow: hidden;
+}
+
+/* Remove extra space around the hero */
+
+/* Make the image flush to the top, tall, and immersive */
+.hero.hero12 > div:first-child,
+.hero.hero12 > div:first-child > div {
+  width: 100vw;
+  height: 560px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+}
+
+.hero.hero12 picture,
+.hero.hero12 img {
+  width: 100vw;
+  height: 560px;
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* Responsive image sizing */
+@media (width <= 900px) {
+  .hero.hero12 > div:first-child,
+  .hero.hero12 > div:first-child > div,
+  .hero.hero12 picture,
+  .hero.hero12 img {
+    height: 320px;
+    min-height: 140px;
+  }
+}
+
+/* Card overlay styles: lower and slightly narrower */
+.hero.hero12 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  top: auto;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 59vw;
+  max-width: 800px;
+  background: #fff;
+  padding: 40px 32px 48px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 6%);
+  z-index: 2;
+  display: block;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* Responsive card overlay */
+@media (width <= 1200px) {
+  .hero.hero12 > div:nth-child(2) {
+    width: 88vw;
+    max-width: 99vw;
+    padding: 26px 4vw 32px;
+    bottom: 8px;
+  }
+}
+
+@media (width <= 700px) {
+  .hero.hero12 > div:nth-child(2) {
+    width: 98vw;
+    max-width: 99vw;
+    padding: 14px 2vw 18px;
+    bottom: 2vw;
+  }
+}
+
+/* Card content (text) */
+.hero.hero12 > div:nth-child(2) > div {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* Title style inside card */
+.hero.hero12 > div:nth-child(2) h2 {
+  color: #222;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 32px;
+  text-align: left;
+  letter-spacing: 0;
+  background: none;
+}
+
+/* Hide any outer divider if present */
+.hero.hero12::after {
+  display: none;
 }
