@@ -54,102 +54,6 @@
 }
 
 
-.hero.hero27 {
-  position: relative;
-  width: 100%;
-  background: none;
-  margin: 0;
-  padding: 0;
-}
-
-.hero.hero27 > div:first-child {
-  width: 100%;
-  height: 480px;
-  overflow: hidden;
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-.hero.hero27 > div:first-child picture,
-.hero.hero27 > div:first-child img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-}
-
-.hero.hero27 > div:nth-child(2) {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 40px;
-  width: 78%;
-  max-width: 950px;
-  background: var(--background-color);
-  padding: 40px 38px 32px;
-  box-shadow: 0 8px 36px rgb(0 0 0 / 13%);
-  border-radius: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hero.hero27 > div:nth-child(2) h2 {
-  color: var(--text-color);
-  font-size: var(--heading-font-size-xl);
-  margin: 0 0 16px;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.hero.hero27 > div:nth-child(2) p {
-  color: var(--dark-color);
-  font-size: var(--body-font-size-m);
-  margin: 0;
-  line-height: 1.6;
-}
-
-@media (width <= 1200px) {
-  .hero.hero27 > div:nth-child(2) {
-    width: 92%;
-    max-width: 98vw;
-    padding: 24px 12px 16px;
-    bottom: 26px;
-  }
-
-  .hero.hero27 > div:first-child {
-    height: 340px;
-  }
-}
-
-@media (width <= 900px) {
-  .hero.hero27 > div:nth-child(2) {
-    width: 99%;
-    padding: 14px 6px 8px;
-    bottom: 14px;
-  }
-
-  .hero.hero27 > div:first-child {
-    height: 210px;
-  }
-}
-
-@media (width <= 600px) {
-  .hero.hero27 > div:nth-child(2) {
-    width: 99%;
-    padding: 4px 2px;
-    bottom: 6px;
-  }
-
-  .hero.hero27 > div:first-child {
-    height: 120px;
-  }
-}
-
-
 .hero.hero12 {
   position: relative;
   width: 100vw;
@@ -252,8 +156,6 @@
   display: none;
 }
 
-
-/* Edge-to-edge, no margin/padding on any wrapper or hero image */
 .hero-container > .hero-wrapper,
 .hero.hero19,
 .hero.hero19 > div:first-child,
@@ -271,14 +173,12 @@
   box-sizing: border-box;
 }
 
-/* Increase hero image height for more dramatic space above card */
 .hero.hero19 {
   min-height: 480px;
   overflow: hidden;
   background: none;
 }
 
-/* Hero image container: even taller for desktop */
 .hero.hero19 > div:first-child {
   height: 480px;
   min-height: 480px;
@@ -301,7 +201,6 @@
   }
 }
 
-/* Overlay card: reduce padding to let card sit lower, increase space above card */
 .hero.hero19 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -322,7 +221,6 @@
   gap: 1.25rem;
 }
 
-/* Responsive card width for smaller screens */
 @media (width <= 900px) {
   .hero.hero19 > div:nth-child(2) {
     width: 98vw;
@@ -339,7 +237,6 @@
   }
 }
 
-/* Content width within card: centered, detached from edges */
 .hero.hero19 > div:nth-child(2) > div {
   width: 100%;
   max-width: 900px;
@@ -347,7 +244,6 @@
   box-sizing: border-box;
 }
 
-/* Heading: lighter weight, spacing */
 .hero.hero19 h1,
 .hero.hero19 h2,
 .hero.hero19 h3,
@@ -363,7 +259,6 @@
   max-width: 100%;
 }
 
-/* Description */
 .hero.hero19 p:not(.button-container) {
   color: #222;
   text-align: left;
@@ -374,13 +269,11 @@
   max-width: 100%;
 }
 
-/* Button container */
 .hero.hero19 .button-container {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* Button styling */
 .hero-container > .hero-wrapper > .block.hero.hero19 .button,
 .hero.hero19 .button {
   background: #FFE100;
@@ -405,4 +298,135 @@
   background: #ffd400;
   color: #222;
   text-decoration: none;
+}
+
+
+.hero.hero27 {
+  position: relative;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Ensure hero spans whole viewport width */
+
+/* IMAGE block */
+.hero.hero27 > div:first-child {
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero27 > div:first-child picture,
+.hero.hero27 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+}
+
+/* WHITE OVERLAY PANEL */
+.hero.hero27 > div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 70%;
+  max-width: 1040px;
+  background: var(--background-color);
+  padding: 1.3rem 2rem 1.1rem 1.2rem;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Ensure text is visible and left-aligned inside panel */
+.hero.hero27 > div:nth-child(2) h2,
+.hero.hero27 > div:nth-child(2) p {
+  color: var(--text-color);
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  text-align: left;
+}
+
+/* Slightly lighter for paragraph */
+.hero.hero27 > div:nth-child(2) p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  margin: 0;
+  line-height: 1.55;
+  max-width: 92%;
+}
+
+/* Headline styling */
+.hero.hero27 > div:nth-child(2) h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 0 0 1.05rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  max-width: 92%;
+}
+
+/* Responsive: reduce panel width, padding and image height at breakpoints */
+@media (width <= 1200px) {
+  .hero.hero27 > div:first-child {
+    height: 220px;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    width: 90%;
+    max-width: 98vw;
+    padding: 1rem 1rem 0.8rem 0.7rem;
+    bottom: 0;
+  }
+
+  .hero.hero27 > div:nth-child(2) h2,
+  .hero.hero27 > div:nth-child(2) p {
+    max-width: 99%;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero27 > div:first-child {
+    height: 140px;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    width: 99%;
+    padding: 0.7rem 0.5rem 0.5rem 0.3rem;
+    bottom: 0;
+    max-width: 99vw;
+  }
+
+  .hero.hero27 > div:nth-child(2) h2,
+  .hero.hero27 > div:nth-child(2) p {
+    max-width: 99%;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero27 > div:first-child {
+    height: 80px;
+  }
+
+  .hero.hero27 > div:nth-child(2) {
+    width: 99%;
+    padding: 0.4rem 0.2rem;
+    bottom: 0;
+  }
+
+  .hero.hero27 > div:nth-child(2) h2,
+  .hero.hero27 > div:nth-child(2) p {
+    max-width: 99%;
+  }
 }
