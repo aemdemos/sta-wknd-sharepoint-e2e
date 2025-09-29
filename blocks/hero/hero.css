@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -54,7 +55,6 @@
   min-height: 300px;
 }
 
-/* Image as background */
 .hero.hero6 > div:first-child {
   width: 100%;
   height: 300px;
@@ -71,7 +71,6 @@
   display: block;
 }
 
-/* Floating overlay box - raised further for more image below */
 .hero.hero6 > div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -89,7 +88,6 @@
   box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
 }
 
-/* Headline styles */
 .hero.hero6 > div:nth-child(2) h2 {
   font-size: var(--heading-font-size-l);
   color: var(--text-color);
@@ -99,7 +97,6 @@
   letter-spacing: normal;
 }
 
-/* Divider line below the overlay box - closer to text */
 .hero.hero6 > div:nth-child(2)::after {
   display: block;
   margin-top: 10px;
@@ -108,13 +105,11 @@
   background: #e0e0e0;
 }
 
-/* Edge-to-edge hero on page */
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero6 > div:first-child {
     height: 150px;
@@ -132,5 +127,94 @@
 
   .hero.hero6 > div:nth-child(2)::after {
     margin-top: 5px;
+  }
+}
+
+
+.hero.hero14 {
+  position: relative;
+  width: 100%;
+  min-height: 370px;
+  overflow: hidden;
+  padding: 0;
+
+  /* Remove grid to avoid stacking overlay at the top */
+  display: block;
+}
+
+/* Ensure hero spans the full width of page */
+
+/* Image container: fills area and acts as background */
+.hero.hero14 > div:first-child {
+  width: 100%;
+  height: 370px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.hero.hero14 picture,
+.hero.hero14 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay floating content box, centered horizontally and visually lower in image */
+.hero.hero14 > div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 32px; /* Lower the box so it overlays the bottom quarter */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1100px;
+  width: 80vw;
+  background: #fff;
+  padding: 32px 40px 24px;
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 10%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Headline styling */
+.hero.hero14 h2 {
+  color: #222;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 0 0 12px;
+  line-height: 1.15;
+  text-align: left;
+}
+
+/* Paragraph styling */
+.hero.hero14 p {
+  color: #555;
+  font-size: var(--body-font-size-m);
+  margin: 0;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 800px) {
+  .hero.hero14 > div:first-child {
+    height: 220px;
+  }
+
+  .hero.hero14 > div:nth-child(2) {
+    bottom: 8px;
+    max-width: 96vw;
+    width: 96vw;
+    left: 2vw;
+    right: 2vw;
+    padding: 20px 12px;
+  }
+
+  .hero.hero14 h2 {
+    font-size: var(--heading-font-size-l);
   }
 }
