@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -96,7 +97,6 @@
   white-space: nowrap;
 }
 
-/* Search icon size and positioning fine-tuned */
 .columns.columns2 > div > div:last-child::before {
   display: block;
   position: absolute;
@@ -136,4 +136,193 @@
     width: 12px;
     height: 12px;
   }
+}
+
+
+.columns.columns5 {
+  background: #242220;
+  color: #e2e2e2;
+  padding: 36px 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Force two main columns: left (stack), right (legal) */
+.columns.columns5 .columns.columns5.block.columns-4-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) 1fr;
+  gap: 0 24px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns.columns5 .columns.columns5.block.columns-4-cols {
+    grid-template-columns: 1fr;
+    gap: 28px 0;
+  }
+}
+
+/* --- LEFT COLUMN: force stack of all direct children --- */
+.columns.columns5 .columns.columns5.block.columns-4-cols > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding-left: 36px;
+  min-width: 0;
+  max-width: 320px;
+}
+
+@media (width <= 900px) {
+  .columns.columns5 .columns.columns5.block.columns-4-cols > div:first-child {
+    padding-left: 0;
+    max-width: none;
+  }
+}
+
+/* Logo sizing */
+.columns.columns5 .columns-img-col img {
+  max-width: 120px;
+  height: auto;
+  display: block;
+}
+
+.columns.columns5 .columns-img-col {
+  margin-bottom: 0;
+}
+
+/* Language selector styling */
+.columns.columns5 .columns-img-col + div ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+}
+
+.columns.columns5 .columns-img-col + div ul li {
+  margin: 0;
+}
+
+.columns.columns5 .columns-img-col + div ul li a {
+  color: #e2e2e2;
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+/* --- FOLLOW US and social buttons group --- */
+
+/* Stack 'FOLLOW US' heading and socials vertically */
+.columns.columns5 .columns.columns5.block.columns-4-cols > div:first-child > div:nth-child(3),
+.columns.columns5 .columns.columns5.block.columns-4-cols > div:first-child > div:nth-child(4) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+}
+
+/* 'FOLLOW US' heading styling */
+.columns.columns5 #follow-us {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0 0 2px;
+  text-align: left;
+  padding: 0;
+}
+
+/* Social links: horizontal row under label */
+.columns.columns5 #follow-us + div {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 0;
+  align-items: center;
+  padding: 0;
+}
+
+/* Remove excess margin on social button container */
+.columns.columns5 .button-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Social buttons: small square, center text, shrink font for fit */
+.columns.columns5 .button-container .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 4px;
+  background: #fff;
+  color: #242220;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  margin: 0;
+  box-shadow: none;
+  padding: 0;
+  line-height: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+/* On small screens, allow social buttons to wrap */
+@media (width <= 600px) {
+  .columns.columns5 #follow-us + div {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+.columns.columns5 .button-container .button:hover,
+.columns.columns5 .button-container .button:focus {
+  background: #e2e2e2;
+  color: #242220;
+}
+
+/* --- RIGHT COLUMN: legal text --- */
+.columns.columns5 .columns.columns5.block.columns-4-cols > div:last-child {
+  color: #e2e2e2;
+  font-size: 13px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 18px;
+}
+
+@media (width <= 900px) {
+  .columns.columns5 .columns.columns5.block.columns-4-cols > div:last-child {
+    padding-right: 0;
+  }
+}
+
+.columns.columns5 .columns.columns5.block.columns-4-cols > div:last-child a {
+  color: #e2e2e2;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.columns.columns5 .columns.columns5.block.columns-4-cols > div:last-child a:hover,
+.columns.columns5 .columns.columns5.block.columns-4-cols > div:last-child a:focus {
+  color: #fff;
+}
+
+/* Remove excess spacing between stacked left column elements */
+.columns.columns5 .columns.columns5.block.columns-4-cols > div:first-child > * {
+  margin-bottom: 0;
 }
