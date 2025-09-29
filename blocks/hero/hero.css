@@ -137,14 +137,9 @@
   min-height: 370px;
   overflow: hidden;
   padding: 0;
-
-  /* Remove grid to avoid stacking overlay at the top */
   display: block;
 }
 
-/* Ensure hero spans the full width of page */
-
-/* Image container: fills area and acts as background */
 .hero.hero14 > div:first-child {
   width: 100%;
   height: 370px;
@@ -161,12 +156,11 @@
   display: block;
 }
 
-/* Overlay floating content box, centered horizontally and visually lower in image */
 .hero.hero14 > div:nth-child(2) {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 32px; /* Lower the box so it overlays the bottom quarter */
+  bottom: 32px;
   margin-left: auto;
   margin-right: auto;
   max-width: 1100px;
@@ -180,7 +174,6 @@
   align-items: flex-start;
 }
 
-/* Headline styling */
 .hero.hero14 h2 {
   color: #222;
   font-size: var(--heading-font-size-xl);
@@ -190,7 +183,6 @@
   text-align: left;
 }
 
-/* Paragraph styling */
 .hero.hero14 p {
   color: #555;
   font-size: var(--body-font-size-m);
@@ -199,7 +191,6 @@
   text-align: left;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 800px) {
   .hero.hero14 > div:first-child {
     height: 220px;
@@ -216,5 +207,130 @@
 
   .hero.hero14 h2 {
     font-size: var(--heading-font-size-l);
+  }
+}
+
+
+.hero.hero20 {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Image fills the background */
+.hero.hero20 > div:first-child,
+.hero.hero20 picture,
+.hero.hero20 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay box: flush with bottom edge */
+.hero.hero20 > div:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+/* Overlay card: minimal vertical padding and no bottom margin */
+.hero.hero20 > div:last-child > div {
+  background: #fff;
+  color: var(--text-color);
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 2vw; /* No bottom margin */
+  padding: 0.1rem 2rem; /* Extremely tight vertical padding */
+  box-sizing: border-box;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading: left aligned, almost no margin below */
+.hero.hero20 h2 {
+  font-size: var(--heading-font-size-xl);
+  color: var(--text-color);
+  margin: 0 0 0.12rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: left;
+}
+
+/* Paragraph: left aligned, almost no margin below */
+.hero.hero20 p {
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  margin: 0 0 0.2rem;
+  line-height: 1.6;
+  max-width: 900px;
+  text-align: left;
+}
+
+/* Button: perfectly left-aligned, compact vertical spacing */
+.hero.hero20 .button-container {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.hero.hero20 .button-container .button {
+  background: #ffe600;
+  color: #222;
+  border: none;
+  border-radius: 2.4em;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  padding: 0.65em 1.5em;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s;
+  text-align: left;
+}
+
+.hero.hero20 .button-container .button:hover,
+.hero.hero20 .button-container .button:focus {
+  background: #ffd600;
+  color: #222;
+}
+
+/* Responsive tweaks for compact overlay at smaller screens */
+@media (width <= 900px) {
+  .hero.hero20 > div:last-child > div {
+    padding: 0.06rem 1vw;
+    margin: 0 1vw;
+    max-width: 98vw;
+  }
+
+  .hero.hero20 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .hero.hero20 p {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero20 > div:last-child > div {
+    padding: 0.03rem 0.5vw;
+    margin: 0 0.5vw;
+  }
+
+  .hero.hero20 h2 {
+    font-size: var(--heading-font-size-m);
   }
 }
