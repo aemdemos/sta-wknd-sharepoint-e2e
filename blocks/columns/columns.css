@@ -1,7 +1,10 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
 }
 
 .columns img {
@@ -147,7 +150,6 @@
   box-sizing: border-box;
 }
 
-/* Force two main columns: left (stack), right (legal) */
 .columns.columns5 .columns.columns5.block.columns-4-cols {
   display: grid;
   grid-template-columns: minmax(0, 320px) 1fr;
@@ -163,7 +165,6 @@
   }
 }
 
-/* --- LEFT COLUMN: force stack of all direct children --- */
 .columns.columns5 .columns.columns5.block.columns-4-cols > div:first-child {
   display: flex;
   flex-direction: column;
@@ -181,7 +182,6 @@
   }
 }
 
-/* Logo sizing */
 .columns.columns5 .columns-img-col img {
   max-width: 120px;
   height: auto;
@@ -192,7 +192,6 @@
   margin-bottom: 0;
 }
 
-/* Language selector styling */
 .columns.columns5 .columns-img-col + div ul {
   list-style: none;
   padding: 0;
@@ -210,9 +209,6 @@
   font-size: 13px;
 }
 
-/* --- FOLLOW US and social buttons group --- */
-
-/* Stack 'FOLLOW US' heading and socials vertically */
 .columns.columns5 .columns.columns5.block.columns-4-cols > div:first-child > div:nth-child(3),
 .columns.columns5 .columns.columns5.block.columns-4-cols > div:first-child > div:nth-child(4) {
   width: 100%;
@@ -224,7 +220,6 @@
   padding: 0;
 }
 
-/* 'FOLLOW US' heading styling */
 .columns.columns5 #follow-us {
   text-transform: uppercase;
   color: #fff;
@@ -236,7 +231,6 @@
   padding: 0;
 }
 
-/* Social links: horizontal row under label */
 .columns.columns5 #follow-us + div {
   display: flex;
   flex-direction: row;
@@ -246,7 +240,6 @@
   padding: 0;
 }
 
-/* Remove excess margin on social button container */
 .columns.columns5 .button-container {
   margin: 0;
   padding: 0;
@@ -254,7 +247,6 @@
   align-items: center;
 }
 
-/* Social buttons: small square, center text, shrink font for fit */
 .columns.columns5 .button-container .button {
   display: flex;
   align-items: center;
@@ -280,7 +272,6 @@
   text-overflow: ellipsis;
 }
 
-/* On small screens, allow social buttons to wrap */
 @media (width <= 600px) {
   .columns.columns5 #follow-us + div {
     flex-wrap: wrap;
@@ -294,7 +285,6 @@
   color: #242220;
 }
 
-/* --- RIGHT COLUMN: legal text --- */
 .columns.columns5 .columns.columns5.block.columns-4-cols > div:last-child {
   color: #e2e2e2;
   font-size: 13px;
@@ -322,7 +312,168 @@
   color: #fff;
 }
 
-/* Remove excess spacing between stacked left column elements */
 .columns.columns5 .columns.columns5.block.columns-4-cols > div:first-child > * {
   margin-bottom: 0;
+}
+
+
+.columns {
+  background: #232323;
+  color: #e0e0e0;
+  padding: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Main row: horizontal flex layout */
+
+/* Left: Logo column */
+.columns .columns-img-col {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+}
+
+.columns .columns-img-col img {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* Middle: Navigation or collapse width when empty */
+.columns > div > div:nth-child(2) {
+  flex: 0 0 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide middle column when empty to collapse space */
+.columns > div > div:nth-child(2):empty {
+  display: none;
+}
+
+/* Navigation list horizontal layout, if present in HTML */
+.columns > div > div:nth-child(2) ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns > div > div:nth-child(2) ul > li {
+  position: relative;
+}
+
+.columns > div > div:nth-child(2) ul > li > a {
+  color: #ccc;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 0 4px;
+}
+
+/* Sub-navigation horizontal */
+.columns > div > div:nth-child(2) ul > li > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  list-style: none;
+  margin-left: 16px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.columns > div > div:nth-child(2) ul > li > ul > li > a {
+  color: #bdbdbd;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 0 4px;
+}
+
+.columns > div > div:nth-child(2) ul > li > ul > li:nth-child(2) > a {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* Right: Search/Social aligned to edge, reduce empty space */
+.columns > div > div:nth-child(3) {
+  margin-left: 0;
+  margin-right: 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  /* Push to far right only if nav is present, otherwise keep closer to logo */
+}
+
+.columns > div > div:nth-child(2):not(:empty) + div {
+  margin-left: auto; /* Only push search right if nav is present */
+}
+
+/* Search or label styling */
+.columns > div > div:nth-child(3) p {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Search box, if present */
+.columns > div > div:nth-child(3) input[type="search"] {
+  min-width: 90px;
+  max-width: 120px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  background: #f3f3f3;
+  color: #232323;
+  font-size: 1rem;
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+/* Responsive: stack vertically below 800px */
+@media (width <= 800px) {
+  .columns {
+    padding: 20px 10px;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .columns .columns-img-col {
+    margin-right: 0;
+  }
+
+  .columns > div > div:nth-child(2) {
+    margin: 12px 0;
+  }
+
+  .columns > div > div:nth-child(3) {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .columns > div > div:nth-child(2) ul,
+  .columns > div > div:nth-child(2) ul > li > ul {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
