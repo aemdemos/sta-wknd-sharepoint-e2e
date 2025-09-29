@@ -241,7 +241,6 @@
   padding: 2.5rem 0;
 }
 
-/* GRID LAYOUT: Two rows, first row 4 columns, second row 3 centered columns */
 .cards.cards25 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -264,7 +263,6 @@
   margin: 0;
 }
 
-/* Center the second row of three cards under the first row of four cards */
 .cards.cards25 > ul > li:nth-child(5),
 .cards.cards25 > ul > li:nth-child(6),
 .cards.cards25 > ul > li:nth-child(7) {
@@ -274,7 +272,6 @@
 .cards.cards25 > ul > li:nth-child(6) { grid-column: 3; }
 .cards.cards25 > ul > li:nth-child(7) { grid-column: 4; }
 
-/* Responsive: stack and center cards on smaller screens */
 @media (width <= 900px) {
   .cards.cards25 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -300,7 +297,6 @@
   }
 }
 
-/* Image styles */
 .cards.cards25 .cards-card-image {
   width: 128px;
   height: 128px;
@@ -318,7 +314,6 @@
   display: block;
 }
 
-/* Card body & spacing */
 .cards.cards25 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -345,7 +340,6 @@
   text-align: center;
 }
 
-/* Role text: uppercase, lighter, visually separated */
 .cards.cards25 .cards-card-body p:first-of-type {
   font-size: 0.98rem;
   color: #222;
@@ -357,7 +351,6 @@
   opacity: 0.68;
 }
 
-/* Social icons row: smaller icons, less gap, only show actual links */
 .cards.cards25 .cards-card-body p:last-of-type {
   display: flex;
   flex-direction: row;
@@ -369,7 +362,6 @@
   min-height: 32px;
 }
 
-/* Social icons: size, spacing, show SVGs, hide text */
 .cards.cards25 .cards-card-body p:last-of-type a {
   display: flex;
   align-items: center;
@@ -393,7 +385,6 @@
   background: #c3ab4d;
 }
 
-/* Show SVG icon for Facebook */
 .cards.cards25 .cards-card-body p:last-of-type a[title*="Facebook"]::before {
   display: block;
   width: 18px;
@@ -405,7 +396,6 @@
   content: "";
 }
 
-/* Show SVG icon for Twitter */
 .cards.cards25 .cards-card-body p:last-of-type a[title*="Twitter"]::before {
   display: block;
   width: 18px;
@@ -417,7 +407,6 @@
   content: "";
 }
 
-/* Show SVG icon for Instagram */
 .cards.cards25 .cards-card-body p:last-of-type a[title*="Instagram"]::before {
   display: block;
   width: 18px;
@@ -429,14 +418,12 @@
   content: "";
 }
 
-/* Hide link text and span inside icons for accessibility/visual match */
 .cards.cards25 .cards-card-body p:last-of-type a span,
 .cards.cards25 .cards-card-body p:last-of-type a {
   font-size: 0;
   color: transparent;
 }
 
-/* Row separation: more gap below first row */
 .cards.cards25 > ul > li:nth-child(4) {
   margin-bottom: 3.1rem;
 }
@@ -451,4 +438,100 @@
   .cards.cards25 > ul > li:nth-child(4) {
     margin-bottom: 1rem;
   }
+}
+
+
+.cards.cards27 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@media (width <= 500px) {
+  .cards.cards27 > ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.cards.cards27 > ul > li {
+  width: 162px;
+  min-width: 0;
+  background: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: none;
+}
+
+/* Image container: perfect square aspect and spacing */
+.cards.cards27 .cards-card-image {
+  width: 162px;
+  height: 162px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent unwanted scaling from base styles */
+.cards.cards27 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: unset;
+  max-width: none;
+  max-height: none;
+}
+
+/* Card body/text area: add top margin for spacing below image */
+.cards.cards27 .cards-card-body {
+  margin-top: 8px;
+  padding: 0;
+  width: 100%;
+}
+
+/* Title styling */
+.cards.cards27 .cards-card-body p strong {
+  display: block;
+  font-size: 14px;
+  color: #212121;
+  font-weight: bold;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  text-align: left;
+  width: 100%;
+}
+
+/* Description styling: lighter gray, ellipsis, single line */
+.cards.cards27 .cards-card-body p {
+  font-size: 12px;
+  color: #757575;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+  text-align: left;
+  width: 100%;
+}
+
+/* Remove default list styling from nested lists if any */
+.cards.cards27 ul,
+.cards.cards27 ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
