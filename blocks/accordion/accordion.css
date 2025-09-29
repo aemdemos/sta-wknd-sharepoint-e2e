@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,141 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion29 {
+  width: 100%;
+  max-width: 700px;
+  margin-left: 0;
+  margin-right: auto;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 0;
+}
+
+/* Accordion items */
+.accordion.accordion29 details {
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+  background: #fff;
+  transition: none;
+}
+
+.accordion.accordion29 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion29 details + details {
+  margin-top: 0;
+}
+
+/* The clickable summary row */
+.accordion.accordion29 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1rem 0;
+  margin: 0;
+  background: #fff;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #222;
+  letter-spacing: 0.01em;
+  min-height: 2.7em;
+  gap: 1em;
+  user-select: none;
+}
+
+/* Question text area */
+.accordion.accordion29 .accordion-item-label {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.accordion.accordion29 .accordion-item-label p {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #222;
+  flex: 1;
+  letter-spacing: 0.01em;
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* Reserve space for right icon, and use borders to visually suggest plus/minus */
+.accordion.accordion29 summary::after {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  margin-left: 1em;
+  box-sizing: border-box;
+
+  /* Center the icon area visually */
+  position: relative;
+  border-radius: 3px;
+  background: none;
+
+  /* Draw a horizontal bar (minus) as default */
+  border-top: 2px solid #666;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  vertical-align: middle;
+}
+
+/* When open, visually show a vertical bar (for plus/minus effect) */
+.accordion.accordion29 details[open] summary::after {
+  border-top: 2px solid #666;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid #666;
+  border-right: 2px solid transparent;
+
+  /* This creates an "L" shape; not a true minus, but a visual toggle */
+}
+
+.accordion.accordion29 .accordion-item-body {
+  padding: 0.5rem 0 1rem;
+  margin: 0;
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Responsive tweaks for mobile */
+@media (width <= 700px) {
+  .accordion.accordion29 {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .accordion.accordion29 summary,
+  .accordion.accordion29 .accordion-item-label p {
+    font-size: 0.98rem;
+    padding: 0.9rem 0;
+  }
+
+  .accordion.accordion29 .accordion-item-body {
+    font-size: 0.97rem;
+  }
+
+  .accordion.accordion29 summary::after {
+    width: 1em;
+    height: 1em;
+    margin-left: 0.7em;
+  }
 }
