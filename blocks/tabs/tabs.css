@@ -2327,7 +2327,6 @@
   box-sizing: border-box;
 }
 
-/* Remove all left offset from tabs and content */
 .tabs.tabs36 .tabs-list,
 .tabs.tabs36 .tabs-panel,
 .tabs.tabs36 .tabs-panel > div {
@@ -2339,7 +2338,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs bar: more compact and left-aligned */
 .tabs.tabs36 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2353,7 +2351,6 @@
   justify-content: flex-start;
 }
 
-/* Tabs: more compact/pad less */
 .tabs.tabs36 .tabs-list .tabs-tab {
   min-width: 86px;
   width: auto;
@@ -2375,7 +2372,6 @@
   outline: none;
 }
 
-/* Active tab appearance */
 .tabs.tabs36 .tabs-list .tabs-tab[aria-selected="true"] {
   background: #222;
   color: #fff;
@@ -2386,7 +2382,6 @@
   margin: 0;
 }
 
-/* Panel content vertical stack, tight */
 .tabs.tabs36 .tabs-panel {
   border: none;
   box-shadow: none;
@@ -2407,7 +2402,6 @@
   padding: 0;
 }
 
-/* Image: fill column, flush left, no max-width */
 .tabs.tabs36 .tabs-panel picture,
 .tabs.tabs36 .tabs-panel img {
   display: block;
@@ -2421,7 +2415,6 @@
   align-self: stretch;
 }
 
-/* Caption: tight below image */
 .tabs.tabs36 .tabs-panel > div > p:nth-child(2) {
   font-size: 0.96rem;
   text-transform: uppercase;
@@ -2432,7 +2425,6 @@
   margin: 0 0 2px;
 }
 
-/* Description: tight spacing, full width */
 .tabs.tabs36 .tabs-panel > div > p:nth-child(n+3) {
   color: #444;
   font-size: 1.03rem;
@@ -2442,12 +2434,10 @@
   max-width: 100%;
 }
 
-/* Remove excess vertical gap between elements */
 .tabs.tabs36 .tabs-panel > div > *:not(:last-child) {
   margin-bottom: 0.13em;
 }
 
-/* Responsive: always flush left, compact tabs */
 @media (width <= 900px) {
   .tabs.tabs36 {
     margin-left: 0;
@@ -2466,8 +2456,219 @@
   }
 }
 
-/* Tab focus accessibility */
 .tabs.tabs36 .tabs-list .tabs-tab:focus-visible {
   outline: 2px solid #F7CA3E;
   outline-offset: 2px;
+}
+
+
+.tabs.tabs37 {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0 36px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  align-items: flex-start;
+}
+
+/* --- SIDEBAR --- */
+.tabs.tabs37 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  min-width: 0;
+  max-width: 120px;
+  background: #fff;
+  border: none;
+  justify-content: flex-start;
+}
+
+/* Hide sidebar's .tabs-list on desktop, show only on mobile */
+@media (width >= 900px) {
+  .tabs.tabs37 > div:first-child .tabs-list {
+    display: none;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 > div:first-child {
+    max-width: 100vw;
+    width: 100%;
+  }
+
+  .tabs.tabs37 > div:first-child .tabs-list {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 100%;
+    margin: 24px 0 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+/* --- MAIN CONTENT --- */
+.tabs.tabs37 > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 0 0;
+  min-width: 0;
+  max-width: 980px;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  position: relative;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs37 > div:nth-child(2) {
+    padding: 0 8px;
+    max-width: 100vw;
+  }
+}
+
+/* Horizontal tabs at the top of the content on desktop */
+@media (width >= 900px) {
+  .tabs.tabs37 > div:nth-child(2) .tabs-list {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 36px;
+    margin-top: 0;
+    width: 100%;
+    align-items: flex-start;
+  }
+}
+
+/* Hide the main content's .tabs-list on mobile */
+@media (width <= 900px) {
+  .tabs.tabs37 > div:nth-child(2) .tabs-list {
+    display: none;
+  }
+}
+
+/* --- TABS BUTTONS --- */
+.tabs.tabs37 .tabs-list button {
+  background: #222;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: none;
+  min-width: 120px;
+  min-height: 44px;
+  width: 100%;
+  padding: 0.75em 0;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs37 .tabs-list button[aria-selected="false"] {
+  background: #aaa;
+  color: #fff;
+  opacity: 1;
+}
+
+.tabs.tabs37 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  opacity: 1;
+}
+
+.tabs.tabs37 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- MAIN HEADING --- */
+.tabs.tabs37 .tabs-panel h3 {
+  font-size: 40px;
+  font-weight: 400;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 32px;
+  line-height: 1.1;
+  letter-spacing: 0;
+
+  /* Visually separate from tabs above */
+}
+
+/* --- IMAGE --- */
+.tabs.tabs37 .tabs-panel picture,
+.tabs.tabs37 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* --- CAPTION --- */
+.tabs.tabs37 .tabs-panel > div > p:first-of-type {
+  font-size: 14px;
+  font-weight: bold;
+  color: #3576A8;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  margin-top: 0;
+  letter-spacing: 0.5px;
+}
+
+/* --- PARAGRAPH --- */
+.tabs.tabs37 .tabs-panel > div > p {
+  font-size: 16px;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+/* Remove any border from tabs-panel */
+.tabs.tabs37 .tabs-panel {
+  border: none;
+  margin-top: 0;
+  padding: 0;
+  box-shadow: none;
+  background: #fff;
+}
+
+/* Responsive image max width */
+@media (width <= 900px) {
+  .tabs.tabs37 .tabs-panel picture,
+  .tabs.tabs37 .tabs-panel img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+}
+
+/* Always align main content to top */
+@media (width >= 900px) {
+  .tabs.tabs37 {
+    align-items: flex-start;
+  }
+
+  .tabs.tabs37 > div:first-child {
+    align-items: flex-start;
+  }
+
+  .tabs.tabs37 > div:nth-child(2) {
+    align-items: flex-start;
+  }
 }
