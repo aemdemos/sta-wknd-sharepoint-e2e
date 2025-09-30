@@ -352,13 +352,12 @@
 .hero.hero25 {
   position: relative;
   width: 100vw;
-  min-height: 460px; /* give enough space for image, card & divider */
+  min-height: 460px;
   padding: 0;
   background: transparent;
   overflow-x: hidden;
 }
 
-/* Full-bleed image: make image taller so card can overlap and extend below */
 .hero.hero25 > div:first-child {
   position: relative;
   width: 100vw;
@@ -382,11 +381,10 @@
   display: block;
 }
 
-/* Overlay card - floats deeper into and below the image */
 .hero.hero25 > div:nth-child(2) {
   position: absolute;
   left: 50%;
-  top: 220px; /* card floats well into image, and extends below */
+  top: 220px;
   transform: translateX(-50%);
   width: 80vw;
   max-width: 900px;
@@ -400,14 +398,12 @@
   box-shadow: none;
 }
 
-/* Card content fill width */
 .hero.hero25 > div:nth-child(2) > div {
   width: 100%;
   display: flex;
   align-items: flex-start;
 }
 
-/* Headline: left-aligned, dark color, normal weight */
 .hero.hero25 > div:nth-child(2) h2 {
   margin: 0;
   color: #222;
@@ -417,11 +413,10 @@
   text-align: left;
 }
 
-/* Divider: sits just below the card, visually outside the image */
 .hero.hero25 > div:nth-child(3) {
   position: absolute;
   left: 50%;
-  top: calc(220px + 24px + 16px + 32px); /* card top + top pad + bottom pad + fudge for border thickness */
+  top: calc(220px + 24px + 16px + 32px);
   transform: translateX(-50%);
   width: 80vw;
   max-width: 900px;
@@ -431,7 +426,6 @@
   z-index: 1;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero25 {
     min-height: 320px;
@@ -484,8 +478,134 @@
   }
 }
 
-/* Ensure hero wrapper is full-bleed */
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
+}
+
+
+.hero.hero27 {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background: none;
+  position: relative;
+  overflow: visible;
+  min-height: 440px;
+}
+
+/* Top image container: forces image to appear full width and height */
+.hero.hero27 > div:first-child {
+  width: 100vw;
+  height: 340px;
+  min-height: 240px;
+  max-height: 440px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* Reach deeply nested image and ensure it fills container */
+.hero.hero27 > div:first-child > div,
+.hero.hero27 > div:first-child > div > picture,
+.hero.hero27 > div:first-child > div > picture > img {
+  width: 100vw;
+  height: 100%;
+  max-width: 100vw;
+  object-fit: cover;
+  display: block;
+}
+
+/* TEXT PANEL - overlaps image bottom */
+.hero.hero27 > div:last-child {
+  background: #fff;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 120px;
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
+  padding: 32px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 6%);
+}
+
+/* Ensure parent has enough height for image + panel */
+
+/* HEADINGS AND TEXT */
+.hero.hero27 h1,
+.hero.hero27 h2,
+.hero.hero27 h3,
+.hero.hero27 h4,
+.hero.hero27 h5,
+.hero.hero27 h6 {
+  color: #232323;
+  font-weight: 400;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+
+.hero.hero27 p {
+  color: #232323;
+  font-size: 1rem;
+  margin: 0 0 16px;
+  max-width: 100%;
+}
+
+/* BUTTON */
+.hero.hero27 .button-container {
+  margin-top: 16px;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button,
+.hero.hero27 .button {
+  background: #ffe100;
+  color: #232323;
+  font-weight: 600;
+  border-radius: 2px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  box-shadow: none;
+  display: inline-block;
+  margin: 0;
+  transition: background 0.2s;
+}
+
+.hero.hero27 .button:hover {
+  background: #ffd100;
+}
+
+/* RESPONSIVE: smaller image and panel on mobile */
+@media (width <= 900px) {
+  .hero.hero27 > div:first-child {
+    min-height: 180px;
+    height: 180px;
+    max-height: 220px;
+  }
+
+  .hero.hero27 > div:last-child {
+    padding: 16px 8px 12px;
+    margin-top: -30px;
+    min-height: 90px;
+  }
+
+  .hero.hero27 {
+    min-height: 220px;
+  }
+
+  .hero.hero27 h2 {
+    font-size: 1.1rem;
+  }
 }
