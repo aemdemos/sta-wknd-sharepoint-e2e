@@ -35,7 +35,6 @@
   max-width: 800px;
 }
 
-/* Compact grid: 4 columns first row, 3 columns centered second row */
 .cards.cards3 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -49,7 +48,6 @@
   border: none;
 }
 
-/* Explicit grid placement for first row (4 cards) */
 .cards.cards3 > ul > li:nth-child(1) {
   grid-row: 1;
   grid-column: 1;
@@ -71,7 +69,6 @@
   margin-bottom: 14px;
 }
 
-/* Second row: center the 3 cards in columns 2, 3, 4 */
 .cards.cards3 > ul > li:nth-child(5) {
   grid-row: 2;
   grid-column: 2;
@@ -87,9 +84,6 @@
   grid-column: 4;
 }
 
-/* Reduce vertical gap between rows for tighter grouping */
-
-/* Card styling: center content, remove borders/background */
 .cards.cards3 > ul > li {
   background: none;
   border: none;
@@ -103,7 +97,6 @@
   max-width: 180px;
 }
 
-/* Profile image: circular, centered, fixed size */
 .cards.cards3 .cards-card-image {
   width: 110px;
   height: 110px;
@@ -128,7 +121,6 @@
   display: block;
 }
 
-/* Center text content */
 .cards.cards3 .cards-card-body {
   margin: 0;
   width: 100%;
@@ -138,7 +130,6 @@
   text-align: center;
 }
 
-/* Name styling */
 .cards.cards3 .cards-card-body h3 {
   margin: 0 0 2px;
   font-size: 1rem;
@@ -147,7 +138,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Role styling */
 .cards.cards3 .cards-card-body h5 {
   margin: 0 0 8px;
   font-size: 0.85rem;
@@ -157,7 +147,6 @@
   letter-spacing: 0.04em;
 }
 
-/* Social icons row as buttons */
 .cards.cards3 .cards-card-body p {
   margin: 0;
   padding: 0;
@@ -168,7 +157,6 @@
   align-items: center;
 }
 
-/* All three icons appear, styled evenly */
 .cards.cards3 .cards-card-body p a {
   width: 36px;
   height: 36px;
@@ -186,7 +174,6 @@
   overflow: hidden;
 }
 
-/* Instagram selector supports multiple title variations */
 .cards.cards3 .cards-card-body p a[title*="Facebook"]::after {
   display: block;
   width: 20px;
@@ -219,7 +206,6 @@
   text-decoration: none;
 }
 
-/* Responsive: stack cards, center rows */
 @media (width <= 900px) {
   .cards.cards3 > ul {
     grid-template-columns: 1fr;
@@ -235,5 +221,142 @@
 
   .cards.cards3 > ul > li:nth-child(4) {
     margin-bottom: 10px;
+  }
+}
+
+
+.cards.cards8 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+  list-style: none;
+  width: 100%;
+}
+
+/* Wider cards to reduce truncation and match original */
+.cards.cards8 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 235px;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Square image wrapper */
+.cards.cards8 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.cards.cards8 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body: minimal vertical spacing */
+.cards.cards8 .cards-card-body {
+  width: 100%;
+  margin: 0;
+  padding: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  height: auto;
+  overflow: visible;
+  position: static;
+}
+
+/* Title styling */
+.cards.cards8 .cards-card-body .button-container {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.cards.cards8 .cards-card-body .button-container a.button.primary {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: #000;
+  font-size: 1.22rem;
+  font-weight: 700;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* Title link hover/focus */
+.cards.cards8 .cards-card-body .button-container a.button.primary:hover,
+.cards.cards8 .cards-card-body .button-container a.button.primary:focus {
+  color: #1d3ecf;
+  text-decoration: underline;
+}
+
+/* Description styling (lighter gray, wider cards reduce truncation) */
+.cards.cards8 .cards-card-body > p:not(.button-container) {
+  color: #aaa;
+  font-size: 0.97rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* Responsive: stack cards on small screens */
+@media (width <= 900px) {
+  .cards.cards8 > ul {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cards.cards8 > ul > li {
+    width: 46vw;
+    min-width: 160px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards8 > ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cards.cards8 > ul > li {
+    width: 100%;
+    min-width: 0;
   }
 }
