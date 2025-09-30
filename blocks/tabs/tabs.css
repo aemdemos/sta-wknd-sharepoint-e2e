@@ -1851,7 +1851,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs Row */
 .tabs.tabs30 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1864,7 +1863,6 @@
   box-sizing: border-box;
 }
 
-/* Tab Buttons */
 .tabs.tabs30 .tabs-tab {
   border: none;
   background: none;
@@ -1895,7 +1893,6 @@
   margin: 0;
 }
 
-/* Panel Content */
 .tabs.tabs30 .tabs-panel {
   border: none;
   padding: 0;
@@ -1905,12 +1902,10 @@
   color: #222;
 }
 
-/* Tighter space above first paragraph */
 .tabs.tabs30 .tabs-panel > div > p:first-of-type {
   margin-top: 10px;
 }
 
-/* Align paragraphs flush with images; remove max-width */
 .tabs.tabs30 .tabs-panel p {
   margin-bottom: 8px;
   margin-left: 12px;
@@ -1921,7 +1916,6 @@
   text-align: left;
 }
 
-/* Images: match paragraph padding, compact vertical spacing */
 .tabs.tabs30 .tabs-panel picture,
 .tabs.tabs30 .tabs-panel img {
   display: block;
@@ -1932,7 +1926,6 @@
   box-sizing: border-box;
 }
 
-/* Even more compact gap between stacked images */
 .tabs.tabs30 .tabs-panel picture + picture,
 .tabs.tabs30 .tabs-panel img + picture,
 .tabs.tabs30 .tabs-panel picture + img,
@@ -1940,7 +1933,6 @@
   margin-top: 12px;
 }
 
-/* Responsive: stack tabs vertically, reduce paddings/margins */
 @media (width <= 800px) {
   .tabs.tabs30 {
     max-width: 100vw;
@@ -1976,4 +1968,263 @@
     margin-right: 4px;
     width: calc(100% - 8px);
   }
+}
+
+
+.tabs.tabs33 {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--background-color);
+  min-height: 100vh;
+  border: none;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs33 {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+
+  .tabs.tabs33 > div:first-child {
+    border-right: none;
+    border-bottom: 1px solid #ececec;
+    padding-top: 18px;
+    max-width: 100vw;
+    width: 100vw;
+    gap: 7px;
+  }
+}
+
+.tabs.tabs33 > div:first-child {
+  padding: 32px 0 0;
+  border-right: 1px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: 125px;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--background-color);
+  z-index: 2;
+  min-width: 0;
+}
+
+/* Ensure sidebar starts at top and main column aligns top */
+.tabs.tabs33 > div:first-child,
+.tabs.tabs33 > div:nth-child(2) {
+  align-self: flex-start;
+}
+
+/* Sidebar meta labels/value style */
+.tabs.tabs33 > div:first-child p,
+.tabs.tabs33 > div:first-child span,
+.tabs.tabs33 > div:first-child strong,
+.tabs.tabs33 > div:first-child b {
+  color: #444;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin: 0 0 5px;
+  font-weight: 500;
+}
+
+/* Sidebar section header/title */
+.tabs.tabs33 > div:first-child h1,
+.tabs.tabs33 > div:first-child h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+/* Yellow underline for sidebar title */
+.tabs.tabs33 > div:first-child hr,
+.tabs.tabs33 > div:first-child .title-underline {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #ffe082;
+  border: none;
+  margin: 0 0 12px;
+}
+
+/* Sidebar share label */
+.tabs.tabs33 > div:first-child .share-label,
+.tabs.tabs33 > div:first-child .meta-share {
+  color: #888;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 14px;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* Tabs navigation: always horizontal, only in main column, never in sidebar */
+.tabs.tabs33 > div:nth-child(2) > .tabs-list,
+.tabs.tabs33 > div:nth-child(2) .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin-bottom: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Force tabs-list in sidebar to NOT show */
+.tabs.tabs33 > div:first-child .tabs-list {
+  display: none !important;
+}
+
+/* Tabs styling */
+.tabs.tabs33 .tabs-list button {
+  background: var(--background-color);
+  color: #222;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 10px 24px 7px;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.12s, color 0.12s, border-bottom 0.12s;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  min-width: 70px;
+}
+
+.tabs.tabs33 .tabs-list button[aria-selected="true"] {
+  background: #111;
+  color: #fff;
+  border-bottom: 3px solid #ffe082;
+  cursor: default;
+  z-index: 1;
+}
+
+.tabs.tabs33 .tabs-list button[aria-selected="false"]:hover,
+.tabs.tabs33 .tabs-list button:not([aria-selected="true"]):hover {
+  background: #f4f4f4;
+  color: #111;
+  border-bottom: 3px solid #ffe082;
+}
+
+.tabs.tabs33 .tabs-list button p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main area refinement */
+.tabs.tabs33 > div:nth-child(2) {
+  padding: 32px 36px;
+  background: var(--background-color);
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+}
+
+@media (width <= 600px) {
+  .tabs.tabs33 .tabs-list button {
+    padding: 7px 8px 4px;
+    font-size: 0.92rem;
+    min-width: 54px;
+  }
+
+  .tabs.tabs33 > div:first-child {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .tabs.tabs33 > div:nth-child(2) {
+    padding: 6px 0;
+  }
+
+  .tabs.tabs33 .tabs-panel picture,
+  .tabs.tabs33 .tabs-panel img {
+    margin: 8px 0;
+  }
+}
+
+/* Remove panel border, padding, background */
+.tabs.tabs33 .tabs-panel {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  box-shadow: none;
+}
+
+/* Main headings alignment and spacing */
+.tabs.tabs33 .tabs-panel h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0.15em;
+  margin-bottom: 0.5em;
+  color: #111;
+  line-height: 1.16;
+  padding-left: 0;
+}
+
+.tabs.tabs33 .tabs-panel h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.7em;
+  letter-spacing: -0.01em;
+  line-height: 1.16;
+  padding-left: 0;
+}
+
+/* Images: compact spacing */
+.tabs.tabs33 .tabs-panel picture,
+.tabs.tabs33 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 14px 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Paragraphs: readable, balanced spacing */
+.tabs.tabs33 .tabs-panel p {
+  font-size: 1rem;
+  color: #222;
+  margin: 0.9em 0;
+  line-height: 1.7;
+  font-weight: 400;
+  max-width: 98%;
+}
+
+/* List styling */
+.tabs.tabs33 .tabs-panel ul {
+  margin-left: 1em;
+  margin-bottom: 1em;
+  padding-left: 0.5em;
+}
+
+.tabs.tabs33 .tabs-panel li {
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 0.35em;
+  line-height: 1.5;
 }
