@@ -443,3 +443,114 @@
 .cards.cards20 .cards-card-body .button-container {
   display: none;
 }
+
+
+.cards.cards26 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Use Flexbox for horizontal alignment; constrain width to content */
+.cards.cards26 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: auto;
+  min-width: 0;
+}
+
+/* Card sizing and alignment */
+.cards.cards26 > ul > li {
+  flex: 0 0 212px;
+  width: 212px;
+  max-width: 212px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards26 .cards-card-image {
+  width: 212px;
+  height: 130px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.cards.cards26 .cards-card-image picture,
+.cards.cards26 .cards-card-image img {
+  display: block;
+  width: 212px;
+  height: 130px;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+/* Even more compact spacing below image */
+.cards.cards26 .cards-card-body {
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+.cards.cards26 .cards-card-body strong {
+  display: block;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1px;
+  line-height: 1.1;
+}
+
+/* Remove <br> vertical gap between title and subtitle */
+.cards.cards26 .cards-card-body br {
+  display: none;
+}
+
+/* Subtitle/description: gray, single-line truncation */
+.cards.cards26 .cards-card-body p {
+  font-size: 12px;
+  color: #888;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Responsive stacking on small screens */
+@media (width <= 600px) {
+  .cards.cards26 > ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cards.cards26 > ul > li {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cards.cards26 .cards-card-image,
+  .cards.cards26 .cards-card-image picture,
+  .cards.cards26 .cards-card-image img {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
