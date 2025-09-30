@@ -127,7 +127,6 @@
   margin: 0 auto;
 }
 
-/* Responsive: stack columns vertically */
 @media (width <= 900px) {
   .columns.columns5 {
     flex-direction: column;
@@ -137,7 +136,6 @@
   }
 }
 
-/* --- Left column: logo + lang + social --- */
 .columns.columns5 > div:first-child {
   min-width: 80px;
   max-width: 120px;
@@ -148,7 +146,6 @@
   gap: 8px;
 }
 
-/* Logo */
 .columns.columns5 .columns-img-col img {
   width: 100px;
   height: auto;
@@ -156,7 +153,6 @@
   margin-bottom: 6px;
 }
 
-/* Language selector */
 .columns.columns5 > div:first-child ul {
   list-style: none;
   margin: 0;
@@ -170,7 +166,6 @@
   margin-bottom: 0;
 }
 
-/* --- Social section (Follow Us + buttons) --- */
 .columns.columns5 > div:first-child > div:last-child {
   display: flex;
   flex-direction: column;
@@ -179,7 +174,6 @@
   margin-top: 0;
 }
 
-/* "Follow Us" label styling */
 .columns.columns5 > div:first-child #follow-us {
   color: #fff;
   font-size: 12px;
@@ -192,7 +186,6 @@
   line-height: 1;
 }
 
-/* Social buttons stacked vertically, square, white, with only initial visible */
 .columns.columns5 > div:first-child .button-container {
   display: block;
   margin-bottom: 2px;
@@ -228,8 +221,6 @@
   text-indent: 0;
 }
 
-/* Hide button text except first character */
-
 .columns.columns5 > div:first-child .button::after {
   content: attr(title);
   position: absolute;
@@ -255,7 +246,6 @@
   color: #232220;
 }
 
-/* --- Right column: copyright + body --- */
 .columns.columns5 > div:last-child {
   flex: 1 1 0%;
   min-width: 0;
@@ -266,7 +256,6 @@
   gap: 8px;
 }
 
-/* Copyright (first child of right col) */
 .columns.columns5 > div:last-child > div:first-child p {
   color: #bdbdbd;
   font-size: 12px;
@@ -275,7 +264,6 @@
   text-align: left;
 }
 
-/* Paragraphs in right column */
 .columns.columns5 > div:last-child > div:not(:first-child) p {
   color: #e3e3e3;
   font-size: 13px;
@@ -284,7 +272,6 @@
   text-align: left;
 }
 
-/* Footer links override */
 .columns.columns5 > div:last-child p a,
 .columns.columns5 > div:last-child ul li a {
   color: #fff;
@@ -292,24 +279,150 @@
   font-weight: 500;
 }
 
-/* Make left and right columns vertically top-aligned, so copyright matches paragraph top */
 .columns.columns5 > div {
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-/* Ensure the block does not stretch too wide */
 @media (width >= 1050px) {
   .columns.columns5 {
     max-width: 1050px;
   }
 }
 
-/* Make columns visually balanced on mobile */
 @media (width <= 600px) {
   .columns.columns5 > div:first-child,
   .columns.columns5 > div:last-child {
     max-width: 100%;
     flex: unset;
+  }
+}
+
+
+/* If you want the columns block to span the full width, use this on the outer wrapper:
+.columns-container > .columns-wrapper {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+}
+*/
+
+.columns.columns40 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 560px;
+  width: 100%;
+  gap: 0;
+}
+
+.columns.columns40 > div > div {
+  flex: 1 1 50%;
+  background: #f2f2f2;
+  padding: 56px 64px 56px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+.columns.columns40 > div > .columns-img-col {
+  flex: 1 1 50%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  background: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 0;
+  height: auto;
+}
+
+.columns.columns40 > div > .columns-img-col picture,
+.columns.columns40 > div > .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: unset;
+}
+
+.columns.columns40 > div > div > p:first-child {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: 0.03em;
+  font-size: var(--body-font-size-s);
+}
+
+.columns.columns40 > div > div > h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 22px;
+  line-height: 1.08;
+}
+
+.columns.columns40 > div > div > p:not(:first-child, .button-container) {
+  color: #555;
+  font-size: var(--body-font-size-m);
+  margin-top: 0;
+  margin-bottom: 28px;
+  max-width: 680px;
+  line-height: 1.7;
+}
+
+.columns.columns40 .button-container {
+  margin-top: 24px;
+}
+
+.columns.columns40 .button-container .button {
+  background: #ffe500;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 13px 34px;
+  font-size: 1rem;
+  border: none;
+  box-shadow: none;
+  margin-left: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+  text-align: left;
+  display: inline-block;
+}
+
+@media (width <= 900px) {
+  .columns.columns40 > div {
+    flex-direction: column;
+    min-height: unset;
+    height: auto;
+  }
+
+  .columns.columns40 > div > div {
+    padding: 24px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .columns.columns40 > div > .columns-img-col {
+    min-height: unset;
+    height: auto;
+  }
+
+  .columns.columns40 > div > .columns-img-col picture,
+  .columns.columns40 > div > .columns-img-col img {
+    height: auto;
+    min-height: unset;
   }
 }
