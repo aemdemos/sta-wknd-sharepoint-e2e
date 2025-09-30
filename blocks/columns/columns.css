@@ -31,3 +31,86 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+  width: 100%;
+  background: var(--background-color);
+  padding: 0 32px;
+  box-sizing: border-box;
+  gap: 24px;
+}
+
+@media (width <= 900px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 0 12px;
+    min-height: 60px;
+  }
+}
+
+/* Left column: logo alignment and sizing */
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: center;
+}
+
+.columns.columns2 .columns-img-col img {
+  max-height: 54px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* Hide language list */
+.columns.columns2 > div > div:last-child ul {
+  display: none;
+}
+
+/* Right column: search alignment and box styling */
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 180px;
+  height: auto;
+}
+
+/* Style the search box (p) for perfect vertical centering and space for icon */
+.columns.columns2 > div > div:last-child p {
+  margin: 0;
+  padding: 0 20px 0 40px;
+  background: #f5f5f5;
+  color: #222;
+  font-size: 15px;
+  border-radius: 2px;
+  min-width: 84px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+/* Add search icon (ensure it's visible by correct padding and positioning) */
+.columns.columns2 > div > div:last-child p::before {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 24 24' width='14' height='14' xmlns='http://www.w3.org/2000/svg'><circle cx='11' cy='11' r='7' stroke='black' stroke-width='2' fill='none'/><line x1='18' y1='18' x2='22' y2='22' stroke='black' stroke-width='2'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  content: "";
+  pointer-events: none;
+}
