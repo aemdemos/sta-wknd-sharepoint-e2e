@@ -1444,7 +1444,6 @@
 .tabs.tabs23,
 .tabs.tabs23 > .tabs-list,
 .tabs.tabs23 > .tabs-panel {
-  /* Remove accidental vertical alignment or minimum height */
   align-self: start;
   margin-top: 0;
   min-height: unset;
@@ -1463,7 +1462,6 @@
   }
 }
 
-/* Sidebar: wider, more tab gap, consistent top padding */
 .tabs.tabs23 > .tabs-list {
   grid-column: 1 / 2;
   display: flex;
@@ -1492,7 +1490,6 @@
   }
 }
 
-/* Tab buttons: bolder, larger, lighter inactive, more padding */
 .tabs.tabs23 > .tabs-list > button,
 .tabs.tabs23 > .tabs-list > .tabs-tab {
   display: block;
@@ -1549,7 +1546,6 @@
   }
 }
 
-/* Main content area: wider, more left padding for gutter */
 .tabs.tabs23 > .tabs-panel {
   grid-column: 2 / 3;
   background: var(--background-color);
@@ -1586,7 +1582,6 @@
   }
 }
 
-/* Hide inactive panels */
 .tabs.tabs23 > .tabs-panel[aria-hidden="true"] {
   display: none;
 }
@@ -1596,7 +1591,6 @@
   flex-direction: column;
 }
 
-/* Headings and accent divider: tighten spacing */
 .tabs.tabs23 > .tabs-panel h3 {
   font-size: 29px;
   font-weight: 600;
@@ -1615,8 +1609,6 @@
   margin-top: 2px;
   margin-bottom: 14px;
   border-radius: 1px;
-
-  /* no content property, as per constraints */
 }
 
 .tabs.tabs23 > .tabs-panel h2 {
@@ -1627,7 +1619,6 @@
   margin-top: 0.62em;
 }
 
-/* Paragraphs and text spacing: more compact */
 .tabs.tabs23 > .tabs-panel p {
   margin-bottom: 12px;
   margin-top: 0.7em;
@@ -1660,7 +1651,6 @@
   border: none;
 }
 
-/* Related trips subtitle and alignment */
 .tabs.tabs23 > .tabs-panel p:has(+ ul) {
   font-size: 13px;
   color: #757575;
@@ -1673,7 +1663,6 @@
   letter-spacing: 0.04em;
 }
 
-/* Responsive: tighter layout and stacking on small screens */
 @media (width <= 600px) {
   .tabs.tabs23 {
     grid-template-columns: 1fr;
@@ -1701,5 +1690,162 @@
   .tabs.tabs23 > .tabs-panel {
     padding: 8px 0;
     margin-top: 0;
+  }
+}
+
+
+.tabs.tabs24 {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Tabs navigation bar: remove almost all gap to heading, align left */
+.tabs.tabs24 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin-bottom: 0.02rem;
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Tab buttons: compact, visually aligned */
+.tabs.tabs24 .tabs-tab {
+  border: 1px solid #222;
+  background: transparent;
+  color: #222;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.4em 1em;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  min-width: 70px;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs24 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+.tabs.tabs24 .tabs-tab:focus {
+  outline: 2px solid #F5E37D;
+  outline-offset: 1px;
+}
+
+.tabs.tabs24 .tabs-tab p {
+  margin: 0;
+  font-weight: 600;
+  font-size: inherit;
+}
+
+/* Heading block: allow natural wrapping, short accent underline always left-aligned */
+.tabs.tabs24 .tabs-panel > div > h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.18rem;
+  border: none;
+  background: none;
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Short underline, no vertical gap, left-aligned, fixed width */
+.tabs.tabs24 .tabs-panel > div > h3::after {
+  display: block;
+  height: 3px;
+  width: 44px;
+  background: #F5E37D;
+  border-radius: 2px;
+  margin-top: 0.08rem;
+  box-shadow: 0 0 0 0 #F5E37D;
+  position: relative;
+  left: 0;
+  right: auto;
+  margin-left: 0;
+  content: "";
+}
+
+/* Main image: remove almost all gap above, keep below heading compact */
+.tabs.tabs24 .tabs-panel picture,
+.tabs.tabs24 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 0.6rem;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+}
+
+/* Paragraph below image: reduce top margin for tighter grouping */
+.tabs.tabs24 .tabs-panel > div > p {
+  color: #222;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 1.7rem;
+  background: none;
+  border: none;
+}
+
+/* Other paragraphs and lists: compact vertical spacing */
+.tabs.tabs24 .tabs-panel p,
+.tabs.tabs24 .tabs-panel ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* List styling in panel */
+.tabs.tabs24 .tabs-panel ul {
+  padding-left: 1.5em;
+  list-style: disc inside;
+}
+
+/* Remove unnecessary vertical whitespace above the block */
+
+@media (width <= 900px) {
+  .tabs.tabs24 .tabs-list {
+    gap: 0.22rem;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .tabs.tabs24 .tabs-panel > div > h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.18rem;
+  }
+
+  .tabs.tabs24 .tabs-panel > div > h3::after {
+    width: 28px;
+    height: 2px;
+    margin-top: 0.04rem;
+  }
+
+  .tabs.tabs24 .tabs-tab {
+    min-width: 50px;
+    font-size: 0.92rem;
+    padding: 0.25em 0.6em;
   }
 }
