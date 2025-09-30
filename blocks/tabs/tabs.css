@@ -411,7 +411,6 @@
 
 
 .tabs.tabs12 {
-  /* Remove centering, align block to the left to match original */
   display: block;
   max-width: none;
   margin: 0;
@@ -421,7 +420,6 @@
   box-shadow: none;
 }
 
-/* Use a shared inner wrapper for left-aligned column layout */
 .tabs.tabs12 .tabs-inner-align {
   max-width: 750px;
   margin-left: 60px;
@@ -439,7 +437,6 @@
   }
 }
 
-/* --- TABS BAR --- */
 .tabs.tabs12 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -515,7 +512,6 @@
   text-align: center;
 }
 
-/* --- MAIN CONTENT --- */
 .tabs.tabs12 .tabs-panel {
   border: none;
   padding: 0;
@@ -527,7 +523,6 @@
 }
 
 .tabs.tabs12 .tabs-panel > div {
-  /* Align content with tabs bar */
   max-width: 750px;
   margin-left: 60px;
   margin-right: 0;
@@ -543,7 +538,6 @@
   }
 }
 
-/* --- TITLE & UNDERLINE --- */
 .tabs.tabs12 .tabs-panel > div > h3:first-of-type {
   font-size: 2.45rem;
   font-weight: 700;
@@ -558,7 +552,6 @@
   min-width: 300px;
 }
 
-/* --- SUBHEADING --- */
 .tabs.tabs12 .tabs-panel > div > h3:not(:first-of-type) {
   font-size: 1.32rem;
   font-weight: 700;
@@ -569,7 +562,6 @@
   letter-spacing: 0.01em;
 }
 
-/* --- PARAGRAPHS --- */
 .tabs.tabs12 .tabs-panel > div > p {
   font-size: 1rem;
   color: #282828;
@@ -579,7 +571,6 @@
   letter-spacing: 0.01em;
 }
 
-/* --- IMAGE --- */
 .tabs.tabs12 .tabs-panel picture,
 .tabs.tabs12 .tabs-panel img {
   display: block;
@@ -592,7 +583,6 @@
   border-radius: 0;
 }
 
-/* --- FOOTER TEXT --- */
 .tabs.tabs12 .tabs-panel > div > p:last-of-type {
   font-size: 12px;
   color: #606060;
@@ -602,3 +592,180 @@
   max-width: 650px;
 }
 
+
+
+.tabs.tabs13 .tabs-panel > div {
+  display: grid;
+  grid-template-columns: 275px 1fr;
+  column-gap: 3.5rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* SIDEBAR: h3 (title) and metadata only (assume 6 metadata items) */
+.tabs.tabs13 .tabs-panel > div > h3,
+.tabs.tabs13 .tabs-panel > div > p:nth-of-type(n+2):nth-of-type(-n+7),
+.tabs.tabs13 .tabs-panel > div > p:last-of-type:only-child {
+  grid-column: 1;
+}
+
+/* Style h3 sidebar title */
+.tabs.tabs13 .tabs-panel > div > h3 {
+  margin: 0 0 1.3em;
+  color: #222;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  border-bottom: 3px solid #f9d648;
+  padding-bottom: 0.2em;
+  width: max-content;
+}
+
+/* Sidebar metadata style */
+.tabs.tabs13 .tabs-panel > div > p:nth-of-type(n+2):nth-of-type(-n+7) {
+  color: #a1a1a1;
+  text-transform: uppercase;
+  font-size: 0.97em;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  margin: 0 0 1.2em;
+  line-height: 1.45;
+  max-width: 92%;
+  word-break: break-word;
+}
+
+.tabs.tabs13 .tabs-panel > div > p:nth-of-type(n+2):nth-of-type(-n+7) strong,
+.tabs.tabs13 .tabs-panel > div > p:nth-of-type(n+2):nth-of-type(-n+7) b {
+  color: #222;
+  font-weight: 700;
+}
+
+/* Sidebar "Share this adventure" at bottom if present */
+.tabs.tabs13 .tabs-panel > div > p:last-of-type {
+  grid-column: 1;
+  margin-top: 3em;
+  margin-bottom: 0;
+  color: #222;
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 0.04em;
+}
+
+/* MAIN COLUMN: h2, image, description */
+
+/* h2 (Experience Tuscany by Bicycle) */
+.tabs.tabs13 .tabs-panel > div > h2 {
+  grid-column: 2;
+  margin-top: 0;
+  margin-bottom: 1.2em;
+  color: #222;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Main image: first <p> containing a picture or img after h2 (right column) */
+.tabs.tabs13 .tabs-panel > div > h2 + p {
+  grid-column: 2;
+  margin: 0 0 2em;
+  width: 100%;
+  max-width: 100%;
+}
+
+.tabs.tabs13 .tabs-panel > div > h2 + p picture,
+.tabs.tabs13 .tabs-panel > div > h2 + p img {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 18px rgb(0 0 0 / 8%);
+  margin-bottom: 0;
+}
+
+/* Main description: the <p> after the image <p> (right column) */
+.tabs.tabs13 .tabs-panel > div > h2 + p + p {
+  grid-column: 2;
+  color: #222;
+  font-size: 1.08em;
+  margin: 0;
+  line-height: 1.7;
+  max-width: 95%;
+}
+
+/* Make sure the description does NOT appear in the sidebar */
+
+/* Hide empty h3 or p */
+.tabs.tabs13 .tabs-panel > div > h3:empty,
+.tabs.tabs13 .tabs-panel > div > p:empty {
+  display: none;
+}
+
+/* TABS STYLING */
+.tabs.tabs13 .tabs-list {
+  display: flex;
+  gap: 0.85em;
+  margin: 0 0 2.7em;
+  width: auto;
+  justify-content: flex-start;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.tabs.tabs13 .tabs-list button {
+  background: none;
+  color: #222;
+  border: none;
+  border-radius: 0;
+  padding: 0.6em 2em 0.48em;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  transition: background 0.17s, color 0.17s;
+  box-shadow: none;
+  outline: none;
+}
+
+.tabs.tabs13 .tabs-list button[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs13 .tabs-list button:focus {
+  outline: 2px solid #222;
+}
+
+.tabs.tabs13 .tabs-list button p {
+  margin: 0;
+}
+
+/* Responsive: Stack columns on mobile/tablet */
+@media (width <= 900px) {
+  .tabs.tabs13 .tabs-panel > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .tabs.tabs13 .tabs-panel > div > h3,
+  .tabs.tabs13 .tabs-panel > div > p,
+  .tabs.tabs13 .tabs-panel > div > h2 {
+    grid-column: 1 !important;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .tabs.tabs13 .tabs-panel > div > p,
+  .tabs.tabs13 .tabs-panel > div > p picture,
+  .tabs.tabs13 .tabs-panel > div > p img {
+    max-width: 100%;
+  }
+}
+
+.tabs.tabs13 {
+  margin: 0;
+}
