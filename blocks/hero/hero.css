@@ -211,7 +211,6 @@
   box-sizing: border-box;
 }
 
-/* --- LEFT: IMAGE COLUMN --- */
 .hero.hero18 > div:first-child {
   flex: 1 1 60%;
   display: flex;
@@ -224,7 +223,6 @@
   overflow: hidden;
 }
 
-/* Ensure the image fills its cell and is visible */
 .hero.hero18 > div:first-child picture,
 .hero.hero18 > div:first-child img {
   width: 100%;
@@ -234,11 +232,8 @@
   object-fit: cover;
   display: block;
   position: static;
-
-  /* Remove z-index if present */
 }
 
-/* --- RIGHT: TEXT COLUMN --- */
 .hero.hero18 > div:last-child {
   flex: 1 1 40%;
   display: flex;
@@ -302,7 +297,6 @@
   margin: 0;
 }
 
-/* --- RESPONSIVE STACKING --- */
 @media (width <= 900px) {
   .hero.hero18 {
     flex-direction: column;
@@ -352,4 +346,146 @@
   .hero.hero18 h1 {
     font-size: 1.2rem;
   }
+}
+
+
+.hero.hero25 {
+  position: relative;
+  width: 100vw;
+  min-height: 460px; /* give enough space for image, card & divider */
+  padding: 0;
+  background: transparent;
+  overflow-x: hidden;
+}
+
+/* Full-bleed image: make image taller so card can overlap and extend below */
+.hero.hero25 > div:first-child {
+  position: relative;
+  width: 100vw;
+  height: 350px;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+}
+
+.hero.hero25 > div:first-child > div {
+  flex: 1 1 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero.hero25 > div:first-child picture,
+.hero.hero25 > div:first-child img {
+  width: 100vw;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay card - floats deeper into and below the image */
+.hero.hero25 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  top: 220px; /* card floats well into image, and extends below */
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 900px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 24px 32px 16px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  border: none;
+  box-shadow: none;
+}
+
+/* Card content fill width */
+.hero.hero25 > div:nth-child(2) > div {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Headline: left-aligned, dark color, normal weight */
+.hero.hero25 > div:nth-child(2) h2 {
+  margin: 0;
+  color: #222;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.25;
+  text-align: left;
+}
+
+/* Divider: sits just below the card, visually outside the image */
+.hero.hero25 > div:nth-child(3) {
+  position: absolute;
+  left: 50%;
+  top: calc(220px + 24px + 16px + 32px); /* card top + top pad + bottom pad + fudge for border thickness */
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 900px;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 0;
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero25 {
+    min-height: 320px;
+  }
+
+  .hero.hero25 > div:first-child {
+    height: 190px;
+  }
+
+  .hero.hero25 > div:first-child picture,
+  .hero.hero25 > div:first-child img {
+    height: 190px;
+  }
+
+  .hero.hero25 > div:nth-child(2) {
+    top: 80px;
+    width: 96vw;
+    max-width: 98vw;
+    padding: 14px 8px 10px;
+  }
+
+  .hero.hero25 > div:nth-child(3) {
+    width: 96vw;
+    max-width: 98vw;
+    top: calc(80px + 14px + 10px + 8px);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero25 {
+    min-height: 180px;
+  }
+
+  .hero.hero25 > div:first-child {
+    height: 110px;
+  }
+
+  .hero.hero25 > div:first-child picture,
+  .hero.hero25 > div:first-child img {
+    height: 110px;
+  }
+
+  .hero.hero25 > div:nth-child(2) {
+    top: 28px;
+    padding: 7px 4vw;
+  }
+
+  .hero.hero25 > div:nth-child(3) {
+    top: calc(28px + 7px + 7px + 4vw);
+  }
+}
+
+/* Ensure hero wrapper is full-bleed */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
 }
