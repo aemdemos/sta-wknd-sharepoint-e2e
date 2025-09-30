@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,170 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs6 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* Tabs navigation row, left aligned, compact spacing */
+.tabs.tabs6 > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin: 24px 0 18px;
+  padding: 0;
+  border: none;
+  align-items: flex-start;
+  width: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+}
+
+/* Individual tab button styling */
+.tabs.tabs6 > .tabs-list > .tabs-tab {
+  border: none;
+  background: transparent;
+  color: #212121;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 18px;
+  height: 36px;
+  margin: 0;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+}
+
+.tabs.tabs6 > .tabs-list > .tabs-tab[aria-selected='true'] {
+  background: #212121;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tabs.tabs6 > .tabs-list > .tabs-tab:focus {
+  outline: 2px solid #FFF176;
+}
+
+.tabs.tabs6 > .tabs-list > .tabs-tab > p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Tab content panel styling, flush left */
+.tabs.tabs6 > .tabs-panel {
+  width: 100%;
+  max-width: 900px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  background: transparent;
+  overflow: visible;
+  display: block;
+  text-align: left;
+}
+
+/* Hide inactive panels */
+.tabs.tabs6 > .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs.tabs6 > .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Panel content spacing and typography */
+.tabs.tabs6 > .tabs-panel > div > p {
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: #212121;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: left;
+  max-width: 700px;
+}
+
+/* Emphasize strong text in panel */
+.tabs.tabs6 > .tabs-panel > div strong {
+  color: #212121;
+  font-weight: 700;
+}
+
+/* Responsive, flush left image in panel */
+.tabs.tabs6 > .tabs-panel picture {
+  width: 100%;
+  max-width: 700px;
+  margin: 0;
+  display: block;
+}
+
+.tabs.tabs6 > .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  object-fit: cover;
+  margin: 18px 0 10px;
+  border-radius: 6px;
+  text-align: left;
+}
+
+/* Caption/last paragraph styling */
+.tabs.tabs6 > .tabs-panel > div > p:last-child {
+  color: #757575;
+  font-size: 15px;
+  margin-bottom: 0;
+  margin-top: 12px;
+  text-align: left;
+  max-width: 700px;
+}
+
+/* Responsive styles for mobile */
+@media (width <= 900px) {
+  .tabs.tabs6 {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tabs.tabs6 > .tabs-panel {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tabs.tabs6 > .tabs-list {
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .tabs.tabs6 > .tabs-panel picture,
+  .tabs.tabs6 > .tabs-panel picture img {
+    max-width: 100%;
+  }
+
+  .tabs.tabs6 > .tabs-panel > div > p,
+  .tabs.tabs6 > .tabs-panel > div > p:last-child {
+    max-width: 100%;
+  }
 }
