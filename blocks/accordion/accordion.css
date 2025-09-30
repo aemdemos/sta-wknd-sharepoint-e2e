@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,107 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion28 {
+  max-width: 700px;
+  margin: 48px auto;
+  width: 100%;
+  background: var(--background-color);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 0;
+}
+
+.accordion.accordion28 > details {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.accordion.accordion28 > details:last-child {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.accordion.accordion28 > details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion28 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px 18px 24px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  margin: 0;
+  letter-spacing: 0.02em;
+  box-sizing: border-box;
+  transition: none;
+}
+
+.accordion.accordion28 summary:focus,
+.accordion.accordion28 summary:hover {
+  background: transparent;
+}
+
+.accordion.accordion28 summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion28 .accordion-item-label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.accordion.accordion28 .accordion-item-label p,
+.accordion.accordion28 summary {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.accordion.accordion28 .accordion-item-body {
+  padding: 0 32px 18px 24px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #222;
+  margin: 0;
+  line-height: 1.7;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion28 {
+    max-width: 100%;
+    margin: 24px 0;
+    padding: 0;
+  }
+
+  .accordion.accordion28 summary,
+  .accordion.accordion28 .accordion-item-body {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
