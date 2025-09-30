@@ -239,7 +239,6 @@
   text-align: left;
 }
 
-/* Indicators: floating over image, centered, below card */
 .carousel.carousel10 .carousel-slide-indicators {
   position: absolute;
   left: 0;
@@ -278,7 +277,6 @@
   background: #3b63fb;
 }
 
-/* Navigation arrows: overlay image, bottom right, below card */
 .carousel.carousel10 .carousel-navigation-buttons {
   position: absolute;
   inset: auto 2vw 2vw auto;
@@ -331,4 +329,178 @@
 
 .carousel.carousel10 .carousel-navigation-buttons button.slide-next::after {
   transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+.carousel.carousel17 {
+  position: relative;
+}
+
+/* Remove overlay bar if slide content is empty */
+.carousel.carousel17 .carousel-slide-content:empty {
+  display: none;
+}
+
+/* Ensure the carousel image does not extend beneath the control bar */
+.carousel.carousel17 .carousel-slides-container {
+  padding-bottom: 56px; /* room for nav & dots beneath image */
+  position: relative;
+}
+
+/* Controls container below image, with white background */
+.carousel.carousel17 .carousel-controls-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  gap: 0 18px;
+  pointer-events: none;
+}
+
+/* If .carousel-controls-bar is not in HTML, we simulate it with pseudo element */
+.carousel.carousel17 .carousel-slides-container::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 56px;
+  background: #fff;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Indicators: move below image, above white bar */
+.carousel.carousel17 .carousel-slide-indicators {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 22px;
+  z-index: 3;
+  background: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0 10px;
+  justify-content: center;
+}
+
+/* Dot style: a bit larger for clarity */
+.carousel.carousel17 .carousel-slide-indicator button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #bbb;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+/* Active indicator: solid black */
+.carousel.carousel17 .carousel-slide-indicator button:disabled,
+.carousel.carousel17 .carousel-slide-indicator button[aria-current="true"] {
+  background: #131313;
+}
+
+/* Navigation arrows: move below image, left/right, visible on white bar */
+.carousel.carousel17 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 0 0;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+  background: none;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Allow clicks only to buttons */
+.carousel.carousel17 .carousel-navigation-buttons button {
+  pointer-events: auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  position: relative;
+}
+
+/* Arrow icon: slightly larger, centered, black */
+.carousel.carousel17 .carousel-navigation-buttons button::after {
+  border: solid #131313;
+  border-width: 0 3px 3px 0;
+  width: 16px;
+  height: 16px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-135deg);
+  position: absolute;
+  background: none;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* On hover, add a subtle light gray background for accessibility */
+.carousel.carousel17 .carousel-navigation-buttons button:hover,
+.carousel.carousel17 .carousel-navigation-buttons button:focus-visible {
+  background: #ededed;
+}
+
+/* Responsive: Reduce control bar height on small screens */
+@media (width <= 600px) {
+  .carousel.carousel17 .carousel-slides-container {
+    padding-bottom: 44px;
+  }
+
+  .carousel.carousel17 .carousel-slides-container::after {
+    height: 44px;
+  }
+
+  .carousel.carousel17 .carousel-navigation-buttons {
+    height: 44px;
+    padding: 0 10px;
+  }
+
+  .carousel.carousel17 .carousel-slide-indicators {
+    bottom: 10px;
+  }
+
+  .carousel.carousel17 .carousel-slide-indicator button {
+    width: 9px;
+    height: 9px;
+  }
+
+  .carousel.carousel17 .carousel-navigation-buttons button {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  .carousel.carousel17 .carousel-navigation-buttons button::after {
+    width: 10px;
+    height: 10px;
+    border-width: 0 3px 3px 0;
+  }
 }
