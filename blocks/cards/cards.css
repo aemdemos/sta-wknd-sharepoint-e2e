@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,215 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards3 {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Compact grid: 4 columns first row, 3 columns centered second row */
+.cards.cards3 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 0;
+  place-items: start center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  background: none;
+  border: none;
+}
+
+/* Explicit grid placement for first row (4 cards) */
+.cards.cards3 > ul > li:nth-child(1) {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.cards.cards3 > ul > li:nth-child(2) {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.cards.cards3 > ul > li:nth-child(3) {
+  grid-row: 1;
+  grid-column: 3;
+}
+
+.cards.cards3 > ul > li:nth-child(4) {
+  grid-row: 1;
+  grid-column: 4;
+  margin-bottom: 14px;
+}
+
+/* Second row: center the 3 cards in columns 2, 3, 4 */
+.cards.cards3 > ul > li:nth-child(5) {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.cards.cards3 > ul > li:nth-child(6) {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.cards.cards3 > ul > li:nth-child(7) {
+  grid-row: 2;
+  grid-column: 4;
+}
+
+/* Reduce vertical gap between rows for tighter grouping */
+
+/* Card styling: center content, remove borders/background */
+.cards.cards3 > ul > li {
+  background: none;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 180px;
+}
+
+/* Profile image: circular, centered, fixed size */
+.cards.cards3 .cards-card-image {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 6%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.cards.cards3 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
+  aspect-ratio: 1/1;
+  display: block;
+}
+
+/* Center text content */
+.cards.cards3 .cards-card-body {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Name styling */
+.cards.cards3 .cards-card-body h3 {
+  margin: 0 0 2px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
+}
+
+/* Role styling */
+.cards.cards3 .cards-card-body h5 {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Social icons row as buttons */
+.cards.cards3 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* All three icons appear, styled evenly */
+.cards.cards3 .cards-card-body p a {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Instagram selector supports multiple title variations */
+.cards.cards3 .cards-card-body p a[title*="Facebook"]::after {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M15.117 0H.883A.883.883 0 0 0 0 .883v14.234A.883.883 0 0 0 .883 16h7.659v-6.196H6.461V7.358h2.081V5.742c0-2.066 1.264-3.193 3.108-3.193.885 0 1.645.066 1.868.096v2.166h-1.282c-1.003 0-1.198.477-1.198 1.178v1.544h2.396l-.312 2.446h-2.084V16h4.084A.883.883 0 0 0 16 15.117V.883A.883.883 0 0 0 15.117 0z"/></svg>') no-repeat center center/contain;
+  content: "";
+}
+
+.cards.cards3 .cards-card-body p a[title*="Twitter"]::after {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 3.038a6.542 6.542 0 0 1-1.885.516A3.301 3.301 0 0 0 15.555 2c-.651.387-1.374.666-2.143.818A3.286 3.286 0 0 0 7.88 5.034 9.325 9.325 0 0 1 1.112 2.1a3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 5.575v.045A3.288 3.288 0 0 0 3.277 8.86a3.203 3.203 0 0 1-.864.115c-.211 0-.417-.021-.616-.061a3.293 3.293 0 0 0 3.067 2.281A6.588 6.588 0 0 1 .78 13.58a9.29 9.29 0 0 0 5.032 1.475c6.038 0 9.341-5 9.341-9.334 0-.142-.003-.284-.01-.425A6.68 6.68 0 0 0 16 3.039z"/></svg>') no-repeat center center/contain;
+  content: "";
+}
+
+.cards.cards3 .cards-card-body p a[title*="Insta"]::after,
+.cards.cards3 .cards-card-body p a[title*="instagram"]::after,
+.cards.cards3 .cards-card-body p a[title*="Instagram"]::after {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 3.162A4.838 4.838 0 0 0 3.162 8 4.838 4.838 0 0 0 8 12.838 4.838 4.838 0 0 0 12.838 8 4.838 4.838 0 0 0 8 3.162zM8 11.8A3.8 3.8 0 1 1 8 4.2a3.8 3.8 0 0 1 0 7.6zm5.644-8.192a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0zm2.356 1.137a4.573 4.573 0 0 0-1.293-3.245A4.573 4.573 0 0 0 13.054.019C11.772-.287 4.228-.287 2.946.019a4.573 4.573 0 0 0-3.245 1.293A4.573 4.573 0 0 0 .019 2.946C-.287 4.228-.287 11.772.019 13.054a4.573 4.573 0 0 0 1.293 3.245 4.573 4.573 0 0 0 3.245 1.293c1.282.306 8.826.306 10.108 0a4.573 4.573 0 0 0 3.245-1.293 4.573 4.573 0 0 0 1.293-3.245c.306-1.282.306-8.826 0-10.108zM14.857 13.31a2.605 2.605 0 0 1-1.46 1.46c-1.012.4-3.414.308-5.397.308-1.983 0-4.385.092-5.397-.308a2.605 2.605 0 0 1-1.46-1.46C.347 12.298.255 9.896.255 7.913c0-1.983.092-4.385.308-5.397a2.605 2.605 0 0 1 1.46-1.46C3.035.347 5.437.255 7.42.255c1.983 0 4.385-.092 5.397.308a2.605 2.605 0 0 1 1.46 1.46c.4 1.012.308 3.414.308 5.397 0 1.983.092 4.385-.308 5.397z"/></svg>') no-repeat center center/contain;
+  content: "";
+}
+
+.cards.cards3 .cards-card-body p a:hover {
+  background: #ecb818;
+  color: #222;
+  text-decoration: none;
+}
+
+/* Responsive: stack cards, center rows */
+@media (width <= 900px) {
+  .cards.cards3 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 18px 0;
+    max-width: 400px;
+  }
+
+  .cards.cards3 > ul > li {
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  .cards.cards3 > ul > li:nth-child(4) {
+    margin-bottom: 10px;
+  }
 }
