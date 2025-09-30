@@ -496,7 +496,6 @@
   min-height: 440px;
 }
 
-/* Top image container: forces image to appear full width and height */
 .hero.hero27 > div:first-child {
   width: 100vw;
   height: 340px;
@@ -510,7 +509,6 @@
   justify-content: flex-start;
 }
 
-/* Reach deeply nested image and ensure it fills container */
 .hero.hero27 > div:first-child > div,
 .hero.hero27 > div:first-child > div > picture,
 .hero.hero27 > div:first-child > div > picture > img {
@@ -521,7 +519,6 @@
   display: block;
 }
 
-/* TEXT PANEL - overlaps image bottom */
 .hero.hero27 > div:last-child {
   background: #fff;
   box-sizing: border-box;
@@ -539,9 +536,6 @@
   box-shadow: 0 2px 16px rgb(0 0 0 / 6%);
 }
 
-/* Ensure parent has enough height for image + panel */
-
-/* HEADINGS AND TEXT */
 .hero.hero27 h1,
 .hero.hero27 h2,
 .hero.hero27 h3,
@@ -561,7 +555,6 @@
   max-width: 100%;
 }
 
-/* BUTTON */
 .hero.hero27 .button-container {
   margin-top: 16px;
 }
@@ -587,7 +580,6 @@
   background: #ffd100;
 }
 
-/* RESPONSIVE: smaller image and panel on mobile */
 @media (width <= 900px) {
   .hero.hero27 > div:first-child {
     min-height: 180px;
@@ -607,5 +599,93 @@
 
   .hero.hero27 h2 {
     font-size: 1.1rem;
+  }
+}
+
+
+.hero.hero39 {
+  position: relative;
+  width: 100vw;
+  min-height: 350px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+/* Full-width background image positioning */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero39 picture,
+.hero.hero39 img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay card at bottom, centered horizontally, more compact and tighter */
+.hero.hero39 > div:last-child {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  width: 50vw;
+  max-width: 650px;
+  background: #fff;
+  padding: 5px 18px 2px;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 11%);
+}
+
+/* Remove outer margin/padding from inner text container */
+.hero.hero39 > div:last-child > div {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Text styling for visual compactness */
+.hero.hero39 h1,
+.hero.hero39 h2,
+.hero.hero39 h3,
+.hero.hero39 h4,
+.hero.hero39 h5,
+.hero.hero39 h6 {
+  color: #000;
+  font-weight: 600;
+  margin: 0 0 4px;
+  line-height: 1.15;
+}
+
+.hero.hero39 p {
+  color: #333;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Responsive: tight on mobile */
+@media (width <= 900px) {
+  .hero.hero39 > div:last-child {
+    width: 96vw;
+    max-width: 100%;
+    padding: 4px 3vw 1px;
+    bottom: 2px;
+    border-radius: 13px;
   }
 }
