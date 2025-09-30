@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -57,7 +58,6 @@
   }
 }
 
-/* Left column: logo alignment and sizing */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -70,12 +70,10 @@
   display: block;
 }
 
-/* Hide language list */
 .columns.columns2 > div > div:last-child ul {
   display: none;
 }
 
-/* Right column: search alignment and box styling */
 .columns.columns2 > div > div:last-child {
   display: flex;
   align-items: center;
@@ -84,7 +82,6 @@
   height: auto;
 }
 
-/* Style the search box (p) for perfect vertical centering and space for icon */
 .columns.columns2 > div > div:last-child p {
   margin: 0;
   padding: 0 20px 0 40px;
@@ -100,7 +97,6 @@
   box-sizing: border-box;
 }
 
-/* Add search icon (ensure it's visible by correct padding and positioning) */
 .columns.columns2 > div > div:last-child p::before {
   position: absolute;
   left: 16px;
@@ -113,4 +109,207 @@
   transform: translateY(-50%);
   content: "";
   pointer-events: none;
+}
+
+
+.columns.columns5 {
+  background: #232220;
+  color: #e3e3e3;
+  border-bottom: 1px solid #fff;
+  padding: 24px 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* Responsive: stack columns vertically */
+@media (width <= 900px) {
+  .columns.columns5 {
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 16px;
+    max-width: 100%;
+  }
+}
+
+/* --- Left column: logo + lang + social --- */
+.columns.columns5 > div:first-child {
+  min-width: 80px;
+  max-width: 120px;
+  flex: 0 0 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Logo */
+.columns.columns5 .columns-img-col img {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Language selector */
+.columns.columns5 > div:first-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns5 > div:first-child ul li a {
+  color: #fff;
+  font-size: 13px;
+  text-decoration: underline;
+  margin-bottom: 0;
+}
+
+/* --- Social section (Follow Us + buttons) --- */
+.columns.columns5 > div:first-child > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 0;
+}
+
+/* "Follow Us" label styling */
+.columns.columns5 > div:first-child #follow-us {
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin: 0 0 2px;
+  padding: 0;
+  text-align: left;
+  line-height: 1;
+}
+
+/* Social buttons stacked vertically, square, white, with only initial visible */
+.columns.columns5 > div:first-child .button-container {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.columns.columns5 > div:first-child .button-container:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns5 > div:first-child .button {
+  background: #fff;
+  color: transparent;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 32px;
+  text-align: center;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  transition: background 0.2s;
+  letter-spacing: 2px;
+  position: relative;
+  text-indent: 0;
+}
+
+/* Hide button text except first character */
+
+.columns.columns5 > div:first-child .button::after {
+  content: attr(title);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #232220;
+  background: transparent;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.columns.columns5 > div:first-child .button[title="Facebook"]::after { content: "F"; }
+.columns.columns5 > div:first-child .button[title="Twitter"]::after { content: "T"; }
+.columns.columns5 > div:first-child .button[title="Instagram"]::after { content: "I"; }
+
+.columns.columns5 > div:first-child .button:hover,
+.columns.columns5 > div:first-child .button:focus {
+  background: #e3e3e3;
+  color: #232220;
+}
+
+/* --- Right column: copyright + body --- */
+.columns.columns5 > div:last-child {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+/* Copyright (first child of right col) */
+.columns.columns5 > div:last-child > div:first-child p {
+  color: #bdbdbd;
+  font-size: 12px;
+  margin: 0 0 8px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Paragraphs in right column */
+.columns.columns5 > div:last-child > div:not(:first-child) p {
+  color: #e3e3e3;
+  font-size: 13px;
+  margin: 0 0 8px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Footer links override */
+.columns.columns5 > div:last-child p a,
+.columns.columns5 > div:last-child ul li a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* Make left and right columns vertically top-aligned, so copyright matches paragraph top */
+.columns.columns5 > div {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Ensure the block does not stretch too wide */
+@media (width >= 1050px) {
+  .columns.columns5 {
+    max-width: 1050px;
+  }
+}
+
+/* Make columns visually balanced on mobile */
+@media (width <= 600px) {
+  .columns.columns5 > div:first-child,
+  .columns.columns5 > div:last-child {
+    max-width: 100%;
+    flex: unset;
+  }
 }
