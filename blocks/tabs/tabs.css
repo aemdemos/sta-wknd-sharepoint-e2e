@@ -2013,13 +2013,11 @@
   min-width: 0;
 }
 
-/* Ensure sidebar starts at top and main column aligns top */
 .tabs.tabs33 > div:first-child,
 .tabs.tabs33 > div:nth-child(2) {
   align-self: flex-start;
 }
 
-/* Sidebar meta labels/value style */
 .tabs.tabs33 > div:first-child p,
 .tabs.tabs33 > div:first-child span,
 .tabs.tabs33 > div:first-child strong,
@@ -2033,7 +2031,6 @@
   font-weight: 500;
 }
 
-/* Sidebar section header/title */
 .tabs.tabs33 > div:first-child h1,
 .tabs.tabs33 > div:first-child h3 {
   font-size: 1rem;
@@ -2044,7 +2041,6 @@
   line-height: 1.15;
 }
 
-/* Yellow underline for sidebar title */
 .tabs.tabs33 > div:first-child hr,
 .tabs.tabs33 > div:first-child .title-underline {
   display: block;
@@ -2055,7 +2051,6 @@
   margin: 0 0 12px;
 }
 
-/* Sidebar share label */
 .tabs.tabs33 > div:first-child .share-label,
 .tabs.tabs33 > div:first-child .meta-share {
   color: #888;
@@ -2067,7 +2062,6 @@
   font-weight: 400;
 }
 
-/* Tabs navigation: always horizontal, only in main column, never in sidebar */
 .tabs.tabs33 > div:nth-child(2) > .tabs-list,
 .tabs.tabs33 > div:nth-child(2) .tabs-list {
   display: flex;
@@ -2082,12 +2076,10 @@
   align-items: flex-start;
 }
 
-/* Force tabs-list in sidebar to NOT show */
 .tabs.tabs33 > div:first-child .tabs-list {
   display: none !important;
 }
 
-/* Tabs styling */
 .tabs.tabs33 .tabs-list button {
   background: var(--background-color);
   color: #222;
@@ -2127,7 +2119,6 @@
   padding: 0;
 }
 
-/* Main area refinement */
 .tabs.tabs33 > div:nth-child(2) {
   padding: 32px 36px;
   background: var(--background-color);
@@ -2162,7 +2153,6 @@
   }
 }
 
-/* Remove panel border, padding, background */
 .tabs.tabs33 .tabs-panel {
   border: none;
   background: none;
@@ -2171,7 +2161,6 @@
   box-shadow: none;
 }
 
-/* Main headings alignment and spacing */
 .tabs.tabs33 .tabs-panel h2 {
   font-size: 2rem;
   font-weight: 700;
@@ -2193,7 +2182,6 @@
   padding-left: 0;
 }
 
-/* Images: compact spacing */
 .tabs.tabs33 .tabs-panel picture,
 .tabs.tabs33 .tabs-panel img {
   display: block;
@@ -2205,7 +2193,6 @@
   box-shadow: none;
 }
 
-/* Paragraphs: readable, balanced spacing */
 .tabs.tabs33 .tabs-panel p {
   font-size: 1rem;
   color: #222;
@@ -2215,7 +2202,6 @@
   max-width: 98%;
 }
 
-/* List styling */
 .tabs.tabs33 .tabs-panel ul {
   margin-left: 1em;
   margin-bottom: 1em;
@@ -2227,4 +2213,106 @@
   color: #222;
   margin-bottom: 0.35em;
   line-height: 1.5;
+}
+
+
+.tabs.tabs35 {
+  box-sizing: border-box;
+  background: #fff;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  border: none;
+}
+
+.tabs.tabs35 .tabs-list {
+  display: flex;
+  gap: 16px; /* More space between tabs */
+  margin-bottom: 26px;
+}
+
+.tabs.tabs35 .tabs-list button {
+  background: transparent;
+  color: #222;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tabs.tabs35 .tabs-list button[aria-selected='true'] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs35 .tabs-panel {
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.tabs.tabs35 .tabs-panel > div {
+  color: #444;
+  font-size: 1.09rem;
+  line-height: 1.7;
+  padding-bottom: 32px;
+}
+
+.tabs.tabs35 .tabs-panel p {
+  margin-bottom: 24px;
+}
+
+.tabs.tabs35 .tabs-panel img, 
+.tabs.tabs35 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  max-width: 600px; /* or 100% for full width */
+  height: auto;
+  margin-top: 22px;
+  box-shadow: none;
+  border: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs35 {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tabs.tabs35 .tabs-list {
+    gap: 10px;
+    font-size: 0.98rem;
+  }
+
+  .tabs.tabs35 .tabs-panel > div {
+    font-size: 1rem;
+    padding-bottom: 24px;
+  }
+
+  .tabs.tabs35 .tabs-panel picture,
+  .tabs.tabs35 .tabs-panel img {
+    margin-top: 16px;
+    max-width: 100%;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs35 {
+    padding: 0;
+  }
+
+  .tabs.tabs35 .tabs-list {
+    gap: 6px;
+    font-size: 0.93rem;
+    padding-right: 2px;
+  }
+
+  .tabs.tabs35 .tabs-panel > div {
+    padding-bottom: 14px;
+    font-size: 0.95rem;
+  }
 }
