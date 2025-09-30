@@ -1702,7 +1702,6 @@
   margin-bottom: 0;
 }
 
-/* Tabs navigation bar: remove almost all gap to heading, align left */
 .tabs.tabs24 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1717,7 +1716,6 @@
   overflow-x: auto;
 }
 
-/* Tab buttons: compact, visually aligned */
 .tabs.tabs24 .tabs-tab {
   border: 1px solid #222;
   background: transparent;
@@ -1754,7 +1752,6 @@
   font-size: inherit;
 }
 
-/* Heading block: allow natural wrapping, short accent underline always left-aligned */
 .tabs.tabs24 .tabs-panel > div > h3 {
   font-size: 2rem;
   font-weight: 700;
@@ -1770,7 +1767,6 @@
   max-width: 100%;
 }
 
-/* Short underline, no vertical gap, left-aligned, fixed width */
 .tabs.tabs24 .tabs-panel > div > h3::after {
   display: block;
   height: 3px;
@@ -1786,7 +1782,6 @@
   content: "";
 }
 
-/* Main image: remove almost all gap above, keep below heading compact */
 .tabs.tabs24 .tabs-panel picture,
 .tabs.tabs24 .tabs-panel img {
   display: block;
@@ -1799,7 +1794,6 @@
   background: none;
 }
 
-/* Paragraph below image: reduce top margin for tighter grouping */
 .tabs.tabs24 .tabs-panel > div > p {
   color: #222;
   font-size: 1.05rem;
@@ -1810,20 +1804,16 @@
   border: none;
 }
 
-/* Other paragraphs and lists: compact vertical spacing */
 .tabs.tabs24 .tabs-panel p,
 .tabs.tabs24 .tabs-panel ul {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-/* List styling in panel */
 .tabs.tabs24 .tabs-panel ul {
   padding-left: 1.5em;
   list-style: disc inside;
 }
-
-/* Remove unnecessary vertical whitespace above the block */
 
 @media (width <= 900px) {
   .tabs.tabs24 .tabs-list {
@@ -1847,5 +1837,143 @@
     min-width: 50px;
     font-size: 0.92rem;
     padding: 0.25em 0.6em;
+  }
+}
+
+
+.tabs.tabs30 {
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+/* Tabs Row */
+.tabs.tabs30 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+
+/* Tab Buttons */
+.tabs.tabs30 .tabs-tab {
+  border: none;
+  background: none;
+  color: #888;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border-radius: 3px;
+  margin: 0;
+  line-height: 1.3;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+  min-width: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs.tabs30 .tabs-tab[aria-selected='true'] {
+  background: #1a1a1a;
+  color: #fff;
+  cursor: default;
+}
+
+.tabs.tabs30 .tabs-tab p {
+  margin: 0;
+}
+
+/* Panel Content */
+.tabs.tabs30 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  font-size: 16px;
+  color: #222;
+}
+
+/* Tighter space above first paragraph */
+.tabs.tabs30 .tabs-panel > div > p:first-of-type {
+  margin-top: 10px;
+}
+
+/* Align paragraphs flush with images; remove max-width */
+.tabs.tabs30 .tabs-panel p {
+  margin-bottom: 8px;
+  margin-left: 12px;
+  margin-right: 12px;
+  max-width: none;
+  color: #222;
+  line-height: 1.62;
+  text-align: left;
+}
+
+/* Images: match paragraph padding, compact vertical spacing */
+.tabs.tabs30 .tabs-panel picture,
+.tabs.tabs30 .tabs-panel img {
+  display: block;
+  width: calc(100% - 24px);
+  max-width: 100%;
+  border-radius: 4px;
+  margin: 14px 12px 0;
+  box-sizing: border-box;
+}
+
+/* Even more compact gap between stacked images */
+.tabs.tabs30 .tabs-panel picture + picture,
+.tabs.tabs30 .tabs-panel img + picture,
+.tabs.tabs30 .tabs-panel picture + img,
+.tabs.tabs30 .tabs-panel img + img {
+  margin-top: 12px;
+}
+
+/* Responsive: stack tabs vertically, reduce paddings/margins */
+@media (width <= 800px) {
+  .tabs.tabs30 {
+    max-width: 100vw;
+  }
+
+  .tabs.tabs30 .tabs-list {
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .tabs.tabs30 .tabs-tab {
+    width: 100%;
+    min-width: 0;
+    padding: 9px 0;
+    text-align: left;
+  }
+
+  .tabs.tabs30 .tabs-panel {
+    font-size: 15px;
+  }
+
+  .tabs.tabs30 .tabs-panel p {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
+  .tabs.tabs30 .tabs-panel img,
+  .tabs.tabs30 .tabs-panel picture {
+    margin-left: 4px;
+    margin-right: 4px;
+    width: calc(100% - 8px);
   }
 }
