@@ -162,3 +162,157 @@
     padding-right: 10px;
   }
 }
+
+
+.accordion.accordion32 {
+  box-sizing: border-box;
+  background: #fff;
+  padding: 48px 24px;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+/* Use flexbox only for the direct children of details */
+.accordion.accordion32 details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  gap: 64px; /* Increased gap for better visual separation */
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .accordion.accordion32 details {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .accordion.accordion32 .accordion-item-label {
+    padding-right: 0;
+    max-width: none;
+    min-width: unset;
+    border-right: none;
+  }
+
+  .accordion.accordion32 .accordion-item-body {
+    padding-left: 0;
+  }
+}
+
+/* Left column: label/sidebar */
+.accordion.accordion32 .accordion-item-label {
+  flex: 0 0 320px;
+  max-width: 320px;
+  min-width: 240px;
+  padding-right: 40px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-right: none;
+}
+
+/* Right column: main content */
+.accordion.accordion32 .accordion-item-body {
+  flex: 1 1 0;
+  min-width: 0;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Add a vertical divider only when body is not empty and screen is wide */
+@media (width >= 901px) {
+  .accordion.accordion32 .accordion-item-body:not(:empty) + .accordion-item-label,
+  .accordion.accordion32 details[open] .accordion-item-label:not(:only-child) {
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Hide the summary marker for a clean look */
+.accordion.accordion32 details summary::-webkit-details-marker,
+.accordion.accordion32 details summary::after {
+  display: none;
+}
+
+.accordion.accordion32 details summary {
+  display: block;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+}
+
+/* Title */
+.accordion.accordion32 .accordion-item-label h1 {
+  margin-top: 0;
+  margin-bottom: 40px;
+  color: #222;
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+/* Main body headings and paragraph spacing */
+.accordion.accordion32 .accordion-item-body h2 {
+  font-size: var(--heading-font-size-xl);
+  color: #222;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.accordion.accordion32 .accordion-item-body p {
+  font-size: var(--body-font-size-m);
+  color: #333;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* Images and captions */
+.accordion.accordion32 .accordion-item-body picture,
+.accordion.accordion32 .accordion-item-body img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 32px 0 12px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.accordion.accordion32 .accordion-item-body picture + p,
+.accordion.accordion32 .accordion-item-body img + p {
+  color: #888;
+  font-size: var(--body-font-size-s);
+  margin-top: -12px;
+  margin-bottom: 28px;
+}
+
+/* Remove list styling for any ul/ol present */
+.accordion.accordion32 ul,
+.accordion.accordion32 ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.accordion.accordion32 li {
+  margin: 0;
+  padding: 0;
+}
