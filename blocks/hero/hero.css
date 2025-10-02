@@ -48,7 +48,6 @@
 }
 
 .hero.hero3 {
-  /* Remove grid and restore block layout */
   display: block;
   position: relative;
   min-height: 380px;
@@ -58,9 +57,6 @@
   box-sizing: border-box;
 }
 
-/* Hero should span the full width */
-
-/* Ensure image is visible and fills the width */
 .hero.hero3 div:first-child {
   position: relative;
   z-index: 1;
@@ -77,11 +73,10 @@
   box-sizing: border-box;
 }
 
-/* Card: absolutely position overlapping lower part of image */
 .hero.hero3 div + div {
   position: absolute;
   left: 50%;
-  bottom: -40px; /* overlaps lower part of image */
+  bottom: -40px;
   transform: translateX(-50%);
   width: 80%;
   max-width: 900px;
@@ -96,7 +91,6 @@
   box-sizing: border-box;
 }
 
-/* Heading inside the card, left aligned */
 .hero.hero3 div + div h2,
 .hero.hero3 div + div h1 {
   margin: 0;
@@ -110,7 +104,6 @@
   box-sizing: border-box;
 }
 
-/* Divider line at bottom of card */
 .hero.hero3 div + div::after {
   display: block;
   width: 100%;
@@ -121,7 +114,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero3 div picture,
   .hero.hero3 div img {
@@ -144,5 +136,118 @@
 
   .hero.hero3 div + div::after {
     margin-top: 10px;
+  }
+}
+
+
+.hero.hero8 {
+  position: relative;
+  width: 100vw;
+  min-height: 460px;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+
+  /* Ensure stacking context */
+  z-index: 0;
+}
+
+.hero.hero8 picture {
+  width: 100vw;
+  height: 460px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.hero.hero8 img {
+  width: 100vw;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero8 div div:not(:has(picture)) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 77vw;
+  max-width: 980px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+  padding: 18px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+/* Headline & Text */
+.hero.hero8 h2,
+.hero.hero8 p {
+  color: #222;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.hero.hero8 h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.hero.hero8 p:not(.button-container) {
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.hero.hero8 .button-container {
+  margin-top: 8px;
+}
+
+/* Button override for hero */
+.hero-container .hero-wrapper .block.hero .button {
+  background-color: #FFE100;
+  color: #222;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 32px;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  box-shadow: none;
+  display: inline-block;
+  letter-spacing: 0.03em;
+  margin: 0;
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero8 picture,
+  .hero.hero8 img {
+    height: 180px;
+  }
+
+  .hero.hero8 div div:not(:has(picture)) {
+    width: 98vw;
+    max-width: 98vw;
+    left: 50%;
+    bottom: 0;
+    padding: 10px 4vw;
+    border-radius: 10px;
+  }
+
+  .hero.hero8 h2 {
+    font-size: var(--heading-font-size-l);
+    margin-bottom: 8px;
+  }
+
+  .hero.hero8 p:not(.button-container) {
+    margin-bottom: 8px;
   }
 }
