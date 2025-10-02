@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,137 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion6 {
+  box-sizing: border-box;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  gap: 32px;
+}
+
+/* Place first two details side by side at desktop */
+.accordion.accordion6 details:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.accordion.accordion6 details:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Stack remaining details full width below */
+.accordion.accordion6 details:nth-child(n+3) {
+  grid-column: 1 / span 2;
+}
+
+/* Ensure all details are open and show their content */
+.accordion.accordion6 details .accordion-item-body {
+  display: block;
+}
+
+/* Remove border, marker, and default details/summary styling */
+.accordion.accordion6 details {
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding: 0;
+}
+
+.accordion.accordion6 summary {
+  position: static;
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: default;
+  list-style: none;
+}
+
+.accordion.accordion6 summary::-webkit-details-marker,
+.accordion.accordion6 summary::after {
+  display: none;
+}
+
+/* Headings and section titles */
+.accordion.accordion6 .accordion-item-label h2,
+.accordion.accordion6 .accordion-item-label h3 {
+  color: #222;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.accordion.accordion6 .accordion-item-label h3 {
+  font-size: 2rem;
+}
+
+.accordion.accordion6 .accordion-item-label h2 {
+  font-size: 1.5rem;
+}
+
+/* Section content */
+.accordion.accordion6 .accordion-item-body p {
+  color: #222;
+  font-size: 16px;
+  margin-bottom: 1.2em;
+}
+
+/* Images */
+.accordion.accordion6 .accordion-item-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 24px 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Blockquotes and highlight boxes */
+.accordion.accordion6 .accordion-item-body blockquote {
+  background: #ededed;
+  border-left: 5px solid #66b366;
+  padding: 18px 24px;
+  margin: 24px 0;
+  color: #222;
+  font-size: 1.1rem;
+}
+
+.accordion.accordion6 .accordion-item-body blockquote strong {
+  color: #222;
+  font-weight: 700;
+}
+
+.accordion.accordion6 .accordion-item-body blockquote strong:last-child {
+  color: #66b366;
+}
+
+/* Remove list/bullet styling */
+.accordion.accordion6 summary,
+.accordion.accordion6 details {
+  list-style: none;
+}
+
+/* Responsive: stack all sections at mobile */
+@media (width <= 900px) {
+  .accordion.accordion6 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 8px;
+  }
+
+  .accordion.accordion6 details {
+    width: 100%;
+    margin: 0;
+    display: block;
+  }
 }
