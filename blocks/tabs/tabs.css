@@ -56,3 +56,132 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+
+.tabs.tabs7 {
+  box-sizing: border-box;
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 52px;
+  background: var(--background-color);
+  border: none;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs7 {
+    padding-left: 8px;
+    padding-right: 8px;
+    max-width: 100%;
+  }
+}
+
+/* Remove any border/shadow from parent containers if inherited */
+.tabs.tabs7,
+.tabs.tabs7 * {
+  border: none;
+  box-shadow: none;
+}
+
+/* Tabs: left aligned, very tight vertical spacing */
+.tabs.tabs7 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.tabs.tabs7 .tabs-tab {
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  border-radius: 22px;
+  padding: 3px 14px;
+  font-size: 0.80rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.003em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  min-height: 0;
+  height: 29px;
+}
+
+.tabs.tabs7 .tabs-tab[aria-selected="true"] {
+  background: #111;
+  color: #fff;
+  border: 1px solid #111;
+}
+
+.tabs.tabs7 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Subtitle (h3): left, bold, very minimal margin, very close underline */
+.tabs.tabs7 .tabs-panel h3 {
+  color: #111;
+  font-weight: 600;
+  font-size: 1.38rem;
+  margin-top: 0;
+  margin-bottom: 0.01em;
+  display: inline-block;
+  border-bottom: 1px solid #fae16e;
+  padding-bottom: 1px;
+  text-align: left;
+}
+
+/* Main title (h2): left, bold, tight vertical spacing, larger */
+.tabs.tabs7 .tabs-panel h2 {
+  color: #111;
+  font-weight: 700;
+  font-size: 2.45rem;
+  margin-top: 0.11em;
+  margin-bottom: 0.23em;
+  line-height: 1.06;
+  text-align: left;
+}
+
+/* Paragraph: left, larger font, compact line-length */
+.tabs.tabs7 .tabs-panel p {
+  color: #111;
+  font-size: 1.12rem;
+  line-height: 1.72;
+  margin-bottom: 0.50em;
+  margin-top: 0.4em;
+  text-align: left;
+  max-width: 760px;
+}
+
+/* Image: left align, responsive, even less space below */
+.tabs.tabs7 .tabs-panel picture {
+  display: block;
+  margin-bottom: 0.42em;
+  margin-top: 0;
+  text-align: left;
+}
+
+.tabs.tabs7 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Remove unwanted top spacing from first element after the tabs */
+.tabs.tabs7 .tabs-panel div {
+  margin-top: 0;
+}
