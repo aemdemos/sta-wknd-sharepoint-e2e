@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,116 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns.columns2 {
+  background: #fff;
+  width: 100%;
+  min-height: 52px;
+  box-sizing: border-box;
+  padding: 0 32px;
+}
+
+/* Main row: always horizontal, always vertically centered, space between */
+.columns.columns2 div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 52px;
+  box-sizing: border-box;
+  padding: 0;
+  gap: 0;
+}
+
+/* Left logo area */
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: center;
+  margin-right: 0;
+}
+
+.columns.columns2 .columns-img-col img {
+  max-height: 42px;
+  height: 42px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  display: block;
+  vertical-align: middle;
+}
+
+/* Hide any language list/extra divs between logo and search */
+.columns.columns2 .columns-img-col ~ div:not(:last-child),
+.columns.columns2 .columns-img-col + div:not(:last-child),
+.columns.columns2 ul,
+.columns.columns2 ol {
+  display: none;
+}
+
+/* Right search block: right align and tightly size */
+.columns.columns2 div div:last-child {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 180px;
+  height: 42px;
+}
+
+/* Style the faux search box (<p>) for perfect vertical centering */
+.columns.columns2 div div:last-child p {
+  background: #f5f5f5;
+  border-radius: 2px;
+  padding: 0 24px 0 30px;
+  margin: 0;
+  color: #b2b2b2;
+  font-size: 15px;
+  min-width: 140px;
+  height: 32px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  box-sizing: border-box;
+
+  /* Reserve space for icon (left padding) */
+}
+
+/* Responsive: stack vertically and left-align content on narrow screens */
+@media (width <= 900px) {
+  .columns.columns2 {
+    padding: 0 10px;
+    min-height: 40px;
+  }
+
+  .columns.columns2 div {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 40px;
+    gap: 8px;
+  }
+
+  .columns.columns2 div div:last-child {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+    justify-content: flex-start;
+    height: 32px;
+  }
+
+  .columns.columns2 .columns-img-col img {
+    max-height: 34px;
+    height: 34px;
+  }
+
+  .columns.columns2 div div:last-child p {
+    min-width: 100px;
+    font-size: 14px;
+    padding: 0 14px 0 18px;
+    height: 28px;
   }
 }
