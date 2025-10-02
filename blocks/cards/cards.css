@@ -34,7 +34,6 @@
   padding: 0 8px;
 }
 
-/* Move block higher by removing unnecessary top margin/padding */
 .cards.cards4 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -44,7 +43,6 @@
   padding: 0;
 }
 
-/* Featured block: more vertical presence and spacing below */
 .cards.cards4 ul li:first-child {
   grid-column: 1 / -1;
   display: flex;
@@ -59,7 +57,6 @@
   aspect-ratio: 16/8;
 }
 
-/* Ensure both panels fill the block */
 .cards.cards4 ul li:first-child .cards-card-image,
 .cards.cards4 ul li:first-child .cards-card-body {
   height: 100%;
@@ -82,7 +79,6 @@
   border-radius: 0;
 }
 
-/* Text panel: balance vertical alignment and improve padding */
 .cards.cards4 ul li:first-child .cards-card-body {
   flex: 2 1 0;
   background: #f3f3f3;
@@ -97,7 +93,6 @@
   height: 100%;
 }
 
-/* Featured label */
 .cards.cards4 ul li:first-child .cards-card-body p:first-child {
   text-transform: uppercase;
   font-size: 0.95rem;
@@ -107,7 +102,6 @@
   margin-bottom: 1rem;
 }
 
-/* Heading */
 .cards.cards4 ul li:first-child .cards-card-body h2 {
   color: #222;
   font-size: 2rem;
@@ -116,7 +110,6 @@
   line-height: 1.15;
 }
 
-/* Body text */
 .cards.cards4 ul li:first-child .cards-card-body p:not(:first-child, .button-container) {
   color: #555;
   font-size: 1rem;
@@ -124,12 +117,10 @@
   margin-bottom: 1.4rem;
 }
 
-/* Stick button to block bottom */
 .cards.cards4 ul li:first-child .cards-card-body .button-container {
   margin-top: auto;
 }
 
-/* Featured block button */
 .cards.cards4 ul li:first-child .cards-card-body .button {
   background: #ffeb3b;
   color: #222;
@@ -152,7 +143,6 @@
   background: #ffe000;
 }
 
-/* Cards grid: spacing and style */
 .cards.cards4 ul li {
   border: 1px solid #dadada;
   background-color: var(--background-color);
@@ -163,7 +153,6 @@
   display: block;
 }
 
-/* Standard cards text panel */
 .cards.cards4 .cards-card-body {
   margin: 16px;
   padding: 0;
@@ -171,7 +160,6 @@
   box-shadow: none;
 }
 
-/* Ensure images fit cards */
 .cards.cards4 .cards-card-image {
   line-height: 0;
 }
@@ -184,7 +172,6 @@
   border-radius: 0;
 }
 
-/* Responsive adjustments for all breakpoints */
 @media (width <= 1200px) {
   .cards.cards4 ul {
     grid-template-columns: repeat(2, 1fr);
@@ -226,4 +213,106 @@
   .cards.cards4 {
     padding: 0 4px;
   }
+}
+
+
+.cards.cards14 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Strict grid for edge-to-edge alignment */
+.cards.cards14 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  place-items: stretch stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Each card fills its grid cell and stretches vertically */
+.cards.cards14 ul li {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack vertically on mobile */
+@media (width <= 900px) {
+  .cards.cards14 ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive square image block using padding trick */
+.cards.cards14 .cards-card-image {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* square aspect */
+  overflow: hidden;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Absolutely position image inside square container */
+.cards.cards14 .cards-card-image img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body: very tight space below image and at bottom */
+.cards.cards14 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 10px;
+  padding: 0 16px 8px;
+  text-align: left;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Remove default paragraph margins and paddings */
+.cards.cards14 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Title styling */
+.cards.cards14 .cards-card-body p:first-child strong {
+  display: block;
+  color: #222;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+/* Description styling: single line, ellipsis */
+.cards.cards14 .cards-card-body p:not(:first-child) {
+  color: #888;
+  font-size: 13px;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
