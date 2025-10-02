@@ -42,7 +42,6 @@
   padding: 0 32px;
 }
 
-/* Main row: always horizontal, always vertically centered, space between */
 .columns.columns2 div {
   display: flex;
   flex-direction: row;
@@ -55,7 +54,6 @@
   gap: 0;
 }
 
-/* Left logo area */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -72,7 +70,6 @@
   vertical-align: middle;
 }
 
-/* Hide any language list/extra divs between logo and search */
 .columns.columns2 .columns-img-col ~ div:not(:last-child),
 .columns.columns2 .columns-img-col + div:not(:last-child),
 .columns.columns2 ul,
@@ -80,7 +77,6 @@
   display: none;
 }
 
-/* Right search block: right align and tightly size */
 .columns.columns2 div div:last-child {
   margin-left: auto;
   display: flex;
@@ -90,7 +86,6 @@
   height: 42px;
 }
 
-/* Style the faux search box (<p>) for perfect vertical centering */
 .columns.columns2 div div:last-child p {
   background: #f5f5f5;
   border-radius: 2px;
@@ -105,11 +100,8 @@
   align-items: center;
   line-height: 1;
   box-sizing: border-box;
-
-  /* Reserve space for icon (left padding) */
 }
 
-/* Responsive: stack vertically and left-align content on narrow screens */
 @media (width <= 900px) {
   .columns.columns2 {
     padding: 0 10px;
@@ -141,5 +133,126 @@
     font-size: 14px;
     padding: 0 14px 0 18px;
     height: 28px;
+  }
+}
+
+
+/* Apply dark background with high specificity and tighter padding */
+.columns,
+.columns .columns-wrapper,
+.columns .block.columns-3-cols {
+  background: #222;
+  color: #d3d3d3;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Make the inner flex row visually dense and centered */
+.columns .block.columns-3-cols div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Logo column: enforce left/top alignment, smaller width */
+.columns .columns-img-col {
+  display: flex;
+  align-items: flex-start;
+  min-width: 120px;
+  max-width: 150px;
+}
+
+/* Logo image: left aligned, constrained width */
+.columns .columns-img-col img {
+  width: 120px;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation column: remove bullets, make horizontal row */
+.columns .block.columns-3-cols ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns .block.columns-3-cols ul ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.columns .block.columns-3-cols ul ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation links: uppercase, white, spaced, inline */
+.columns .block.columns-3-cols ul ul a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 0;
+  padding: 0 0.3rem;
+  transition: color 0.2s;
+  line-height: 2.2rem;
+  display: inline-block;
+}
+
+.columns .block.columns-3-cols ul ul a:hover,
+.columns .block.columns-3-cols ul ul a:focus {
+  color: #b8b8b8;
+  text-decoration: underline;
+}
+
+/* Search: ensure plain text, flush right, no box */
+.columns .block.columns-3-cols p {
+  color: #d3d3d3;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0 0 0 0.8rem;
+  background: none;
+  border: none;
+  box-shadow: none;
+  align-self: flex-start;
+  font-weight: 400;
+  border-radius: 0;
+  text-align: left;
+  margin-left: auto;
+  outline: none;
+
+  /* Ensures it does not look like a button/input */
+}
+
+/* Responsive: stack vertically, reduce gaps, adjust logo size */
+@media (width <= 900px) {
+  .columns .block.columns-3-cols div {
+    flex-direction: column;
+    gap: 0.7rem;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .columns .columns-img-col img {
+    width: 90px;
+  }
+
+  .columns .block.columns-3-cols p {
+    padding: 0;
+    margin-top: 0.3rem;
+    margin-left: 0;
   }
 }
