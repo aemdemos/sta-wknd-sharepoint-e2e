@@ -73,7 +73,6 @@
   gap: 32px;
 }
 
-/* Place first two details side by side at desktop */
 .accordion.accordion6 details:nth-child(1) {
   grid-column: 1;
   grid-row: 1;
@@ -84,17 +83,14 @@
   grid-row: 1;
 }
 
-/* Stack remaining details full width below */
 .accordion.accordion6 details:nth-child(n+3) {
   grid-column: 1 / span 2;
 }
 
-/* Ensure all details are open and show their content */
 .accordion.accordion6 details .accordion-item-body {
   display: block;
 }
 
-/* Remove border, marker, and default details/summary styling */
 .accordion.accordion6 details {
   border: none;
   box-shadow: none;
@@ -117,7 +113,6 @@
   display: none;
 }
 
-/* Headings and section titles */
 .accordion.accordion6 .accordion-item-label h2,
 .accordion.accordion6 .accordion-item-label h3 {
   color: #222;
@@ -135,14 +130,12 @@
   font-size: 1.5rem;
 }
 
-/* Section content */
 .accordion.accordion6 .accordion-item-body p {
   color: #222;
   font-size: 16px;
   margin-bottom: 1.2em;
 }
 
-/* Images */
 .accordion.accordion6 .accordion-item-body img {
   display: block;
   max-width: 100%;
@@ -152,7 +145,6 @@
   box-shadow: none;
 }
 
-/* Blockquotes and highlight boxes */
 .accordion.accordion6 .accordion-item-body blockquote {
   background: #ededed;
   border-left: 5px solid #66b366;
@@ -171,13 +163,11 @@
   color: #66b366;
 }
 
-/* Remove list/bullet styling */
 .accordion.accordion6 summary,
 .accordion.accordion6 details {
   list-style: none;
 }
 
-/* Responsive: stack all sections at mobile */
 @media (width <= 900px) {
   .accordion.accordion6 {
     display: flex;
@@ -190,5 +180,152 @@
     width: 100%;
     margin: 0;
     display: block;
+  }
+}
+
+
+.accordion.accordion13 {
+  box-sizing: border-box;
+  background: #fff;
+  width: 100%;
+  max-width: 680px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+/* FAQ rows: layout and dividers */
+.accordion.accordion13 details {
+  border: none;
+  background: #fff;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.accordion.accordion13 details + details {
+  margin-top: 0;
+}
+
+/* Thin divider between items, except first */
+.accordion.accordion13 details:not(:first-child) {
+  border-top: 1px solid #eee;
+}
+
+/* FAQ row: flex layout for question and icon */
+.accordion.accordion13 details .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px 14px 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: #222;
+  background: transparent;
+  margin: 0;
+  border: none;
+  min-height: 48px;
+}
+
+/* FAQ row hover/open highlight */
+.accordion.accordion13 details[open] .accordion-item-label,
+.accordion.accordion13 details .accordion-item-label:focus,
+.accordion.accordion13 details .accordion-item-label:hover {
+  background: #fafafc;
+}
+
+/* Remove margin from question <p> */
+.accordion.accordion13 details .accordion-item-label p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style answer area below summary */
+.accordion.accordion13 details .accordion-item-body {
+  padding: 0 24px 16px 0;
+  font-size: 1rem;
+  color: #444;
+  background: #fff;
+  border-top: none;
+  margin: 0;
+}
+
+/* Show subtle highlight on open answer */
+.accordion.accordion13 details[open] .accordion-item-body {
+  background: #fafafc;
+}
+
+/* Minimal plus/minus icon using only bars, no background/box */
+.accordion.accordion13 details summary {
+  list-style: none;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  min-height: 40px;
+  width: 100%;
+  position: relative;
+}
+
+/* Hide marker from summary */
+.accordion.accordion13 details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Remove the previously unused ::after icon wrapper */
+.accordion.accordion13 details .accordion-item-label::after {
+  display: none;
+}
+
+/* Horizontal bar for minus (always present) */
+.accordion.accordion13 details summary::before {
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 15px;
+  height: 2px;
+  background: #888;
+  border-radius: 1px;
+  transform: translateY(-50%);
+  content: "";
+}
+
+/* Vertical bar for plus (only present when not open) */
+.accordion.accordion13 details:not([open]) summary::after {
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 2px;
+  height: 15px;
+  background: #888;
+  border-radius: 1px;
+  transform: translateY(-50%);
+  content: "";
+}
+
+/* Remove vertical bar when open (shows minus only) */
+.accordion.accordion13 details[open] summary::after {
+  display: none;
+}
+
+/* Responsive: stretch to full width on small screens, adjust padding */
+@media (width <= 900px) {
+  .accordion.accordion13 {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .accordion.accordion13 details .accordion-item-label,
+  .accordion.accordion13 details .accordion-item-body {
+    padding-left: 0;
+    padding-right: 8px;
   }
 }
