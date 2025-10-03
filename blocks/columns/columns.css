@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -39,7 +40,6 @@
   padding: 0;
 }
 
-/* Flex layout for the row: logo and search box side by side, centered vertically, with sufficient height */
 .columns.columns2 .block.columns-3-cols div {
   display: flex;
   flex-direction: row;
@@ -52,12 +52,10 @@
   box-sizing: border-box;
 }
 
-/* Hide language switcher */
 .columns.columns2 ul {
   display: none;
 }
 
-/* Logo area: center logo vertically, preserve whitespace */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -65,7 +63,6 @@
   height: 40px;
 }
 
-/* Logo image: keep logo compact and centered */
 .columns.columns2 .columns-img-col img {
   max-height: 40px;
   width: auto;
@@ -75,7 +72,6 @@
   margin: 0;
 }
 
-/* Search box styling: pill shape, icon, vertical center, right alignment */
 .columns.columns2 .block.columns-3-cols div div:last-of-type {
   background: #f5f5f5;
   border-radius: 2em;
@@ -98,7 +94,6 @@
   transition: background 0.2s;
 }
 
-/* "Suchen" text: vertical center, no extra margin */
 .columns.columns2 .block.columns-3-cols div div:last-of-type p {
   margin: 0;
   padding: 0;
@@ -109,7 +104,6 @@
   align-items: center;
 }
 
-/* Responsive: stack logo and search vertically on small screens */
 @media (width <= 899px) {
   .columns.columns2 .block.columns-3-cols div {
     flex-direction: column;
@@ -127,3 +121,202 @@
     justify-content: flex-start;
   }
 }
+
+
+.columns.columns5 {
+  background: #232221;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  padding: 2em 3em;
+  box-sizing: border-box;
+}
+
+/* Main grid: reduce gap for tighter column relationship */
+.columns.columns5 .columns5.block {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 0.6em;
+}
+
+/* LEFT COLUMN: stack logo, language, text */
+.columns.columns5 .columns5.block div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 180px;
+  max-width: 900px;
+  gap: 0.01em;
+}
+
+/* Logo image */
+.columns.columns5 .columns-img-col {
+  margin-bottom: 0.1em;
+}
+
+.columns.columns5 .columns-img-col img,
+.columns.columns5 .columns-img-col picture {
+  display: block;
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 0.25em;
+}
+
+/* Language selector */
+.columns.columns5 .columns-img-col + div ul {
+  margin: 0 0 1em .7em;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns5 .columns-img-col + div ul li {
+  margin: 0;
+}
+
+.columns.columns5 .columns-img-col + div ul li a {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 1em;
+}
+
+/* --- SOCIAL BAR: right column content as a tight flex row --- */
+.columns.columns5 .columns5.block div:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3em;
+  min-width: 0;
+  padding-top: 0.15em;
+}
+
+/* Place Follow Us label FIRST, buttons after */
+.columns.columns5 #follow-us {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin: 0 0.7em 0 0;
+  align-self: center;
+  text-align: right;
+  white-space: nowrap;
+  order: 1;
+  padding: 0;
+}
+
+/* Social buttons: compact horizontal row */
+.columns.columns5 .button-container {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  order: 2;
+}
+
+.columns.columns5 .button-container .button,
+.columns-container .columns-wrapper .block.columns .button {
+  background: #fff;
+  color: #232221;
+  border-radius: 0.18em;
+  min-width: 4em;
+  width: auto;
+  max-width: 7em;
+  height: 2em;
+  min-height: 2em;
+  max-height: 2em;
+  padding: 0 0.5em;
+  margin: 0 0.12em 0 0;
+  font-size: 0.98em;
+  font-weight: 600;
+  line-height: 2em;
+  text-align: center;
+  text-transform: none;
+  box-shadow: none;
+  border: none;
+  transition: background 0.2s;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Remove last button margin */
+.columns.columns5 .button-container:last-child .button {
+  margin-right: 0;
+}
+
+/* Footer/content text */
+.columns.columns5 .columns5.block div:first-child div:last-child,
+.columns.columns5 .columns5.block div:first-child p,
+.columns.columns5 .columns5.block div:first-child a {
+  color: #fff;
+  font-size: 0.98em;
+  line-height: 1.7;
+}
+
+/* Links in text */
+.columns.columns5 .columns5.block div:first-child a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+/* Responsive styles */
+@media (width <= 900px) {
+  .columns.columns5 {
+    padding: 1.2em 1em;
+  }
+
+  .columns.columns5 .columns5.block {
+    grid-template-columns: 1fr;
+    gap: 1.3em;
+  }
+
+  .columns.columns5 .columns5.block div:first-child,
+  .columns.columns5 .columns5.block div:last-child {
+    max-width: 100%;
+    min-width: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .columns.columns5 .columns-img-col img,
+  .columns.columns5 .columns-img-col picture {
+    max-width: 110px;
+    margin-bottom: 0.3em;
+  }
+
+  .columns.columns5 .columns5.block div:last-child {
+    flex-direction: column;
+    gap: 0.3em;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+
+  .columns.columns5 .button-container .button,
+  .columns-container .columns-wrapper .block.columns .button {
+    min-width: 5em;
+    max-width: 100%;
+    font-size: 1em;
+  }
+
+  .columns.columns5 #follow-us {
+    margin: 0 0 0.3em;
+    order: unset;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns5 {
+    padding: 0.5em 0.2em;
+  }
+
+  .columns.columns5 .columns5.block {
+    gap: 0.8em;
+  }
+}
+
+/* Hide default button styles for social buttons and make sure they're rectangular */
