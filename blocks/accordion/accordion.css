@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
@@ -61,7 +62,6 @@
 
 
 .accordion.accordion7 {
-  /* Center the block horizontally and add internal padding for alignment */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -73,7 +73,6 @@
   box-sizing: border-box;
 }
 
-/* Tight vertical stacking for FAQ items, with only a thin divider */
 .accordion.accordion7 details {
   width: 100%;
   border: none;
@@ -83,12 +82,10 @@
   box-shadow: none;
 }
 
-/* Remove extra space between FAQ items */
 .accordion.accordion7 details + details {
   margin-top: 0;
 }
 
-/* FAQ question row layout: question left, icon right, both vertically centered */
 .accordion.accordion7 details summary {
   display: flex;
   flex-direction: row;
@@ -108,14 +105,12 @@
   gap: 12px;
 }
 
-/* Remove background highlight when open/hover/focus */
 .accordion.accordion7 details[open] summary,
 .accordion.accordion7 details summary:focus,
 .accordion.accordion7 details summary:hover {
   background: transparent;
 }
 
-/* FAQ question text styling */
 .accordion.accordion7 details summary p {
   font-weight: bold;
   font-size: 13px;
@@ -128,13 +123,10 @@
   text-align: left;
 }
 
-/* The default chevron (from summary) will be on the right by default, but we space it out for clarity.
- * If the marker is too close, add right padding. */
 .accordion.accordion7 details summary::-webkit-details-marker {
   margin-left: 12px;
 }
 
-/* FAQ answer/body styling */
 .accordion.accordion7 details .accordion-item-body {
   font-size: 15px;
   color: #222;
@@ -147,10 +139,180 @@
   box-sizing: border-box;
 }
 
-/* Responsive: ensure the block remains well-positioned and visually aligned on large screens */
 @media (width >= 900px) {
   .accordion.accordion7 {
     max-width: 780px;
     padding: 48px 56px 40px;
+  }
+}
+
+
+.accordion.accordion16 {
+  background: #fff;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  display: grid;
+  flex-direction: column;
+  grid-template-columns: 3fr 1fr;
+  gap: 48px;
+}
+
+/* If there are multiple direct child divs, arrange them side by side */
+
+/* Make all direct div children (assumed columns) fill available space equally */
+.accordion.accordion16 div {
+  min-width: 0;
+}
+
+/* Make sure the right column (sidebar) doesn't get too wide */
+.accordion.accordion16 div:last-child {
+  max-width: 300px;
+  padding-left: 32px;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion16 {
+    grid-template-columns: 1fr;
+    padding: 24px 8px;
+    gap: 0;
+    max-width: 100%;
+  }
+
+  .accordion.accordion16 div:last-child {
+    padding-left: 0;
+    margin-top: 32px;
+    max-width: 100%;
+  }
+}
+
+/* Large header image, if present as first child */
+.accordion.accordion16 img:first-child {
+  display: block;
+  width: 100%;
+  max-width: 100vw;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* Section images within content (not the header) */
+.accordion.accordion16 img:not(:first-child) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 32px auto 0;
+  border-radius: 0;
+}
+
+/* Headings and typography */
+.accordion.accordion16 h1,
+.accordion.accordion16 h2,
+.accordion.accordion16 h3,
+.accordion.accordion16 h4,
+.accordion.accordion16 h5,
+.accordion.accordion16 h6 {
+  color: #222;
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+}
+
+/* Article title */
+.accordion.accordion16 h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  margin-top: 0.6em;
+  margin-bottom: 0.8em;
+  line-height: 1.1;
+}
+
+.accordion.accordion16 h2,
+.accordion.accordion16 h3 {
+  font-weight: 600;
+  line-height: 1.22;
+}
+
+/* Paragraphs */
+.accordion.accordion16 p {
+  color: #222;
+  margin-top: 0.8em;
+  margin-bottom: 1.2em;
+  line-height: 1.6;
+}
+
+/* Meta info, breadcrumbs, etc. */
+.accordion.accordion16 .meta,
+.accordion.accordion16 .byline,
+.accordion.accordion16 .breadcrumbs {
+  color: #b0a561;
+  font-size: var(--body-font-size-s);
+  text-transform: uppercase;
+  margin: 20px 0 8px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.accordion.accordion16 .sidebar-meta {
+  color: #888;
+  font-size: var(--body-font-size-xs);
+}
+
+/* Author box */
+.accordion.accordion16 .author-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+  padding: 32px 0 0;
+  border-top: 1px solid #eee;
+}
+
+.accordion.accordion16 .author-box img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0;
+}
+
+.accordion.accordion16 .author-details {
+  color: #222;
+  font-size: var(--body-font-size-m);
+}
+
+.accordion.accordion16 .author-details .author-title {
+  color: #888;
+  font-size: var(--body-font-size-s);
+  margin-top: 2px;
+}
+
+.accordion.accordion16 .author-social {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.accordion.accordion16 .author-social a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  color: #222;
+  background: none;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  font-size: 16px;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion16 .author-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 24px 0 0;
   }
 }
