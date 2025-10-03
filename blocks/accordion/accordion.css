@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,100 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion7 {
+  /* Center the block horizontally and add internal padding for alignment */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 40px 32px 32px 40px;
+  margin: 0 auto;
+  max-width: 740px;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Tight vertical stacking for FAQ items, with only a thin divider */
+.accordion.accordion7 details {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Remove extra space between FAQ items */
+.accordion.accordion7 details + details {
+  margin-top: 0;
+}
+
+/* FAQ question row layout: question left, icon right, both vertically centered */
+.accordion.accordion7 details summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0 12px;
+  min-height: 44px;
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  cursor: pointer;
+  overflow: visible;
+  transition: none;
+  gap: 12px;
+}
+
+/* Remove background highlight when open/hover/focus */
+.accordion.accordion7 details[open] summary,
+.accordion.accordion7 details summary:focus,
+.accordion.accordion7 details summary:hover {
+  background: transparent;
+}
+
+/* FAQ question text styling */
+.accordion.accordion7 details summary p {
+  font-weight: bold;
+  font-size: 13px;
+  color: #222;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.05em;
+  flex: 1 1 auto;
+  white-space: normal;
+  text-align: left;
+}
+
+/* The default chevron (from summary) will be on the right by default, but we space it out for clarity.
+ * If the marker is too close, add right padding. */
+.accordion.accordion7 details summary::-webkit-details-marker {
+  margin-left: 12px;
+}
+
+/* FAQ answer/body styling */
+.accordion.accordion7 details .accordion-item-body {
+  font-size: 15px;
+  color: #222;
+  line-height: 1.7;
+  padding: 12px 12px 16px;
+  background: transparent;
+  border-top: none;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: ensure the block remains well-positioned and visually aligned on large screens */
+@media (width >= 900px) {
+  .accordion.accordion7 {
+    max-width: 780px;
+    padding: 48px 56px 40px;
+  }
 }
