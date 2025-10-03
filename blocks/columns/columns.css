@@ -31,3 +31,99 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 {
+  background: #fff;
+  width: 100%;
+  padding: 0;
+}
+
+/* Flex layout for the row: logo and search box side by side, centered vertically, with sufficient height */
+.columns.columns2 .block.columns-3-cols div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hide language switcher */
+.columns.columns2 ul {
+  display: none;
+}
+
+/* Logo area: center logo vertically, preserve whitespace */
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5em;
+  height: 40px;
+}
+
+/* Logo image: keep logo compact and centered */
+.columns.columns2 .columns-img-col img {
+  max-height: 40px;
+  width: auto;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+}
+
+/* Search box styling: pill shape, icon, vertical center, right alignment */
+.columns.columns2 .block.columns-3-cols div div:last-of-type {
+  background: #f5f5f5;
+  border-radius: 2em;
+  min-width: 140px;
+  max-width: 260px;
+  height: 32px;
+  padding: 4px 20px 4px 38px;
+  margin-left: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 13px;
+  color: #888;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='8' stroke='gray' stroke-width='2' fill='none'/%3E%3Cline x1='18' y1='18' x2='15.5' y2='15.5' stroke='gray' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: 14px center;
+  transition: background 0.2s;
+}
+
+/* "Suchen" text: vertical center, no extra margin */
+.columns.columns2 .block.columns-3-cols div div:last-of-type p {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: #888;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive: stack logo and search vertically on small screens */
+@media (width <= 899px) {
+  .columns.columns2 .block.columns-3-cols div {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 56px;
+    padding: 8px 0;
+  }
+
+  .columns.columns2 .block.columns-3-cols div div:last-of-type {
+    margin-left: 0;
+    margin-top: 12px;
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+}
