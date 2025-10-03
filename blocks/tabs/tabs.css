@@ -1048,7 +1048,6 @@
   display: block;
 }
 
-/* Use grid for the vertical stack with a fixed content column */
 .tabs.tabs23 .tabs-list,
 .tabs.tabs23 .tabs-panel h3,
 .tabs.tabs23 .tabs-panel p,
@@ -1057,11 +1056,8 @@
   margin-left: 0;
   margin-right: auto;
   max-width: 610px;
-
-  /* Helps visually group tabs, heading, and text into a column */
 }
 
-/* Tabs: left-aligned, tight vertical gap to heading, match column width */
 .tabs.tabs23 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1076,7 +1072,6 @@
   max-width: 610px;
 }
 
-/* Tabs as pills, visually consistent, matching height */
 .tabs.tabs23 .tabs-list button {
   border: none;
   background: transparent;
@@ -1111,7 +1106,6 @@
   padding: 0;
 }
 
-/* Panel: keep everything left-aligned, very tight vertical rhythm */
 .tabs.tabs23 .tabs-panel {
   display: none;
   margin: 0;
@@ -1127,7 +1121,6 @@
   display: block;
 }
 
-/* Heading: dominant, sits close to tabs and text, matches column width */
 .tabs.tabs23 .tabs-panel h3 {
   font-size: 2.7rem;
   font-weight: 600;
@@ -1139,7 +1132,6 @@
   max-width: 610px;
 }
 
-/* Body text: readable, with shorter lines and compact spacing */
 .tabs.tabs23 .tabs-panel p {
   color: #222;
   font-size: 1.15rem;
@@ -1151,7 +1143,6 @@
   max-width: 610px;
 }
 
-/* Lists: left-aligned, compact, match column width */
 .tabs.tabs23 .tabs-panel ul,
 .tabs.tabs23 .tabs-panel ol {
   margin: 6px 0 10px 24px;
@@ -1160,7 +1151,6 @@
   max-width: 610px;
 }
 
-/* Block image: edge-to-edge, minimal vertical gap, break out of the column */
 .tabs.tabs23 .tabs-panel picture,
 .tabs.tabs23 .tabs-panel img {
   display: block;
@@ -1171,7 +1161,6 @@
   box-shadow: none;
 }
 
-/* Footer text: tight spacing, matches text column */
 .tabs.tabs23 .tabs-panel p:last-child {
   color: #555;
   font-size: 14px;
@@ -1180,7 +1169,6 @@
   max-width: 610px;
 }
 
-/* Responsive: stack and reduce horizontal padding on small screens */
 @media (width <= 900px) {
   .tabs.tabs23 {
     max-width: 100%;
@@ -1215,5 +1203,154 @@
   .tabs.tabs23 .tabs-panel ul,
   .tabs.tabs23 .tabs-panel ol {
     font-size: 1.02rem;
+  }
+}
+
+
+.tabs-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  /* Set a max width for the block, center it, and add padding */
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #fff;
+
+  /* Optional: subtle box-shadow for depth */
+  box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
+}
+
+.tabs-wrapper::before {
+  content: "";
+  display: block;
+  flex: 0 0 260px;             /* Fixed width for meta info column */
+  min-width: 220px;            /* Ensures space on small screens */
+  max-width: 320px;
+  background: transparent;     /* If you want a colored area: use #fff */
+}
+
+.tabs25.block {
+  flex: 1 1 0;
+  padding: 0 32px 40px;     /* Space inside right column */
+
+  /* Optionally, add a border-left for visual separation */
+  border-left: 1px solid #eee;
+}
+
+.tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.tabs-tab {
+  background: transparent;
+  border: 1.5px solid #222;
+  color: #222;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: background 0.23s, color 0.23s;
+  outline: none;
+}
+
+.tabs-tab[aria-selected="true"] {
+  background: #222;      /* Active tab: Black background */
+  color: #fff;           /* White text */
+  border-bottom: 2.5px solid #fbe86b;  /* Yellow underline */
+}
+
+.tabs-tab p {
+  margin: 0;
+}
+
+.tabs-panel {
+  display: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+.tabs-panel > div {
+  margin-top: 0;
+}
+
+.tabs-panel h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 7px;
+  margin-top: 0;
+  letter-spacing: -0.5px;
+
+  /* Add yellow underline accent */
+  position: relative;
+}
+
+.tabs-panel h3::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 3px;
+  background: #fbe86b;
+  margin-top: 7px;
+}
+
+.tabs-panel picture, 
+.tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 790px;     /* Big images, but not too huge */
+  border-radius: 5px;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 6%);
+}
+
+.tabs-panel p, 
+.tabs-panel ul, 
+.tabs-panel li {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.tabs-panel ul {
+  margin: 0 0 20px 20px;
+  padding: 0;
+}
+
+.tabs-panel li {
+  margin-bottom: 7px;
+}
+
+@media (width <= 900px) {
+  .tabs-wrapper {
+    flex-direction: column;
+  }
+
+  .tabs-wrapper::before {
+    display: none;
+  }
+
+  .tabs25.block {
+    padding: 0 10px;
+    border-left: none;
+  }
+
+  .tabs-panel picture, 
+  .tabs-panel img {
+    max-width: 100%;
+    height: auto;
   }
 }
