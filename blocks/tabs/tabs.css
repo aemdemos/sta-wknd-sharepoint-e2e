@@ -2343,7 +2343,6 @@
 
 
 .tabs.tabs38 {
-  /* Sidebar gutter: keep warm light color, precise width, responsive */
   padding-left: 312px;
   background: linear-gradient(to right, #faf9f6 304px, #fff 304px);
   border: none;
@@ -2389,7 +2388,6 @@
   }
 }
 
-/* Card container: align start, flush with gutter border */
 .tabs.tabs38 .tabs-wrapper {
   background: #fff;
   box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
@@ -2412,7 +2410,6 @@
   }
 }
 
-/* Tabs: flush alignment with card left edge */
 .tabs.tabs38 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2465,7 +2462,6 @@
   outline: 2px solid #222;
 }
 
-/* Tabs panel */
 .tabs.tabs38 .tabs-panel {
   display: none;
   border: none;
@@ -2480,7 +2476,6 @@
   width: 100%;
 }
 
-/* Title */
 .tabs.tabs38 .tabs-panel h3 {
   font-size: 2.25rem;
   color: #222;
@@ -2496,7 +2491,6 @@
   position: relative;
 }
 
-/* Yellow accent underline under title */
 .tabs.tabs38 .tabs-panel h3::after {
   display: block;
   width: 54px;
@@ -2510,7 +2504,6 @@
   display: none;
 }
 
-/* Image */
 .tabs.tabs38 .tabs-panel picture,
 .tabs.tabs38 .tabs-panel img {
   display: block;
@@ -2530,7 +2523,6 @@
   }
 }
 
-/* Caption */
 .tabs.tabs38 .tabs-panel p {
   margin-top: 0;
   margin-bottom: 16px;
@@ -2549,7 +2541,6 @@
   letter-spacing: 0.6px;
 }
 
-/* Paragraph text */
 .tabs.tabs38 .tabs-panel p:not(:first-of-type) {
   color: #222;
   font-size: 16px;
@@ -2557,7 +2548,6 @@
   margin-bottom: 22px;
 }
 
-/* Lists */
 .tabs.tabs38 .tabs-panel ul {
   margin: 16px 0 26px 18px;
   padding-left: 0;
@@ -2568,4 +2558,164 @@
   font-size: 16px;
   color: #222;
   margin-bottom: 5px;
+}
+
+
+.tabs.tabs39 {
+  /* Remove left padding, make block flush with main content area */
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs39 .tabs-list {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-bottom: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tabs.tabs39 .tabs-tab {
+  background: transparent;
+  border: none;
+  color: #222;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 24px 8px;
+  margin: 0;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  box-shadow: none;
+  transition: background 0.18s, color 0.18s;
+  position: relative;
+}
+
+.tabs.tabs39 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs39 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs.tabs39 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+  width: 100%;
+  max-width: 680px;
+}
+
+.tabs.tabs39 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs39 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+.tabs.tabs39 .tabs-panel div {
+  width: 100%;
+  max-width: 680px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tabs.tabs39 .tabs-panel h3 {
+  font-size: 32px;
+  font-weight: 400;
+  color: #222;
+  margin: 7px 0 2px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  align-self: flex-start;
+}
+
+.tabs.tabs39 .tabs-panel h3::after {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #f5e6a1;
+  margin-top: 1px;
+  margin-bottom: 8px;
+  border-radius: 0;
+}
+
+.tabs.tabs39 .tabs-panel picture,
+.tabs.tabs39 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  margin: 0 0 4px;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  align-self: flex-start;
+}
+
+.tabs.tabs39 .tabs-panel p {
+  font-size: 16px;
+  color: #222;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 0 2px;
+  padding: 0;
+  background: none;
+  border: none;
+  align-self: flex-start;
+}
+
+.tabs.tabs39 .tabs-panel ul {
+  margin: 0 0 10px 18px;
+  padding: 0;
+  align-self: flex-start;
+}
+
+.tabs.tabs39 .tabs-panel li {
+  font-size: 15px;
+  color: #222;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 7px;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 900px) {
+  .tabs.tabs39,
+  .tabs.tabs39 .tabs-list,
+  .tabs.tabs39 .tabs-panel,
+  .tabs.tabs39 .tabs-panel div,
+  .tabs.tabs39 .tabs-panel picture,
+  .tabs.tabs39 .tabs-panel img {
+    max-width: 100%;
+  }
 }
