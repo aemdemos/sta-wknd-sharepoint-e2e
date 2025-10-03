@@ -269,3 +269,136 @@
   margin-top: 0;
   padding-top: 0;
 }
+
+
+.carousel.carousel22 {
+  position: relative;
+}
+
+.carousel.carousel22 .carousel-slides-container {
+  position: relative;
+}
+
+/* Navigation buttons style: white background, black arrow, thin border, absolute bottom right/left */
+.carousel.carousel22 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 0 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 2;
+  pointer-events: none; /* ensure only buttons are interactive */
+  padding: 0 32px;
+  height: 44px;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button {
+  pointer-events: auto;
+  background: #fff;
+  color: #131313;
+  border: 1px solid #dadada;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 3%);
+  width: 36px;
+  height: 36px;
+  margin-left: 12px;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-prev {
+  margin-right: 8px;
+  margin-left: 0;
+  order: 1;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-next {
+  order: 2;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:hover,
+.carousel.carousel22 .carousel-navigation-buttons button:focus-visible {
+  background: #f8f8f8;
+  border-color: #505050;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:disabled {
+  opacity: 0.5;
+  background: #fff;
+  border-color: #dadada;
+  cursor: default;
+}
+
+/* Arrow icons: black, thin, centered */
+.carousel.carousel22 .carousel-navigation-buttons button::after {
+  border-color: #131313;
+  border-width: 2px;
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) rotate(-135deg);
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+
+/* Slide content: white card, black text, shadow, left aligned, large padding */
+.carousel.carousel22 .carousel-slide .carousel-slide-content {
+  background: #fff;
+  color: #131313;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 8%);
+  border-radius: 0;
+  padding: 36px 34px 34px;
+  margin: 0;
+  max-width: 680px;
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+  z-index: 3;
+}
+
+@media (width <= 900px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    max-width: 90vw;
+    padding: 24px 18px 18px;
+    bottom: 12px;
+  }
+}
+
+/* Page indicators: dots, centered below image/card, no background */
+.carousel.carousel22 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  gap: 12px;
+  padding: 0;
+  line-height: 1;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background: #dadada;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:disabled,
+.carousel.carousel22 .carousel-slide-indicator button[aria-current="true"] {
+  background: #888;
+}
