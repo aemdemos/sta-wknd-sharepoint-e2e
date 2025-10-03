@@ -1210,30 +1210,24 @@
 .tabs-wrapper {
   display: flex;
   flex-direction: row;
-
-  /* Set a max width for the block, center it, and add padding */
   max-width: 1100px;
   margin: 40px auto;
   background: #fff;
-
-  /* Optional: subtle box-shadow for depth */
   box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
 }
 
 .tabs-wrapper::before {
   content: "";
   display: block;
-  flex: 0 0 260px;             /* Fixed width for meta info column */
-  min-width: 220px;            /* Ensures space on small screens */
+  flex: 0 0 260px;
+  min-width: 220px;
   max-width: 320px;
-  background: transparent;     /* If you want a colored area: use #fff */
+  background: transparent;
 }
 
 .tabs25.block {
   flex: 1 1 0;
-  padding: 0 32px 40px;     /* Space inside right column */
-
-  /* Optionally, add a border-left for visual separation */
+  padding: 0 32px 40px;
   border-left: 1px solid #eee;
 }
 
@@ -1260,9 +1254,9 @@
 }
 
 .tabs-tab[aria-selected="true"] {
-  background: #222;      /* Active tab: Black background */
-  color: #fff;           /* White text */
-  border-bottom: 2.5px solid #fbe86b;  /* Yellow underline */
+  background: #222;
+  color: #fff;
+  border-bottom: 2.5px solid #fbe86b;
 }
 
 .tabs-tab p {
@@ -1291,8 +1285,6 @@
   margin-bottom: 7px;
   margin-top: 0;
   letter-spacing: -0.5px;
-
-  /* Add yellow underline accent */
   position: relative;
 }
 
@@ -1309,7 +1301,7 @@
 .tabs-panel img {
   display: block;
   width: 100%;
-  max-width: 790px;     /* Big images, but not too huge */
+  max-width: 790px;
   border-radius: 5px;
   margin: 20px 0;
   box-shadow: 0 2px 10px rgb(0 0 0 / 6%);
@@ -1353,4 +1345,221 @@
     max-width: 100%;
     height: auto;
   }
+}
+
+
+.tabs.tabs28 {
+  /* Use Flexbox for reliable layout; reserve sidebar space on left */
+  display: flex;
+  flex-direction: row;
+  max-width: 1100px;
+  margin: 48px auto 0;
+  background: #fff;
+  min-height: 900px;
+  box-shadow: none;
+  border: none;
+}
+
+/* Fake sidebar: blank, just reserves space */
+.tabs.tabs28::before {
+  content: "";
+  display: block;
+  min-width: 220px;
+  width: 220px;
+  flex: 0 0 220px;
+  background: transparent;
+}
+
+/* Main block area (all actual content) */
+.tabs.tabs28 .tabs-wrapper {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack layout on small screens */
+@media (width <= 900px) {
+  .tabs.tabs28 {
+    flex-direction: column;
+    min-height: unset;
+    margin: 32px 8px 0;
+  }
+
+  .tabs.tabs28::before {
+    display: none;
+  }
+
+  .tabs.tabs28 .tabs-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* Tabs bar: left-aligned, tightly packed, compact */
+.tabs.tabs28 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  margin-top: 0;
+  margin-bottom: 32px;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 0;
+  width: 100%;
+}
+
+/* Tab button styles: compact width */
+.tabs.tabs28 .tabs-tab {
+  background: #fff;
+  border: 1.5px solid #000;
+  color: #000;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  min-width: 90px;
+  flex: 0 0 auto;
+}
+
+/* Active tab: solid black, white text */
+.tabs.tabs28 .tabs-tab[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+  border-bottom: 1.5px solid #000;
+}
+
+/* Remove border radius from tabs */
+.tabs.tabs28 .tabs-tab,
+.tabs.tabs28 .tabs-tab[aria-selected="true"] {
+  border-radius: 0;
+}
+
+/* Main panel area: increase width, flush left, relaxed margins */
+.tabs.tabs28 .tabs-panel {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+  padding: 0;
+  overflow: visible;
+  max-width: 820px;
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Responsive panel */
+@media (width <= 900px) {
+  .tabs.tabs28 .tabs-panel {
+    padding: 0;
+    max-width: 100%;
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* Headings: main title, more margin below */
+.tabs.tabs28 .tabs-panel h3:first-of-type {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: normal;
+  position: relative;
+  line-height: 1.15;
+}
+
+/* Only first heading gets yellow underline */
+.tabs.tabs28 .tabs-panel h3:first-of-type::after {
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: #ffe066;
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+/* Subtitle: more margin above and below */
+.tabs.tabs28 .tabs-panel h3:not(:first-of-type) {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+  margin-top: 24px;
+  margin-bottom: 18px;
+  letter-spacing: normal;
+  line-height: 1.22;
+}
+
+/* Prevent underline on subtitle */
+.tabs.tabs28 .tabs-panel h3:not(:first-of-type)::after {
+  display: none;
+}
+
+/* Paragraphs: relaxed spacing */
+.tabs.tabs28 .tabs-panel p {
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  margin: 0 0 22px;
+  line-height: 1.6;
+  letter-spacing: normal;
+}
+
+/* Footer note style (last paragraph): increased space above */
+.tabs.tabs28 .tabs-panel p:last-of-type {
+  font-size: 14px;
+  color: #000;
+  opacity: 0.7;
+  margin-top: 40px;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Image styling: fill content width, more generous */
+.tabs.tabs28 .tabs-panel picture,
+.tabs.tabs28 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin: 40px 0 26px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Responsive image */
+@media (width <= 900px) {
+  .tabs.tabs28 .tabs-panel picture,
+  .tabs.tabs28 .tabs-panel img {
+    width: 100%;
+    max-width: 100%;
+    margin: 32px 0 18px;
+  }
+}
+
+/* List styles */
+.tabs.tabs28 .tabs-panel ul {
+  margin: 0 0 24px 20px;
+  padding: 0;
+}
+
+.tabs.tabs28 .tabs-panel li {
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  letter-spacing: normal;
 }
