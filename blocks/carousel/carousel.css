@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,122 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel18 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 32px 18px auto;
+  transform: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: none;
+  box-shadow: none;
+  z-index: 2;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button {
+  width: 32px;
+  height: 32px;
+  background: rgb(255 255 255 / 70%);
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+  position: relative;
+  transition: background 0.2s, box-shadow 0.2s, opacity 0.2s;
+  opacity: 0.93;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button:hover,
+.carousel.carousel18 .carousel-navigation-buttons button:focus-visible {
+  background: #ededed;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+  opacity: 1;
+  outline: none;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button:disabled {
+  opacity: 0.4;
+  background: rgb(255 255 255 / 50%);
+  cursor: default;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button::after {
+  border: solid #222;
+  border-width: 0 2.5px 2.5px 0;
+  height: 13px;
+  width: 13px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  display: block;
+  padding: 0;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button.slide-prev::after {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.carousel.carousel18 .carousel-slide-indicators {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  background: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+  opacity: 0.95;
+}
+
+.carousel.carousel18 .carousel-slide-indicator {
+  margin: 0;
+  padding: 0;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: none;
+  background: #c4c4c4;
+  margin: 0;
+  padding: 0;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button:disabled {
+  background: #222;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button:hover,
+.carousel.carousel18 .carousel-slide-indicator button:focus-visible {
+  background: #222;
+  box-shadow: 0 0 2px #222;
+}
+
+.carousel.carousel18 .carousel-slide-content {
+  display: none;
+}
+
+.carousel.carousel18 {
+  margin-top: 0;
+  padding-top: 0;
 }
