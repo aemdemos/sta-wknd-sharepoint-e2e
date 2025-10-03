@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,152 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs3 {
+  /* Restore visibility and block structure */
+  display: block;
+  background: #fff;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+  padding: 32px 0 0;
+}
+
+/* Use flexbox for the vertical stack of sections */
+.tabs.tabs3 .tabs-list,
+.tabs.tabs3 .tabs-panel {
+  flex: 1 1 100%;
+}
+
+/* Tabs Bar */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px; /* Comfortable gap for tabs */
+  margin-bottom: 22px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  max-width: 100%;
+  overflow-x: auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Tab Buttons */
+.tabs.tabs3 .tabs-list .tabs-tab {
+  background: transparent;
+  color: #505050;
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  padding: 8px 14px 8px 0;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  line-height: 1.2;
+  min-width: 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.tabs.tabs3 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 0;
+}
+
+.tabs.tabs3 .tabs-list .tabs-tab:focus {
+  outline: 2px solid #FFE081;
+  outline-offset: 2px;
+}
+
+.tabs.tabs3 .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Panel Container */
+.tabs.tabs3 .tabs-panel {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.tabs.tabs3 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Panel Content Layout */
+.tabs.tabs3 .tabs-panel div {
+  margin: 0;
+  padding: 0;
+}
+
+/* Image Styles */
+.tabs.tabs3 .tabs-panel picture,
+.tabs.tabs3 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+  margin-left: 0;
+}
+
+/* Subtitle (first p after image) */
+.tabs.tabs3 .tabs-panel p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.tabs.tabs3 .tabs-panel p:first-of-type {
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #222;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Body Text */
+.tabs.tabs3 .tabs-panel p:not(:first-of-type) {
+  font-size: 14px;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 0.55em;
+}
+
+/* List styling for 'What to Bring' tab */
+.tabs.tabs3 .tabs-panel ul {
+  margin: 0.7em 0 0 1em;
+  padding: 0 0 0 1em;
+  color: #222;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media (width <= 700px) {
+  .tabs.tabs3 {
+    padding-top: 14px;
+  }
+
+  .tabs.tabs3 .tabs-list {
+    gap: 10px;
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
 }
