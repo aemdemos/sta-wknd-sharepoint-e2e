@@ -160,14 +160,10 @@
   gap: 48px;
 }
 
-/* If there are multiple direct child divs, arrange them side by side */
-
-/* Make all direct div children (assumed columns) fill available space equally */
 .accordion.accordion16 div {
   min-width: 0;
 }
 
-/* Make sure the right column (sidebar) doesn't get too wide */
 .accordion.accordion16 div:last-child {
   max-width: 300px;
   padding-left: 32px;
@@ -188,7 +184,6 @@
   }
 }
 
-/* Large header image, if present as first child */
 .accordion.accordion16 img:first-child {
   display: block;
   width: 100%;
@@ -198,7 +193,6 @@
   border-radius: 0;
 }
 
-/* Section images within content (not the header) */
 .accordion.accordion16 img:not(:first-child) {
   display: block;
   width: 100%;
@@ -208,7 +202,6 @@
   border-radius: 0;
 }
 
-/* Headings and typography */
 .accordion.accordion16 h1,
 .accordion.accordion16 h2,
 .accordion.accordion16 h3,
@@ -220,7 +213,6 @@
   margin-bottom: 0.25em;
 }
 
-/* Article title */
 .accordion.accordion16 h1 {
   font-size: var(--heading-font-size-xxl);
   font-weight: 700;
@@ -235,7 +227,6 @@
   line-height: 1.22;
 }
 
-/* Paragraphs */
 .accordion.accordion16 p {
   color: #222;
   margin-top: 0.8em;
@@ -243,7 +234,6 @@
   line-height: 1.6;
 }
 
-/* Meta info, breadcrumbs, etc. */
 .accordion.accordion16 .meta,
 .accordion.accordion16 .byline,
 .accordion.accordion16 .breadcrumbs {
@@ -260,7 +250,6 @@
   font-size: var(--body-font-size-xs);
 }
 
-/* Author box */
 .accordion.accordion16 .author-box {
   display: flex;
   align-items: center;
@@ -314,5 +303,151 @@
     align-items: flex-start;
     gap: 12px;
     padding: 24px 0 0;
+  }
+}
+
+
+.accordion.accordion32 {
+  box-sizing: border-box;
+  background: var(--background-color);
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.accordion.accordion32 details {
+  background: var(--background-color);
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0 0 48px;
+  padding: 0;
+  overflow: visible;
+  width: 100%;
+}
+
+/* Heading row: accent, heading, chevron grouped together */
+.accordion.accordion32 details summary {
+  padding: 32px 0 24px;
+  min-height: 64px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0;
+  background: transparent;
+  transition: background 0.2s;
+  position: relative;
+  margin: 0 auto;
+  max-width: 700px;
+  justify-content: flex-start;
+  gap: 18px;
+}
+
+/* Hide default marker */
+.accordion.accordion32 details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Accent bar before the heading */
+.accordion.accordion32 details summary h2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: #232323;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  padding: 0;
+}
+
+.accordion.accordion32 details summary h2::before {
+  display: inline-block;
+  width: 44px;
+  height: 6px;
+  margin-right: 18px;
+  vertical-align: middle;
+  border-radius: 2px;
+  background-color: #F6A34E;
+  content: '';
+}
+
+/* Chevron: keep close to heading, not at far edge */
+.accordion.accordion32 details summary::after {
+  align-self: center;
+  margin-left: 18px;
+}
+
+/* Body/content: align under heading, match editorial flow */
+.accordion.accordion32 details .accordion-item-body {
+  padding: 0 0 0 62px;
+  background: var(--background-color);
+  border-top: 1px solid #EDEDED;
+  font-size: 1rem;
+  color: #232323;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.accordion.accordion32 details .accordion-item-body p {
+  margin: 0 0 1.4em;
+}
+
+.accordion.accordion32 details .accordion-item-body h2,
+.accordion.accordion32 details .accordion-item-body h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #232323;
+  margin: 2rem 0 1.2rem;
+}
+
+.accordion.accordion32 details summary ul,
+.accordion.accordion32 details summary ol,
+.accordion.accordion32 details summary li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+/* Responsive: full width, less padding, accent bar scales down on mobile */
+@media (width <= 900px) {
+  .accordion.accordion32 {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .accordion.accordion32 details {
+    margin-bottom: 28px;
+  }
+
+  .accordion.accordion32 details summary {
+    padding-top: 24px;
+    padding-bottom: 14px;
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .accordion.accordion32 details summary h2::before {
+    width: 28px;
+    height: 4px;
+    margin-right: 8px;
+  }
+
+  .accordion.accordion32 details .accordion-item-body {
+    padding-left: 10px;
+    margin-bottom: 24px;
+    max-width: 100%;
   }
 }
