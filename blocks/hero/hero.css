@@ -45,3 +45,105 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero6 {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 440px;
+  overflow: hidden;
+}
+
+/* Ensure image fills the hero area */
+.hero.hero6 div picture,
+.hero.hero6 div img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* First inner div: image wrapper */
+.hero.hero6 div:first-child {
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  position: relative;
+}
+
+/* Overlay white box, slightly lowered for more visible image below */
+.hero.hero6 div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 80px; /* Lowered from 120px for better balance */
+  transform: translateX(-50%);
+  width: 80%;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+/* Inner container for text with white background and padding */
+.hero.hero6 div:nth-child(2) div {
+  background: var(--background-color);
+  box-sizing: border-box;
+  width: 100%;
+  padding: 32px 32px 40px;
+  min-height: 48px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  pointer-events: auto;
+  box-shadow: 0 4px 16px rgb(32 32 32 / 8%);
+}
+
+/* Make headline left-aligned and override inherited styles */
+.hero.hero6 h2,
+.hero.hero6 h1,
+.hero.hero6 h3,
+.hero.hero6 h4,
+.hero.hero6 h5,
+.hero.hero6 h6 {
+  color: #222;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+  max-width: unset;
+  background: none;
+}
+
+/* Divider line below hero block */
+.hero.hero6::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 600px) {
+  .hero.hero6 {
+    min-height: 260px;
+  }
+
+  .hero.hero6 div:first-child {
+    min-height: 260px;
+  }
+
+  .hero.hero6 div:nth-child(2) {
+    width: 97%;
+    bottom: 18px; /* Lower the overlay for smaller screens */
+  }
+
+  .hero.hero6 div:nth-child(2) div {
+    padding: 18px 8px 20px;
+    box-shadow: 0 2px 8px rgb(32 32 32 / 6%);
+  }
+}
