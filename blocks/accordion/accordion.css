@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,134 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion15 {
+  /* Try to visually place the block as a left column in a two-column grid layout */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+@media (width >= 900px) {
+  .accordion.accordion15 {
+    /* Simulate a left column occupying about 2/3 of a grid container */
+    max-width: 700px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+@media (width <= 899px) {
+  .accordion.accordion15 {
+    max-width: 100vw;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.accordion.accordion15 details {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  margin: 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+.accordion.accordion15 details:last-of-type {
+  border-bottom: none;
+}
+
+.accordion.accordion15 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 38px;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  transition: background 0.2s;
+}
+
+.accordion.accordion15 summary::-webkit-details-marker,
+.accordion.accordion15 summary::marker {
+  display: none;
+}
+
+/* FAQ question label styling */
+.accordion.accordion15 summary p {
+  margin: 0;
+  padding: 6px 0;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.01em;
+  flex: 1 1 auto;
+  text-align: left;
+  line-height: 1.35;
+}
+
+/* Minimize spacing for a tight look, no vertical margin between rows */
+.accordion.accordion15 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion15 details .accordion-item-body {
+  padding: 8px 0;
+  font-size: var(--body-font-size-s);
+  color: #444;
+  background: none;
+  border: none;
+  line-height: 1.5;
+}
+
+.accordion.accordion15 details[open] summary,
+.accordion.accordion15 summary:focus,
+.accordion.accordion15 summary:hover {
+  background: var(--light-color);
+}
+
+/* Icon: keep svg visually subtle and right-aligned */
+.accordion.accordion15 summary svg {
+  margin-left: 8px;
+  height: 16px;
+  width: 16px;
+  display: block;
+  pointer-events: none;
+  fill: none;
+  stroke: #222;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* On small screens, the block fills the page and is tightly stacked */
+@media (width <= 600px) {
+  .accordion.accordion15 {
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .accordion.accordion15 summary p {
+    font-size: 12px;
+    padding: 4px 0;
+  }
+
+  .accordion.accordion15 details .accordion-item-body {
+    padding: 5px 0;
+  }
 }
