@@ -1164,7 +1164,6 @@
   align-items: flex-start;
 }
 
-/* Tabs Row */
 .tabs.tabs23 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1212,7 +1211,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Panel Layout */
 .tabs.tabs23 .tabs-panel {
   margin-top: 0;
   padding: 0;
@@ -1239,7 +1237,6 @@
   letter-spacing: -0.5px;
 }
 
-/* IMAGE STYLES */
 .tabs.tabs23 .tabs-panel picture img {
   width: 100%;
   height: auto;
@@ -1250,22 +1247,19 @@
   overflow-wrap: break-word;
 }
 
-/* PARAGRAPH STYLES */
 .tabs.tabs23 .tabs-panel p {
   font-size: 14.5px;
   color: #444;
   line-height: 1.6;
   margin-bottom: 6px;
   margin-top: 0;
-  word-break: break-word;
+  overflow-wrap: break-word; /* Modern and preferred property */
 }
 
-/* Remove extra margin under last paragraph */
 .tabs.tabs23 .tabs-panel p:last-of-type {
   margin-bottom: 0;
 }
 
-/* Related trips section */
 .tabs.tabs23 .tabs-panel p + ul {
   margin-top: 0;
 }
@@ -1297,13 +1291,10 @@
   background-repeat: no-repeat;
   background-position: center left;
   background-size: 0.7em 0.7em;
-
-  /* SVG right-pointing triangle for bullet */
   background-image: url("data:image/svg+xml,%3Csvg width='9' height='9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='2,2 7,4.5 2,7' fill='%23222222'/%3E%3C/svg%3E");
   content: "";
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs23 {
     max-width: 99vw;
@@ -1322,7 +1313,178 @@
   }
 }
 
-/* Remove bottom spacing below the last list for better grouping */
 .tabs.tabs23 .tabs-panel ul:last-child {
   margin-bottom: 0;
+}
+
+
+.tabs.tabs24 {
+  /* Simulate a narrower left column gutter to better match the original visual separation, but minimize excess whitespace */
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  max-width: 1100px;
+  margin: 40px auto;
+  background: var(--background-color);
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* On smaller screens, collapse to single-column layout */
+@media (width <= 900px) {
+  .tabs.tabs24 {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 24px 0;
+    padding: 0;
+  }
+}
+
+/* All main descendant content (tabs, heading, image, description) sits in the right column */
+.tabs.tabs24 .block,
+.tabs.tabs24 .tabs,
+.tabs.tabs24 .tabs-list,
+.tabs.tabs24 .tabs-panel {
+  grid-column: 2;
+}
+
+/* Tabs row: align flush with right column, visually separated from left gutter */
+.tabs.tabs24 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 32px;
+  margin-left: 0;
+  padding-left: 0;
+  background: none;
+  overflow-x: auto;
+  font-size: 1rem;
+  width: auto;
+  min-width: 0;
+}
+
+/* Tab button styling */
+.tabs.tabs24 .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  border-right: 1px solid #eee;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  padding: 10px 32px 8px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  margin: 0;
+  border-radius: 0;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.tabs.tabs24 .tabs-list .tabs-tab:last-child {
+  border-right: none;
+}
+
+/* Active tab styles */
+.tabs.tabs24 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+/* Remove default margin on tab <p> */
+.tabs.tabs24 .tabs-list .tabs-tab p {
+  margin: 0;
+}
+
+/* Panel styles: left-align, max width, spacing for right column */
+.tabs.tabs24 .tabs-panel {
+  display: none;
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+  overflow: visible;
+  max-width: 900px;
+  width: 100%;
+  margin-left: 0;
+}
+
+/* Show only active panel */
+.tabs.tabs24 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Panel heading: left-align, enlarge, add accent line (pale yellow) below heading */
+.tabs.tabs24 .tabs-panel h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--text-color);
+  line-height: 1.2;
+  text-align: left;
+  border-bottom: 3px solid #e7d97b;
+  display: inline-block;
+  padding-bottom: 4px;
+  min-width: 220px;
+}
+
+/* Panel image: left-align, standard block margin */
+.tabs.tabs24 .tabs-panel picture,
+.tabs.tabs24 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin-bottom: 32px;
+  margin-left: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Panel body text: left-align, improve legibility and spacing */
+.tabs.tabs24 .tabs-panel p,
+.tabs.tabs24 .tabs-panel ul,
+.tabs.tabs24 .tabs-panel li {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+.tabs.tabs24 .tabs-panel ul {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.tabs.tabs24 .tabs-panel li {
+  margin-bottom: 8px;
+}
+
+/* Responsive adjustments for mobile: collapse gutter and padding */
+@media (width <= 900px) {
+  .tabs.tabs24 .block,
+  .tabs.tabs24 .tabs,
+  .tabs.tabs24 .tabs-list,
+  .tabs.tabs24 .tabs-panel {
+    grid-column: 1;
+    max-width: 100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .tabs.tabs24 .tabs-panel picture,
+  .tabs.tabs24 .tabs-panel img {
+    max-width: 100%;
+  }
+
+  .tabs.tabs24 .tabs-panel h3 {
+    min-width: 0;
+  }
 }
