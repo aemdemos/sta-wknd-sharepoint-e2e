@@ -45,7 +45,6 @@
   gap: 0;
 }
 
-/* LOGO: keep to left, tightly grouped with language */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -61,7 +60,6 @@
   object-fit: contain;
 }
 
-/* LANGUAGE: No bullet, minimal gap from logo, line-height matches logo alignment */
 .columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) {
   display: flex;
   align-items: center;
@@ -72,7 +70,6 @@
   line-height: 1;
 }
 
-/* Bullet removal override with max specificity */
 .columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) ul,
 .columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) li,
 .columns.columns2 ul,
@@ -82,7 +79,6 @@
   list-style: none;
 }
 
-/* Language link styles */
 .columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) a {
   color: var(--text-color);
   font-size: var(--body-font-size-s);
@@ -96,7 +92,6 @@
   text-decoration: underline;
 }
 
-/* SEARCH: right aligned, visible background, padding, softer border radius */
 .columns.columns2 .block div:nth-of-type(3) {
   display: flex;
   align-items: center;
@@ -118,7 +113,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Responsive: Stack vertically on small screens */
 @media (width <= 899px) {
   .columns.columns2 .block {
     flex-direction: column;
@@ -145,9 +139,160 @@
   }
 }
 
-/* Utility: ensure no extra margin/padding in direct columns */
 .columns.columns2 .block div {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
+}
+
+
+.columns {
+  background: #222;
+  color: #fff;
+  padding: 2.5rem 3rem 2rem;
+}
+
+/* Main row: 3 columns side by side, vertically centered */
+.columns .block.columns-3-cols div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 90px;
+}
+
+/* Logo column: fixed width, vertically centered */
+.columns .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 190px;
+  max-width: 220px;
+}
+
+.columns .columns-img-col img {
+  max-width: 170px;
+  height: auto;
+  display: block;
+  margin: 0;
+  filter: brightness(0) invert(1);
+}
+
+/* Center navigation in the available space, prevent wrapping */
+.columns .block.columns-3-cols div div:nth-child(2) {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navigation row: remove bullets, force links into a single line, reduce gap */
+.columns ul,
+.columns ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns ul ul {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2.2rem;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* Hide "Home" link visually, keep for accessibility */
+.columns ul a[href="/ca/en"] {
+  display: none;
+}
+
+/* Nav links styling: uppercase, bold, white, prevent wrapping */
+.columns ul ul a {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 0 0.2rem;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  white-space: nowrap;
+}
+
+/* Active/selected nav link underline (example: FAQs) */
+.columns ul ul li:nth-child(3) a {
+  border-bottom: 3px solid #fff;
+  padding-bottom: 0.15em;
+}
+
+/* Nav link hover/focus */
+.columns ul ul a:focus,
+.columns ul ul a:hover {
+  color: #b3b3b3;
+  border-bottom: 3px solid #b3b3b3;
+  text-decoration: none;
+}
+
+/* Rightmost column ("Search"): fixed width, right aligned, vertically centered */
+.columns .block.columns-3-cols div div:nth-child(3) {
+  flex: 0 0 auto;
+  min-width: 80px;
+  max-width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #ccc;
+  font-size: 1rem;
+  padding: 0;
+}
+
+/* Lighten all general text except nav links */
+.columns p, .columns li, .columns span, .columns div {
+  color: #ccc;
+}
+
+/* Responsive tweaks: stack columns vertically and center on mobile */
+@media (width <= 900px) {
+  .columns {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .columns .block.columns-3-cols div {
+    flex-direction: column;
+    align-items: center;
+    min-height: unset;
+    gap: 1.5rem;
+  }
+
+  .columns .columns-img-col,
+  .columns .block.columns-3-cols div div:nth-child(2),
+  .columns .block.columns-3-cols div div:nth-child(3) {
+    min-width: 0;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .columns ul ul {
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .columns .columns-img-col img {
+    max-width: 120px;
+  }
+}
+
+/* For full-width layout, if required */
+.columns-container .columns-wrapper {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
 }
