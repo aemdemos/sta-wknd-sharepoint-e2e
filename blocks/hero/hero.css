@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -56,9 +57,6 @@
   display: block;
 }
 
-/* Make the hero span full width */
-
-/* Edge-to-edge hero image as background */
 .hero.hero10 picture {
   position: absolute;
   inset: 0;
@@ -76,17 +74,16 @@
   display: block;
 }
 
-/* Overlay the text box, nearly flush left and bottom */
 .hero.hero10 div:nth-of-type(2) div {
   position: absolute;
   left: 0;
   bottom: 0;
   background: #fff;
-  width: 52vw;              /* fine-tune for headline fit on desktop */
-  max-width: 740px;         /* slightly increased for large screens */
+  width: 52vw;
+  max-width: 740px;
   min-width: 340px;
   padding: 2.4rem 2.6rem 2.1rem;
-  margin: 0 0 1vw 1vw;     /* minimal bottom/left margin for nearly flush placement */
+  margin: 0 0 1vw 1vw;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -95,7 +92,6 @@
   box-shadow: 0 4px 16px rgb(0 0 0 / 3%);
 }
 
-/* Headline styling for clarity and optimal rhythm */
 .hero.hero10 h2 {
   margin: 0 0 0.85em;
   font-size: var(--heading-font-size-xl);
@@ -108,7 +104,6 @@
   letter-spacing: -0.5px;
 }
 
-/* Subtitle styling */
 .hero.hero10 p {
   margin: 0;
   font-size: 1.05rem;
@@ -117,7 +112,6 @@
   text-align: left;
 }
 
-/* Responsive: box adapts width and padding at smaller screens */
 @media (width <= 900px) {
   .hero.hero10 div:nth-of-type(2) div {
     width: 75vw;
@@ -140,5 +134,127 @@
   .hero.hero10 h2 {
     font-size: 1.25rem;
     letter-spacing: 0;
+  }
+}
+
+
+.hero.hero13 {
+  display: grid;
+  grid-template-areas: "stack";
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Ensure hero wrapper spans full width */
+
+/* Use grid on both direct children to overlap image and card */
+.hero.hero13 div {
+  grid-area: stack;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  pointer-events: none;
+
+  /* ensure image container doesn't block overlay card events */
+}
+
+/* Make the picture/img fill the block as a background */
+.hero.hero13 div picture,
+.hero.hero13 div img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Overlay card in grid, on top of the image, pointer-events enabled */
+.hero.hero13 div:last-child {
+  grid-area: stack;
+  place-self: end center;
+  width: 82%;
+  background: #fff;
+  box-shadow: 0 4px 20px rgb(50 50 50 / 12%);
+  border-radius: 3px;
+  padding: 28px 28px 34px 32px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 72px;
+  position: relative;
+  pointer-events: auto;
+  margin-bottom: 32px;
+}
+
+/* Heading inside overlay card */
+.hero.hero13 h2,
+.hero.hero13 h1,
+.hero.hero13 h3,
+.hero.hero13 h4,
+.hero.hero13 h5,
+.hero.hero13 h6 {
+  margin: 0;
+  color: #232323;
+  font-weight: 400;
+  text-align: left;
+  max-width: 100%;
+}
+
+/* Divider line below hero block */
+.hero.hero13::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #e9e9e9;
+  position: absolute;
+  left: 0;
+  bottom: -25px;
+  opacity: 1;
+  z-index: 3;
+  content: "";
+}
+
+@media (width <= 900px) {
+  .hero.hero13 {
+    min-height: 200px;
+  }
+
+  .hero.hero13 div,
+  .hero.hero13 div:last-child {
+    min-height: 200px;
+  }
+
+  .hero.hero13 div:last-child {
+    width: 96%;
+    padding: 13px 8px 16px 12px;
+    margin-bottom: 8px;
+    min-height: 44px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero13 {
+    min-height: 110px;
+  }
+
+  .hero.hero13 div,
+  .hero.hero13 div:last-child {
+    min-height: 110px;
+  }
+
+  .hero.hero13 div:last-child {
+    width: 99%;
+    padding: 5px 4px 10px 6px;
+    margin-bottom: 4px;
+    min-height: 28px;
   }
 }
