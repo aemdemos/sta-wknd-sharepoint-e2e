@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -25,3 +26,162 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards3 {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+/* GRID LAYOUT */
+.cards.cards3 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 30px;
+  place-items: start center;
+  max-width: 1100px;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (width <= 1200px) {
+  .cards.cards3 ul {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 840px;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards3 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 12px;
+    max-width: 540px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards3 ul {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    max-width: 100%;
+  }
+}
+
+/* INDIVIDUAL CARD STYLING */
+.cards.cards3 li {
+  background: none;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+/* IMAGE */
+.cards.cards3 .cards-card-image {
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cards.cards3 .cards-card-image img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  aspect-ratio: unset;
+  background: #f8f8f8;
+}
+
+@media (width <= 900px) {
+  .cards.cards3 .cards-card-image img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards3 .cards-card-image img {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+/* CARD BODY (TEXT & SOCIALS) */
+.cards.cards3 .cards-card-body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.98rem;
+  color: #888;
+  font-weight: 400;
+  letter-spacing: 0.001em;
+  margin-bottom: 1px;
+  text-transform: none;
+}
+
+/* NAME */
+.cards.cards3 .cards-card-body strong {
+  display: block;
+  font-size: 1.08rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 1px;
+  letter-spacing: 0.01em;
+}
+
+/* SUBTITLE / ROLE */
+.cards.cards3 .cards-card-body br {
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+/* SOCIAL LINKS ROW */
+.cards.cards3 .cards-card-body a {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  line-height: 22px;
+  font-size: 0.9rem;
+  margin-right: 4px;
+  margin-top: 3px;
+  border-radius: 4px;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.cards.cards3 .cards-card-body a:last-child {
+  margin-right: 0;
+}
+
+.cards.cards3 .cards-card-body a:hover {
+  background: #c7ae5a;
+  color: #222;
+}
+
+/* TIGHTER VERTICAL RHYTHM WITHIN CARD */
+.cards.cards3 .cards-card-body strong + br {
+  margin-bottom: 0;
+}
+
+/* Ensure cards stay visually grouped on wide screens */
