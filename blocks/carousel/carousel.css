@@ -179,7 +179,6 @@
   }
 }
 
-/* Heading and paragraph spacing */
 .carousel.carousel22 .carousel-slide .carousel-slide-content h2 {
   color: #222;
   font-weight: 600;
@@ -198,7 +197,6 @@
   margin-top: 16px;
 }
 
-/* Button: visible, flush left, sharp corners, large click target */
 .carousel.carousel22 .carousel-slide .carousel-slide-content .button {
   display: inline-block;
   background: #ffe600;
@@ -212,7 +210,6 @@
   font-size: 1em;
 }
 
-/* Page indicators: small, subtle, centered below card */
 .carousel.carousel22 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -247,7 +244,6 @@
   background: #d1d1d1;
 }
 
-/* Navigation buttons: correct chevrons, minimal, bottom-right */
 .carousel.carousel22 .carousel-navigation-buttons {
   position: absolute;
   inset: auto 38px 24px auto;
@@ -301,4 +297,78 @@
 .carousel.carousel22 .carousel-navigation-buttons button:hover,
 .carousel.carousel22 .carousel-navigation-buttons button:focus-visible {
   background: #f6f6f6;
+}
+
+
+.carousel.carousel25 {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background: transparent;
+}
+
+.carousel.carousel25 .carousel-slide {
+  min-height: unset;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+/* Ensure the heading is visible and in normal flow above the image */
+.carousel.carousel25 .carousel-slide-content {
+  position: static;
+  display: block;
+  width: 100%;
+  margin: 40px 0 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+  z-index: unset;
+  text-align: left;
+}
+
+.carousel.carousel25 .carousel-slide-content h2 {
+  display: block;
+  margin: 0 0 16px;
+  color: inherit;
+  font-weight: 600;
+  background: transparent;
+  text-align: left;
+  line-height: 1.2;
+}
+
+/* Give a little space below heading before image */
+.carousel.carousel25 .carousel-slide-content + .carousel-slide-image {
+  margin-top: 0;
+}
+
+/* Maintain boxed, centered image with aspect ratio */
+.carousel.carousel25 .carousel-slide .carousel-slide-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: transparent;
+  position: relative;
+  min-height: unset;
+  margin: 0 0 40px;
+}
+
+.carousel.carousel25 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel25 .carousel-slide .carousel-slide-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+/* Hide navigation and indicators */
+.carousel.carousel25 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel25 .carousel-slide-indicators {
+  display: none;
 }
