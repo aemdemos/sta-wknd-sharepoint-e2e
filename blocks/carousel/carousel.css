@@ -315,7 +315,6 @@
   padding: 0;
 }
 
-/* Ensure the heading is visible and in normal flow above the image */
 .carousel.carousel25 .carousel-slide-content {
   position: static;
   display: block;
@@ -339,12 +338,10 @@
   line-height: 1.2;
 }
 
-/* Give a little space below heading before image */
 .carousel.carousel25 .carousel-slide-content + .carousel-slide-image {
   margin-top: 0;
 }
 
-/* Maintain boxed, centered image with aspect ratio */
 .carousel.carousel25 .carousel-slide .carousel-slide-image {
   width: 100%;
   height: auto;
@@ -364,11 +361,183 @@
   display: block;
 }
 
-/* Hide navigation and indicators */
 .carousel.carousel25 .carousel-navigation-buttons {
   display: none;
 }
 
 .carousel.carousel25 .carousel-slide-indicators {
   display: none;
+}
+
+
+.carousel.carousel33 {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.carousel.carousel33 .carousel-slides-container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.carousel.carousel33 .carousel-slide-content {
+  display: none;
+}
+
+.carousel.carousel33 .carousel-slide .carousel-slide-image,
+.carousel.carousel33 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel33 .carousel-slide .carousel-slide-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: static;
+}
+
+/* Remove min-height to let image dictate height */
+.carousel.carousel33 .carousel-slide {
+  min-height: 0;
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  position: relative;
+}
+
+/* Restore and style indicators */
+.carousel.carousel33 .carousel-slide-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 54px; /* leave space for nav buttons */
+  bottom: -36px;
+  background: none;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+  z-index: 10;
+  line-height: 1;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Dot indicator styling */
+.carousel.carousel33 .carousel-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  background: #111;
+  border-radius: 50%;
+  border: none;
+  margin: 0 6px;
+  box-shadow: none;
+  padding: 0;
+  transition: background 0.2s;
+  display: inline-block;
+  opacity: 1;
+}
+
+.carousel.carousel33 .carousel-slide-indicator button:disabled,
+.carousel.carousel33 .carousel-slide-indicator button[aria-current="true"] {
+  background: #000;
+}
+
+.carousel.carousel33 .carousel-navigation-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  inset: auto 12px -40px auto;
+  gap: 10px;
+  background: none;
+  z-index: 11;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.carousel.carousel33 .carousel-navigation-buttons button {
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.carousel.carousel33 .carousel-navigation-buttons button::after {
+  display: none;
+}
+
+.carousel.carousel33 .carousel-navigation-buttons button::before {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: solid #222;
+  border-width: 0 2px 2px 0;
+
+  /* No content property used, but ensures arrow is shown */
+  background: none;
+}
+
+.carousel.carousel33 .carousel-navigation-buttons button.slide-prev::before {
+  transform: rotate(135deg);
+  margin-right: 2px;
+}
+
+.carousel.carousel33 .carousel-navigation-buttons button.slide-next::before {
+  transform: rotate(-45deg);
+  margin-left: 2px;
+}
+
+.carousel.carousel33 .carousel-navigation-buttons button:focus,
+.carousel.carousel33 .carousel-navigation-buttons button:hover {
+  background: none;
+  box-shadow: none;
+}
+
+/* Force no margin on carousel-wrapper and ensure parent is not restricting width */
+.carousel-wrapper {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Responsive adjustment for extra-wide screens */
+@media (width >= 900px) {
+  .carousel.carousel33 {
+    max-width: 100vw;
+  }
+
+  .carousel.carousel33 .carousel-slide .carousel-slide-image img {
+    width: 100vw;
+    max-width: 100vw;
+  }
 }
