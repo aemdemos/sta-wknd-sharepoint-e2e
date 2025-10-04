@@ -1044,7 +1044,6 @@
   box-sizing: border-box;
 }
 
-/* Tabs navigation row */
 .tabs.tabs20 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1057,7 +1056,6 @@
   align-items: flex-start;
 }
 
-/* Tab button styling */
 .tabs.tabs20 .tabs-list .tabs-tab {
   background: none;
   border: none;
@@ -1085,7 +1083,6 @@
   color: #222;
 }
 
-/* Main content area */
 .tabs.tabs20 .tabs-panel {
   width: 100%;
   max-width: 1300px;
@@ -1098,7 +1095,6 @@
   text-align: left;
 }
 
-/* Headings inside main content */
 .tabs.tabs20 .tabs-panel h3,
 .tabs.tabs20 .tabs-panel h2 {
   font-weight: 700;
@@ -1109,7 +1105,6 @@
   text-align: left;
 }
 
-/* Underline accent for main heading, if present */
 .tabs.tabs20 .tabs-panel h3:first-child {
   position: relative;
   margin-bottom: 24px;
@@ -1125,7 +1120,6 @@
   border-radius: 2px;
 }
 
-/* Image styling */
 .tabs.tabs20 .tabs-panel picture,
 .tabs.tabs20 .tabs-panel img {
   display: block;
@@ -1137,7 +1131,6 @@
   box-shadow: none;
 }
 
-/* Body text styling */
 .tabs.tabs20 .tabs-panel p {
   font-size: 15px;
   color: #222;
@@ -1147,7 +1140,6 @@
   text-align: left;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 900px) {
   .tabs.tabs20 {
     padding: 22px 4px 16px;
@@ -1159,4 +1151,178 @@
     max-width: 100vw;
     padding: 0;
   }
+}
+
+
+.tabs.tabs23 {
+  box-sizing: border-box;
+  max-width: 800px;
+  margin: 40px auto 0;
+  padding: 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs Row */
+.tabs.tabs23 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  margin-bottom: 14px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.tabs.tabs23 .tabs-list .tabs-tab {
+  border: 1px solid #222;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 4px 9px;
+  margin: 0;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+  line-height: 1.2;
+  min-width: 70px;
+  box-sizing: border-box;
+}
+
+.tabs.tabs23 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border: 1px solid #222;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 7%);
+  z-index: 1;
+}
+
+.tabs.tabs23 .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+/* Panel Layout */
+.tabs.tabs23 .tabs-panel {
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  width: 100%;
+}
+
+.tabs.tabs23 .tabs-panel h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  line-height: 1.17;
+}
+
+.tabs.tabs23 .tabs-panel h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+/* IMAGE STYLES */
+.tabs.tabs23 .tabs-panel picture img {
+  width: 100%;
+  height: auto;
+  border-radius: 7px;
+  margin: 10px 0 8px;
+  display: block;
+  box-shadow: 0 2px 12px rgb(34 34 34 / 2%);
+  overflow-wrap: break-word;
+}
+
+/* PARAGRAPH STYLES */
+.tabs.tabs23 .tabs-panel p {
+  font-size: 14.5px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  margin-top: 0;
+  word-break: break-word;
+}
+
+/* Remove extra margin under last paragraph */
+.tabs.tabs23 .tabs-panel p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Related trips section */
+.tabs.tabs23 .tabs-panel p + ul {
+  margin-top: 0;
+}
+
+.tabs.tabs23 .tabs-panel ul {
+  margin: 2px 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.tabs.tabs23 .tabs-panel ul li {
+  position: relative;
+  padding-left: 1em;
+  margin-bottom: 2px;
+  font-size: 14.5px;
+  color: #444;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+.tabs.tabs23 .tabs-panel ul li::before {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0.72em;
+  height: 0.72em;
+  margin-left: -0.95em;
+  margin-right: 0.42em;
+  margin-top: 0.19em;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 0.7em 0.7em;
+
+  /* SVG right-pointing triangle for bullet */
+  background-image: url("data:image/svg+xml,%3Csvg width='9' height='9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='2,2 7,4.5 2,7' fill='%23222222'/%3E%3C/svg%3E");
+  content: "";
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs23 {
+    max-width: 99vw;
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+
+  .tabs.tabs23 .tabs-list .tabs-tab {
+    font-size: 12px;
+    padding: 4px 5px;
+    min-width: 62px;
+  }
+
+  .tabs.tabs23 .tabs-panel h2 {
+    font-size: 1rem;
+  }
+}
+
+/* Remove bottom spacing below the last list for better grouping */
+.tabs.tabs23 .tabs-panel ul:last-child {
+  margin-bottom: 0;
 }
