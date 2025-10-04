@@ -262,14 +262,12 @@
   overflow: hidden;
 }
 
-/* COLUMN STRUCTURE: The first two nested divs act as columns */
 .hero.hero18 div {
   min-width: 0;
   box-sizing: border-box;
   padding: 0;
 }
 
-/* --- IMAGE COLUMN --- */
 .hero.hero18 div:first-of-type {
   flex: 2 1 0;
   min-width: 0;
@@ -282,7 +280,6 @@
   position: relative;
 }
 
-/* Ensure the inner div inside the image column stretches and has height */
 .hero.hero18 div:first-of-type div {
   flex: 1 1 0;
   display: flex;
@@ -292,7 +289,6 @@
   height: 100%;
 }
 
-/* Make the picture and image fill the space */
 .hero.hero18 picture {
   width: 100%;
   height: 100%;
@@ -313,7 +309,6 @@
   border-radius: 0;
 }
 
-/* --- TEXT COLUMN --- */
 .hero.hero18 div:last-of-type {
   flex: 1 1 0;
   min-width: 260px;
@@ -327,7 +322,6 @@
   box-sizing: border-box;
 }
 
-/* Stretch the inner text container fully */
 .hero.hero18 div:last-of-type div {
   flex: 0 1 auto;
   padding: 0;
@@ -337,7 +331,6 @@
   width: 100%;
 }
 
-/* Title styling */
 .hero.hero18 h1 {
   margin: 0 0 0.5em;
   color: var(--text-color);
@@ -350,7 +343,6 @@
   box-sizing: border-box;
 }
 
-/* Byline styling */
 .hero.hero18 h4 {
   margin: 0;
   padding: 0;
@@ -361,7 +353,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .hero.hero18 {
     flex-direction: column;
@@ -387,4 +378,75 @@
   .hero.hero18 div:last-of-type {
     padding: 24px 4vw 0;
   }
+}
+
+.hero.hero27 {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Ensure image covers the hero block */
+.hero.hero27 div picture,
+.hero.hero27 div img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+
+/* Slimmer bottom overlay for content, more compact */
+.hero.hero27 div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  background: var(--background-color);
+  box-sizing: border-box;
+  padding: 10px 36px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 4%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Responsive: Reduce padding for smaller screens */
+@media (width <= 900px) {
+  .hero.hero27 div:nth-child(2) {
+    padding: 8px;
+  }
+}
+
+.hero.hero27 h2 {
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 8px;
+}
+
+.hero.hero27 p {
+  color: #444;
+  font-size: var(--body-font-size-m);
+  margin: 0 0 10px;
+  max-width: 900px;
+}
+
+/* More compact button spacing */
+.hero-container .hero-wrapper .block.hero.hero27 .button-container .button {
+  background: #ffe100;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: var(--body-font-size-m);
+  padding: 8px 16px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  margin-top: 2px;
+  margin-bottom: 0;
 }
