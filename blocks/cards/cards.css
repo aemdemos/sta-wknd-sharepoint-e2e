@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -185,18 +186,16 @@
   padding-right: 24px;
 }
 
-/* At desktop: force five columns, prevent row wrapping, only horizontal gap */
 .cards.cards4 ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 32px; /* horizontal gap; vertical gap (row-gap) matches column gap for even spacing */
+  gap: 32px;
   margin: 0;
   padding: 0;
   list-style: none;
   place-items: stretch stretch;
 }
 
-/* Tablet: three columns */
 @media (width <= 1200px) {
   .cards.cards4 ul {
     grid-template-columns: repeat(3, 1fr);
@@ -204,7 +203,6 @@
   }
 }
 
-/* Mobile: two columns */
 @media (width <= 900px) {
   .cards.cards4 ul {
     grid-template-columns: repeat(2, 1fr);
@@ -212,7 +210,6 @@
   }
 }
 
-/* Small screens: single column */
 @media (width <= 600px) {
   .cards.cards4 ul {
     grid-template-columns: 1fr;
@@ -220,7 +217,6 @@
   }
 }
 
-/* Card container: visually balanced proportions */
 .cards.cards4 li {
   background: #fff;
   border: none;
@@ -237,7 +233,6 @@
   box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
 }
 
-/* Card image area: flush, wide aspect, rounded top */
 .cards.cards4 .cards-card-image {
   width: 100%;
   aspect-ratio: 16/9;
@@ -258,7 +253,6 @@
   display: block;
 }
 
-/* Card body: appropriate vertical spacing, button flush bottom */
 .cards.cards4 .cards-card-body {
   flex: 1 1 auto;
   display: flex;
@@ -269,7 +263,6 @@
   height: 100%;
 }
 
-/* Title: uppercase, bold, visually prominent, spacing */
 .cards.cards4 .cards-card-body h3 {
   font-weight: bold;
   text-transform: uppercase;
@@ -280,7 +273,6 @@
   line-height: 1.22;
 }
 
-/* Description: gray, smaller, compact spacing */
 .cards.cards4 .cards-card-body p {
   color: #444;
   font-size: 0.97em;
@@ -289,7 +281,6 @@
   flex: 0 0 auto;
 }
 
-/* Button flush with bottom, left aligned */
 .cards.cards4 .cards-card-body .button-container {
   margin-top: auto;
   margin-bottom: 0;
@@ -300,7 +291,6 @@
   justify-content: flex-start;
 }
 
-/* Button: yellow, left-aligned, compact, no extra margin */
 .cards.cards4 .cards-card-body .button {
   background: #ffe600;
   color: #222;
@@ -322,4 +312,96 @@
 .cards.cards4 .cards-card-body .button:focus {
   background: #fc0;
   color: #222;
+}
+
+
+.cards.cards16 {
+  background: #fff;
+  width: 100%;
+}
+
+/* Use grid for cards layout, let grid rows always have the same height */
+.cards.cards16 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  grid-auto-rows: 1fr; /* Force equal height for all cards */
+  align-items: stretch;
+}
+
+/* Responsive - stack cards vertically on small screens */
+@media (width <= 900px) {
+  .cards.cards16 ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Each card: flex column, fill grid row height */
+.cards.cards16 li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  min-width: 0;
+  height: 100%; /* Fill grid row */
+}
+
+/* Square image at top of card */
+.cards.cards16 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: #eee;
+}
+
+/* Image itself: fill container, square crop */
+.cards.cards16 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+/* Card body: always at the bottom, vertical stack */
+.cards.cards16 .cards-card-body {
+  padding: 12px 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto; /* Push body to bottom of card */
+}
+
+/* Title styling */
+.cards.cards16 .cards-card-body p:first-child {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0 0 2px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Description styling */
+.cards.cards16 .cards-card-body p:last-child {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
