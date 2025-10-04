@@ -1660,7 +1660,6 @@
   box-shadow: none;
 }
 
-/* Sidebar: tabs navigation */
 .tabs.tabs30 div:first-child {
   flex: 0 0 180px;
   min-width: 140px;
@@ -1692,7 +1691,6 @@
   }
 }
 
-/* Main content column: much wider with more padding */
 .tabs.tabs30 .tabs-wrapper {
   flex: 1 1 0;
   min-width: 540px;
@@ -1705,7 +1703,6 @@
   align-items: flex-start;
 }
 
-/* Responsive: allow main content to shrink on smaller screens */
 @media (width <= 900px) {
   .tabs.tabs30 .tabs-wrapper {
     min-width: 0;
@@ -1714,7 +1711,6 @@
   }
 }
 
-/* Sidebar tabs */
 .tabs.tabs30 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -1765,7 +1761,6 @@
   text-transform: uppercase;
 }
 
-/* Main panel content */
 .tabs.tabs30 .tabs-panel {
   margin-top: 0;
   background: none;
@@ -1777,7 +1772,6 @@
   display: block;
 }
 
-/* Heading spacing and alignment */
 .tabs.tabs30 h3 {
   font-size: var(--heading-font-size-l);
   font-weight: 500;
@@ -1788,7 +1782,6 @@
   padding-left: 2px;
 }
 
-/* Image styling: allow large image */
 .tabs.tabs30 picture img {
   max-width: 720px;
   width: 100%;
@@ -1800,7 +1793,6 @@
   box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
 }
 
-/* Caption for image */
 .tabs.tabs30 .tabs-panel p {
   margin: 0 0 28px;
   font-size: 1.09rem;
@@ -1810,7 +1802,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Body paragraph for details */
 .tabs.tabs30 .tabs-panel p + p {
   margin-top: 18px;
   margin-bottom: 0;
@@ -1823,7 +1814,6 @@
   padding-right: 24px;
 }
 
-/* List styling for "What to Bring" tab */
 .tabs.tabs30 ul {
   margin-top: 36px;
   margin-bottom: 32px;
@@ -1832,7 +1822,213 @@
   color: #222;
 }
 
-/* Hide inactive panels */
 .tabs.tabs30 .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs31 {
+  box-sizing: border-box;
+  background: var(--background-color);
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* Simulate sidebar space as an empty flex child for layout only */
+@media (width >= 900px) {
+  .tabs.tabs31::before {
+    content: "";
+    flex: 0 0 180px;
+    min-width: 180px;
+    max-width: 180px;
+    height: 1px;
+    background: transparent;
+    display: block;
+  }
+}
+
+/* Main content alignment for correct left edge */
+.tabs.tabs31 .tabs-wrapper,
+.tabs.tabs31 .block {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Tabs: align left, improve spacing and layout */
+.tabs.tabs31 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-top: 0;
+  margin-bottom: 32px;
+  padding: 0;
+  border: none;
+  font-size: var(--body-font-size-s);
+  background: none;
+  box-shadow: none;
+  align-items: flex-end;
+  width: 100%;
+}
+
+/* Tab button styling */
+.tabs.tabs31 .tabs-list button {
+  background: none;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: var(--body-font-size-s);
+  border: none;
+  border-radius: 3px;
+  padding: 10px 28px 7px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  letter-spacing: 1px;
+  align-items: flex-start;
+  display: flex;
+}
+
+/* Selected tab styling */
+.tabs.tabs31 .tabs-list button[aria-selected="true"] {
+  background: #1a1a1a;
+  color: #fff;
+  cursor: default;
+  border: none;
+}
+
+/* Tab focus style */
+.tabs.tabs31 .tabs-list button:focus {
+  outline: 2px solid #1a1a1a;
+}
+
+/* Remove borders from tab panels and content alignment */
+.tabs.tabs31 .tabs-panel {
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  overflow: visible;
+  max-width: 960px;
+  width: 100%;
+  display: block;
+}
+
+/* Heading styling and underline, with alignment */
+.tabs.tabs31 h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  padding-top: 0;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  text-align: left;
+  display: block;
+}
+
+.tabs.tabs31 h3::after {
+  display: block;
+  content: "";
+  width: 40px;
+  height: 4px;
+  background: #f8d96b;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+/* Improve paragraph and list spacing */
+.tabs.tabs31 p,
+.tabs.tabs31 ul,
+.tabs.tabs31 li {
+  color: #1a1a1a;
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.tabs.tabs31 ul {
+  padding-left: 22px;
+  margin-bottom: 24px;
+}
+
+.tabs.tabs31 li {
+  margin-bottom: 10px;
+}
+
+/* Image block styling - ensure left alignment and generous size */
+.tabs.tabs31 picture,
+.tabs.tabs31 img {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 36px;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 6px;
+  box-shadow: none;
+  background: none;
+}
+
+/* Responsive: stack to one column and remove sidebar space on mobile */
+@media (width <= 899px) {
+  .tabs.tabs31 {
+    flex-direction: column;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .tabs.tabs31::before {
+    display: none;
+  }
+
+  .tabs.tabs31 picture,
+  .tabs.tabs31 img {
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+}
+
+/* Paragraphs containing images should have no extra top/bottom spacing */
+.tabs.tabs31 p picture,
+.tabs.tabs31 p img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Hide borders on all panels and tabs */
+.tabs.tabs31 .tabs-panel,
+.tabs.tabs31 .tabs-list,
+.tabs.tabs31 .tabs-list button {
+  border: none;
+  box-shadow: none;
+}
+
+.tabs.tabs31 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Ensure everything is left-aligned to content column */
+.tabs.tabs31 .tabs-list,
+.tabs.tabs31 .tabs-panel,
+.tabs.tabs31 h3,
+.tabs.tabs31 p,
+.tabs.tabs31 ul,
+.tabs.tabs31 img,
+.tabs.tabs31 picture {
+  text-align: left;
+  align-items: flex-start;
 }
