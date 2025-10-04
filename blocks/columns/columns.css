@@ -152,7 +152,6 @@
   padding: 2.5rem 3rem 2rem;
 }
 
-/* Main row: 3 columns side by side, vertically centered */
 .columns .block.columns-3-cols div {
   display: flex;
   flex-direction: row;
@@ -162,7 +161,6 @@
   min-height: 90px;
 }
 
-/* Logo column: fixed width, vertically centered */
 .columns .columns-img-col {
   display: flex;
   align-items: center;
@@ -179,7 +177,6 @@
   filter: brightness(0) invert(1);
 }
 
-/* Center navigation in the available space, prevent wrapping */
 .columns .block.columns-3-cols div div:nth-child(2) {
   flex: 1 1 0%;
   min-width: 0;
@@ -188,7 +185,6 @@
   justify-content: center;
 }
 
-/* Navigation row: remove bullets, force links into a single line, reduce gap */
 .columns ul,
 .columns ul ul {
   list-style: none;
@@ -205,12 +201,10 @@
   white-space: nowrap;
 }
 
-/* Hide "Home" link visually, keep for accessibility */
 .columns ul a[href="/ca/en"] {
   display: none;
 }
 
-/* Nav links styling: uppercase, bold, white, prevent wrapping */
 .columns ul ul a {
   color: #fff;
   text-transform: uppercase;
@@ -225,13 +219,11 @@
   white-space: nowrap;
 }
 
-/* Active/selected nav link underline (example: FAQs) */
 .columns ul ul li:nth-child(3) a {
   border-bottom: 3px solid #fff;
   padding-bottom: 0.15em;
 }
 
-/* Nav link hover/focus */
 .columns ul ul a:focus,
 .columns ul ul a:hover {
   color: #b3b3b3;
@@ -239,7 +231,6 @@
   text-decoration: none;
 }
 
-/* Rightmost column ("Search"): fixed width, right aligned, vertically centered */
 .columns .block.columns-3-cols div div:nth-child(3) {
   flex: 0 0 auto;
   min-width: 80px;
@@ -252,12 +243,10 @@
   padding: 0;
 }
 
-/* Lighten all general text except nav links */
 .columns p, .columns li, .columns span, .columns div {
   color: #ccc;
 }
 
-/* Responsive tweaks: stack columns vertically and center on mobile */
 @media (width <= 900px) {
   .columns {
     padding: 1.5rem 0.5rem;
@@ -290,9 +279,179 @@
   }
 }
 
-/* For full-width layout, if required */
 .columns-container .columns-wrapper {
   max-width: unset;
   padding: 0;
   margin: 0;
+}
+
+
+.columns.columns11 {
+  background: #232220;
+  color: #f6f6f6;
+  padding: 32px 48px 24px;
+  box-sizing: border-box;
+}
+
+.columns.columns11 .columns {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns11 {
+    padding: 32px 16px 24px;
+  }
+
+  .columns.columns11 .columns {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0;
+  }
+}
+
+/* Left column: logo/language/text vertical stack */
+.columns.columns11 .columns div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Logo image styling */
+.columns.columns11 picture img {
+  max-width: 130px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
+  filter: brightness(0) invert(1);
+}
+
+/* Language selector below logo */
+.columns.columns11 ul {
+  margin: 8px 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns11 ul li a {
+  color: #f6f6f6;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+/* --- ROW GROUPING FIX --- */
+
+/* Get the inner div that contains "Follow Us" label and all button-containers into a single row */
+.columns.columns11 .columns div:first-of-type div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 32px;
+  padding: 0;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+/* Button-containers: inline for horizontal alignment, no vertical stacking */
+.columns.columns11 .button-container {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* "Follow Us" header styling */
+.columns.columns11 h4#follow-us {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  line-height: 32px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Social buttons: square, icon-like, in-line (text hidden for appearance) */
+.columns.columns11 .button {
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  background: #eee;
+  color: #232220;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px 0 0;
+  text-align: center;
+  font-size: 0; /* Hide label text */
+  overflow: hidden;
+}
+
+.columns.columns11 .button:last-child {
+  margin-right: 0;
+}
+
+/* Button hover effect */
+.columns.columns11 .button:focus,
+.columns.columns11 .button:hover {
+  background: #d2d2d2;
+}
+
+/* Right column (text block) below "Follow Us" row */
+.columns.columns11 .columns div:last-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Text styling */
+.columns.columns11 p,
+.columns.columns11 li,
+.columns.columns11 span,
+.columns.columns11 div {
+  color: #f6f6f6;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.columns.columns11 p:last-child {
+  margin-bottom: 0;
+}
+
+/* Link styling: white and underlined */
+.columns.columns11 a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.columns.columns11 a:hover,
+.columns.columns11 a:focus {
+  color: #d2d2d2;
+}
+
+/* Remove any accidental margin above/below social row */
+
+/* Remove any default button or link styles that conflict */
+.columns.columns11 .block,
+.columns.columns11 .columns-wrapper {
+  padding: 0;
+  background: transparent;
 }
