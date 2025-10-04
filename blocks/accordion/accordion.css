@@ -289,7 +289,6 @@
   margin-top: 20px;
 }
 
-/* Responsive adjustments */
 @media (width <= 700px) {
   .accordion.accordion17 {
     padding: 0 4px 8px;
@@ -314,5 +313,180 @@
     margin: 6px 0 8px;
     border-radius: 0;
     max-width: 100vw;
+  }
+}
+
+
+.accordion.accordion19 {
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 24px;
+  background: #fff;
+}
+
+/* Remove border and background from details for an open editorial look */
+.accordion.accordion19 details {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  margin: 0 0 32px;
+  padding: 0;
+}
+
+/* Editorial summary: keep heading/arrow strictly left-aligned, compact, and vertically rhythmical */
+.accordion.accordion19 details summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 2.3em;
+  font-weight: 700;
+  color: #232323;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Ensure details marker sits close to text, not at the far end */
+.accordion.accordion19 details summary::-webkit-details-marker,
+.accordion.accordion19 details summary::marker {
+  margin-left: 0.3em;
+}
+
+.accordion.accordion19 details[open] summary {
+  background: transparent;
+}
+
+/* Editorial body styling */
+.accordion.accordion19 .accordion-item-body {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.accordion.accordion19 .accordion-item-body p,
+.accordion.accordion19 .accordion-item-body li {
+  color: #232323;
+  font-size: 1.12em;
+  line-height: 1.7;
+  margin: 0 0 1.3em;
+  text-align: left;
+}
+
+.accordion.accordion19 .accordion-item-body h2 {
+  color: #232323;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 2.2em;
+  margin-bottom: 0.35em;
+  position: relative;
+  line-height: 1.15;
+  background: none;
+  border: none;
+  text-align: left;
+  padding-left: 0;
+}
+
+.accordion.accordion19 .accordion-item-body h2::after {
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-top: 8px;
+  background: #e1d900;
+  border-radius: 2px;
+  content: "";
+}
+
+.accordion.accordion19 .accordion-item-body blockquote {
+  background: #f6f6f6;
+  border-left: 8px solid #e1d900;
+  margin: 2em 0;
+  padding: 1.3em 1.5em 1.2em 1.4em;
+  border-radius: 4px;
+  color: #232323;
+  font-size: 1.22em;
+  font-style: italic;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.accordion.accordion19 .accordion-item-body blockquote p {
+  margin: 0;
+}
+
+.accordion.accordion19 .accordion-item-body u {
+  color: #757575;
+  font-size: 0.98em;
+  text-decoration: none;
+  font-style: italic;
+  display: block;
+  margin-top: 0.4em;
+}
+
+.accordion.accordion19 .accordion-item-body picture,
+.accordion.accordion19 .accordion-item-body img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  margin: 2em 0 0.8em;
+  border-radius: 5px;
+  height: auto;
+}
+
+.accordion.accordion19 .accordion-item-body p strong em,
+.accordion.accordion19 .accordion-item-body p em strong {
+  display: block;
+  color: #757575;
+  font-size: 0.99em;
+  font-style: italic;
+  margin-bottom: 1.5em;
+  font-weight: normal;
+}
+
+.accordion.accordion19 .accordion-item-body > *:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
+.accordion.accordion19 .accordion-item-body ul,
+.accordion.accordion19 .accordion-item-body ol {
+  margin-left: 1.1em;
+  padding-left: 0;
+}
+
+.accordion.accordion19 .accordion-item-body ul {
+  list-style: disc outside none;
+}
+
+.accordion.accordion19 .accordion-item-body ol {
+  list-style: decimal outside none;
+}
+
+/* Responsive adjustments */
+@media (width <= 600px) {
+  .accordion.accordion19 {
+    padding: 0 8px;
+  }
+
+  .accordion.accordion19 details summary {
+    font-size: 1.4em;
+  }
+
+  .accordion.accordion19 .accordion-item-body h2 {
+    font-size: 1.13em;
+  }
+
+  .accordion.accordion19 .accordion-item-body blockquote {
+    font-size: 1em;
+    padding: 1em 1em 0.9em;
   }
 }
