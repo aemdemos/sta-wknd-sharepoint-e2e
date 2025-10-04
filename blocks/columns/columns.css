@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +31,123 @@
     flex: 1;
     order: unset;
   }
+}
+
+
+.columns.columns2 .block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 0.5rem 0;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+/* LOGO: keep to left, tightly grouped with language */
+.columns.columns2 .columns-img-col {
+  display: flex;
+  align-items: center;
+  margin-right: 0.2rem;
+}
+
+.columns.columns2 .columns-img-col img {
+  height: 48px;
+  width: auto;
+  display: block;
+  margin: 0;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* LANGUAGE: No bullet, minimal gap from logo, line-height matches logo alignment */
+.columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+  min-width: 0;
+  max-width: 10em;
+  line-height: 1;
+}
+
+/* Bullet removal override with max specificity */
+.columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) ul,
+.columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) li,
+.columns.columns2 ul,
+.columns.columns2 li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Language link styles */
+.columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) a {
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  text-decoration: none;
+  padding-left: 0;
+}
+
+.columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* SEARCH: right aligned, visible background, padding, softer border radius */
+.columns.columns2 .block div:nth-of-type(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 120px;
+  background: #ededed;
+  border-radius: 4px;
+  height: 32px;
+  padding: 8px 24px;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+.columns.columns2 .block div:nth-of-type(3) p {
+  color: #888;
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Responsive: Stack vertically on small screens */
+@media (width <= 899px) {
+  .columns.columns2 .block {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0.5rem 0;
+    gap: 0;
+  }
+
+  .columns.columns2 .columns-img-col {
+    margin: 0 0 0.5rem;
+  }
+
+  .columns.columns2 .block div:not(.columns-img-col):nth-of-type(2) {
+    margin: 0 0 0.5rem;
+    max-width: none;
+  }
+
+  .columns.columns2 .block div:nth-of-type(3) {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Utility: ensure no extra margin/padding in direct columns */
+.columns.columns2 .block div {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
