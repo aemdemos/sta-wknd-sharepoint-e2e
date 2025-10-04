@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -33,7 +32,6 @@
   padding-bottom: 14px;
 }
 
-/* GRID LAYOUT */
 .cards.cards3 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -69,7 +67,6 @@
   }
 }
 
-/* INDIVIDUAL CARD STYLING */
 .cards.cards3 li {
   background: none;
   border: none;
@@ -83,7 +80,6 @@
   min-width: 0;
 }
 
-/* IMAGE */
 .cards.cards3 .cards-card-image {
   margin-bottom: 2px;
   display: flex;
@@ -116,7 +112,6 @@
   }
 }
 
-/* CARD BODY (TEXT & SOCIALS) */
 .cards.cards3 .cards-card-body {
   text-align: center;
   margin: 0;
@@ -133,7 +128,6 @@
   text-transform: none;
 }
 
-/* NAME */
 .cards.cards3 .cards-card-body strong {
   display: block;
   font-size: 1.08rem;
@@ -143,13 +137,11 @@
   letter-spacing: 0.01em;
 }
 
-/* SUBTITLE / ROLE */
 .cards.cards3 .cards-card-body br {
   line-height: 1;
   margin-bottom: 0;
 }
 
-/* SOCIAL LINKS ROW */
 .cards.cards3 .cards-card-body a {
   display: inline-block;
   width: 22px;
@@ -179,9 +171,155 @@
   color: #222;
 }
 
-/* TIGHTER VERTICAL RHYTHM WITHIN CARD */
 .cards.cards3 .cards-card-body strong + br {
   margin-bottom: 0;
 }
 
-/* Ensure cards stay visually grouped on wide screens */
+
+.cards.cards4 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* At desktop: force five columns, prevent row wrapping, only horizontal gap */
+.cards.cards4 ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px; /* horizontal gap; vertical gap (row-gap) matches column gap for even spacing */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  place-items: stretch stretch;
+}
+
+/* Tablet: three columns */
+@media (width <= 1200px) {
+  .cards.cards4 ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+/* Mobile: two columns */
+@media (width <= 900px) {
+  .cards.cards4 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Small screens: single column */
+@media (width <= 600px) {
+  .cards.cards4 ul {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Card container: visually balanced proportions */
+.cards.cards4 li {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+  height: 100%;
+  transition: box-shadow 0.2s;
+}
+
+.cards.cards4 li:hover {
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+}
+
+/* Card image area: flush, wide aspect, rounded top */
+.cards.cards4 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+  background: #efefef;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body: appropriate vertical spacing, button flush bottom */
+.cards.cards4 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px 18px 8px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* Title: uppercase, bold, visually prominent, spacing */
+.cards.cards4 .cards-card-body h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.14em;
+  color: #222;
+  margin: 0 0 8px;
+  letter-spacing: 0.04em;
+  line-height: 1.22;
+}
+
+/* Description: gray, smaller, compact spacing */
+.cards.cards4 .cards-card-body p {
+  color: #444;
+  font-size: 0.97em;
+  margin: 0 0 10px;
+  line-height: 1.5;
+  flex: 0 0 auto;
+}
+
+/* Button flush with bottom, left aligned */
+.cards.cards4 .cards-card-body .button-container {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+/* Button: yellow, left-aligned, compact, no extra margin */
+.cards.cards4 .cards-card-body .button {
+  background: #ffe600;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  padding: 9px 24px;
+  text-decoration: none;
+  font-size: 1em;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 3%);
+  margin: 0;
+  min-width: 120px;
+  text-align: left;
+  transition: background 0.18s;
+}
+
+.cards.cards4 .cards-card-body .button:hover,
+.cards.cards4 .cards-card-body .button:focus {
+  background: #fc0;
+  color: #222;
+}
