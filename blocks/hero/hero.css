@@ -150,20 +150,14 @@
   background: transparent;
 }
 
-/* Ensure hero wrapper spans full width */
-
-/* Use grid on both direct children to overlap image and card */
 .hero.hero13 div {
   grid-area: stack;
   width: 100%;
   height: 100%;
   min-height: 340px;
   pointer-events: none;
-
-  /* ensure image container doesn't block overlay card events */
 }
 
-/* Make the picture/img fill the block as a background */
 .hero.hero13 div picture,
 .hero.hero13 div img {
   position: absolute;
@@ -176,7 +170,6 @@
   pointer-events: none;
 }
 
-/* Overlay card in grid, on top of the image, pointer-events enabled */
 .hero.hero13 div:last-child {
   grid-area: stack;
   place-self: end center;
@@ -195,7 +188,6 @@
   margin-bottom: 32px;
 }
 
-/* Heading inside overlay card */
 .hero.hero13 h2,
 .hero.hero13 h1,
 .hero.hero13 h3,
@@ -209,7 +201,6 @@
   max-width: 100%;
 }
 
-/* Divider line below hero block */
 .hero.hero13::after {
   display: block;
   width: 100%;
@@ -256,5 +247,144 @@
     padding: 5px 4px 10px 6px;
     margin-bottom: 4px;
     min-height: 28px;
+  }
+}
+
+
+.hero.hero18 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100vw;
+  min-height: 420px;
+  background: var(--background-color);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* COLUMN STRUCTURE: The first two nested divs act as columns */
+.hero.hero18 div {
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* --- IMAGE COLUMN --- */
+.hero.hero18 div:first-of-type {
+  flex: 2 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: transparent;
+  height: auto;
+  position: relative;
+}
+
+/* Ensure the inner div inside the image column stretches and has height */
+.hero.hero18 div:first-of-type div {
+  flex: 1 1 0;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  min-height: 420px;
+  height: 100%;
+}
+
+/* Make the picture and image fill the space */
+.hero.hero18 picture {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  position: static;
+}
+
+.hero.hero18 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  background: #eaeaea;
+  border-radius: 0;
+}
+
+/* --- TEXT COLUMN --- */
+.hero.hero18 div:last-of-type {
+  flex: 1 1 0;
+  min-width: 260px;
+  max-width: 32vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 56px 0 0 36px;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* Stretch the inner text container fully */
+.hero.hero18 div:last-of-type div {
+  flex: 0 1 auto;
+  padding: 0;
+  margin: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Title styling */
+.hero.hero18 h1 {
+  margin: 0 0 0.5em;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xxl);
+  line-height: 1.1;
+  font-weight: 600;
+  max-width: 18ch;
+  text-align: left;
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+
+/* Byline styling */
+.hero.hero18 h4 {
+  margin: 0;
+  padding: 0;
+  font-size: var(--heading-font-size-m);
+  color: #b3b3b3;
+  font-weight: 400;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .hero.hero18 {
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .hero.hero18 div:first-of-type,
+  .hero.hero18 div:last-of-type {
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+    height: auto;
+  }
+
+  .hero.hero18 div:first-of-type div,
+  .hero.hero18 picture,
+  .hero.hero18 img {
+    min-height: 180px;
+    max-height: 45vw;
+  }
+
+  .hero.hero18 div:last-of-type {
+    padding: 24px 4vw 0;
   }
 }
