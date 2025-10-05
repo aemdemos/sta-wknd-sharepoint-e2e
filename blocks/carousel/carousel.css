@@ -154,7 +154,6 @@
 
 
 .carousel.carousel8 .carousel-slide-image {
-  /* Ensure the image container can fill its parent */
   display: block;
   width: 100%;
   height: auto;
@@ -164,18 +163,16 @@
 }
 
 .carousel.carousel8 .carousel-slide-image picture {
-  /* Let picture fill container, but don't force viewport width */
   width: 100%;
   height: auto;
   display: block;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  position: static; /* don't position absolute, let it flow naturally */
+  position: static;
 }
 
 .carousel.carousel8 .carousel-slide-image img {
-  /* Make the image fill horizontally, but keep aspect ratio */
   display: block;
   width: 100%;
   height: auto;
@@ -185,7 +182,6 @@
   box-sizing: border-box;
 }
 
-/* Remove any default padding/margin from top-level carousel containers */
 .carousel.carousel8,
 .carousel.carousel8 .carousel-slides-container,
 .carousel.carousel8 .carousel-slides,
@@ -197,8 +193,151 @@
   box-sizing: border-box;
 }
 
-/* Hide navigation and indicators for a clean look */
 .carousel.carousel8 .carousel-navigation-buttons,
 .carousel.carousel8 .carousel-slide-indicators {
   display: none;
+}
+
+
+.carousel.carousel18 {
+  position: relative;
+
+  /* Remove extra margin above the carousel block */
+  margin-top: 0;
+}
+
+.carousel.carousel18 .carousel-slides-container {
+  position: relative;
+  padding-bottom: 56px; /* Reserve space for controls under image */
+}
+
+.carousel.carousel18 .carousel-slides {
+  /* Reduce image height for compact layout */
+  min-height: 360px;
+  max-height: 56vw;
+}
+
+.carousel.carousel18 .carousel-slide {
+  min-height: 320px;
+  max-height: 56vw;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons {
+  position: absolute;
+  inset: auto 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+  z-index: 3;
+  margin: 0;
+  pointer-events: none; /* Allow only buttons to be interactive */
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #222;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 6%);
+  position: static;
+  pointer-events: auto;
+  margin: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button:hover,
+.carousel.carousel18 .carousel-navigation-buttons button:focus {
+  background: #f1f1f1;
+  border-color: #000;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons button::after {
+  display: none;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons .slide-prev::before,
+.carousel.carousel18 .carousel-navigation-buttons .slide-next::before {
+  display: inline-block;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.carousel.carousel18 .carousel-navigation-buttons .slide-prev::before {
+  content: "←";
+}
+
+.carousel.carousel18 .carousel-navigation-buttons .slide-next::before {
+  content: "→";
+}
+
+.carousel.carousel18 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  padding: 0;
+  gap: 10px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.carousel.carousel18 .carousel-slide-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  background: #222;
+  border-radius: 50%;
+  border: none;
+  margin: 0 2px;
+  padding: 0;
+  transition: background 0.2s, border 0.2s;
+  box-shadow: none;
+  pointer-events: auto;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button:disabled {
+  background: #fff;
+  border: 1.5px solid #222;
+}
+
+@media (width <= 600px) {
+  .carousel.carousel18 .carousel-slides,
+  .carousel.carousel18 .carousel-slide {
+    min-height: 180px;
+    max-height: 48vw;
+  }
+
+  .carousel.carousel18 .carousel-slide-indicators,
+  .carousel.carousel18 .carousel-navigation-buttons {
+    bottom: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .carousel.carousel18 .carousel-navigation-buttons button {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+
+  .carousel.carousel18 .carousel-slide-indicator button {
+    width: 8px;
+    height: 8px;
+  }
 }
