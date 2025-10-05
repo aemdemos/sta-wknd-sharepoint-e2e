@@ -201,18 +201,15 @@
 
 .carousel.carousel18 {
   position: relative;
-
-  /* Remove extra margin above the carousel block */
   margin-top: 0;
 }
 
 .carousel.carousel18 .carousel-slides-container {
   position: relative;
-  padding-bottom: 56px; /* Reserve space for controls under image */
+  padding-bottom: 56px;
 }
 
 .carousel.carousel18 .carousel-slides {
-  /* Reduce image height for compact layout */
   min-height: 360px;
   max-height: 56vw;
 }
@@ -232,7 +229,7 @@
   padding: 0 16px;
   z-index: 3;
   margin: 0;
-  pointer-events: none; /* Allow only buttons to be interactive */
+  pointer-events: none;
 }
 
 .carousel.carousel18 .carousel-navigation-buttons button {
@@ -340,4 +337,184 @@
     width: 8px;
     height: 8px;
   }
+}
+
+
+.carousel.carousel22 {
+  position: relative;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make image immersive, remove extra margins */
+.carousel.carousel22 .carousel-slides {
+  margin: 0;
+  padding: 0;
+  min-height: 52vh;
+}
+
+/* Slide: lower content panel to bottom left */
+.carousel.carousel22 .carousel-slide {
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-height: 52vh;
+}
+
+/* Content Panel: lower left, smaller, tighter */
+.carousel.carousel22 .carousel-slide .carousel-slide-content {
+  background: #fff;
+  color: #131313;
+  box-shadow: 0 1px 8px rgb(51 51 51 / 12%);
+  border-radius: 0;
+  padding: 22px 32px 18px;
+  max-width: 460px;
+  margin: 0 0 38px 48px;
+  width: 100%;
+  position: relative;
+}
+
+/* Responsive: decrease max-width/padding further */
+@media (width <= 900px) {
+  .carousel.carousel22 .carousel-slide .carousel-slide-content {
+    padding: 14px 8px 10px 10px;
+    max-width: 98vw;
+    margin: 0 0 12px 6px;
+  }
+}
+
+/* Headline/Text: smaller, tighter */
+.carousel.carousel22 .carousel-slide .carousel-slide-content h2 {
+  margin-bottom: 0.45em;
+  margin-top: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #131313;
+}
+
+.carousel.carousel22 .carousel-slide .carousel-slide-content p {
+  color: #333;
+  margin-bottom: 0.65em;
+  margin-top: 0.1em;
+  line-height: 1.5;
+}
+
+/* CTA Button: smaller, less space */
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container .button {
+  background: #ffe600;
+  color: #222;
+  border-radius: 2px;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 16px;
+  text-transform: uppercase;
+  box-shadow: none;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+/* Button hover/focus */
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container .button:hover,
+.carousel.carousel22 .carousel-slide .carousel-slide-content .button-container .button:focus {
+  background: #ffcf00;
+  color: #222;
+  text-decoration: underline;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Navigation Buttons: small, bottom right, close to edges */
+.carousel.carousel22 .carousel-navigation-buttons {
+  position: absolute;
+  bottom: 18px;
+  right: 16px;
+  left: unset;
+  top: unset;
+  transform: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  padding: 0;
+  background: none;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #dadada;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 7%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+  color: #111;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:hover,
+.carousel.carousel22 .carousel-navigation-buttons button:focus-visible {
+  border-color: #3b63fb;
+  box-shadow: 0 2px 6px rgb(59 99 251 / 8%);
+  background: #f0f4ff;
+  outline: none;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button:disabled {
+  background: #f6f6f6;
+  border-color: #dadada;
+  color: #dadada;
+  box-shadow: none;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button::after {
+  border-color: #111;
+  border-width: 2px;
+  height: 8px;
+  width: 8px;
+  left: 57%;
+}
+
+.carousel.carousel22 .carousel-navigation-buttons button.slide-next::after {
+  left: 43%;
+}
+
+/* Page Dots: very small, closer to bottom */
+.carousel.carousel22 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  padding: 0;
+  z-index: 2;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #dadada;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:disabled {
+  background: #666;
+}
+
+.carousel.carousel22 .carousel-slide-indicator button:hover,
+.carousel.carousel22 .carousel-slide-indicator button:focus-visible {
+  background: #999;
 }
