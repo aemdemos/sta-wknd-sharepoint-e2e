@@ -25,3 +25,131 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards4 {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.cards.cards4 ul {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.cards.cards4 ul li {
+  background: #fff;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex: 0 0 19.5%;
+  max-width: 19.5%;
+  min-width: 0;
+  height: 410px;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.cards.cards4 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards.cards4 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cards.cards4 .cards-card-body {
+  flex: 1 1 auto;
+  padding: 8px 12px 12px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 110px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.cards.cards4 .cards-card-body h3 {
+  font-size: 1.15em;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 6px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.cards.cards4 .cards-card-body p {
+  font-size: 0.93em;
+  color: #555;
+  margin: 0;
+  line-height: 1.43;
+  display: -webkit-box;
+  -webkit-line-clamp: 16;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (width <= 1200px) {
+  .cards.cards4 ul {
+    gap: 6px;
+    max-width: 100%;
+  }
+
+  .cards.cards4 ul li {
+    flex: 0 0 23.5%;
+    max-width: 23.5%;
+    height: 370px;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards4 ul {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .cards.cards4 ul li {
+    flex: 0 0 48%;
+    max-width: 48%;
+    height: 320px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards4 ul {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .cards.cards4 ul li {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 220px;
+  }
+}
