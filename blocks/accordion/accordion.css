@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,163 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion12 {
+  max-width: 740px;
+  margin: 48px auto;
+  background: #fff;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* Accordion Item Spacing */
+.accordion.accordion12 details {
+  margin-bottom: 48px;
+  border: none;
+  background: #fff;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* SUMMARY ROW: Group heading and arrow tightly, align left */
+.accordion.accordion12 details summary {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 0 24px;
+  margin: 0;
+  min-height: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  outline: none;
+  width: auto;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* Heading in summary: left aligned, not stretching, arrow stays tight to right */
+.accordion.accordion12 details summary h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  background: none;
+  text-align: left;
+  flex: 0 1 auto;
+}
+
+/* Remove marker spacing */
+.accordion.accordion12 details summary::-webkit-details-marker,
+.accordion.accordion12 details summary::marker {
+  display: none;
+}
+
+/* Arrow: tight, visually grouped with heading */
+.accordion.accordion12 details summary::after {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid #222;
+  border-width: 2.5px 2.5px 0 0;
+  margin-left: 2px;
+  border-radius: 1px;
+  transform: rotate(135deg);
+  vertical-align: middle;
+  background: none;
+  transition: transform 0.2s;
+}
+
+.accordion.accordion12 details[open] summary::after {
+  transform: rotate(-45deg);
+}
+
+/* Remove summary background on hover/focus/open */
+.accordion.accordion12 details[open] summary,
+.accordion.accordion12 details summary:focus,
+.accordion.accordion12 details summary:hover {
+  background: none;
+}
+
+/* Accordion body spacing */
+.accordion.accordion12 details .accordion-item-body {
+  padding: 0;
+  background: #fff;
+  border-top: none;
+}
+
+/* Blockquote styling */
+.accordion.accordion12 details .accordion-item-body blockquote {
+  border-left: 4px solid #e0e0e0;
+  background: #f2f2f2;
+  margin: 32px 0;
+  padding: 20px 28px;
+  color: #222;
+  font-size: 1.15em;
+  font-style: italic;
+}
+
+/* Highlighted text inside blockquote */
+.accordion.accordion12 details .accordion-item-body blockquote strong {
+  color: #d2b356;
+  font-weight: 700;
+}
+
+/* Section Headings (h2 inside body) */
+.accordion.accordion12 details .accordion-item-body h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #222;
+  margin: 40px 0 20px;
+  line-height: 1.25;
+}
+
+/* Paragraph spacing */
+.accordion.accordion12 details .accordion-item-body p {
+  margin: 0 0 24px;
+  color: #222;
+  font-size: 1.08em;
+  line-height: 1.7;
+}
+
+/* Images */
+.accordion.accordion12 details .accordion-item-body img,
+.accordion.accordion12 details .accordion-item-body picture {
+  display: block;
+  margin: 24px 0;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* General vertical spacing for direct children in body */
+.accordion.accordion12 details .accordion-item-body * {
+  margin-bottom: 24px;
+}
+
+.accordion.accordion12 details .accordion-item-body *:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 900px) {
+  .accordion.accordion12 {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .accordion.accordion12 details summary {
+    padding: 24px 0 16px;
+    gap: 6px;
+  }
+
+  .accordion.accordion12 details .accordion-item-body blockquote {
+    padding: 12px;
+  }
 }
