@@ -527,14 +527,11 @@
   display: flex;
   flex-direction: column;
   background: transparent;
-
-  /* Remove any vertical centering or forced height */
   align-items: stretch;
   justify-content: flex-start;
   height: auto;
 }
 
-/* Tabs row: align left with content, increase spacing above and below, remove margin-top */
 .tabs.tabs11 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -549,7 +546,6 @@
   overflow-x: auto;
 }
 
-/* Tabs styling and active state, with more generous padding */
 .tabs.tabs11 .tabs-tab {
   background: transparent;
   color: #222;
@@ -579,7 +575,6 @@
   padding: 0;
 }
 
-/* Remove panel border and boxed look */
 .tabs.tabs11 .tabs-panel {
   margin-top: 0;
   padding: 0;
@@ -589,13 +584,11 @@
   overflow: visible;
 }
 
-/* Remove unwanted padding from inner divs */
 .tabs.tabs11 div {
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Headings styling */
 .tabs.tabs11 h2 {
   color: #222;
   margin-bottom: 24px;
@@ -612,7 +605,6 @@
   letter-spacing: 0.1px;
 }
 
-/* Images styling */
 .tabs.tabs11 picture,
 .tabs.tabs11 img {
   display: block;
@@ -628,7 +620,6 @@
   max-height: none;
 }
 
-/* Text content styling */
 .tabs.tabs11 p {
   color: #555;
   font-size: 16px;
@@ -637,7 +628,6 @@
   margin-top: 0;
 }
 
-/* Unordered list styling */
 .tabs.tabs11 ul {
   margin-left: 2em;
   margin-bottom: 32px;
@@ -651,7 +641,6 @@
   list-style-type: disc;
 }
 
-/* Related trips label styling */
 .tabs.tabs11 p:last-of-type {
   color: #888;
   font-size: 15px;
@@ -659,7 +648,6 @@
   margin-bottom: 12px;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs11 {
     max-width: 100vw;
@@ -676,4 +664,185 @@
   }
 }
 
-/* Ensure images always display */
+
+.tabs.tabs13 {
+  /* Ensure block is flush left, max width for dominance, remove all horizontal padding/margin */
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tabs Navigation: flex row, compact, flush left, more space above and below */
+.tabs.tabs13 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 4px;
+  margin-top: 32px;
+  margin-bottom: 28px;
+  padding: 0;
+  border-bottom: none;
+  background: transparent;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Tab Buttons: shorter, tighter, all-caps, compact size */
+.tabs.tabs13 .tabs-tab {
+  border: none;
+  background: transparent;
+  color: #444;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 7px 16px 7px 0;
+  border-radius: 0;
+  margin: 0;
+  min-width: 0;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+
+/* Active/inactive tabs */
+.tabs.tabs13 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs13 .tabs-tab[aria-selected="false"] {
+  background: transparent;
+  color: #444;
+}
+
+.tabs.tabs13 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove bottom border from nav/buttons */
+.tabs.tabs13 .tabs-list,
+.tabs.tabs13 .tabs-list .tabs-tab {
+  border-bottom: none;
+}
+
+/* Panel Container: align flush left, no extra centering/padding */
+.tabs.tabs13 .tabs-panel {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+  max-width: 1000px;
+}
+
+.tabs.tabs13 .tabs-panel div {
+  margin: 0;
+  padding: 0;
+  max-width: 1000px;
+}
+
+/* Heading and yellow accent underline: tight spacing, accent only as underline, use border approach */
+.tabs.tabs13 .tabs-panel h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.1;
+  display: inline-block;
+  border-bottom: 2px solid #f7d154;
+  padding-bottom: 2px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Responsive image styling: full-width, less rounded, minimal bottom margin, flush left */
+.tabs.tabs13 picture,
+.tabs.tabs13 img {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 6px;
+  margin: 0 0 4px;
+  box-sizing: border-box;
+}
+
+/* Caption styling: compact, left-aligned below image, tighter margin */
+.tabs.tabs13 .tabs-panel p:first-of-type {
+  color: #222;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  max-width: 1000px;
+}
+
+/* Body Text: more compact, tighter paragraph spacing */
+.tabs.tabs13 .tabs-panel p {
+  color: #222;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 6px;
+  font-weight: 400;
+  text-transform: none;
+  max-width: 950px;
+}
+
+/* Remove all left margin/padding from all containers */
+.tabs.tabs13,
+.tabs.tabs13 .tabs-panel,
+.tabs.tabs13 .tabs-panel div {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Responsive adjustments: preserve left alignment and compactness */
+@media (width <= 700px) {
+  .tabs.tabs13 {
+    max-width: 100vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+
+  .tabs.tabs13 .tabs-panel,
+  .tabs.tabs13 .tabs-panel div,
+  .tabs.tabs13 picture,
+  .tabs.tabs13 img {
+    max-width: 100vw;
+  }
+
+  .tabs.tabs13 .tabs-list {
+    max-width: 100vw;
+    gap: 2px;
+    margin-top: 20px;
+    margin-bottom: 14px;
+  }
+
+  .tabs.tabs13 .tabs-tab {
+    padding: 5px 6px 5px 0;
+    font-size: 11px;
+  }
+
+  .tabs.tabs13 .tabs-panel h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-bottom-width: 2px;
+    padding-bottom: 1px;
+  }
+
+  .tabs.tabs13 .tabs-panel p,
+  .tabs.tabs13 .tabs-panel p:first-of-type {
+    font-size: 13px;
+    max-width: 100vw;
+  }
+}
