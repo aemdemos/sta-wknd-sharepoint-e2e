@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,55 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel8 .carousel-slide-image {
+  /* Ensure the image container can fill its parent */
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.carousel.carousel8 .carousel-slide-image picture {
+  /* Let picture fill container, but don't force viewport width */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: static; /* don't position absolute, let it flow naturally */
+}
+
+.carousel.carousel8 .carousel-slide-image img {
+  /* Make the image fill horizontally, but keep aspect ratio */
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+/* Remove any default padding/margin from top-level carousel containers */
+.carousel.carousel8,
+.carousel.carousel8 .carousel-slides-container,
+.carousel.carousel8 .carousel-slides,
+.carousel.carousel8 .carousel-slide {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Hide navigation and indicators for a clean look */
+.carousel.carousel8 .carousel-navigation-buttons,
+.carousel.carousel8 .carousel-slide-indicators {
+  display: none;
 }
