@@ -56,3 +56,167 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+
+.tabs.tabs3 {
+  /* Center the block horizontally, remove excess top space */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px 56px;
+  background: var(--background-color);
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Tabs row styles - left align, reduce top margin */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 56px;
+  margin-top: 0;
+  margin-bottom: 40px;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tab button styles */
+.tabs.tabs3 .tabs-list .tabs-tab {
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  padding: 12px 38px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+.tabs.tabs3 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+/* Panel content area: left align, wider max-width, extra spacing */
+.tabs.tabs3 .tabs-panel {
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+  padding: 0;
+  border: none;
+  display: block;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Sidebar title - yellow accent underline */
+.tabs.tabs3 .tabs-panel h3 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 8px;
+  display: inline-block;
+  border-bottom: 4px solid #e2d37a;
+}
+
+/* Section titles */
+.tabs.tabs3 .tabs-panel h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 44px 0 36px;
+  line-height: 1.1;
+}
+
+/* Main image styles */
+.tabs.tabs3 .tabs-panel picture img {
+  width: 100%;
+  min-width: 320px;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  margin-bottom: 48px;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+/* Description text styles */
+.tabs.tabs3 .tabs-panel p {
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  line-height: 1.7;
+  margin: 0 0 30px;
+  max-width: 900px;
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (width <= 1200px) {
+  .tabs.tabs3 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .tabs.tabs3 .tabs-panel {
+    max-width: 100vw;
+  }
+
+  .tabs.tabs3 .tabs-panel picture img,
+  .tabs.tabs3 .tabs-panel p {
+    max-width: 100vw;
+  }
+}
+
+@media (width <= 900px) {
+  .tabs.tabs3 {
+    padding: 0 4px 24px;
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .tabs.tabs3 .tabs-list {
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .tabs.tabs3 .tabs-panel {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tabs.tabs3 .tabs-panel h2 {
+    margin-top: 20px;
+    margin-bottom: 16px;
+  }
+
+  .tabs.tabs3 .tabs-panel picture img {
+    margin-bottom: 16px;
+    border-radius: 7px;
+    min-width: 0;
+  }
+
+  .tabs.tabs3 .tabs-panel p {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Only show the active tab panel */
+.tabs.tabs3 .tabs-panel:not([aria-hidden="false"]) {
+  display: none;
+}
