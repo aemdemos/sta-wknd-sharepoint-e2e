@@ -439,7 +439,6 @@
   box-sizing: border-box;
 }
 
-/* --- Grid for two columns, better gap and sidebar balance --- */
 .columns.columns19 .columns-2-cols {
   display: grid;
   grid-template-columns: 1.45fr 1fr;
@@ -448,7 +447,6 @@
   width: 100%;
 }
 
-/* Responsive stacking for small screens */
 @media (width <= 900px) {
   .columns.columns19 .columns-2-cols {
     grid-template-columns: 1fr;
@@ -462,14 +460,12 @@
   }
 }
 
-/* Main column spacing and max-width */
 .columns.columns19 .columns-2-cols div:first-child {
   min-width: 0;
   max-width: 720px;
   margin-right: auto;
 }
 
-/* Sidebar column: aligned to top and made visually substantial */
 .columns.columns19 .columns-2-cols div:last-child {
   min-width: 340px;
   max-width: 400px;
@@ -480,7 +476,6 @@
   align-items: flex-start;
 }
 
-/* --- Headings and author styling --- */
 .columns.columns19 h1 {
   font-size: 2.7rem;
   color: #222;
@@ -531,7 +526,6 @@
   margin-top: 0;
 }
 
-/* --- Blockquote: stronger yellow, bigger and more margin --- */
 .columns.columns19 blockquote {
   margin: 54px 0 32px;
   padding: 38px 44px 38px 32px;
@@ -548,7 +542,6 @@
   color: #505050;
 }
 
-/* --- Address styling: lighter and more margin --- */
 .columns.columns19 p strong em,
 .columns.columns19 p em strong {
   color: #ccc;
@@ -559,7 +552,6 @@
   display: inline-block;
 }
 
-/* --- Underline for quote attribution --- */
 .columns.columns19 u {
   font-size: 1rem;
   color: #888;
@@ -570,7 +562,6 @@
   display: block;
 }
 
-/* --- Paragraphs and text --- */
 .columns.columns19 p {
   font-size: 1rem;
   color: #222;
@@ -593,7 +584,6 @@
   margin-bottom: 0;
 }
 
-/* --- Images and section spacing --- */
 .columns.columns19 picture,
 .columns.columns19 img {
   display: block;
@@ -603,7 +593,6 @@
   box-shadow: none;
 }
 
-/* --- Sidebar content hierarchy and spacing --- */
 .columns.columns19 .columns-2-cols div:last-child h5 {
   font-size: 1rem;
   color: #888;
@@ -625,7 +614,6 @@
   margin-top: 0;
 }
 
-/* Sidebar PDF info list styling */
 .columns.columns19 .columns-2-cols div:last-child ul {
   list-style: none;
   padding-left: 0;
@@ -638,7 +626,6 @@
   margin-bottom: 1px;
 }
 
-/* Sidebar article links, bold and spaced, with muted date styling */
 .columns.columns19 .columns-2-cols div:last-child ul:last-of-type {
   margin-top: 30px;
   margin-bottom: 0;
@@ -670,7 +657,6 @@
   line-height: 1.2;
 }
 
-/* Muted date styling for sidebar links (if present as a separate element) */
 .columns.columns19 .columns-2-cols div:last-child ul:last-of-type li span,
 .columns.columns19 .columns-2-cols div:last-child ul:last-of-type li small {
   display: block;
@@ -681,7 +667,6 @@
   line-height: 1.2;
 }
 
-/* --- Sidebar PDF button --- */
 .columns.columns19 .button-container .button {
   display: inline-flex;
   align-items: center;
@@ -708,7 +693,6 @@
   color: #222;
 }
 
-/* --- Profile section at bottom --- */
 .columns.columns19 h2#stacey-roswells {
   font-size: 1.15rem;
   font-weight: 700;
@@ -725,7 +709,6 @@
   letter-spacing: 0.07em;
 }
 
-/* Social buttons block - single row with gaps and centering */
 .columns.columns19 .button-container {
   display: inline-block;
   margin-right: 18px;
@@ -737,21 +720,18 @@
   margin-right: 0;
 }
 
-/* All social buttons in a row below profile */
 .columns.columns19 h2#stacey-roswells + p + .button-container,
 .columns.columns19 h2#stacey-roswells + p + .button-container + .button-container,
 .columns.columns19 h2#stacey-roswells + p + .button-container + .button-container + .button-container {
   display: inline-block;
 }
 
-/* Profile block spacing */
 .columns.columns19 h2#stacey-roswells,
 .columns.columns19 h2#stacey-roswells + p,
 .columns.columns19 .button-container {
   margin-left: 18px;
 }
 
-/* --- Section and image spacing --- */
 .columns.columns19 h2,
 .columns.columns19 h3,
 .columns.columns19 h4,
@@ -762,12 +742,10 @@
   margin-top: 36px;
 }
 
-/* More vertical spacing in main column */
 .columns.columns19 .columns-2-cols div:first-child > *:not(:first-child) {
   margin-top: 24px;
 }
 
-/* --- Responsive adjustments --- */
 @media (width <= 900px) {
   .columns.columns19 {
     padding: 0 8px;
@@ -807,8 +785,147 @@
   }
 }
 
-/* Remove bullets from all lists in block */
 .columns.columns19 ul {
   padding-left: 0;
   list-style: none;
+}
+
+
+.columns.columns40 {
+  background: none;
+  color: var(--text-color);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main columns row: flex side-by-side */
+.columns.columns40 .columns-2-cols {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 480px;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns40 .columns-2-cols {
+    flex-direction: column;
+    min-height: unset;
+  }
+}
+
+/* Image column: stretch full height */
+.columns.columns40 .columns-img-col {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  background: none;
+}
+
+.columns.columns40 .columns-img-col picture,
+.columns.columns40 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: none;
+  max-height: none;
+  filter: none;
+  margin: 0;
+  border: none;
+}
+
+/* Text panel: slightly reduced padding, fills column */
+.columns.columns40 .columns-2-cols div:not(.columns-img-col) {
+  flex: 1 1 50%;
+  min-width: 0;
+  background: #f5f5f5;
+
+  /* Padding tuned for better visual width and spacing */
+  padding: 28px 36px 40px 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  height: auto;
+  min-height: 320px;
+}
+
+@media (width <= 900px) {
+  .columns.columns40 .columns-2-cols div:not(.columns-img-col) {
+    padding: 20px 12px 32px;
+    min-height: unset;
+  }
+}
+
+/* Featured Article label */
+.columns.columns40 .columns-2-cols div:not(.columns-img-col) p:first-child {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px;
+  line-height: 1.4;
+  letter-spacing: 0.1px;
+}
+
+/* Headline */
+.columns.columns40 h2 {
+  font-size: 2.31rem;
+  font-weight: 700;
+  color: #151515;
+  line-height: 1.18;
+  margin: 0 0 16px;
+}
+
+/* Description paragraph: increase max-width for closer line length */
+.columns.columns40 h2 + p {
+  font-size: 1.07rem;
+  color: #4a4a4a;
+  margin: 0 0 18px;
+  max-width: 860px;
+  line-height: 1.6;
+}
+
+/* Button container: very tight spacing above */
+.columns.columns40 .button-container {
+  margin-top: 2px;
+  margin-bottom: 0;
+  width: auto;
+  display: block;
+}
+
+/* CTA button: slightly smaller font/padding, left-aligned */
+.columns.columns40 .button-container .button {
+  background-color: #ffd600;
+  color: #111;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none;
+  margin: 0;
+  letter-spacing: 0.04em;
+  transition: background 0.18s, color 0.18s;
+  display: inline-block;
+  min-width: 160px;
+  text-align: left;
+}
+
+.columns.columns40 .button-container .button:hover,
+.columns.columns40 .button-container .button:focus {
+  background-color: #ffe066;
+  color: #000;
+}
+
+/* Ensure all text is left aligned */
+.columns.columns40 .columns-2-cols div:not(.columns-img-col) * {
+  text-align: left;
 }
