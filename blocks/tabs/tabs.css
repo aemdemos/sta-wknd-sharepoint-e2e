@@ -70,7 +70,6 @@
   box-sizing: border-box;
 }
 
-/* Sidebar (tabs-list) */
 .tabs.tabs3 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -84,7 +83,6 @@
   gap: 0;
 }
 
-/* Tab button styles */
 .tabs.tabs3 .tabs-list .tabs-tab {
   background: transparent;
   color: #222;
@@ -116,7 +114,6 @@
   padding: 0;
 }
 
-/* Main panel area - REMOVE horizontal gap! */
 .tabs.tabs3 .tabs-panel {
   flex: 1 1 0%;
   padding: 0;
@@ -136,7 +133,6 @@
   min-width: 0;
 }
 
-/* Headings */
 .tabs.tabs3 .tabs-panel h3 {
   font-size: 25px;
   color: #222;
@@ -158,7 +154,6 @@
   content: "";
 }
 
-/* Main title */
 .tabs.tabs3 .tabs-panel h2 {
   font-size: 42px;
   color: #222;
@@ -172,7 +167,6 @@
   font-weight: 700;
 }
 
-/* Images */
 .tabs.tabs3 .tabs-panel picture img {
   display: block;
   width: 100%;
@@ -185,7 +179,6 @@
   margin-left: 0;
 }
 
-/* Paragraph text */
 .tabs.tabs3 .tabs-panel p {
   color: #222;
   font-size: var(--body-font-size-m);
@@ -195,7 +188,6 @@
   margin-left: 0;
 }
 
-/* List styling (for "What to Bring" tab) */
 .tabs.tabs3 .tabs-panel ul {
   padding-left: 20px;
   margin: 0 0 10px;
@@ -208,7 +200,6 @@
   line-height: 1.4;
 }
 
-/* Responsive stacking for mobile */
 @media (width <= 900px) {
   .tabs.tabs3 {
     flex-direction: column;
@@ -249,7 +240,177 @@
   }
 }
 
-/* Remove default vertical space above first heading in panel */
 .tabs.tabs3 .tabs-panel h3:first-child {
   margin-top: 0;
+}
+
+
+.tabs.tabs8 {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 860px);
+  gap: 24px;
+  align-items: start;
+  padding: 0;
+  background: var(--background-color);
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Sidebar: vertical tabs navigation only, light and thin */
+.tabs.tabs8 .tabs-list {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100%;
+  min-width: 0;
+  width: 100%;
+  padding: 32px 0 0;
+  margin: 0;
+  box-sizing: border-box;
+  border-right: 1px solid #eee;
+}
+
+.tabs.tabs8 .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 14px 0 14px 16px;
+  color: #222;
+  font-weight: 600;
+  font-size: var(--body-font-size-m);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  text-align: left;
+  width: 100%;
+  outline: none;
+  box-shadow: none;
+}
+
+.tabs.tabs8 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #f3f3f3;
+  color: #222;
+  border-left: 4px solid #222;
+}
+
+.tabs.tabs8 .tabs-list .tabs-tab:not([aria-selected="true"]) {
+  background: transparent;
+  color: #222;
+  border-left: 4px solid transparent;
+}
+
+/* Main Content Area (right column) */
+.tabs.tabs8 .tabs-panel {
+  grid-column: 2 / 3;
+  padding: 32px 0 0;
+  background: none;
+  border: none;
+  margin: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 860px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Heading alignment and spacing */
+.tabs.tabs8 .tabs-panel h3 {
+  font-size: var(--heading-font-size-xl);
+  color: var(--text-color);
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+/* Image sizing/alignment */
+.tabs.tabs8 .tabs-panel picture img {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  margin-bottom: 18px;
+  border-radius: 8px;
+}
+
+/* Subtitle styling */
+.tabs.tabs8 .tabs-panel p {
+  margin-top: 0;
+  margin-bottom: 18px;
+  text-align: left;
+  max-width: 800px;
+}
+
+.tabs.tabs8 .tabs-panel p:first-of-type {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  font-size: var(--body-font-size-s);
+  letter-spacing: 0.03em;
+  margin-bottom: 14px;
+}
+
+.tabs.tabs8 .tabs-panel p:not(:first-of-type) {
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+/* Lists and spacing in panel */
+.tabs.tabs8 .tabs-panel ul,
+.tabs.tabs8 .tabs-panel ol {
+  padding-left: 22px;
+  margin-bottom: 18px;
+}
+
+.tabs.tabs8 .tabs-panel ul li,
+.tabs.tabs8 .tabs-panel ol li {
+  margin-bottom: 8px;
+}
+
+/* Responsive: stack full width on small screens, move tabs to horizontal row */
+@media (width <= 900px) {
+  .tabs.tabs8 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .tabs.tabs8 .tabs-list {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    padding: 16px 0 0;
+    margin-bottom: 24px;
+  }
+
+  .tabs.tabs8 .tabs-list .tabs-tab {
+    padding: 12px 24px 12px 0;
+    border-left: none;
+    border-bottom: 4px solid transparent;
+    width: auto;
+  }
+
+  .tabs.tabs8 .tabs-list .tabs-tab[aria-selected="true"] {
+    border-bottom: 4px solid #222;
+    background: #f3f3f3;
+  }
+
+  .tabs.tabs8 .tabs-panel {
+    max-width: 100%;
+    padding: 24px 0 0;
+  }
+
+  .tabs.tabs8 .tabs-panel picture img {
+    max-width: 100%;
+  }
 }
