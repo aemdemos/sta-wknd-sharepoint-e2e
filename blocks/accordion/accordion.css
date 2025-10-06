@@ -70,7 +70,6 @@
   box-sizing: border-box;
 }
 
-/* Compact rows: strong alignment, table-like spacing */
 .accordion.accordion7 details {
   border: none;
   border-bottom: 1px solid #eaeaea;
@@ -87,7 +86,6 @@
   margin-top: 0;
 }
 
-/* Summary/question: tight, bold, and flexed row for icon alignment */
 .accordion.accordion7 summary {
   display: flex;
   flex-direction: row;
@@ -111,7 +109,6 @@
   padding-right: 3em;
 }
 
-/* Maximize marker prominence and spacing */
 .accordion.accordion7 summary::-webkit-details-marker,
 .accordion.accordion7 summary::marker {
   font-size: 2.1em;
@@ -119,7 +116,6 @@
   color: #222;
 }
 
-/* Question text */
 .accordion.accordion7 .accordion-item-label p {
   font-weight: 700;
   text-transform: uppercase;
@@ -130,7 +126,6 @@
   line-height: 1.5;
 }
 
-/* Body/answer: very subtle spacing, no background, tight look */
 .accordion.accordion7 .accordion-item-body {
   padding: 0.45em 0 0.55em;
   background: none;
@@ -143,14 +138,12 @@
   box-sizing: border-box;
 }
 
-/* Remove highlight background */
 .accordion.accordion7 summary:hover,
 .accordion.accordion7 summary:focus,
 .accordion.accordion7 details[open] summary {
   background: none;
 }
 
-/* Responsive: fill width on small screens */
 @media (width <= 700px) {
   .accordion.accordion7 {
     max-width: 100%;
@@ -167,5 +160,137 @@
 
   .accordion.accordion7 .accordion-item-body {
     padding: 0.4em 0 0.5em;
+  }
+}
+
+
+.accordion.accordion16 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 760px;
+  margin: 56px auto;
+  padding: 0 32px 48px;
+  background: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 4%);
+  box-sizing: border-box;
+}
+
+/* Remove backgrounds and borders from all heading elements and summaries */
+.accordion.accordion16 h1,
+.accordion.accordion16 h2,
+.accordion.accordion16 h4,
+.accordion.accordion16 details summary {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Remove unwanted default border for closed/open details summaries (if present) */
+.accordion.accordion16 details {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Section rhythm */
+.accordion.accordion16 details + details {
+  margin-top: 32px;
+}
+
+/* Headline & author styles */
+.accordion.accordion16 h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  color: #222;
+  margin-top: 44px;
+  margin-bottom: 8px;
+  letter-spacing: 0;
+  line-height: 1.10;
+}
+
+.accordion.accordion16 h4 {
+  font-size: var(--heading-font-size-m);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 0.11em;
+  margin: 0 0 35px;
+  line-height: 1.4;
+}
+
+/* Section headings */
+.accordion.accordion16 h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.14;
+}
+
+/* Paragraphs */
+.accordion.accordion16 p {
+  font-size: 1.14rem;
+  color: #222;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 24px;
+  max-width: 640px;
+}
+
+/* Images spacing */
+.accordion.accordion16 picture img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+  margin-top: 18px;
+  margin-bottom: 14px;
+}
+
+/* Remove marker/arrow from summary */
+.accordion.accordion16 details summary::-webkit-details-marker,
+.accordion.accordion16 details summary::after {
+  display: none;
+}
+
+/* Remove summary interactive look */
+.accordion.accordion16 details summary:focus,
+.accordion.accordion16 details summary:hover {
+  background: none;
+}
+
+/* Show details body w/ no border or background */
+.accordion.accordion16 details .accordion-item-body,
+.accordion.accordion16 details[open] .accordion-item-body {
+  padding: 0;
+  border-top: none;
+  background: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .accordion.accordion16 {
+    max-width: 100vw;
+    padding: 0 5vw 32px;
+    box-shadow: none;
+  }
+
+  .accordion.accordion16 h1 {
+    font-size: 2rem;
+  }
+
+  .accordion.accordion16 h2 {
+    font-size: 1.25rem;
+  }
+
+  .accordion.accordion16 p {
+    font-size: 1rem;
+    max-width: 100%;
   }
 }
