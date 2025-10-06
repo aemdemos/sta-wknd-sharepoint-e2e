@@ -2,14 +2,14 @@
 .tabs .tabs-list {
   display: flex;
   gap: 0;
-  max-width: 980px;
+  max-width: none;
   font-size: var(--body-font-size-xs);
   overflow-x: auto;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   border-bottom: none;
-  margin: 0 0 36px;
+  margin: 0;
   background: transparent;
   z-index: 2;
   padding: 0;
@@ -1146,14 +1146,15 @@
 
 .tabs {
   display: flex;
-  max-width: 980px;
-  margin: 38px auto 48px;
+  max-width: 1200px;
+  margin: 48px auto;
   background: #fff;
   padding: 0;
   box-sizing: border-box;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 100%;
 }
 
 .tabs .tabs-list,
@@ -2060,22 +2061,26 @@
 }
 
 .tabs .tabs-list .tabs-tab {
-  background: transparent;
+  background: #fff;
   border: none;
   border-radius: 0;
-  padding: 12px 38px 12px 28px;
-  font-weight: 700;
+  padding: 13px 36px 11px;
+  font-weight: 500;
   text-transform: uppercase;
   font-size: 15px;
   letter-spacing: 0.04em;
   color: #222;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: color 0.2s, border-bottom 0.2s, background 0.2s;
   box-shadow: none;
   outline: none;
   margin: 0;
   min-width: 120px;
   text-align: left;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tabs .tabs-list .tabs-tab:not(:first-child) {
@@ -2083,13 +2088,17 @@
 }
 
 .tabs .tabs-list .tabs-tab[aria-selected="true"] {
-  background: #222;
-  color: #fff;
+  background: #fff;
+  color: #222;
+  border-bottom: 3px solid #f5e6a2;
+  font-weight: 700;
 }
 
 .tabs .tabs-list .tabs-tab[aria-selected="false"] {
   background: #fff;
   color: #222;
+  border-bottom: 3px solid transparent;
+  font-weight: 400;
 }
 
 .tabs .tabs-list .tabs-tab p {
@@ -2618,7 +2627,6 @@
   box-sizing: border-box;
 }
 
-/* Remove vertical space above tabs bar, keep flush left */
 .tabs.tabs38 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2633,7 +2641,6 @@
   min-width: 0;
 }
 
-/* Tabs tab button: compact, underline thinner */
 .tabs.tabs38 .tabs-list .tabs-tab {
   padding: 10px 28px 10px 0;
   background: transparent;
@@ -2677,7 +2684,6 @@
   padding: 0;
 }
 
-/* Heading: only one underline, compact margin above and below */
 .tabs.tabs38 .tabs-panel h3 {
   font-size: 2rem;
   font-weight: 700;
@@ -2698,7 +2704,6 @@
   display: none;
 }
 
-/* Image block: left-aligned, fills more width, compact vertical spacing */
 .tabs.tabs38 .tabs-panel picture {
   display: block;
   margin-top: 18px;
@@ -2716,7 +2721,6 @@
   object-fit: cover;
 }
 
-/* Caption: flush left, compact margin */
 .tabs.tabs38 .tabs-panel p {
   max-width: 100%;
   margin-top: 0;
@@ -2735,7 +2739,6 @@
   line-height: 1.3;
 }
 
-/* Description paragraph: flush left, compact, full width */
 .tabs.tabs38 .tabs-panel p:not(:first-of-type) {
   font-size: 14px;
   color: #222;
@@ -2746,7 +2749,6 @@
   max-width: 100%;
 }
 
-/* List styles */
 .tabs.tabs38 .tabs-panel ul {
   padding-left: 18px;
   margin-bottom: 10px;
@@ -2760,7 +2762,6 @@
   text-align: left;
 }
 
-/* Responsive adjustments */
 @media (width <= 950px) {
   .tabs.tabs38 {
     max-width: 99vw;
@@ -2817,7 +2818,6 @@
   }
 }
 
-/* Only show active tab panel */
 .tabs.tabs38 .tabs-panel {
   display: none;
   background: #fff;
@@ -2832,4 +2832,116 @@
 
 .tabs.tabs38 .tabs-panel[aria-hidden="false"] {
   display: block;
+}
+
+/* Use grid: left column for title, right column stacks image and description vertically */
+.tabs .tabs-panel[aria-hidden="false"] div {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: auto auto;
+  gap: 0 64px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Title (left column, top row) */
+.tabs .tabs-panel[aria-hidden="false"] div h3 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  font-size: 2.5rem;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  border-bottom: 3px solid #f5e6a2;
+  padding-bottom: 10px;
+  text-align: left;
+  align-self: start;
+  max-width: 440px;
+  width: 100%;
+}
+
+/* Image (right column, top row) */
+.tabs .tabs-panel[aria-hidden="false"] div p:first-of-type {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  margin-bottom: 18px;
+  margin-top: 0;
+  align-self: start;
+}
+
+.tabs .tabs-panel[aria-hidden="false"] div p:first-of-type picture,
+.tabs .tabs-panel[aria-hidden="false"] div p:first-of-type img {
+  width: 100%;
+  max-width: 660px;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+/* Description (right column, second row) */
+.tabs .tabs-panel[aria-hidden="false"] div p:last-of-type {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  color: #222;
+  font-size: 1.05rem;
+  margin-top: 0;
+  margin-bottom: 34px;
+  text-align: left;
+  max-width: 660px;
+  width: 100%;
+  align-self: start;
+}
+
+/* Tabs styling: full width, horizontal, underlined active tab */
+
+/* Responsive: stack vertically on mobile */
+@media (width <= 900px) {
+  .tabs .tabs-panel[aria-hidden="false"] div {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 24px 0;
+  }
+
+  .tabs .tabs-panel[aria-hidden="false"] div h3,
+  .tabs .tabs-panel[aria-hidden="false"] div p:first-of-type,
+  .tabs .tabs-panel[aria-hidden="false"] div p:last-of-type {
+    grid-column: 1 / 2;
+    max-width: 100vw;
+    width: 100%;
+  }
+
+  .tabs .tabs-panel[aria-hidden="false"] div h3 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+  }
+
+  .tabs .tabs-panel[aria-hidden="false"] div p:first-of-type picture,
+  .tabs .tabs-panel[aria-hidden="false"] div p:first-of-type img {
+    max-width: 100vw;
+    margin-bottom: 14px;
+  }
+
+  .tabs .tabs-panel[aria-hidden="false"] div p:last-of-type {
+    font-size: 1rem;
+    margin-bottom: 13px;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs {
+    margin: 24px 0;
+    max-width: 100vw;
+    padding: 0 2vw;
+  }
+
+  .tabs .tabs-list .tabs-tab {
+    font-size: 12px;
+    padding: 9px 12px 8px;
+    min-width: unset;
+  }
 }
