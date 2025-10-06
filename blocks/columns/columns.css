@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -42,22 +43,20 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  align-items: center; /* Vertically center all items */
+  align-items: center;
   justify-content: space-between;
 }
 
-/* LEFT column: logo and language side by side, tightly grouped, left aligned */
 .columns.columns2 div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 18px; /* Tighter gap to visually group WKND + Deutsch */
+  gap: 18px;
   padding: 0 0 0 48px;
   width: auto;
   box-sizing: border-box;
 }
 
-/* Logo image sizing and placement */
 .columns.columns2 .columns-img-col {
   display: flex;
   align-items: center;
@@ -71,7 +70,6 @@
   margin: 0;
 }
 
-/* Remove bullets and spacing from language list */
 .columns.columns2 ul {
   list-style: none;
   margin: 0;
@@ -86,7 +84,6 @@
   vertical-align: middle;
 }
 
-/* Language link styling */
 .columns.columns2 ul li a {
   color: var(--text-color);
   font-size: 14px;
@@ -94,7 +91,6 @@
   font-weight: 400;
 }
 
-/* RIGHT column: search box flush right and vertically centered */
 .columns.columns2 div + div {
   justify-content: flex-end;
   align-items: center;
@@ -105,7 +101,6 @@
   padding: 0 48px 0 0;
 }
 
-/* Search box styling */
 .columns.columns2 p {
   margin: 0;
   padding: 10px 24px;
@@ -119,7 +114,6 @@
   align-self: center;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 700px) {
   .columns.columns2 {
     flex-direction: column;
@@ -139,5 +133,146 @@
   .columns.columns2 div + div {
     justify-content: flex-start;
     padding-right: 16px;
+  }
+}
+
+
+.columns {
+  background: #222;
+  color: #d1d1d1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  box-sizing: border-box;
+}
+
+/* Layout columns2 inner content side-by-side: logo (image), nav, search */
+.columns .columns2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* Layout logo and nav horizontally (logo + nav block in a row) */
+.columns .columns2 .columns-img-col,
+.columns .columns2 div:not(.columns-img-col) {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+/* Logo placement, invert for white appearance */
+.columns .columns-img-col img {
+  width: 140px;
+  max-width: 100%;
+  filter: invert(1) brightness(1.2) contrast(1.1);
+  display: block;
+  margin: 0 24px 0 0;
+  height: auto;
+}
+
+/* Home link: small, gray, left-aligned, not overlapping logo */
+.columns ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns ul > li > a {
+  color: #bdbdbd;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0 0 10px;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation (horizontal row): uppercase, white, evenly spaced, no wrap */
+.columns ul ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  align-items: flex-end;
+}
+
+.columns ul ul li {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.columns ul ul li a {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s, color 0.2s;
+  background: none;
+  display: inline-block;
+}
+
+.columns ul ul li a:hover,
+.columns ul ul li:nth-child(2) a {
+  font-weight: 700;
+  border-bottom: 2px solid #fff;
+}
+
+/* Make sure nav block is centered with logo vertically */
+.columns .columns2 div:not(.columns-img-col) {
+  align-items: flex-end;
+  gap: 0;
+}
+
+/* Fix About Us link wrapping */
+
+/* Search: treat as muted label, no box, left aligned under nav */
+.columns .columns2 div:not(.columns-img-col) p {
+  color: #bdbdbd;
+  font-size: 13px;
+  margin: 18px 0 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+  width: auto;
+}
+
+/* Remove spacing above nav for a tighter group under logo */
+.columns .columns2 div:not(.columns-img-col) ul {
+  margin-top: 0;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .columns {
+    padding: 20px 8px;
+    max-width: 100vw;
+  }
+
+  .columns .columns2 {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .columns .columns-img-col img {
+    width: 100px;
+  }
+
+  .columns ul ul {
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  .columns .columns2 div:not(.columns-img-col) p {
+    margin-top: 14px;
+    font-size: 12px;
   }
 }
