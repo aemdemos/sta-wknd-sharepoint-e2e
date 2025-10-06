@@ -496,3 +496,35 @@
     gap: 10px;
   }
 }
+
+
+.carousel.carousel32 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel32 .carousel-slide-indicators {
+  display: none;
+}
+
+.carousel.carousel32 .carousel-slides-container {
+  padding-left: 48px;
+  padding-right: 48px;
+  box-sizing: border-box;
+}
+
+.carousel.carousel32 .carousel-slide .carousel-slide-image picture img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+}
+
+@media (width <= 900px) {
+  .carousel.carousel32 .carousel-slides-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
