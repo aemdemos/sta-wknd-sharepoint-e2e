@@ -146,7 +146,6 @@
   box-sizing: border-box;
 }
 
-/* Layout columns2 inner content side-by-side: logo (image), nav, search */
 .columns .columns2 {
   display: flex;
   flex-direction: row;
@@ -154,7 +153,6 @@
   gap: 40px;
 }
 
-/* Layout logo and nav horizontally (logo + nav block in a row) */
 .columns .columns2 .columns-img-col,
 .columns .columns2 div:not(.columns-img-col) {
   display: flex;
@@ -163,7 +161,6 @@
   min-width: 0;
 }
 
-/* Logo placement, invert for white appearance */
 .columns .columns-img-col img {
   width: 140px;
   max-width: 100%;
@@ -173,7 +170,6 @@
   height: auto;
 }
 
-/* Home link: small, gray, left-aligned, not overlapping logo */
 .columns ul {
   margin: 0;
   padding: 0;
@@ -189,7 +185,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Navigation (horizontal row): uppercase, white, evenly spaced, no wrap */
 .columns ul ul {
   display: flex;
   flex-direction: row;
@@ -225,15 +220,11 @@
   border-bottom: 2px solid #fff;
 }
 
-/* Make sure nav block is centered with logo vertically */
 .columns .columns2 div:not(.columns-img-col) {
   align-items: flex-end;
   gap: 0;
 }
 
-/* Fix About Us link wrapping */
-
-/* Search: treat as muted label, no box, left aligned under nav */
 .columns .columns2 div:not(.columns-img-col) p {
   color: #bdbdbd;
   font-size: 13px;
@@ -245,12 +236,10 @@
   width: auto;
 }
 
-/* Remove spacing above nav for a tighter group under logo */
 .columns .columns2 div:not(.columns-img-col) ul {
   margin-top: 0;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .columns {
     padding: 20px 8px;
@@ -274,5 +263,183 @@
   .columns .columns2 div:not(.columns-img-col) p {
     margin-top: 14px;
     font-size: 12px;
+  }
+}
+
+
+.columns.columns10 {
+  background: #232221;
+  color: #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 32px 40px 20px;
+  box-sizing: border-box;
+}
+
+/* Top-level grid: left (logo/text), right (social) */
+.columns.columns10 .block.columns-3-cols {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 0 32px;
+  width: 100%;
+}
+
+/* Responsive: stack on mobile/small screens */
+@media (width <= 900px) {
+  .columns.columns10 .block.columns-3-cols {
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+    padding: 0;
+  }
+
+  .columns.columns10 {
+    padding: 20px 8px 16px;
+  }
+}
+
+/* LEFT COLUMN: logo/language/text */
+.columns.columns10 .block.columns-3-cols div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Logo */
+.columns.columns10 .columns-img-col img {
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 16px;
+  filter: none;
+}
+
+/* Hide language selector for visual match */
+.columns.columns10 .columns-img-col ~ div ul {
+  display: none;
+}
+
+/* RIGHT COLUMN: Social block as a HORIZONTAL ROW (label + all buttons) */
+.columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0;
+  gap: 18px;
+  width: 100%;
+}
+
+/* "Follow Us" label */
+.columns.columns10 #follow-us {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0 18px 0 0;
+  color: #f4f4f4;
+  align-self: flex-start;
+  white-space: nowrap;
+  display: block;
+  padding-top: 4px;
+}
+
+/* Social buttons wrapper: force each button-container into a true row (since they are siblings in the DOM) */
+.columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) .button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make all button-containers sit side by side (not stacked) */
+.columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) .button-container:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* Social buttons: square, dark, hide label text */
+.columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) .button-container a.button {
+  background: #2d2d2d;
+  color: #f4f4f4;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  font-size: 0; /* Hide label, icon-only look */
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  min-width: 36px;
+  min-height: 36px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* On mobile, allow label for accessibility, return a pill shape */
+@media (width <= 600px) {
+  .columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) .button-container a.button {
+    font-size: 13px;
+    width: 80px;
+    height: 36px;
+    border-radius: 18px;
+    padding: 0 12px;
+  }
+}
+
+/* Footer text column (legal/text block) */
+.columns.columns10 .block.columns-3-cols div:last-child {
+  padding-top: 24px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.columns.columns10 .block.columns-3-cols div:last-child div {
+  max-width: 700px;
+  color: #f4f4f4;
+  font-size: 13px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* Footer links: white, bold, underline */
+.columns.columns10 .block.columns-3-cols div:last-child a,
+.columns.columns10 .block.columns-3-cols div:last-child a:visited {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.columns.columns10 .block.columns-3-cols div:last-child a:hover {
+  color: #e0e0e0;
+}
+
+/* Copyright line */
+.columns.columns10 .block.columns-3-cols div:last-child p:first-child {
+  font-size: 13px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  color: #f4f4f4;
+}
+
+/* Reduce paragraph margins for compact footer */
+.columns.columns10 .block.columns-3-cols div:last-child p {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+@media (width <= 900px) {
+  .columns.columns10 .block.columns-3-cols div:last-child div {
+    max-width: 100%;
   }
 }
