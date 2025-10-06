@@ -58,7 +58,6 @@
   background: none;
 }
 
-/* Ensure image fills background and doesn't cause scroll */
 .hero.hero9 div picture,
 .hero.hero9 div picture img {
   display: block;
@@ -69,9 +68,6 @@
   max-height: 100vh;
 }
 
-/* Remove extra space from wrapper */
-
-/* Overlay card: more compact and visually centered */
 .hero.hero9 div:nth-child(2) {
   position: absolute;
   left: 50%;
@@ -92,7 +88,6 @@
   border-radius: 0;
 }
 
-/* Crisp left edge for text */
 .hero.hero9 div:nth-child(2) h2,
 .hero.hero9 div:nth-child(2) p {
   max-width: 670px;
@@ -101,7 +96,6 @@
   text-align: left;
 }
 
-/* Heading styling: remove letter-spacing for natural font look */
 .hero.hero9 div:nth-child(2) h2 {
   font-size: var(--heading-font-size-xl);
   color: var(--text-color);
@@ -112,7 +106,6 @@
   letter-spacing: 0;
 }
 
-/* Paragraph styling */
 .hero.hero9 div:nth-child(2) p {
   font-size: var(--body-font-size-m);
   color: #666;
@@ -121,7 +114,6 @@
   line-height: 1.5;
 }
 
-/* Responsive: adjust height, card width, padding, and text size */
 @media (width <= 900px) {
   .hero.hero9 {
     min-height: 320px;
@@ -150,7 +142,6 @@
   }
 }
 
-/* Prevent inherited centered text from global styles */
 .hero.hero9 h1,
 .hero.hero9 h2,
 .hero.hero9 h3,
@@ -163,4 +154,81 @@
   margin-left: 0;
   margin-right: 0;
   text-align: left;
+}
+
+
+.hero.hero12 {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background: transparent;
+  min-height: 360px;
+}
+
+.hero.hero12 div picture,
+.hero.hero12 div img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay card floats above bottom edge of image, with refined gap for better floating effect */
+.hero.hero12 div div:not(:has(picture)) {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 20px; /* increased gap for more visible image strip below card */
+  width: 86%;
+  background: var(--background-color);
+  box-sizing: border-box;
+  padding: 28px 32px 32px 28px; /* slightly reduced padding for more balanced card */
+  min-height: 62px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Headline styles */
+.hero.hero12 h2 {
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Remove static space below the hero image/card block */
+.hero.hero12 div:last-child {
+  height: 0;
+  overflow: visible;
+}
+
+/* Hero spans edge-to-edge if needed */
+
+/* Responsive adjustments for mobile */
+@media (width <= 600px) {
+  .hero.hero12 div picture,
+  .hero.hero12 div img {
+    height: 180px;
+  }
+
+  .hero.hero12 div div:not(:has(picture)) {
+    padding: 10px 8px 14px;
+    bottom: 8px;
+    width: 96%;
+    left: 2%;
+    right: 2%;
+  }
+
+  .hero.hero12 {
+    min-height: 180px;
+  }
 }
