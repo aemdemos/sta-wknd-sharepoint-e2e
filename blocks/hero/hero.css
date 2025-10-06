@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -44,4 +45,122 @@
   .hero {
     padding: 40px 32px;
   }
+}
+
+.hero.hero9 {
+  position: relative;
+  width: 100vw;
+  min-height: 450px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: none;
+}
+
+/* Ensure image fills background and doesn't cause scroll */
+.hero.hero9 div picture,
+.hero.hero9 div picture img {
+  display: block;
+  width: 100vw;
+  height: 100%;
+  min-height: 450px;
+  object-fit: cover;
+  max-height: 100vh;
+}
+
+/* Remove extra space from wrapper */
+
+/* Overlay card: more compact and visually centered */
+.hero.hero9 div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 900px;
+  background: var(--background-color);
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 12%);
+  padding: 0.8rem 2rem 0.7rem;
+  box-sizing: border-box;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Crisp left edge for text */
+.hero.hero9 div:nth-child(2) h2,
+.hero.hero9 div:nth-child(2) p {
+  max-width: 670px;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+/* Heading styling: remove letter-spacing for natural font look */
+.hero.hero9 div:nth-child(2) h2 {
+  font-size: var(--heading-font-size-xl);
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* Paragraph styling */
+.hero.hero9 div:nth-child(2) p {
+  font-size: var(--body-font-size-m);
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Responsive: adjust height, card width, padding, and text size */
+@media (width <= 900px) {
+  .hero.hero9 {
+    min-height: 320px;
+  }
+
+  .hero.hero9 div picture,
+  .hero.hero9 div picture img {
+    min-height: 320px;
+    height: 320px;
+    width: 100vw;
+  }
+
+  .hero.hero9 div:nth-child(2) {
+    width: 96vw;
+    padding: 0.75rem 1rem 0.55rem;
+    max-width: none;
+  }
+
+  .hero.hero9 div:nth-child(2) h2 {
+    font-size: var(--heading-font-size-l);
+    margin-bottom: 0.65rem;
+  }
+
+  .hero.hero9 div:nth-child(2) p {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+/* Prevent inherited centered text from global styles */
+.hero.hero9 h1,
+.hero.hero9 h2,
+.hero.hero9 h3,
+.hero.hero9 h4,
+.hero.hero9 h5,
+.hero.hero9 h6,
+.hero.hero9 p {
+  color: inherit;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
 }
