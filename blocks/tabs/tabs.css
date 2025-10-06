@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,200 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--background-color);
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Sidebar (tabs-list) */
+.tabs.tabs3 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 92px;
+  max-width: 96px;
+  padding: 0;
+  margin: 0;
+  border-right: 1px solid #ececec;
+  background: var(--background-color);
+  gap: 0;
+}
+
+/* Tab button styles */
+.tabs.tabs3 .tabs-list .tabs-tab {
+  background: transparent;
+  color: #222;
+  border: none;
+  border-radius: 0;
+  text-align: left;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  padding: 8px 6px 8px 0;
+  margin: 0;
+  margin-bottom: 2px;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  line-height: 1.4;
+}
+
+.tabs.tabs3 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-right: 4px;
+}
+
+.tabs.tabs3 .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main panel area - REMOVE horizontal gap! */
+.tabs.tabs3 .tabs-panel {
+  flex: 1 1 0%;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.tabs.tabs3 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs.tabs3 .tabs-panel div {
+  max-width: 560px;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Headings */
+.tabs.tabs3 .tabs-panel h3 {
+  font-size: 25px;
+  color: #222;
+  font-weight: 400;
+  margin: 0 0 2px;
+  display: block;
+  position: relative;
+  letter-spacing: 0.01em;
+  padding-bottom: 0;
+}
+
+.tabs.tabs3 .tabs-panel h3::after {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: #ffe36a;
+  margin-top: 7px;
+  border-radius: 1px;
+  content: "";
+}
+
+/* Main title */
+.tabs.tabs3 .tabs-panel h2 {
+  font-size: 42px;
+  color: #222;
+  font-weight: 700;
+  margin: 10px 0 18px;
+  letter-spacing: 0.005em;
+  line-height: 1.1;
+}
+
+.tabs.tabs3 .tabs-panel h2 strong {
+  font-weight: 700;
+}
+
+/* Images */
+.tabs.tabs3 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  box-shadow: none;
+  object-fit: cover;
+  margin-left: 0;
+}
+
+/* Paragraph text */
+.tabs.tabs3 .tabs-panel p {
+  color: #222;
+  font-size: var(--body-font-size-m);
+  margin: 0 0 10px;
+  line-height: 1.6;
+  max-width: 560px;
+  margin-left: 0;
+}
+
+/* List styling (for "What to Bring" tab) */
+.tabs.tabs3 .tabs-panel ul {
+  padding-left: 20px;
+  margin: 0 0 10px;
+}
+
+.tabs.tabs3 .tabs-panel li {
+  margin-bottom: 6px;
+  color: #222;
+  font-size: var(--body-font-size-m);
+  line-height: 1.4;
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 900px) {
+  .tabs.tabs3 {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .tabs.tabs3 .tabs-list {
+    flex-direction: row;
+    align-items: flex-start;
+    min-width: 0;
+    max-width: none;
+    border-right: none;
+    border-bottom: 1px solid #ececec;
+    padding: 0 0 10px;
+    background: var(--background-color);
+    gap: 0;
+  }
+
+  .tabs.tabs3 .tabs-list .tabs-tab {
+    text-align: center;
+    width: auto;
+    padding: 10px;
+    font-size: var(--body-font-size-s);
+    margin-right: 6px;
+    margin-bottom: 0;
+  }
+
+  .tabs.tabs3 .tabs-panel {
+    padding: 0;
+  }
+
+  .tabs.tabs3 .tabs-panel div,
+  .tabs.tabs3 .tabs-panel picture img,
+  .tabs.tabs3 .tabs-panel p {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* Remove default vertical space above first heading in panel */
+.tabs.tabs3 .tabs-panel h3:first-child {
+  margin-top: 0;
 }
