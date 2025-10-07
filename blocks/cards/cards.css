@@ -28,103 +28,6 @@
 }
 
 
-.cards.cards31 {
-  background: #fff;
-  padding: 0;
-  overflow-x: auto;
-}
-
-.cards.cards31 ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  background: #fff;
-  align-items: stretch;
-}
-
-@media (width <= 900px) {
-  .cards.cards31 ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (width <= 600px) {
-  .cards.cards31 ul {
-    grid-template-columns: 1fr;
-  }
-}
-
-.cards.cards31 li {
-  background: #fff;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  height: 100%;
-  box-shadow: none;
-}
-
-.cards.cards31 .cards-card-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  flex-shrink: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-.cards.cards31 .cards-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  aspect-ratio: 1 / 1;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-shadow: none;
-}
-
-.cards.cards31 .cards-card-body {
-  padding: 4px 10px 2px;
-  margin: 0;
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.cards.cards31 .cards-card-body strong {
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-  color: #000;
-  text-transform: uppercase;
-  margin-bottom: 2px;
-  line-height: 1.3;
-  letter-spacing: 0.01em;
-}
-
-.cards.cards31 .cards-card-body p {
-  margin: 0;
-  color: #757575;
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.5;
-  padding: 0;
-}
-
-.cards.cards31 .cards-card-body br {
-  display: none;
-}
-
-
 .cards.cards4 ul {
   display: grid;
   grid-template-columns: 1fr;
@@ -491,20 +394,16 @@
 
 
 .cards.cards27 {
-  /* Remove default left/right padding or margin from parent containers */
   margin-left: 0;
   padding-left: 0;
   margin-right: 0;
   padding-right: 0;
-
-  /* Restrict block width to fit two cards tightly, but responsive */
   max-width: 520px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .cards.cards27 ul {
-  /* Horizontal card row, left aligned, small gap */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -535,8 +434,6 @@
   width: 100%;
   min-width: 0;
   overflow: hidden;
-
-  /* Cards stay left-aligned and compact */
   flex: 0 0 auto;
 }
 
@@ -560,7 +457,6 @@
 }
 
 .cards.cards27 .cards-card-body {
-  /* Minimal spacing between image and text */
   padding: 6px 0 0;
   display: flex;
   flex-direction: column;
@@ -595,10 +491,159 @@
   white-space: nowrap;
 }
 
-/* Remove bullets and spacing from all descendant lists */
 .cards.cards27 ul,
 .cards.cards27 li {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+
+.cards.cards31 {
+  /* Ensure the block visually contains the cards and rounds outer corners */
+  background: var(--background-color);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards31 ul {
+  /* Use flex layout for horizontal card row */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .cards.cards31 ul {
+    flex-direction: column;
+  }
+}
+
+.cards.cards31 li {
+  /* Each card fills available width, no spacing between */
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-color);
+  min-width: 0;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  border-left: 1px solid #ededed;
+  border-right: none;
+}
+
+/* Last card gets right border */
+.cards.cards31 li:last-child {
+  border-right: 1px solid #ededed;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+/* Outer corners only for first/last card */
+.cards.cards31 li:first-child {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+@media (width <= 900px) {
+  .cards.cards31 li {
+    border-radius: 16px;
+    border-left: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+    margin-bottom: 20px;
+  }
+
+  .cards.cards31 li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Card image container: taller aspect, fills card width */
+.cards.cards31 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: var(--light-color);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.cards.cards31 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card content: stack vertically, left-align, generous space */
+.cards.cards31 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 36px 28px 32px;
+  background: var(--background-color);
+  flex: 1 1 auto;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* Title: larger, bold, blue, uppercase, more space below */
+.cards.cards31 .cards-card-body strong {
+  display: block;
+  color: #1a5bff;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* Description: readable gray, larger font, left-aligned, vertical space below */
+.cards.cards31 .cards-card-body p {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.7;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  text-align: left;
+}
+
+/* Last paragraph: lighter, smaller, left-aligned */
+.cards.cards31 .cards-card-body p:last-child {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* Links: inherit vivid blue, underline on hover */
+.cards.cards31 .cards-card-body a {
+  color: #1a5bff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cards.cards31 .cards-card-body a:hover,
+.cards.cards31 .cards-card-body a:focus {
+  color: #1769fa;
+  text-decoration: underline;
 }
