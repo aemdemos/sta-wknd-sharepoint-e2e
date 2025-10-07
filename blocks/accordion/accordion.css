@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,200 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion16 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 760px;
+  margin: 56px auto;
+  padding: 0 32px 48px;
+  background: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 4%);
+  box-sizing: border-box;
+}
+
+.accordion.accordion16 h1,
+.accordion.accordion16 h2,
+.accordion.accordion16 h4,
+.accordion.accordion16 details summary {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.accordion.accordion16 details {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion.accordion16 details + details {
+  margin-top: 32px;
+}
+
+.accordion.accordion16 h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  color: #222;
+  margin-top: 44px;
+  margin-bottom: 8px;
+  letter-spacing: 0;
+  line-height: 1.10;
+}
+
+.accordion.accordion16 h4 {
+  font-size: var(--heading-font-size-m);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 0.11em;
+  margin: 0 0 35px;
+  line-height: 1.4;
+}
+
+.accordion.accordion16 h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.14;
+}
+
+.accordion.accordion16 p {
+  font-size: 1.14rem;
+  color: #222;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 24px;
+  max-width: 640px;
+}
+
+.accordion.accordion16 picture img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+  margin-top: 18px;
+  margin-bottom: 14px;
+}
+
+.accordion.accordion16 details summary::-webkit-details-marker,
+.accordion.accordion16 details summary::after {
+  display: none;
+}
+
+.accordion.accordion16 details summary:focus,
+.accordion.accordion16 details summary:hover {
+  background: none;
+}
+
+.accordion.accordion16 details .accordion-item-body,
+.accordion.accordion16 details[open] .accordion-item-body {
+  padding: 0;
+  border-top: none;
+  background: none;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion16 {
+    max-width: 100vw;
+    padding: 0 5vw 32px;
+    box-shadow: none;
+  }
+
+  .accordion.accordion16 h1 {
+    font-size: 2rem;
+  }
+
+  .accordion.accordion16 h2 {
+    font-size: 1.25rem;
+  }
+
+  .accordion.accordion16 p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+}
+
+
+.accordion.accordion7 {
+  box-sizing: border-box;
+  max-width: 600px;
+  margin: 48px auto 0;
+  padding: 0;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.accordion.accordion7 details {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.accordion.accordion7 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion7 summary {
+  padding: 0;
+  margin: 0;
+  color: #222;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  line-height: 1.25;
+  min-height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+/* Icon (chevron etc) at end of row, with compact gap */
+.accordion.accordion7 summary .icon,
+.accordion.accordion7 summary svg,
+.accordion.accordion7 summary img {
+  margin-left: 12px;
+  margin-right: 0;
+  flex-shrink: 0;
+}
+
+/* FAQ answer/body: compact, consistent with block */
+.accordion.accordion7 .accordion-item-body,
+.accordion.accordion7 details p,
+.accordion.accordion7 details div {
+  color: #444;
+  font-size: 14px;
+  margin: 0;
+  padding: 8px 0 14px;
+  line-height: 1.6;
+}
+
+.accordion.accordion7 details[open] {
+  background: transparent;
+  box-shadow: none;
 }
