@@ -127,135 +127,6 @@
 }
 
 
-.columns.columns40 {
-  background: none;
-  color: var(--text-color);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.columns.columns40 .columns-2-cols {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;
-  min-height: 480px;
-  box-sizing: border-box;
-}
-
-@media (width <= 900px) {
-  .columns.columns40 .columns-2-cols {
-    flex-direction: column;
-    min-height: unset;
-  }
-}
-
-.columns.columns40 .columns-img-col {
-  flex: 1 1 50%;
-  min-width: 0;
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-  background: none;
-}
-
-.columns.columns40 .columns-img-col picture,
-.columns.columns40 .columns-img-col img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  max-width: none;
-  max-height: none;
-  filter: none;
-  margin: 0;
-  border: none;
-}
-
-.columns.columns40 .columns-2-cols div:not(.columns-img-col) {
-  flex: 1 1 50%;
-  min-width: 0;
-  background: #f5f5f5;
-  padding: 28px 36px 40px 38px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  box-sizing: border-box;
-  height: auto;
-  min-height: 320px;
-}
-
-@media (width <= 900px) {
-  .columns.columns40 .columns-2-cols div:not(.columns-img-col) {
-    padding: 20px 12px 32px;
-    min-height: unset;
-  }
-}
-
-.columns.columns40 .columns-2-cols div:not(.columns-img-col) p:first-child {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-  margin: 0 0 12px;
-  line-height: 1.4;
-  letter-spacing: 0.1px;
-}
-
-.columns.columns40 h2 {
-  font-size: 2.31rem;
-  font-weight: 700;
-  color: #151515;
-  line-height: 1.18;
-  margin: 0 0 16px;
-}
-
-.columns.columns40 h2 + p {
-  font-size: 1.07rem;
-  color: #4a4a4a;
-  margin: 0 0 18px;
-  max-width: 860px;
-  line-height: 1.6;
-}
-
-.columns.columns40 .button-container {
-  margin-top: 2px;
-  margin-bottom: 0;
-  width: auto;
-  display: block;
-}
-
-.columns.columns40 .button-container .button {
-  background-color: #ffd600;
-  color: #111;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1rem;
-  padding: 12px 28px;
-  border: none;
-  border-radius: 4px;
-  box-shadow: none;
-  margin: 0;
-  letter-spacing: 0.04em;
-  transition: background 0.18s, color 0.18s;
-  display: inline-block;
-  min-width: 160px;
-  text-align: left;
-}
-
-.columns.columns40 .button-container .button:hover,
-.columns.columns40 .button-container .button:focus {
-  background-color: #ffe066;
-  color: #000;
-}
-
-.columns.columns40 .columns-2-cols div:not(.columns-img-col) * {
-  text-align: left;
-}
-
-
 .columns-wrapper .columns > div {
   display: flex;
   flex-direction: row;
@@ -613,7 +484,7 @@
 
 @media (width >= 900px) {
   .columns.columns19 .block.columns div:last-child {
-    margin-top: 302px; /* Align "Format" with address, adjust as needed */
+    margin-top: 302px;
   }
 }
 
@@ -749,5 +620,69 @@
     margin-top: 24px;
     margin-bottom: 12px;
     padding-left: 10px;
+  }
+}
+
+
+/* Key: Apply flex to the inner div that is the parent of image and content columns */
+.columns.columns40.block.columns-2-cols > div {
+  display: flex;
+  flex-direction: row;
+  min-height: 420px; /* set min-height as needed */
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Image column: fills height */
+.columns.columns40.block.columns-2-cols .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: stretch;
+  min-height: 420px;
+}
+
+.columns.columns40.block.columns-2-cols .columns-img-col img,
+.columns.columns40.block.columns-2-cols .columns-img-col picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content column: fills height, content centered vertically, padding inside */
+.columns.columns40.block.columns-2-cols > div > div:not(.columns-img-col) {
+  flex: 1 1 0;
+  background: #f3f3f3;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  padding: 2.5rem 2rem;
+  box-sizing: border-box;
+}
+
+/* Remove excess margins from content, keep spacing consistent */
+.columns.columns40.block.columns-2-cols > div > div:not(.columns-img-col) * {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.columns.columns40.block.columns-2-cols > div > div:not(.columns-img-col) .button {
+  align-self: flex-start;
+  margin-bottom: 0;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 800px) {
+  .columns.columns40.block.columns-2-cols > div {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .columns.columns40.block.columns-2-cols .columns-img-col,
+  .columns.columns40.block.columns-2-cols > div > div:not(.columns-img-col) {
+    min-height: 180px;
+    width: 100%;
+    padding: 1.5rem 1rem;
   }
 }
