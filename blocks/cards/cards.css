@@ -28,111 +28,6 @@
 }
 
 
-.cards.cards27 {
-  display: block;
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-}
-
-.cards.cards27 ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 32px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  width: max-content;
-  max-width: 100%;
-}
-
-.cards.cards27 li {
-  display: flex;
-  flex-direction: column;
-  width: 220px;
-  min-width: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-  margin: 0;
-  padding: 0;
-}
-
-.cards.cards27 .cards-card-image {
-  margin: 0;
-  padding: 0;
-}
-
-.cards.cards27 .cards-card-image img,
-.cards.cards27 .cards-card-image picture {
-  display: block;
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  margin: 0;
-  padding: 0;
-  max-width: 100%;
-}
-
-.cards.cards27 .cards-card-body {
-  margin: 0;
-  padding: 12px 0 0;
-}
-
-.cards.cards27 .cards-card-body h3 {
-  margin: 0 0 6px;
-  color: #000;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: left;
-  line-height: 1.25;
-}
-
-.cards.cards27 .cards-card-body h3 a {
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.cards.cards27 .cards-card-body p {
-  margin: 0;
-  padding: 0;
-  color: #757575;
-  font-size: 12px;
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.25;
-}
-
-@media (width <= 600px) {
-  .cards.cards27 ul {
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 20px;
-  }
-
-  .cards.cards27 li {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .cards.cards27 .cards-card-image img,
-  .cards.cards27 .cards-card-image picture {
-    width: 100%;
-    height: auto;
-    min-height: 140px;
-  }
-}
-
-
 .cards.cards31 {
   background: #fff;
   padding: 0;
@@ -592,4 +487,118 @@
     min-width: 0;
     width: 100%;
   }
+}
+
+
+.cards.cards27 {
+  /* Remove default left/right padding or margin from parent containers */
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 0;
+  padding-right: 0;
+
+  /* Restrict block width to fit two cards tightly, but responsive */
+  max-width: 520px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cards.cards27 ul {
+  /* Horizontal card row, left aligned, small gap */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+@media (width <= 700px) {
+  .cards.cards27 ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.cards.cards27 li {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  max-width: 240px;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+
+  /* Cards stay left-aligned and compact */
+  flex: 0 0 auto;
+}
+
+.cards.cards27 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards.cards27 .cards-card-image img,
+.cards.cards27 .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 1 / 1;
+  background: #eaeaea;
+}
+
+.cards.cards27 .cards-card-body {
+  /* Minimal spacing between image and text */
+  padding: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+}
+
+.cards.cards27 .cards-card-body h3,
+.cards.cards27 .cards-card-body h3 a {
+  color: #222;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 0 2px;
+  line-height: 1.18;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.cards.cards27 .cards-card-body p {
+  color: #757575;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Remove bullets and spacing from all descendant lists */
+.cards.cards27 ul,
+.cards.cards27 li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
