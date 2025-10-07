@@ -35,12 +35,14 @@
 
 
 .columns {
-  background: #222;
-  color: #d1d1d1;
+  background: #232323;
+  color: #fff;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 40px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .columns .columns-img-col img {
@@ -774,15 +776,14 @@
 
 .columns-wrapper .columns > div {
   display: flex;
-  flex-direction: row;           /* Horizontal layout */
-  align-items: center;           /* Vertically align children */
-  justify-content: space-between;/* Space out children horizontally */
-  height: 60px;                  /* Match described block height */
-  background: #fff;              /* White background */
-  padding: 0 32px;               /* Some horizontal padding */
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  background: #fff;
+  padding: 0 32px;
 }
 
-/* Add 'WKND' text via pseudo-element if needed */
 .columns-wrapper .columns > div > div:first-child::before {
   content: 'WKND';
   font-weight: bold;
@@ -792,12 +793,10 @@
   letter-spacing: 0.04em;
 }
 
-/* Optionally, use second div as spacer */
 .columns-wrapper .columns > div > div:nth-child(2) {
   flex: 1;
 }
 
-/* Style the search box area */
 .columns-wrapper .columns > div > div:nth-child(3) {
   background: #F5F5F5;
   padding: 8px 16px;
@@ -806,7 +805,6 @@
   align-items: center;
 }
 
-/* Simulate search icon as a pseudo-element */
 .columns-wrapper .columns > div > div:nth-child(3)::before {
   content: '🔍';
   font-size: 1rem;
@@ -814,7 +812,6 @@
   margin-right: 8px;
 }
 
-/* Style the 'Suchen' text */
 .columns-wrapper .columns > div > div:nth-child(3) p {
   margin: 0;
   text-transform: uppercase;
@@ -822,4 +819,131 @@
   color: #888;
   font-family: inherit;
   letter-spacing: 0.04em;
+}
+
+
+/* Ensure the entire columns block has a dark background and no border radius */
+
+/* Make the main row of columns a flex row, fully spanning width, vertically centered */
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  padding: 32px 48px 24px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 700px) {
+  .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px 12px 12px;
+  }
+}
+
+/* Remove background/borders in sub-columns, collapse empty middle column */
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide empty middle column to avoid unwanted spacing */
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:empty {
+  display: none;
+}
+
+/* Left column: Logo/title styling */
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:first-child {
+  color: #fff;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  line-height: 1.1;
+  border-radius: 0;
+}
+
+/* Right column: right-aligned, vertically centered */
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Remove special background from right-side search box, style for dark header */
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child input,
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child button,
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child a {
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 8px;
+  margin: 0;
+  font-size: 1rem;
+  min-width: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+/* If you use icons (svg/img) in right column */
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child svg,
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child img {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
+
+/* Right column text (e.g. 'Follow us', 'Search') */
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child span,
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child p {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  margin: 0 8px 0 0;
+  padding: 0;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+/* Add generous padding for explanatory text area under nav row, if present */
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] + div {
+  color: #eee;
+  font-size: 1rem;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 48px 28px;
+  line-height: 1.6;
+}
+
+.columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] + div p {
+  margin: 0 0 8px;
+  color: #ccc;
+}
+
+/* Responsive: adjust explanatory text padding */
+@media (width <= 700px) {
+  .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] + div {
+    padding: 0 12px 24px;
+    font-size: 0.95rem;
+  }
 }
