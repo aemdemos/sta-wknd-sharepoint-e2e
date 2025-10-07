@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -44,4 +45,299 @@
   .hero {
     padding: 40px 32px;
   }
+}
+
+
+.hero.hero12 {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background: transparent;
+  min-height: 360px;
+}
+
+.hero.hero12 div picture,
+.hero.hero12 div img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.hero.hero12 div div:not(:has(picture)) {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 20px;
+  width: 86%;
+  background: var(--background-color);
+  box-sizing: border-box;
+  padding: 28px 32px 32px 28px;
+  min-height: 62px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.hero.hero12 h2 {
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.hero.hero12 div:last-child {
+  height: 0;
+  overflow: visible;
+}
+
+@media (width <= 600px) {
+  .hero.hero12 div picture,
+  .hero.hero12 div img {
+    height: 180px;
+  }
+
+  .hero.hero12 div div:not(:has(picture)) {
+    padding: 10px 8px 14px;
+    bottom: 8px;
+    width: 96%;
+    left: 2%;
+    right: 2%;
+  }
+
+  .hero.hero12 {
+    min-height: 180px;
+  }
+}
+
+
+.hero.hero28 {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  background: none;
+  padding: 0;
+}
+
+.hero.hero28 div:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+.hero.hero28 picture,
+.hero.hero28 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero28 div + div {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  max-width: 540px;
+  min-width: 320px;
+  background: #fff;
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
+  box-sizing: border-box;
+  padding: 2.5rem 2rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero.hero28 div + div div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+}
+
+.hero.hero28 h1 {
+  color: #222;
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  text-align: left;
+  line-height: 1.15;
+  width: 100%;
+}
+
+.hero.hero28 p {
+  color: #222;
+  font-size: var(--body-font-size-m);
+  margin-bottom: 1.4rem;
+  margin-top: 0;
+  text-align: left;
+  max-width: 100%;
+  width: 100%;
+}
+
+.hero.hero28 .button-container {
+  margin-top: 1.2rem;
+  text-align: left;
+  width: 100%;
+}
+
+.hero.hero28 .button {
+  background: #FFD600;
+  color: #222;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.8em 2em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.15s;
+  margin: 0;
+  box-shadow: none;
+}
+
+.hero.hero28 .button:hover,
+.hero.hero28 .button:focus {
+  background: #ffe066;
+  color: #222;
+}
+
+@media (width <= 900px) {
+  .hero.hero28 div:first-child {
+    height: 220px;
+    min-height: 160px;
+    position: static;
+  }
+
+  .hero.hero28 div + div {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-shadow: none;
+    padding: 1.5rem 1rem;
+    margin: 0;
+    height: auto;
+  }
+}
+
+
+/* Remove section spacing so hero can go edge-to-edge if in a .hero-container */
+
+/* Full-bleed, image-as-background hero block */
+.hero.hero9 {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: none;
+}
+
+/* Make image/picture fill the hero block as background */
+.hero.hero9 picture,
+.hero.hero9 img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+
+/* Panel wrapper: content is at the bottom and horizontally centered */
+.hero.hero9 div {
+  /* This targets *all* descendant divs, but the panel is always last in structure */
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  /* This will put the panel at the bottom */
+}
+
+/* The actual white panel (finds the innermost div containing text) */
+.hero.hero9 div div {
+  background: var(--background-color);
+  box-shadow: 0 4px 32px rgb(0 0 0 / 4%);
+  max-width: 680px;
+  width: 100%;
+  padding: 40px 36px;
+  margin-bottom: 48px;
+  box-sizing: border-box;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Headline and supporting text use default variable fonts/colors */
+.hero.hero9 div div h2 {
+  font-size: var(--heading-font-size-xl);
+  color: var(--text-color);
+  margin: 0 0 18px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.hero.hero9 div div p {
+  font-size: var(--body-font-size-m);
+  color: var(--dark-color);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Responsive: shrink block and panel/padding on smaller screens */
+@media (width <= 900px) {
+  .hero.hero9 {
+    min-height: 320px;
+  }
+
+  .hero.hero9 div div {
+    max-width: 96vw;
+    padding: 24px 14px;
+    margin-bottom: 20px;
+  }
+
+  .hero.hero9 div div h2 {
+    font-size: var(--heading-font-size-l);
+  }
+}
+
+/* If for some reason the image is a visual element on the left or right (not background) - 
+   this is NOT the pictured layout, but for completeness if structure changes: */
+.hero.hero9 .picture {
+  object-fit: cover;
 }
