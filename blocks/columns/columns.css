@@ -2,6 +2,8 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  flex: 1 1 0;
+  justify-content: flex-start;
 }
 
 .columns img {
@@ -35,14 +37,18 @@
 
 
 .columns {
-  background: #232323;
+  background: #232220;
   color: #fff;
   max-width: 1200px;
   margin: 0;
-  padding: 0;
+  padding: 2rem;
   box-sizing: border-box;
   border-radius: 0;
   box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  border-bottom: 2px solid #F7F7F7;
 }
 
 .columns .columns-img-col img {
@@ -117,169 +123,6 @@
   .columns ul ul {
     gap: 16px;
     font-size: 13px;
-  }
-}
-
-
-.columns.columns10 {
-  background: #232221;
-  color: #f4f4f4;
-  border-bottom: 1px solid #f4f4f4;
-  padding: 32px 40px 20px;
-  box-sizing: border-box;
-}
-
-.columns.columns10 .block.columns-3-cols {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: start;
-  gap: 0 32px;
-  width: 100%;
-}
-
-@media (width <= 900px) {
-  .columns.columns10 .block.columns-3-cols {
-    grid-template-columns: 1fr;
-    gap: 24px 0;
-    padding: 0;
-  }
-
-  .columns.columns10 {
-    padding: 20px 8px 16px;
-  }
-}
-
-.columns.columns10 .block.columns-3-cols div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.columns.columns10 .columns-img-col img {
-  width: 140px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 16px;
-  filter: none;
-}
-
-.columns.columns10 .columns-img-col ~ div ul {
-  display: none;
-}
-
-.columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: 0;
-  gap: 18px;
-  width: 100%;
-}
-
-.columns.columns10 #follow-us {
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 2px;
-  margin: 0 18px 0 0;
-  color: #f4f4f4;
-  align-self: flex-start;
-  white-space: nowrap;
-  display: block;
-  padding-top: 4px;
-}
-
-.columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) .button-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) .button-container:not(:last-child) {
-  margin-right: 10px;
-}
-
-.columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) .button-container a.button {
-  background: #2d2d2d;
-  color: #f4f4f4;
-  width: 36px;
-  height: 36px;
-  border-radius: 4px;
-  font-size: 0;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  border: none;
-  box-shadow: none;
-  min-width: 36px;
-  min-height: 36px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (width <= 600px) {
-  .columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .columns.columns10 .block.columns-3-cols div:nth-child(1) div:nth-child(3) .button-container a.button {
-    font-size: 13px;
-    width: 80px;
-    height: 36px;
-    border-radius: 18px;
-    padding: 0 12px;
-  }
-}
-
-.columns.columns10 .block.columns-3-cols div:last-child {
-  padding-top: 24px;
-  display: flex;
-  align-items: flex-start;
-}
-
-.columns.columns10 .block.columns-3-cols div:last-child div {
-  max-width: 700px;
-  color: #f4f4f4;
-  font-size: 13px;
-  line-height: 1.8;
-  font-weight: 400;
-}
-
-.columns.columns10 .block.columns-3-cols div:last-child a,
-.columns.columns10 .block.columns-3-cols div:last-child a:visited {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-
-.columns.columns10 .block.columns-3-cols div:last-child a:hover {
-  color: #e0e0e0;
-}
-
-.columns.columns10 .block.columns-3-cols div:last-child p:first-child {
-  font-size: 13px;
-  margin-bottom: 10px;
-  margin-top: 0;
-  color: #f4f4f4;
-}
-
-.columns.columns10 .block.columns-3-cols div:last-child p {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
-@media (width <= 900px) {
-  .columns.columns10 .block.columns-3-cols div:last-child div {
-    max-width: 100%;
   }
 }
 
@@ -821,10 +664,6 @@
   letter-spacing: 0.04em;
 }
 
-
-/* Ensure the entire columns block has a dark background and no border radius */
-
-/* Make the main row of columns a flex row, fully spanning width, vertically centered */
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div {
   display: flex;
   flex-direction: row;
@@ -838,7 +677,6 @@
   margin: 0;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 700px) {
   .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div {
     flex-direction: column;
@@ -847,7 +685,6 @@
   }
 }
 
-/* Remove background/borders in sub-columns, collapse empty middle column */
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div {
   background: transparent;
   border: none;
@@ -857,12 +694,10 @@
   padding: 0;
 }
 
-/* Hide empty middle column to avoid unwanted spacing */
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:empty {
   display: none;
 }
 
-/* Left column: Logo/title styling */
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:first-child {
   color: #fff;
   font-weight: bold;
@@ -875,7 +710,6 @@
   border-radius: 0;
 }
 
-/* Right column: right-aligned, vertically centered */
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child {
   display: flex;
   align-items: center;
@@ -884,7 +718,6 @@
   min-width: 0;
 }
 
-/* Remove special background from right-side search box, style for dark header */
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child input,
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child button,
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child a {
@@ -903,7 +736,6 @@
   transition: background 0.2s;
 }
 
-/* If you use icons (svg/img) in right column */
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child svg,
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child img {
   width: 22px;
@@ -912,7 +744,6 @@
   filter: brightness(0) invert(1);
 }
 
-/* Right column text (e.g. 'Follow us', 'Search') */
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child span,
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] div div:last-child p {
   color: #fff;
@@ -925,7 +756,6 @@
   line-height: 1.1;
 }
 
-/* Add generous padding for explanatory text area under nav row, if present */
 .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] + div {
   color: #eee;
   font-size: 1rem;
@@ -940,10 +770,82 @@
   color: #ccc;
 }
 
-/* Responsive: adjust explanatory text padding */
 @media (width <= 700px) {
   .columns .columns-wrapper .columns2 .block[data-block-name="columns"][data-block-status="loaded"] + div {
     padding: 0 12px 24px;
     font-size: 0.95rem;
+  }
+}
+
+.columns > div:first-child {
+  max-width: 340px;
+  color: #F7F7F7;
+}
+
+.columns-img-col {
+  margin-bottom: 1.5rem;
+}
+
+.button-container {
+  margin-bottom: 1.5rem;
+}
+
+#follow-us {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F7F7F7;
+}
+
+#follow-us + p {
+  display: flex;
+  gap: 1rem;
+}
+
+#follow-us + p a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F7F7F7;
+  color: #232220;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+#follow-us + p a:hover {
+  background: #DDD;
+}
+
+.columns > div:last-child {
+  color: #F7F7F7;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.columns > div:last-child p {
+  margin-bottom: 1rem;
+}
+
+.columns > div:last-child p:first-child {
+  font-weight: bold;
+}
+
+@media (width <= 900px) {
+  .columns {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .columns > div {
+    max-width: 100%;
   }
 }
