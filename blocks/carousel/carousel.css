@@ -179,7 +179,6 @@
   }
 }
 
-/* Move navigation buttons closer down and right, reduce size and lighten style */
 .carousel.carousel6 .carousel-navigation-buttons {
   bottom: 10px;
   right: 10px;
@@ -212,7 +211,6 @@
   box-shadow: none;
 }
 
-/* Arrow icons: thinner & more compact */
 .carousel.carousel6 .carousel-navigation-buttons button.slide-prev::after,
 .carousel.carousel6 .carousel-navigation-buttons button.slide-next::after {
   width: 13px;
@@ -234,7 +232,6 @@
     url("data:image/svg+xml;utf8,<svg width='13' height='13' xmlns='http://www.w3.org/2000/svg'><polyline points='4,2 9,6.5 4,11' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>");
 }
 
-/* Indicator dots: smaller, closer to bottom edge, less shadow */
 .carousel.carousel6 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -263,7 +260,6 @@
   background: #363636;
 }
 
-/* Heading: compact, bold, strong color, less margin */
 .carousel.carousel6 .carousel-slide .carousel-slide-content h2 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -273,14 +269,12 @@
   letter-spacing: 0.005em;
 }
 
-/* Description: less margin, compact */
 .carousel.carousel6 .carousel-slide .carousel-slide-content p {
   color: #232323;
   margin: 0 0 0.6em;
   line-height: 1.33;
 }
 
-/* CTA Button: tighter, left-aligned, smaller pill, less yellow, no shadow */
 .carousel.carousel6 .carousel-slide .carousel-slide-content .button-container {
   text-align: left;
 }
@@ -307,7 +301,6 @@
   color: #151515;
 }
 
-/* Slide image: pure coverage, no visual change */
 .carousel.carousel6 .carousel-slide .carousel-slide-image picture {
   position: absolute;
   inset: 0;
@@ -320,4 +313,60 @@
   object-fit: cover;
   object-position: center 58%;
   min-height: 260px;
+}
+
+
+.carousel.carousel8 {
+  background: #fff;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+}
+
+.carousel.carousel8 .carousel-slides-container {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel.carousel8 .carousel-slide-indicators,
+.carousel.carousel8 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel8 .carousel-slide {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel.carousel8 img,
+.carousel.carousel8 picture {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }
