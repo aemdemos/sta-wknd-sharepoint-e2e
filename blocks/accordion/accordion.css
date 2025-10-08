@@ -127,7 +127,6 @@
   display: none;
 }
 
-/* For any inline SVG or icon (such as chevron), consistently size and space */
 .accordion.accordion7 summary svg,
 .accordion.accordion7 summary i,
 .accordion.accordion7 summary span.icon {
@@ -141,7 +140,6 @@
   display: inline-block;
 }
 
-/* Rotate icon on open (if a chevron or arrow is used) */
 .accordion.accordion7 details[open] summary svg,
 .accordion.accordion7 details[open] summary i,
 .accordion.accordion7 details[open] summary span.icon {
@@ -162,4 +160,71 @@
 
 .accordion.accordion7 details *:first-child {
   margin-top: 0;
+}
+
+
+.accordion-item-label {
+  width: 100%;
+  background: #fff;
+  padding: 40px 40px 0;
+}
+
+.accordion-item-label h1 {
+  font-size: 2.5em;
+  font-family: 'Playfair Display', serif;
+  color: #222;
+  margin-top: 0;
+}
+
+.accordion-item-body {
+  background: #fff;
+  padding: 40px;
+}
+
+@media (width >= 900px) {
+  .accordion-item-body {
+    column-count: 2;
+    column-gap: 40px;
+  }
+
+  .accordion-item-body h2,
+  .accordion-item-body picture,
+  .accordion-item-body img,
+  .accordion-item-body p {
+    break-inside: avoid;
+    width: 100%;
+    display: block;
+  }
+}
+
+@media (width <= 899px) {
+  .accordion-item-body {
+    column-count: 1;
+    padding: 20px;
+  }
+}
+
+.accordion-item-body h2 {
+  font-size: 1.6em;
+  font-family: 'Playfair Display', serif;
+  color: #222;
+  margin: 30px 0 10px;
+  font-weight: bold;
+}
+
+.accordion-item-body p {
+  font-size: 1.12em;
+  font-family: Georgia, serif;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.accordion-item-body picture,
+.accordion-item-body img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  border-radius: 6px;
 }
