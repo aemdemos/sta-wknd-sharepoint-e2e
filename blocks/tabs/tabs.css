@@ -578,3 +578,189 @@
     padding: 12px 4px;
   }
 }
+
+
+.tabs.tabs12 {
+  /* Wider, open container with minimal horizontal padding */
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 0 12px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tabs list as horizontal row, with good vertical alignment */
+.tabs.tabs12 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0;
+  padding: 0;
+  margin: 0 0 24px;
+  background: none;
+  border: none;
+}
+
+/* Tab buttons: subtle, no background unless active, underline when active */
+.tabs.tabs12 .tabs-list button,
+.tabs.tabs12 .tabs-list a,
+.tabs.tabs12 .tabs-list .tab {
+  background: none;
+  border: none;
+  color: #5e993e;
+  font-size: 1.12em;
+  font-weight: 600;
+  padding: 0.5em 1.4em 0.6em 0;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  border-bottom: 3px solid transparent;
+  transition: color .15s, border-bottom .15s;
+  line-height: 1.2;
+}
+
+.tabs.tabs12 .tabs-list button[aria-selected="true"],
+.tabs.tabs12 .tabs-list .tab[aria-selected="true"],
+.tabs.tabs12 .tabs-list .active,
+.tabs.tabs12 .tabs-list a.active {
+  color: #222;
+  border-bottom: 3px solid #5e993e;
+  font-weight: 700;
+}
+
+/* Main content area: open, no border or background, full width */
+.tabs.tabs12 .tabs-panel {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Section heading (the "sidebar" like heading) */
+.tabs.tabs12 .sidebar,
+.tabs.tabs12 .side {
+  color: #222;
+  font-weight: 700;
+  font-size: 1.19em;
+  margin: 0 0 10px;
+  padding: 0;
+  background: none;
+  border: none;
+  letter-spacing: .01em;
+  line-height: 1.15;
+}
+
+/* Headings: slightly reduced margin below for tighter look */
+.tabs.tabs12 h1,
+.tabs.tabs12 h2,
+.tabs.tabs12 h3 {
+  color: #222;
+  font-weight: 700;
+  margin-top: 32px;
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+
+.tabs.tabs12 h1 {
+  font-size: 2.15em;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.tabs.tabs12 h2 {
+  font-size: 1.38em;
+}
+
+.tabs.tabs12 h3 {
+  font-size: 1.11em;
+}
+
+.tabs.tabs12 p {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.7;
+  font-size: 1em;
+}
+
+/* Highlight/definition box: very pale, minimal padding, no border */
+.tabs.tabs12 blockquote,
+.tabs.tabs12 .highlight-box,
+.tabs.tabs12 .definition {
+  background: #fdfdfd;
+  border: none;
+  padding: 14px 20px;
+  margin: 20px 0;
+  color: #222;
+  font-size: 1.05em;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.tabs.tabs12 blockquote strong,
+.tabs.tabs12 .highlight-box strong {
+  color: #222;
+  font-weight: 700;
+}
+
+.tabs.tabs12 blockquote .highlight,
+.tabs.tabs12 .highlight-box .highlight {
+  color: #5e993e;
+  font-weight: 700;
+}
+
+.tabs.tabs12 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 18px 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Responsive multi-column content (e.g. .testcolumns) */
+.tabs.tabs12 .testcolumns {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin: 24px 0;
+}
+
+.tabs.tabs12 .testcolumns div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Responsive breakpoints */
+@media (width <= 900px) {
+  .tabs.tabs12 {
+    max-width: 100%;
+    margin: 28px 0;
+    padding: 0 4px;
+  }
+
+  .tabs.tabs12 .tabs-list {
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs12 .sidebar,
+  .tabs.tabs12 .side {
+    margin-bottom: 8px;
+    font-size: 1.06em;
+  }
+
+  .tabs.tabs12 .testcolumns {
+    flex-direction: column;
+    gap: 18px;
+    margin: 10px 0;
+  }
+}
