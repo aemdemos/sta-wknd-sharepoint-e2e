@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -70,7 +71,6 @@
   box-sizing: border-box;
 }
 
-/* Sidebar: vertical tab nav, visually anchored left */
 .tabs.tabs3 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -82,7 +82,6 @@
   align-items: flex-start;
 }
 
-/* Tab buttons: uppercase, weight, spacing, contrast */
 .tabs.tabs3 .tabs-list .tabs-tab {
   background: none;
   border: none;
@@ -109,7 +108,6 @@
   opacity: 1;
 }
 
-/* Main content area: column, left-aligned, max width */
 .tabs.tabs3 .tabs-panel {
   display: none;
   background: transparent;
@@ -130,7 +128,6 @@
   box-sizing: border-box;
 }
 
-/* Headline + accent bar */
 .tabs.tabs3 .tabs-panel[aria-hidden="false"] h3 {
   position: relative;
   font-size: var(--heading-font-size-l);
@@ -153,7 +150,6 @@
   display: block;
 }
 
-/* Paragraph styling */
 .tabs.tabs3 .tabs-panel[aria-hidden="false"] p {
   font-size: 18px;
   color: #222;
@@ -163,7 +159,6 @@
   max-width: 680px;
 }
 
-/* Image and caption left-aligned, matching content width */
 .tabs.tabs3 .tabs-panel[aria-hidden="false"] picture {
   display: block;
   width: 100%;
@@ -182,7 +177,6 @@
   box-sizing: border-box;
 }
 
-/* Caption under image (if present in HTML) */
 .tabs.tabs3 .tabs-panel[aria-hidden="false"] picture + p,
 .tabs.tabs3 .tabs-panel[aria-hidden="false"] picture + span,
 .tabs.tabs3 .tabs-panel[aria-hidden="false"] picture + div {
@@ -198,7 +192,6 @@
   display: block;
 }
 
-/* Responsive: stack sidebar/content on small screens */
 @media (width <= 900px) {
   .tabs.tabs3 {
     flex-direction: column;
@@ -221,9 +214,163 @@
   }
 }
 
-/* All main content left-aligned and box-sizing border-box */
 .tabs.tabs3 .tabs-panel[aria-hidden="false"],
 .tabs.tabs3 .tabs-panel[aria-hidden="false"] * {
   text-align: left;
   box-sizing: border-box;
+}
+
+
+.tabs.tabs9 .tabs-panel {
+  /* Remove default padding and background for clarity */
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main layout: Two columns, text left, image+caption right */
+@media (width >= 900px) {
+  .tabs.tabs9 .tabs-panel {
+    padding: 48px 0;
+  }
+
+  .tabs.tabs9 .tabs-panel div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 48px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Left "text" column: heading & description should be grouped vertically */
+  .tabs.tabs9 .tabs-panel div h1,
+  .tabs.tabs9 .tabs-panel div h2,
+  .tabs.tabs9 .tabs-panel div h3 {
+    /* Restrict heading width for readable text block */
+    max-width: 380px;
+    margin-bottom: 22px;
+    padding-bottom: 8px;
+    border-bottom: 2.5px solid #f5e16a;
+    display: block;
+  }
+
+  /* Ensure description is under heading, not beside image */
+  .tabs.tabs9 .tabs-panel div h1 + p,
+  .tabs.tabs9 .tabs-panel div h2 + p,
+  .tabs.tabs9 .tabs-panel div h3 + p {
+    max-width: 380px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #222;
+    font-size: 1.09rem;
+    line-height: 1.55;
+  }
+
+  /* Make left column vertical */
+  .tabs.tabs9 .tabs-panel div h1,
+  .tabs.tabs9 .tabs-panel div h2,
+  .tabs.tabs9 .tabs-panel div h3,
+  .tabs.tabs9 .tabs-panel div h1 + p,
+  .tabs.tabs9 .tabs-panel div h2 + p,
+  .tabs.tabs9 .tabs-panel div h3 + p {
+    flex: 0 0 100%;
+  }
+
+  /* Right "visual" column: image with caption under image */
+  .tabs.tabs9 .tabs-panel div img,
+  .tabs.tabs9 .tabs-panel div picture {
+    display: block;
+    max-width: 420px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 2px 18px 0 rgb(32 32 32 / 7%);
+    margin-bottom: 12px;
+  }
+
+  .tabs.tabs9 .tabs-panel div figcaption,
+  .tabs.tabs9 .tabs-panel div picture + * {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #969696;
+    font-size: 0.93em;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    display: block;
+  }
+}
+
+/* On mobile, stack everything vertically */
+@media (width <= 899px) {
+  .tabs.tabs9 .tabs-panel {
+    padding: 28px 0 32px;
+  }
+
+  .tabs.tabs9 .tabs-panel div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    margin: 0 auto;
+  }
+
+  .tabs.tabs9 .tabs-panel div h1,
+  .tabs.tabs9 .tabs-panel div h2,
+  .tabs.tabs9 .tabs-panel div h3 {
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 2.5px solid #f5e16a;
+    max-width: 100%;
+    display: block;
+  }
+
+  .tabs.tabs9 .tabs-panel div h1 + p,
+  .tabs.tabs9 .tabs-panel div h2 + p,
+  .tabs.tabs9 .tabs-panel div h3 + p {
+    margin-bottom: 14px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs9 .tabs-panel div img,
+  .tabs.tabs9 .tabs-panel div picture {
+    margin-bottom: 10px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .tabs.tabs9 .tabs-panel div figcaption,
+  .tabs.tabs9 .tabs-panel div picture + * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* Ensure caption is not overlayed but sits under image */
+.tabs.tabs9 .tabs-panel div figcaption,
+.tabs.tabs9 .tabs-panel div picture + * {
+  position: static;
+  background: none;
+  padding: 0;
+  text-align: left;
+}
+
+/* Adjust image+caption vertical alignment if in a flex row */
+.tabs.tabs9 .tabs-panel div {
+  align-items: flex-start;
+}
+
+.tabs.tabs9 .tabs-panel div img,
+.tabs.tabs9 .tabs-panel div picture,
+.tabs.tabs9 .tabs-panel div figcaption {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+/* Remove any unwanted border/shadow from the block itself */
+.tabs.tabs9 {
+  border: none;
+  box-shadow: none;
 }
