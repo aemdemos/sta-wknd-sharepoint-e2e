@@ -581,7 +581,6 @@
 
 
 .tabs.tabs12 {
-  /* Wider, open container with minimal horizontal padding */
   max-width: 1200px;
   margin: 48px auto;
   padding: 0 12px;
@@ -592,7 +591,6 @@
   flex-direction: column;
 }
 
-/* Tabs list as horizontal row, with good vertical alignment */
 .tabs.tabs12 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -604,7 +602,6 @@
   border: none;
 }
 
-/* Tab buttons: subtle, no background unless active, underline when active */
 .tabs.tabs12 .tabs-list button,
 .tabs.tabs12 .tabs-list a,
 .tabs.tabs12 .tabs-list .tab {
@@ -633,7 +630,6 @@
   font-weight: 700;
 }
 
-/* Main content area: open, no border or background, full width */
 .tabs.tabs12 .tabs-panel {
   width: 100%;
   padding: 0;
@@ -645,7 +641,6 @@
   align-items: stretch;
 }
 
-/* Section heading (the "sidebar" like heading) */
 .tabs.tabs12 .sidebar,
 .tabs.tabs12 .side {
   color: #222;
@@ -659,7 +654,6 @@
   line-height: 1.15;
 }
 
-/* Headings: slightly reduced margin below for tighter look */
 .tabs.tabs12 h1,
 .tabs.tabs12 h2,
 .tabs.tabs12 h3 {
@@ -692,7 +686,6 @@
   font-size: 1em;
 }
 
-/* Highlight/definition box: very pale, minimal padding, no border */
 .tabs.tabs12 blockquote,
 .tabs.tabs12 .highlight-box,
 .tabs.tabs12 .definition {
@@ -727,7 +720,6 @@
   box-shadow: none;
 }
 
-/* Responsive multi-column content (e.g. .testcolumns) */
 .tabs.tabs12 .testcolumns {
   display: flex;
   flex-direction: row;
@@ -740,7 +732,6 @@
   min-width: 0;
 }
 
-/* Responsive breakpoints */
 @media (width <= 900px) {
   .tabs.tabs12 {
     max-width: 100%;
@@ -763,4 +754,151 @@
     gap: 18px;
     margin: 10px 0;
   }
+}
+
+
+.tabs.tabs13 {
+  background: var(--background-color);
+  border: 1px solid #dadada;
+  border-radius: 12px;
+  padding: 40px 32px;
+  max-width: 1200px;
+  margin: 40px auto;
+  display: block;
+}
+
+/* Tabs navigation: horizontal, left-aligned, styled active state */
+.tabs.tabs13 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-bottom: 32px;
+  padding-left: 0;
+}
+
+.tabs.tabs13 .tabs-tab {
+  background: transparent;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+}
+
+.tabs.tabs13 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+/* Main content vertical stacking, no inner border */
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Title at top, with short yellow accent underline */
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: left;
+  position: relative;
+  line-height: 1.2;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] h3::after {
+  display: block;
+  height: 4px;
+  width: 40px;
+  background: #ffd600;
+  margin-top: 6px;
+  border-radius: 2px;
+  content: "";
+}
+
+/* Image: left-aligned, fills content width, tight vertical spacing */
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] picture {
+  display: block;
+  width: 100%;
+  max-width: 740px;
+  margin: 0 0 6px;
+  border-radius: 10px;
+}
+
+/* Subtext: immediately below image, light and compact */
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] p span,
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] p em {
+  display: block;
+  color: #9b9b9b;
+  font-size: 0.95em;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Description: tight spacing below subtext */
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] p {
+  margin: 8px 0 0;
+  text-align: left;
+  color: var(--text-color);
+  font-size: 1.07em;
+  line-height: 1.5;
+  width: 100%;
+}
+
+/* Main content lists: left-aligned, minimal vertical spacing */
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] ul,
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] ol {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* Responsive adjustments for mobile/tablet */
+@media (width <= 900px) {
+  .tabs.tabs13 {
+    padding: 20px 8px;
+    max-width: 100vw;
+  }
+
+  .tabs.tabs13 .tabs-panel[aria-hidden="false"] div {
+    gap: 0;
+  }
+
+  .tabs.tabs13 .tabs-panel[aria-hidden="false"] picture {
+    max-width: 100vw;
+  }
+}
+
+/* Left-align everything in the vertical stack */
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] div,
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] h3,
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] picture,
+.tabs.tabs13 .tabs-panel[aria-hidden="false"] p {
+  align-items: flex-start;
+  text-align: left;
 }
