@@ -31,3 +31,120 @@
     order: unset;
   }
 }
+
+
+.columns.columns2 {
+  background: #fff;
+
+  /* Generous vertical padding for tall header appearance */
+  padding-top: 48px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+}
+
+/* Responsive: desktop layout, horizontal alignment */
+@media (width >= 900px) {
+  .columns.columns2 {
+    /* Use flex for side-by-side layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Remove possible grid or gap properties from previous rules */
+    gap: 0;
+  }
+
+  /* First div (usually logo/image) on the left */
+  .columns.columns2 .columns-img-col {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .columns.columns2 .columns-img-col img {
+    max-height: 48px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    display: block;
+  }
+
+  /* Last div (usually header text or search) on the right */
+  .columns.columns2 div:not(.columns-img-col) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    width: 100%;
+    text-align: right;
+  }
+
+  .columns.columns2 div:not(.columns-img-col) p {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 32px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    word-break: keep-all;
+    text-align: right;
+  }
+}
+
+/* Mobile: stack vertically, keep spacing and alignment */
+@media (width <= 899px) {
+  .columns.columns2 {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    gap: 16px;
+  }
+
+  .columns.columns2 .columns-img-col,
+  .columns.columns2 div:not(.columns-img-col) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .columns.columns2 .columns-img-col img {
+    max-height: 40px;
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+
+  .columns.columns2 div:not(.columns-img-col) p {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+    word-break: keep-all;
+    text-align: left;
+  }
+}
+
+/* Remove unwanted default <p> margins inside columns block */
+.columns.columns2 p {
+  margin: 0;
+  padding: 0;
+}
