@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,108 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion7 {
+  max-width: 740px;
+  margin: 48px auto;
+  background: var(--background-color);
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px 0 rgb(60 60 60 / 9%);
+  display: flex;
+  flex-direction: column;
+  padding: 36px 32px;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion7 {
+    padding: 24px 5vw;
+    margin: 32px 0;
+    max-width: 96vw;
+  }
+}
+
+.accordion.accordion7 details {
+  border: none;
+  border-bottom: 1px solid #ececec;
+  background: transparent;
+  margin: 0;
+  transition: background 0.18s;
+  width: 100%;
+}
+
+.accordion.accordion7 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion7 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 18px 28px;
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-color);
+  background: none;
+  outline: none;
+  border: none;
+  user-select: none;
+  transition: background 0.15s, color 0.15s;
+  gap: 18px;
+}
+
+.accordion.accordion7 summary:hover,
+.accordion.accordion7 details[open] summary {
+  background-color: #f5df92;
+}
+
+.accordion.accordion7 summary::-webkit-details-marker,
+.accordion.accordion7 summary::marker {
+  display: none;
+}
+
+/* For any inline SVG or icon (such as chevron), consistently size and space */
+.accordion.accordion7 summary svg,
+.accordion.accordion7 summary i,
+.accordion.accordion7 summary span.icon {
+  margin-left: auto;
+  margin-right: 0;
+  width: 1.7em;
+  height: 1.7em;
+  color: #a0a0a0;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+/* Rotate icon on open (if a chevron or arrow is used) */
+.accordion.accordion7 details[open] summary svg,
+.accordion.accordion7 details[open] summary i,
+.accordion.accordion7 details[open] summary span.icon {
+  transform: rotate(90deg);
+}
+
+.accordion.accordion7 details p,
+.accordion.accordion7 details ul,
+.accordion.accordion7 details ol,
+.accordion.accordion7 details div {
+  padding: 10px 28px 18px;
+  font-size: var(--body-font-size-m);
+  color: var(--dark-color);
+  line-height: 1.65;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.accordion.accordion7 details *:first-child {
+  margin-top: 0;
 }
