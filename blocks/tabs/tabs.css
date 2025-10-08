@@ -1550,7 +1550,6 @@
 
 
 .tabs.tabs24 {
-  /* Layout: left-aligned, single column, readable max width */
   max-width: 900px;
   margin-left: 48px;
   margin-right: auto;
@@ -1561,7 +1560,6 @@
   gap: 0;
 }
 
-/* Title and tabs bar: visually grouped row (if structure allows), else tabs beneath title */
 .tabs.tabs24 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1574,7 +1572,6 @@
   border: none;
 }
 
-/* Tab pills: compact, clear selected state */
 .tabs.tabs24 .tabs-tab {
   border: none;
   background: none;
@@ -1594,14 +1591,12 @@
   outline: none;
 }
 
-/* Selected tab style */
 .tabs.tabs24 .tabs-tab[aria-selected="true"] {
   background: var(--text-color);
   color: var(--background-color);
   box-shadow: 0 2px 8px rgb(32 32 32 / 8%);
 }
 
-/* Content panel: flush left, readable width, stacked vertically */
 .tabs.tabs24 .tabs-panel {
   background: none;
   border: none;
@@ -1617,7 +1612,6 @@
   display: block;
 }
 
-/* Heading: left-aligned, thin accent underline using border */
 .tabs.tabs24 h3 {
   font-size: var(--heading-font-size-l);
   font-weight: 600;
@@ -1632,7 +1626,6 @@
   padding-bottom: 2px;
 }
 
-/* Image: flush left, visually prominent, no extra side margin */
 .tabs.tabs24 img,
 .tabs.tabs24 picture {
   display: block;
@@ -1644,7 +1637,6 @@
   box-shadow: 0 2px 18px rgb(0 0 0 / 4%);
 }
 
-/* Paragraph/text: readable, left-aligned, max width */
 .tabs.tabs24 p,
 .tabs.tabs24 ul,
 .tabs.tabs24 ol {
@@ -1655,7 +1647,6 @@
   max-width: 700px;
 }
 
-/* Responsive: stack tabs above content on small screens */
 @media (width <= 900px) {
   .tabs.tabs24 {
     max-width: 100vw;
@@ -1678,5 +1669,211 @@
   .tabs.tabs24 ul,
   .tabs.tabs24 ol {
     max-width: 100%;
+  }
+}
+
+
+.tabs.tabs28 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 48px 36px;
+  background: var(--background-color);
+  box-sizing: border-box;
+  border-radius: 0;
+  gap: 40px; /* tighter gutter for visual connection */
+}
+
+/* SIDEBAR: vertical stack, tight grouping */
+.tabs.tabs28 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 128px;
+  max-width: 160px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  position: relative;
+  padding-top: 0;
+}
+
+/* TAB BUTTONS: vertical, uppercase, spaced */
+.tabs.tabs28 .tabs-list .tabs-tab {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #888;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Active tab: black bg, white text */
+.tabs.tabs28 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+}
+
+/* Remove any accent/underline from last tab if previously present */
+.tabs.tabs28 .tabs-list .tabs-tab:last-child {
+  margin-bottom: 0;
+}
+
+/* SIDEBAR ACCENT/DIVIDER: yellow bar above tabs (no content property used) */
+
+.tabs.tabs28 .tabs-list::after {
+  display: block;
+  position: static;
+  width: 40px;
+  height: 6px;
+  background: #fede64;
+  border-radius: 3px;
+  margin-bottom: 20px;
+
+  /* visually as a divider above tabs, but no content property used */
+}
+
+/* MAIN CONTENT COLUMN */
+.tabs.tabs28 .tabs-panel {
+  width: 100%;
+  max-width: 680px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Hide inactive panels */
+.tabs.tabs28 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* MAIN HEADING + YELLOW UNDERLINE ACCENT */
+.tabs.tabs28 .tabs-panel h3:first-child {
+  font-size: var(--heading-font-size-xxl);
+  color: var(--text-color);
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 6px;
+  line-height: 1.1;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.tabs.tabs28 .tabs-panel h3:first-child::after {
+  display: block;
+  width: 66px;
+  height: 7px;
+  background: #fede64;
+  margin-top: 12px;
+  border-radius: 3px;
+}
+
+/* SUBHEADING AND CONTENT SPACING */
+.tabs.tabs28 .tabs-panel h3:not(:first-child) {
+  font-size: var(--heading-font-size-l);
+  color: var(--dark-color);
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+/* Add vertical space below heading underline */
+.tabs.tabs28 .tabs-panel h3:first-child + * {
+  margin-top: 28px;
+}
+
+/* BODY TEXT & LISTS: readable line length */
+.tabs.tabs28 .tabs-panel p,
+.tabs.tabs28 .tabs-panel ul,
+.tabs.tabs28 .tabs-panel ol {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  margin-top: 0;
+  max-width: 540px;
+}
+
+/* INDENTED LISTS */
+.tabs.tabs28 .tabs-panel ul,
+.tabs.tabs28 .tabs-panel ol {
+  padding-left: 24px;
+}
+
+/* IMAGE: generous space above/below, rounded corners */
+.tabs.tabs28 .tabs-panel picture,
+.tabs.tabs28 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 14px;
+  margin: 36px 0 24px;
+  box-shadow: none;
+}
+
+/* FOOTER: small text, extra bottom margin */
+.tabs.tabs28 .tabs-panel p:last-child {
+  font-size: var(--body-font-size-xs);
+  color: #666;
+  margin-top: 30px;
+  margin-bottom: 24px;
+}
+
+/* RESPONSIVE: stack columns on small screens, tabs horizontal */
+@media (width <= 900px) {
+  .tabs.tabs28 {
+    flex-direction: column;
+    gap: 0;
+    padding: 24px 8px;
+  }
+
+  .tabs.tabs28 .tabs-list {
+    flex-direction: row;
+    align-items: stretch;
+    min-width: 0;
+    max-width: 100%;
+    margin-bottom: 18px;
+    gap: 8px;
+    padding-bottom: 0;
+  }
+
+  .tabs.tabs28 .tabs-list .tabs-tab {
+    min-width: 110px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 0;
+    padding: 8px 10px;
+  }
+
+  .tabs.tabs28 .tabs-list::after {
+    display: none;
+  }
+
+  .tabs.tabs28 .tabs-panel {
+    max-width: 100%;
+  }
+
+  .tabs.tabs28 .tabs-panel picture,
+  .tabs.tabs28 .tabs-panel img {
+    max-width: 100%;
+    margin: 18px 0 10px;
+    border-radius: 10px;
   }
 }
