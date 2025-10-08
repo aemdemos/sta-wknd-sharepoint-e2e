@@ -1038,7 +1038,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack columns on small screens */
 @media (width <= 900px) {
   .tabs.tabs19 {
     flex-direction: column;
@@ -1047,7 +1046,6 @@
   }
 }
 
-/* --- Left Column --- */
 .tabs.tabs19 .tabs-list {
   flex: 0 0 320px;
   max-width: 340px;
@@ -1071,7 +1069,6 @@
   margin-bottom: 0;
 }
 
-/* Yellow accent line below the heading */
 .tabs.tabs19 .tabs-list h3 + * {
   height: 3px;
   width: 48px;
@@ -1081,7 +1078,6 @@
   display: block;
 }
 
-/* --- Right Column --- */
 .tabs.tabs19 .tabs-panel,
 .tabs.tabs19 .tabs-panel[aria-hidden="false"],
 .tabs.tabs19 .tabs-panel[aria-hidden="true"] {
@@ -1095,7 +1091,6 @@
   box-shadow: none;
 }
 
-/* Only show active panel */
 .tabs.tabs19 .tabs-panel[aria-hidden="false"] {
   display: block;
 }
@@ -1104,7 +1099,6 @@
   display: none;
 }
 
-/* --- Panel Content Styling --- */
 .tabs.tabs19 .tabs-panel {
   display: flex;
   flex-direction: column;
@@ -1153,4 +1147,221 @@
 
 .tabs.tabs19 .tabs-panel p:last-child {
   margin-bottom: 0;
+}
+
+
+.tabs.tabs20 {
+  /* Use CSS Grid for multi-row + column alignment; sidebar + main content */
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) 2fr;
+  background: var(--background-color);
+  border-radius: 18px;
+  box-shadow: 0 6px 24px 0 rgb(32 32 32 / 9%);
+  margin: 0 auto 48px;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+/* Sidebar: vertical stack, tight top alignment */
+.tabs.tabs20 .tabs-list {
+  background: var(--background-color);
+  padding: 48px 28px 48px 40px;
+  border-right: 1px solid #edecec;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+
+  /* Remove excess vertical whitespace */
+  justify-content: flex-start;
+}
+
+/* Info-block styles in sidebar */
+.tabs.tabs20 .tabs-list p,
+.tabs.tabs20 .tabs-list dt {
+  text-transform: uppercase;
+  color: #7c7c7c;
+  font-size: var(--body-font-size-s);
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  margin: 0 0 3px;
+}
+
+.tabs.tabs20 .tabs-list li,
+.tabs.tabs20 .tabs-list dd {
+  color: var(--text-color);
+  font-size: 1.07em;
+  font-weight: 600;
+  margin: 0 0 13px;
+}
+
+.tabs.tabs20 .tabs-list .price,
+.tabs.tabs20 .tabs-list .cost {
+  color: var(--text-color);
+  font-size: 1.16em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.tabs.tabs20 .tabs-list a,
+.tabs.tabs20 .tabs-list .share {
+  text-transform: uppercase;
+  font-size: var(--body-font-size-xs);
+  color: #7c7c7c;
+  letter-spacing: 0.11em;
+  font-weight: 500;
+  margin-top: auto;
+  text-decoration: underline;
+}
+
+/* Main content panel: vertical stack, top aligned with sidebar */
+.tabs.tabs20 .tabs-panel {
+  padding: 48px 56px 48px 48px;
+  background: var(--background-color);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+
+  /* Top alignment with sidebar */
+  justify-content: flex-start;
+}
+
+/* Main heading: large, left-aligned, with accent underline */
+.tabs.tabs20 .tabs-panel h1,
+.tabs.tabs20 .tabs-panel h2,
+.tabs.tabs20 .tabs-panel h3 {
+  color: var(--text-color);
+  font-weight: 600;
+  margin: 0 0 18px;
+  line-height: 1.15;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.tabs.tabs20 .tabs-panel h1::after,
+.tabs.tabs20 .tabs-panel h2::after,
+.tabs.tabs20 .tabs-panel h3::after {
+  display: block;
+  width: 62px;
+  height: 4px;
+  background: #ffe566;
+  border-radius: 2px;
+  margin-top: 3px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+/* Section headings (subheading etc.) */
+.tabs.tabs20 .tabs-panel h2,
+.tabs.tabs20 .tabs-panel h3,
+.tabs.tabs20 .tabs-panel h4 {
+  color: var(--text-color);
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Horizontal pills: navigation tabs under main heading in panel */
+.tabs.tabs20 .tabs-panel .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 26px;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Tabs: horizontal pill style */
+.tabs.tabs20 .tabs-panel .tabs-tab {
+  background: transparent;
+  border: none;
+  padding: 10px 26px 10px 0;
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  color: var(--text-color);
+  border-radius: 19px;
+  margin-right: 18px;
+  margin-bottom: 0;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.21s, color 0.21s;
+  outline: none;
+  text-align: left;
+  box-shadow: none;
+  line-height: 1.1;
+}
+
+.tabs.tabs20 .tabs-panel .tabs-tab[aria-selected="true"] {
+  background: var(--text-color);
+  color: var(--background-color);
+}
+
+.tabs.tabs20 .tabs-panel .tabs-tab:not([aria-selected="true"]):hover {
+  text-decoration: underline;
+}
+
+/* Large image styles */
+.tabs.tabs20 .tabs-panel picture,
+.tabs.tabs20 .tabs-panel img {
+  display: block;
+  margin: 32px 0 16px;
+  max-width: 82%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgb(32 32 32 / 6%);
+}
+
+/* Paragraphs and lists in main content */
+.tabs.tabs20 .tabs-panel p,
+.tabs.tabs20 .tabs-panel ul,
+.tabs.tabs20 .tabs-panel li {
+  color: var(--text-color);
+  font-size: 1em;
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+/* Hide inactive panels */
+.tabs.tabs20 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Responsive: stack sidebar and panel vertically below 900px */
+@media (width <= 900px) {
+  .tabs.tabs20 {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs.tabs20 .tabs-list {
+    border-right: none;
+    border-bottom: 1px solid #edecec;
+    padding: 24px 18px 20px;
+    min-width: 0;
+    gap: 16px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .tabs.tabs20 .tabs-panel {
+    padding: 28px 14px;
+  }
+
+  .tabs.tabs20 .tabs-panel .tabs-list {
+    flex-direction: row;
+    margin-bottom: 18px;
+    padding: 0;
+  }
+}
+
+/* Prevent overflow and ensure box sizing */
+.tabs.tabs20 *,
+.tabs.tabs20 *::before,
+.tabs.tabs20 *::after {
+  box-sizing: border-box;
 }
