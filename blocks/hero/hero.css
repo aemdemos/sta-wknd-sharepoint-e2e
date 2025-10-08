@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -7,6 +8,12 @@
   position: relative;
   padding: 40px 24px;
   min-height: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero h1,
@@ -106,4 +113,96 @@
   height: 1px;
   background: #eee;
   margin-top: 16px;
+}
+
+/* Responsive: Stack on small screens */
+@media (width <= 800px) {
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.hero > div:first-child {
+  flex: 2 1 0%; /* Image gets more space, adjust as needed */
+  position: relative;
+  min-width: 0;
+  z-index: 1;
+}
+
+/* Make image fill container */
+.hero picture,
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 500px; /* Set desired height */
+}
+
+.hero > div:last-child {
+  flex: 1 1 0%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  min-width: 0;
+}
+
+/* The inner div holds the actual content */
+.hero > div:last-child > div {
+  background: #fff;
+  padding: 32px 24px;
+  box-sizing: border-box;
+  margin-bottom: -40px; /* Overlap the image */
+  box-shadow: none;
+  border-radius: 0;
+  max-width: 420px;
+  margin-left: 32px;
+}
+
+/* Responsive adjustments */
+@media (width <= 800px) {
+  .hero > div:last-child > div {
+    margin-bottom: 0;
+    margin-left: 0;
+    max-width: none;
+  }
+}
+
+.hero h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 20px;
+  text-align: left;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #222;
+  margin: 0 0 24px;
+  text-align: left;
+  font-weight: normal;
+}
+
+.hero .button-container {
+  margin-top: 0;
+}
+
+.hero .button {
+  display: inline-block;
+  background: #ffe000;
+  color: #111;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 }
