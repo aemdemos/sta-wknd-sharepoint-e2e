@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -35,27 +36,20 @@
 
 .columns.columns2 {
   background: #fff;
-
-  /* Generous vertical padding for tall header appearance */
   padding-top: 48px;
   padding-bottom: 48px;
   box-sizing: border-box;
 }
 
-/* Responsive: desktop layout, horizontal alignment */
 @media (width >= 900px) {
   .columns.columns2 {
-    /* Use flex for side-by-side layout */
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
-    /* Remove possible grid or gap properties from previous rules */
     gap: 0;
   }
 
-  /* First div (usually logo/image) on the left */
   .columns.columns2 .columns-img-col {
     display: flex;
     align-items: center;
@@ -73,7 +67,6 @@
     display: block;
   }
 
-  /* Last div (usually header text or search) on the right */
   .columns.columns2 div:not(.columns-img-col) {
     display: flex;
     align-items: center;
@@ -99,7 +92,6 @@
   }
 }
 
-/* Mobile: stack vertically, keep spacing and alignment */
 @media (width <= 899px) {
   .columns.columns2 {
     display: flex;
@@ -143,8 +135,222 @@
   }
 }
 
-/* Remove unwanted default <p> margins inside columns block */
 .columns.columns2 p {
   margin: 0;
   padding: 0;
+}
+
+
+.columns.columns10 {
+  background: #232221;
+  color: #fff;
+  padding: 40px 56px;
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.columns.columns10 .columns-3-cols {
+  width: 100%;
+  margin: 0;
+}
+
+.columns.columns10 .columns-3-cols div {
+  display: grid;
+  grid-template-columns: minmax(0,1.7fr) minmax(0,1fr);
+  align-items: center;
+  gap: 32px;
+  min-height: 140px;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns10 {
+    padding: 32px 16px;
+  }
+
+  .columns.columns10 .columns-3-cols div {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    min-height: 0;
+  }
+}
+
+/* LEFT COLUMN: stack logo, info, and language selector */
+.columns.columns10 .columns-3-cols div div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.columns.columns10 .columns-3-cols div div:first-child picture img,
+.columns.columns10 .columns-3-cols div div:first-child img {
+  max-width: 128px;
+  height: auto;
+  margin-bottom: 10px;
+  margin-top: 4px;
+  display: block;
+}
+
+.columns.columns10 .columns-3-cols div div:first-child p,
+.columns.columns10 .columns-3-cols div div:first-child span,
+.columns.columns10 .columns-3-cols div div:first-child li,
+.columns.columns10 .columns-3-cols div div:first-child div {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 4px;
+  text-align: left;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Language selector under info, no bullets */
+.columns.columns10 .columns-3-cols div div:nth-child(2) {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.columns.columns10 .columns-3-cols div div:nth-child(2) ul,
+.columns.columns10 .columns-3-cols div div:nth-child(2) ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.columns.columns10 .columns-3-cols div div:nth-child(2) li {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns10 .columns-3-cols div div:nth-child(2) a {
+  color: #eee;
+  text-decoration: underline;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Group both left divs visually as one vertical stack */
+@media (width >= 901px) {
+  .columns.columns10 .columns-3-cols div {
+    align-items: center;
+  }
+
+  .columns.columns10 .columns-3-cols div div:first-child,
+  .columns.columns10 .columns-3-cols div div:nth-child(2) {
+    margin-bottom: 0;
+    gap: 0;
+  }
+
+  .columns.columns10 .columns-3-cols div div:nth-child(2) {
+    margin-top: -6px;
+  }
+}
+
+/* RIGHT COLUMN: FOLLOW US + SOCIAL LINKS */
+.columns.columns10 .columns-3-cols div div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  min-width: 160px;
+}
+
+/* FOLLOW US heading: uppercase, small, letter-spaced */
+.columns.columns10 .columns-3-cols div div:last-child h1,
+.columns.columns10 .columns-3-cols div div:last-child h2,
+.columns.columns10 .columns-3-cols div div:last-child h3,
+.columns.columns10 .columns-3-cols div div:last-child h4,
+.columns.columns10 .columns-3-cols div div:last-child strong {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  text-align: right;
+  line-height: 1.4;
+}
+
+/* Social links: row of square icon buttons */
+.columns.columns10 .columns-3-cols div div:last-child p,
+.columns.columns10 .columns-3-cols div div:last-child ul,
+.columns.columns10 .columns-3-cols div div:last-child ol {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-end;
+}
+
+/* Social icon button styling */
+.columns.columns10 .columns-3-cols div div:last-child a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #232221;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  text-decoration: none;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns10 .columns-3-cols div div:last-child a:hover {
+  background: #e2e1e1;
+  color: #232221;
+}
+
+/* Responsive: right column aligns left on mobile */
+@media (width <= 900px) {
+  .columns.columns10 .columns-3-cols div div {
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 0;
+  }
+
+  .columns.columns10 .columns-3-cols div div:last-child h1,
+  .columns.columns10 .columns-3-cols div div:last-child h2,
+  .columns.columns10 .columns-3-cols div div:last-child h3,
+  .columns.columns10 .columns-3-cols div div:last-child h4,
+  .columns.columns10 .columns-3-cols div div:last-child strong {
+    text-align: left;
+  }
+
+  .columns.columns10 .columns-3-cols div div:last-child p,
+  .columns.columns10 .columns-3-cols div div:last-child ul,
+  .columns.columns10 .columns-3-cols div div:last-child ol {
+    justify-content: flex-start;
+  }
+}
+
+/* Hide list bullets and style language links for both desktop and mobile */
+.columns.columns10 .columns-3-cols div div ul,
+.columns.columns10 .columns-3-cols div div ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.columns.columns10 .columns-3-cols div div a {
+  color: #eee;
+  text-decoration: underline;
+  font-size: 12px;
 }
