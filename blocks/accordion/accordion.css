@@ -241,16 +241,12 @@
   align-items: flex-start;
 }
 
-/* Main content column: first details only */
 .accordion.accordion17 details:nth-child(1) {
   flex: 2 1 0;
   padding-right: 40px;
   border-right: 1px solid #e0e0e0;
-
-  /* Main content only */
 }
 
-/* Sidebar: stack 2nd and 3rd details vertically */
 .accordion.accordion17 details:nth-child(2),
 .accordion.accordion17 details:nth-child(3) {
   flex: none;
@@ -263,13 +259,10 @@
   margin-bottom: 16px;
 }
 
-/* Sidebar stack and grouping */
-
 .accordion.accordion17 details:nth-child(3) {
   margin-bottom: 0;
 }
 
-/* Sidebar headings smaller and lighter */
 .accordion.accordion17 details:nth-child(2) .accordion-item-label h2,
 .accordion.accordion17 details:nth-child(3) .accordion-item-label h2 {
   font-size: 1.15rem;
@@ -278,7 +271,6 @@
   margin-bottom: 8px;
 }
 
-/* Responsive: stack columns on mobile */
 @media (width <= 900px) {
   .accordion.accordion17 {
     flex-direction: column;
@@ -290,4 +282,60 @@
     border-right: none;
     margin-bottom: 32px;
   }
+}
+
+
+.accordion-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.accordion h2 {
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+  margin: 2.5rem 0 1rem;
+  position: relative;
+}
+
+.accordion h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #FFC800;
+  margin-top: 0.5rem;
+}
+
+.accordion p {
+  font-family: Inter, Arial, sans-serif;
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.accordion img, .accordion picture {
+  width: 100%;
+  display: block;
+  margin: 2rem 0;
+}
+
+.accordion blockquote {
+  background: #F5F5F5;
+  font-style: italic;
+  font-size: 1.35rem;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-left: 6px solid #FFC800;
+}
+
+.accordion em strong {
+  font-style: italic;
+  font-size: 1rem;
+  color: #888;
+  display: block;
+  margin-bottom: 2rem;
 }
