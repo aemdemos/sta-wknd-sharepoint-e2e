@@ -176,7 +176,6 @@
   }
 }
 
-/* LEFT COLUMN: stack logo, info, and language selector */
 .columns.columns10 .columns-3-cols div div:first-child {
   display: flex;
   flex-direction: column;
@@ -210,7 +209,6 @@
   letter-spacing: 0.02em;
 }
 
-/* Language selector under info, no bullets */
 .columns.columns10 .columns-3-cols div div:nth-child(2) {
   padding: 0;
   margin: 0;
@@ -239,7 +237,6 @@
   margin: 0;
 }
 
-/* Group both left divs visually as one vertical stack */
 @media (width >= 901px) {
   .columns.columns10 .columns-3-cols div {
     align-items: center;
@@ -256,7 +253,6 @@
   }
 }
 
-/* RIGHT COLUMN: FOLLOW US + SOCIAL LINKS */
 .columns.columns10 .columns-3-cols div div:last-child {
   display: flex;
   flex-direction: column;
@@ -266,7 +262,6 @@
   min-width: 160px;
 }
 
-/* FOLLOW US heading: uppercase, small, letter-spaced */
 .columns.columns10 .columns-3-cols div div:last-child h1,
 .columns.columns10 .columns-3-cols div div:last-child h2,
 .columns.columns10 .columns-3-cols div div:last-child h3,
@@ -282,7 +277,6 @@
   line-height: 1.4;
 }
 
-/* Social links: row of square icon buttons */
 .columns.columns10 .columns-3-cols div div:last-child p,
 .columns.columns10 .columns-3-cols div div:last-child ul,
 .columns.columns10 .columns-3-cols div div:last-child ol {
@@ -294,7 +288,6 @@
   justify-content: flex-end;
 }
 
-/* Social icon button styling */
 .columns.columns10 .columns-3-cols div div:last-child a {
   display: inline-flex;
   align-items: center;
@@ -318,7 +311,6 @@
   color: #232221;
 }
 
-/* Responsive: right column aligns left on mobile */
 @media (width <= 900px) {
   .columns.columns10 .columns-3-cols div div {
     align-items: flex-start;
@@ -341,7 +333,6 @@
   }
 }
 
-/* Hide list bullets and style language links for both desktop and mobile */
 .columns.columns10 .columns-3-cols div div ul,
 .columns.columns10 .columns-3-cols div div ol {
   list-style: none;
@@ -354,3 +345,137 @@
   text-decoration: underline;
   font-size: 12px;
 }
+
+
+.columns.columns40 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 400px;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+/* IMAGE COLUMN: Edge-to-edge, fills left half */
+.columns.columns40 .columns-img-col {
+  flex: 1 1 50%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.columns.columns40 .columns-img-col img,
+.columns.columns40 .columns-img-col picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* CONTENT COLUMN: Grey bg, generous padding, vertical stack */
+.columns.columns40 .columns-img-col ~ div {
+  flex: 1 1 50%;
+  background-color: #F3F3F3;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+/* Top label styling (first p) */
+.columns.columns40 .columns-img-col ~ div p:first-child {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #222;
+  margin: 0 0 16px;
+  letter-spacing: 0.04em;
+}
+
+/* Heading styling */
+.columns.columns40 .columns-img-col ~ div h2 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 18px;
+  line-height: 1.15;
+}
+
+/* Body text */
+.columns.columns40 .columns-img-col ~ div p:not(:first-child, .button-container) {
+  font-size: 16px;
+  color: #222;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+/* Button container: push button to bottom if content is short */
+.columns.columns40 .columns-img-col ~ div .button-container {
+  margin-top: auto;
+  padding-top: 18px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Button: yellow bg, bold, squared edges */
+.columns.columns40 .button-container .button,
+.columns.columns40 .button-container a.button {
+  background: #FFE600;
+  color: #222;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  padding: 14px 44px;
+  margin: 0;
+  outline: none;
+  min-width: 180px;
+  display: inline-block;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.columns.columns40 .button-container .button:focus,
+.columns.columns40 .button-container .button:hover,
+.columns.columns40 .button-container a.button:focus,
+.columns.columns40 .button-container a.button:hover {
+  background: #FFD600;
+  color: #222;
+  text-decoration: underline;
+}
+
+/* Responsive: stack columns vertically */
+@media (width <= 900px) {
+  .columns.columns40 {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .columns.columns40 .columns-img-col,
+  .columns.columns40 .columns-img-col ~ div {
+    flex-basis: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .columns.columns40 .columns-img-col ~ div {
+    padding: 28px 16px;
+  }
+}
+
+/* Remove any extra gap between columns if inherited */
