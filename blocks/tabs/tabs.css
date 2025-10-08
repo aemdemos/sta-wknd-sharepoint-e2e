@@ -897,28 +897,22 @@
 
 .tabs.tabs14.block {
   display: flex;
-  gap: 40px; /* space between sidebar and main content */
+  gap: 40px;
   background: #fff;
   padding: 40px;
-
-  /* Optional: max-width */
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Sidebar column (.tabs-list) */
 .tabs-list {
-  flex: 0 0 220px;  /* Fixed width sidebar */
+  flex: 0 0 220px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  /* Optional: add right padding */
   padding-right: 20px;
-  border: none; /* Remove default borders */
+  border: none;
 }
 
-/* Style tab buttons as sidebar "sections": */
 .tabs-tab {
   background: none;
   border: none;
@@ -947,7 +941,6 @@
   font-size: 1em;
 }
 
-/* Sidebar heading and accent line (if heading is present in sidebar): */
 .tabs-list::before {
   content: "Cycling Tuscany";
   display: block;
@@ -967,7 +960,6 @@
   margin-bottom: 24px;
 }
 
-/* Main Content Area (.tabs-panel) */
 .tabs-panel {
   flex: 1 1 auto;
   display: block;
@@ -975,7 +967,6 @@
   max-width: 800px;
 }
 
-/* Headings */
 .tabs-panel h2 {
   font-family: Georgia, serif;
   font-size: 1.5em;
@@ -992,7 +983,6 @@
   margin-bottom: 8px;
 }
 
-/* Images: make them wide and responsive */
 .tabs-panel picture,
 .tabs-panel img {
   display: block;
@@ -1003,7 +993,6 @@
   margin-bottom: 24px;
 }
 
-/* Body text */
 .tabs-panel p,
 .tabs-panel ul {
   font-family: Inter, Arial, sans-serif;
@@ -1012,7 +1001,6 @@
   margin-bottom: 20px;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs14.block {
     flex-direction: column;
@@ -1033,8 +1021,136 @@
   }
 }
 
-/* Remove unnecessary margins/padding from the inner divs if needed */
 .tabs-panel > div {
   padding: 0;
   margin: 0;
+}
+
+
+.tabs.tabs19 {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 40px 32px;
+  background: var(--background-color);
+  border-radius: 14px;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .tabs.tabs19 {
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px 8px;
+  }
+}
+
+/* --- Left Column --- */
+.tabs.tabs19 .tabs-list {
+  flex: 0 0 320px;
+  max-width: 340px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.tabs.tabs19 .tabs-list h3 {
+  margin: 0 0 10px;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Yellow accent line below the heading */
+.tabs.tabs19 .tabs-list h3 + * {
+  height: 3px;
+  width: 48px;
+  background: #F7E7A3;
+  border-radius: 2px;
+  margin: 0 0 28px;
+  display: block;
+}
+
+/* --- Right Column --- */
+.tabs.tabs19 .tabs-panel,
+.tabs.tabs19 .tabs-panel[aria-hidden="false"],
+.tabs.tabs19 .tabs-panel[aria-hidden="true"] {
+  flex: 1 1 0;
+  max-width: 760px;
+  padding: 0;
+  background: transparent;
+  color: var(--dark-color);
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+}
+
+/* Only show active panel */
+.tabs.tabs19 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+.tabs.tabs19 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* --- Panel Content Styling --- */
+.tabs.tabs19 .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 0;
+}
+
+.tabs.tabs19 .tabs-panel h3 {
+  margin: 0 0 14px;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.18;
+}
+
+.tabs.tabs19 .tabs-panel img,
+.tabs.tabs19 .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 14px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tabs.tabs19 .tabs-panel .caption {
+  text-transform: uppercase;
+  font-size: var(--body-font-size-s);
+  color: #2d406d;
+  font-weight: bold;
+  letter-spacing: 1.05px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.tabs.tabs19 .tabs-panel p,
+.tabs.tabs19 .tabs-panel li {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+
+.tabs.tabs19 .tabs-panel p:last-child {
+  margin-bottom: 0;
 }
