@@ -115,7 +115,6 @@
   margin-top: 16px;
 }
 
-/* Responsive: Stack on small screens */
 @media (width <= 800px) {
   .hero {
     flex-direction: column;
@@ -124,20 +123,19 @@
 }
 
 .hero > div:first-child {
-  flex: 2 1 0%; /* Image gets more space, adjust as needed */
+  flex: 2 1 0%;
   position: relative;
   min-width: 0;
   z-index: 1;
 }
 
-/* Make image fill container */
 .hero picture,
 .hero img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
-  max-height: 500px; /* Set desired height */
+  max-height: 500px;
 }
 
 .hero > div:last-child {
@@ -149,19 +147,17 @@
   min-width: 0;
 }
 
-/* The inner div holds the actual content */
 .hero > div:last-child > div {
   background: #fff;
   padding: 32px 24px;
   box-sizing: border-box;
-  margin-bottom: -40px; /* Overlap the image */
+  margin-bottom: -40px;
   box-shadow: none;
   border-radius: 0;
   max-width: 420px;
   margin-left: 32px;
 }
 
-/* Responsive adjustments */
 @media (width <= 800px) {
   .hero > div:last-child > div {
     margin-bottom: 0;
@@ -205,4 +201,98 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+.hero.hero39 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100vw;
+  min-height: 520px;
+  overflow: hidden;
+  background: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero39 picture {
+  flex: 1;
+  display: block;
+  position: relative;
+  width: 50vw;
+  height: 100%;
+}
+
+.hero.hero39 picture img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero.hero39 > div:last-child {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  background: none;
+  position: relative;
+}
+
+.hero.hero39 > div:last-child > div {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 7%);
+  box-sizing: border-box;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero.hero39 h2 {
+  color: var(--text-color, #222);
+  font-size: var(--heading-font-size-xl, 2rem);
+  font-weight: 600;
+  margin: 0 0 1rem;
+  line-height: 1.18;
+}
+
+.hero.hero39 p {
+  color: var(--dark-color, #444);
+  font-size: var(--body-font-size-m, 1rem);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (width <= 900px) {
+  .hero.hero39 {
+    flex-direction: column;
+    min-height: 340px;
+  }
+
+  .hero.hero39 picture,
+  .hero.hero39 > div:last-child {
+    width: 100vw;
+    max-width: none;
+  }
+
+  .hero.hero39 > div:last-child > div {
+    padding: 1.2rem 1rem;
+    max-width: none;
+  }
+
+  .hero.hero39 h2 {
+    font-size: var(--heading-font-size-l, 1.2rem);
+  }
+
+  .hero.hero39 p {
+    font-size: var(--body-font-size-s, 0.95rem);
+  }
 }
