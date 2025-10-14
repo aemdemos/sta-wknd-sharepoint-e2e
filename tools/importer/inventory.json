@@ -2396,7 +2396,8 @@
           "uuid": "77a25244-02-8508d37050d6ad651700fd3359628a43350d9ce0",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]"
         }
-      ]
+      ],
+      "key": "unknown12"
     },
     {
       "name": "Tabs",
@@ -3038,7 +3039,8 @@
           "uuid": "fbda622a-02-8508d37050d6ad651700fd3359628a43350d9ce0",
           "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]"
         }
-      ]
+      ],
+      "key": "unknown39"
     },
     {
       "name": "Carousel",
