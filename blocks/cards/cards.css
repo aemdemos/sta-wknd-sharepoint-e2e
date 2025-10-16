@@ -25,3 +25,131 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards3 {
+  background: #fff;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+/* Layout the card grid horizontally, with wrap for responsiveness */
+.cards.cards3 ul {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 32px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Card styles */
+.cards.cards3 li {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 6%);
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  width: 280px;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+}
+
+/* Avatar styles */
+.cards.cards3 .cards-card-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 20px;
+  border: 2px solid #f5f5f5;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+}
+
+/* Card body layout */
+.cards.cards3 .cards-card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Name styling */
+.cards.cards3 .cards-card-body h3 {
+  font-size: 1.3em;
+  color: #222;
+  font-weight: bold;
+  margin: 0 0 10px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* Subtitle styling */
+.cards.cards3 .cards-card-body h5 {
+  font-size: 0.95em;
+  color: #222;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+/* Social row */
+.cards.cards3 .cards-card-body p {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Social buttons */
+.cards.cards3 .cards-card-body p a {
+  width: 36px;
+  height: 36px;
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background 0.2s, color 0.2s;
+  overflow: hidden;
+  white-space: nowrap;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Social button hover */
+.cards.cards3 .cards-card-body p a:hover,
+.cards.cards3 .cards-card-body p a:focus {
+  background: #bfa900;
+  color: #222;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .cards.cards3 ul {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .cards.cards3 li {
+    width: 100%;
+    max-width: 340px;
+    padding: 24px 12px 20px;
+  }
+}
