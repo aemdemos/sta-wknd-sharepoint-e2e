@@ -660,7 +660,6 @@
   min-height: 600px;
 }
 
-/* Sidebar */
 .tabs.tabs14 .tabs-list {
   flex: 0 0 25%;
   min-width: 220px;
@@ -705,7 +704,6 @@
   line-height: 1.3;
 }
 
-/* Main Content */
 .tabs.tabs14 .tabs-panel {
   flex: 1 1 75%;
   background: #fff;
@@ -719,7 +717,6 @@
   gap: 0;
 }
 
-/* Hide inactive panels */
 .tabs.tabs14 .tabs-panel[aria-hidden="true"] {
   display: none;
 }
@@ -728,7 +725,6 @@
   display: flex;
 }
 
-/* Horizontal navigation in main content */
 .tabs.tabs14 .tabs-panel .tabs-tablist {
   width: 100%;
   display: flex;
@@ -769,7 +765,6 @@
   background: none;
 }
 
-/* Left-aligned headline and gold underline */
 .tabs.tabs14 .tabs-panel h3,
 .tabs.tabs14 .tabs-panel h2 {
   font-size: 2.1rem;
@@ -796,7 +791,6 @@
   margin-left: 0;
 }
 
-/* Image styling, left-aligned */
 .tabs.tabs14 .tabs-panel picture,
 .tabs.tabs14 .tabs-panel img {
   display: block;
@@ -810,7 +804,6 @@
   align-self: flex-start;
 }
 
-/* Caption and paragraph, left-aligned, editorial style */
 .tabs.tabs14 .tabs-panel p {
   font-size: 0.97rem;
   color: #222;
@@ -832,7 +825,6 @@
   text-align: left;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .tabs.tabs14 {
     flex-direction: column;
@@ -882,5 +874,211 @@
   .tabs.tabs14 .tabs-panel p:first-of-type {
     max-width: 100%;
     font-size: 0.95rem;
+  }
+}
+
+
+.tabs.tabs19 {
+  /* Outermost container styling for block layout */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Set up the grid-based 2-column layout */
+.tabs.tabs19 .tabs-wrapper {
+  display: grid;
+  grid-template-columns: minmax(240px, 340px) 1fr;
+  gap: 56px;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs19 .tabs-wrapper {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* Sidebar (first column) styling */
+.tabs.tabs19 .tabs-wrapper div {
+  /* This targets all direct children, so we need to differentiate sidebar and main area by context below */
+
+  /* Sidebar will be styled more specifically below */
+}
+
+/* Sidebar: style section headings, values, accent line, call-to-action */
+.tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) {
+  padding: 32px 0 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+.tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) h1,
+.tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) h2 {
+  margin-top: 0;
+  margin-bottom: 0.15em;
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.02em;
+}
+
+.tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) .accent-line,
+.tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) hr {
+  display: block;
+  width: 74px;
+  height: 4px;
+  background: #ffeb3b;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 26px;
+  border-radius: 2px;
+}
+
+.tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) .section-label {
+  display: block;
+  font-size: 0.98rem;
+  color: #888;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 22px;
+  margin-bottom: 4px;
+}
+
+.tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) .section-value {
+  display: block;
+  font-size: 1.17rem;
+  font-weight: 700;
+  color: #222;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) .call-to-action {
+  display: block;
+  font-size: 1rem;
+  color: #aaa;
+  text-transform: uppercase;
+  margin-top: 42px;
+  margin-bottom: 0;
+  letter-spacing: 0.05em;
+}
+
+/* Main content area (second column) */
+.tabs.tabs19 .tabs-wrapper .tabs.block {
+  padding: 32px 0 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* Tablist styling */
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-bottom: 28px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-tab {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 0 0 1px #222 inset;
+}
+
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-tab[aria-selected="false"]:hover {
+  border-bottom: 2px solid #222;
+  background: #f8f8f8;
+}
+
+/* Responsive tablist stacking */
+@media (width <= 600px) {
+  .tabs.tabs19 .tabs-wrapper .tabs.block .tabs-list {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tabs.tabs19 .tabs-wrapper {
+    gap: 0;
+  }
+}
+
+/* Tab panels, image, and text */
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-panel {
+  margin-top: 12px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-panel picture,
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 24px;
+  box-shadow: none;
+}
+
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-panel p,
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-panel ul,
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-panel ol {
+  font-size: 1.07rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 22px;
+  margin-top: 0;
+  text-align: left;
+  max-width: 800px;
+}
+
+/* Remove extra borders and box backgrounds that might be present */
+.tabs.tabs19 .tabs-wrapper .tabs.block,
+.tabs.tabs19 .tabs-wrapper .tabs.block .tabs-panel {
+  border: none;
+  background: var(--background-color);
+  box-shadow: none;
+}
+
+/* Prevent unnecessary vertical centering */
+.tabs.tabs19 .tabs-wrapper .tabs.block,
+.tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) {
+  align-items: flex-start;
+}
+
+/* Responsive: stack columns for mobile, add horizontal padding */
+@media (width <= 900px) {
+  .tabs.tabs19 .tabs-wrapper,
+  .tabs.tabs19 .tabs-wrapper .tabs.block,
+  .tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
   }
 }
