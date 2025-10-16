@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +31,172 @@
     flex: 1;
     order: unset;
   }
+}
+
+
+/* Root columns block: 2 columns, align items center, full-width dark background */
+.columns {
+  background: #222;
+  color: #fff;
+  padding: 40px 40px 0;
+  box-sizing: border-box;
+}
+
+/* Main columns: 2 side-by-side, centre vertically */
+.columns .columns9.block.columns-2-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 56px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 900px) {
+  .columns .columns9.block.columns-2-cols {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 24px 16px 0;
+  }
+
+  .columns {
+    padding: 24px 8px 0;
+  }
+}
+
+/* Left and right columns: vertical stack */
+.columns .columns9.block.columns-2-cols div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Logo: sized, spacing below */
+.columns picture img {
+  display: block;
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+/* Language selector: horizontal, inline, uppercase, spaced */
+.columns ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.columns ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.columns ul li a {
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 4px;
+  transition: color 0.2s;
+}
+
+.columns ul li a:hover,
+.columns ul li a:focus {
+  color: #e0e0e0;
+  opacity: 1;
+}
+
+/* Social section headline */
+.columns h4 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Social links: horizontal, icon circles, spacing, center content */
+.columns h4 + p {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  margin: 0;
+}
+
+.columns h4 + p a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #222;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1px 6px 0 rgb(0 0 0 / 8%);
+  border: none;
+  outline: none;
+  line-height: 1;
+}
+
+.columns h4 + p a:hover,
+.columns h4 + p a:focus {
+  background: #444;
+  color: #fff;
+}
+
+/* Footer text: left-aligned, small, spaced, light links */
+.columns .columns9.block.columns-2-cols div p {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 0.8em;
+  padding: 0;
+}
+
+.columns .columns9.block.columns-2-cols div a {
+  color: #d2d2d2;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.columns .columns9.block.columns-2-cols div a:hover,
+.columns .columns9.block.columns-2-cols div a:focus {
+  color: #fff;
+}
+
+/* Remove bullets from ul/ol in columns */
+.columns .columns9.block.columns-2-cols ul,
+.columns .columns9.block.columns-2-cols ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Proper spacing for first/last elements */
+.columns .columns9.block.columns-2-cols div:first-child {
+  row-gap: 36px;
+}
+
+@media (width <= 900px) {
+  .columns .columns9.block.columns-2-cols div:first-child {
+    row-gap: 20px;
+  }
+}
+
+.columns .columns9.block.columns-2-cols div:last-child {
+  gap: 0.7em;
 }
