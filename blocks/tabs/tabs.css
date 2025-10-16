@@ -509,7 +509,6 @@
   position: relative;
 }
 
-/* Responsive: stack columns on small screens */
 @media (width <= 900px) {
   .tabs.tabs10 {
     flex-direction: column;
@@ -539,4 +538,123 @@
   .tabs.tabs10 .tabs-panel {
     padding: 10px 6px 24px;
   }
+}
+
+
+/* On the parent of sidebar + tabs-wrapper (use appropriate selector) */
+.layout-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.sidebar {
+  flex: 0 0 240px;  /* fixed width sidebar */
+}
+
+.tabs-wrapper {
+  flex: 1 1 0;      /* main content expands */
+  min-width: 0;     /* fix overflow in flexbox children */
+}
+
+/* Tabs Navigation Styling */
+.tabs-list {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.tabs-tab {
+  background: transparent;
+  color: #222;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+
+.tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+}
+
+/* Main Content Area Styling */
+.tabs-panel > div {
+  /* This is the main content container in each tab */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-left: 40px; /* visually separate from sidebar, if present */
+}
+
+/* Heading styles */
+.tabs-panel h3 {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 8px;
+
+  /* Optional underline accent for "Cycling Tuscany": */
+  position: relative;
+}
+
+.tabs-panel h3::after {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 3px;
+  background: #EBCB66;
+  margin-top: 4px;
+}
+
+/* Main heading */
+.tabs-panel h2 {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Paragraph and image styles */
+.tabs-panel p {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.tabs-panel picture,
+.tabs-panel img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 24px;
+  box-shadow: none;
+}
+
+/* List styles (for What to Bring tab) */
+.tabs-panel ul {
+  padding-left: 20px;
+}
+
+.tabs-panel ul li {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Ensure only the active panel is visible */
+.tabs-panel[aria-hidden="true"] {
+  display: none;
 }
