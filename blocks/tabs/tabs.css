@@ -540,8 +540,6 @@
   }
 }
 
-
-/* On the parent of sidebar + tabs-wrapper (use appropriate selector) */
 .layout-container {
   display: flex;
   gap: 40px;
@@ -549,15 +547,14 @@
 }
 
 .sidebar {
-  flex: 0 0 240px;  /* fixed width sidebar */
+  flex: 0 0 240px;
 }
 
 .tabs-wrapper {
-  flex: 1 1 0;      /* main content expands */
-  min-width: 0;     /* fix overflow in flexbox children */
+  flex: 1 1 0;
+  min-width: 0;
 }
 
-/* Tabs Navigation Styling */
 .tabs-list {
   display: flex;
   gap: 20px;
@@ -584,24 +581,19 @@
   border-radius: 4px;
 }
 
-/* Main Content Area Styling */
 .tabs-panel > div {
-  /* This is the main content container in each tab */
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding-left: 40px; /* visually separate from sidebar, if present */
+  padding-left: 40px;
 }
 
-/* Heading styles */
 .tabs-panel h3 {
   font-family: Georgia, serif;
   font-size: 24px;
   font-weight: bold;
   color: #222;
   margin-bottom: 8px;
-
-  /* Optional underline accent for "Cycling Tuscany": */
   position: relative;
 }
 
@@ -614,7 +606,6 @@
   margin-top: 4px;
 }
 
-/* Main heading */
 .tabs-panel h2 {
   font-family: Georgia, serif;
   font-size: 32px;
@@ -623,7 +614,6 @@
   margin-bottom: 20px;
 }
 
-/* Paragraph and image styles */
 .tabs-panel p {
   font-family: Inter, Arial, sans-serif;
   font-size: 16px;
@@ -642,7 +632,6 @@
   box-shadow: none;
 }
 
-/* List styles (for What to Bring tab) */
 .tabs-panel ul {
   padding-left: 20px;
 }
@@ -654,7 +643,244 @@
   margin-bottom: 8px;
 }
 
-/* Ensure only the active panel is visible */
 .tabs-panel[aria-hidden="true"] {
   display: none;
+}
+
+
+.tabs.tabs14 {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  min-height: 600px;
+}
+
+/* Sidebar */
+.tabs.tabs14 .tabs-list {
+  flex: 0 0 25%;
+  min-width: 220px;
+  max-width: 340px;
+  padding: 40px 32px;
+  box-sizing: border-box;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-right: 1px solid #f2f2f2;
+  gap: 0;
+  justify-content: flex-start;
+}
+
+.tabs.tabs14 .tabs-list .tabs-tab {
+  width: 100%;
+  background: none;
+  border: none;
+  margin-bottom: 32px;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+.tabs.tabs14 .tabs-list .tabs-tab[aria-selected="true"] {
+  border-left: 3px solid #e7c87c;
+  background: #f8f8f8;
+  padding-left: 10px;
+}
+
+.tabs.tabs14 .tabs-list .tabs-tab p {
+  font-size: 0.88rem;
+  color: #888;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+/* Main Content */
+.tabs.tabs14 .tabs-panel {
+  flex: 1 1 75%;
+  background: #fff;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 40px 48px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+/* Hide inactive panels */
+.tabs.tabs14 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs.tabs14 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+}
+
+/* Horizontal navigation in main content */
+.tabs.tabs14 .tabs-panel .tabs-tablist {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  margin-bottom: 26px;
+  padding: 0;
+  border-bottom: none;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.tabs.tabs14 .tabs-panel .tabs-tab {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 8px 20px 8px 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: #000;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  box-shadow: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tabs.tabs14 .tabs-panel .tabs-tab[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+  border-bottom: 3px solid #e7c87c;
+  font-weight: 700;
+}
+
+.tabs.tabs14 .tabs-panel .tabs-tab[aria-selected="false"] {
+  color: #000;
+  background: none;
+}
+
+/* Left-aligned headline and gold underline */
+.tabs.tabs14 .tabs-panel h3,
+.tabs.tabs14 .tabs-panel h2 {
+  font-size: 2.1rem;
+  color: #000;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+  line-height: 1.12;
+  position: relative;
+  align-self: flex-start;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+.tabs.tabs14 .tabs-panel h3::after,
+.tabs.tabs14 .tabs-panel h2::after {
+  display: block;
+  width: 64px;
+  height: 3px;
+  background-color: #e7c87c;
+  margin-top: 8px;
+  border-radius: 2px;
+  margin-left: 0;
+}
+
+/* Image styling, left-aligned */
+.tabs.tabs14 .tabs-panel picture,
+.tabs.tabs14 .tabs-panel img {
+  display: block;
+  margin: 18px 0 14px;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 18px;
+  height: auto;
+  box-sizing: border-box;
+  object-fit: cover;
+  align-self: flex-start;
+}
+
+/* Caption and paragraph, left-aligned, editorial style */
+.tabs.tabs14 .tabs-panel p {
+  font-size: 0.97rem;
+  color: #222;
+  margin-bottom: 14px;
+  margin-top: 0;
+  line-height: 1.6;
+  align-self: flex-start;
+  max-width: 520px;
+  text-align: left;
+}
+
+.tabs.tabs14 .tabs-panel p:first-of-type {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  margin-bottom: 7px;
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs14 {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 24px 0 0;
+  }
+
+  .tabs.tabs14 .tabs-list {
+    border-right: none;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 20px 14px 14px;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .tabs.tabs14 .tabs-panel {
+    padding: 22px 10px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs14 .tabs-panel .tabs-tablist {
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .tabs.tabs14 .tabs-panel h3,
+  .tabs.tabs14 .tabs-panel h2 {
+    font-size: 1.3rem;
+    padding-bottom: 7px;
+  }
+
+  .tabs.tabs14 .tabs-panel h3::after,
+  .tabs.tabs14 .tabs-panel h2::after {
+    width: 38px;
+    height: 2px;
+    margin-top: 5px;
+  }
+
+  .tabs.tabs14 .tabs-panel picture,
+  .tabs.tabs14 .tabs-panel img {
+    max-width: 100%;
+    margin: 10px 0 8px;
+    border-radius: 10px;
+  }
+
+  .tabs.tabs14 .tabs-panel p,
+  .tabs.tabs14 .tabs-panel p:first-of-type {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
 }
