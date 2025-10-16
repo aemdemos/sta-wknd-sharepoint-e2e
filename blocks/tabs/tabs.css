@@ -547,7 +547,8 @@
 }
 
 .sidebar {
-  flex: 0 0 240px;
+  flex: 0 0 25%;
+  max-width: 320px;
 }
 
 .tabs-wrapper {
@@ -902,7 +903,6 @@
 }
 
 .tabs.tabs19 .tabs-wrapper div {
-  /* Adding a placeholder property to fix the empty block error */
   display: block;
 }
 
@@ -1074,31 +1074,23 @@
 
 .tabs.tabs22.block {
   display: flex;
-
-  /* Optionally: gap: 56px; */
-
-  /* Optionally: align-items: flex-start; */
 }
 
-/* Sidebar: first six after .tabs-panel */
 .tabs.tabs22.block > div:nth-child(n+2):nth-child(-n+7) {
-  flex: 0 0 300px; /* Sidebar fixed width, or 25% */
+  flex: 0 0 300px;
   max-width: 340px;
   min-width: 240px;
-  margin-right: 48px; /* Add space between columns */
+  margin-right: 48px;
   display: flex;
   flex-direction: column;
-  gap: 32px; /* vertical spacing between items */
+  gap: 32px;
 }
 
-/* Main Content: children 8-10 */
 .tabs.tabs22.block > div:nth-child(n+8):nth-child(-n+10) {
   flex: 1 1 0;
   min-width: 0;
-  display: block; /* Stack tab panels vertically */
+  display: block;
 }
-
-/* Sidebar Styling */
 
 .tabs.tabs22.block > div:nth-child(n+2):nth-child(-n+7) ul {
   list-style: none;
@@ -1120,13 +1112,11 @@
   font-size: 1.1rem;
 }
 
-/* Highlight the active/selected one: for example, 'Surfing' */
 .tabs.tabs22.block > div:nth-child(3) ul li:last-child {
   border-bottom: 2px solid #FFE566;
   padding-bottom: 2px;
 }
 
-/* Tabs and content area (Overview/Itinerary/What to Bring): style tab labels */
 .tabs.tabs22.block > div:nth-child(n+8):nth-child(-n+10) > div:first-child p {
   display: inline-block;
   text-transform: uppercase;
@@ -1138,15 +1128,12 @@
   transition: background 0.2s;
 }
 
-/* Highlight active tab, e.g. only for Overview */
 .tabs.tabs22.block > div:nth-child(8) > div:first-child p {
   background: #222;
   color: #fff;
   font-weight: bold;
   border-radius: 6px 6px 0 0;
 }
-
-/* Title and yellow underline */
 
 .tabs.tabs22.block h3 {
   font-family: Georgia, serif;
@@ -1165,7 +1152,6 @@
   margin-top: 8px;
 }
 
-/* Description text */
 .tabs.tabs22.block > div:nth-child(n+8):nth-child(-n+10) p {
   color: #222;
   font-size: 1rem;
@@ -1173,7 +1159,6 @@
   margin-bottom: 18px;
 }
 
-/* Image styling */
 .tabs.tabs22.block picture img {
   display: block;
   width: 100%;
@@ -1182,14 +1167,12 @@
   border-radius: 10px;
 }
 
-/* Subtext below image */
 .tabs.tabs22.block > div:nth-child(8) > div:last-child > p:last-child {
   color: #888;
   font-size: 0.95rem;
   margin-top: 20px;
 }
 
-/* Responsive: stack columns on small screens */
 @media (width <= 900px) {
   .tabs.tabs22.block {
     flex-direction: column;
@@ -1201,3 +1184,15 @@
     flex: none;
   }
 }
+
+
+.block {
+  display: grid;
+  flex-direction: row;
+  gap: 40px;
+  padding: 40px 32px;
+  align-items: flex-start;
+  grid-template-columns: minmax(200px, 320px) 1fr;
+}
+
+/* Alternatively, with CSS grid: */
