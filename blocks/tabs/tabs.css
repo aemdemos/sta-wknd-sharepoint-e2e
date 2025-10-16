@@ -879,13 +879,11 @@
 
 
 .tabs.tabs19 {
-  /* Outermost container styling for block layout */
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-/* Set up the grid-based 2-column layout */
 .tabs.tabs19 .tabs-wrapper {
   display: grid;
   grid-template-columns: minmax(240px, 340px) 1fr;
@@ -897,20 +895,17 @@
 }
 
 @media (width <= 900px) {
-  .tabs.tabs19 .tabs-wrapper {
+.tabs.tabs19 .tabs-wrapper {
     grid-template-columns: 1fr;
     gap: 0;
-  }
+}
 }
 
-/* Sidebar (first column) styling */
 .tabs.tabs19 .tabs-wrapper div {
-  /* This targets all direct children, so we need to differentiate sidebar and main area by context below */
-
-  /* Sidebar will be styled more specifically below */
+  /* Adding a placeholder property to fix the empty block error */
+  display: block;
 }
 
-/* Sidebar: style section headings, values, accent line, call-to-action */
 .tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) {
   padding: 32px 0 0;
   background: var(--background-color);
@@ -970,14 +965,12 @@
   letter-spacing: 0.05em;
 }
 
-/* Main content area (second column) */
 .tabs.tabs19 .tabs-wrapper .tabs.block {
   padding: 32px 0 0;
   background: var(--background-color);
   box-sizing: border-box;
 }
 
-/* Tablist styling */
 .tabs.tabs19 .tabs-wrapper .tabs.block .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1015,7 +1008,6 @@
   background: #f8f8f8;
 }
 
-/* Responsive tablist stacking */
 @media (width <= 600px) {
   .tabs.tabs19 .tabs-wrapper .tabs.block .tabs-list {
     flex-direction: column;
@@ -1027,7 +1019,6 @@
   }
 }
 
-/* Tab panels, image, and text */
 .tabs.tabs19 .tabs-wrapper .tabs.block .tabs-panel {
   margin-top: 12px;
   padding-right: 0;
@@ -1057,7 +1048,6 @@
   max-width: 800px;
 }
 
-/* Remove extra borders and box backgrounds that might be present */
 .tabs.tabs19 .tabs-wrapper .tabs.block,
 .tabs.tabs19 .tabs-wrapper .tabs.block .tabs-panel {
   border: none;
@@ -1065,13 +1055,11 @@
   box-shadow: none;
 }
 
-/* Prevent unnecessary vertical centering */
 .tabs.tabs19 .tabs-wrapper .tabs.block,
 .tabs.tabs19 .tabs-wrapper div:not(.tabs, .block) {
   align-items: flex-start;
 }
 
-/* Responsive: stack columns for mobile, add horizontal padding */
 @media (width <= 900px) {
   .tabs.tabs19 .tabs-wrapper,
   .tabs.tabs19 .tabs-wrapper .tabs.block,
@@ -1080,5 +1068,136 @@
     padding-left: 0;
     padding-right: 0;
     margin: 0;
+  }
+}
+
+
+.tabs.tabs22.block {
+  display: flex;
+
+  /* Optionally: gap: 56px; */
+
+  /* Optionally: align-items: flex-start; */
+}
+
+/* Sidebar: first six after .tabs-panel */
+.tabs.tabs22.block > div:nth-child(n+2):nth-child(-n+7) {
+  flex: 0 0 300px; /* Sidebar fixed width, or 25% */
+  max-width: 340px;
+  min-width: 240px;
+  margin-right: 48px; /* Add space between columns */
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* vertical spacing between items */
+}
+
+/* Main Content: children 8-10 */
+.tabs.tabs22.block > div:nth-child(n+8):nth-child(-n+10) {
+  flex: 1 1 0;
+  min-width: 0;
+  display: block; /* Stack tab panels vertically */
+}
+
+/* Sidebar Styling */
+
+.tabs.tabs22.block > div:nth-child(n+2):nth-child(-n+7) ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs.tabs22.block > div:nth-child(n+2):nth-child(-n+7) ul li:first-child {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #B3B3B3;
+  margin-bottom: 4px;
+  letter-spacing: 0.08em;
+}
+
+.tabs.tabs22.block > div:nth-child(n+2):nth-child(-n+7) ul li:last-child {
+  font-weight: bold;
+  color: #222;
+  font-size: 1.1rem;
+}
+
+/* Highlight the active/selected one: for example, 'Surfing' */
+.tabs.tabs22.block > div:nth-child(3) ul li:last-child {
+  border-bottom: 2px solid #FFE566;
+  padding-bottom: 2px;
+}
+
+/* Tabs and content area (Overview/Itinerary/What to Bring): style tab labels */
+.tabs.tabs22.block > div:nth-child(n+8):nth-child(-n+10) > div:first-child p {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: #888;
+  margin-right: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Highlight active tab, e.g. only for Overview */
+.tabs.tabs22.block > div:nth-child(8) > div:first-child p {
+  background: #222;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Title and yellow underline */
+
+.tabs.tabs22.block h3 {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.tabs.tabs22.block h3::after {
+  content: "";
+  display: block;
+  width: 62px;
+  height: 4px;
+  background: #FFE566;
+  margin-top: 8px;
+}
+
+/* Description text */
+.tabs.tabs22.block > div:nth-child(n+8):nth-child(-n+10) p {
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* Image styling */
+.tabs.tabs22.block picture img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 32px auto 16px;
+  border-radius: 10px;
+}
+
+/* Subtext below image */
+.tabs.tabs22.block > div:nth-child(8) > div:last-child > p:last-child {
+  color: #888;
+  font-size: 0.95rem;
+  margin-top: 20px;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .tabs.tabs22.block {
+    flex-direction: column;
+  }
+
+  .tabs.tabs22.block > div:nth-child(n+2):nth-child(-n+7) {
+    margin-right: 0;
+    max-width: 100%;
+    flex: none;
   }
 }
