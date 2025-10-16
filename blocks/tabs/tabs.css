@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,179 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs6 {
+  /* Main two-column layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1080px;
+  margin: 56px auto;
+  background: var(--background-color);
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgb(32 32 32 / 7%);
+  padding: 0;
+  gap: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Sidebar styling */
+.tabs.tabs6 .tabs-list {
+  flex: 0 0 260px;
+  min-width: 180px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 34px;
+  padding: 48px 0 48px 48px;
+  background: var(--background-color);
+  border-radius: 20px 0 0 20px;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+}
+
+/* Vertical stack for info or tabs */
+.tabs.tabs6 .tabs-list .tabs-tab {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #868686;
+  font-size: var(--body-font-size-s);
+  letter-spacing: 0.09em;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0 0 10px;
+  border-radius: 6px;
+  margin: 0;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1.35;
+}
+
+/* Subtle highlight for active tab */
+.tabs.tabs6 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  padding-left: 10px;
+  padding-right: 18px;
+}
+
+/* Main content area */
+.tabs.tabs6 .tabs-panel {
+  flex: 1 1 0%;
+  min-width: 0;
+  background: var(--background-color);
+  border-radius: 0 20px 20px 0;
+  padding: 48px 56px 48px 36px;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Remove any vertical divider */
+.tabs.tabs6 .tabs-list,
+.tabs.tabs6 .tabs-panel {
+  border: none;
+  box-shadow: none;
+}
+
+/* Headings: left-aligned, accent bar below first heading */
+.tabs.tabs6 .tabs-panel h1,
+.tabs.tabs6 .tabs-panel h2,
+.tabs.tabs6 .tabs-panel h3 {
+  color: #222;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 26px;
+  position: relative;
+  text-align: left;
+  border-bottom: 4px solid #ffe17c;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.tabs.tabs6 .tabs-panel h1:not(:last-child),
+.tabs.tabs6 .tabs-panel h2:not(:last-child),
+.tabs.tabs6 .tabs-panel h3:not(:last-child) {
+  margin-bottom: 0.7em;
+}
+
+/* Accent bar under only the first heading in the panel (no content property used) */
+
+/* Remove accent bar from subsequent headings */
+.tabs.tabs6 .tabs-panel h1 ~ h2,
+.tabs.tabs6 .tabs-panel h2 ~ h3,
+.tabs.tabs6 .tabs-panel h3 ~ h4 {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0.6em;
+}
+
+/* Image: full width, left-aligned, rounded, margin below */
+.tabs.tabs6 .tabs-panel img,
+.tabs.tabs6 .tabs-panel picture {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 32px 0 24px;
+  box-shadow: 0 4px 18px rgb(32 32 32 / 4%);
+}
+
+/* Body/paragraphs: consistent vertical spacing, left-aligned */
+.tabs.tabs6 .tabs-panel p,
+.tabs.tabs6 .tabs-panel ul,
+.tabs.tabs6 .tabs-panel li {
+  color: #222;
+  font-size: var(--body-font-size-m);
+  margin-bottom: 20px;
+  line-height: 1.7;
+  margin-top: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Responsive: stack columns and adjust padding on mobile */
+@media (width <= 900px) {
+  .tabs.tabs6 {
+    flex-direction: column;
+    max-width: 100vw;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgb(32 32 32 / 8%);
+  }
+
+  .tabs.tabs6 .tabs-list {
+    flex-direction: row;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 28px 28px 16px;
+    border-radius: 20px 20px 0 0;
+    gap: 18px;
+  }
+
+  .tabs.tabs6 .tabs-panel {
+    padding: 24px 18px 36px;
+    border-radius: 0 0 20px 20px;
+    min-width: 0;
+  }
+}
+
+/* Ensure box-sizing inheritance for block descendants */
+.tabs.tabs6 .tabs-list *,
+.tabs.tabs6 .tabs-panel * {
+  box-sizing: inherit;
 }
