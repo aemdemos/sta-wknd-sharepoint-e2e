@@ -33,8 +33,6 @@
   }
 }
 
-
-/* Root columns block: 2 columns, align items center, full-width dark background */
 .columns {
   background: #222;
   color: #fff;
@@ -42,37 +40,12 @@
   box-sizing: border-box;
 }
 
-/* Main columns: 2 side-by-side, centre vertically */
-.columns .columns9.block.columns-2-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 56px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Responsive stacking for mobile */
 @media (width <= 900px) {
-  .columns .columns9.block.columns-2-cols {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 24px 16px 0;
-  }
-
   .columns {
     padding: 24px 8px 0;
   }
 }
 
-/* Left and right columns: vertical stack */
-.columns .columns9.block.columns-2-cols div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Logo: sized, spacing below */
 .columns picture img {
   display: block;
   max-width: 140px;
@@ -81,7 +54,6 @@
   margin-bottom: 16px;
 }
 
-/* Language selector: horizontal, inline, uppercase, spaced */
 .columns ul {
   list-style: none;
   margin: 0;
@@ -114,7 +86,6 @@
   opacity: 1;
 }
 
-/* Social section headline */
 .columns h4 {
   margin: 0 0 8px;
   color: #fff;
@@ -124,7 +95,6 @@
   letter-spacing: 1px;
 }
 
-/* Social links: horizontal, icon circles, spacing, center content */
 .columns h4 + p {
   display: flex;
   flex-direction: row;
@@ -158,45 +128,183 @@
   color: #fff;
 }
 
-/* Footer text: left-aligned, small, spaced, light links */
-.columns .columns9.block.columns-2-cols div p {
+
+.columns.columns9 {
+  background: #232221;
+  position: relative;
   color: #fff;
-  font-size: 14px;
-  line-height: 1.7;
-  margin: 0 0 0.8em;
+}
+
+/* --- Two-column layout, left is wide, right shrinks to fit --- */
+.columns.columns9 .block {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+  padding: 40px 48px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Left column vertical stack --- */
+.columns.columns9 .block .columns {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- Right column: FOLLOW US & icons vertical stack, left-aligned --- */
+.columns.columns9 .block .block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* --- Title and headings --- */
+.columns.columns9 h1,
+.columns.columns9 h2,
+.columns.columns9 h3,
+.columns.columns9 h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.columns.columns9 h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* --- Social icon row: horizontal, tight gap --- */
+.columns.columns9 h4 ~ p {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 0;
   padding: 0;
 }
 
-.columns .columns9.block.columns-2-cols div a {
-  color: #d2d2d2;
+/* --- Social icon buttons --- */
+.columns.columns9 h4 ~ p a {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  color: #232221;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 5%);
+  transition: background 0.2s;
+}
+
+.columns.columns9 h4 ~ p a:focus {
+  outline: 2px solid #3b63fb;
+}
+
+.columns.columns9 h4 ~ p a:hover {
+  background: #ebebeb;
+}
+
+/* --- Logo image --- */
+.columns.columns9 picture img {
+  display: block;
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+/* --- Language link --- */
+.columns.columns9 ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns9 ul li,
+.columns.columns9 ul li a {
+  color: #fff;
+  font-weight: 700;
   text-decoration: underline;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+}
+
+/* --- Body text --- */
+.columns.columns9 p,
+.columns.columns9 li {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+/* --- Links inside columns block --- */
+.columns.columns9 a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 600;
   transition: color 0.2s;
 }
 
-.columns .columns9.block.columns-2-cols div a:hover,
-.columns .columns9.block.columns-2-cols div a:focus {
-  color: #fff;
+.columns.columns9 a:hover,
+.columns.columns9 a:focus {
+  color: #f5f5f5;
+  text-decoration: underline;
 }
 
-/* Remove bullets from ul/ol in columns */
-.columns .columns9.block.columns-2-cols ul,
-.columns .columns9.block.columns-2-cols ol {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
+/* --- Divider line at bottom --- */
+.columns.columns9::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+  pointer-events: none;
 }
 
-/* Proper spacing for first/last elements */
-.columns .columns9.block.columns-2-cols div:first-child {
-  row-gap: 36px;
-}
-
+/* --- Responsive stacking --- */
 @media (width <= 900px) {
-  .columns .columns9.block.columns-2-cols div:first-child {
-    row-gap: 20px;
+  .columns.columns9 .block {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 28px 16px 0;
+  }
+
+  .columns.columns9 picture img {
+    max-width: 120px;
+    margin-bottom: 8px;
+  }
+
+  .columns.columns9 h4 ~ p a {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+  }
+
+  .columns.columns9 h4 {
+    font-size: 15px;
   }
 }
 
-.columns .columns9.block.columns-2-cols div:last-child {
-  gap: 0.7em;
+/* --- If block should span full viewport width: --- */
+
+/*
+.columns-container .columns-wrapper {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
 }
+*/
