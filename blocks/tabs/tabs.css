@@ -560,25 +560,35 @@
   display: flex;
   gap: 20px;
   margin-bottom: 24px;
-  flex: 0 0 240px;
+  flex: 0 0 300px;
   flex-direction: column;
   border-right: 1px solid #eee;
   padding-right: 32px;
+  padding-left: 20px;
+  padding-top: 32px;
+  padding-bottom: 32px;
   position: relative;
+  align-items: flex-start;
+  background: #fff;
+  border-top: 4px solid #f5e16e;
 }
 
 .tabs-tab {
   background: transparent;
   color: #222;
   border: none;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
-  padding: 6px 14px;
+  padding: 16px 0;
   cursor: pointer;
   letter-spacing: 2px;
-  transition: background 0.2s, color 0.2s;
+  transition: background .2s;
   outline: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  margin-bottom: 24px;
 }
 
 .tabs-tab[aria-selected="true"] {
@@ -1718,23 +1728,24 @@
   display: flex;
   flex-direction: row;
   background: #fff;
-  padding: 32px 0; /* vertical padding, adjust as needed */
-
-  /* Optionally: add max-width and margin auto for centering */
-}
-
+  padding: 32px 0;
 .tabs-panel {
   flex: 1 1 0;
-  padding-left: 48px; /* Space between sidebar and main content */
-  min-width: 0; /* Prevent overflow */
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  min-width: 0;
+  display: none;
+}
+  display: none;
 }
 
-/* Sidebar info sections */
 .tabs-list .tabs-tab {
   background: none;
   border: none;
   padding: 0;
-  margin-bottom: 24px; /* Space between tabs/info sections */
+  margin-bottom: 24px;
   text-align: left;
   cursor: pointer;
   display: block;
@@ -1757,13 +1768,10 @@
   text-transform: uppercase;
 }
 
-/* Highlight active tab as per image */
-
 .tabs-tab[aria-selected="true"] p {
   color: #fff;
 }
 
-/* Add yellow accent line at top of sidebar */
 .tabs-list::before {
   content: '';
   display: block;
@@ -1777,7 +1785,6 @@
   left: 0;
 }
 
-/* Share link at bottom of sidebar */
 .tabs-list a {
   margin-top: auto;
   font-size: 12px;
@@ -1788,13 +1795,10 @@
   letter-spacing: 0.08em;
 }
 
-/* Main content styling */
-
 .tabs-panel li {
   margin-bottom: 6px;
 }
 
-/* Responsive design */
 @media (width <= 900px) {
   .tabs33.block {
     flex-direction: column;
@@ -1813,10 +1817,71 @@
   }
 }
 
-/* Remove border and box styles from the main content area */
 .tabs-panel,
 .tabs-panel div {
   border: none;
   background: none;
   box-shadow: none;
+}
+
+
+.tabs35.block {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+
+  /* Optional: add a subtle box-shadow if needed */
+}
+
+.tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+.tabs-tab[aria-selected="false"] {
+  color: #222;
+  background: transparent;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 800px) {
+  .tabs35.block {
+    flex-direction: column;
+  }
+
+  .tabs-list {
+    flex: none;
+    width: 100%;
+    border-top-width: 3px;
+    padding-right: 0;
+    padding-bottom: 16px;
+  }
+
+  .tabs-panel[aria-hidden="false"] {
+    padding: 16px;
+  }
+}
+
+/* Main content (panel) styles */
+.tabs-panel[aria-hidden="false"] h2 {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  color: #222;
+  margin: 24px 0 12px;
+}
+
+.tabs-panel[aria-hidden="false"] p {
+  color: #444;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.tabs-panel[aria-hidden="false"] img,
+.tabs-panel[aria-hidden="false"] picture {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  margin-top: 16px;
 }
