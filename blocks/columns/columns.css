@@ -135,7 +135,6 @@
   color: #fff;
 }
 
-/* --- Two-column layout, left is wide, right shrinks to fit --- */
 .columns.columns9 .block {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -146,14 +145,12 @@
   box-sizing: border-box;
 }
 
-/* --- Left column vertical stack --- */
 .columns.columns9 .block .columns {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-/* --- Right column: FOLLOW US & icons vertical stack, left-aligned --- */
 .columns.columns9 .block .block {
   display: flex;
   flex-direction: column;
@@ -161,7 +158,6 @@
   gap: 10px;
 }
 
-/* --- Title and headings --- */
 .columns.columns9 h1,
 .columns.columns9 h2,
 .columns.columns9 h3,
@@ -179,7 +175,6 @@
   margin-bottom: 8px;
 }
 
-/* --- Social icon row: horizontal, tight gap --- */
 .columns.columns9 h4 ~ p {
   display: flex;
   flex-direction: row;
@@ -188,7 +183,6 @@
   padding: 0;
 }
 
-/* --- Social icon buttons --- */
 .columns.columns9 h4 ~ p a {
   width: 32px;
   height: 32px;
@@ -214,7 +208,6 @@
   background: #ebebeb;
 }
 
-/* --- Logo image --- */
 .columns.columns9 picture img {
   display: block;
   max-width: 180px;
@@ -222,7 +215,6 @@
   margin-bottom: 12px;
 }
 
-/* --- Language link --- */
 .columns.columns9 ul {
   margin: 0;
   padding: 0;
@@ -238,7 +230,6 @@
   letter-spacing: 0.03em;
 }
 
-/* --- Body text --- */
 .columns.columns9 p,
 .columns.columns9 li {
   color: #fff;
@@ -247,7 +238,6 @@
   margin: 0 0 12px;
 }
 
-/* --- Links inside columns block --- */
 .columns.columns9 a {
   color: #fff;
   text-decoration: underline;
@@ -261,7 +251,6 @@
   text-decoration: underline;
 }
 
-/* --- Divider line at bottom --- */
 .columns.columns9::after {
   content: "";
   display: block;
@@ -275,7 +264,6 @@
   pointer-events: none;
 }
 
-/* --- Responsive stacking --- */
 @media (width <= 900px) {
   .columns.columns9 .block {
     grid-template-columns: 1fr;
@@ -299,12 +287,258 @@
   }
 }
 
-/* --- If block should span full viewport width: --- */
 
-/*
-.columns-container .columns-wrapper {
-  max-width: unset;
+/* --- Two-column layout: main content and sidebar --- */
+.columns.columns18 .columns-2-cols {
+  display: flex;
+  flex-direction: row;
+  gap: 56px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Main column (content, left) */
+.columns.columns18 .columns-2-cols div:first-of-type {
+  flex: 2 1 0;
+  min-width: 0;
+  max-width: 74vw;
   padding: 0;
   margin: 0;
 }
-*/
+
+/* Sidebar column (right) */
+.columns.columns18 .columns-2-cols div:last-of-type {
+  flex: 1 1 0;
+  min-width: 240px;
+  max-width: 32vw;
+  padding: 0;
+  margin: 0;
+  background: var(--background-color);
+  color: var(--dark-color);
+  text-transform: uppercase;
+  font-size: var(--body-font-size-s);
+  letter-spacing: 0.04em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+/* Responsive: stack columns on mobile/tablet */
+@media (width <= 900px) {
+  .columns.columns18 .columns-2-cols {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .columns.columns18 .columns-2-cols div:first-of-type,
+  .columns.columns18 .columns-2-cols div:last-of-type {
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .columns.columns18 .columns-2-cols div:last-of-type {
+    margin-top: 40px;
+    gap: 14px;
+  }
+}
+
+/* --- Content alignment: left for all text except images/captions --- */
+.columns.columns18 .columns-2-cols div {
+  text-align: left;
+}
+
+/* --- Headings with accent underline --- */
+.columns.columns18 h1 {
+  margin-bottom: 28px;
+  color: var(--text-color);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.columns.columns18 h2,
+.columns.columns18 h3 {
+  margin-top: 44px;
+  margin-bottom: 12px;
+  color: var(--text-color);
+  font-weight: 700;
+  position: relative;
+  line-height: 1.15;
+  text-align: left;
+}
+
+/* Accent underline: thick, flush left, short */
+.columns.columns18 h2::after,
+.columns.columns18 h3::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 36px;
+  height: 5px;
+  background: #ffd700;
+  border-radius: 2px;
+}
+
+/* --- Blockquotes: prominent, spaced --- */
+.columns.columns18 blockquote {
+  background: #f5f5f5;
+  border-left: 5px solid #ffd700;
+  padding: 22px 28px;
+  font-size: 1.2em;
+  color: var(--text-color);
+  font-style: italic;
+  margin: 38px 0 24px;
+  text-align: left;
+}
+
+/* Attribution below blockquote, small, spaced */
+.columns.columns18 blockquote + p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-style: italic;
+  text-align: left;
+}
+
+/* --- Images: centered in column, not full width --- */
+.columns.columns18 img,
+.columns.columns18 picture {
+  display: block;
+  margin: 32px auto 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* --- Image captions/addresses --- */
+.columns.columns18 em,
+.columns.columns18 address,
+.columns.columns18 figcaption {
+  display: block;
+  font-size: var(--body-font-size-xs);
+  color: var(--dark-color);
+  font-style: italic;
+  margin: 12px 0 30px;
+  text-align: center;
+}
+
+/* --- Author/Profile block --- */
+.columns.columns18 .profile,
+.columns.columns18 .author-block {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 56px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.columns.columns18 .profile img,
+.columns.columns18 .author-block img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Social buttons: horizontal row, circular, dark */
+.columns.columns18 .profile .button,
+.columns.columns18 .author-block .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--text-color);
+  color: var(--background-color);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
+  font-size: 1.1em;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+/* --- Breadcrumbs: small, left, accent --- */
+.columns.columns18 p,
+.columns.columns18 span {
+  font-size: var(--body-font-size-xs);
+  color: #888;
+  margin-bottom: 18px;
+  letter-spacing: 0.06em;
+  text-align: left;
+  border-left: 3px solid #ffd700;
+  padding-left: 8px;
+}
+
+/* --- Sidebar content: vertical stack, uppercase, spaced --- */
+.columns.columns18 .columns-2-cols div:last-of-type a,
+.columns.columns18 .columns-2-cols div:last-of-type p,
+.columns.columns18 .columns-2-cols div:last-of-type li,
+.columns.columns18 .columns-2-cols div:last-of-type span {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+  letter-spacing: 0.07em;
+  text-align: left;
+}
+
+/* Sidebar separators */
+.columns.columns18 .columns-2-cols div:last-of-type hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 16px 0;
+  width: 100%;
+}
+
+/* Sidebar buttons */
+.columns.columns18 .columns-2-cols div:last-of-type button,
+.columns.columns18 .columns-2-cols div:last-of-type .button {
+  background: var(--text-color);
+  color: var(--background-color);
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  border: none;
+  margin-top: 12px;
+  margin-bottom: 18px;
+  box-shadow: none;
+  transition: background 0.2s;
+  text-align: left;
+}
+
+/* --- General spacing between blocks --- */
+.columns.columns18 h1,
+.columns.columns18 h2,
+.columns.columns18 h3,
+.columns.columns18 h4,
+.columns.columns18 blockquote,
+.columns.columns18 img,
+.columns.columns18 picture,
+.columns.columns18 .profile,
+.columns.columns18 .author-block {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.columns.columns18 p,
+.columns.columns18 ul,
+.columns.columns18 ol {
+  margin-top: 0.8em;
+  margin-bottom: 1.2em;
+}
+
+/* Hide sidebar if empty or only contains null */
+.columns.columns18 .columns-2-cols div:last-of-type:empty,
+.columns.columns18 .columns-2-cols div:last-of-type p:only-child {
+  display: none;
+}
