@@ -287,8 +287,6 @@
   }
 }
 
-
-/* --- Two-column layout: main content and sidebar --- */
 .columns.columns18 .columns-2-cols {
   display: flex;
   flex-direction: row;
@@ -298,7 +296,6 @@
   box-sizing: border-box;
 }
 
-/* Main column (content, left) */
 .columns.columns18 .columns-2-cols div:first-of-type {
   flex: 2 1 0;
   min-width: 0;
@@ -307,7 +304,6 @@
   margin: 0;
 }
 
-/* Sidebar column (right) */
 .columns.columns18 .columns-2-cols div:last-of-type {
   flex: 1 1 0;
   min-width: 240px;
@@ -325,7 +321,6 @@
   gap: 18px;
 }
 
-/* Responsive: stack columns on mobile/tablet */
 @media (width <= 900px) {
   .columns.columns18 .columns-2-cols {
     flex-direction: column;
@@ -346,12 +341,10 @@
   }
 }
 
-/* --- Content alignment: left for all text except images/captions --- */
 .columns.columns18 .columns-2-cols div {
   text-align: left;
 }
 
-/* --- Headings with accent underline --- */
 .columns.columns18 h1 {
   margin-bottom: 28px;
   color: var(--text-color);
@@ -370,7 +363,6 @@
   text-align: left;
 }
 
-/* Accent underline: thick, flush left, short */
 .columns.columns18 h2::after,
 .columns.columns18 h3::after {
   display: block;
@@ -383,7 +375,6 @@
   border-radius: 2px;
 }
 
-/* --- Blockquotes: prominent, spaced --- */
 .columns.columns18 blockquote {
   background: #f5f5f5;
   border-left: 5px solid #ffd700;
@@ -395,7 +386,6 @@
   text-align: left;
 }
 
-/* Attribution below blockquote, small, spaced */
 .columns.columns18 blockquote + p {
   color: var(--dark-color);
   font-size: var(--body-font-size-s);
@@ -405,7 +395,6 @@
   text-align: left;
 }
 
-/* --- Images: centered in column, not full width --- */
 .columns.columns18 img,
 .columns.columns18 picture {
   display: block;
@@ -416,7 +405,6 @@
   box-shadow: none;
 }
 
-/* --- Image captions/addresses --- */
 .columns.columns18 em,
 .columns.columns18 address,
 .columns.columns18 figcaption {
@@ -428,7 +416,6 @@
   text-align: center;
 }
 
-/* --- Author/Profile block --- */
 .columns.columns18 .profile,
 .columns.columns18 .author-block {
   display: flex;
@@ -447,7 +434,6 @@
   object-fit: cover;
 }
 
-/* Social buttons: horizontal row, circular, dark */
 .columns.columns18 .profile .button,
 .columns.columns18 .author-block .button {
   display: inline-flex;
@@ -465,7 +451,6 @@
   transition: background 0.2s;
 }
 
-/* --- Breadcrumbs: small, left, accent --- */
 .columns.columns18 p,
 .columns.columns18 span {
   font-size: var(--body-font-size-xs);
@@ -477,7 +462,6 @@
   padding-left: 8px;
 }
 
-/* --- Sidebar content: vertical stack, uppercase, spaced --- */
 .columns.columns18 .columns-2-cols div:last-of-type a,
 .columns.columns18 .columns-2-cols div:last-of-type p,
 .columns.columns18 .columns-2-cols div:last-of-type li,
@@ -491,7 +475,6 @@
   text-align: left;
 }
 
-/* Sidebar separators */
 .columns.columns18 .columns-2-cols div:last-of-type hr {
   border: none;
   border-top: 1px solid #e0e0e0;
@@ -499,7 +482,6 @@
   width: 100%;
 }
 
-/* Sidebar buttons */
 .columns.columns18 .columns-2-cols div:last-of-type button,
 .columns.columns18 .columns-2-cols div:last-of-type .button {
   background: var(--text-color);
@@ -516,7 +498,6 @@
   text-align: left;
 }
 
-/* --- General spacing between blocks --- */
 .columns.columns18 h1,
 .columns.columns18 h2,
 .columns.columns18 h3,
@@ -537,8 +518,167 @@
   margin-bottom: 1.2em;
 }
 
-/* Hide sidebar if empty or only contains null */
 .columns.columns18 .columns-2-cols div:last-of-type:empty,
 .columns.columns18 .columns-2-cols div:last-of-type p:only-child {
   display: none;
+}
+
+
+/* Layout: Two columns, image left, content right. Use grid for robust equal height alignment */
+.columns.columns40 .block.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  min-height: 380px;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns40 .block.columns {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+}
+
+/* Left column: image fills all space, landscape preferred */
+.columns.columns40 .columns-img-col {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  min-height: 280px;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.columns.columns40 .columns-img-col img,
+.columns.columns40 .columns-img-col picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+}
+
+/* Right column: content panel with light gray background, stacked top, left-aligned */
+.columns.columns40 .block.columns div:not(.columns-img-col) {
+  grid-column: 2;
+  grid-row: 1;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 48px 40px;
+  gap: 22px;
+  min-height: 280px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns40 .block.columns div:not(.columns-img-col) {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 32px 20px;
+    min-height: unset;
+  }
+}
+
+/* Section label: first p in content area, uppercase, small, dark gray */
+.columns.columns40 .block.columns div:not(.columns-img-col) p:first-child {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px;
+  letter-spacing: 0.07em;
+  line-height: 1.3;
+}
+
+/* Heading: big, bold, dark */
+.columns.columns40 .block.columns div:not(.columns-img-col) h1,
+.columns.columns40 .block.columns div:not(.columns-img-col) h2,
+.columns.columns40 .block.columns div:not(.columns-img-col) h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #212121;
+  margin: 0 0 18px;
+  line-height: 1.15;
+}
+
+/* Description: medium, gray */
+.columns.columns40 .block.columns div:not(.columns-img-col) p:not(:first-child, .button-container) {
+  font-size: 16px;
+  color: #555;
+  margin: 0 0 22px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Button container: left-aligned, no extra padding */
+.columns.columns40 .block.columns div:not(.columns-img-col) .button-container {
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding: 0;
+  width: auto;
+  display: block;
+}
+
+/* Yellow rectangular button, uppercase, bold, left-aligned */
+.columns.columns40 .block.columns .button-container .button,
+.columns.columns40 .block.columns .button-container button {
+  background: #ffe600;
+  color: #111;
+  border: none;
+  border-radius: 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  text-align: center;
+  margin: 0;
+  min-width: 0;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  max-width: 100%;
+  transition: background 0.15s;
+}
+
+.columns.columns40 .block.columns .button-container .button:hover,
+.columns.columns40 .block.columns .button-container .button:focus,
+.columns.columns40 .block.columns .button-container button:hover,
+.columns.columns40 .block.columns .button-container button:focus {
+  background: #ffe94d;
+  color: #111;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Remove pill-shaped style from .button within columns */
+.columns.columns40 .block.columns .button,
+.columns.columns40 .block.columns button {
+  border-radius: 0;
+  background: #ffe600;
+  color: #111;
+  font-weight: 700;
+}
+
+/* Utility: Remove unwanted margin/padding in wrappers */
+.columns.columns40 .columns-wrapper,
+.columns.columns40 .block.columns {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
