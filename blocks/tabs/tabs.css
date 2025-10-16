@@ -1195,4 +1195,154 @@
   grid-template-columns: minmax(200px, 320px) 1fr;
 }
 
-/* Alternatively, with CSS grid: */
+
+.tabs.tabs27 {
+  /* Center block, set a visually compact max width for desktop */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 760px;
+  margin: 48px auto;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 3%);
+  padding: 0;
+}
+
+/* Sidebar: vertical tabs list, inset from left, visually compact */
+.tabs.tabs27 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 114px;
+  max-width: 122px;
+  padding: 32px 0 32px 28px; /* Indent sidebar from block edge */
+  background: var(--background-color);
+  border-right: 1px solid #f0f0f0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Vertical tab buttons: visually denser, bolder, darker, selected highlight */
+.tabs.tabs27 .tabs-tab {
+  width: 100%;
+  padding: 7px 0;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #444;
+  background: none;
+  border: none;
+  border-radius: 3px;
+  text-align: left;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+  line-height: 1.22;
+}
+
+.tabs.tabs27 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+/* Main content column: compact width, less left padding to tighten layout */
+.tabs.tabs27 .tabs-panel {
+  flex: 1 1 0;
+  max-width: 430px;
+  width: 100%;
+  padding: 32px 32px 32px 12px;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+/* Hide inactive tab panels */
+.tabs.tabs27 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Title and headings: tighter underline, reduced spacing */
+.tabs.tabs27 .tabs-panel h3:first-child {
+  margin-bottom: 0.07em;
+  position: relative;
+}
+
+.tabs.tabs27 .tabs-panel h3:first-child::after {
+  display: block;
+  width: 40px;
+  height: 2px;
+  border-radius: 2px;
+  background: #F5E7A3;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+.tabs.tabs27 .tabs-panel h3 + h3 {
+  font-size: 1.11em;
+  font-weight: 600;
+  margin-bottom: 6px;
+  margin-top: 0.45em;
+  line-height: 1.22;
+}
+
+/* Paragraphs: tighter vertical spacing */
+.tabs.tabs27 .tabs-panel p {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 0.4em;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+/* Image: tighter margins, rounded */
+.tabs.tabs27 .tabs-panel img,
+.tabs.tabs27 .tabs-panel picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 3%);
+}
+
+/* Footer text: visually close to image, more readable color */
+.tabs.tabs27 .tabs-panel p:last-child {
+  font-size: 0.98rem;
+  color: #222;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+/* Responsive: stack columns on mobile, maintain visual hierarchy */
+@media (width <= 800px) {
+  .tabs.tabs27 {
+    flex-direction: column;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 32px 0;
+    padding: 0;
+  }
+
+  .tabs.tabs27 .tabs-list {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid #ededed;
+    padding: 0 0 8px;
+    min-width: unset;
+    max-width: unset;
+    gap: 10px;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .tabs.tabs27 .tabs-panel {
+    max-width: 100%;
+    padding: 24px 8px;
+  }
+}
