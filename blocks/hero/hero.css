@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -125,4 +126,54 @@
   background: #e0e0e0;
   width: 100%;
   margin: 40px 0 0;
+}
+
+
+.hero.hero27.block {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: stretch;
+  width: 100%;
+  min-height: 480px;
+  background: transparent;
+}
+
+.hero.hero27.block > div:first-child {
+  height: 100%;
+}
+
+.hero.hero27.block > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* top-aligned */
+  background: #fff;
+  padding: 56px 48px 32px; /* more top, less bottom */
+  box-sizing: border-box;
+}
+
+.hero.hero27.block h2 {
+  margin-bottom: 1.2em;
+}
+
+.hero.hero27.block p {
+  margin-bottom: 1em; /* reduce space below for button */
+}
+
+.hero.hero27.block .button {
+  margin-top: 0.5em; /* slightly closer to description */
+}
+
+@media (width <= 900px) {
+  .hero.hero27.block {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .hero.hero27.block > div:first-child {
+    height: 220px;
+  }
+
+  .hero.hero27.block > div:last-child {
+    padding: 32px 16px 24px;
+  }
 }
