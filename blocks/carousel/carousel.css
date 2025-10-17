@@ -168,8 +168,6 @@
   padding-left: 1.2em;
   padding-right: 1.2em;
   pointer-events: none;
-
-  /* Soft subtle noise texture, more organic look */
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='7' cy='9' r='0.7' fill='rgba(255,255,255,0.035)'/%3E%3Ccircle cx='12' cy='4' r='0.5' fill='rgba(255,255,255,0.04)'/%3E%3Ccircle cx='18' cy='19' r='0.7' fill='rgba(255,255,255,0.035)'/%3E%3Ccircle cx='22' cy='7' r='0.4' fill='rgba(255,255,255,0.03)'/%3E%3Ccircle cx='3' cy='21' r='0.6' fill='rgba(255,255,255,0.031)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-blend-mode: lighten;
@@ -190,4 +188,48 @@
   background: #fff;
   padding-top: 18px;
   padding-bottom: 18px;
+}
+
+
+.carousel.carousel17 .carousel-slide-indicators {
+  position: absolute;
+  left: 50%;
+  bottom: -7px; /* Further negative to push dots flush against image edge */
+  transform: translateX(-50%);
+  background: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+
+  /* Remove gap and negative margin for tight packing */
+}
+
+.carousel.carousel17 .carousel-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: #bababa;
+  box-shadow: none;
+  transition: background-color 0.2s;
+  display: inline-block;
+
+  /* Use a subtle negative margin to visually pack dots closer */
+  margin-right: -2px;
+}
+
+.carousel.carousel17 .carousel-slide-indicator:last-child button {
+  margin-right: 0;
+}
+
+.carousel.carousel17 .carousel-slide-indicator button:disabled {
+  background-color: #222;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons {
+  display: none;
 }
