@@ -166,10 +166,6 @@
   margin-top: 0;
 }
 
-
-/* Responsive, grid-based card layout for .cards.cards21 block */
-
-/* Outer UL: Grid layout, 4 columns desktop, responsive collapse */
 .cards.cards21 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -180,7 +176,6 @@
   list-style: none;
 }
 
-/* Tablet and mobile responsive columns */
 @media (width <= 1024px) {
   .cards.cards21 ul {
     grid-template-columns: repeat(2, 1fr);
@@ -195,7 +190,6 @@
   }
 }
 
-/* Card structure: vertically stacked, fill grid cell */
 .cards.cards21 li {
   display: flex;
   flex-direction: column;
@@ -209,7 +203,6 @@
   padding: 0;
 }
 
-/* Card image: flush edge, fixed height, always full width */
 .cards.cards21 .cards-card-image {
   width: 100%;
   margin: 0;
@@ -228,7 +221,6 @@
   margin: 0;
 }
 
-/* Responsive image heights */
 @media (width <= 1024px) {
   .cards.cards21 .cards-card-image img,
   .cards.cards21 .cards-card-image picture {
@@ -243,7 +235,6 @@
   }
 }
 
-/* Card body: vertical stack, flush left, fills space */
 .cards.cards21 .cards-card-body {
   flex: 1 1 auto;
   display: flex;
@@ -255,7 +246,6 @@
   box-sizing: border-box;
 }
 
-/* Heading: large, bold, uppercase, flush left, clear margin below */
 .cards.cards21 .cards-card-body h3 {
   margin-top: 0;
   margin-bottom: 16px;
@@ -268,7 +258,6 @@
   text-align: left;
 }
 
-/* Description: readable, left-aligned, no extra margin above/below */
 .cards.cards21 .cards-card-body p {
   margin: 0;
   font-size: 18px;
@@ -278,9 +267,247 @@
   text-align: left;
 }
 
-/* Remove list-style from nested lists, if any */
 .cards.cards21 ul ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+
+.cards.cards24 {
+  margin: 0 auto;
+  background: var(--background-color);
+  padding: 0;
+  max-width: 1200px;
+}
+
+/* --- GRID LAYOUT --- */
+.cards.cards24 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-items: center;
+  width: 100%;
+}
+
+@media (width <= 1024px) {
+  .cards.cards24 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 18px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards24 ul {
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+  }
+}
+
+/* --- SECTION HEADING/SUBHEADING (FIRST li) --- */
+.cards.cards24 ul li:first-child {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-bottom: 2.5em;
+  display: block;
+  text-align: left;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0 8px;
+}
+
+.cards.cards24 ul li:first-child .cards-card-image {
+  display: none;
+}
+
+.cards.cards24 ul li:first-child .cards-card-body p {
+  font-weight: 600;
+  font-size: var(--heading-font-size-xl);
+  color: var(--text-color);
+  border-bottom: 4px solid #bfa84b;
+  display: inline-block;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  line-height: 1.15;
+}
+
+.cards.cards24 ul li:first-child .cards-card-body h5 {
+  color: #6d6d6d;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  margin: 8px 0 0;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* Hide any extra elements in heading block */
+.cards.cards24 ul li:first-child .cards-card-body a,
+.cards.cards24 ul li:first-child .cards-card-body p + p {
+  display: none;
+}
+
+/* --- CARD STYLING --- */
+.cards.cards24 ul li {
+  background: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Guides row separation */
+.cards.cards24 ul li:nth-child(5) {
+  margin-top: 56px;
+}
+
+/* --- PROFILE IMAGE (CIRCLE, CENTERED) --- */
+.cards.cards24 .cards-card-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+}
+
+.cards.cards24 .cards-card-image img,
+.cards.cards24 .cards-card-image picture img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* --- CARD BODY --- */
+.cards.cards24 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+
+/* Name: bold, large, centered */
+.cards.cards24 .cards-card-body h3 {
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: var(--heading-font-size-l);
+  margin: 0 0 8px;
+  text-align: center;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+
+/* Role/Title: all-caps, gray, small, centered */
+.cards.cards24 .cards-card-body h5 {
+  color: #6d6d6d;
+  font-weight: 600;
+  font-size: var(--body-font-size-s);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  text-align: center;
+  margin: 0 0 18px;
+}
+
+/* --- SOCIAL ICONS ROW --- */
+.cards.cards24 .cards-card-body p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+/* --- SOCIAL ICON BUTTON --- */
+.cards.cards24 .cards-card-body a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: #222;
+  color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  border: none;
+  box-shadow: none;
+  transition: background 0.2s;
+  text-decoration: none;
+  font-size: 0;
+  margin: 0;
+}
+
+.cards.cards24 .cards-card-body a:focus,
+.cards.cards24 .cards-card-body a:hover {
+  background: #bfa84b;
+  color: #fff;
+}
+
+/* Center any icon font or inline image in the button */
+.cards.cards24 .cards-card-body a .icon,
+.cards.cards24 .cards-card-body a img,
+.cards.cards24 .cards-card-body a svg {
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
+/* Remove text underline from social links */
+
+/* --- RESPONSIVE --- */
+@media (width <= 600px) {
+  .cards.cards24 .cards-card-image,
+  .cards.cards24 .cards-card-image img,
+  .cards.cards24 .cards-card-image picture img {
+    width: 82px;
+    height: 82px;
+  }
+
+  .cards.cards24 .cards-card-body h3 {
+    font-size: var(--heading-font-size-m);
+  }
+
+  .cards.cards24 .cards-card-body h5 {
+    font-size: var(--body-font-size-xs);
+  }
+
+  .cards.cards24 .cards-card-body a {
+    width: 32px;
+    height: 32px;
+  }
+
+  .cards.cards24 ul {
+    gap: 18px 0;
+  }
+}
+
+/* Remove any default/legacy borders/backgrounds */
+.cards.cards24 ul li,
+.cards.cards24 .cards-card-body,
+.cards.cards24 .cards-card-image {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* Adjust horizontal grouping on wide screens */
+@media (width >= 1200px) {
+  .cards.cards24 ul {
+    column-gap: 32px;
+  }
 }
