@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -26,8 +27,6 @@
   object-fit: cover;
 }
 
-
-/* HERO BLOCK - FEATURED ARTICLE, SIDE-BY-SIDE LAYOUT, TOP-ALIGNED CONTENT */
 .cards.cards4 ul li:nth-child(2) {
   grid-column: 1 / -1;
   display: flex;
@@ -43,7 +42,6 @@
   padding: 0;
 }
 
-/* Image section: fills left half, covers full height */
 .cards.cards4 ul li:nth-child(2) .cards-card-image {
   flex: 1 1 50%;
   min-width: 0;
@@ -63,7 +61,6 @@
   border-radius: 0;
 }
 
-/* Content section: right half, top-aligned, tightly grouped */
 .cards.cards4 ul li:nth-child(2) .cards-card-body {
   flex: 1 1 50%;
   background: #f5f5f5;
@@ -75,7 +72,6 @@
   max-width: 540px;
 }
 
-/* Label styling (e.g. "Featured Article") */
 .cards.cards4 ul li:nth-child(2) .cards-card-body p strong {
   font-size: var(--body-font-size-s);
   color: #444;
@@ -86,7 +82,6 @@
   display: inline-block;
 }
 
-/* Headline styling */
 .cards.cards4 ul li:nth-child(2) .cards-card-body h3 {
   font-size: var(--heading-font-size-xl);
   font-weight: 700;
@@ -95,7 +90,6 @@
   line-height: 1.17;
 }
 
-/* Description styling */
 .cards.cards4 ul li:nth-child(2) .cards-card-body p:not(:has(strong), .button-container) {
   font-size: var(--body-font-size-m);
   color: #444;
@@ -104,7 +98,6 @@
   max-width: 33em;
 }
 
-/* Button container: left-aligned, tightly grouped */
 .cards.cards4 ul li:nth-child(2) .cards-card-body .button-container {
   margin-top: 0.18em;
   margin-bottom: 0;
@@ -112,7 +105,6 @@
   align-self: flex-start;
 }
 
-/* Prominent yellow button styling */
 .cards.cards4 ul li:nth-child(2) .cards-card-body .button-container .button,
 .cards.cards4 ul li:nth-child(2) .cards-card-body a.button {
   background-color: #ffce00;
@@ -134,7 +126,6 @@
   background-color: #ffd642;
 }
 
-/* Responsive: stack hero block on mobile */
 @media (width <= 900px) {
   .cards.cards4 ul li:nth-child(2) {
     flex-direction: column;
@@ -157,7 +148,6 @@
   }
 }
 
-/* Ensure regular cards stay unchanged and in grid */
 .cards.cards4 ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -172,7 +162,125 @@
   padding: 0;
 }
 
-/* Remove extra spacing above the third card */
 .cards.cards4 ul li:nth-child(3) {
   margin-top: 0;
+}
+
+
+/* Responsive, grid-based card layout for .cards.cards21 block */
+
+/* Outer UL: Grid layout, 4 columns desktop, responsive collapse */
+.cards.cards21 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tablet and mobile responsive columns */
+@media (width <= 1024px) {
+  .cards.cards21 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards21 ul {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* Card structure: vertically stacked, fill grid cell */
+.cards.cards21 li {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--background-color);
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card image: flush edge, fixed height, always full width */
+.cards.cards21 .cards-card-image {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+}
+
+.cards.cards21 .cards-card-image img,
+.cards.cards21 .cards-card-image picture {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border: none;
+  margin: 0;
+}
+
+/* Responsive image heights */
+@media (width <= 1024px) {
+  .cards.cards21 .cards-card-image img,
+  .cards.cards21 .cards-card-image picture {
+    height: 140px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards21 .cards-card-image img,
+  .cards.cards21 .cards-card-image picture {
+    height: 100px;
+  }
+}
+
+/* Card body: vertical stack, flush left, fills space */
+.cards.cards21 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 24px 16px 20px;
+  margin: 0;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Heading: large, bold, uppercase, flush left, clear margin below */
+.cards.cards21 .cards-card-body h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+  letter-spacing: 0.03em;
+  line-height: 1.12;
+  text-align: left;
+}
+
+/* Description: readable, left-aligned, no extra margin above/below */
+.cards.cards21 .cards-card-body p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #666;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Remove list-style from nested lists, if any */
+.cards.cards21 ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
