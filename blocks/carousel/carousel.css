@@ -232,7 +232,6 @@
 
 
 .carousel.carousel22 {
-  /* Remove vertical centering mechanics; hero starts at page top */
   display: block;
   padding-top: 0;
   margin-top: 0;
@@ -242,7 +241,6 @@
 }
 
 .carousel.carousel22 .carousel-slide {
-  /* Ensure slide fills hero area and centers content */
   min-height: 420px;
   display: flex;
   align-items: center;
@@ -264,8 +262,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* Remove translateY, revert vertical nudge */
   transform: none;
 }
 
@@ -308,7 +304,6 @@
   color: #131313;
 }
 
-/* Dots: place directly under content box, grouped visually */
 .carousel.carousel22 .carousel-slide-indicators {
   position: static;
   display: flex;
@@ -343,7 +338,6 @@
   background: #bbb;
 }
 
-/* Hide navigation arrows if not present in design */
 .carousel.carousel22 .carousel-navigation-buttons {
   display: none;
 }
@@ -365,5 +359,54 @@
   .carousel.carousel22 .carousel-slide-indicators {
     gap: 16px;
     margin-top: 30px;
+  }
+}
+
+
+.carousel.carousel32 {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.carousel.carousel32 .carousel-slides-container,
+.carousel.carousel32 .carousel-slide {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.carousel.carousel32 .carousel-slide-indicators,
+.carousel.carousel32 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel32 img {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  object-fit: contain;
+}
+
+@media (width >= 1200px) {
+  .carousel.carousel32 {
+    padding-left: calc((100vw - 1000px) / 2);
+    padding-right: calc((100vw - 1000px) / 2);
+  }
+
+  .carousel.carousel32 img {
+    max-width: 1000px;
+    width: 100%;
   }
 }
