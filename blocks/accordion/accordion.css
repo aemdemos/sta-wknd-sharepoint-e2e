@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,280 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion12 {
+  background: #fff;
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Main multi-column layout */
+.accordion.accordion12 .testcolumns,
+.accordion.accordion12 .columns,
+.accordion.accordion12 .row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left (main) column */
+.accordion.accordion12 .testcolumns .main,
+.accordion.accordion12 .columns .main,
+.accordion.accordion12 .row .main {
+  flex: 2 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-right: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Right (sidebar) column */
+.accordion.accordion12 .testcolumns .side,
+.accordion.accordion12 .columns .side,
+.accordion.accordion12 .row .side {
+  flex: 1 1 0;
+  min-width: 260px;
+  max-width: 360px;
+  box-sizing: border-box;
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Responsive stacking for mobile/small screens */
+@media (width <=900px) {
+  .accordion.accordion12 .testcolumns,
+  .accordion.accordion12 .columns,
+  .accordion.accordion12 .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .accordion.accordion12 .testcolumns .main,
+  .accordion.accordion12 .testcolumns .side,
+  .accordion.accordion12 .columns .main,
+  .accordion.accordion12 .columns .side,
+  .accordion.accordion12 .row .main,
+  .accordion.accordion12 .row .side {
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+/* Header image styling */
+.accordion.accordion12 img.header,
+.accordion.accordion12 .header-image {
+  width: 100%;
+  display: block;
+  margin: 0 0 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px 0 rgb(0 0 0 / 8%);
+}
+
+/* Breadcrumb styling */
+.accordion.accordion12 .breadcrumb,
+.accordion.accordion12 nav.breadcrumb {
+  font-size: var(--body-font-size-xs);
+  color: #8d8d8d;
+  margin-bottom: 24px;
+  margin-top: 0;
+  letter-spacing: 0.03em;
+}
+
+/* Headline and byline */
+.accordion.accordion12 h1 {
+  font-size: var(--heading-font-size-xxl);
+  color: var(--text-color);
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  line-height: 1.15;
+}
+
+.accordion.accordion12 .byline {
+  font-size: var(--body-font-size-s);
+  color: #6d6d6d;
+  margin-bottom: 2em;
+  margin-top: 0;
+}
+
+/* Section headings */
+.accordion.accordion12 h2,
+.accordion.accordion12 h3,
+.accordion.accordion12 h4 {
+  color: var(--text-color);
+  font-weight: 600;
+  margin-top: 2.4em;
+  margin-bottom: 0.8em;
+  line-height: 1.2;
+}
+
+/* Body text and paragraphs */
+.accordion.accordion12 p,
+.accordion.accordion12 li,
+.accordion.accordion12 .body-text {
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+/* Highlighted blockquote/definition */
+.accordion.accordion12 blockquote,
+.accordion.accordion12 .highlighted,
+.accordion.accordion12 .definition,
+.accordion.accordion12 .info-box {
+  background: #ededed;
+  border-radius: 8px;
+  padding: 24px 32px;
+  margin: 32px 0;
+  font-weight: 600;
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  border-left: 4px solid #222;
+  box-sizing: border-box;
+}
+
+/* Section images (not header/avatar/icon) */
+.accordion.accordion12 img:not(.header, .avatar, .icon) {
+  margin: 32px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 24px 0 rgb(0 0 0 / 4%);
+  width: 95%;
+  max-width: 100%;
+}
+
+/* Sidebar visual styling */
+.accordion.accordion12 .sidebar-title,
+.accordion.accordion12 h4.sidebar {
+  font-size: var(--heading-font-size-m);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1.5em;
+  letter-spacing: 0.12em;
+}
+
+.accordion.accordion12 .sidebar-list,
+.accordion.accordion12 ul.sidebar {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accordion.accordion12 .sidebar-list li,
+.accordion.accordion12 ul.sidebar li,
+.accordion.accordion12 .sidebar-link {
+  margin-bottom: 1.2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ededed;
+}
+
+.accordion.accordion12 .sidebar-list li:last-child,
+.accordion.accordion12 ul.sidebar li:last-child,
+.accordion.accordion12 .sidebar-link:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion12 .sidebar-list a,
+.accordion.accordion12 ul.sidebar a,
+.accordion.accordion12 .sidebar-link a {
+  font-size: var(--body-font-size-m);
+  color: #222;
+  font-weight: 600;
+}
+
+.accordion.accordion12 .sidebar-list .description,
+.accordion.accordion12 ul.sidebar .description,
+.accordion.accordion12 .sidebar-link .description {
+  font-size: var(--body-font-size-s);
+  color: #8d8d8d;
+  margin-top: 0.2em;
+}
+
+/* Author block & social icons at footer */
+.accordion.accordion12 .author-block,
+.accordion.accordion12 .author-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #ededed;
+}
+
+.accordion.accordion12 .author-block img.avatar,
+.accordion.accordion12 .author-info img.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.accordion.accordion12 .author-block .name,
+.accordion.accordion12 .author-info .name {
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.accordion.accordion12 .author-block .title,
+.accordion.accordion12 .author-info .title {
+  font-size: var(--body-font-size-xs);
+  color: #8d8d8d;
+}
+
+.accordion.accordion12 .author-block .social-icons,
+.accordion.accordion12 .author-info .social-icons {
+  display: flex;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.accordion.accordion12 .author-block .social-icons a,
+.accordion.accordion12 .author-info .social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #222;
+  color: #fff;
+  font-size: 18px;
+  transition: background 0.2s;
+}
+
+.accordion.accordion12 .author-block .social-icons a:hover,
+.accordion.accordion12 .author-info .social-icons a:hover {
+  background: #505050;
+}
+
+/* Remove bullets in sidebar lists */
+.accordion.accordion12 ul.sidebar {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Remove excessive top margin on first children in columns */
+.accordion.accordion12 .testcolumns *:first-child,
+.accordion.accordion12 .row *:first-child,
+.accordion.accordion12 .columns *:first-child {
+  margin-top: 0;
 }
