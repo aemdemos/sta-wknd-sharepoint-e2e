@@ -281,7 +281,6 @@
   max-width: 1200px;
 }
 
-/* --- GRID LAYOUT --- */
 .cards.cards24 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -307,7 +306,6 @@
   }
 }
 
-/* --- SECTION HEADING/SUBHEADING (FIRST li) --- */
 .cards.cards24 ul li:first-child {
   grid-column: 1 / -1;
   width: 100%;
@@ -344,13 +342,11 @@
   text-align: left;
 }
 
-/* Hide any extra elements in heading block */
 .cards.cards24 ul li:first-child .cards-card-body a,
 .cards.cards24 ul li:first-child .cards-card-body p + p {
   display: none;
 }
 
-/* --- CARD STYLING --- */
 .cards.cards24 ul li {
   background: none;
   box-shadow: none;
@@ -363,12 +359,10 @@
   align-items: center;
 }
 
-/* Guides row separation */
 .cards.cards24 ul li:nth-child(5) {
   margin-top: 56px;
 }
 
-/* --- PROFILE IMAGE (CIRCLE, CENTERED) --- */
 .cards.cards24 .cards-card-image {
   width: 120px;
   height: 120px;
@@ -390,7 +384,6 @@
   display: block;
 }
 
-/* --- CARD BODY --- */
 .cards.cards24 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -399,7 +392,6 @@
   padding: 0;
 }
 
-/* Name: bold, large, centered */
 .cards.cards24 .cards-card-body h3 {
   color: var(--text-color);
   font-weight: 700;
@@ -410,7 +402,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Role/Title: all-caps, gray, small, centered */
 .cards.cards24 .cards-card-body h5 {
   color: #6d6d6d;
   font-weight: 600;
@@ -421,7 +412,6 @@
   margin: 0 0 18px;
 }
 
-/* --- SOCIAL ICONS ROW --- */
 .cards.cards24 .cards-card-body p {
   display: flex;
   flex-direction: row;
@@ -432,7 +422,6 @@
   padding: 0;
 }
 
-/* --- SOCIAL ICON BUTTON --- */
 .cards.cards24 .cards-card-body a {
   display: flex;
   align-items: center;
@@ -457,7 +446,6 @@
   color: #fff;
 }
 
-/* Center any icon font or inline image in the button */
 .cards.cards24 .cards-card-body a .icon,
 .cards.cards24 .cards-card-body a img,
 .cards.cards24 .cards-card-body a svg {
@@ -467,9 +455,6 @@
   height: 20px;
 }
 
-/* Remove text underline from social links */
-
-/* --- RESPONSIVE --- */
 @media (width <= 600px) {
   .cards.cards24 .cards-card-image,
   .cards.cards24 .cards-card-image img,
@@ -496,7 +481,6 @@
   }
 }
 
-/* Remove any default/legacy borders/backgrounds */
 .cards.cards24 ul li,
 .cards.cards24 .cards-card-body,
 .cards.cards24 .cards-card-image {
@@ -505,9 +489,144 @@
   box-shadow: none;
 }
 
-/* Adjust horizontal grouping on wide screens */
 @media (width >= 1200px) {
   .cards.cards24 ul {
     column-gap: 32px;
+  }
+}
+
+
+.cards.cards26 {
+  /* Remove centering and constraints, ensure block is flush left/top */
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* Row of cards: horizontal flex, left/top aligned, moderate gap, no centering */
+.cards.cards26 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Each card: compact width, vertical stack, left-aligned content */
+.cards.cards26 li {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 6%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 14px 14px;
+  border: none;
+  width: 240px;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Card image: square, aligned left/top, slight margin below */
+.cards.cards26 .cards-card-image {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cards.cards26 .cards-card-image img,
+.cards.cards26 .cards-card-image picture {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+
+/* Card body and contained text: left-aligned vertical stack */
+.cards.cards26 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card Title: override default button styles, bold, left-aligned, no pill/button look */
+.cards.cards26 .cards-card-body .button,
+.cards.cards26 .cards-card-body .button.primary {
+  background: none;
+  color: #222;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 0;
+  text-align: left;
+  padding: 0;
+  margin: 0 0 6px;
+  line-height: 1.3;
+  cursor: default;
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  white-space: normal;
+  overflow: visible;
+}
+
+.cards.cards26 .cards-card-body strong {
+  font-weight: 700;
+  color: #222;
+  word-break: break-word;
+}
+
+/* Description: smaller, gray, left-aligned, ellipsis for truncation */
+.cards.cards26 .cards-card-body p {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 2px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  max-width: 100%;
+  line-height: 1.4;
+}
+
+/* Inherit link color and style inside cards, remove underline */
+.cards.cards26 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Responsive: stack cards vertically, reduce gap and padding */
+@media (width <= 700px) {
+  .cards.cards26 ul {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .cards.cards26 li {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .cards.cards26 .cards-card-image {
+    margin-bottom: 7px;
   }
 }
