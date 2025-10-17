@@ -334,7 +334,6 @@
   align-items: stretch;
 }
 
-/* FAQ List - vertical stack */
 .accordion.accordion14 details {
   display: flex;
   flex-direction: column;
@@ -346,12 +345,10 @@
   transition: background 0.18s;
 }
 
-/* Remove last divider */
 .accordion.accordion14 details:last-child {
   border-bottom: none;
 }
 
-/* FAQ Question Row */
 .accordion.accordion14 details summary {
   padding: 20px 36px 20px 24px;
   color: var(--text-color);
@@ -371,13 +368,11 @@
   transition: background 0.18s;
 }
 
-/* Highlight row on hover/open */
 .accordion.accordion14 details summary:hover,
 .accordion.accordion14 details[open] summary {
   background: var(--light-color);
 }
 
-/* Chevron/Icon alignment */
 .accordion.accordion14 details summary .faq-toggle-icon,
 .accordion.accordion14 details summary .icon,
 .accordion.accordion14 details summary svg {
@@ -390,7 +385,6 @@
   transition: color 0.18s, transform 0.18s;
 }
 
-/* Accent color and animation for open state */
 .accordion.accordion14 details[open] summary .faq-toggle-icon,
 .accordion.accordion14 details[open] summary .icon,
 .accordion.accordion14 details[open] summary svg {
@@ -398,7 +392,6 @@
   transform: rotate(90deg);
 }
 
-/* FAQ Answer Row */
 .accordion.accordion14 details .faq-body,
 .accordion.accordion14 details .accordion-item-body {
   padding: 14px 36px 20px 24px;
@@ -409,7 +402,6 @@
   margin: 0;
 }
 
-/* Remove default summary markers/arrows */
 .accordion.accordion14 details summary::-webkit-details-marker {
   display: none;
 }
@@ -418,7 +410,6 @@
   display: none;
 }
 
-/* Responsive Layout */
 @media (width <= 700px) {
   .accordion.accordion14 {
     max-width: 100%;
@@ -433,4 +424,63 @@
     padding-left: 12px;
     padding-right: 12px;
   }
+}
+
+
+.accordion.accordion29 {
+  background: var(--background-color);
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1100px;
+  border: none;
+  box-shadow: none;
+}
+
+.accordion.accordion29 details {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion.accordion29 summary {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  cursor: default;
+  outline: none;
+  border: none;
+  background: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accordion.accordion29 summary .accordion-item-label {
+  padding: 0;
+  margin: 0;
+}
+
+.accordion.accordion29 summary .accordion-item-label p {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 0.6em;
+}
+
+.accordion.accordion29 summary::-webkit-details-marker,
+.accordion.accordion29 summary::marker {
+  /* This hides the arrow if you want */
+
+  /* display: none; */
+}
+
+.accordion.accordion29 .accordion-item {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
 }
