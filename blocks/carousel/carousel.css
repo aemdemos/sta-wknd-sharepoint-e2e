@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,44 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel16 .carousel-overlay-block {
+  position: absolute;
+  top: 31%;
+  left: 10.5%;
+  width: 28%;
+  height: 0.93em;
+  background: rgb(31 31 31 / 38%);
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 1.2em;
+  padding-right: 1.2em;
+  pointer-events: none;
+
+  /* Soft subtle noise texture, more organic look */
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='7' cy='9' r='0.7' fill='rgba(255,255,255,0.035)'/%3E%3Ccircle cx='12' cy='4' r='0.5' fill='rgba(255,255,255,0.04)'/%3E%3Ccircle cx='18' cy='19' r='0.7' fill='rgba(255,255,255,0.035)'/%3E%3Ccircle cx='22' cy='7' r='0.4' fill='rgba(255,255,255,0.03)'/%3E%3Ccircle cx='3' cy='21' r='0.6' fill='rgba(255,255,255,0.031)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-blend-mode: lighten;
+  z-index: 2;
+}
+
+.carousel.carousel16 .carousel-image,
+.carousel.carousel16 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.carousel.carousel16 {
+  position: relative;
+  background: #fff;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
