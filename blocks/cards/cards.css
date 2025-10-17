@@ -497,7 +497,6 @@
 
 
 .cards.cards26 {
-  /* Remove centering and constraints, ensure block is flush left/top */
   width: 100%;
   max-width: none;
   margin: 0;
@@ -506,7 +505,6 @@
   box-sizing: border-box;
 }
 
-/* Row of cards: horizontal flex, left/top aligned, moderate gap, no centering */
 .cards.cards26 ul {
   display: flex;
   flex-direction: row;
@@ -519,7 +517,6 @@
   width: 100%;
 }
 
-/* Each card: compact width, vertical stack, left-aligned content */
 .cards.cards26 li {
   background: #fff;
   border-radius: 10px;
@@ -535,7 +532,6 @@
   margin: 0;
 }
 
-/* Card image: square, aligned left/top, slight margin below */
 .cards.cards26 .cards-card-image {
   width: 120px;
   height: 120px;
@@ -552,7 +548,6 @@
   display: block;
 }
 
-/* Card body and contained text: left-aligned vertical stack */
 .cards.cards26 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -563,7 +558,6 @@
   padding: 0;
 }
 
-/* Card Title: override default button styles, bold, left-aligned, no pill/button look */
 .cards.cards26 .cards-card-body .button,
 .cards.cards26 .cards-card-body .button.primary {
   background: none;
@@ -587,10 +581,9 @@
 .cards.cards26 .cards-card-body strong {
   font-weight: 700;
   color: #222;
-  word-break: break-word;
+  word-break: break-all;
 }
 
-/* Description: smaller, gray, left-aligned, ellipsis for truncation */
 .cards.cards26 .cards-card-body p {
   font-size: 12px;
   color: #666;
@@ -601,18 +594,16 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  word-break: break-word;
+  word-break: break-all;
   max-width: 100%;
   line-height: 1.4;
 }
 
-/* Inherit link color and style inside cards, remove underline */
 .cards.cards26 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Responsive: stack cards vertically, reduce gap and padding */
 @media (width <= 700px) {
   .cards.cards26 ul {
     flex-direction: column;
@@ -629,4 +620,119 @@
   .cards.cards26 .cards-card-image {
     margin-bottom: 7px;
   }
+}
+
+
+.cards.cards30 {
+  /* Remove any unwanted background or border */
+  background: none;
+  border: none;
+}
+
+/* Main grid: four columns, tight gap, fill container horizontally */
+.cards.cards30 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+/* Responsive: two columns tablet, one column mobile */
+@media (width <= 900px) {
+  .cards.cards30 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards30 ul {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Each card: vertical stack, fill grid cell, flush alignment */
+.cards.cards30 li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Image container: minimal space below image, flush left/right/top */
+.cards.cards30 .cards-card-image {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cards.cards30 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 144px;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* Body: vertical stack, left aligned, compact vertical spacing */
+.cards.cards30 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Title: bold, uppercase, larger font, extra letter spacing, flush left */
+.cards.cards30 .cards-card-body p:first-child {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.18rem;
+  letter-spacing: 2px;
+  color: var(--text-color);
+  margin: 0 0 6px;
+  padding: 0;
+  line-height: 1.25;
+}
+
+/* Description: smaller, subdued, one line only, ellipsis, flush left */
+.cards.cards30 .cards-card-body p:last-child {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  padding: 0;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Remove list bullets if present */
+
+/* Remove any inherited left padding/margin */
+.cards.cards30 li,
+.cards.cards30 .cards-card-body,
+.cards.cards30 .cards-card-image {
+  padding-left: 0;
+  margin-left: 0;
+  box-sizing: border-box;
 }
