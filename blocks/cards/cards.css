@@ -25,3 +25,154 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+/* HERO BLOCK - FEATURED ARTICLE, SIDE-BY-SIDE LAYOUT, TOP-ALIGNED CONTENT */
+.cards.cards4 ul li:nth-child(2) {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 350px;
+  background: var(--background-color);
+  border-radius: 14px;
+  box-shadow: 0 4px 32px rgb(0 0 0 / 7%);
+  overflow: hidden;
+  margin-bottom: 24px;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Image section: fills left half, covers full height */
+.cards.cards4 ul li:nth-child(2) .cards-card-image {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  background: #eaeaea;
+  padding: 0;
+  border-radius: 0;
+}
+
+.cards.cards4 ul li:nth-child(2) .cards-card-image img,
+.cards.cards4 ul li:nth-child(2) .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Content section: right half, top-aligned, tightly grouped */
+.cards.cards4 ul li:nth-child(2) .cards-card-body {
+  flex: 1 1 50%;
+  background: #f5f5f5;
+  padding: 1.6rem 1.8rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: 0.22em;
+  max-width: 540px;
+}
+
+/* Label styling (e.g. "Featured Article") */
+.cards.cards4 ul li:nth-child(2) .cards-card-body p strong {
+  font-size: var(--body-font-size-s);
+  color: #444;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.17em;
+  display: inline-block;
+}
+
+/* Headline styling */
+.cards.cards4 ul li:nth-child(2) .cards-card-body h3 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  margin-bottom: 0.27em;
+  color: var(--text-color);
+  line-height: 1.17;
+}
+
+/* Description styling */
+.cards.cards4 ul li:nth-child(2) .cards-card-body p:not(:has(strong), .button-container) {
+  font-size: var(--body-font-size-m);
+  color: #444;
+  margin-bottom: 0.33em;
+  line-height: 1.7;
+  max-width: 33em;
+}
+
+/* Button container: left-aligned, tightly grouped */
+.cards.cards4 ul li:nth-child(2) .cards-card-body .button-container {
+  margin-top: 0.18em;
+  margin-bottom: 0;
+  padding: 0;
+  align-self: flex-start;
+}
+
+/* Prominent yellow button styling */
+.cards.cards4 ul li:nth-child(2) .cards-card-body .button-container .button,
+.cards.cards4 ul li:nth-child(2) .cards-card-body a.button {
+  background-color: #ffce00;
+  color: #222;
+  font-weight: 700;
+  font-size: var(--body-font-size-s);
+  border-radius: 6px;
+  border: none;
+  padding: 0.82em 2.1em;
+  box-shadow: none;
+  text-align: left;
+  margin: 0.12em 0 0;
+  line-height: 1.2;
+  transition: background 0.2s;
+}
+
+.cards.cards4 ul li:nth-child(2) .cards-card-body .button-container .button:hover,
+.cards.cards4 ul li:nth-child(2) .cards-card-body a.button:hover {
+  background-color: #ffd642;
+}
+
+/* Responsive: stack hero block on mobile */
+@media (width <= 900px) {
+  .cards.cards4 ul li:nth-child(2) {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .cards.cards4 ul li:nth-child(2) .cards-card-image,
+  .cards.cards4 ul li:nth-child(2) .cards-card-body {
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .cards.cards4 ul li:nth-child(2) .cards-card-body {
+    padding: 1.2rem 1rem 1rem;
+    max-width: 100%;
+    row-gap: 0.16em;
+  }
+}
+
+/* Ensure regular cards stay unchanged and in grid */
+.cards.cards4 ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.cards.cards4 ul li:not(:nth-child(2)) {
+  display: block;
+  background: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 1.5px 10px rgb(0 0 0 / 7%);
+  padding: 0;
+}
+
+/* Remove extra spacing above the third card */
+.cards.cards4 ul li:nth-child(3) {
+  margin-top: 0;
+}
