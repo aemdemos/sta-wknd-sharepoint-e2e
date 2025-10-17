@@ -69,7 +69,6 @@
   box-sizing: border-box;
 }
 
-/* Main multi-column layout */
 .accordion.accordion12 .testcolumns,
 .accordion.accordion12 .columns,
 .accordion.accordion12 .row {
@@ -81,7 +80,6 @@
   box-sizing: border-box;
 }
 
-/* Left (main) column */
 .accordion.accordion12 .testcolumns .main,
 .accordion.accordion12 .columns .main,
 .accordion.accordion12 .row .main {
@@ -94,7 +92,6 @@
   align-items: stretch;
 }
 
-/* Right (sidebar) column */
 .accordion.accordion12 .testcolumns .side,
 .accordion.accordion12 .columns .side,
 .accordion.accordion12 .row .side {
@@ -108,7 +105,6 @@
   align-items: stretch;
 }
 
-/* Responsive stacking for mobile/small screens */
 @media (width <=900px) {
   .accordion.accordion12 .testcolumns,
   .accordion.accordion12 .columns,
@@ -130,7 +126,6 @@
   }
 }
 
-/* Header image styling */
 .accordion.accordion12 img.header,
 .accordion.accordion12 .header-image {
   width: 100%;
@@ -140,7 +135,6 @@
   box-shadow: 0 4px 32px 0 rgb(0 0 0 / 8%);
 }
 
-/* Breadcrumb styling */
 .accordion.accordion12 .breadcrumb,
 .accordion.accordion12 nav.breadcrumb {
   font-size: var(--body-font-size-xs);
@@ -150,7 +144,6 @@
   letter-spacing: 0.03em;
 }
 
-/* Headline and byline */
 .accordion.accordion12 h1 {
   font-size: var(--heading-font-size-xxl);
   color: var(--text-color);
@@ -167,7 +160,6 @@
   margin-top: 0;
 }
 
-/* Section headings */
 .accordion.accordion12 h2,
 .accordion.accordion12 h3,
 .accordion.accordion12 h4 {
@@ -178,7 +170,6 @@
   line-height: 1.2;
 }
 
-/* Body text and paragraphs */
 .accordion.accordion12 p,
 .accordion.accordion12 li,
 .accordion.accordion12 .body-text {
@@ -189,7 +180,6 @@
   margin-bottom: 1.2em;
 }
 
-/* Highlighted blockquote/definition */
 .accordion.accordion12 blockquote,
 .accordion.accordion12 .highlighted,
 .accordion.accordion12 .definition,
@@ -205,7 +195,6 @@
   box-sizing: border-box;
 }
 
-/* Section images (not header/avatar/icon) */
 .accordion.accordion12 img:not(.header, .avatar, .icon) {
   margin: 32px auto;
   display: block;
@@ -215,7 +204,6 @@
   max-width: 100%;
 }
 
-/* Sidebar visual styling */
 .accordion.accordion12 .sidebar-title,
 .accordion.accordion12 h4.sidebar {
   font-size: var(--heading-font-size-m);
@@ -263,7 +251,6 @@
   margin-top: 0.2em;
 }
 
-/* Author block & social icons at footer */
 .accordion.accordion12 .author-block,
 .accordion.accordion12 .author-info {
   display: flex;
@@ -323,15 +310,127 @@
   background: #505050;
 }
 
-/* Remove bullets in sidebar lists */
 .accordion.accordion12 ul.sidebar {
   list-style: none;
   padding-left: 0;
 }
 
-/* Remove excessive top margin on first children in columns */
 .accordion.accordion12 .testcolumns *:first-child,
 .accordion.accordion12 .row *:first-child,
 .accordion.accordion12 .columns *:first-child {
   margin-top: 0;
+}
+
+
+.accordion.accordion14 {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px 0 rgb(0 0 0 / 9%);
+  max-width: 740px;
+  margin: 56px auto 64px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* FAQ List - vertical stack */
+.accordion.accordion14 details {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: none;
+  background: none;
+  border-radius: 0;
+  margin: 0;
+  transition: background 0.18s;
+}
+
+/* Remove last divider */
+.accordion.accordion14 details:last-child {
+  border-bottom: none;
+}
+
+/* FAQ Question Row */
+.accordion.accordion14 details summary {
+  padding: 20px 36px 20px 24px;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 32px;
+  line-height: 1.2;
+  transition: background 0.18s;
+}
+
+/* Highlight row on hover/open */
+.accordion.accordion14 details summary:hover,
+.accordion.accordion14 details[open] summary {
+  background: var(--light-color);
+}
+
+/* Chevron/Icon alignment */
+.accordion.accordion14 details summary .faq-toggle-icon,
+.accordion.accordion14 details summary .icon,
+.accordion.accordion14 details summary svg {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: color 0.18s, transform 0.18s;
+}
+
+/* Accent color and animation for open state */
+.accordion.accordion14 details[open] summary .faq-toggle-icon,
+.accordion.accordion14 details[open] summary .icon,
+.accordion.accordion14 details[open] summary svg {
+  color: #fd0;
+  transform: rotate(90deg);
+}
+
+/* FAQ Answer Row */
+.accordion.accordion14 details .faq-body,
+.accordion.accordion14 details .accordion-item-body {
+  padding: 14px 36px 20px 24px;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  background: transparent;
+  margin: 0;
+}
+
+/* Remove default summary markers/arrows */
+.accordion.accordion14 details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion14 details summary::marker {
+  display: none;
+}
+
+/* Responsive Layout */
+@media (width <= 700px) {
+  .accordion.accordion14 {
+    max-width: 100%;
+    margin: 32px 0 36px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .accordion.accordion14 details summary,
+  .accordion.accordion14 details .faq-body,
+  .accordion.accordion14 details .accordion-item-body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
