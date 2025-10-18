@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -55,7 +56,6 @@
   margin: 0 auto;
 }
 
-/* Left: image column */
 .hero.hero6.block > div:first-child {
   flex: 0 0 40vw;
   max-width: 40vw;
@@ -71,7 +71,6 @@
   object-fit: cover;
 }
 
-/* Right: content column */
 .hero.hero6.block > div:nth-child(2) {
   flex: 1 1 60vw;
   max-width: 60vw;
@@ -83,7 +82,6 @@
   box-sizing: border-box;
 }
 
-/* Card style for headline/content */
 .hero.hero6.block > div:nth-child(2) > div {
   background: #fff;
   padding: 40px 36px 24px 40px;
@@ -98,7 +96,6 @@
   align-self: flex-start;
 }
 
-/* Headline styling */
 .hero.hero6.block > div:nth-child(2) > div h2,
 .hero.hero6.block > div:nth-child(2) > div h1 {
   margin: 0;
@@ -109,7 +106,6 @@
   text-align: left;
 }
 
-/* Responsive */
 @media (width <= 900px) {
   .hero.hero6.block {
     flex-direction: column;
@@ -124,5 +120,100 @@
   .hero.hero6.block > div:nth-child(2) > div {
     padding: 24px 16px 16px 20px;
     max-width: 96vw;
+  }
+}
+
+
+.hero.hero26.block {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Image container: right side */
+.hero.hero26.block > div:first-child {
+  flex: 2 1 0;
+  height: 100%;
+  min-width: 0;
+}
+
+/* Image fills its column, maintains aspect ratio */
+.hero.hero26.block > div:first-child picture,
+.hero.hero26.block > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Text box: left side */
+.hero.hero26.block > div:last-child {
+  flex: 1 1 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+/* White box with text */
+.hero.hero26.block > div:last-child > div {
+  background: #fff;
+  padding: 32px 40px;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 11%);
+  border-radius: 24px;
+  max-width: 550px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero.hero26.block h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 2em;
+  color: #222;
+  font-family: serif;
+  font-weight: 700;
+}
+
+.hero.hero26.block p {
+  margin: 0;
+  color: #444;
+  font-size: 1.1em;
+}
+
+@media (width <= 900px) {
+  .hero.hero26.block {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .hero.hero26.block > div:first-child {
+    width: 100%;
+    height: 180px;
+  }
+
+  .hero.hero26.block > div:last-child {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero.hero26.block > div:last-child > div {
+    padding: 18px 8px;
+    border-radius: 16px;
+    max-width: 98vw;
+  }
+
+  .hero.hero26.block h2 {
+    font-size: 1.3em;
+  }
+
+  .hero.hero26.block p {
+    font-size: 0.98em;
   }
 }
