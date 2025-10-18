@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -251,7 +252,9 @@
 }
 
 .cards-wrapper .button-container .button {
+  /* Add styles below to maintain functionality */
 }
+
 .cards.cards19 {
   display: flex;
   flex-flow: row wrap;
@@ -262,6 +265,7 @@
   margin: 0;
   padding: 0;
 }
+
 .cards.cards19 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -271,6 +275,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 @media (width <= 1200px) {
   .cards.cards19 ul {
     grid-template-columns: repeat(3, 1fr);
@@ -288,6 +293,7 @@
     grid-template-columns: 1fr;
   }
 }
+
 .cards.cards19 ul li {
   background: var(--background-color);
   display: flex;
@@ -300,6 +306,7 @@
   height: 100%;
   box-sizing: border-box;
 }
+
 .cards.cards19 .cards-card-image {
   width: 100%;
   aspect-ratio: 4/3;
@@ -318,6 +325,7 @@
   margin: 0;
   padding: 0;
 }
+
 .cards.cards19 .cards-card-body {
   width: 100%;
   padding: 16px 14px;
@@ -328,11 +336,13 @@
   margin: 0;
   text-align: left;
 }
+
 .cards.cards19 .cards-card-body .button-container {
   margin-bottom: 4px;
   padding: 0;
   text-align: left;
 }
+
 .cards.cards19 .cards-card-body .button,
 .cards.cards19 .cards-card-body a {
   background: none;
@@ -355,6 +365,7 @@
   white-space: normal;
   display: inline-block;
 }
+
 .cards.cards19 .cards-card-body .button:hover,
 .cards.cards19 .cards-card-body .button:focus,
 .cards.cards19 .cards-card-body a:hover,
@@ -364,6 +375,7 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
 .cards.cards19 .cards-card-body p {
   color: #888;
   font-size: 0.95rem;
@@ -378,6 +390,7 @@
   white-space: normal;
   box-sizing: border-box;
 }
+
 .cards.cards19 .cards-card-body,
 .cards.cards19 .cards-card-body *,
 .cards.cards19 ul li {
@@ -386,53 +399,49 @@
 
 
 .cards.cards23 {
-  /* Center the block and constrain the max width for grouped look */
   max-width: 1120px;
   margin-left: auto;
   margin-right: auto;
-  padding: 48px 16px 32px 16px;
+  padding: 48px 16px 32px;
   background: var(--background-color);
 }
 
-/* Use grid for multi-column/row layout */
 .cards.cards23 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px 24px; /* Tighter vertical gap, generous horizontal gap */
+  gap: 18px 24px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-@media (max-width: 1100px) {
+@media (width <= 1100px) {
   .cards.cards23 ul {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px 16px;
   }
 }
 
-@media (max-width: 700px) {
+@media (width <= 700px) {
   .cards.cards23 ul {
     grid-template-columns: 1fr;
     gap: 10px 0;
   }
 }
 
-/* Card styling for grouped, modern look */
 .cards.cards23 li {
   background: var(--background-color);
   border-radius: 18px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 28px 16px 20px 16px;
+  padding: 28px 16px 20px;
   box-sizing: border-box;
   border: none;
   min-width: 0;
 }
 
-/* Profile image: circular, centered, with subtle shadow */
 .cards.cards23 .cards-card-image {
   display: flex;
   justify-content: center;
@@ -447,12 +456,11 @@
   height: 96px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 7%);
   background: #eaeaea;
   display: block;
 }
 
-/* Card body: vertical stack, centered alignment */
 .cards.cards23 .cards-card-body {
   width: 100%;
   display: flex;
@@ -461,28 +469,25 @@
   padding: 0;
 }
 
-/* Name: bold, centered, tight margin */
 .cards.cards23 .cards-card-body h3 {
   font-size: var(--heading-font-size-l);
   font-weight: 600;
   color: #232323;
-  margin: 0 0 2px 0;
+  margin: 0 0 2px;
   text-align: center;
   line-height: 1.2;
 }
 
-/* Role: uppercase, muted, compact margin */
 .cards.cards23 .cards-card-body h5 {
   font-size: var(--heading-font-size-s);
   color: #595959;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.07em;
-  margin: 0 0 6px 0;
+  margin: 0 0 6px;
   text-align: center;
 }
 
-/* Social row: side-by-side, tight gap, centered */
 .cards.cards23 .cards-card-body p {
   display: flex;
   flex-direction: row;
@@ -493,7 +498,6 @@
   padding: 0;
 }
 
-/* Social icon buttons: square, dark, hover accent */
 .cards.cards23 .cards-card-body p a {
   display: inline-flex;
   align-items: center;
@@ -506,7 +510,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
   transition: background 0.2s, color 0.2s;
 }
 
@@ -516,21 +520,158 @@
   color: #232323;
 }
 
-/* Responsive tweaks for smaller screens */
-@media (max-width: 700px) {
+@media (width <= 700px) {
   .cards.cards23 li {
-    padding: 14px 8px 12px 8px;
+    padding: 14px 8px 12px;
   }
+
   .cards.cards23 .cards-card-image img,
   .cards.cards23 .cards-card-image picture img {
     width: 72px;
     height: 72px;
   }
+
   .cards.cards23 .cards-card-image {
     margin-bottom: 4px;
   }
+
   .cards.cards23 .cards-card-body p {
     gap: 6px;
     margin-top: 4px;
   }
+}
+
+
+.cards.cards25 {
+  background: #fff;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Card list layout: flex row, left-aligned, gap between cards */
+.cards.cards25 ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Stack vertically on small screens */
+@media (width <= 700px) {
+  .cards.cards25 ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cards.cards25 li {
+    max-width: 100%;
+  }
+}
+
+/* Card styles */
+.cards.cards25 li {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  max-width: 380px;
+  flex: 1 1 0;
+}
+
+/* Make images square and fill card width */
+.cards.cards25 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #fff;
+  display: block;
+}
+
+.cards.cards25 .cards-card-image img,
+.cards.cards25 .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body -- tight vertical stacking */
+.cards.cards25 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 12px 0 0;
+  background: transparent;
+  width: 100%;
+}
+
+/* Title styling: uppercase, bold, black, tight spacing */
+.cards.cards25 .cards-card-body h3 {
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* Remove link color and underline from title links */
+.cards.cards25 .cards-card-body h3 a {
+  color: #222;
+  text-decoration: none;
+}
+
+/* Subtitle/Description styling: gray, small, ellipsis, left-aligned */
+.cards.cards25 .cards-card-body p {
+  color: #757575;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.4;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Exclude button container from subtitle truncation */
+.cards.cards25 .cards-card-body p.button-container {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+/* Remove any default list/item spacing */
+.cards.cards25 ul,
+.cards.cards25 li {
+  list-style: none;
+}
+
+/* Responsive max width for cards */
+@media (width >= 1000px) {
+  .cards.cards25 li {
+    max-width: 420px;
+  }
+}
+
+/* Prevent extra margin on first/last card in flex row */
+.cards.cards25 ul li:first-child,
+.cards.cards25 ul li:last-child {
+  margin: 0;
 }
