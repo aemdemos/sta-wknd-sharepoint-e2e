@@ -1194,14 +1194,13 @@
 
 
 .tabs.tabs29 {
-  /* Use grid for overall two-column layout, but use flex for inner alignment */
   display: grid;
   grid-template-columns: 290px 1fr;
   grid-template-rows: 1fr;
-  gap: 0 32px; /* Reduce space between sidebar and main content */
+  gap: 0 32px;
   box-sizing: border-box;
   max-width: 1080px;
-  margin: 48px auto 0; /* Center and visually anchor high */
+  margin: 48px auto 0;
   background: var(--background-color);
   border-radius: 0;
   box-shadow: none;
@@ -1216,14 +1215,13 @@
   }
 }
 
-/* Sidebar layout and alignment */
 .tabs.tabs29 .tabs-list {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 32px 0 32px 40px; /* Sidebar padding left, not top-heavy */
-  gap: 16px; /* Tight vertical spacing between tabs */
+  padding: 32px 0 32px 40px;
+  gap: 16px;
   background: var(--background-color);
   border: none;
   margin: 0;
@@ -1240,7 +1238,6 @@
   }
 }
 
-/* Sidebar tab navigation */
 .tabs.tabs29 .tabs-tab {
   background: none;
   border: none;
@@ -1278,7 +1275,6 @@
   display: block;
 }
 
-/* Main content column */
 .tabs.tabs29 .tabs-panel {
   padding: 32px 48px 32px 0;
   background: var(--background-color);
@@ -1287,7 +1283,7 @@
   margin: 0;
   box-sizing: border-box;
   min-width: 0;
-  display: block; /* Only visible panel is shown, see aria-hidden rule below */
+  display: block;
   align-self: start;
   text-align: left;
 }
@@ -1299,7 +1295,6 @@
   }
 }
 
-/* Headline styles */
 .tabs.tabs29 .tabs-panel h3 {
   font-size: var(--heading-font-size-l);
   font-weight: 700;
@@ -1313,7 +1308,6 @@
   padding-bottom: 0;
 }
 
-/* Short yellow underline below headline */
 .tabs.tabs29 .tabs-panel h3:not(:empty)::after {
   position: absolute;
   left: 0;
@@ -1325,7 +1319,6 @@
   display: block;
 }
 
-/* Main image styles */
 .tabs.tabs29 .tabs-panel picture {
   width: 100%;
   display: block;
@@ -1341,7 +1334,6 @@
   box-shadow: none;
 }
 
-/* Caption below image */
 .tabs.tabs29 .tabs-panel picture + * {
   font-size: var(--body-font-size-xs);
   font-weight: 700;
@@ -1355,7 +1347,6 @@
   text-align: left;
 }
 
-/* Body text styles */
 .tabs.tabs29 .tabs-panel p,
 .tabs.tabs29 .tabs-panel ul,
 .tabs.tabs29 .tabs-panel ol,
@@ -1369,7 +1360,6 @@
   text-align: left;
 }
 
-/* Remove borders and box shadow for block children */
 .tabs.tabs29 .tabs-list,
 .tabs.tabs29 .tabs-panel {
   border: none;
@@ -1377,7 +1367,63 @@
   background: var(--background-color);
 }
 
-/* Only the active panel is shown */
 .tabs.tabs29 .tabs-panel[aria-hidden="true"] {
   display: none;
+}
+
+
+.tabs-wrapper {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.tabs-wrapper::before {
+  content: "ACTIVITY\nSKIING\nADVENTURE TYPE\nGuided\nLEVEL\nIntermediate\nGROUP SIZE\n4 - 8\nSHARE THIS ADVENTURE";
+  display: block;
+  width: 240px;
+  min-width: 200px;
+  max-width: 320px;
+  flex-shrink: 0;
+  background: #fff;
+  color: #222;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  border-right: 1px solid #eee;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.tabs.tabs30.block {
+  flex: 1 1 0;
+  padding: 40px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+@media (width <= 900px) {
+  .tabs-wrapper {
+    flex-direction: column;
+  }
+
+  .tabs-wrapper::before {
+    width: 100%;
+    max-width: none;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: left;
+  }
+
+  .tabs.tabs30.block {
+    padding: 20px;
+  }
 }
