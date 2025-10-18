@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,175 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards4 ul {
+  /* Remove default ul padding for flush alignment */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* FEATURED CARD (first non-empty li): full-width and side-by-side layout */
+.cards.cards4 ul li:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  margin-bottom: 48px;
+  grid-column: 1 / -1;
+  border-radius: 0;
+  gap: 0;
+  overflow: visible;
+  width: 100%;
+  min-height: 360px;
+}
+
+/* Remove card styling from image and text containers */
+.cards.cards4 ul li:nth-child(2) .cards-card-image,
+.cards.cards4 ul li:nth-child(2) .cards-card-body {
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  background: none;
+  overflow: visible;
+  min-height: 0;
+  padding: 0;
+}
+
+/* Image: 60% of available width, with no padding or borders */
+.cards.cards4 ul li:nth-child(2) .cards-card-image {
+  flex: 0 1 60%;
+  max-width: 60%;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.cards.cards4 ul li:nth-child(2) .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Text area: 40% of available width, light gray background, generous padding */
+.cards.cards4 ul li:nth-child(2) .cards-card-body {
+  flex: 1 1 40%;
+  max-width: 40%;
+  min-width: 0;
+  background: #f5f5f5;
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Label/eyebrow (first <p> only) */
+.cards.cards4 ul li:nth-child(2) .cards-card-body p:first-child {
+  font-size: 13px;
+  color: #555;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+/* Headline */
+.cards.cards4 ul li:nth-child(2) .cards-card-body h1,
+.cards.cards4 ul li:nth-child(2) .cards-card-body h2,
+.cards.cards4 ul li:nth-child(2) .cards-card-body h3 {
+  font-size: 32px;
+  color: var(--text-color);
+  font-weight: 700;
+  line-height: 1.18;
+  margin: 0 0 18px;
+}
+
+/* Description */
+.cards.cards4 ul li:nth-child(2) .cards-card-body p:not(:first-child) {
+  font-size: 16px;
+  color: #444;
+  margin: 0 0 28px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Button: Yellow background, black text, square corners, bold, visually distinct */
+.cards.cards4 ul li:nth-child(2) .cards-card-body a.button,
+.cards.cards4 ul li:nth-child(2) .cards-card-body button {
+  background: #FFD600;
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+  box-shadow: none;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.1;
+  max-width: 100%;
+}
+
+.cards.cards4 ul li:nth-child(2) .cards-card-body a.button:hover,
+.cards.cards4 ul li:nth-child(2) .cards-card-body button:hover {
+  background: #FFC200;
+}
+
+/* Responsive: stack image/text on small screens */
+@media (width <= 900px) {
+  .cards.cards4 ul li:nth-child(2) {
+    flex-direction: column;
+    margin-bottom: 32px;
+    min-height: 0;
+  }
+
+  .cards.cards4 ul li:nth-child(2) .cards-card-image,
+  .cards.cards4 ul li:nth-child(2) .cards-card-body {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .cards.cards4 ul li:nth-child(2) .cards-card-image img {
+    height: auto;
+    min-height: 180px;
+  }
+
+  .cards.cards4 ul li:nth-child(2) .cards-card-body {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* All other cards: restore regular card styling */
+.cards.cards4 ul li:not(:nth-child(2)) {
+  box-shadow: 0 1px 4px rgb(30 30 30 / 4%);
+  border-radius: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* All cards: Ensure images fill their card image containers */
+.cards.cards4 ul li .cards-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
