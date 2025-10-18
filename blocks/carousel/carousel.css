@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,39 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel17 .carousel-navigation-buttons,
+.carousel.carousel17 .carousel-slide-indicators {
+  display: none;
+}
+
+.carousel.carousel17 {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  background: #fff;
+  box-shadow: none;
+  border: none;
+}
+
+.carousel.carousel17 .carousel-slides-container {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.carousel.carousel17 .carousel-image,
+.carousel.carousel17 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  box-shadow: none;
+  background: none;
 }
