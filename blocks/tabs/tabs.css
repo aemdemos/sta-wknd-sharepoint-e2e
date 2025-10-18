@@ -662,3 +662,149 @@
     max-width: 100vw;
   }
 }
+
+
+.tabs.tabs22 {
+  display: grid;
+  grid-template-columns: minmax(90px, 120px) 1fr;
+  gap: 0.3rem;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Sidebar: vertical, compact, flush left */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tab buttons: compact, left-aligned, pill style for selected */
+.tabs.tabs22 .tabs-list .tabs-tab {
+  display: block;
+  width: 100%;
+  padding: 0.64em 0.9em;
+  margin: 0;
+  background: transparent;
+  color: #222;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1rem;
+  border-radius: 18px;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: none;
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 1px;
+}
+
+/* Content area: left-aligned, fills available width, compact vertical rhythm */
+.tabs.tabs22 .tabs-panel {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabs.tabs22 .tabs-panel h1,
+.tabs.tabs22 .tabs-panel h2,
+.tabs.tabs22 .tabs-panel h3 {
+  margin-top: 0.17em;
+  margin-bottom: 0.22em;
+  color: #222;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.tabs.tabs22 .tabs-panel p {
+  margin-top: 0;
+  margin-bottom: 0.36em;
+  color: #222;
+  font-size: 1.05rem;
+  line-height: 1.67;
+}
+
+.tabs.tabs22 .tabs-panel p:last-child {
+  color: #888;
+  font-size: 0.98em;
+  margin-bottom: 0;
+}
+
+/* Image: fills content width, flush left, moderate vertical space */
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+/* Remove top margin for first block element in content for flush alignment */
+.tabs.tabs22 .tabs-panel *:first-child {
+  margin-top: 0;
+}
+
+/* Responsive: stack vertically on small screens, tabs row above content */
+@media (width <= 700px) {
+  .tabs.tabs22 {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .tabs.tabs22 .tabs-list {
+    flex-direction: row;
+    gap: 0.1rem;
+    min-width: 0;
+    padding: 0.1rem 0 0.5rem;
+  }
+
+  .tabs.tabs22 .tabs-list .tabs-tab {
+    min-width: 88px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 0.6em 0.9em;
+    width: auto;
+  }
+
+  .tabs.tabs22 .tabs-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Remove extra margin for first/last sidebar tab */
+.tabs.tabs22 .tabs-list .tabs-tab:first-child {
+  margin-top: 0;
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab:last-child {
+  margin-bottom: 0;
+}
