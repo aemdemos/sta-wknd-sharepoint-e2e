@@ -2223,7 +2223,6 @@
 
 
 .tabs.tabs37 {
-  /* Two-column layout using CSS Grid on desktop, stacking on mobile */
   display: grid;
   grid-template-columns: minmax(220px, 320px) 1fr;
   gap: 48px;
@@ -2243,7 +2242,6 @@
   }
 }
 
-/* Sidebar styling and alignment */
 .tabs.tabs37 ul {
   margin: 0 0 32px;
   padding: 0;
@@ -2252,9 +2250,9 @@
   flex-direction: column;
   gap: 24px;
   min-width: 0;
-  border-right: 2px solid #e6dfaf; /* subtle divider */
+  border-right: 2px solid #e6dfaf;
   padding-right: 28px;
-  justify-content: center; /* vertical centering */
+  justify-content: center;
   height: 100%;
 }
 
@@ -2267,7 +2265,6 @@
   }
 }
 
-/* Sidebar detail items: stack label/value, add vertical spacing */
 .tabs.tabs37 ul li {
   display: flex;
   flex-direction: column;
@@ -2276,7 +2273,6 @@
   border-bottom: 1px solid #f5f3e2;
 }
 
-/* Label: uppercase, muted color, spacing */
 .tabs.tabs37 ul li span,
 .tabs.tabs37 ul li em {
   color: #bbb;
@@ -2287,7 +2283,6 @@
   margin-bottom: 1px;
 }
 
-/* Value: bold, accent color */
 .tabs.tabs37 ul li strong {
   color: #4173b7;
   font-weight: 700;
@@ -2295,7 +2290,6 @@
   line-height: 1.18;
 }
 
-/* Share section at bottom of sidebar */
 .tabs.tabs37 .share,
 .tabs.tabs37 .sidebar-social {
   margin-top: 40px;
@@ -2305,7 +2299,6 @@
   text-transform: uppercase;
 }
 
-/* Tabs navigation row, left-aligned, tight gap */
 .tabs.tabs37 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2323,7 +2316,6 @@
   }
 }
 
-/* Tabs styling */
 .tabs.tabs37 .tabs-list button,
 .tabs.tabs37 .tabs-list .tabs-tab {
   background: transparent;
@@ -2356,7 +2348,6 @@
   color: #888;
 }
 
-/* Main panel content: vertical stack */
 .tabs.tabs37 .tabs-panel {
   display: flex;
   flex-direction: column;
@@ -2374,12 +2365,10 @@
   min-width: 0;
 }
 
-/* Hide sidebar-style details in main column if duplicated */
 .tabs.tabs37 .tabs-panel ul {
   display: none;
 }
 
-/* Title: bold, gold underline, spacing above image */
 .tabs.tabs37 .tabs-panel h1,
 .tabs.tabs37 .tabs-panel h2,
 .tabs.tabs37 .tabs-panel h3 {
@@ -2395,7 +2384,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Main image: fills width, rounded corners */
 .tabs.tabs37 img,
 .tabs.tabs37 picture img {
   width: 100%;
@@ -2415,7 +2403,6 @@
   }
 }
 
-/* Caption: uppercase, bold, accent color, under image */
 .tabs.tabs37 figcaption,
 .tabs.tabs37 .image-caption,
 .tabs.tabs37 p strong:first-child {
@@ -2429,7 +2416,6 @@
   letter-spacing: 0.07em;
 }
 
-/* Paragraph text: readable, left-aligned */
 .tabs.tabs37 p {
   color: #232323;
   font-size: 1.08em;
@@ -2439,7 +2425,6 @@
   margin-top: 0;
 }
 
-/* Responsive: stack columns and remove sidebar border on mobile */
 @media (width <= 900px) {
   .tabs.tabs37 {
     grid-template-columns: 1fr;
@@ -2456,9 +2441,236 @@
   }
 }
 
-/* Remove default outline/box-shadow from tabs for clean look */
 .tabs.tabs37 .tabs-list button:focus,
 .tabs.tabs37 .tabs-list .tabs-tab:focus {
   outline: none;
   box-shadow: none;
+}
+
+
+.tabs.tabs38 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  max-width: 1160px;
+  margin: 56px auto 48px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs38 {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 8px;
+    max-width: 100%;
+    margin: 32px auto;
+  }
+}
+
+/* Left column: metadata stack */
+.tabs.tabs38 div {
+  /* Visually stack metadata with spacing */
+  flex-shrink: 0;
+  min-width: 260px;
+  max-width: 340px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 18px;
+  padding: 26px 0;
+  border: none;
+}
+
+/* Metadata: style each paragraph for separation and hierarchy */
+.tabs.tabs38 div p {
+  margin: 0 0 6px;
+  color: var(--dark-color);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* Visually separate last metadata item (likely "SHARE THIS ADVENTURE") */
+.tabs.tabs38 div p:last-child {
+  margin-top: 24px;
+  margin-bottom: 0;
+  color: var(--link-color);
+  font-size: var(--body-font-size-s);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  opacity: 0.85;
+  text-align: left;
+}
+
+/* Right column: tabs navigation and content */
+.tabs.tabs38 .tabs-list,
+.tabs.tabs38 .tabs-panel {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Tabs navigation bar: horizontal row, evenly spaced */
+.tabs.tabs38 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  border-bottom: 3px solid #F6E7A0;
+  margin-bottom: 32px;
+  margin-top: 0;
+  background: none;
+  gap: 0;
+  padding: 0;
+}
+
+/* Tab buttons: strong active tab, clear padding */
+.tabs.tabs38 .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 18px 34px 12px;
+  color: #555;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-bottom: 4px solid transparent;
+  transition: background 0.18s, color 0.18s, border-bottom 0.18s;
+  cursor: pointer;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  letter-spacing: 0.06em;
+  min-width: 110px;
+  text-align: center;
+  outline: none;
+}
+
+.tabs.tabs38 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-bottom: 4px solid #F6E7A0;
+  z-index: 1;
+}
+
+.tabs.tabs38 .tabs-list .tabs-tab:focus {
+  outline: 2px solid #F6E7A0;
+  outline-offset: -1px;
+}
+
+.tabs.tabs38 .tabs-list .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.18;
+}
+
+/* Content area alignment and width */
+.tabs.tabs38 .tabs-panel {
+  width: 100%;
+  max-width: 700px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Heading: spaced, yellow underline */
+.tabs.tabs38 .tabs-panel h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0.01em;
+  line-height: 1.18;
+  position: relative;
+}
+
+.tabs.tabs38 .tabs-panel h3::after {
+  content: "";
+  display: block;
+  width: 62px;
+  height: 4px;
+  background: #F6E7A0;
+  margin-top: 8px;
+  border-radius: 0;
+}
+
+/* Image styling */
+.tabs.tabs38 .tabs-panel picture,
+.tabs.tabs38 .tabs-panel img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  margin-bottom: 28px;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* Paragraph and list styling */
+.tabs.tabs38 .tabs-panel p,
+.tabs.tabs38 .tabs-panel ul,
+.tabs.tabs38 .tabs-panel ol {
+  color: #222;
+  font-size: 1.09rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.tabs.tabs38 .tabs-panel ul,
+.tabs.tabs38 .tabs-panel ol {
+  padding-left: 1.75em;
+}
+
+.tabs.tabs38 .tabs-panel h2,
+.tabs.tabs38 .tabs-panel h4 {
+  font-weight: 600;
+  color: #222;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+/* Remove border or box-shadow between columns */
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .tabs.tabs38 .tabs-panel,
+  .tabs.tabs38 .tabs-list {
+    max-width: 100%;
+  }
+
+  .tabs.tabs38 div {
+    max-width: 100%;
+    min-width: 0;
+    padding-bottom: 20px;
+    gap: 14px;
+  }
+
+  .tabs.tabs38 .tabs-panel picture,
+  .tabs.tabs38 .tabs-panel img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .tabs.tabs38 .tabs-list .tabs-tab {
+    padding-left: 16px;
+    padding-right: 16px;
+    min-width: 80px;
+    font-size: 0.98rem;
+  }
 }
