@@ -425,8 +425,6 @@
   margin-top: 0;
 }
 
-
-/* Accordion block main layout: side-by-side for large screens, stacking on small screens */
 .accordion.accordion13 {
   display: flex;
   flex-direction: row;
@@ -450,7 +448,6 @@
   }
 }
 
-/* FAQ Main column */
 .accordion.accordion13 .block {
   flex: 2 1 0;
   min-width: 0;
@@ -459,7 +456,6 @@
   box-sizing: border-box;
 }
 
-/* Help/Sidebar column (if present) */
 .accordion.accordion13 .help-block {
   flex: 1 1 0;
   min-width: 0;
@@ -481,7 +477,6 @@
   }
 }
 
-/* FAQ Title and underline */
 .accordion.accordion13 .block h1,
 .accordion.accordion13 .block h2 {
   margin-top: 0;
@@ -504,7 +499,6 @@
   margin: 0 0 28px;
 }
 
-/* FAQ image (optional) */
 .accordion.accordion13 .block img {
   display: block;
   width: 100%;
@@ -516,7 +510,6 @@
   box-shadow: 0 2px 12px 0 rgb(0 0 0 / 3%);
 }
 
-/* FAQ Description paragraph */
 .accordion.accordion13 .block p {
   color: var(--dark-color);
   font-size: var(--body-font-size-m);
@@ -525,7 +518,6 @@
   margin-bottom: 32px;
 }
 
-/* Accordion FAQ: vertical stacking, tight list, only bottom borders */
 .accordion.accordion13 .block details {
   border: none;
   border-bottom: 1px solid #e5e5e5;
@@ -540,7 +532,6 @@
   border-bottom: none;
 }
 
-/* FAQ question row styling: left-aligned, uppercase, spaced for clarity */
 .accordion.accordion13 .block summary {
   display: flex;
   align-items: center;
@@ -560,12 +551,10 @@
   transition: color 0.2s;
 }
 
-/* Highlight open question */
 .accordion.accordion13 .block details[open] summary {
   color: var(--link-color);
 }
 
-/* FAQ answer body */
 .accordion.accordion13 .block details .accordion-item-body,
 .accordion.accordion13 .block details div,
 .accordion.accordion13 .block details p {
@@ -576,7 +565,6 @@
   margin: 0;
 }
 
-/* FAQ icon (e.g. arrow or plus) */
 .accordion.accordion13 .block summary .icon,
 .accordion.accordion13 .block summary svg,
 .accordion.accordion13 .block summary img {
@@ -586,7 +574,6 @@
   opacity: 0.7;
 }
 
-/* Help Block Title */
 .accordion.accordion13 .help-block h1,
 .accordion.accordion13 .help-block h2,
 .accordion.accordion13 .help-block h3,
@@ -598,7 +585,6 @@
   line-height: 1.2;
 }
 
-/* Help Block Info */
 .accordion.accordion13 .help-block p,
 .accordion.accordion13 .help-block span {
   color: var(--dark-color);
@@ -608,7 +594,6 @@
   overflow-wrap: break-word;
 }
 
-/* Help Block Links */
 .accordion.accordion13 .help-block a,
 .accordion.accordion13 .help-block a:any-link {
   color: var(--link-color);
@@ -617,4 +602,54 @@
   margin: 0 0 10px;
   overflow-wrap: break-word;
   transition: color 0.2s;
+}
+
+
+.accordion-wrapper {
+  padding: 40px;
+  background: #fff;
+}
+
+.accordion.accordion15.block {
+  display: flex;
+  gap: 40px;
+}
+
+.accordion.accordion15.block > .accordion-item:first-child {
+  flex: 2 1 0;
+  min-width: 0;
+  padding-right: 32px;
+  border-right: 1px solid #eee;
+  max-width: 70%;
+}
+
+.accordion.accordion15.block > .accordion-item:not(:first-child) {
+  flex: 1 1 0;
+  min-width: 0;
+  padding-left: 32px;
+  margin-bottom: 32px;
+}
+
+/* Sidebar item dividers */
+.accordion.accordion15.block > .accordion-item:not(:first-child, :last-child) {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+}
+
+/* Responsive behavior */
+@media (width <= 900px) {
+  .accordion.accordion15.block {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .accordion.accordion15.block > .accordion-item:first-child,
+  .accordion.accordion15.block > .accordion-item:not(:first-child) {
+    max-width: 100%;
+    flex: none;
+    padding-right: 0;
+    padding-left: 0;
+    border-right: none;
+  }
 }
