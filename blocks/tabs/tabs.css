@@ -225,7 +225,6 @@
 
 
 .tabs.tabs7 {
-  /* Remove excessive lateral padding, maximize usable width, keep centered */
   margin-left: auto;
   margin-right: auto;
   padding: 32px 0 40px;
@@ -240,7 +239,6 @@
 }
 
 .tabs.tabs7 .tabs-list {
-  /* Tabs row: flush left, compact vertical, subtle underline */
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -252,7 +250,6 @@
 }
 
 .tabs.tabs7 .tabs-list .tabs-tab {
-  /* Tab appearance: tight, no background, thin underline for active */
   background: transparent;
   color: #222;
   font-size: var(--body-font-size-m);
@@ -272,12 +269,10 @@
   color: #222;
 }
 
-/* Remove border for inactive tabs */
 .tabs.tabs7 .tabs-list .tabs-tab:not([aria-selected="true"]) {
   border-bottom: none;
 }
 
-/* Panel: vertical stack, tight gap for content grouping */
 .tabs.tabs7 .tabs-panel {
   background: transparent;
   box-shadow: none;
@@ -286,7 +281,6 @@
   margin-top: 0;
 }
 
-/* Main content stack: headings, image, paragraph */
 .tabs.tabs7 .tabs-panel div {
   display: flex;
   flex-direction: column;
@@ -296,7 +290,6 @@
   padding: 0;
 }
 
-/* Headings: smaller, less bold, flush left, tight spacing */
 .tabs.tabs7 h3 {
   color: #222;
   font-size: var(--heading-font-size-l);
@@ -319,7 +312,6 @@
 
 .tabs.tabs7 img,
 .tabs.tabs7 picture img {
-  /* Image: flush left/right, minimal gap below, edge-to-edge */
   display: block;
   width: 100%;
   height: auto;
@@ -329,7 +321,6 @@
   object-fit: cover;
 }
 
-/* Paragraph: flush, minimal margin, slightly smaller, tighter line height */
 .tabs.tabs7 p {
   font-size: 1rem;
   color: #222;
@@ -340,7 +331,6 @@
   max-width: 100%;
 }
 
-/* Responsive: on small screens, keep tight gaps and no horizontal scroll */
 @media (width <= 899px) {
   .tabs.tabs7 {
     padding-top: 18px;
@@ -356,4 +346,31 @@
   .tabs.tabs7 picture img {
     margin-bottom: 6px;
   }
+}
+
+
+.tabs {
+  display: flex;
+  gap: 2rem; /* or whatever horizontal gap you prefer */
+  align-items: flex-start; /* align tops */
+}
+
+.tabs-list {
+  flex-basis: 25%;    /* Sidebar width */
+  flex-shrink: 0;     /* Don't shrink sidebar */
+  max-width: 260px;   /* Optional: limit max width */
+}
+
+.tabs-panel {
+  flex: 1 1 0;
+  max-width: 800px;   /* Optional: limit content width */
+}
+
+/* Show only the active tabpanel */
+.tabs-panel[aria-hidden="true"] {
+  display: none !important;
+}
+
+.tabs-panel[aria-hidden="false"] {
+  display: block;
 }
