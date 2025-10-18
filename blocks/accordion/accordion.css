@@ -217,7 +217,6 @@
   flex-direction: column;
 }
 
-/* Layout: If .testcolumns or .row is present, use a side-by-side layout for their direct children */
 .accordion.accordion11 .testcolumns,
 .accordion.accordion11 .row {
   display: flex;
@@ -228,7 +227,6 @@
   box-sizing: border-box;
 }
 
-/* Force columns to stack on narrow screens */
 @media (width <= 900px) {
   .accordion.accordion11 .testcolumns,
   .accordion.accordion11 .row {
@@ -237,7 +235,6 @@
   }
 }
 
-/* Main content column: targets only non-sidebar/related/side columns for inner layout */
 .accordion.accordion11 .main,
 .accordion.accordion11 .content,
 .accordion.accordion11 .testcolumns div:not(.sidebar, .side, .related),
@@ -265,7 +262,6 @@
   }
 }
 
-/* Sidebar, side, and related columns */
 .accordion.accordion11 .sidebar,
 .accordion.accordion11 .side,
 .accordion.accordion11 .related {
@@ -294,7 +290,6 @@
   }
 }
 
-/* Headings refinement */
 .accordion.accordion11 h1 {
   font-size: var(--heading-font-size-xxl);
   font-weight: 700;
@@ -319,7 +314,6 @@
   margin-bottom: 16px;
 }
 
-/* Text content spacing */
 .accordion.accordion11 p,
 .accordion.accordion11 ul,
 .accordion.accordion11 ol,
@@ -334,7 +328,6 @@
   line-height: 1.7;
 }
 
-/* Images: full width in columns */
 .accordion.accordion11 img,
 .accordion.accordion11 picture {
   display: block;
@@ -346,7 +339,6 @@
   object-fit: cover;
 }
 
-/* Blockquotes and special blocks */
 .accordion.accordion11 blockquote,
 .accordion.accordion11 .definition,
 .accordion.accordion11 .quote {
@@ -360,7 +352,6 @@
   border-radius: 0;
 }
 
-/* Author / attribution rows */
 .accordion.accordion11 .author,
 .accordion.accordion11 .attribution {
   display: flex;
@@ -379,7 +370,6 @@
   margin-right: 12px;
 }
 
-/* Social icon row */
 .accordion.accordion11 .social,
 .accordion.accordion11 .social-icons {
   display: flex;
@@ -388,7 +378,6 @@
   margin-left: auto;
 }
 
-/* Sidebar headings and links */
 .accordion.accordion11 .sidebar h3,
 .accordion.accordion11 .related h3,
 .accordion.accordion11 .side h3 {
@@ -427,7 +416,6 @@
   margin-bottom: 13px;
 }
 
-/* Breadcrumbs / meta tags */
 .accordion.accordion11 .breadcrumb,
 .accordion.accordion11 .meta,
 .accordion.accordion11 .tags {
@@ -437,4 +425,196 @@
   margin-top: 0;
 }
 
-/* Ensure .testcolumns and .row always stretch full width */
+
+/* Accordion block main layout: side-by-side for large screens, stacking on small screens */
+.accordion.accordion13 {
+  display: flex;
+  flex-direction: row;
+  gap: 56px;
+  align-items: flex-start;
+  background-color: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 6%);
+  padding: 48px 32px;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion13 {
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 12px;
+    max-width: 100%;
+  }
+}
+
+/* FAQ Main column */
+.accordion.accordion13 .block {
+  flex: 2 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Help/Sidebar column (if present) */
+.accordion.accordion13 .help-block {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  background: var(--light-color);
+  border-radius: 10px;
+  padding: 32px 24px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (width <= 900px) {
+  .accordion.accordion13 .help-block {
+    padding: 24px 12px;
+    border-radius: 6px;
+    margin-top: 0;
+  }
+}
+
+/* FAQ Title and underline */
+.accordion.accordion13 .block h1,
+.accordion.accordion13 .block h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.accordion.accordion13 .block h1 + hr,
+.accordion.accordion13 .block h2 + hr {
+  display: block;
+  height: 4px;
+  width: 48px;
+  background: #ffe066;
+  border: none;
+  border-radius: 2px;
+  margin: 0 0 28px;
+}
+
+/* FAQ image (optional) */
+.accordion.accordion13 .block img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: cover;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 3%);
+}
+
+/* FAQ Description paragraph */
+.accordion.accordion13 .block p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+/* Accordion FAQ: vertical stacking, tight list, only bottom borders */
+.accordion.accordion13 .block details {
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.accordion.accordion13 .block details:last-child {
+  border-bottom: none;
+}
+
+/* FAQ question row styling: left-aligned, uppercase, spaced for clarity */
+.accordion.accordion13 .block summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 20px 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* Highlight open question */
+.accordion.accordion13 .block details[open] summary {
+  color: var(--link-color);
+}
+
+/* FAQ answer body */
+.accordion.accordion13 .block details .accordion-item-body,
+.accordion.accordion13 .block details div,
+.accordion.accordion13 .block details p {
+  padding: 0 0 20px;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* FAQ icon (e.g. arrow or plus) */
+.accordion.accordion13 .block summary .icon,
+.accordion.accordion13 .block summary svg,
+.accordion.accordion13 .block summary img {
+  margin-left: 16px;
+  min-width: 24px;
+  min-height: 24px;
+  opacity: 0.7;
+}
+
+/* Help Block Title */
+.accordion.accordion13 .help-block h1,
+.accordion.accordion13 .help-block h2,
+.accordion.accordion13 .help-block h3,
+.accordion.accordion13 .help-block .help-title {
+  margin: 0 0 12px;
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+
+/* Help Block Info */
+.accordion.accordion13 .help-block p,
+.accordion.accordion13 .help-block span {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-m);
+  margin: 0 0 12px;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+/* Help Block Links */
+.accordion.accordion13 .help-block a,
+.accordion.accordion13 .help-block a:any-link {
+  color: var(--link-color);
+  text-decoration: underline;
+  font-size: var(--body-font-size-m);
+  margin: 0 0 10px;
+  overflow-wrap: break-word;
+  transition: color 0.2s;
+}
