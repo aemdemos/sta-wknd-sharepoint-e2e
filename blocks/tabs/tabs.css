@@ -1999,14 +1999,12 @@
 
 
 .tabs.tabs36 {
-  /* Ensure block is centered and not overly wide */
   max-width: 1200px;
   margin: 0 auto;
   background: var(--background-color);
   padding: 0;
 }
 
-/* Set up a two-column layout for the main block */
 .tabs.tabs36 .block {
   display: flex;
   flex-direction: row;
@@ -2019,7 +2017,6 @@
   border: none;
 }
 
-/* Responsive: stack columns on small screens */
 @media (width <= 900px) {
   .tabs.tabs36 .block {
     flex-direction: column;
@@ -2028,7 +2025,6 @@
   }
 }
 
-/* LEFT COLUMN: Activity Info */
 .tabs.tabs36 .block div {
   flex: 0 0 130px;
   max-width: 130px;
@@ -2042,7 +2038,6 @@
   margin-top: 0;
 }
 
-/* Remove right border and padding on mobile */
 @media (width <= 900px) {
   .tabs.tabs36 .block div {
     border-right: none;
@@ -2052,7 +2047,6 @@
   }
 }
 
-/* Give info lines vertical separation (for natural <p> and <li> usage) */
 .tabs.tabs36 .block div p,
 .tabs.tabs36 .block div li,
 .tabs.tabs36 .block div ul,
@@ -2066,7 +2060,6 @@
   line-height: 1.5;
 }
 
-/* If any value lines are wrapped in <strong> or <span>, make them pop */
 .tabs.tabs36 .block div strong,
 .tabs.tabs36 .block div span {
   color: var(--text-color);
@@ -2079,7 +2072,6 @@
   letter-spacing: 0;
 }
 
-/* RIGHT COLUMN: Content Panel */
 .tabs.tabs36 .block div + div {
   flex: 1 1 0;
   min-width: 0;
@@ -2090,14 +2082,12 @@
   align-items: stretch;
 }
 
-/* Remove left padding on mobile */
 @media (width <= 900px) {
   .tabs.tabs36 .block div + div {
     padding-left: 0;
   }
 }
 
-/* Content panel main title: bold, left-aligned, accent bar */
 .tabs.tabs36 .tabs-panel h3 {
   font-size: 24px;
   font-weight: 700;
@@ -2121,7 +2111,6 @@
   border-radius: 2px;
 }
 
-/* On mobile, reset padding and accent position */
 @media (width <= 900px) {
   .tabs.tabs36 .tabs-panel h3 {
     padding-left: 0;
@@ -2134,7 +2123,6 @@
   }
 }
 
-/* Tabs navigation: horizontal, below title, centered */
 .tabs.tabs36 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -2149,7 +2137,6 @@
   justify-content: flex-start;
 }
 
-/* Center tabs on desktop */
 @media (width >= 900px) {
   .tabs.tabs36 .tabs-list {
     justify-content: center;
@@ -2157,7 +2144,6 @@
   }
 }
 
-/* Tab buttons: plain, uppercase, yellow underline for active */
 .tabs.tabs36 .tabs-tab {
   background: none;
   border: none;
@@ -2181,13 +2167,11 @@
   font-weight: 700;
 }
 
-/* Tab focus highlight */
 .tabs.tabs36 .tabs-tab:focus {
   outline: 2px solid #ffe17f;
   outline-offset: 2px;
 }
 
-/* Content panel: default spacing */
 .tabs.tabs36 .tabs-panel {
   background: var(--background-color);
   padding: 0;
@@ -2197,7 +2181,6 @@
   min-height: 0;
 }
 
-/* Panel image: full width, no border/shadow, correct aspect ratio, compact spacing */
 .tabs.tabs36 .tabs-panel picture,
 .tabs.tabs36 .tabs-panel img {
   display: block;
@@ -2210,7 +2193,6 @@
   border-radius: 0;
 }
 
-/* Caption: small, uppercase, gray, bold, indented */
 .tabs.tabs36 .tabs-panel p span,
 .tabs.tabs36 .tabs-panel p em,
 .tabs.tabs36 .tabs-panel p strong {
@@ -2223,7 +2205,6 @@
   letter-spacing: 0.03em;
 }
 
-/* Description and lists: readable, compact spacing */
 .tabs.tabs36 .tabs-panel p {
   font-size: 13px;
   color: var(--text-color);
@@ -2238,4 +2219,246 @@
   color: var(--text-color);
   margin: 0 0 16px;
   padding-left: 24px;
+}
+
+
+.tabs.tabs37 {
+  /* Two-column layout using CSS Grid on desktop, stacking on mobile */
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 48px;
+  padding: 48px 32px;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 48px auto;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 8px;
+  }
+}
+
+/* Sidebar styling and alignment */
+.tabs.tabs37 ul {
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  border-right: 2px solid #e6dfaf; /* subtle divider */
+  padding-right: 28px;
+  justify-content: center; /* vertical centering */
+  height: 100%;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 ul {
+    border-right: none;
+    padding-right: 0;
+    justify-content: flex-start;
+    height: auto;
+  }
+}
+
+/* Sidebar detail items: stack label/value, add vertical spacing */
+.tabs.tabs37 ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f5f3e2;
+}
+
+/* Label: uppercase, muted color, spacing */
+.tabs.tabs37 ul li span,
+.tabs.tabs37 ul li em {
+  color: #bbb;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  margin-bottom: 1px;
+}
+
+/* Value: bold, accent color */
+.tabs.tabs37 ul li strong {
+  color: #4173b7;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.18;
+}
+
+/* Share section at bottom of sidebar */
+.tabs.tabs37 .share,
+.tabs.tabs37 .sidebar-social {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #274d80;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Tabs navigation row, left-aligned, tight gap */
+.tabs.tabs37 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 8px;
+  width: fit-content;
+  min-width: 0;
+  margin-bottom: 28px;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .tabs.tabs37 .tabs-list {
+    margin-bottom: 20px;
+  }
+}
+
+/* Tabs styling */
+.tabs.tabs37 .tabs-list button,
+.tabs.tabs37 .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  color: #666;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  outline: none;
+  line-height: 1.15;
+  transition: background 0.18s, color 0.18s;
+}
+
+.tabs.tabs37 .tabs-list button[aria-selected="true"],
+.tabs.tabs37 .tabs-list .tabs-tab[aria-selected="true"] {
+  background: #212121;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 12px -4px #2223;
+}
+
+.tabs.tabs37 .tabs-list button:not([aria-selected="true"]),
+.tabs.tabs37 .tabs-list .tabs-tab:not([aria-selected="true"]) {
+  background: #f3f3f3;
+  color: #888;
+}
+
+/* Main panel content: vertical stack */
+.tabs.tabs37 .tabs-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  min-width: 0;
+  background: none;
+  box-sizing: border-box;
+}
+
+.tabs.tabs37 .tabs-panel div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+/* Hide sidebar-style details in main column if duplicated */
+.tabs.tabs37 .tabs-panel ul {
+  display: none;
+}
+
+/* Title: bold, gold underline, spacing above image */
+.tabs.tabs37 .tabs-panel h1,
+.tabs.tabs37 .tabs-panel h2,
+.tabs.tabs37 .tabs-panel h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 18px;
+  line-height: 1.18;
+  border-bottom: 2px solid #eee173;
+  display: inline-block;
+  padding-bottom: 7px;
+  letter-spacing: 0.01em;
+}
+
+/* Main image: fills width, rounded corners */
+.tabs.tabs37 img,
+.tabs.tabs37 picture img {
+  width: 100%;
+  max-width: 660px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+@media (width <= 600px) {
+  .tabs.tabs37 img,
+  .tabs.tabs37 picture img {
+    height: 140px;
+    border-radius: 4px;
+  }
+}
+
+/* Caption: uppercase, bold, accent color, under image */
+.tabs.tabs37 figcaption,
+.tabs.tabs37 .image-caption,
+.tabs.tabs37 p strong:first-child {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  color: #274d80;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+/* Paragraph text: readable, left-aligned */
+.tabs.tabs37 p {
+  color: #232323;
+  font-size: 1.08em;
+  line-height: 1.65;
+  margin-bottom: 0.9em;
+  max-width: 670px;
+  margin-top: 0;
+}
+
+/* Responsive: stack columns and remove sidebar border on mobile */
+@media (width <= 900px) {
+  .tabs.tabs37 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 16px 2vw;
+  }
+
+  .tabs.tabs37 ul {
+    border-right: none;
+    min-height: unset;
+    padding-right: 0;
+    justify-content: flex-start;
+    height: auto;
+  }
+}
+
+/* Remove default outline/box-shadow from tabs for clean look */
+.tabs.tabs37 .tabs-list button:focus,
+.tabs.tabs37 .tabs-list .tabs-tab:focus {
+  outline: none;
+  box-shadow: none;
 }
