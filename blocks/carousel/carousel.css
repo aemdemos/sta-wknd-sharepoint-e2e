@@ -186,3 +186,64 @@
   box-shadow: none;
   background: none;
 }
+
+
+.carousel.carousel18 {
+  /* Ensure the block is clean and minimal */
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hide overlay bar if present */
+.carousel.carousel18 .carousel-overlay-bar {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: none;
+}
+
+/* Hide navigation and indicators, but allow future reintroduction with subtle styling */
+.carousel.carousel18 .carousel-navigation-buttons,
+.carousel.carousel18 .carousel-slide-indicators {
+  display: none;
+}
+
+/* Image: ensure full width and no borders/margins/shadows */
+.carousel.carousel18 img,
+.carousel.carousel18 .carousel-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* If the carousel should ever show indicators, make them very subtle and unobtrusive */
+.carousel.carousel18 .carousel-slide-indicator button {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgb(40 40 40 / 8%);
+  border: none;
+  margin: 0;
+  box-shadow: none;
+  opacity: 0.6;
+  transition: background 0.18s;
+}
+
+.carousel.carousel18 .carousel-slide-indicator button:disabled,
+.carousel.carousel18 .carousel-slide-indicator button.active {
+  background: rgb(40 40 40 / 16%);
+  opacity: 0.8;
+}
