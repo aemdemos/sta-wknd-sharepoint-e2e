@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,162 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion8 {
+  /* Multi-column layout for large screens, single for small screens */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px 20px; /* slightly more compact than previous attempts */
+  padding: 32px 0;
+  background: var(--background-color);
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+/* Card styling */
+.accordion.accordion8 details {
+  background: #f5f5f5;
+  box-shadow: 0 2px 8px rgb(32 32 32 / 4%);
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+/* Accordion header: flex row for heading + arrow */
+.accordion.accordion8 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px 12px; /* tighter top/bottom, generous sides */
+  min-height: 48px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Heading styles */
+.accordion.accordion8 .accordion-item-label h2,
+.accordion.accordion8 .accordion-item-label h3,
+.accordion.accordion8 .accordion-item-label h4 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  color: var(--dark-color);
+  position: relative;
+  padding-bottom: 8px;
+}
+
+/* Custom arrow indicator, no content property, just styling native summary marker */
+.accordion.accordion8 details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion8 .accordion-item-label svg,
+.accordion.accordion8 .accordion-item-label .arrow {
+  width: 20px;
+  height: 20px;
+  margin-left: 16px;
+  stroke: var(--dark-color);
+  stroke-width: 3px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* If you use a span for the arrow (no content), style it as a block for now: */
+.accordion.accordion8 .accordion-item-label span {
+  width: 20px;
+  height: 20px;
+  margin-left: 16px;
+  border-right: 3px solid var(--dark-color);
+  border-bottom: 3px solid var(--dark-color);
+  transform: rotate(45deg);
+  vertical-align: middle;
+  align-self: center;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* Hide extra summary marker if present */
+.accordion.accordion8 details summary {
+  outline: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Body/content inside card */
+.accordion.accordion8 .accordion-item-body {
+  padding: 16px 28px 28px;
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+/* Images: squared corners, full-width */
+.accordion.accordion8 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  margin: 20px 0;
+}
+
+/* Blockquote/pull quote styling */
+.accordion.accordion8 blockquote,
+.accordion.accordion8 .pull-quote {
+  background: #f5f5f5;
+  margin: 24px 0;
+  padding: 28px;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--dark-color);
+  border-left: 4px solid #f4e04d;
+}
+
+/* Small address/details styling */
+.accordion.accordion8 address,
+.accordion.accordion8 .address,
+.accordion.accordion8 .small-details {
+  font-size: var(--body-font-size-s);
+  color: #888;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* Accent links inside block */
+.accordion.accordion8 a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.accordion.accordion8 a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Responsive stacking for small screens */
+@media (width <= 900px) {
+  .accordion.accordion8 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 16px 4px;
+  }
+
+  .accordion.accordion8 .accordion-item-label,
+  .accordion.accordion8 .accordion-item-body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
