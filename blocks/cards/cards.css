@@ -29,13 +29,11 @@
 
 
 .cards.cards4 ul {
-  /* Remove default ul padding for flush alignment */
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-/* FEATURED CARD (first non-empty li): full-width and side-by-side layout */
 .cards.cards4 ul li:nth-child(2) {
   display: flex;
   flex-direction: row;
@@ -52,7 +50,6 @@
   min-height: 360px;
 }
 
-/* Remove card styling from image and text containers */
 .cards.cards4 ul li:nth-child(2) .cards-card-image,
 .cards.cards4 ul li:nth-child(2) .cards-card-body {
   box-shadow: none;
@@ -65,7 +62,6 @@
   padding: 0;
 }
 
-/* Image: 60% of available width, with no padding or borders */
 .cards.cards4 ul li:nth-child(2) .cards-card-image {
   flex: 0 1 60%;
   max-width: 60%;
@@ -84,7 +80,6 @@
   padding: 0;
 }
 
-/* Text area: 40% of available width, light gray background, generous padding */
 .cards.cards4 ul li:nth-child(2) .cards-card-body {
   flex: 1 1 40%;
   max-width: 40%;
@@ -98,7 +93,6 @@
   box-sizing: border-box;
 }
 
-/* Label/eyebrow (first <p> only) */
 .cards.cards4 ul li:nth-child(2) .cards-card-body p:first-child {
   font-size: 13px;
   color: #555;
@@ -109,7 +103,6 @@
   line-height: 1.2;
 }
 
-/* Headline */
 .cards.cards4 ul li:nth-child(2) .cards-card-body h1,
 .cards.cards4 ul li:nth-child(2) .cards-card-body h2,
 .cards.cards4 ul li:nth-child(2) .cards-card-body h3 {
@@ -120,7 +113,6 @@
   margin: 0 0 18px;
 }
 
-/* Description */
 .cards.cards4 ul li:nth-child(2) .cards-card-body p:not(:first-child) {
   font-size: 16px;
   color: #444;
@@ -129,7 +121,6 @@
   line-height: 1.5;
 }
 
-/* Button: Yellow background, black text, square corners, bold, visually distinct */
 .cards.cards4 ul li:nth-child(2) .cards-card-body a.button,
 .cards.cards4 ul li:nth-child(2) .cards-card-body button {
   background: #FFD600;
@@ -154,7 +145,6 @@
   background: #FFC200;
 }
 
-/* Responsive: stack image/text on small screens */
 @media (width <= 900px) {
   .cards.cards4 ul li:nth-child(2) {
     flex-direction: column;
@@ -182,7 +172,6 @@
   }
 }
 
-/* All other cards: restore regular card styling */
 .cards.cards4 ul li:not(:nth-child(2)) {
   box-shadow: 0 1px 4px rgb(30 30 30 / 4%);
   border-radius: 0;
@@ -191,9 +180,77 @@
   background: #fff;
 }
 
-/* All cards: Ensure images fill their card image containers */
 .cards.cards4 ul li .cards-card-image img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+
+.cards-wrapper .cards ul {
+  display: flex;
+  flex-direction: row;         /* Side by side */
+  gap: 16px;                   /* Space between cards */
+  list-style: none;            /* Remove bullets */
+  margin: 0;
+  padding: 0;
+  width: auto;                 /* Corrected invalid value for width */
+}
+
+.cards-wrapper .cards ul li {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0; /* Equal width for all cards */
+  min-width: 220px; /* Prevent too small cards */
+  max-width: 300px; /* Optional, for responsiveness */
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.cards-wrapper .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;            /* Square images, modern browsers */
+  overflow: hidden;
+}
+
+.cards-wrapper .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cards-wrapper .cards-card-body {
+  padding: 0;                  /* Minimal or no padding */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cards-wrapper .cards-card-body p strong {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.cards-wrapper .cards-card-body p:not(.button-container, :first-child) {
+  font-size: 13px;
+  color: #888;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+}
+
+.cards-wrapper .button-container {
+  margin-top: 8px;
+}
+
+.cards-wrapper .button-container .button {
+  /* Optional: style button */
 }
