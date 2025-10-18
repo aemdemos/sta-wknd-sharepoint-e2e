@@ -1780,7 +1780,6 @@
 
 
 .tabs.tabs35 {
-  /* Root layout: two columns side by side, top-aligned */
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 24px;
@@ -1794,7 +1793,6 @@
   min-width: 0;
 }
 
-/* Sidebar on the left */
 .tabs.tabs35 .tabs-list {
   background: #fff;
   border-radius: 12px;
@@ -1815,9 +1813,6 @@
   white-space: pre-line;
 }
 
-/* Sidebar text improved spacing and readability */
-
-/* Visually separate last block in sidebar (if present, e.g. "SHARE THIS ADVENTURE") */
 .tabs.tabs35 .tabs-list .share,
 .tabs.tabs35 .tabs-list [data-share] {
   margin-top: 36px;
@@ -1830,7 +1825,6 @@
   padding-top: 18px;
 }
 
-/* Remove list bullets in sidebar */
 .tabs.tabs35 .tabs-list ul,
 .tabs.tabs35 .tabs-list ol {
   list-style: none;
@@ -1838,7 +1832,6 @@
   margin: 0;
 }
 
-/* Main content area */
 .tabs.tabs35 .tabs-panel {
   background: #fff;
   border-radius: 12px;
@@ -1852,12 +1845,10 @@
   margin: 0;
 }
 
-/* Show only active panel */
 .tabs.tabs35 .tabs-panel[aria-hidden="false"] {
   display: flex;
 }
 
-/* Horizontal tab navigation above main content, if present in DOM */
 .tabs.tabs35 .tabs-panel .tabs-list {
   display: flex;
   flex-direction: row;
@@ -1874,7 +1865,6 @@
   letter-spacing: 0.08em;
 }
 
-/* Tab buttons in horizontal nav */
 .tabs.tabs35 .tabs-panel .tabs-tab {
   background: none;
   border: none;
@@ -1896,7 +1886,6 @@
   font-weight: 700;
 }
 
-/* Title and accent under title */
 .tabs.tabs35 .tabs-panel h1,
 .tabs.tabs35 .tabs-panel h2,
 .tabs.tabs35 .tabs-panel h3 {
@@ -1920,7 +1909,6 @@
   content: "";
 }
 
-/* Body copy */
 .tabs.tabs35 .tabs-panel p,
 .tabs.tabs35 .tabs-panel li {
   font-size: 1.1em;
@@ -1932,7 +1920,6 @@
   text-transform: none;
 }
 
-/* Main content images */
 .tabs.tabs35 .tabs-panel img {
   display: block;
   width: 100%;
@@ -1942,7 +1929,6 @@
   box-shadow: 0 2px 10px rgb(32 32 32 / 6%);
 }
 
-/* Responsive adjustments */
 @media (width <= 1020px) {
   .tabs.tabs35 {
     grid-template-columns: 1fr;
@@ -2007,7 +1993,249 @@
   }
 }
 
-/* Hide all but the active panel */
 .tabs.tabs35 .tabs-panel[aria-hidden="true"] {
   display: none;
+}
+
+
+.tabs.tabs36 {
+  /* Ensure block is centered and not overly wide */
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--background-color);
+  padding: 0;
+}
+
+/* Set up a two-column layout for the main block */
+.tabs.tabs36 .block {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0 40px;
+  padding: 48px 32px 40px;
+  background: var(--background-color);
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .tabs.tabs36 .block {
+    flex-direction: column;
+    gap: 0;
+    padding: 24px 8px;
+  }
+}
+
+/* LEFT COLUMN: Activity Info */
+.tabs.tabs36 .block div {
+  flex: 0 0 130px;
+  max-width: 130px;
+  padding-right: 28px;
+  border-right: 1px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: transparent;
+  margin-top: 0;
+}
+
+/* Remove right border and padding on mobile */
+@media (width <= 900px) {
+  .tabs.tabs36 .block div {
+    border-right: none;
+    padding-right: 0;
+    max-width: 100%;
+    margin-bottom: 32px;
+  }
+}
+
+/* Give info lines vertical separation (for natural <p> and <li> usage) */
+.tabs.tabs36 .block div p,
+.tabs.tabs36 .block div li,
+.tabs.tabs36 .block div ul,
+.tabs.tabs36 .block div ol {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: #808080;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+/* If any value lines are wrapped in <strong> or <span>, make them pop */
+.tabs.tabs36 .block div strong,
+.tabs.tabs36 .block div span {
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 15px;
+  display: block;
+  margin-top: 2px;
+  margin-bottom: 0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* RIGHT COLUMN: Content Panel */
+.tabs.tabs36 .block div + div {
+  flex: 1 1 0;
+  min-width: 0;
+  padding-left: 40px;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Remove left padding on mobile */
+@media (width <= 900px) {
+  .tabs.tabs36 .block div + div {
+    padding-left: 0;
+  }
+}
+
+/* Content panel main title: bold, left-aligned, accent bar */
+.tabs.tabs36 .tabs-panel h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 20px;
+  position: relative;
+  text-align: left;
+  padding-left: 42px;
+  line-height: 1.2;
+}
+
+.tabs.tabs36 .tabs-panel h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 4px;
+  background: #ffe17f;
+  border-radius: 2px;
+}
+
+/* On mobile, reset padding and accent position */
+@media (width <= 900px) {
+  .tabs.tabs36 .tabs-panel h3 {
+    padding-left: 0;
+  }
+
+  .tabs.tabs36 .tabs-panel h3::before {
+    left: 0;
+    top: -12px;
+    transform: none;
+  }
+}
+
+/* Tabs navigation: horizontal, below title, centered */
+.tabs.tabs36 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  border-bottom: 1px solid #ececec;
+  margin: 0 0 32px;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+/* Center tabs on desktop */
+@media (width >= 900px) {
+  .tabs.tabs36 .tabs-list {
+    justify-content: center;
+    margin-top: 16px;
+  }
+}
+
+/* Tab buttons: plain, uppercase, yellow underline for active */
+.tabs.tabs36 .tabs-tab {
+  background: none;
+  border: none;
+  outline: none;
+  color: #808080;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 32px 10px 0;
+  margin: 0;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.tabs.tabs36 .tabs-tab[aria-selected="true"] {
+  color: var(--text-color);
+  border-bottom: 2px solid #ffe17f;
+  font-weight: 700;
+}
+
+/* Tab focus highlight */
+.tabs.tabs36 .tabs-tab:focus {
+  outline: 2px solid #ffe17f;
+  outline-offset: 2px;
+}
+
+/* Content panel: default spacing */
+.tabs.tabs36 .tabs-panel {
+  background: var(--background-color);
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+/* Panel image: full width, no border/shadow, correct aspect ratio, compact spacing */
+.tabs.tabs36 .tabs-panel picture,
+.tabs.tabs36 .tabs-panel img {
+  display: block;
+  width:100%;
+  max-width: 100%;
+  height: auto;
+  margin: 12px 0 4px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+}
+
+/* Caption: small, uppercase, gray, bold, indented */
+.tabs.tabs36 .tabs-panel p span,
+.tabs.tabs36 .tabs-panel p em,
+.tabs.tabs36 .tabs-panel p strong {
+  display: block;
+  font-size: 11px;
+  color: #808080;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 3px 0 6px 12px;
+  letter-spacing: 0.03em;
+}
+
+/* Description and lists: readable, compact spacing */
+.tabs.tabs36 .tabs-panel p {
+  font-size: 13px;
+  color: var(--text-color);
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.tabs.tabs36 .tabs-panel ul,
+.tabs.tabs36 .tabs-panel ol {
+  font-size: 13px;
+  color: var(--text-color);
+  margin: 0 0 16px;
+  padding-left: 24px;
 }
