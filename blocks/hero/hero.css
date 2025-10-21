@@ -45,3 +45,62 @@
     padding: 40px 32px;
   }
 }
+
+/* 1. Set container as relative for positioning overlay */
+.hero.hero6.block {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  /* optional: add spacing below block */
+
+  /* padding-bottom: 2rem; */
+}
+
+/* 2. Ensure image fills width */
+.hero.hero6.block > div:first-child > div > picture,
+.hero.hero6.block > div:first-child > div > picture > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 3. Overlay card styles */
+.hero.hero6.block > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  top: 65%; /* adjust as needed, 60-70% usually looks right */
+  transform: translate(-50%, 0);
+  width: 60%; /* card is inset, not full-width */
+  background: #fff;
+  padding: 2rem 2.5rem;
+  box-sizing: border-box;
+
+  /* No border or shadow per your spec */
+
+  /* Add a slight border-radius for a modern look, optional */
+  border-radius: 0.5rem;
+}
+
+/* 4. Text styles */
+.hero.hero6.block h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.25rem;
+  color: #333;
+  margin: 0;
+  text-align: left;
+}
+
+/* 5. Responsive: stack card lower on small screens */
+@media (width <= 800px) {
+  .hero.hero6.block > div:nth-child(2) {
+    width: 90%;
+    padding: 1.2rem;
+    top: 70%;
+  }
+
+  .hero.hero6.block h2 {
+    font-size: 1rem;
+  }
+}
