@@ -191,3 +191,40 @@
   height: auto;
   vertical-align: middle;
 }
+
+
+.carousel.carousel17 {
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+.carousel.carousel17 .carousel-navigation-buttons,
+.carousel.carousel17 .carousel-slide-indicators {
+  display: none;
+}
+
+.carousel.carousel17 .carousel-slide {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+
+.carousel.carousel17 img,
+.carousel.carousel17 .carousel-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+}
