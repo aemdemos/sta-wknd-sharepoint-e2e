@@ -742,7 +742,6 @@
 
 
 .tabs.tabs15 {
-  /* Root: two-column layout, sidebar + content area */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -753,7 +752,6 @@
   width: 100%;
 }
 
-/* Sidebar: vertical nav, visually compact */
 .tabs.tabs15 .tabs-list {
   display: flex;
   flex-direction: column;
@@ -768,7 +766,6 @@
   margin: 0;
 }
 
-/* Tabs: compact, tight stacking */
 .tabs.tabs15 .tabs-tab {
   display: block;
   width: 100%;
@@ -796,7 +793,6 @@
   color: var(--text-color);
 }
 
-/* Show only the active panel */
 .tabs.tabs15 .tabs-panel {
   display: none;
   flex: 1 1 0;
@@ -815,7 +811,6 @@
   display: flex;
 }
 
-/* Main heading: large, accent underline */
 .tabs.tabs15 .tabs-panel h2 {
   margin-top: 0;
   margin-bottom: 0;
@@ -830,7 +825,6 @@
   width: fit-content;
 }
 
-/* Section heading */
 .tabs.tabs15 .tabs-panel h3 {
   margin-bottom: 8px;
   font-size: var(--heading-font-size-l);
@@ -840,7 +834,6 @@
   letter-spacing: 0.06em;
 }
 
-/* Body text: compact vertical rhythm */
 .tabs.tabs15 .tabs-panel p {
   margin-top: 0;
   margin-bottom: 8px;
@@ -849,7 +842,6 @@
   line-height: 1.6;
 }
 
-/* Images: edge-to-edge, minimal margin, squared corners */
 .tabs.tabs15 .tabs-panel img,
 .tabs.tabs15 .tabs-panel picture {
   display: block;
@@ -861,7 +853,6 @@
   box-shadow: none;
 }
 
-/* Responsive: stack sidebar on top, reduce padding */
 @media (width <= 900px) {
   .tabs.tabs15 {
     flex-direction: column;
@@ -907,5 +898,143 @@
   .tabs.tabs15 .tabs-panel img,
   .tabs.tabs15 .tabs-panel picture {
     margin-bottom: 7px;
+  }
+}
+
+
+.tabs.tabs18 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  background: var(--background-color);
+  margin: 0 auto;
+  padding: 32px 0;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.tabs.tabs18 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  min-width: 160px;
+  width: max-content;
+}
+
+.tabs.tabs18 .tabs-tab {
+  padding: 12px 28px;
+  font-size: var(--body-font-size-s);
+  text-transform: uppercase;
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #888;
+  background: #fff;
+  border: 2px solid #222;
+  box-shadow: none;
+  cursor: pointer;
+  line-height: 1.25;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tabs.tabs18 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+.tabs.tabs18 .tabs-panel {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs.tabs18 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+/* Heading: increased size, margin, accent bar below */
+.tabs.tabs18 h1,
+.tabs.tabs18 h2,
+.tabs.tabs18 h3 {
+  font-size: var(--heading-font-size-xl);
+  color: var(--text-color);
+  font-weight: 700;
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+  position: relative;
+  line-height: 1.2;
+}
+
+/* Accent bar (requires heading followed by block element in HTML) */
+.tabs.tabs18 h1 + *,
+.tabs.tabs18 h2 + *,
+.tabs.tabs18 h3 + * {
+  width: 44px;
+  height: 4px;
+  background: #e7c873;
+  border-radius: 2px;
+  margin: 0 0 20px;
+  display: block;
+}
+
+/* Large flush-left image below heading */
+.tabs.tabs18 img,
+.tabs.tabs18 picture img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: none;
+  border: none;
+  margin: 0 0 16px;
+  object-fit: cover;
+}
+
+.tabs.tabs18 p {
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  line-height: 1.7;
+  margin: 0 0 18px;
+  max-width: 640px;
+}
+
+.tabs.tabs18 p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 900px) {
+  .tabs.tabs18 {
+    flex-direction: column;
+    gap: 0;
+    padding: 24px 0;
+    max-width: 100%;
+  }
+
+  .tabs.tabs18 .tabs-list {
+    flex-direction: row;
+    gap: 8px;
+    min-width: 0;
+    width: auto;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+
+  .tabs.tabs18 .tabs-panel[aria-hidden="false"] {
+    gap: 18px;
   }
 }
