@@ -266,7 +266,6 @@
   box-sizing: border-box;
 }
 
-/* Horizontal tab navigation row at the top */
 .tabs.tabs12 .tabs-list {
   position: absolute;
   top: 56px;
@@ -283,7 +282,6 @@
   z-index: 2;
 }
 
-/* Tab buttons styling */
 .tabs.tabs12 .tabs-tab {
   padding: 12px 24px;
   border-radius: 6px;
@@ -305,13 +303,11 @@
   color: #fff;
 }
 
-/* Remove extra button spacing for p */
 .tabs.tabs12 .tabs-tab p {
   margin: 0;
   padding: 0;
 }
 
-/* Layout for the panels: three columns side-by-side */
 .tabs.tabs12 .tabs-panels {
   display: flex;
   flex-direction: row;
@@ -319,7 +315,6 @@
   width: 100%;
 }
 
-/* Each panel styled as a vertical stack */
 .tabs.tabs12 .tabs-panel {
   flex: 1 1 0;
   width: 0;
@@ -335,7 +330,6 @@
   box-sizing: border-box;
 }
 
-/* Title with underline, left-aligned, spacing after tabs */
 .tabs.tabs12 .tabs-panel h3 {
   font-size: 2rem;
   font-weight: 700;
@@ -350,7 +344,6 @@
   box-sizing: border-box;
 }
 
-/* Image: block, fills panel width, spacing above/below */
 .tabs.tabs12 .tabs-panel picture,
 .tabs.tabs12 .tabs-panel img {
   display: block;
@@ -363,7 +356,6 @@
   box-sizing: border-box;
 }
 
-/* Subheading: small, bold, uppercase, spaced below image */
 .tabs.tabs12 .tabs-panel p:first-of-type {
   margin: 0 0 14px;
   letter-spacing: 0.06em;
@@ -373,7 +365,6 @@
   color: var(--text-color);
 }
 
-/* Body paragraph: readable, spaced below subheading */
 .tabs.tabs12 .tabs-panel p:not(:first-of-type) {
   font-size: var(--body-font-size-m);
   font-weight: 400;
@@ -394,7 +385,6 @@
   margin-bottom: 8px;
 }
 
-/* Responsive: stack panels vertically and reduce spacing on small screens */
 @media (width <= 900px) {
   .tabs.tabs12 .tabs-wrapper {
     padding: 0 8px;
@@ -426,9 +416,152 @@
   }
 }
 
-/* Ensure no grid/row/column layouts are applied elsewhere */
 .tabs.tabs12 .tabs-panel,
 .tabs.tabs12 .tabs-wrapper,
 .tabs.tabs12 .tabs {
   box-sizing: border-box;
+}
+
+
+.tabs.tabs13 {
+  box-sizing: border-box;
+  background: #fff;
+  padding: 0;
+  border: none;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Top-level: make the inner panel a two-column grid (sidebar + main) */
+.tabs.tabs13 .tabs-panel {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.tabs.tabs13 .tabs-panel div {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+/* Responsive stack for small screens */
+@media (width <= 700px) {
+  .tabs.tabs13 .tabs-panel div {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .tabs.tabs13 .tabs-panel div > div:first-child,
+  .tabs.tabs13 .tabs-panel div > div:nth-child(2) {
+    padding: 0;
+    flex: unset;
+  }
+}
+
+/* Sidebar styles (first column) */
+.tabs.tabs13 .tabs-panel div > div:first-child {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 32px;
+}
+
+/* Main content (right column) */
+.tabs.tabs13 .tabs-panel div > div:nth-child(2) {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+}
+
+/* Sidebar heading styles (first h1/h2/h3 in sidebar) */
+.tabs.tabs13 .tabs-panel div > div:first-child h3,
+.tabs.tabs13 .tabs-panel div > div:first-child h2,
+.tabs.tabs13 .tabs-panel div > div:first-child h1 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  color: #111;
+  position: relative;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #f9d94a;
+  width: 100%;
+}
+
+/* Sidebar yellow divider BELOW the heading (uses border-bottom on heading) */
+
+/* Sidebar detail rows (labels/values) */
+.tabs.tabs13 .tabs-panel div > div:first-child p,
+.tabs.tabs13 .tabs-panel div > div:first-child span,
+.tabs.tabs13 .tabs-panel div > div:first-child li,
+.tabs.tabs13 .tabs-panel div > div:first-child dl,
+.tabs.tabs13 .tabs-panel div > div:first-child div {
+  margin: 0 0 14px;
+  font-size: var(--body-font-size-s);
+  color: #222;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Likely label text in sidebar (assume spans, em, or strong as label) */
+.tabs.tabs13 .tabs-panel div > div:first-child span,
+.tabs.tabs13 .tabs-panel div > div:first-child em,
+.tabs.tabs13 .tabs-panel div > div:first-child dt {
+  text-transform: uppercase;
+  color: #999;
+  font-size: 12px;
+  font-weight: 400;
+  display: block;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+/* Main Heading and Content */
+.tabs.tabs13 .tabs-panel div > div:nth-child(2) h2 {
+  font-family: Georgia, Times, serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.tabs.tabs13 .tabs-panel div > div:nth-child(2) p {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Image Styling */
+.tabs.tabs13 .tabs-panel img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Tabs Row */
+.tabs.tabs13 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.tabs.tabs13 .tabs-tab {
+  background: transparent;
+  border: none;
+  padding: 8px 18px;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+}
+
+.tabs.tabs13 .tabs-tab[aria-selected="true"] {
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
 }
