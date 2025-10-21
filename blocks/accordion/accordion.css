@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,111 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion7.block {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* Wide left, narrow right */
+  gap: 48px;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.accordion.accordion7.block > div:nth-child(2) {
+  grid-column: 2 / 3;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 3%);
+  max-width: 320px;
+}
+
+.accordion.accordion7.block > div:nth-child(2) h1 {
+  font-family: Georgia, serif;
+  font-size: 1.5em;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.accordion.accordion7.block > div:nth-child(2) p {
+  font-family: Inter, Arial, sans-serif;
+  color: #444;
+  font-size: 1em;
+  line-height: 1.7;
+}
+
+.accordion.accordion7.block > div:nth-child(2) a {
+  color: #0080FF;
+  text-decoration: underline;
+}
+
+.accordion.accordion7.block > div:nth-child(n+3) {
+  grid-column: 1 / 2;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 0;
+}
+
+.accordion.accordion7.block > div:nth-child(n+3) > div:first-child p {
+  font-family: Inter, Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  font-size: 1em;
+  padding: 18px 24px;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.accordion.accordion7.block > div:nth-child(n+3) > div:first-child p::after {
+  content: "+";
+  color: #888;
+  font-size: 1.5em;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.accordion.accordion7.block > div:nth-child(n+3) > div:nth-child(2) p {
+  font-family: Inter, Arial, sans-serif;
+  color: #444;
+  font-size: 1em;
+  line-height: 1.7;
+  padding: 0 24px 18px;
+  margin: 0;
+}
+
+.accordion.accordion7.block > div:nth-child(n+3):first-of-type {
+  margin-top: 0;
+}
+
+.accordion.accordion7.block > div:nth-child(n+3):first-of-type > div:first-child p {
+  position: relative;
+}
+
+.accordion.accordion7.block > div:nth-child(n+3):first-of-type > div:first-child p::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #FFD900;
+  margin-bottom: 8px;
+}
+
+@media (width <= 800px) {
+  .accordion.accordion7.block {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .accordion.accordion7.block > div:nth-child(2) {
+    grid-column: 1 / 2;
+    margin-top: 32px;
+  }
 }
