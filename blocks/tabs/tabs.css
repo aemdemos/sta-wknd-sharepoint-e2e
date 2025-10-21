@@ -432,7 +432,6 @@
   margin: 0 auto;
 }
 
-/* Top-level: make the inner panel a two-column grid (sidebar + main) */
 .tabs.tabs13 .tabs-panel {
   padding: 0;
   background: none;
@@ -445,7 +444,6 @@
   gap: 40px;
 }
 
-/* Responsive stack for small screens */
 @media (width <= 700px) {
   .tabs.tabs13 .tabs-panel div {
     flex-direction: column;
@@ -459,7 +457,6 @@
   }
 }
 
-/* Sidebar styles (first column) */
 .tabs.tabs13 .tabs-panel div > div:first-child {
   flex: 0 0 240px;
   display: flex;
@@ -467,7 +464,6 @@
   padding-right: 32px;
 }
 
-/* Main content (right column) */
 .tabs.tabs13 .tabs-panel div > div:nth-child(2) {
   flex: 1 1 0;
   display: flex;
@@ -475,7 +471,6 @@
   padding-left: 40px;
 }
 
-/* Sidebar heading styles (first h1/h2/h3 in sidebar) */
 .tabs.tabs13 .tabs-panel div > div:first-child h3,
 .tabs.tabs13 .tabs-panel div > div:first-child h2,
 .tabs.tabs13 .tabs-panel div > div:first-child h1 {
@@ -491,9 +486,6 @@
   width: 100%;
 }
 
-/* Sidebar yellow divider BELOW the heading (uses border-bottom on heading) */
-
-/* Sidebar detail rows (labels/values) */
 .tabs.tabs13 .tabs-panel div > div:first-child p,
 .tabs.tabs13 .tabs-panel div > div:first-child span,
 .tabs.tabs13 .tabs-panel div > div:first-child li,
@@ -506,7 +498,6 @@
   letter-spacing: 0.2px;
 }
 
-/* Likely label text in sidebar (assume spans, em, or strong as label) */
 .tabs.tabs13 .tabs-panel div > div:first-child span,
 .tabs.tabs13 .tabs-panel div > div:first-child em,
 .tabs.tabs13 .tabs-panel div > div:first-child dt {
@@ -519,7 +510,6 @@
   margin-bottom: 2px;
 }
 
-/* Main Heading and Content */
 .tabs.tabs13 .tabs-panel div > div:nth-child(2) h2 {
   font-family: Georgia, Times, serif;
   font-size: 2.2rem;
@@ -533,7 +523,6 @@
   line-height: 1.6;
 }
 
-/* Image Styling */
 .tabs.tabs13 .tabs-panel img {
   max-width: 100%;
   height: auto;
@@ -541,7 +530,6 @@
   margin-bottom: 1rem;
 }
 
-/* Tabs Row */
 .tabs.tabs13 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -564,4 +552,197 @@
   background: #222;
   color: #fff;
   border-radius: 4px;
+}
+
+
+.tabs.tabs14 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  background: var(--background-color);
+  border: 1px solid #eee;
+  border-radius: 0;
+  padding: 48px 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  box-sizing: border-box;
+}
+
+.tabs.tabs14 .tabs-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 36px 0 0;
+  min-width: 260px;
+  max-width: 320px;
+  border-right: 1.5px solid #f7c948;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+.tabs.tabs14 .tabs-list [role="tablist"] {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.tabs.tabs14 .tabs-list [role="tab"] {
+  width: 100%;
+  text-align: left;
+  padding: 18px 0 18px 16px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--text-color);
+  border-bottom: 1px solid #f7c948;
+  margin: 0;
+  transition: background 0.18s, color 0.18s;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.tabs.tabs14 .tabs-list [role="tab"]:last-child {
+  border-bottom: none;
+}
+
+.tabs.tabs14 .tabs-list [role="tab"][aria-selected="true"] {
+  background: #232323;
+  color: #fff;
+}
+
+.tabs.tabs14 .tabs-list [role="tab"]:not([aria-selected="true"]):hover,
+.tabs.tabs14 .tabs-list [role="tab"]:not([aria-selected="true"]):focus {
+  background: #fff6d7;
+  color: #232323;
+}
+
+/* Main content area */
+.tabs.tabs14 .tabs-panel {
+  flex: 1 1 0%;
+  max-width: 720px;
+  min-width: 0;
+  padding-left: 48px;
+  padding-right: 0;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  display: none;
+}
+
+.tabs.tabs14 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Headings */
+.tabs.tabs14 .tabs-panel h3 {
+  font-size: 2.05rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-top: 0.7em;
+  margin-bottom: 0.4em;
+  padding-bottom: 0.12em;
+  border-bottom: 2px solid #f7c948;
+  display: inline-block;
+  line-height: 1.1;
+  box-sizing: border-box;
+}
+
+.tabs.tabs14 .tabs-panel h3 + p {
+  margin-top: 1.3em;
+  margin-bottom: 2em;
+  font-size: 1.13rem;
+  color: var(--dark-color);
+}
+
+/* Secondary headings */
+.tabs.tabs14 .tabs-panel h3:not(:first-child) {
+  font-size: 1.22rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-top: 2em;
+  margin-bottom: 0.9em;
+  border: none;
+  padding-bottom: 0;
+}
+
+/* Image styles */
+.tabs.tabs14 .tabs-panel picture,
+.tabs.tabs14 .tabs-panel img {
+  display: block;
+  margin: 2.4em 0 1.2em;
+  width: 100%;
+  max-width: 690px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+/* Caption styles */
+.tabs.tabs14 .tabs-panel figcaption,
+.tabs.tabs14 .tabs-panel .caption {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-left: 18px;
+  margin-bottom: 1.5em;
+  margin-top: 0.7em;
+}
+
+/* Body copy */
+.tabs.tabs14 .tabs-panel p {
+  color: var(--dark-color);
+  font-size: 1.06rem;
+  line-height: 1.8;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  max-width: 650px;
+}
+
+/* Responsive: stack columns for mobile/tablet */
+@media (width <= 900px) {
+  .tabs.tabs14 {
+    flex-direction: column;
+    gap: 0;
+    padding: 24px 6px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs14 .tabs-list {
+    border-right: none;
+    border-bottom: 1.5px solid #f7c948;
+    min-width: 0;
+    max-width: none;
+    padding: 0 0 24px;
+    margin-bottom: 24px;
+    align-items: stretch;
+  }
+
+  .tabs.tabs14 .tabs-panel {
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs14 {
+    padding: 8px 0;
+  }
+
+  .tabs.tabs14 .tabs-panel picture,
+  .tabs.tabs14 .tabs-panel img {
+    margin: 1.5em 0 0.7em;
+    max-width: 100%;
+  }
 }
